@@ -126,3 +126,16 @@ Per Polish law (art. 35 ustawy o gospodarce nieruchomościami), wykaz is posted 
 - adradar Monitor Przetargów — Tomaszów Mazowiecki (LIVE, fetched 2026-06-27): `https://przetargi.adradar.pl/p/a/25514/Tomasz%C3%B3w+Mazowiecki/a`
 - TTBS BIP: `https://bip.ttbs.com.pl/`
 - Search result confirming lokal mieszkalny flat auction vocabulary on BIP: various Google snippets (2026-06-27)
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Prezydent Miasta Tomaszowa Mazowieckiego (Wydział Gospodarki Nieruchomościami)) publishes real-estate auction notices at `http://bip.tomaszow.miasta.pl` (Municipal BIP portal (bip.tomaszow.miasta.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (44 monitored plots).
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **7 unique properties** and **44 land plots** with 1 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

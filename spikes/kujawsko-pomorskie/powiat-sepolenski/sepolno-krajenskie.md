@@ -42,3 +42,15 @@ Housing manager: **ZGK Sępólno Krajeńskie** (Zakład Gospodarki Komunalnej) h
 - **Blockers:** None functional. Watch-items: (1) incomplete TLS chain — use a lenient/browser-UA fetch; (2) mixed flat/land/lease stream — classify via the `Rodzaj nieruchomości` field; (3) I/II przetarg duplicates for the same lokal — dedupe by address/KW.
 
 **VERDICT: BUILD (Low effort)** — recurring open oral flat auctions (lokal mieszkalny + lokalowa) on a clean server-HTML extranet BIP with a built-in `Rodzaj nieruchomości`/`Cena wywoławcza` metadata block and born-digital *informacja o wyniku* PDFs for achieved price; `brzeg`/`nowa-sol` analog, only a lenient-TLS fetch to handle.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Sępólnie Krajeńskim) publishes real-estate auction notices at `$/657/przetargi.html` (Municipal BIP portal (bip.gmina-sepolno.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **3 unique properties** and **0 land plots** with 6 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

@@ -12,3 +12,14 @@ Adapter is live: `pipeline/src/cities/oswiecim/` → data in `data/oswiecim/` (r
 - **Coverage audit:** [SPIKE-COVERAGE.md](../../../SPIKE-COVERAGE.md).
 
 *No re-spike needed; this file exists so every covered city has a node in the spikes/ tree.*
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Oświęcim (Wydział Mienia Komunalnego)) publishes real-estate auction notices at `https://bip.oswiecim.um.gov.pl` (Municipal BIP portal (bip.oswiecim.um.gov.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **2 unique properties** and **0 land plots** with 2 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

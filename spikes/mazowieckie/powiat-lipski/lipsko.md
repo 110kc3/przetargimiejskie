@@ -49,3 +49,14 @@ Yes — confirmed. The Burmistrz Miasta i Gminy Lipsko announces ustny przetarg 
 **Blockers:** none identified. Volume is low so deduplication logic is trivial.
 
 **Verdict: BUILD — Low effort.** Standard Liferay HTML adapter, achieved-price stream confirmed, flat auctions verified DESK.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta i Gminy Lipsko (Burmistrz Miasta i Gminy Lipsko)) publishes real-estate auction notices at `https://samorzad.gov.pl` (Samorząd Gov.pl portal).
+
+Observed asset families in committed data:
+- **Land (działki):** municipal undeveloped and developed plots (2 monitored plots).
+
+Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **0 unique properties** and **2 land plots** with 0 active listings. Both property and land streams are verified in production (property: not_monitored, land: healthy).

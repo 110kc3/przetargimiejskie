@@ -45,3 +45,15 @@ Contact: Referat Nadzoru Komunalnego, Gospodarowania Nieruchomościami Gminy, Oc
 - **Blockers:** None technical. Watch-items: (a) no confirmed hammer-price results board (start prices only, reliably); (b) two portals — prefer Sulimo for full-text HTML, use e-bip.pl category as the tidy filter/backfill; (c) wykaz tables are scanned PDFs (skip or OCR only if list-level data is wanted).
 
 **VERDICT: BUILD (Low effort)** — recurring OPEN flat auctions (*przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego*) on a clean Sulimo server-HTML portal with full-text notices and a dedicated BIP flat category; small volume, start-price stream solid, only hammer-price results uncertain. No technical blockers.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Pajęcznie) publishes real-estate auction notices at `https://www.pajeczno.pl/informator/ogloszenia-o-sprzedazy-nieruchomosci/` (Municipal BIP portal (pajeczno.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (9 monitored plots).
+
+Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **3 unique properties** and **9 land plots** with 6 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

@@ -100,3 +100,16 @@ diacritic form `obrot-nieruchomościami`; both resolve):
 **BUILD** — Low effort. Plain-fetch WOKISS-style year-board adapter (closest analogs:
 other small-Wielkopolska WOKISS BIPs). No OCR, no auth, no JS. `needsRender: false`.
 Weekly poll of `ogloszenia-o-przetargach` + `wyniki-przetargow` (current year) + RSS feed.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Chodzieży) publishes real-estate auction notices at `https://bip.chodziez.pl` (Municipal BIP portal (bip.chodziez.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (1 monitored plots).
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **6 unique properties** and **1 land plots** with 1 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

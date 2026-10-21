@@ -109,3 +109,14 @@ Historical precedent: same pattern back to at least 2018 (ul. Wawelska 53/7, 41.
 - `https://listaprzetargow.pl/oferty/7294` (historical flat auction 2018, price/area data)
 - `https://www.pila.pl/aktualnosci/5633-przetargi-na-sprzedaz-lokali-mieszkalnych-polozonych-w-pile.html`
 - `http://arch-bip-pila.mserwer.pl/` (archival BIP pre-2022)
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Piły) publishes real-estate auction notices at `https://bip.pila.pl` (Municipal BIP portal (bip.pila.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **1 unique properties** and **0 land plots** with 0 active listings. Both property and land streams are verified in production (property: verified_empty, land: not_monitored).

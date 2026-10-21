@@ -36,38 +36,131 @@ Lifecycle totals are retained manifest declarations, not a live health result. S
 
 ## Existing-city source/asset audit
 
-121 enabled cities: **0 complete**, **28 partial**, **93 unchecked**. Source observations do not prove parser completeness or healthy hosted monitoring. Remaining execution is in [TODO.md](../TODO.md).
+121 enabled cities: **0 complete**, **121 partial**, **0 unchecked**. Source observations do not prove parser completeness or healthy hosted monitoring. Remaining execution is in [TODO.md](../TODO.md).
 
 | City | Last source check | Audit | Observed sale assets | Evidence |
 |---|---|---|---|---|
+| Augustów | 2026-10-21 | partial | residential | [source notes](../spikes/podlaskie/powiat-augustowski/augustow.md) |
+| Bełchatów | 2026-10-21 | partial | residential | [source notes](../spikes/lodzkie/powiat-belchatowski/belchatow.md) |
+| Biała Podlaska | 2026-10-21 | partial | residential, commercial, building | [source notes](../spikes/lubelskie/biala-podlaska/biala-podlaska.md) |
 | Białystok | 2026-10-21 | partial | residential | [source notes](../spikes/podlaskie/bialystok/bialystok.md) |
 | Bielsko-Biała | 2026-10-21 | partial | building, commercial, land, residential | [source notes](../spikes/slaskie/bielsko-biala/bielsko-biala.md) |
 | Bochnia | 2026-10-21 | partial | land, residential | [source notes](../spikes/malopolskie/powiat-bochenski/bochnia.md) |
 | Bolesławiec | 2026-10-19 | partial | residential | [source notes](../spikes/dolnoslaskie/powiat-boleslawiecki/boleslawiec.md) |
+| Braniewo | 2026-10-21 | partial | residential, land | [source notes](../spikes/warminsko-mazurskie/powiat-braniewski/braniewo.md) |
+| Brzeg | 2026-10-21 | partial | residential | [source notes](../spikes/opolskie/powiat-brzeski/brzeg.md) |
 | Busko-Zdrój | 2026-10-20 | partial | land | [source notes](../spikes/swietokrzyskie/powiat-buski/busko-zdroj.md) |
 | Bydgoszcz | 2026-10-21 | partial | building, commercial, residential | [source notes](../spikes/kujawsko-pomorskie/bydgoszcz/bydgoszcz.md) |
 | Bytom | 2026-10-21 | partial | commercial, garage, land, residential | [source notes](../spikes/slaskie/bytom/bytom.md) |
+| Chełm | 2026-10-21 | partial | residential, building | [source notes](../spikes/lubelskie/chelm/chelm.md) |
+| Chełmno | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/kujawsko-pomorskie/powiat-chelminski/chelmno.md) |
+| Chodzież | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/wielkopolskie/powiat-chodzieski/chodziez.md) |
+| Choszczno | 2026-10-21 | partial | residential, commercial, land, building | [source notes](../spikes/zachodniopomorskie/powiat-choszczenski/choszczno.md) |
 | Chrzanów | 2026-10-21 | partial | land | [source notes](../spikes/malopolskie/powiat-chrzanowski/chrzanow.md) |
 | Cieszyn | 2026-10-21 | partial | building, residential | [source notes](../spikes/slaskie/powiat-cieszynski/cieszyn.md) |
+| Drawsko Pomorskie | 2026-10-21 | partial | residential | [source notes](../spikes/zachodniopomorskie/powiat-drawski/drawsko-pomorskie.md) |
 | Elbląg | 2026-10-21 | partial | building, land, residential | [source notes](../spikes/warminsko-mazurskie/elblag/elblag.md) |
 | Gdańsk | 2026-10-21 | partial | residential | [source notes](../spikes/pomorskie/gdansk/gdansk.md) |
+| Giżycko | 2026-10-21 | partial | residential | [source notes](../spikes/warminsko-mazurskie/powiat-gizycki/gizycko.md) |
 | Gliwice | 2026-10-21 | partial | commercial, garage, land, residential | [source notes](../spikes/slaskie/gliwice/gliwice.md) |
+| Głogów | 2026-10-21 | partial | residential, commercial, land, building | [source notes](../spikes/dolnoslaskie/powiat-glogowski/glogow.md) |
+| Głubczyce | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/opolskie/powiat-glubczycki/glubczyce.md) |
 | Gniezno | 2026-10-21 | partial | land, residential | [source notes](../spikes/wielkopolskie/powiat-gnieznienski/gniezno.md) |
 | Golub-Dobrzyń | 2026-10-21 | partial | land, residential | [source notes](../spikes/kujawsko-pomorskie/powiat-golubsko-dobrzynski/golub-dobrzyn.md) |
+| Gorzów Wielkopolski | 2026-10-21 | partial | residential | [source notes](../spikes/lubuskie/gorzow-wielkopolski/gorzow-wielkopolski.md) |
+| Gostyń | 2026-10-21 | partial | land | [source notes](../spikes/wielkopolskie/powiat-gostynski/gostyn.md) |
+| Grudziądz | 2026-10-21 | partial | residential | [source notes](../spikes/kujawsko-pomorskie/grudziadz/grudziadz.md) |
 | Jarocin | 2026-10-20 | partial | land | [source notes](../spikes/wielkopolskie/powiat-jarocinski/jarocin.md) |
+| Jelenia Góra | 2026-10-21 | partial | residential, commercial, land | [source notes](../spikes/dolnoslaskie/jelenia-gora/jelenia-gora.md) |
+| Kalisz | 2026-10-21 | partial | residential, building | [source notes](../spikes/wielkopolskie/kalisz/kalisz.md) |
+| Kamienna Góra | 2026-10-21 | partial | residential | [source notes](../spikes/dolnoslaskie/powiat-kamiennogorski/kamienna-gora.md) |
+| Katowice | 2026-10-21 | partial | residential, commercial, land, building | [source notes](../spikes/slaskie/katowice/katowice.md) |
+| Kędzierzyn-Koźle | 2026-10-21 | partial | residential, commercial, land, building | [source notes](../spikes/opolskie/powiat-kedzierzynsko-kozielski/kedzierzyn-kozle.md) |
+| Kętrzyn | 2026-10-21 | partial | residential, commercial, land | [source notes](../spikes/warminsko-mazurskie/powiat-ketrzynski/ketrzyn.md) |
+| Kielce | 2026-10-21 | partial | residential, land | [source notes](../spikes/swietokrzyskie/kielce/kielce.md) |
+| Kłobuck | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/slaskie/powiat-klobucki/klobuck.md) |
+| Kłodzko | 2026-10-21 | partial | residential | [source notes](../spikes/dolnoslaskie/powiat-klodzki/klodzko.md) |
+| Kolbuszowa | 2026-10-21 | partial | residential, land | [source notes](../spikes/podkarpackie/powiat-kolbuszowski/kolbuszowa.md) |
+| Końskie | 2026-10-21 | partial | residential | [source notes](../spikes/swietokrzyskie/powiat-konecki/konskie.md) |
 | Kraków | 2026-10-21 | partial | residential, land, building, commercial, garage | [source notes](../spikes/malopolskie/krakow/krakow.md) |
+| Krosno Odrzańskie | 2026-10-21 | partial | residential | [source notes](../spikes/lubuskie/powiat-krosnienski/krosno-odrzanskie.md) |
 | Kwidzyn | 2026-10-21 | partial | residential, land | [source notes](../spikes/pomorskie/powiat-kwidzynski/kwidzyn.md) |
+| Legnica | 2026-10-21 | partial | residential, commercial | [source notes](../spikes/dolnoslaskie/legnica/legnica.md) |
+| Lębork | 2026-10-21 | partial | residential, commercial, land | [source notes](../spikes/pomorskie/powiat-leborski/lebork.md) |
+| Lipsko | 2026-10-21 | partial | land | [source notes](../spikes/mazowieckie/powiat-lipski/lipsko.md) |
 | Lubin | 2026-10-19 | partial | land | [source notes](../spikes/dolnoslaskie/powiat-lubinski/lubin.md) |
+| Lubliniec | 2026-10-21 | partial | residential, commercial, garage, land, building | [source notes](../spikes/slaskie/powiat-lubliniecki/lubliniec.md) |
+| Lwówek Śląski | 2026-10-21 | partial | residential, commercial, land | [source notes](../spikes/dolnoslaskie/powiat-lwowecki/lwowek-slaski.md) |
+| Łódź | 2026-10-21 | partial | residential, commercial, garage | [source notes](../spikes/lodzkie/lodz/lodz.md) |
+| Międzyrzecz | 2026-10-21 | partial | residential | [source notes](../spikes/lubuskie/powiat-miedzyrzecki/miedzyrzecz.md) |
+| Mrągowo | 2026-10-21 | partial | residential, land | [source notes](../spikes/warminsko-mazurskie/powiat-mragowski/mragowo.md) |
+| Mysłowice | 2026-10-21 | partial | residential, commercial, land, building | [source notes](../spikes/slaskie/myslowice/myslowice.md) |
+| Nakło nad Notecią | 2026-10-21 | partial | residential, land | [source notes](../spikes/kujawsko-pomorskie/powiat-nakielski/naklo-nad-notecia.md) |
+| Namysłów | 2026-10-21 | partial | residential | [source notes](../spikes/opolskie/powiat-namyslowski/namyslow.md) |
+| Nowa Sól | 2026-10-21 | partial | residential | [source notes](../spikes/lubuskie/powiat-nowosolski/nowa-sol.md) |
+| Nysa | 2026-10-21 | partial | residential | [source notes](../spikes/opolskie/powiat-nyski/nysa.md) |
+| Olesno | 2026-10-21 | partial | residential | [source notes](../spikes/opolskie/powiat-oleski/olesno.md) |
+| Olkusz | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/malopolskie/powiat-olkuski/olkusz.md) |
+| Olsztyn | 2026-10-21 | partial | residential | [source notes](../spikes/warminsko-mazurskie/olsztyn/olsztyn.md) |
+| Opole | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/opolskie/opole/opole.md) |
+| Ostrołęka | 2026-10-21 | partial | residential | [source notes](../spikes/mazowieckie/ostroleka/ostroleka.md) |
+| Oświęcim | 2026-10-21 | partial | residential | [source notes](../spikes/malopolskie/powiat-oswiecimski/oswiecim.md) |
+| Pabianice | 2026-10-21 | partial | residential | [source notes](../spikes/lodzkie/powiat-pabianicki/pabianice.md) |
+| Pajęczno | 2026-10-21 | partial | residential, land | [source notes](../spikes/lodzkie/powiat-pajeczanski/pajeczno.md) |
+| Piła | 2026-10-21 | partial | residential | [source notes](../spikes/wielkopolskie/powiat-pilski/pila.md) |
+| Pisz | 2026-10-21 | partial | residential, land | [source notes](../spikes/warminsko-mazurskie/powiat-piski/pisz.md) |
+| Pleszew | 2026-10-21 | partial | residential, land | [source notes](../spikes/wielkopolskie/powiat-pleszewski/pleszew.md) |
+| Płock | 2026-10-21 | partial | residential, building | [source notes](../spikes/mazowieckie/plock/plock.md) |
 | Poddębice | 2026-10-21 | partial | land, residential | [source notes](../spikes/lodzkie/powiat-poddebicki/poddebice.md) |
+| Poznań | 2026-10-21 | partial | land | [source notes](../spikes/wielkopolskie/poznan/poznan.md) |
+| Proszowice | 2026-10-21 | partial | residential, land | [source notes](../spikes/malopolskie/powiat-proszowicki/proszowice.md) |
+| Przemyśl | 2026-10-21 | partial | residential | [source notes](../spikes/podkarpackie/przemysl/przemysl.md) |
+| Pszczyna | 2026-10-21 | partial | residential, land | [source notes](../spikes/slaskie/powiat-pszczynski/pszczyna.md) |
+| Pułtusk | 2026-10-21 | partial | residential, land | [source notes](../spikes/mazowieckie/powiat-pultuski/pultusk.md) |
+| Racibórz | 2026-10-21 | partial | residential, land | [source notes](../spikes/slaskie/powiat-raciborski/raciborz.md) |
 | Rawa Mazowiecka | 2026-10-21 | partial | building, land, residential | [source notes](../spikes/lodzkie/powiat-rawski/rawa-mazowiecka.md) |
+| Rybnik | 2026-10-21 | partial | residential, land | [source notes](../spikes/slaskie/rybnik/rybnik.md) |
+| Sandomierz | 2026-10-21 | partial | residential, garage, land, building | [source notes](../spikes/swietokrzyskie/powiat-sandomierski/sandomierz.md) |
+| Sępólno Krajeńskie | 2026-10-21 | partial | residential, commercial | [source notes](../spikes/kujawsko-pomorskie/powiat-sepolenski/sepolno-krajenskie.md) |
+| Siedlce | 2026-10-21 | partial | residential, building | [source notes](../spikes/mazowieckie/siedlce/siedlce.md) |
+| Skarżysko-Kamienna | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/swietokrzyskie/powiat-skarzyski/skarzysko-kamienna.md) |
+| Słupsk | 2026-10-21 | partial | residential | [source notes](../spikes/pomorskie/slupsk/slupsk.md) |
 | Sopot | 2026-10-21 | partial | commercial, garage, residential | [source notes](../spikes/pomorskie/sopot/sopot.md) |
+| Sosnowiec | 2026-10-21 | partial | residential, commercial, land, building | [source notes](../spikes/slaskie/sosnowiec/sosnowiec.md) |
+| Stargard | 2026-10-21 | partial | residential, land | [source notes](../spikes/zachodniopomorskie/powiat-stargardzki/stargard.md) |
+| Strzelce Krajeńskie | 2026-10-21 | partial | land | [source notes](../spikes/lubuskie/powiat-strzelecko-drezdenecki/strzelce-krajenskie.md) |
+| Strzelce Opolskie | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/opolskie/powiat-strzelecki/strzelce-opolskie.md) |
+| Sucha Beskidzka | 2026-10-21 | partial | residential, land | [source notes](../spikes/malopolskie/powiat-suski/sucha-beskidzka.md) |
+| Sulęcin | 2026-10-21 | partial | residential, land | [source notes](../spikes/lubuskie/powiat-sulecinski/sulecin.md) |
+| Szczecin | 2026-10-21 | partial | residential | [source notes](../spikes/zachodniopomorskie/szczecin/szczecin.md) |
+| Szczecinek | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/zachodniopomorskie/powiat-szczecinecki/szczecinek.md) |
+| Środa Wielkopolska | 2026-10-21 | partial | residential, land | [source notes](../spikes/wielkopolskie/powiat-sredzki/sroda-wielkopolska.md) |
+| Świdnica | 2026-10-21 | partial | residential, commercial | [source notes](../spikes/dolnoslaskie/powiat-swidnicki/swidnica.md) |
+| Świętochłowice | 2026-10-21 | partial | residential, commercial, land, building | [source notes](../spikes/slaskie/swietochlowice/swietochlowice.md) |
+| Świnoujście | 2026-10-21 | partial | residential, commercial | [source notes](../spikes/zachodniopomorskie/swinoujscie/swinoujscie.md) |
+| Tarnowskie Góry | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/slaskie/powiat-tarnogorski/tarnowskie-gory.md) |
+| Tczew | 2026-10-21 | partial | residential | [source notes](../spikes/pomorskie/powiat-tczewski/tczew.md) |
+| Tomaszów Mazowiecki | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/lodzkie/powiat-tomaszowski/tomaszow-mazowiecki.md) |
+| Toruń | 2026-10-21 | partial | residential | [source notes](../spikes/kujawsko-pomorskie/torun/torun.md) |
+| Trzebinia | 2026-10-21 | partial | residential, building | [source notes](../spikes/malopolskie/powiat-chrzanowski/trzebinia.md) |
 | Trzebnica | 2026-10-19 | partial | residential, land | [source notes](../spikes/dolnoslaskie/powiat-trzebnicki/trzebnica.md) |
 | Wałbrzych | 2026-10-21 | partial | residential | [source notes](../spikes/dolnoslaskie/walbrzych/walbrzych.md) |
 | Warszawa | 2026-10-21 | partial | residential | [source notes](../spikes/mazowieckie/warszawa/warszawa.md) |
+| Wąbrzeźno | 2026-10-21 | partial | residential, land | [source notes](../spikes/kujawsko-pomorskie/powiat-wabrzeski/wabrzezno.md) |
+| Wejherowo | 2026-10-21 | partial | residential | [source notes](../spikes/pomorskie/powiat-wejherowski/wejherowo.md) |
+| Węgorzewo | 2026-10-21 | partial | residential, commercial, land | [source notes](../spikes/warminsko-mazurskie/powiat-wegorzewski/wegorzewo.md) |
+| Węgrów | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/mazowieckie/powiat-wegrowski/wegrow.md) |
+| Włocławek | 2026-10-21 | partial | residential, building | [source notes](../spikes/kujawsko-pomorskie/wloclawek/wloclawek.md) |
+| Wołów | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/dolnoslaskie/powiat-wolowski/wolow.md) |
+| Wrocław | 2026-10-21 | partial | residential | [source notes](../spikes/dolnoslaskie/wroclaw/wroclaw.md) |
 | Wschowa | 2026-10-19 | partial |  | [source notes](../spikes/lubuskie/powiat-wschowski/wschowa.md) |
+| Zabrze | 2026-10-21 | partial | residential, commercial, land | [source notes](../spikes/slaskie/zabrze/zabrze.md) |
 | Ząbkowice Śląskie | 2026-10-19 | partial | land, garage | [source notes](../spikes/dolnoslaskie/powiat-zabkowicki/zabkowice-slaskie.md) |
+| Zduńska Wola | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/lodzkie/powiat-zdunskowolski/zdunska-wola.md) |
 | Zgorzelec | 2026-10-20 | partial | land, building | [source notes](../spikes/dolnoslaskie/powiat-zgorzelecki/zgorzelec.md) |
+| Złotoryja | 2026-10-21 | partial | residential, land | [source notes](../spikes/dolnoslaskie/powiat-zlotoryjski/zlotoryja.md) |
 | Żagań | 2026-10-19 | partial |  | [source notes](../spikes/lubuskie/powiat-zaganski/zagan.md) |
+| Żnin | 2026-10-21 | partial | residential, commercial, land | [source notes](../spikes/kujawsko-pomorskie/powiat-zninski/znin.md) |
 
 ## Built adapters (121)
 

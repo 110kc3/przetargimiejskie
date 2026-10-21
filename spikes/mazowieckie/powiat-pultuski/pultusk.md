@@ -43,3 +43,15 @@ Contact: Wydział Gospodarki Nieruchomościami i Architektury, tel. 23 306 72 37
 - **Blockers:** None technical. Watch-items: (1) no results board → cena-wywoławcza only, no achieved prices; (2) mixed land/flat stream needs classification; (3) ignore the Next.js BIP.
 
 **VERDICT: BUILD (Low effort)** — recurring open oral flat auctions (Na Skarpie 3 lok. 25 across I/II/III rounds + Warsaw flats), published on a clean WordPress `wp-json` portal with inline-HTML bodies and born-digital PDF mirrors; only caveats are modest volume, no hammer-price board, and a mixed land/flat feed. WP-REST analog, no blockers.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Burmistrz Miasta Pułtusk, Wydział Gospodarki Gruntami i Architektury) publishes real-estate auction notices at `https://pultusk.pl/wp-json/wp/v2/posts` (Municipal BIP portal (pultusk.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (7 monitored plots).
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **1 unique properties** and **7 land plots** with 1 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

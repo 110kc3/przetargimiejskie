@@ -42,3 +42,15 @@ Housing manager: no dedicated ZGM/ZBM company surfaced; property sales are run d
 - **Blockers:** None hard. Watch-items: (1) two hosts (announcements on Interaktywna city site, results on bip.malopolska SPA) — build announcements first, results as an optional render-backed second pass; (2) mixed sale/najem/dzierżawa stream → classify + drop non-sale; (3) low flat volume — mostly land + one recurring flat.
 
 **VERDICT: BUILD (Low–Medium effort)** — recurring open oral flat auction (os. Beskidzkie 1/9, cycling I→II→III) on a clean Interaktywna Polska server-HTML board with born-digital PDF notices; clone the bochnia/olkusz custom-HTML PDF-attachment analog. Achieved-price stream is on the bip.malopolska JS-SPA and is an optional render-backed second pass. Low volume is the only real caveat.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Sucha Beskidzka) publishes real-estate auction notices at `https://sucha-beskidzka.pl` (Municipal BIP portal (sucha-beskidzka.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (2 monitored plots).
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **1 unique properties** and **2 land plots** with 3 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

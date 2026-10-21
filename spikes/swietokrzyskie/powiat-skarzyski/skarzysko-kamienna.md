@@ -80,3 +80,16 @@ Podmiot ogłaszający: **Prezydent Miasta Skarżyska-Kamiennej** za pośrednictw
 4. Negatywne wyniki przetargu (brak nabywcy) są powszechne i muszą być jawnie oznaczane jako `wynik=negatywny`, nie jako "sprzedano za 0 zł".
 
 **VERDICT: BUILD** — czyste HTML, bez auth, wyniki przetargów dostępne on-page, Logonet CMS identyczny z już zaimplementowanymi miastami. Jedyny hamulec to niski wolumen — zalecane jako moduł w Świętokrzyskie batch, nie jako priorytet standalone.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Skarżysko-Kamienna) publishes real-estate auction notices at `https://bip.skarzysko.pl` (Logonet CMS 2.9.0).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (14 monitored plots).
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **3 unique properties** and **14 land plots** with 1 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

@@ -12,3 +12,17 @@ Adapter is live: `pipeline/src/cities/swietochlowice/` → data in `data/swietoc
 - **Coverage audit:** [SPIKE-COVERAGE.md](../../../SPIKE-COVERAGE.md).
 
 *No re-spike needed; this file exists so every covered city has a node in the spikes/ tree.*
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Świętochłowicach) publishes real-estate auction notices at `https://bip.swietochlowice.pl` (Municipal BIP portal (bip.swietochlowice.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+- **Land (działki):** municipal undeveloped and developed plots (21 monitored plots).
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **98 unique properties** and **21 land plots** with 216 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

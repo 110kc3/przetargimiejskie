@@ -45,3 +45,18 @@ Board mix is dominated by **nieruchomości gruntowe** (land, in-scope for the wi
 - **Blockers:** None. No rate-limit/auth/CAPTCHA signals. Only watch-items: land-heavy stream (classify flats vs land), repeat-round dedup, and separate announcement vs result boards.
 
 **VERDICT: BUILD (Low effort)** — recurring municipal flat auctions (plus high land volume) on a clean bip.info.pl server-HTML BIP with a dedicated results board publishing hammer prices; drop-in Zgorzelec/Złotoryja analog, no blockers.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Lubliniec) publishes real-estate auction notices at `https://lubliniec.bip.info.pl` (SISCO BIP platform).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+- **Garages (garaże):** standalone garages and parking premises.
+- **Land (działki):** municipal undeveloped and developed plots (79 monitored plots).
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **19 unique properties** and **79 land plots** with 20 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

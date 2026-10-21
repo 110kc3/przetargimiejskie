@@ -124,3 +124,16 @@ CMS: Logonet Sp. z o.o. (Bydgoszcz), version 2.9.0. Last BIP update: 26.06.2026 
 - Wynik 52/2026(2) — lokal mieszkalny Kasprowicza 2: https://bip.jeleniagora.pl/artykul/321/25507/52-2026-2
 - ZGKiM BIP: http://zgkim.bip.jeleniagora.pl/
 - ZGKiM główna: http://www.zgkim-jg.pl/
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Prezydent Miasta Jeleniej Góry) publishes real-estate auction notices at `https://bip.jeleniagora.pl` (Logonet CMS 2.9.0).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+- **Land (działki):** municipal undeveloped and developed plots (25 monitored plots).
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **36 unique properties** and **25 land plots** with 16 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

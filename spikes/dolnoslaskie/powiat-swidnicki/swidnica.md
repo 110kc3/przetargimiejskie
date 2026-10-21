@@ -115,3 +115,15 @@ Also comparable to **Tarnowskie Góry** (nv.pl, flat auctions, consistent volume
 - komunikaty.doba.pl — May 2026 batch (3 flats): https://komunikaty.doba.pl/2026/05/21/sprzedaz-lokali-mieszkalnych-um-swidnica-28/
 - komunikaty.doba.pl — Jan 2026 batch: https://komunikaty.doba.pl/2026/01/29/sprzedaz-lokali-mieszkalnych-um-swidnica-26/
 - komunikaty.doba.pl — Sep 2025 single flat: https://komunikaty.doba.pl/2025/09/30/sprzedaz-lokalu-mieszkalnego-um-swidnica-8/
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Prezydent Miasta Świdnicy (Wydział Mienia Komunalnego / MZN)) publishes real-estate auction notices at `https://bip.swidnica.nv.pl` (Municipal BIP portal (bip.swidnica.nv.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **8 unique properties** and **0 land plots** with 2 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

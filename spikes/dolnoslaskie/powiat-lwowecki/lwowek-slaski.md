@@ -51,3 +51,16 @@ Both natural and legal persons may bid; participation requires 10% wadium deposi
 - **Risk:** Volume is low (3–8/year), so ROI per city is modest — but implementation cost is also low given CMS reuse.
 
 **VERDICT: BUILD (Low effort)** — flat auctions via ustny przetarg nieograniczony confirmed, BIP HTML format, achieved-price notices present, no technical blockers.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina i Miasto Lwówek Śląski) publishes real-estate auction notices at `https://bip.lwowekslaski.pl` (Municipal BIP portal (bip.lwowekslaski.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+- **Land (działki):** municipal undeveloped and developed plots (28 monitored plots).
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **10 unique properties** and **28 land plots** with 5 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

@@ -37,3 +37,15 @@ Both natural and legal persons may bid; 10% wadium. The BIP also carries land pa
 - **Blockers:** None beyond the UA quirk (solved by browser UA). No rate-limit/auth/CAPTCHA.
 
 **VERDICT: BUILD (Low effort)** — confirmed recurring municipal flat auctions (live 2025 example) on a clean bip.info.pl server-HTML BIP with a completed/results board; canonical small-Dolnośląskie analog, only quirk is bot-UA gating.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Miejska Złotoryja) publishes real-estate auction notices at `https://bip.zlotoryja.pl` (Municipal BIP portal (bip.zlotoryja.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (26 monitored plots).
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **4 unique properties** and **26 land plots** with 3 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

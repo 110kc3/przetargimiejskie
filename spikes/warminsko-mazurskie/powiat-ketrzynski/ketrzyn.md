@@ -66,3 +66,16 @@ Both BIPs appear to be running the same CMS (eSesja/similar) given the URL path 
 **Blockers:** none hard. Rate limiting on BIP host is the only friction.
 
 **Verdict: BUILD — Low effort.** Standard Warmia-Mazury BIP CMS. Two entities, both confirmed active with flat auctions. Achieved prices available in typed PDFs. ~4–7 events/year combined is modest but real signal.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Kętrzyn (Burmistrz Miasta Kętrzyna)) publishes real-estate auction notices at `https://bip.miastoketrzyn.pl` (Municipal BIP portal (bip.miastoketrzyn.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+- **Land (działki):** municipal undeveloped and developed plots (9 monitored plots).
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **7 unique properties** and **9 land plots** with 1 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

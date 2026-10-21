@@ -47,3 +47,16 @@ Out of scope: **Spółdzielnia Mieszkaniowa w Węgorzewie** (`sm-wegorzewo.pl`) 
 - **Blockers:** None hard. Watch-items: incomplete **TLS chain** (fetch layer must tolerate it), the dual UM+CEM sources, and scanned result PDFs for hammer prices.
 
 **VERDICT: BUILD (Low–Medium effort)** — recurring municipal open oral flat auctions on a clean IDcom server-HTML BIP (exact gizycko clone) plus a second CEM property-manager stream; inline result notices; only a TLS-chain quirk and scanned-result OCR to handle.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Węgorzewo) publishes real-estate auction notices at `https://bip.wegorzewo.pl` (Municipal BIP portal (bip.wegorzewo.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+- **Land (działki):** municipal undeveloped and developed plots (38 monitored plots).
+
+Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **3 unique properties** and **38 land plots** with 6 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

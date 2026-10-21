@@ -41,3 +41,16 @@ Gmina Miasto Zduńska Wola (Urząd Miasta, gmina miejska ~41k) sells municipal p
 - **Blockers:** None. No rate-limit/auth signals. Only watch-items: (1) intermittent flat volume (mixed with land); (2) exclude TBS Złotnicki rental auctions and 75%-bonifikata tenant sales; (3) disambiguate town host `bip.zdunskawola.pl` from rural `zdunskawola.bip.net.pl`.
 
 **VERDICT: BUILD (Low effort)** — recurring municipal flat + land `przetarg ustny nieograniczony` on a clean Logonet server-HTML BIP with inline achieved prices; direct same-voivodeship Logonet analog (Pabianice/Łask), no blockers.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Prezydent Miasta Zduńska Wola) publishes real-estate auction notices at `https://bip.zdunskawola.pl` (Logonet CMS 2.9.0).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (7 monitored plots).
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **1 unique properties** and **7 land plots** with 1 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

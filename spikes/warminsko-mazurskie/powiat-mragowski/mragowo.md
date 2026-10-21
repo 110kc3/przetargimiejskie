@@ -44,3 +44,15 @@ Contact: Urząd Miejski w Mrągowie, ul. Królewiecka 60A, 11-700 Mrągowo; tel.
 - **Blockers:** None. No rate-limit / auth / CAPTCHA signals. Watch-items: (1) mixed board — must classify lokal mieszkalny vs land/dzierżawa/ograniczony; (2) three sibling hosts share `warmia.mazury.pl` — pin the town host `bipmragowo` (not `bipgmmragowo`, not powiat).
 
 **VERDICT: BUILD (Low effort)** — recurring open municipal flat auctions on a clean warmia.mazury.pl server-HTML BIP with an inline achieved-price results stream; near-clone of the already-built Braniewo adapter, no blockers.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Miasto Mrągowo) publishes real-estate auction notices at `https://bipmragowo.warmia.mazury.pl` (Logonet CMS 2.9.0).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (13 monitored plots).
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **2 unique properties** and **13 land plots** with 1 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

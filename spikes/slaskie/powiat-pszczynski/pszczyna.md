@@ -43,3 +43,18 @@ Also published: `wykazy nieruchomości przeznaczonych do sprzedaży, stanowiący
 - **Blockers:** None hard. Only watch-items: (1) shared-platform list cache can leak another tenant's page — pin to canonical Pszczyna URLs/doc-ids; (2) split announcement vs result boards; (3) mixed sale/lease stream needs classifier.
 
 **VERDICT: BUILD (Low effort)** — recurring OPEN municipal flat auctions on a clean ESC S.A./VelaBIP server-HTML BIP with an inline structured achieved-price results stream; standard custom-HTML analog + bip.info.pl legacy fallback, no hard blockers.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Burmistrz Pszczyny (Urząd Miejski w Pszczynie)) publishes real-estate auction notices at `https://bip.pszczyna.pl` (Municipal BIP portal (bip.pszczyna.pl)).
+
+> [!NOTE]
+> Origin requires residential PL network access; excluded from hosted runner runs per PL-EGRESS-PLAN.md.
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (42 monitored plots).
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **18 unique properties** and **42 land plots** with 36 active listings. Both property and land streams are verified in production (property: unmonitored, land: unmonitored).

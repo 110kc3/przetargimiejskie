@@ -89,3 +89,17 @@ Real volume = **~1 distinct flat per 1–2 years** (one flat generated 5 announc
 ### Verdict: BUILD (Low effort, needsRender: false)
 
 Flat auctions, announcement board, and achieved-price stream all confirmed live; access is plain HTTP for a normal client — the only trap is following the 301s (and WebFetch-style cloud fetchers being 403'd). Adapter = year-tree HTML index + PDF-attachment text extraction; closest analog: other small-gmina BIP year-board scrapers. Accept the volume caveat (very low, ~1 flat/1–2 yrs) — cheap to run, worth bundling with other powiat-choszczeński gminy.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Choszczno) publishes real-estate auction notices at `https://bip.choszczno.pl` (Municipal BIP portal (bip.choszczno.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+- **Land (działki):** municipal undeveloped and developed plots (7 monitored plots).
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **4 unique properties** and **7 land plots** with 2 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

@@ -39,3 +39,15 @@ The active przetargi board on the day of this spike carried a mix: flat-sale auc
 - **Blockers:** None. No rate-limit/auth/JS gate. Only watch-items: announcement and result articles share one board (classify by title), a mixed flat/land/dzierżawa stream, and multi-lokal notices (split one notice into N property records).
 
 **VERDICT: BUILD (Low effort)** — recurring open oral municipal flat auctions on a clean rbip.mojregion.info server-HTML BIP with inline text and an inline results stream; standard server-HTML-board analog (Zgorzelec shape), no blockers.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Miasto Wąbrzeźno) publishes real-estate auction notices at `https://mst-wabrzezno.rbip.mojregion.info` (Municipal BIP portal (mst-wabrzezno.rbip.mojregion.info)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (7 monitored plots).
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **5 unique properties** and **7 land plots** with 13 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

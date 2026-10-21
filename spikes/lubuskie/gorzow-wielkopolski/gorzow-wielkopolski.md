@@ -115,3 +115,14 @@ The Prezydent Miasta Gorzowa Wielkopolskiego runs *przetargi ustne nieograniczon
 **VERDICT: BUILD — Low-Medium effort.**
 
 Single reliable BIP (`bip.um.gorzow.pl`), confirmed recurring flat-auction stream (12 flats/batch, multi-round), born-digital PDFs with inline achieved prices in a structured table. No DOCX parsing, no auth, no JS rendering. Closest analogy: Bytom/Zabrze adapter (batch PDF pattern). Primary risk is BIP index page instability — mitigated by XML feed fallback.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Gorzowa Wielkopolskiego) publishes real-estate auction notices at `https://bip.um.gorzow.pl` (Municipal BIP portal (bip.um.gorzow.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **58 unique properties** and **0 land plots** with 37 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

@@ -94,3 +94,15 @@ Also noted: a separate auction for a whole multi-family building at ul. Niecała
 - The mixed board (land + flats + leases) requires title-keyword filtering; "lokal mieszkalny" in the title is a reliable discriminator.
 
 **VERDICT: BUILD — Medium effort.** Single clean BIP board, born-digital HTML announcements, flat auctions confirmed live and recurring, achieved-price DOCX parseable with existing tooling. Closest pattern: Bytom adapter.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Kielce) publishes real-estate auction notices at `https://bipum.kielce.eu` (SmartSite by BIT Sp. z o.o.).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (4 monitored plots).
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **5 unique properties** and **4 land plots** with 7 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

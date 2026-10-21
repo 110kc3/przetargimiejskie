@@ -47,3 +47,15 @@ Town news mirror (non-authoritative, re-posts notices): `https://sulecin.pl/wiad
 - **Blockers:** None hard. Watch-items: (1) **no confirmed achieved-price stream** — this build captures announcements + cena wywoławcza but likely no cena osiągnięta (low dataset value; land also in-scope); (2) very low flat volume — low priority; (3) mixed land/flat stream needs classification.
 
 **VERDICT: BUILD (Low effort)** — confirmed recurring (if sporadic) municipal flat auctions on `bip.sulecin.pl`, running the same SYSTEMDOBIP.PL/e-line CMS as the already-shipped `gorzow-wielkopolski` adapter, so cloning cost is minimal. Caveat: tiny flat volume and no confirmed wyniki/achieved-price board — treat as a low-priority coverage build (announcements + cena wywoławcza), fold in when clearing the lubuskie e-line cluster.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Sulęcinie) publishes real-estate auction notices at `https://bip.sulecin.pl` (Municipal BIP portal (bip.sulecin.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (6 monitored plots).
+
+Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **2 unique properties** and **6 land plots** with 3 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

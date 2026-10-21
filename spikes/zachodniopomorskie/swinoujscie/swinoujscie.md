@@ -118,3 +118,15 @@ The archive board (artykuly/1718) is the authoritative source for past auctions 
 - nonstoptbs.pl (auction aggregator confirming Niecała 10 flat): https://nonstoptbs.pl/przetarg-na-sprzedaz-udzialu-w-nieruchomosci-swinoujscie-2/
 - TBS Lokum official website: https://tbslokum.pl/
 - City nieruchomosci portal: https://www.swinoujscie.pl/pl/artykul/96/1085/nieruchomosci-do-przetargu
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Świnoujście) publishes real-estate auction notices at `https://bip.um.swinoujscie.pl` (Logonet CMS 2.9.0).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **17 unique properties** and **0 land plots** with 46 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

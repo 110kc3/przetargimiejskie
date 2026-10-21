@@ -103,3 +103,14 @@ The city also sells land and built properties (niezabudowane / zabudowane nieruc
 **Effort:** Medium (JS pagination + DOCX parsing = 2 non-trivial components; city BIP structure is otherwise straightforward).
 
 **VERDICT: BUILD** — open flat-auction stream confirmed, ongoing as of 2026, city BIP accessible without auth. Low volume reduces data value but doesn't block implementation. Primary risk is DOCX parsing for prices; acceptable given the stream is real and legally mandated to publish results.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Prezydent Grudziądza (Urząd Miejski w Grudziądzu, Wydział Geodezji i Gospodarki Nieruchomościami)) publishes real-estate auction notices at `https://bip.grudziadz.pl` (Municipal BIP portal (bip.grudziadz.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **12 unique properties** and **0 land plots** with 47 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

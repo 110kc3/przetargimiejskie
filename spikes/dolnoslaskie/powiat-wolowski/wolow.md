@@ -43,3 +43,16 @@ Contact: Wydział Geodezji i Gospodarki Nieruchomościami, tel. 71 319 13 24 / 7
 - **Blockers:** None. No rate-limit/auth signals on `wolow.pl`. Watch-items: (1) scrape `wolow.pl` not `bip.wolow.pl` (JS gate); (2) classify flat vs land in a mixed stream; (3) don't ingest `bip.powiatwolowski.pl` (county, different JST).
 
 **VERDICT: BUILD (Low–Medium effort)** — recurring municipal flat auctions with published achieved prices on a clean SkyCMS server-HTML city portal; direct Olesno/Prudnik (netkoncept SkyCMS) analog; only nuance is scraping the portal instead of the JS-gated BIP mirror and classifying a mixed flat/land stream.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Wołowie (Burmistrz Gminy Wołów)) publishes real-estate auction notices at `https://wolow.pl` (Municipal BIP portal (wolow.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (54 monitored plots).
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **23 unique properties** and **54 land plots** with 3 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

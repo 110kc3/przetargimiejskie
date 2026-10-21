@@ -46,3 +46,16 @@ The per-year board is **land-dominated** — a 2025 sample of ~10 items was most
 - **Blockers:** None. No rate-limit/auth/CAPTCHA signals. Watch-items: (a) land-dominated mixed stream — classify carefully; (b) separate announcement vs results boards; (c) strict host disambiguation town vs rural gmina.
 
 **VERDICT: BUILD (Low effort)** — recurring open oral municipal flat auctions on a clean Logonet server-HTML BIP with a dedicated achieved-price results board; direct tarnowskie-gory analog, no technical blockers.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Szczecinek) publishes real-estate auction notices at `https://bip.szczecinek.pl` (Logonet CMS 2.9.0).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (62 monitored plots).
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **6 unique properties** and **62 land plots** with 24 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

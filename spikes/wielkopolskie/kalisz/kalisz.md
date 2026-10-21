@@ -100,3 +100,15 @@ The Prezydent Miasta Kalisza (acting via Wydział Gospodarowania Mieniem, WGM) c
 **Effort:** Medium — one HTML list scraper + one PDF parser, same architecture as Poznań adapter. ~1–2 days of adapter work assuming Poznań is already live and patterns are reusable.
 
 **VERDICT: BUILD** — Kalisz runs genuine open flat-sale auctions (*przetarg ustny nieograniczony na sprzedaż lokali mieszkalnych*), publishes them on a clean server-rendered BIP board, delivers born-digital PDFs, and posts result notices with achieved prices in the same feed. Volume is thin but real and consistent. The adapter is straightforward.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Kalisza (Wydział Gospodarowania Mieniem, WGM)) publishes real-estate auction notices at `https://bip.kalisz.pl` (Municipal BIP portal (bip.kalisz.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **6 unique properties** and **0 land plots** with 0 active listings. Both property and land streams are verified in production (property: verified_empty, land: not_monitored).

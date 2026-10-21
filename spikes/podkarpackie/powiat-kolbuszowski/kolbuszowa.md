@@ -56,3 +56,15 @@ No powiat BIP involvement for gmina flat auctions (powiat BIP at `bip.powiat.kol
 **Blockers**: none identified. Rate-limiting on web_fetch was encountered during research (429 from Cowork proxy), but direct HTTP scraping of the BIP itself is not rate-limited in practice.
 
 **VERDICT: BUILD — Low effort.**
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Kolbuszowej (Burmistrz Kolbuszowej)) publishes real-estate auction notices at `https://bip.kolbuszowa.pl` (Municipal BIP portal (bip.kolbuszowa.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (4 monitored plots).
+
+Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **3 unique properties** and **4 land plots** with 0 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

@@ -58,3 +58,14 @@ Result/wynik notices: posted as child articles under the same "Oferty miasta" se
 **Effort:** Low. Standard Logonet-CMS adapter with one extra PDF-parse step for results.
 
 **VERDICT: BUILD — Low effort.**
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Gostyniu) publishes real-estate auction notices at `https://biuletyn.gostyn.pl` (Logonet CMS 2.9.0).
+
+Observed asset families in committed data:
+- **Land (działki):** municipal undeveloped and developed plots (3 monitored plots).
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **0 unique properties** and **3 land plots** with 0 active listings. Both property and land streams are verified in production (property: not_monitored, land: healthy).

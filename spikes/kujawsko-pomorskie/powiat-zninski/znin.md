@@ -40,3 +40,16 @@ This is the classic **generic city-BIP property section that skews to land** (+ 
 - **Blockers:** None hard. Watch-items: (1) must send a **browser UA** (bot UA → 403); (2) confirm exact **results board** placement on first crawl; (3) **low flat volume / land-dominated** — value comes mainly from land + occasional flat/commercial, not a rich flat stream.
 
 **VERDICT: BUILD (Low effort)** — open oral municipal auctions on a clean, server-rendered dedicated "Obrót nieruchomościami" board with inline HTML + born-digital PDFs and a results board; standard custom-HTML analog, only a browser-UA header needed. Caveat: flat volume is low (land/commercial-dominated), so weigh against strictly flat-focused targets.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Żninie (Burmistrz Żnina)) publishes real-estate auction notices at `https://bip.gminaznin.pl` (Municipal BIP portal (bip.gminaznin.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+- **Land (działki):** municipal undeveloped and developed plots (13 monitored plots).
+
+Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **2 unique properties** and **13 land plots** with 5 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

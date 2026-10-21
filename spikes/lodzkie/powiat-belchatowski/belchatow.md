@@ -98,3 +98,14 @@ The city website post contains the BIP deep-link for the full announcement text.
 - <https://belchatow.pl/informacja-o-wyniku-ustnego-przetargu-nieograniczonego-na-sprzedaz-lokalu-mieszkalnego-wraz-z-ulamkowa-czescia-gruntu/> — July 2025 result notice (title LIVE-VERIFIED; body empty on fetch)
 - <https://belchatow.bip.gov.pl/przetargi/> — BIP przetargi board (DESK — BIP fetch timed out)
 - <https://belchatow.pl/wykaz-lokali-mieszkalnych-przeznaczonych-do-sprzedazy-na-rzecz-ich-najemcow-2/> — bezprzetargowy tenant-sale track (DESK)
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Bełchatowa) publishes real-estate auction notices at `https://belchatow.pl/wp-json/wp/v2` (Municipal BIP portal (belchatow.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **2 unique properties** and **0 land plots** with 2 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

@@ -40,3 +40,16 @@ Out of scope (not municipal): **Spółdzielnia Mieszkaniowa w Strzelcach Opolski
 - **Blockers:** None. No rate-limit/auth/CAPTCHA. Watch-items: (a) mixed http/https home redirect — target the `,14` board URL directly; (b) low flat frequency — the value is mostly land/zabudowane plus occasional flats; (c) results are appended inline, so incremental re-crawl of unresolved notices is needed to capture achieved price.
 
 **VERDICT: BUILD (Low–Medium effort)** — dedicated municipal manager (GZMK) publishing open oral flat-sale auctions on a clean bespoke server-HTML board with inline results and per-notice born-digital PDFs; single-board custom-HTML analog (brzeg/nowa-sól), no technical blockers. Flat volume is low but recurring and the mixed board's land/buildings are in-scope for the wider dataset.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (GZMK (Gminny Zarząd Mienia Komunalnego) — Gmina Strzelce Opolskie) publishes real-estate auction notices at `https://gzmk.pl/bw/Przetargi_na_sprzedaz_nieruchomosci,14.` (Municipal BIP portal (gzmk.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (4 monitored plots).
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **1 unique properties** and **4 land plots** with 1 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

@@ -98,3 +98,14 @@ Both endpoints returned empty bodies in a direct web_fetch probe (possible auth/
 **VERDICT: BUILD (Medium effort)**
 
 The open flat-auction stream is confirmed real and recent (2025 notice found). The BIP is a standard server-rendered CMS with a clean per-department news feed. Volume is lower than Silesian cities but sufficient for a useful data feed. Main risk is thin achieved-price data — recommend confirming the live results-notice presence as the first adapter task before building the full pipeline.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Poznania (Wydział Gospodarki Nieruchomościami)) publishes real-estate auction notices at `https://bip.poznan.pl` (Municipal BIP portal (bip.poznan.pl)).
+
+Observed asset families in committed data:
+- **Land (działki):** municipal undeveloped and developed plots (1 monitored plots).
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **0 unique properties** and **1 land plots** with 0 active listings. Both property and land streams are verified in production (property: not_monitored, land: healthy).

@@ -90,3 +90,14 @@ The stream is mixed: flats (*lokale mieszkalne*), land (*nieruchomości gruntowe
 4. **Mixed-type sessions:** Some result pages cover land + flats in the same document (title says "nieruchomości" not "lokali mieszkalnych") — filter by page title keyword "lokali mieszkalnych" to stay in scope, or parse all result pages and filter by property type in body text.
 
 **VERDICT: BUILD — active flat-auction stream, born-digital HTML prices, no blockers, Low effort, closest to Białystok adapter (LIVE-VERIFIED).**
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Olsztyna) publishes real-estate auction notices at `https://bip.olsztyn.eu` (Municipal BIP portal (bip.olsztyn.eu)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **11 unique properties** and **0 land plots** with 6 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

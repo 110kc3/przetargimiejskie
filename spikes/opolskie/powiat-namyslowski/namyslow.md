@@ -45,3 +45,14 @@ The **Gmina Namysłów** (Urząd Miejski) separately runs `przetarg ustny nieogr
 - **Blockers:** None technical. Watch-items: (1) two-source layout (ZAN flats vs Gmina land) — keep straight and don't ingest the county `bip.namyslow.pl`; (2) no dedicated flat results board → achieved prices are weak/inferred; (3) WordPress upload paths (`/pseeckoo/…`) for PDFs.
 
 **VERDICT: BUILD (Low–Medium effort)** — a genuine municipal housing manager (ZAN, ex-ADM-TBS) running recurring **open oral flat auctions** with full born-digital inline-HTML detail on a clean WordPress board; standard WordPress list+post analog, no blockers. Only shortfall is the missing flat results board (starting prices + repeat rounds carry the price signal).
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (ZAN Sp. z o.o. (Zakład Administracji Nieruchomości) w Namysłowie) publishes real-estate auction notices at `https://zan-namyslow.pl/przetargi` (Municipal BIP portal (zan-namyslow.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **10 unique properties** and **0 land plots** with 19 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

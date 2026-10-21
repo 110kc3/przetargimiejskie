@@ -105,3 +105,14 @@ No second publication venue detected (no separate housing manager BIP, no Zabrze
 **Overall effort**: Medium. HTML parsing is clean (structured sections, consistent templates). Result PDFs are the main complication but follow a predictable filename pattern. Re-run tracking (same flat appearing I/II/III/IV/V przetarg) needs deduplication by address.
 
 **VERDICT: BUILD** — confirmed flat auctions via ustny przetarg nieograniczony, clean HTML, standard IDcom engine, moderate volume, result PDFs present. Effort comparable to Tarnowskie Góry adapter.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Miejska Giżycko) publishes real-estate auction notices at `https://bip.gizycko.pl` (Municipal BIP portal (bip.gizycko.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **2 unique properties** and **0 land plots** with 5 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

@@ -55,3 +55,14 @@ Also auctions land parcels (działki) and commercial units (lokale użytkowe) �
 - One blocker to verify live: `web_fetch` returned empty — need Chrome MCP or headed browser to confirm page structure and extract selector paths before coding. Likely just UA filtering by the BIP host.
 
 **VERDICT: BUILD (Low effort)** — active flat auctions, clean HTML BIP, confirmed results stream, low parse complexity.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Kamienna Góra (Burmistrz Miasta Kamienna Góra)) publishes real-estate auction notices at `https://bip.kamiennagora.pl` (Municipal BIP portal (bip.kamiennagora.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **35 unique properties** and **0 land plots** with 3 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

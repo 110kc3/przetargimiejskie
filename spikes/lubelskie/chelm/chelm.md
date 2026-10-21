@@ -76,3 +76,15 @@ Document codes follow pattern `DN.7140.*` (najem) and `DN.6840.*` / `DN.6845.*` 
 - `https://umchelm.bip.lubelskie.pl/upload/pliki//2019_Prusa_950_15.pdf` — text PDF format confirmed via web_fetch
 - `https://samorzad.gov.pl/web/miasto-chelm/informacja-o-wyniku-przetargu` — result notice page, fetched via web_fetch
 - `https://umchelm.bip.lubelskie.pl/index.php?id=143` — rental board (excluded from scrape scope), read live
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Chełm) publishes real-estate auction notices at `https://umchelm.bip.lubelskie.pl` (BIP Lubelskie (DataTables AJAX)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **18 unique properties** and **0 land plots** with 80 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

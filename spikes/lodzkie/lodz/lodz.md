@@ -100,3 +100,16 @@ Also noted: a "Wyniki ustnego przetargu nieograniczonego (licytacji) na wydzier�
 **Effort:** Medium. The TYPO3 BIP structure is well-understood from Kraków adapter. PDF parsing is straightforward (born-digital table). Main extra work vs. Kraków: higher volume requires robust pagination, and the lot-to-result matching logic is slightly more complex (multi-lot batches). No OCR needed.
 
 **VERDICT: BUILD** — High-confidence, LIVE-VERIFIED. Łódź has an active, high-volume *ustny przetarg nieograniczony na sprzedaż lokali mieszkalnych* stream, born-digital PDFs, co-located result notices with achieved prices, no auth/bot blocks, and a well-structured TYPO3 BIP. Effort is Medium, analogous to Kraków with slightly larger batch sizes.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Łodzi (Wydział Zbywania i Nabywania Nieruchomości)) publishes real-estate auction notices at `https://bip.uml.lodz.pl` (TYPO3 municipal portal).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+- **Garages (garaże):** standalone garages and parking premises.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **135 unique properties** and **0 land plots** with 70 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

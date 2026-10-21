@@ -65,3 +65,16 @@ Also sells nieruchomość zabudowana (multi-family buildings as whole, e.g. ul. 
 **Effort rating: Low** — standard HTML scrape, Logonet CMS identical to other spiked cities in this voivodeship. One possible complication: achieved-price resolution text is free-form Polish prose (regex or NLP needed to extract numeric price vs. negative result).
 
 **VERDICT: BUILD**
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Miasto Chełmno) publishes real-estate auction notices at `https://bip.chelmno.pl` (Logonet CMS 2.9.0).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (12 monitored plots).
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **16 unique properties** and **12 land plots** with 4 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

@@ -41,3 +41,17 @@ Land (`nieruchomości gruntowe`, ul. Piaski / Błonie / Słowackiego) is also so
 - **Blockers:** None technical. No rate-limit/auth signals. Only watch-items: bound the 65-page board; classify the mixed flat stream so bezprzetargowo tenant sales don't masquerade as open auctions.
 
 **VERDICT: BUILD (Low–Medium effort)** — recurring OPEN municipal flat auctions on a clean server-rendered HTML city BIP (`bip.um.sandomierz.pl`) with an inline-HTML achieved-price result stream; standard WordPress/custom-HTML analog (Bochnia/Olkusz), single board, no technical blockers — only mixed-stream classification.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Sandomierzu) publishes real-estate auction notices at `https://bip.um.sandomierz.pl` (Municipal BIP portal (bip.um.sandomierz.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Garages (garaże):** standalone garages and parking premises.
+- **Land (działki):** municipal undeveloped and developed plots (22 monitored plots).
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **11 unique properties** and **22 land plots** with 2 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

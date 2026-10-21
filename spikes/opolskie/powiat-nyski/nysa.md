@@ -91,3 +91,14 @@ Announcement board: announcements and results are on the same BIP article (resul
 - [Lokal Moniuszki 1/27 — result PDF](https://bip.nysa.pl/?p=document&action=show&id=23554&bar_id=8934)
 - [Lokal Moniuszki 4/10 — article](https://bip.nysa.pl/?a=7800)
 - [Wykaz nieruchomości — nysa.eu](https://www.nysa.eu/pl/dla-mieszkanca/wykaz-lokali-i-nieruchomosci-na-sprzedaz/)
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Nysie) publishes real-estate auction notices at `https://bip.nysa.pl` (Municipal BIP portal (bip.nysa.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **5 unique properties** and **0 land plots** with 8 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

@@ -116,3 +116,15 @@ Example: `https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lok
 - Sample result notice: https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/37987,Wynik-przetargu-ul-Nowy-Swiat-2.html
 - Archive index: https://um.bip.legnica.eu/uml/archiwum/3677,Archiwum.html
 - ZGM BIP (rental/commercial, out of scope): https://zgm.bip.legnica.eu/zgm/przetargi
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Legnicy (Wydział Gospodarki Nieruchomościami)) publishes real-estate auction notices at `https://um.bip.legnica.eu` (Municipal BIP portal (um.bip.legnica.eu)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **26 unique properties** and **0 land plots** with 11 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

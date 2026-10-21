@@ -125,3 +125,16 @@ The "Sprzedaż lokali" bezprzetargowe page is a long single-page HTML list (no p
 - Kopernika 7 lok. 9 — I przetarg 2025-07-30: https://www.zglbp.pl/przetarg-ustny-aukcja-w-trybie-kodeksu-cywilnego-na-sprzedaz-lokalu-mieszkalnego-oznaczonego-nr-9-polozonego-na-ii-pietrze-iii-kondygnacji-budynku-wielorodzinnego-przy-ul--kopernika-7-w-bialej-podlaskiej-,r12647097
 - City BIP (zamówienia publiczne, not property): https://umbialapodlaska.bip.lubelskie.pl/index.php?id=79
 - City UM portal: https://um.bialapodlaska.pl/ps/375
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (ZGL Biała Podlaska Sp. z o.o.) publishes real-estate auction notices at `https://www.zglbp.pl/przetargi?filtruj=1&rodzaj=sprzedaz_nieruchomosci` (Municipal BIP portal (zglbp.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **8 unique properties** and **0 land plots** with 21 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

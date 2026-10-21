@@ -43,3 +43,15 @@ Contact / venue: Urząd Miejski w Piszu, ul. G. Gizewiusza 5, 12-200 Pisz; aucti
 - **Blockers:** None technical. Main watch-item is **classification noise** — the single `k=84` board is dominated by lease wykazy (89+) and land, with flat auctions a minority; the adapter must filter hard. No dedicated housing manager (Wydział Gospodarki Komunalnej administers the stock; UM sells directly). No rate-limit/auth signals.
 
 **VERDICT: BUILD (Low effort)** — recurring, market-rate open flat auctions (plus a strong land stream) with inline achieved-price result notices on a clean server-HTML `hi.pl` BIP; standard Zgorzelec-style analog. Only caveat: heavy lease/wykaz noise on the shared board requires solid title classification.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Pisz) publishes real-estate auction notices at `https://bip.pisz.hi.pl` (Municipal BIP portal (bip.pisz.hi.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (29 monitored plots).
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **2 unique properties** and **29 land plots** with 4 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

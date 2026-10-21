@@ -58,3 +58,15 @@ Also sells działki niezabudowane (e.g. ul. Młyńska 731 800 zł) and nieruchom
 **VERDICT: BUILD**
 
 *Cited live URLs fetched: `https://bip.gmina-naklo.pl/przetargi-nieruchomosci/1/25` (board, confirmed Logonet v2.9.0 + flat listings). Search-surfaced: `http://bip.gmina-naklo.pl/?cid=341`, `https://bip.gmina-naklo.pl/przetargi/200`, `https://bip.gmina-naklo.pl/attachments/download/13130`.*
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Nakło nad Notecią) publishes real-estate auction notices at `https://bip.gmina-naklo.pl` (Logonet CMS 2.9.0).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (23 monitored plots).
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **8 unique properties** and **23 land plots** with 8 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

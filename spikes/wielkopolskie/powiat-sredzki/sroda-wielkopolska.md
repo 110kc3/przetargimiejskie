@@ -41,3 +41,15 @@ Contact: Urząd Miejski, ul. Daszyńskiego 5, 63-000 Środa Wielkopolska, tel. 6
 - **Blockers:** None. No rate-limit/auth/CAPTCHA signals. Watch-items: (a) separate announcement vs results boards; (b) land-dominated mixed stream (flats are the minority — classify carefully); (c) legacy `biuletyn.net` archive host for pre-2021 backfill if ever needed.
 
 **VERDICT: BUILD (Low–Medium effort)** — recurring municipal flat auctions on a clean IDcom.pl server-HTML BIP with a dedicated results board; standard Wielkopolska IDcom analog (Gniezno), no blockers. Only friction is filtering flats out of a land-heavy stream.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Środzie Wielkopolskiej) publishes real-estate auction notices at `https://bip.umsroda.pl` (Municipal BIP portal (bip.umsroda.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (27 monitored plots).
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **6 unique properties** and **27 land plots** with 10 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

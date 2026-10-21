@@ -45,3 +45,16 @@ Not bezprzetargowo-only. Municipal flats are sold at open auction to the general
 - **Blockers:** None identified. No auth, no CAPTCHA, no PDF-only content, no SPA
 - **Effort:** LOW — standard BIP scraper, two-page-type parser (announcement + result), HTML only
 - **VERDICT: BUILD**
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Miasto Lębork) publishes real-estate auction notices at `https://bip.um.lebork.pl` (Municipal BIP portal (bip.um.lebork.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+- **Land (działki):** municipal undeveloped and developed plots (12 monitored plots).
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **28 unique properties** and **12 land plots** with 0 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

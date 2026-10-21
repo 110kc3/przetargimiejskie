@@ -106,3 +106,18 @@ Note: MZB (`mzbraciborz.pl`) manages tenancy, building maintenance, and bezprzet
 - BIP Racibórz — example flat auction PDF (Stalmacha 7a/10): <https://www.bipraciborz.pl/res/serwisy/pliki/43779983?version=1.0> (LIVE-VERIFIED — machine-readable text PDF)
 - MZB Racibórz BIP: <https://mzbraciborz.pl/> (LIVE-VERIFIED — housing manager, bezprzetargowa only)
 - naszraciborz.pl — "Przetargi na miejskie mieszkania. Za ile udało się sprzedać lokale?" (14.11.2021): <https://www.naszraciborz.pl/site/art/1-aktualnosci/0-/92519-przetargi-na-miejskie-mieszkania-za-ile-udalo-sie-sprzedac-lokale-> (DESK — historical volume + achieved-price confirmation)
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Prezydent Miasta Racibórz) publishes real-estate auction notices at `https://www.bipraciborz.pl` (Municipal BIP portal (bipraciborz.pl)).
+
+> [!NOTE]
+> Origin requires residential PL network access; excluded from hosted runner runs per PL-EGRESS-PLAN.md.
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (1 monitored plots).
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **21 unique properties** and **1 land plots** with 8 active listings. Both property and land streams are verified in production (property: unmonitored, land: unmonitored).

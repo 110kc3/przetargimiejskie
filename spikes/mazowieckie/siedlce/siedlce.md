@@ -94,3 +94,15 @@ Estimated cadence: **~3–6 flat auctions per year**, often as II or III przetar
 **Verdict: BUILD** — flat auctions are confirmed real, open-format HTML on siedlce.pl, no auth needed for announcements, parse is straightforward. Achieved-price gap is acceptable if marked null (same limitation applies to several other confirmed cities). Medium effort due to BIP workaround needed and no dedicated index page.
 
 **Effort: Medium** (2–3 days). Confidence: Medium (volume is low; BIP session gate is a known limitation).
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Prezydent Miasta Siedlce) publishes real-estate auction notices at `https://siedlce.pl` (Municipal BIP portal (siedlce.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **3 unique properties** and **0 land plots** with 6 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

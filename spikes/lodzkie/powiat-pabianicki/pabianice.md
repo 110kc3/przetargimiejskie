@@ -75,3 +75,14 @@ The city also runs a *bezprzetargowy* (without auction) track — sale to sittin
 **Verdict: BUILD — Low effort, High confidence.**
 
 The source is a clean Logonet BIP with structured HTML, active flat-auction volume (~15–20/year), and consistently published result PDFs. No novel engineering required beyond what the Bytom adapter already handles.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Miejska Pabianice) publishes real-estate auction notices at `https://bip.um.pabianice.pl` (Logonet CMS 2.9.0).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **13 unique properties** and **0 land plots** with 26 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

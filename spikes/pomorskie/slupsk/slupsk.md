@@ -94,3 +94,14 @@ PGM Słupsk (`www.pgm.slupsk.pl`) manages the housing stock under a management a
 - https://bip.um.slupsk.pl/przetargi/2928.html (Kopernika 6, cena 150 000 zł)
 - https://bip.um.slupsk.pl/nieruchomosci/dokumenty/846.html (result archive, 232+ PDF entries)
 - https://www.pgm.slupsk.pl/pl (PGM Słupsk — housing manager, confirmed not the auction publisher)
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Słupsku) publishes real-estate auction notices at `https://bip.um.slupsk.pl` (Municipal BIP portal (bip.um.slupsk.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **20 unique properties** and **0 land plots** with 15 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

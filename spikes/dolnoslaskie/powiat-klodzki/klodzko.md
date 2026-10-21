@@ -105,3 +105,14 @@ Historical examples confirmed by search:
 - https://zamg.bip.klodzko.pl/ — ZAMG BIP (housing manager, no auction notices)
 - https://www.zamg.klodzko.pl/ — ZAMG website
 - https://listaprzetargow.pl/oferty/9038-przetarg-mieszkanie-klodzko-dolnoslaskie
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta w Kłodzku) publishes real-estate auction notices at `https://um.bip.klodzko.pl` (Municipal BIP portal (um.bip.klodzko.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **5 unique properties** and **0 land plots** with 3 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

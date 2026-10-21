@@ -35,3 +35,15 @@ Contact: Urząd Gminy i Miasta Proszowice, ul. 3 Maja 72, pok. 42/40, tel. (12) 
 - **Blockers:** none — no auth/rate-limit/CAPTCHA. Watch-items: (a) mixed flat/land/najem stream → classify + filter; (b) `odwołanie przetargu` notices (drop/flag cancelled rounds); (c) keep the city portal (not the SPA BIP) as source.
 
 **VERDICT: BUILD (Low effort)** — recurring open municipal flat auctions on a clean server-HTML city portal with a single property board carrying announcements + named-buyer results; standard custom-HTML Małopolska analog, no blockers.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Gminy i Miasta Proszowice) publishes real-estate auction notices at `https://proszowice.pl` (Municipal BIP portal (proszowice.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (13 monitored plots).
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **9 unique properties** and **13 land plots** with 10 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

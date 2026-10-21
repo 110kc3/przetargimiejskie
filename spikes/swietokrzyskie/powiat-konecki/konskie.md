@@ -77,3 +77,14 @@ All four desk blockers resolved with live fetches; verdict flips to **BUILD (Low
 **Effort re-estimate: LOW** (down from Medium) — clone the Giżycko/Tczew idcom-jst crawl, add title-prefix filter for `lokal mieszkalny|nieruchomości lokalowej|prawie do lokalu mieszkalnego`, pdftotext-based field extraction on born-digital PDFs. ~1 day. Build as part of the Świętokrzyskie batch, not standalone priority.
 
 **VERDICT: BUILD (Low effort, LIVE confidence).** Caveat: lowest-volume tier — expect long idle stretches (e.g. all of 2024).
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Miasto i Gmina Końskie) publishes real-estate auction notices at `https://bip.umkonskie.pl` (Municipal BIP portal (bip.umkonskie.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **2 unique properties** and **0 land plots** with 3 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

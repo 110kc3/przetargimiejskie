@@ -54,3 +54,16 @@ BIP host: **bip.glubczyce.pl** (standard eSoteka/Finn CMS, common across Opolski
 - Only mild complexity: year-subpage navigation (BIP splits listings by year into child category IDs) — well-understood pattern from other eSoteka instances.
 
 **VERDICT: BUILD** — flat auctions confirmed active, both boards present, format is clean HTML+text-PDF, volume modest but real, no technical blockers.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Głubczycach) publishes real-estate auction notices at `https://bip.glubczyce.pl` (Logonet CMS 2.9.0).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (24 monitored plots).
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **17 unique properties** and **24 land plots** with 9 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

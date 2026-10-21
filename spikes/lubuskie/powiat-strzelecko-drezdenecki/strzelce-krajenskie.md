@@ -39,3 +39,14 @@ The active board on the day of this spike carried: a lokal **niemieszkalny** (Og
 - **Blockers:** None hard. Watch-items: (1) weaker achieved-price stream (Brak wyniku), (2) possible browser-UA gating (handled by analog), (3) low absolute volume — a thin but real flat feed.
 
 **VERDICT: BUILD (Low effort)** — recurring open flat auctions on a clean SYSTEMDOBIP.PL server-HTML BIP, a near drop-in clone of the same-voivodeship `gorzow-wielkopolski` adapter; only caveat is a modest volume and a weak (Brak-wyniku) achieved-price stream.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Strzelcach Krajeńskich) publishes real-estate auction notices at `https://bip.strzelce.pl` (Municipal BIP portal (bip.strzelce.pl)).
+
+Observed asset families in committed data:
+- **Land (działki):** municipal undeveloped and developed plots (2 monitored plots).
+
+Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **0 unique properties** and **2 land plots** with 0 active listings. Both property and land streams are verified in production (property: not_monitored, land: degraded).

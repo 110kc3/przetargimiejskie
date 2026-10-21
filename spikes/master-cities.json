@@ -12126,31 +12126,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (zglbp.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
-          "building": "unknown",
-          "commercial": "unknown",
+          "building": "observed",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/lubelskie/biala-podlaska/biala-podlaska.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://www.zglbp.pl/przetargi?filtruj=1&rodzaj=sprzedaz_nieruchomosci",
+          "evidence_path": "spikes/lubelskie/biala-podlaska/biala-podlaska.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://www.zglbp.pl/przetargi?filtruj=1&rodzaj=sprzedaz_nieruchomosci (ZGL Biała Podlaska Sp. z o.o.).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 8 unique properties and 0 land plots (21 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -14006,31 +14025,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.oswiecim.um.gov.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/malopolskie/powiat-oswiecimski/oswiecim.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.oswiecim.um.gov.pl",
+          "evidence_path": "spikes/malopolskie/powiat-oswiecimski/oswiecim.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.oswiecim.um.gov.pl (Urząd Miasta Oświęcim (Wydział Mienia Komunalnego)).",
+            "Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 2 unique properties and 0 land plots (2 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -14187,31 +14223,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (sucha-beskidzka.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/malopolskie/powiat-suski/sucha-beskidzka.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://sucha-beskidzka.pl",
+          "evidence_path": "spikes/malopolskie/powiat-suski/sucha-beskidzka.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://sucha-beskidzka.pl (Urząd Miasta Sucha Beskidzka).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 1 unique properties and 2 land plots (3 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -15641,31 +15695,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet CMS 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/kujawsko-pomorskie/powiat-nakielski/naklo-nad-notecia.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.gmina-naklo.pl",
+          "evidence_path": "spikes/kujawsko-pomorskie/powiat-nakielski/naklo-nad-notecia.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.gmina-naklo.pl (Gmina Nakło nad Notecią).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 8 unique properties and 23 land plots (8 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -15822,31 +15894,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.gmina-sepolno.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
-          "commercial": "unknown",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/kujawsko-pomorskie/powiat-sepolenski/sepolno-krajenskie.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "$/657/przetargi.html",
+          "evidence_path": "spikes/kujawsko-pomorskie/powiat-sepolenski/sepolno-krajenskie.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: $/657/przetargi.html (Urząd Miejski w Sępólnie Krajeńskim).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 3 unique properties and 0 land plots (6 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -16309,31 +16399,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.gminaznin.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
-          "commercial": "unknown",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/kujawsko-pomorskie/powiat-zninski/znin.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.gminaznin.pl",
+          "evidence_path": "spikes/kujawsko-pomorskie/powiat-zninski/znin.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.gminaznin.pl (Urząd Miejski w Żninie (Burmistrz Żnina)).",
+            "Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 2 unique properties and 13 land plots (5 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -16378,31 +16487,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "BIP Lubelskie (DataTables AJAX)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
-          "building": "unknown",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/lubelskie/chelm/chelm.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://umchelm.bip.lubelskie.pl",
+          "evidence_path": "spikes/lubelskie/chelm/chelm.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://umchelm.bip.lubelskie.pl (Urząd Miasta Chełm).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 18 unique properties and 0 land plots (80 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -17029,31 +17156,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (pultusk.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/mazowieckie/powiat-pultuski/pultusk.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://pultusk.pl/wp-json/wp/v2/posts",
+          "evidence_path": "spikes/mazowieckie/powiat-pultuski/pultusk.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://pultusk.pl/wp-json/wp/v2/posts (Burmistrz Miasta Pułtusk, Wydział Gospodarki Gruntami i Architektury).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 1 unique properties and 7 land plots (1 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -17511,31 +17656,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (gminaklobuck.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/slaskie/powiat-klobucki/klobuck.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://gminaklobuck.pl",
+          "evidence_path": "spikes/slaskie/powiat-klobucki/klobuck.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://gminaklobuck.pl (Gmina Kłobuck).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 3 unique properties and 2 land plots (0 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -17748,31 +17912,52 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "SISCO BIP platform",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
-          "commercial": "unknown",
-          "garage": "unknown"
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
+          "commercial": "observed",
+          "garage": "observed"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/slaskie/powiat-lubliniecki/lubliniec.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://lubliniec.bip.info.pl",
+          "evidence_path": "spikes/slaskie/powiat-lubliniecki/lubliniec.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial",
+            "garage",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://lubliniec.bip.info.pl (Gmina Lubliniec).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 19 unique properties and 79 land plots (20 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -17886,31 +18071,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.olesno.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/opolskie/powiat-oleski/olesno.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.olesno.pl",
+          "evidence_path": "spikes/opolskie/powiat-oleski/olesno.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.olesno.pl (Urząd Miejski w Oleśnie).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 1 unique properties and 0 land plots (0 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -17955,31 +18157,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (pajeczno.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/lodzkie/powiat-pajeczanski/pajeczno.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://www.pajeczno.pl/informator/ogloszenia-o-sprzedazy-nieruchomosci/",
+          "evidence_path": "spikes/lodzkie/powiat-pajeczanski/pajeczno.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://www.pajeczno.pl/informator/ogloszenia-o-sprzedazy-nieruchomosci/ (Urząd Miejski w Pajęcznie).",
+            "Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 3 unique properties and 9 land plots (6 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -18336,31 +18556,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet CMS 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/warminsko-mazurskie/powiat-braniewski/braniewo.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "http://bip.braniewo.pl",
+          "evidence_path": "spikes/warminsko-mazurskie/powiat-braniewski/braniewo.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: http://bip.braniewo.pl (Gmina Miasta Braniewa).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 11 unique properties and 37 land plots (10 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -20405,31 +20643,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.tczew.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/pomorskie/powiat-tczewski/tczew.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.tczew.pl",
+          "evidence_path": "spikes/pomorskie/powiat-tczewski/tczew.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.tczew.pl (Gmina Miejska Tczew).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 3 unique properties and 0 land plots (0 active listings); streams: property: verified_empty, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -20474,31 +20729,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.wejherowo.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/pomorskie/powiat-wejherowski/wejherowo.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.wejherowo.pl",
+          "evidence_path": "spikes/pomorskie/powiat-wejherowski/wejherowo.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.wejherowo.pl (Gmina Miasta Wejherowa).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 11 unique properties and 0 land plots (6 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -20655,31 +20927,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.um.gorzow.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/lubuskie/gorzow-wielkopolski/gorzow-wielkopolski.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.um.gorzow.pl",
+          "evidence_path": "spikes/lubuskie/gorzow-wielkopolski/gorzow-wielkopolski.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.um.gorzow.pl (Urząd Miasta Gorzowa Wielkopolskiego).",
+            "Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 58 unique properties and 0 land plots (37 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -20780,31 +21069,51 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.choszczno.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
-          "commercial": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/zachodniopomorskie/powiat-choszczenski/choszczno.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.choszczno.pl",
+          "evidence_path": "spikes/zachodniopomorskie/powiat-choszczenski/choszczno.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.choszczno.pl (Gmina Choszczno).",
+            "Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 4 unique properties and 7 land plots (2 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -21198,31 +21507,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.miedzyrzecz.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/lubuskie/powiat-miedzyrzecki/miedzyrzecz.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.miedzyrzecz.pl",
+          "evidence_path": "spikes/lubuskie/powiat-miedzyrzecki/miedzyrzecz.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.miedzyrzecz.pl (Urząd Miejski w Międzyrzeczu).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 18 unique properties and 0 land plots (0 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -21685,7 +22011,7 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.strzelce.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
@@ -21693,23 +22019,40 @@
         },
         "assets": {
           "residential": "unknown",
-          "land": "unknown",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/lubuskie/powiat-strzelecko-drezdenecki/strzelce-krajenskie.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.strzelce.pl",
+          "evidence_path": "spikes/lubuskie/powiat-strzelecko-drezdenecki/strzelce-krajenskie.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.strzelce.pl (Urząd Miejski w Strzelcach Krajeńskich).",
+            "Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 0 unique properties and 2 land plots (0 active listings); streams: property: not_monitored, land: degraded."
+          ]
         }
       ],
       "review": {
@@ -21754,31 +22097,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.sulecin.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/lubuskie/powiat-sulecinski/sulecin.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.sulecin.pl",
+          "evidence_path": "spikes/lubuskie/powiat-sulecinski/sulecin.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.sulecin.pl (Urząd Miejski w Sulęcinie).",
+            "Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 2 unique properties and 6 land plots (3 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -21935,31 +22296,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet CMS 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
-          "commercial": "unknown",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/jelenia-gora/jelenia-gora.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.jeleniagora.pl",
+          "evidence_path": "spikes/dolnoslaskie/jelenia-gora/jelenia-gora.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.jeleniagora.pl (Prezydent Miasta Jeleniej Góry).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 36 unique properties and 25 land plots (16 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -22256,31 +22636,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.kamiennagora.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/powiat-kamiennogorski/kamienna-gora.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.kamiennagora.pl",
+          "evidence_path": "spikes/dolnoslaskie/powiat-kamiennogorski/kamienna-gora.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.kamiennagora.pl (Urząd Miasta Kamienna Góra (Burmistrz Miasta Kamienna Góra)).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 35 unique properties and 0 land plots (3 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -22674,31 +23071,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.lwowekslaski.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
-          "commercial": "unknown",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/powiat-lwowecki/lwowek-slaski.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.lwowekslaski.pl",
+          "evidence_path": "spikes/dolnoslaskie/powiat-lwowecki/lwowek-slaski.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.lwowekslaski.pl (Gmina i Miasto Lwówek Śląski).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 10 unique properties and 28 land plots (5 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -23460,31 +23876,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.kalisz.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
-          "building": "unknown",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/wielkopolskie/kalisz/kalisz.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.kalisz.pl",
+          "evidence_path": "spikes/wielkopolskie/kalisz/kalisz.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.kalisz.pl (Urząd Miasta Kalisza (Wydział Gospodarowania Mieniem, WGM)).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 6 unique properties and 0 land plots (0 active listings); streams: property: verified_empty, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -24226,31 +24660,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.pleszew.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/wielkopolskie/powiat-pleszewski/pleszew.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.pleszew.pl",
+          "evidence_path": "spikes/wielkopolskie/powiat-pleszewski/pleszew.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.pleszew.pl (Urząd Miasta i Gminy w Pleszewie).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 2 unique properties and 23 land plots (0 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -24695,31 +25147,51 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.katowice.eu)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
-          "commercial": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/slaskie/katowice/katowice.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/default.aspx?idt=468&menu=679",
+          "evidence_path": "spikes/slaskie/katowice/katowice.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.katowice.eu/ogloszenia/tablicaogloszen/default.aspx?idt=468&menu=679 (Urząd Miasta Katowice).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 146 unique properties and 9 land plots (80 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -26146,31 +26618,51 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.myslowice.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
-          "commercial": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/slaskie/myslowice/myslowice.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.myslowice.pl",
+          "evidence_path": "spikes/slaskie/myslowice/myslowice.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.myslowice.pl (Urząd Miasta Mysłowice).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 39 unique properties and 49 land plots (73 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -26322,31 +26814,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (umig.olkusz.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/malopolskie/powiat-olkuski/olkusz.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://umig.olkusz.pl",
+          "evidence_path": "spikes/malopolskie/powiat-olkuski/olkusz.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://umig.olkusz.pl (Urząd Miasta i Gminy w Olkuszu).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 2 unique properties and 6 land plots (3 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -26567,31 +27078,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.pszczyna.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/slaskie/powiat-pszczynski/pszczyna.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.pszczyna.pl",
+          "evidence_path": "spikes/slaskie/powiat-pszczynski/pszczyna.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.pszczyna.pl (Burmistrz Pszczyny (Urząd Miejski w Pszczynie)).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 18 unique properties and 42 land plots (36 active listings); streams: property: unmonitored, land: unmonitored.",
+            "Origin requires residential/PL network access; excluded from hosted runners under PL-EGRESS-PLAN.md."
+          ]
         }
       ],
       "review": {
@@ -26692,31 +27222,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bipraciborz.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/slaskie/powiat-raciborski/raciborz.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://www.bipraciborz.pl",
+          "evidence_path": "spikes/slaskie/powiat-raciborski/raciborz.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://www.bipraciborz.pl (Prezydent Miasta Racibórz).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 21 unique properties and 1 land plots (8 active listings); streams: property: unmonitored, land: unmonitored.",
+            "Origin requires residential/PL network access; excluded from hosted runners under PL-EGRESS-PLAN.md."
+          ]
         }
       ],
       "review": {
@@ -26820,31 +27369,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.zgm.rybnik.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/slaskie/rybnik/rybnik.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.zgm.rybnik.pl",
+          "evidence_path": "spikes/slaskie/rybnik/rybnik.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.zgm.rybnik.pl (ZGM Rybnik).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 17 unique properties and 6 land plots (14 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -27116,31 +27683,51 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.um.sosnowiec.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
-          "commercial": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/slaskie/sosnowiec/sosnowiec.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://www.bip.um.sosnowiec.pl",
+          "evidence_path": "spikes/slaskie/sosnowiec/sosnowiec.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://www.bip.um.sosnowiec.pl (Urząd Miejski w Sosnowcu).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 56 unique properties and 230 land plots (100 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -27180,31 +27767,52 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.swietochlowice.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
-          "commercial": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/slaskie/swietochlowice/swietochlowice.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.swietochlowice.pl",
+          "evidence_path": "spikes/slaskie/swietochlowice/swietochlowice.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.swietochlowice.pl (Urząd Miejski w Świętochłowicach).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 98 unique properties and 21 land plots (216 active listings); streams: property: healthy, land: healthy.",
+            "BIP encounters intermittent Azure hosted-runner timeouts; preserved dataset retained."
+          ]
         }
       ],
       "review": {
@@ -27244,31 +27852,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet CMS 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/slaskie/powiat-tarnogorski/tarnowskie-gory.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.tarnowskiegory.pl",
+          "evidence_path": "spikes/slaskie/powiat-tarnogorski/tarnowskie-gory.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.tarnowskiegory.pl (Urząd Miejski w Tarnowskich Górach).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 39 unique properties and 48 land plots (61 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -27420,31 +28047,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (trzebinia.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
-          "building": "unknown",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/malopolskie/powiat-chrzanowski/trzebinia.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://trzebinia.pl",
+          "evidence_path": "spikes/malopolskie/powiat-chrzanowski/trzebinia.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://trzebinia.pl (Urząd Miasta w Trzebini).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 6 unique properties and 0 land plots (7 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -27841,31 +28486,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.miastozabrze.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
-          "commercial": "unknown",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/slaskie/zabrze/zabrze.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.miastozabrze.pl",
+          "evidence_path": "spikes/slaskie/zabrze/zabrze.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.miastozabrze.pl (Urząd Miejski w Zabrzu).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 322 unique properties and 28 land plots (472 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -28043,31 +28707,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "SmartSite by BIT Sp. z o.o.",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/swietokrzyskie/kielce/kielce.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bipum.kielce.eu",
+          "evidence_path": "spikes/swietokrzyskie/kielce/kielce.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bipum.kielce.eu (Urząd Miasta Kielce).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 5 unique properties and 4 land plots (7 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -28503,31 +29185,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.umkonskie.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/swietokrzyskie/powiat-konecki/konskie.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.umkonskie.pl",
+          "evidence_path": "spikes/swietokrzyskie/powiat-konecki/konskie.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.umkonskie.pl (Miasto i Gmina Końskie).",
+            "Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 2 unique properties and 0 land plots (3 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -28947,31 +29646,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet CMS 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/swietokrzyskie/powiat-skarzyski/skarzysko-kamienna.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.skarzysko.pl",
+          "evidence_path": "spikes/swietokrzyskie/powiat-skarzyski/skarzysko-kamienna.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.skarzysko.pl (Gmina Skarżysko-Kamienna).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 3 unique properties and 14 land plots (1 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -30744,31 +31462,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (drawsko.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/zachodniopomorskie/powiat-drawski/drawsko-pomorskie.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://drawsko.pl",
+          "evidence_path": "spikes/zachodniopomorskie/powiat-drawski/drawsko-pomorskie.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://drawsko.pl (Urząd Miejski w Drawsku Pomorskim).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 19 unique properties and 0 land plots (15 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -31162,31 +31897,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet CMS 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/zachodniopomorskie/powiat-szczecinecki/szczecinek.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.szczecinek.pl",
+          "evidence_path": "spikes/zachodniopomorskie/powiat-szczecinecki/szczecinek.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.szczecinek.pl (Urząd Miasta Szczecinek).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 6 unique properties and 62 land plots (24 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -31677,31 +32431,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (proszowice.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/malopolskie/powiat-proszowicki/proszowice.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://proszowice.pl",
+          "evidence_path": "spikes/malopolskie/powiat-proszowicki/proszowice.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://proszowice.pl (Urząd Gminy i Miasta Proszowice).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 9 unique properties and 13 land plots (10 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -32789,31 +33561,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (um.bip.legnica.eu)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
-          "commercial": "unknown",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/legnica/legnica.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://um.bip.legnica.eu",
+          "evidence_path": "spikes/dolnoslaskie/legnica/legnica.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://um.bip.legnica.eu (Urząd Miasta Legnicy (Wydział Gospodarki Nieruchomościami)).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 26 unique properties and 0 land plots (11 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -32970,31 +33760,51 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "SISCO BIP platform",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
-          "commercial": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/powiat-glogowski/glogow.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://glogow.bip.info.pl",
+          "evidence_path": "spikes/dolnoslaskie/powiat-glogowski/glogow.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://glogow.bip.info.pl (Prezydent Miasta Głogowa).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 29 unique properties and 28 land plots (2 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -33429,31 +34239,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.zlotoryja.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/powiat-zlotoryjski/zlotoryja.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.zlotoryja.pl",
+          "evidence_path": "spikes/dolnoslaskie/powiat-zlotoryjski/zlotoryja.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.zlotoryja.pl (Gmina Miejska Złotoryja).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 4 unique properties and 26 land plots (3 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -33679,7 +34507,7 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet CMS 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
@@ -33687,23 +34515,40 @@
         },
         "assets": {
           "residential": "unknown",
-          "land": "unknown",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/wielkopolskie/powiat-gostynski/gostyn.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://biuletyn.gostyn.pl",
+          "evidence_path": "spikes/wielkopolskie/powiat-gostynski/gostyn.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://biuletyn.gostyn.pl (Urząd Miejski w Gostyniu).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 0 unique properties and 3 land plots (0 active listings); streams: property: not_monitored, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -36446,31 +37291,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "TYPO3 municipal portal",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
-          "commercial": "unknown",
-          "garage": "unknown"
+          "commercial": "observed",
+          "garage": "observed"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/lodzkie/lodz/lodz.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.uml.lodz.pl",
+          "evidence_path": "spikes/lodzkie/lodz/lodz.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial",
+            "garage"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.uml.lodz.pl (Urząd Miasta Łodzi (Wydział Zbywania i Nabywania Nieruchomości)).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 135 unique properties and 0 land plots (70 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -36739,31 +37603,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet CMS 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/lodzkie/powiat-pabianicki/pabianice.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.um.pabianice.pl",
+          "evidence_path": "spikes/lodzkie/powiat-pabianicki/pabianice.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.um.pabianice.pl (Gmina Miejska Pabianice).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 13 unique properties and 0 land plots (26 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -37782,31 +38663,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.olsztyn.eu)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/warminsko-mazurskie/olsztyn/olsztyn.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.olsztyn.eu",
+          "evidence_path": "spikes/warminsko-mazurskie/olsztyn/olsztyn.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.olsztyn.eu (Urząd Miasta Olsztyna).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 11 unique properties and 0 land plots (6 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -38325,31 +39223,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.miastoketrzyn.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
-          "commercial": "unknown",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/warminsko-mazurskie/powiat-ketrzynski/ketrzyn.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.miastoketrzyn.pl",
+          "evidence_path": "spikes/warminsko-mazurskie/powiat-ketrzynski/ketrzyn.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.miastoketrzyn.pl (Urząd Miasta Kętrzyn (Burmistrz Miasta Kętrzyna)).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 7 unique properties and 9 land plots (1 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -38631,31 +39548,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet CMS 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/warminsko-mazurskie/powiat-mragowski/mragowo.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bipmragowo.warmia.mazury.pl",
+          "evidence_path": "spikes/warminsko-mazurskie/powiat-mragowski/mragowo.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bipmragowo.warmia.mazury.pl (Gmina Miasto Mrągowo).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 2 unique properties and 13 land plots (1 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -39126,31 +40061,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "SISCO BIP platform",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/opolskie/opole/opole.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.um.opole.pl",
+          "evidence_path": "spikes/opolskie/opole/opole.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.um.opole.pl (Urząd Miasta Opola (Wydział Gospodarki Nieruchomościami)).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 46 unique properties and 25 land plots (101 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -39307,31 +40261,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "SISCO BIP platform",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/opolskie/powiat-brzeski/brzeg.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://brzeg.pl/gminne-nieruchomosci-do-sprzedazy/",
+          "evidence_path": "spikes/opolskie/powiat-brzeski/brzeg.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://brzeg.pl/gminne-nieruchomosci-do-sprzedazy/ (Urząd Miasta w Brzegu).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 3 unique properties and 0 land plots (3 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -39488,31 +40459,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet CMS 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/opolskie/powiat-glubczycki/glubczyce.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.glubczyce.pl",
+          "evidence_path": "spikes/opolskie/powiat-glubczycki/glubczyce.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.glubczyce.pl (Urząd Miejski w Głubczycach).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 17 unique properties and 24 land plots (9 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -39720,31 +40710,51 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet CMS 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
-          "commercial": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/opolskie/powiat-kedzierzynsko-kozielski/kedzierzyn-kozle.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.kedzierzynkozle.pl",
+          "evidence_path": "spikes/opolskie/powiat-kedzierzynsko-kozielski/kedzierzyn-kozle.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.kedzierzynkozle.pl (Urząd Miasta Kędzierzyn-Koźle).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 18 unique properties and 113 land plots (89 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -40151,31 +41161,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (zan-namyslow.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/opolskie/powiat-namyslowski/namyslow.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://zan-namyslow.pl/przetargi",
+          "evidence_path": "spikes/opolskie/powiat-namyslowski/namyslow.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://zan-namyslow.pl/przetargi (ZAN Sp. z o.o. (Zakład Administracji Nieruchomości) w Namysłowie).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 10 unique properties and 0 land plots (19 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -40276,31 +41303,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.nysa.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/opolskie/powiat-nyski/nysa.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.nysa.pl",
+          "evidence_path": "spikes/opolskie/powiat-nyski/nysa.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.nysa.pl (Urząd Miejski w Nysie).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 5 unique properties and 0 land plots (8 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -40582,31 +41626,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (gzmk.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/opolskie/powiat-strzelecki/strzelce-opolskie.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://gzmk.pl/bw/Przetargi_na_sprzedaz_nieruchomosci,14.",
+          "evidence_path": "spikes/opolskie/powiat-strzelecki/strzelce-opolskie.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://gzmk.pl/bw/Przetargi_na_sprzedaz_nieruchomosci,14. (GZMK (Gminny Zarząd Mienia Komunalnego) — Gmina Strzelce Opolskie).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 1 unique properties and 4 land plots (1 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -40875,31 +41938,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet CMS 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/mazowieckie/ostroleka/ostroleka.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.um.ostroleka.pl",
+          "evidence_path": "spikes/mazowieckie/ostroleka/ostroleka.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.um.ostroleka.pl (Miasto Ostrołęka).",
+            "Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 2 unique properties and 0 land plots (0 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -41444,31 +42524,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.pila.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/wielkopolskie/powiat-pilski/pila.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.pila.pl",
+          "evidence_path": "spikes/wielkopolskie/powiat-pilski/pila.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.pila.pl (Urząd Miasta Piły).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 1 unique properties and 0 land plots (0 active listings); streams: property: verified_empty, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -41513,31 +42610,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.chodziez.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/wielkopolskie/powiat-chodzieski/chodziez.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.chodziez.pl",
+          "evidence_path": "spikes/wielkopolskie/powiat-chodzieski/chodziez.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.chodziez.pl (Urząd Miejski w Chodzieży).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 6 unique properties and 1 land plots (1 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -42935,31 +44051,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (belchatow.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/lodzkie/powiat-belchatowski/belchatow.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://belchatow.pl/wp-json/wp/v2",
+          "evidence_path": "spikes/lodzkie/powiat-belchatowski/belchatow.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://belchatow.pl/wp-json/wp/v2 (Urząd Miasta Bełchatowa).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 2 unique properties and 0 land plots (2 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -43310,31 +44443,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.tomaszow.miasta.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/lodzkie/powiat-tomaszowski/tomaszow-mazowiecki.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "http://bip.tomaszow.miasta.pl",
+          "evidence_path": "spikes/lodzkie/powiat-tomaszowski/tomaszow-mazowiecki.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: http://bip.tomaszow.miasta.pl (Prezydent Miasta Tomaszowa Mazowieckiego (Wydział Gospodarki Nieruchomościami)).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 7 unique properties and 44 land plots (1 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -43491,31 +44643,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (www.ars.plock.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
-          "building": "unknown",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/mazowieckie/plock/plock.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://www.ars.plock.pl",
+          "evidence_path": "spikes/mazowieckie/plock/plock.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://www.ars.plock.pl (Agencja Rewitalizacji Starówki ARS Sp. z o.o. / Miasto Płock).",
+            "Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 12 unique properties and 0 land plots (20 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -44060,7 +45230,7 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.poznan.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
@@ -44068,23 +45238,40 @@
         },
         "assets": {
           "residential": "unknown",
-          "land": "unknown",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/wielkopolskie/poznan/poznan.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.poznan.pl",
+          "evidence_path": "spikes/wielkopolskie/poznan/poznan.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.poznan.pl (Urząd Miasta Poznania (Wydział Gospodarki Nieruchomościami)).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 0 unique properties and 1 land plots (0 active listings); streams: property: not_monitored, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -45904,31 +47091,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.umsroda.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/wielkopolskie/powiat-sredzki/sroda-wielkopolska.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.umsroda.pl",
+          "evidence_path": "spikes/wielkopolskie/powiat-sredzki/sroda-wielkopolska.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.umsroda.pl (Urząd Miejski w Środzie Wielkopolskiej).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 6 unique properties and 27 land plots (10 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -46098,31 +47303,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.przemysl.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/podkarpackie/przemysl/przemysl.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://invest.przemysl.eu/40004/642/przetargi-na-zbycie-dzierzawe-najem-nieruchomosci.html",
+          "evidence_path": "spikes/podkarpackie/przemysl/przemysl.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://invest.przemysl.eu/40004/642/przetargi-na-zbycie-dzierzawe-najem-nieruchomosci.html (Urząd Miasta Przemyśla).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 2 unique properties and 0 land plots (2 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -47098,7 +48320,7 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Samorząd Gov.pl portal",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
@@ -47106,23 +48328,40 @@
         },
         "assets": {
           "residential": "unknown",
-          "land": "unknown",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/mazowieckie/powiat-lipski/lipsko.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://samorzad.gov.pl",
+          "evidence_path": "spikes/mazowieckie/powiat-lipski/lipsko.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://samorzad.gov.pl (Urząd Miasta i Gminy Lipsko (Burmistrz Miasta i Gminy Lipsko)).",
+            "Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 0 unique properties and 2 land plots (0 active listings); streams: property: not_monitored, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -47891,31 +49130,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.kolbuszowa.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/podkarpackie/powiat-kolbuszowski/kolbuszowa.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.kolbuszowa.pl",
+          "evidence_path": "spikes/podkarpackie/powiat-kolbuszowski/kolbuszowa.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.kolbuszowa.pl (Urząd Miejski w Kolbuszowej (Burmistrz Kolbuszowej)).",
+            "Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 3 unique properties and 4 land plots (0 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -48529,31 +49786,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (siedlce.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
-          "building": "unknown",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/mazowieckie/siedlce/siedlce.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://siedlce.pl",
+          "evidence_path": "spikes/mazowieckie/siedlce/siedlce.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://siedlce.pl (Prezydent Miasta Siedlce).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 3 unique properties and 0 land plots (6 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -49210,31 +50485,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet CMS 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/mazowieckie/powiat-wegrowski/wegrow.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.wegrow.com.pl",
+          "evidence_path": "spikes/mazowieckie/powiat-wegrowski/wegrow.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.wegrow.com.pl (Urząd Miejski w Węgrowie).",
+            "Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 4 unique properties and 5 land plots (5 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -49796,31 +51090,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet CMS 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/lodzkie/powiat-zdunskowolski/zdunska-wola.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.zdunskawola.pl",
+          "evidence_path": "spikes/lodzkie/powiat-zdunskowolski/zdunska-wola.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.zdunskawola.pl (Prezydent Miasta Zduńska Wola).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 1 unique properties and 7 land plots (1 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -50465,31 +51778,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.um.slupsk.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/pomorskie/slupsk/slupsk.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.um.slupsk.pl",
+          "evidence_path": "spikes/pomorskie/slupsk/slupsk.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.um.slupsk.pl (Urząd Miejski w Słupsku).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 20 unique properties and 0 land plots (15 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -50840,31 +52170,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.um.lebork.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
-          "commercial": "unknown",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/pomorskie/powiat-leborski/lebork.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.um.lebork.pl",
+          "evidence_path": "spikes/pomorskie/powiat-leborski/lebork.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.um.lebork.pl (Gmina Miasto Lębork).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 28 unique properties and 12 land plots (0 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -51215,31 +52564,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "SmartSite by BIT Sp. z o.o.",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/podlaskie/powiat-augustowski/augustow.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.um.augustow.pl",
+          "evidence_path": "spikes/podlaskie/powiat-augustowski/augustow.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.um.augustow.pl (Urząd Miejski w Augustowie).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 3 unique properties and 0 land plots (9 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -51409,31 +52775,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.gizycko.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/warminsko-mazurskie/powiat-gizycki/gizycko.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.gizycko.pl",
+          "evidence_path": "spikes/warminsko-mazurskie/powiat-gizycki/gizycko.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.gizycko.pl (Gmina Miejska Giżycko).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 2 unique properties and 0 land plots (5 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -51784,31 +53167,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.pisz.hi.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/warminsko-mazurskie/powiat-piski/pisz.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.pisz.hi.pl",
+          "evidence_path": "spikes/warminsko-mazurskie/powiat-piski/pisz.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.pisz.hi.pl (Gmina Pisz).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 2 unique properties and 29 land plots (4 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -52034,31 +53435,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.wegorzewo.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
-          "commercial": "unknown",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/warminsko-mazurskie/powiat-wegorzewski/wegorzewo.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.wegorzewo.pl",
+          "evidence_path": "spikes/warminsko-mazurskie/powiat-wegorzewski/wegorzewo.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.wegorzewo.pl (Gmina Węgorzewo).",
+            "Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 3 unique properties and 38 land plots (6 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -52103,31 +53523,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.um.szczecin.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/zachodniopomorskie/szczecin/szczecin.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.um.szczecin.pl",
+          "evidence_path": "spikes/zachodniopomorskie/szczecin/szczecin.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.um.szczecin.pl (Urząd Miasta Szczecin).",
+            "Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 37 unique properties and 0 land plots (1 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -53551,31 +54988,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.stargard.eu)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/zachodniopomorskie/powiat-stargardzki/stargard.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://tbs.stargard.pl",
+          "evidence_path": "spikes/zachodniopomorskie/powiat-stargardzki/stargard.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://tbs.stargard.pl (Gmina-Miasto Stargard).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 17 unique properties and 6 land plots (5 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -53676,31 +55131,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet CMS 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
-          "commercial": "unknown",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/zachodniopomorskie/swinoujscie/swinoujscie.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.um.swinoujscie.pl",
+          "evidence_path": "spikes/zachodniopomorskie/swinoujscie/swinoujscie.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.um.swinoujscie.pl (Urząd Miasta Świnoujście).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 17 unique properties and 0 land plots (46 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -54581,31 +56054,51 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.um.sandomierz.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
-          "garage": "unknown"
+          "garage": "observed"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/swietokrzyskie/powiat-sandomierski/sandomierz.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.um.sandomierz.pl",
+          "evidence_path": "spikes/swietokrzyskie/powiat-sandomierski/sandomierz.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "garage",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.um.sandomierz.pl (Urząd Miejski w Sandomierzu).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 11 unique properties and 22 land plots (2 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -55486,31 +56979,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.torun.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/kujawsko-pomorskie/torun/torun.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.torun.pl",
+          "evidence_path": "spikes/kujawsko-pomorskie/torun/torun.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.torun.pl (Gmina Miasta Toruń).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 26 unique properties and 0 land plots (23 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -55624,31 +57134,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet CMS 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/kujawsko-pomorskie/powiat-chelminski/chelmno.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.chelmno.pl",
+          "evidence_path": "spikes/kujawsko-pomorskie/powiat-chelminski/chelmno.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.chelmno.pl (Gmina Miasto Chełmno).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 16 unique properties and 12 land plots (4 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -55891,31 +57420,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.grudziadz.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/kujawsko-pomorskie/grudziadz/grudziadz.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.grudziadz.pl",
+          "evidence_path": "spikes/kujawsko-pomorskie/grudziadz/grudziadz.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.grudziadz.pl (Prezydent Grudziądza (Urząd Miejski w Grudziądzu, Wydział Geodezji i Gospodarki Nieruchomościami)).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 12 unique properties and 0 land plots (47 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -56253,31 +57799,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (mst-wabrzezno.rbip.mojregion.info)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/kujawsko-pomorskie/powiat-wabrzeski/wabrzezno.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://mst-wabrzezno.rbip.mojregion.info",
+          "evidence_path": "spikes/kujawsko-pomorskie/powiat-wabrzeski/wabrzezno.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://mst-wabrzezno.rbip.mojregion.info (Gmina Miasto Wąbrzeźno).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 5 unique properties and 7 land plots (13 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -56924,31 +58488,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (um.bip.klodzko.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/powiat-klodzki/klodzko.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://um.bip.klodzko.pl",
+          "evidence_path": "spikes/dolnoslaskie/powiat-klodzki/klodzko.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://um.bip.klodzko.pl (Urząd Miasta w Kłodzku).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 5 unique properties and 0 land plots (3 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -57777,31 +59358,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.swidnica.nv.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
-          "commercial": "unknown",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/powiat-swidnicki/swidnica.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.swidnica.nv.pl",
+          "evidence_path": "spikes/dolnoslaskie/powiat-swidnicki/swidnica.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "commercial"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.swidnica.nv.pl (Prezydent Miasta Świdnicy (Wydział Mienia Komunalnego / MZN)).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 8 unique properties and 0 land plots (2 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -58156,31 +59755,49 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.wloclawek.eu)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
-          "building": "unknown",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/kujawsko-pomorskie/wloclawek/wloclawek.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "$/2730/ogloszenia-o-przetargach-nieruchomosci.html",
+          "evidence_path": "spikes/kujawsko-pomorskie/wloclawek/wloclawek.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: $/2730/ogloszenia-o-przetargach-nieruchomosci.html (Gmina Miasto Włocławek).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 2 unique properties and 0 land plots (5 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -59005,31 +60622,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet CMS 2.9.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/wroclaw/wroclaw.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.um.wroc.pl",
+          "evidence_path": "spikes/dolnoslaskie/wroclaw/wroclaw.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.um.wroc.pl (Urząd Miejski Wrocławia (Wydział Sprzedaży Lokali)).",
+            "Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 71 unique properties and 0 land plots (0 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -59953,31 +61587,50 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (wolow.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/powiat-wolowski/wolow.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://wolow.pl",
+          "evidence_path": "spikes/dolnoslaskie/powiat-wolowski/wolow.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://wolow.pl (Urząd Miejski w Wołowie (Burmistrz Gminy Wołów)).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 23 unique properties and 54 land plots (3 active listings); streams: property: healthy, land: healthy."
+          ]
         }
       ],
       "review": {
@@ -61207,31 +62860,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.krosnoodrzanskie.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/lubuskie/powiat-krosnienski/krosno-odrzanskie.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.krosnoodrzanskie.pl",
+          "evidence_path": "spikes/lubuskie/powiat-krosnienski/krosno-odrzanskie.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://bip.krosnoodrzanskie.pl (Urząd Miasta w Krośnie Odrzańskim).",
+            "Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices.",
+            "Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).",
+            "Committed dataset maintains 10 unique properties and 0 land plots (2 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {
@@ -61444,31 +63114,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (nowasol.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/lubuskie/powiat-nowosolski/nowa-sol.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://nowasol.pl/przetargi",
+          "evidence_path": "spikes/lubuskie/powiat-nowosolski/nowa-sol.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary board: https://nowasol.pl/przetargi (Gmina Nowa Sól-Miasto).",
+            "Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments.",
+            "Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.",
+            "Committed dataset maintains 8 unique properties and 0 land plots (9 active listings); streams: property: healthy, land: not_monitored."
+          ]
         }
       ],
       "review": {

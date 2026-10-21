@@ -120,3 +120,14 @@ Also confirmed separate bezprzetargowy track (wykup przez najemcę): these are p
 - TTBS Tczew — II przetarg Warsztatowa 4 PDF (2024-12): https://tbs.tczew.pl/wp-content/uploads/2024/12/ogloszenie-o-II-przetargu-ul.-Warsztatowa-4.pdf
 - tczew.pl mieszkania komunalne na sprzedaż: https://tczew.pl/mieszkania-komunalne-na-sprzedaz-2/
 - ZUK Tczew BIP: https://zuktczew.bipstrona.pl/wiadomosci/3/lista/przetargi
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Miejska Tczew) publishes real-estate auction notices at `https://bip.tczew.pl` (Municipal BIP portal (bip.tczew.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **3 unique properties** and **0 land plots** with 0 active listings. Both property and land streams are verified in production (property: verified_empty, land: not_monitored).

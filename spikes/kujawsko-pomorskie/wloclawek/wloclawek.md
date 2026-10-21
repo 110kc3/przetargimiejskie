@@ -97,3 +97,15 @@ The city does run genuine flat auctions by przetarg ustny nieograniczony, the BI
 - https://bip.um.wlocl.pl/936/750/sprzedaz-lokali-mieszkalnych.html
 - https://azk.wloclawek.pl/przetargi/
 - https://bip.azk.wloclawek.pl/
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Miasto Włocławek) publishes real-estate auction notices at `$/2730/ogloszenia-o-przetargach-nieruchomosci.html` (Municipal BIP portal (bip.wloclawek.eu)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **2 unique properties** and **0 land plots** with 5 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

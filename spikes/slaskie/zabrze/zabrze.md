@@ -12,3 +12,16 @@ Adapter is live: `pipeline/src/cities/zabrze/` → data in `data/zabrze/` (regis
 - **Coverage audit:** [SPIKE-COVERAGE.md](../../../SPIKE-COVERAGE.md).
 
 *No re-spike needed; this file exists so every covered city has a node in the spikes/ tree.*
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Zabrzu) publishes real-estate auction notices at `https://bip.miastozabrze.pl` (Municipal BIP portal (bip.miastozabrze.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+- **Land (działki):** municipal undeveloped and developed plots (28 monitored plots).
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **322 unique properties** and **28 land plots** with 472 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

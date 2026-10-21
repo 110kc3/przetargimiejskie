@@ -72,3 +72,14 @@ YES — confirmed LIVE.
 **Blockers:** None. No auth, no JS rendering, no CAPTCHA, no PDF. Single Referer header sidesteps the 403 on direct article URLs.
 
 **VERDICT: BUILD — Low effort.**
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Drawsku Pomorskim) publishes real-estate auction notices at `https://drawsko.pl` (Municipal BIP portal (drawsko.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **19 unique properties** and **0 land plots** with 15 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

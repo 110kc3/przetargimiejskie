@@ -87,3 +87,14 @@ There is also an electronic notice board at `eto.um.augustow.pl` (linked from ci
 - City site auction mirror (aktualne): https://urzad.augustow.pl/node/1340
 - Example flat announcement (urzad.augustow.pl): https://urzad.augustow.pl/aktualnosci/burmistrz-miasta-augustowa-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-7
 - Spółdzielnia Mieszkaniowa w Augustowie (not involved in municipal sales): https://www.smaugustow.pl/
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Augustowie) publishes real-estate auction notices at `https://bip.um.augustow.pl` (SmartSite by BIT Sp. z o.o.).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **3 unique properties** and **0 land plots** with 9 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

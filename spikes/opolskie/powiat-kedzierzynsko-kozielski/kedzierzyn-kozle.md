@@ -12,3 +12,17 @@ Adapter is live: `pipeline/src/cities/kedzierzyn-kozle/` → data in `data/kedzi
 - **Coverage audit:** [SPIKE-COVERAGE.md](../../../SPIKE-COVERAGE.md).
 
 *No re-spike needed; this file exists so every covered city has a node in the spikes/ tree.*
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Kędzierzyn-Koźle) publishes real-estate auction notices at `https://bip.kedzierzynkozle.pl` (Logonet CMS 2.9.0).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+- **Land (działki):** municipal undeveloped and developed plots (113 monitored plots).
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **18 unique properties** and **113 land plots** with 89 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

@@ -42,3 +42,16 @@ Gmina Miejska Węgrów (Urząd Miejski, Burmistrz Miasta Węgrowa) sells municip
 - **Blockers:** None. No rate-limit/auth/CAPTCHA signals. Watch-items: (1) single mixed board — must classify auction vs wykaz-na-rzecz-najemcy vs land; (2) wykazy sometimes issued as `Zarządzenie` — optionally cross-check the zarządzenia stream; (3) low absolute flat volume.
 
 **VERDICT: BUILD (Low–Medium effort)** — confirmed recurring open oral municipal flat auctions with an in-band `informacja o wyniku` result stream on a clean Logonet eUrząd server-HTML BIP; standard Logonet analog (tarnowskie-gory), no technical blockers, only mixed-board classification.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Węgrowie) publishes real-estate auction notices at `https://bip.wegrow.com.pl` (Logonet CMS 2.9.0).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (5 monitored plots).
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **4 unique properties** and **5 land plots** with 5 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

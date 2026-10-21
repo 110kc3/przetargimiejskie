@@ -78,3 +78,17 @@ Case reference format: `WRM.DGiGG.6840.5.{N}.{YEAR}.JSz`
 **Effort:** Medium — BIP-JS discovery adds complexity vs. a plain-HTML BIP, but PDF parsing is straightforward (text, not scanned). Same pattern already solved for other bip.info.pl cities.
 
 **VERDICT: BUILD** — confirmed flat auction stream, text PDFs, achieved-price notices present, no auth/bot blocks, steady volume (~9+ lots/year).
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Prezydent Miasta Głogowa) publishes real-estate auction notices at `https://glogow.bip.info.pl` (SISCO BIP platform).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Commercial (lokale użytkowe):** utility and commercial spaces.
+- **Land (działki):** municipal undeveloped and developed plots (28 monitored plots).
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **29 unique properties** and **28 land plots** with 2 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

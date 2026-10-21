@@ -49,3 +49,14 @@ Contact: Wydział Gospodarki Mieniem, UM Międzyrzecz, ul. Rynek 1, 66-300 Międ
 - **Blockers:** None. No rate-limit/auth/JS signals. Only care-items: filter out ZGL-style dzierżawa/najem noise (city board is clean of it; ZGL is a separate host we skip) and interleaved land across pages.
 
 **VERDICT: BUILD (Low effort)** — recurring open flat auctions (`przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego`) with achieved prices on the exact eBIP engine our gorzow-wielkopolski adapter already parses; near-clone build, plus MTBS as a bonus flat source.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Międzyrzeczu) publishes real-estate auction notices at `https://bip.miedzyrzecz.pl` (Municipal BIP portal (bip.miedzyrzecz.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **18 unique properties** and **0 land plots** with 0 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

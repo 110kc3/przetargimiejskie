@@ -43,3 +43,14 @@ Contact: Urząd Miejski w Oleśnie, ul. Pieloka 21, 46-300 Olesno, tel. 34 359 7
 - **Blockers:** None. No rate-limit/auth/CAPTCHA. Only watch-items: (a) low flat volume means most yearly entries are land — classifier must not treat land noise as flats; (b) confirm we target `bip.olesno.pl` (Opolskie), not the Małopolskie `ugolesno`.
 
 **VERDICT: BUILD (Low effort)** — recurring open flat auctions on a clean skyCMS v4 server-HTML BIP with inline achieved-price results and lease cleanly separated onto other boards; exact in-repo analog (Przemyśl) already exists. Caveat: modest, land-skewed flat volume.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski w Oleśnie) publishes real-estate auction notices at `https://bip.olesno.pl` (Municipal BIP portal (bip.olesno.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **1 unique properties** and **0 land plots** with 0 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

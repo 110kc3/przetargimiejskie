@@ -104,3 +104,14 @@ From confirmed examples: ul. 12 Marca 194 nr 2 sold at 153 000 zł (vs. 125 000 
 - WZNK BIP: https://bip.wznk.pl/
 - WTBS homepage: https://wtbswejherowo.pl/
 - Gmina Miasta Wejherowa BIP main: https://bip.wejherowo.pl/
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Miasta Wejherowa) publishes real-estate auction notices at `https://bip.wejherowo.pl` (Municipal BIP portal (bip.wejherowo.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **11 unique properties** and **0 land plots** with 6 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

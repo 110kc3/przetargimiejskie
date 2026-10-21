@@ -135,3 +135,14 @@ no SPA, no OCR. ZNM Brzeg is a separate adapter scope (najem only, different dom
 **VERDICT: BUILD** — confirmed flat-auction volume, open auctions (not bezprzetargowo), structured
 HTML on both hosts, no bot-block signals. One NEEDS-LIVE-VERIFY caveat on result-price extraction
 from bip.brzeg.pl per-item pages; low risk.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta w Brzegu) publishes real-estate auction notices at `https://brzeg.pl/gminne-nieruchomosci-do-sprzedazy/` (SISCO BIP platform).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **3 unique properties** and **0 land plots** with 3 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

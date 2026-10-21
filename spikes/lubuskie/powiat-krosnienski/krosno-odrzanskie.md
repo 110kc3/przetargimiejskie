@@ -45,3 +45,14 @@ PDF attachments (formal announcement scan, floor plan) linked from each detail p
 - **Blockers**: None identified. HTML is clean, no auth, no rate-limit signals encountered (429 above was workspace rate-limit, not target-site block).
 - **Effort**: Low — reuse SYSTEMDOBIP parser; add gmina config entry. Estimated 0.5–1 day.
 - **VERDICT: BUILD (Low effort).**
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta w Krośnie Odrzańskim) publishes real-estate auction notices at `https://bip.krosnoodrzanskie.pl` (Municipal BIP portal (bip.krosnoodrzanskie.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **10 unique properties** and **0 land plots** with 2 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

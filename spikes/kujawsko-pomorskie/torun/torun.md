@@ -131,3 +131,14 @@ Toruń has an active, sustained, robotically-accessible flat-auction stream on a
 - LIVE: https://www.zgm.torun.pl/lokale-nieruchomosci-sprzedaz/ (ZGM secondary — stale 2017 post)
 - DESK: https://www.zgm.torun.pl/wyniki-przetargu-ustnego-28/ (ZGM auction results — rental only)
 - DESK: https://listaprzetargow.pl/oferty/torun (aggregator confirming volume)
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Miasta Toruń) publishes real-estate auction notices at `https://bip.torun.pl` (Municipal BIP portal (bip.torun.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **26 unique properties** and **0 land plots** with 23 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

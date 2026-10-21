@@ -49,3 +49,15 @@ Achieved price is in the PDF attachment, not in the HTML stub — PDF parsing re
 **Blockers:** None significant. PDFs are text-based (no OCR needed). No auth. Pagination is deterministic.
 
 **Effort:** Low — Logonet CMS is already a known pattern; PDF parsing for price is the only added step vs. pure-HTML cities.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Gmina Miasta Braniewa) publishes real-estate auction notices at `http://bip.braniewo.pl` (Logonet CMS 2.9.0).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (37 monitored plots).
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **11 unique properties** and **37 land plots** with 10 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

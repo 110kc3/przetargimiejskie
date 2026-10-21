@@ -105,3 +105,14 @@ ZBiLK manages *lokale użytkowe* (commercial) and garage rentals/auctions — **
 **Effort estimate:** Medium — two scrapers, HTML parsing on stable ICOR BIP + WordPress feed, no auth. Achievable in ~2–3 engineer-days for an adapter matching the Kraków/Bytom pattern.
 
 **VERDICT: BUILD** — strong flat-auction volume confirmed live, born-digital HTML on ICOR BIP, no access barriers, both announcement and result streams present.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Szczecin) publishes real-estate auction notices at `https://bip.um.szczecin.pl` (Municipal BIP portal (bip.um.szczecin.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices. Separate achieved-price result notices are either not published on this board or expire quickly; pipeline focuses on announcement lifecycle.
+
+Committed dataset maintains **37 unique properties** and **0 land plots** with 1 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

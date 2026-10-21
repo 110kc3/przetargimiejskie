@@ -80,3 +80,14 @@ No second board (platformazakupowa.pl is used for procurement contracts ≥ 130 
 - XML feed at `/xml/` endpoints is unverified for completeness — HTML scraping is the safe fallback.
 
 **VERDICT: BUILD** — clean HTML BIP, flat auctions confirmed live, achieved-price PDFs present on each listing, low scraping complexity. Low effort relative to other cities.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Miasto Ostrołęka) publishes real-estate auction notices at `https://bip.um.ostroleka.pl` (Logonet CMS 2.9.0).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **2 unique properties** and **0 land plots** with 0 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

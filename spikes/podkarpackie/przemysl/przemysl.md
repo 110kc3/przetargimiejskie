@@ -98,3 +98,14 @@ Reasons:
 - PGM does not publish a parallel auction stream; no second-source scraping needed.
 
 **VERDICT: BUILD — Medium effort, LIVE-VERIFIED.** Confirmed open flat auctions on a clean server-HTML BIP, achieved-price notices present on same host, no technical blockers.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta Przemyśla) publishes real-estate auction notices at `https://invest.przemysl.eu/40004/642/przetargi-na-zbycie-dzierzawe-najem-nieruchomosci.html` (Municipal BIP portal (bip.przemysl.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **2 unique properties** and **0 land plots** with 2 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

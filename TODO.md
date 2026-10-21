@@ -193,13 +193,13 @@ The older dated sections below preserve diagnosis and do not override this state
 - **Parcel lookup identities corrected:** Chrzanów now uses official city-area
   TERC `120303_4` and Kwidzyn municipal TERC `220701_1`, matching the canonical
   national ledger. No official ledger identity or full-review date was changed.
-- **Existing-city asset audit advanced in the canonical manifest:**
-  **0 complete / 28 partial / 93 unchecked**, generated in
-  [SPIKE-PROGRESS.md](spikes/SPIKE-PROGRESS.md). The audit expands with eight newly
-  audited enabled feeds: Warszawa, Białystok, Bielsko-Biała, Bydgoszcz, Cieszyn,
-  Elbląg, Gdańsk, and Sopot (joining Bytom, Gliwice, Gniezno, Golub-Dobrzyń, Rawa Mazowiecka,
-  Poddębice, Wałbrzych, Bochnia, and prior Wave 1/2 cohorts). All retain their full review deadlines and
-  canonical capabilities in master-cities.json.
+- **Existing-city asset audit completed across all 121 enabled feeds in the canonical manifest:**
+  **0 complete / 121 partial / 0 unchecked**, generated in
+  [SPIKE-PROGRESS.md](spikes/SPIKE-PROGRESS.md). All 121 enabled municipal feeds now have audited
+  source entries with structured `## Partial source/asset audit — 2026-10-21` sections in their
+  respective spike notes and canonical capabilities in master-cities.json. Source observations
+  and limitations document asset scope (residential, land, commercial, garages, buildings),
+  ingestion formats, achieved-price result streams, and production health.
 - **Triage & feed repairs resolved:**
   Ząbkowice Śląskie garage notice 11008 (19.43 m², 44 000 zł on parcel 10/21 at ul. Bartosza Głowackiego)
   parsed cleanly using the rejon garage convention (key `bartosza glowackiego|0|10-21`), and its

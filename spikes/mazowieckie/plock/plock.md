@@ -123,3 +123,15 @@ City BIP does not publish achieved prices for its land sales in the "Zbycie nier
 - [ARS wynik przetarg 135](http://www.ars.plock.pl/pl/Auction/Details/135) — live-fetched, scanned PDF noted
 - [City BIP Zbycie nieruchomości Gminy Płock](https://nowybip.plock.eu/komunikaty/nieruchomosci) — live-fetched
 - [MZGM przetargi i aukcje](http://www.mzgm-plock.pl/pl/48_przetargi_i_wybory_ofert/49_przetargi_i_aukcje) — live-fetched
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Agencja Rewitalizacji Starówki ARS Sp. z o.o. / Miasto Płock) publishes real-estate auction notices at `https://www.ars.plock.pl` (Municipal BIP portal (www.ars.plock.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Buildings (budynki / kamienice):** residential and mixed-use whole properties.
+
+Announcements and attachments are processed via text PDF extractors with OCR fallback (`ocrPdf`) for scanned notices. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **12 unique properties** and **0 land plots** with 20 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).

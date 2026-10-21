@@ -43,3 +43,15 @@ Caveat: residential disposal also occurs **bezprzetargowo na rzecz najemcy** (e.
 - **Blockers:** None technical. Only watch-items: (1) **single consolidated board** mixes sprzedaż lokali + land + dzierżawa/najem/użyczenie + wyniki — adapter MUST classify entry type and drop non-flat / bezprzetargowo-na-najemcy noise; (2) many flat sales are **udział (fractional share)** listings — handle 1/2-share pricing; (3) low absolute flat volume — thin but real recurring stream.
 
 **VERDICT: BUILD (Low effort)** — recurring (if thin) open municipal flat auctions with a live achieved-price stream on a clean server-HTML WOKISS BIP, near-zero marginal cost via the existing Jarocin/Kalisz/Ostrów wokiss-family adapter; no housing manager but no technical blockers.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta i Gminy w Pleszewie) publishes real-estate auction notices at `https://bip.pleszew.pl` (Municipal BIP portal (bip.pleszew.pl)).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+- **Land (działki):** municipal undeveloped and developed plots (23 monitored plots).
+
+Announcements are extracted from server-rendered HTML notices and born-digital text PDF attachments. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **2 unique properties** and **23 land plots** with 0 active listings. Both property and land streams are verified in production (property: healthy, land: healthy).

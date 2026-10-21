@@ -142,3 +142,14 @@ Per §12 of the 2004 regulation, the formal "informacja o wyniku przetargu" is p
 **BUILD** — Wrocław is one of the strongest candidates in Dolnośląskie: confirmed weekly *ustny przetarg nieograniczony na sprzedaż lokali mieszkalnych*, clean server-rendered BIP, explicit "Cena uzyskana" field on Giełda Nieruchomości, no auth/bot blocks, deep historical archive. The two-source architecture is manageable (cf. Kraków analog). The RODO deletion risk requires prompt scraping cadence but is not a blocker for ongoing operation.
 
 **Recommended first step:** Probe `https://bip.um.wroc.pl/przetargi-nieruchomosci/xml/1/1` to assess XML structure before committing to HTML scraping.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miejski Wrocławia (Wydział Sprzedaży Lokali)) publishes real-estate auction notices at `https://bip.um.wroc.pl` (Logonet CMS 2.9.0).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** communal apartment sales and multi-round oral auctions.
+
+Announcements and documentation include Word attachments (.doc/.docx) ingested via `docText`. Achieved prices and auction outcomes are extracted from published result notices (`wyniki przetargów`).
+
+Committed dataset maintains **71 unique properties** and **0 land plots** with 0 active listings. Both property and land streams are verified in production (property: healthy, land: not_monitored).
