@@ -37,3 +37,15 @@ Also present but **out of scope**: `/kategorie/99-dzierzawa-nieruchomosci` (leas
 - **Blockers:** None technical. Main caveat is **low flat-auction volume** → modest ROI; the value is the clean results board.
 
 **VERDICT: BUILD (Medium effort, low volume)** — a real (if thin) open municipal flat-auction stream on a clean Nefeni server-HTML BIP with a dedicated Rozstrzygnięte achieved-price board; build alongside other low-volume kuj-pom seats.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Burmistrz Mogilna (Gmina Mogilno)) publishes auction announcements on `https://bip.mogilno.pl/kategorie/98-zbycie-nieruchomosci` (Nefeni CMS (server-rendered HTML)).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and attachments extracted via pdfText with ocrPdf fallback. Achieved prices and auction outcomes parsed from result notices.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

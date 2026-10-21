@@ -10708,7 +10708,7 @@
       "powiat_slug": "powiat-grodziski",
       "powiat_label": "powiat grodziski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/mazowieckie/powiat-grodziski/grodzisk-mazowiecki.md",
       "spike": {
         "wave": "Q",
@@ -10727,38 +10727,57 @@
         "gmina_kind": "miasto"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "grodzisk-mazowiecki",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "WordPress HTML + Logonet BIP REST API",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/mazowieckie/powiat-grodziski/grodzisk-mazowiecki.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://nieruchomosci.grodzisk.pl/sprzedaz/",
+          "evidence_path": "spikes/mazowieckie/powiat-grodziski/grodzisk-mazowiecki.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary source: nieruchomosci.grodzisk.pl (WordPress REST API / HTML) and bip.grodzisk.pl (Logonet JSON API).",
+            "Announcements parsed from server-rendered HTML posts and born-digital PDF attachments.",
+            "Concluded results and achieved prices parsed from Logonet BIP article endpoints.",
+            "Adapter verified with 21/21 unit tests passing; registered as enabled feed."
+          ]
         }
       ],
       "review": {
@@ -11307,7 +11326,7 @@
       "powiat_slug": "powiat-otwocki",
       "powiat_label": "powiat otwocki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/mazowieckie/powiat-otwocki/otwock.md",
       "spike": {
         "wave": "GS3",
@@ -11326,38 +11345,55 @@
         "gmina_kind": "gmina miejska"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "otwock",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "INTERmedi@ CMS-BIP 3.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/mazowieckie/powiat-otwocki/otwock.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.otwock.pl/?bip=1&cid=1018",
+          "evidence_path": "spikes/mazowieckie/powiat-otwocki/otwock.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary source: bip.otwock.pl (INTERmedi@ CMS-BIP menu 1018 announcements, menu 1039 results).",
+            "Announcements processed via pdfText with ocrPdf OCR fallback for scanned attachments.",
+            "Achieved prices and auction outcomes extracted from result notices.",
+            "Adapter verified with 20/20 unit tests passing; registered as enabled feed."
+          ]
         }
       ],
       "review": {
@@ -11376,7 +11412,7 @@
       "powiat_slug": "powiat-warszawski-zachodni",
       "powiat_label": "powiat warszawski zachodni",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/mazowieckie/powiat-warszawski-zachodni/ozarow-mazowiecki.md",
       "spike": {
         "wave": "H",
@@ -11395,38 +11431,56 @@
         "gmina_kind": "miasto"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "ozarow-mazowiecki",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "WordPress HTML + born-digital PDF",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/mazowieckie/powiat-warszawski-zachodni/ozarow-mazowiecki.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://ozarow-mazowiecki.pl/nieruchomosci-przeznaczone-do-zbycia/",
+          "evidence_path": "spikes/mazowieckie/powiat-warszawski-zachodni/ozarow-mazowiecki.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary source: ozarow-mazowiecki.pl/nieruchomosci-przeznaczone-do-zbycia/ (WordPress HTML).",
+            "Numeric details (starting price, wadium, date) parsed from attached born-digital PDFs via pdfText.",
+            "Separate result notices are either inline or absent; adapter focuses on announcement lifecycle.",
+            "Adapter verified with 15/15 unit tests passing; registered as enabled feed."
+          ]
         }
       ],
       "review": {
@@ -14902,7 +14956,7 @@
       "powiat_slug": "powiat-chojnicki",
       "powiat_label": "powiat chojnicki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/pomorskie/powiat-chojnicki/chojnice.md",
       "spike": {
         "wave": "E",
@@ -14921,38 +14975,57 @@
         "gmina_kind": "gmina miejska"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "chojnice",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "WordPress HTML + PDF attachments",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
-          "commercial": "unknown",
+          "commercial": "observed",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/pomorskie/powiat-chojnicki/chojnice.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://miastochojnice.pl/kat/przetargi-na-nieruchomosci-miejskie/",
+          "evidence_path": "spikes/pomorskie/powiat-chojnicki/chojnice.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "commercial"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary source: miastochojnice.pl/kat/przetargi-na-nieruchomosci-miejskie/ (WordPress posts).",
+            "Announcements and companion result notices parsed from born-digital PDF attachments via pdfText.",
+            "Achieved prices extracted from companion result notices on /kat/przetargi-na-nieruchomosci-miejskie-wyniki/.",
+            "Adapter verified with 18/18 unit tests passing; registered as enabled feed."
+          ]
         }
       ],
       "review": {
@@ -15544,7 +15617,7 @@
       "powiat_slug": "powiat-mogilenski",
       "powiat_label": "powiat mogileński",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/kujawsko-pomorskie/powiat-mogilenski/mogilno.md",
       "spike": {
         "wave": "GS1",
@@ -15563,38 +15636,56 @@
         "gmina_kind": "miasto"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "mogilno",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Nefeni CMS (server-rendered HTML)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/kujawsko-pomorskie/powiat-mogilenski/mogilno.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.mogilno.pl/kategorie/98-zbycie-nieruchomosci",
+          "evidence_path": "spikes/kujawsko-pomorskie/powiat-mogilenski/mogilno.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary source: bip.mogilno.pl (Nefeni CMS category 98 sales, category 265 results).",
+            "Announcements and attachments extracted via pdfText with ocrPdf fallback.",
+            "Achieved prices and auction outcomes parsed from result notices.",
+            "Adapter verified with 20/20 unit tests passing; registered as enabled feed."
+          ]
         }
       ],
       "review": {
@@ -17061,7 +17152,7 @@
       "powiat_slug": "powiat-plonski",
       "powiat_label": "powiat płoński",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/mazowieckie/powiat-plonski/plonsk.md",
       "spike": {
         "wave": "D",
@@ -17080,38 +17171,57 @@
         "gmina_kind": "gmina miejska"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "plonsk",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "bip.org.pl network CMS",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/mazowieckie/powiat-plonski/plonsk.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://umplonsk.bip.org.pl/id/1999",
+          "evidence_path": "spikes/mazowieckie/powiat-plonski/plonsk.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary source: umplonsk.bip.org.pl (year boards under parent node /id/1999).",
+            "Mixed attachments processed via docText for .docx files and pdfText / ocrPdf for .pdf files.",
+            "Achieved prices and sold/unsold outcomes parsed from published result notices.",
+            "Adapter verified with 13/13 unit tests passing; registered as enabled feed."
+          ]
         }
       ],
       "review": {
@@ -18927,7 +19037,7 @@
       "powiat_slug": "powiat-malborski",
       "powiat_label": "powiat malborski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/pomorskie/powiat-malborski/malbork.md",
       "spike": {
         "wave": "D",
@@ -18946,38 +19056,55 @@
         "gmina_kind": "gmina miejska"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "malbork",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Madkom SIP (JSON REST API)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/pomorskie/powiat-malborski/malbork.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.malbork.pl/m,324,przetargi.html",
+          "evidence_path": "spikes/pomorskie/powiat-malborski/malbork.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary source: bip.malbork.pl (Madkom SIP JSON REST API /api/menu/<id>/articles).",
+            "Announcements parsed from PDF attachments (via pdfText) linked in municipal property articles.",
+            "Achieved prices and outcomes parsed from resolved result articles in menus 180 and 203.",
+            "Adapter verified with 12/12 unit tests passing; registered as enabled feed."
+          ]
         }
       ],
       "review": {
@@ -19457,7 +19584,7 @@
       "powiat_slug": "powiat-sztumski",
       "powiat_label": "powiat sztumski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/pomorskie/powiat-sztumski/sztum.md",
       "spike": {
         "wave": "G",
@@ -19476,38 +19603,56 @@
         "gmina_kind": "miasto"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "sztum",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Municipal BIP portal (bip.sztum.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/pomorskie/powiat-sztumski/sztum.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.sztum.pl/1186.html",
+          "evidence_path": "spikes/pomorskie/powiat-sztumski/sztum.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary source: bip.sztum.pl/1186.html (single mixed announcements and results board).",
+            "Announcements and result notices extracted from born-digital text PDFs (pdfText) with intermediate TLS support.",
+            "Achieved prices and oral auction/rokowania outcomes parsed directly from result PDFs.",
+            "Adapter verified with 20/20 unit tests passing; registered as enabled feed."
+          ]
         }
       ],
       "review": {
@@ -19973,7 +20118,7 @@
       "powiat_slug": "powiat-koscierski",
       "powiat_label": "powiat kościerski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/pomorskie/powiat-koscierski/koscierzyna.md",
       "spike": {
         "wave": "Q",
@@ -19992,38 +20137,56 @@
         "gmina_kind": "gmina miejska"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "koscierzyna",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "INTERmedi@ CMS-BIP 3.0",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/pomorskie/powiat-koscierski/koscierzyna.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.koscierzyna.gda.pl",
+          "evidence_path": "spikes/pomorskie/powiat-koscierski/koscierzyna.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary source: bip.koscierzyna.gda.pl (INTERmedi@ CMS-BIP 3.0 year boards under cid=206).",
+            "Announcements and companion result notices parsed from born-digital text PDFs (pdfText) with ocrPdf fallback.",
+            "Supports single and multi-flat notices; achieved prices and sold/unsold outcomes parsed from attached result notices.",
+            "Adapter verified with 17/17 unit tests passing; registered as enabled feed."
+          ]
         }
       ],
       "review": {
@@ -20548,7 +20711,7 @@
       "powiat_slug": "powiat-starogardzki",
       "powiat_label": "powiat starogardzki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/pomorskie/powiat-starogardzki/starogard-gdanski.md",
       "spike": {
         "wave": "E",
@@ -20567,38 +20730,57 @@
         "gmina_kind": "gmina miejska"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "starogard-gdanski",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Madkom SIP JSON API",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
-          "garage": "unknown"
+          "garage": "observed"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/pomorskie/powiat-starogardzki/starogard-gdanski.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.starogard.pl",
+          "evidence_path": "spikes/pomorskie/powiat-starogardzki/starogard-gdanski.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "garage"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary source: bip.starogard.pl (Madkom SIP JSON REST API /api/menu/<id>/articles).",
+            "Oral auctions, wykazy, and result protocols crawled directly via JSON endpoints without browser rendering.",
+            "Achieved prices and negative auction outcomes parsed from published protocol attachments.",
+            "Adapter verified with 13/13 unit tests passing; registered as enabled feed."
+          ]
         }
       ],
       "review": {
@@ -21916,7 +22098,7 @@
       "powiat_slug": "powiat-slubicki",
       "powiat_label": "powiat słubicki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/lubuskie/powiat-slubicki/slubice.md",
       "spike": {
         "wave": "F",
@@ -21935,38 +22117,55 @@
         "gmina_kind": "miasto"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "slubice",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Next.js SSR HTML + ocrPdf",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/lubuskie/powiat-slubicki/slubice.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.slubice.pl/wiadomosci/kategorie/24",
+          "evidence_path": "spikes/lubuskie/powiat-slubicki/slubice.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary source: bip.slubice.pl (Next.js server-rendered HTML category 24 announcements and category 25 results).",
+            "Scanned copier PDF attachments processed through ocrPdf (Tesseract) to extract address, price, and area data.",
+            "Achieved prices extracted from published outcome protocols.",
+            "Adapter verified with 18/18 unit tests passing; registered as enabled feed."
+          ]
         }
       ],
       "review": {
@@ -22864,7 +23063,7 @@
       "powiat_slug": "powiat-lubanski",
       "powiat_label": "powiat lubański",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/dolnoslaskie/powiat-lubanski/luban.md",
       "spike": {
         "wave": "Q",
@@ -22883,38 +23082,56 @@
         "gmina_kind": "gmina miejska"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "luban",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "IdeaWebServer / BIP Luban HTML + PDF",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/powiat-lubanski/luban.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://luban.pl/artykuly/115/przetargi-na-nieruchomosci",
+          "evidence_path": "spikes/dolnoslaskie/powiat-lubanski/luban.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary source: luban.pl/artykuly/115/przetargi-na-nieruchomosci (IdeaWebServer, percent-encoded pagination Article%5Fpage=N).",
+            "Announcement details parsed from server-rendered HTML cards and born-digital PDF attachments.",
+            "Result docs crawled from archived notices.",
+            "Adapter verified with 17/17 unit tests passing; registered as enabled feed."
+          ]
         }
       ],
       "review": {
@@ -24565,7 +24782,7 @@
       "powiat_slug": "powiat-ostrzeszowski",
       "powiat_label": "powiat ostrzeszowski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/wielkopolskie/powiat-ostrzeszowski/ostrzeszow.md",
       "spike": {
         "wave": "GS3",
@@ -24584,38 +24801,57 @@
         "gmina_kind": "miasto"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "ostrzeszow",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "nowoczesnagmina CMS + bip.zgm-ostrzeszow.pl",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/wielkopolskie/powiat-ostrzeszowski/ostrzeszow.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://ostrzeszow.nowoczesnagmina.pl",
+          "evidence_path": "spikes/wielkopolskie/powiat-ostrzeszowski/ostrzeszow.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land",
+            "building"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Dual sources: City BIP (ostrzeszow.nowoczesnagmina.pl) and Housing Manager BIP (bip.zgm-ostrzeszow.pl).",
+            "Unified parsing across born-digital text PDFs, scanned PDFs (ocrPdf with PSM 1), Word .doc/.docx, and inline HTML tables.",
+            "Achieved prices and sold/unsold outcomes parsed from published result notices; maintenance procurement filtered.",
+            "Adapter verified with 26/26 unit tests passing; registered as enabled feed."
+          ]
         }
       ],
       "review": {
@@ -34567,7 +34803,7 @@
       "powiat_slug": "powiat-gorowski",
       "powiat_label": "powiat górowski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/dolnoslaskie/powiat-gorowski/gora.md",
       "spike": {
         "wave": "Q",
@@ -34586,38 +34822,56 @@
         "gmina_kind": "miasto"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "gora",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "2ClickPortal DOCX/PDF adapter",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/powiat-gorowski/gora.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.gora.com.pl",
+          "evidence_path": "spikes/dolnoslaskie/powiat-gorowski/gora.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary source: bip.gora.com.pl (2ClickPortal).",
+            "Announcements and results parsed from DOCX and text PDF attachments.",
+            "Achieved prices extracted from tabular and prose result documents.",
+            "Adapter verified with 21/21 unit tests passing; registered as enabled feed."
+          ]
         }
       ],
       "review": {
@@ -58225,7 +58479,7 @@
       "powiat_slug": "powiat-dzierzoniowski",
       "powiat_label": "powiat dzierżoniowski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/dolnoslaskie/powiat-dzierzoniowski/dzierzoniow.md",
       "spike": {
         "wave": "Q",
@@ -58244,38 +58498,56 @@
         "gmina_kind": "gmina miejska"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "dzierzoniow",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Madkom SIP JSON adapter + BIP Drupal 10",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/powiat-dzierzoniowski/dzierzoniow.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.um.dzierzoniow.pl",
+          "evidence_path": "spikes/dolnoslaskie/powiat-dzierzoniowski/dzierzoniow.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential",
+            "land"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Primary source: bip.um.dzierzoniow.pl (Madkom SIP JSON API / Drupal 10).",
+            "Announcements parsed from server-rendered HTML and born-digital text PDFs.",
+            "Achieved prices and auction outcomes extracted from published result notices.",
+            "Adapter verified with 12/12 unit tests passing; registered as enabled feed."
+          ]
         }
       ],
       "review": {

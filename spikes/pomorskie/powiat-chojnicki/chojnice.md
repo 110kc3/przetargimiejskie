@@ -82,3 +82,16 @@ No aggregator (e.g., przetargi.egospodarka.pl) appears to carry the Chojnice fla
 - Sample result (flat): https://miastochojnice.pl/wyniki-przetargu-na-zbycie-lokalu-mieszkalnego-pl-jagiellonski-6-5/
 - BIP property board: https://bip.miastochojnice.pl/616.html
 - ZGM Chojnice (housing manager, not relevant for flat auctions): https://zgmchojnice.pl/przetargi
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Burmistrz Miasta Chojnice (Gmina Miejska Chojnice)) publishes auction announcements on `https://miastochojnice.pl/kat/przetargi-na-nieruchomosci-miejskie/` (WordPress HTML + PDF attachments).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified active/historical notices in test suite.
+
+Announcements and companion result notices parsed from born-digital PDF attachments via pdfText. Achieved prices extracted from companion result notices on /kat/przetargi-na-nieruchomosci-miejskie-wyniki/.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

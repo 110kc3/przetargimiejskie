@@ -45,3 +45,16 @@ Path: *MENU PRZEDMIOTOWE › Dane publiczne › Planowanie przestrzenne i gospod
 - **Blockers:** None technical (no rate-limit/auth/CAPTCHA). Watch-items: (1) thin flat volume → marginal standalone ROI, best batched with other bip.org.pl gminy; (2) docx + pdf both required; (3) results interleaved on year boards (no dedicated results board) — pair by address.
 
 **VERDICT: BUILD (Medium effort)** — recurring OPEN flat auctions on a clean bip.org.pl-network server-HTML BIP, WITH a published achieved-price ("informacja o wyniku") stream and a named housing manager (ZGM). Low flat volume and mixed docx/pdf attachment parsing are the only downsides; both are surmountable and the bip.org.pl template is reusable, so the go-signal holds.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Burmistrz Miasta Płońska (Gmina Miasto Płońsk)) publishes auction announcements on `https://umplonsk.bip.org.pl/id/1999` (bip.org.pl network CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **building:** verified active/historical notices in test suite.
+
+Mixed attachments processed via docText for .docx files and pdfText / ocrPdf for .pdf files. Achieved prices and sold/unsold outcomes parsed from published result notices.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

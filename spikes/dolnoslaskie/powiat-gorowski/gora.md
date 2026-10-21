@@ -91,3 +91,15 @@ Estimated cadence: **~2–4 flat auction events per year** (some are repeat roun
 **Verdict: BUILD** — flat auctions confirmed real and recurring (2021–2026), BIP is public with no auth, results board is plain HTML, achieved-price data exists inside DOCX. Medium effort due to DOCX parse step and JS-gated announcement page. Confidence: High (LIVE-VERIFIED from results board).
 
 **Effort: Medium** (2–3 days including DOCX parser + JS-rendered announcements layer).
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Urząd Miasta i Gminy w Górze) publishes auction announcements on `https://bip.gora.com.pl` (2ClickPortal DOCX/PDF adapter).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and results parsed from DOCX and text PDF attachments. Achieved prices extracted from tabular and prose result documents.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

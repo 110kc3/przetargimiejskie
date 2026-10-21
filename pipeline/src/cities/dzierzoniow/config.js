@@ -34,8 +34,8 @@
 export const config = {
   id: 'dzierzoniow',
   // gmina miejska Dzierżoniów: powiat dzierżoniowski TERYT 0202, gmina-type 1
-  // (miejska) -> 020201_1. Confirm on first geoportal run.
-  teryt: '020201_1',
+  // (miejska) -> 0202021. Confirm on first geoportal run.
+  teryt: '0202021',
   label: 'Dzierżoniów',
   voivodeship: 'dolnoslaskie',
   authority: 'Burmistrz Dzierżoniowa (Gmina Miejska Dzierżoniów)',

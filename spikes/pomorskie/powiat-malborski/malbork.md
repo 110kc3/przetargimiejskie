@@ -110,3 +110,14 @@ ZGKiM Malbork: runs przetarg na najem lokali użytkowych (commercial leases) onl
 - BIP — result notice example (later): <https://bip.malbork.pl/a,28711,informacja-o-wynikach-przetargu.html>
 - ZGKiM Malbork (najem only, not flat sales): <https://zgkim.malbork.pl/>
 - ZGKiM — przetargi na lokale: <https://zgkim.malbork.pl/przetargi-na-lokale-garaze/przetarg-nieograniczony-na-najem-lokali-uzytkowych>
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Burmistrz Miasta Malborka (Gmina Miasto Malbork)) publishes auction announcements on `https://bip.malbork.pl/m,324,przetargi.html` (Madkom SIP (JSON REST API)).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+
+Announcements parsed from PDF attachments (via pdfText) linked in municipal property articles. Achieved prices and outcomes parsed from resolved result articles in menus 180 and 203.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

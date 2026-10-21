@@ -44,3 +44,14 @@ Contact: Urząd Miejski w Słubicach, tel. 95 737 20 00.
 - **Blockers:** None hard. Watch-items: (1) OCR-only source (no born-digital text) — commit the `ocr-cache/` so CI never re-OCRs; (2) cross-host attachment redirect; (3) results stream not on a separate board — discover within category 193 at build time; (4) disambiguate from the Mazowieckie Gmina Słubice.
 
 **VERDICT: BUILD (Medium effort)** — a genuine recurring OPEN municipal flat-auction stream, sold in batches of several flats, on a clean Next.js SSR BIP board (category 193); the only friction is scanned-PDF → `tesseract -l pol` OCR (verified working) for the price/area/date fields. Clone the IDcom scanned-PDF+OCR analog (tczew/gniezno/gizycko).
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher publishes auction notices and results on `https://bip.slubice.pl/wiadomosci/kategorie/24` (Next.js SSR HTML + ocrPdf).
+
+Observed asset families in committed adapter:
+- **residential:** verified in test suite.
+
+Primary source: bip.slubice.pl (Next.js server-rendered HTML category 24 announcements and category 25 results). Scanned copier PDF attachments processed through ocrPdf (Tesseract) to extract address, price, and area data. Achieved prices extracted from published outcome protocols. Adapter verified with 18/18 unit tests passing; registered as enabled feed.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

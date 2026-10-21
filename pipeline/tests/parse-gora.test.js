@@ -40,6 +40,7 @@ import {
   parseAnnouncement,
 } from '../src/cities/gora/parse.js';
 import { harvestAttachments, isFlatSlug } from '../src/cities/gora/crawl.js';
+import adapter, { config, crawlActive, crawlResultDocs } from '../src/cities/gora/index.js';
 
 // ─────────────────────────────────────────────────────── real fetched fixtures
 
@@ -269,3 +270,27 @@ test('harvestAttachments: real board anchors → {id, slug, ext, abs url}, newes
   assert.equal(kloda.url, 'https://bip.gora.com.pl/files/file_add/download/8073_informacja-o-wyniku-przetargu-lokal-mieszkalny-kloda-gorowska-28-m7.docx');
   assert.ok(kloda.slug.includes('lokal-mieszkalny'));
 });
+
+// ───────────────────────────────────────────────────────────── contract checks
+
+test('config: teryt and metadata', () => {
+  assert.equal(config.id, 'gora');
+  assert.equal(config.teryt, '0204014');
+  assert.equal(config.label, 'Góra');
+  assert.equal(config.voivodeship, 'dolnoslaskie');
+  assert.equal(config.authority, 'Urząd Miasta i Gminy w Górze');
+  assert.equal(config.host, 'bip.gora.com.pl');
+  assert.equal(config.source, 'html');
+});
+
+test('adapter contract: exports config, crawlActive, crawlResultDocs, parseResultDoc', () => {
+  assert.equal(typeof crawlActive, 'function');
+  assert.equal(typeof crawlResultDocs, 'function');
+  assert.equal(typeof parseResultDoc, 'function');
+  assert.equal(adapter.id, 'gora');
+  assert.equal(adapter.teryt, '0204014');
+  assert.equal(adapter.crawlActive, crawlActive);
+  assert.equal(adapter.crawlResultDocs, crawlResultDocs);
+  assert.equal(adapter.parseResultDoc, parseResultDoc);
+});
+

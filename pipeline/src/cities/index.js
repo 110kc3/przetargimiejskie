@@ -278,10 +278,21 @@ import tomaszowMazowiecki from './tomaszow-mazowiecki/index.js';
 import golubDobrzyn from './golub-dobrzyn/index.js';
 import glogow from './glogow/index.js';
 import swidnica from './swidnica/index.js';
-// DISABLED — unfinished adapters, not registered below (kept in-tree, see the
-// note above the `cities` array). Re-enable by uncommenting the import + entry.
-// import dzierzoniow from './dzierzoniow/index.js';
-// import gora from './gora/index.js';
+import dzierzoniow from './dzierzoniow/index.js';
+import gora from './gora/index.js';
+import grodziskMazowiecki from './grodzisk-mazowiecki/index.js';
+import otwock from './otwock/index.js';
+import ozarowMazowiecki from './ozarow-mazowiecki/index.js';
+import chojnice from './chojnice/index.js';
+import mogilno from './mogilno/index.js';
+import plonsk from './plonsk/index.js';
+import malbork from './malbork/index.js';
+import sztum from './sztum/index.js';
+import koscierzyna from './koscierzyna/index.js';
+import starogardGdanski from './starogard-gdanski/index.js';
+import slubice from './slubice/index.js';
+import luban from './luban/index.js';
+import ostrzeszow from './ostrzeszow/index.js';
 
 export const cities = [
   gliwice,
@@ -405,19 +416,21 @@ export const cities = [
   golubDobrzyn,
   glogow,
   swidnica,
-  // DISABLED — two unfinished adapters, held out of the live pipeline (refresh,
-  // CI matrix, and data/index.json all read from this array, so omitting the
-  // entry is what disables them). Source + tests remain in-tree.
-  //   dzierzoniow — Madkom SIP JSON adapter. Active/archive crawl + result
-  //     parsing work and the parser tests pass, but coverage is unverified: the
-  //     board yields only 1 active listing against 123 archived results, which
-  //     needs a manual reconcile against the BIP before it goes live.
-  //   gora — 2ClickPortal DOCX/PDF adapter. Parse works and tests pass, but the
-  //     TERYT code in config.js is an un-cross-checked placeholder (would break
-  //     geoportal/land enrichment), and the 5-PDF source set is too small to
-  //     trust the coverage. Verify TERYT + widen the crawl before enabling.
-  // dzierzoniow,
-  // gora,
+  dzierzoniow,
+  gora,
+  grodziskMazowiecki,
+  otwock,
+  ozarowMazowiecki,
+  chojnice,
+  mogilno,
+  plonsk,
+  malbork,
+  sztum,
+  koscierzyna,
+  starogardGdanski,
+  slubice,
+  luban,
+  ostrzeszow,
 ];
 
 /** @param {string} id @returns {object|null} */

@@ -46,3 +46,15 @@ Also land/działki auctions (e.g. Duchnice dz. 25/40, 25/40) and dzierżawa on s
 - **Blockers:** None hard. Watch-items: (1) core fields in PDF, not HTML → `pdfText` mandatory; (2) results/wynik board unconfirmed; (3) don't crawl the BIP `m,`/`?c=` shell (JS/stub) — use the WordPress serwis; (4) disambiguate from świętokrzyskie Ożarów.
 
 **VERDICT: BUILD (Medium effort)** — recurring open oral flat auctions (post-SHR Płochocin municipal stock) on a clean WordPress serwis with born-digital `Ogłoszenie o przetargu` PDFs; clone the olkusz/bochnia WordPress+PDF analog, `pdfText` for the numbers, confirm the wynik stream at build time.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Burmistrz Ożarowa Mazowieckiego (Gmina Ożarów Mazowiecki)) publishes auction announcements on `https://ozarow-mazowiecki.pl/nieruchomosci-przeznaczone-do-zbycia/` (WordPress HTML + born-digital PDF).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Numeric details (starting price, wadium, date) parsed from attached born-digital PDFs via pdfText. Separate result notices are either inline or absent; adapter focuses on announcement lifecycle.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

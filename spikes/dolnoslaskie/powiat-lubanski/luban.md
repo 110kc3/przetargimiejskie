@@ -117,3 +117,15 @@ Because each round is a separate article, raw article count overestimates unique
 **Effort estimate:** Medium — 1 plain-HTTP scraper for `luban.pl` announcement articles (from `/1333` index) + 1 BIP scraper for results page (URL to confirm in one live pass). DOM parsing straightforward given article-based structure. No JS rendering expected.
 
 **VERDICT: BUILD** — The city runs a genuine, sustained open flat-auction programme (ustny przetarg nieograniczony, confirmed 2024–2026). Plain HTML format (no JS rendering) reduces adapter cost. One live verification pass needed to confirm BIP results URL and DOM selectors. Confidence: **Medium** (flat auctions confirmed; format and results-board URL need live check).
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher publishes auction notices and results on `https://luban.pl/artykuly/115/przetargi-na-nieruchomosci` (IdeaWebServer / BIP Luban HTML + PDF).
+
+Observed asset families in committed adapter:
+- **residential:** verified in test suite.
+- **land:** verified in test suite.
+
+Primary source: luban.pl/artykuly/115/przetargi-na-nieruchomosci (IdeaWebServer, percent-encoded pagination Article%5Fpage=N). Announcement details parsed from server-rendered HTML cards and born-digital PDF attachments. Result docs crawled from archived notices. Adapter verified with 17/17 unit tests passing; registered as enabled feed.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

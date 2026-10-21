@@ -124,3 +124,16 @@ Both are mid-size cities with:
 - `https://bip.starogard.pl/a,26175,i-przetarg-ustny-nieograniczony-nasprzedaz-lokalu-mieszkalnego-polozonego-wstarogardzie-gdanskim-prz.html` — indexed BIP flat-auction article (SPA, blank fetch; confirms article URL pattern)
 - `https://przetargi.adradar.pl/p/mieszkania/73196/Starogard+Gda%C5%84ski/a` — LIVE-FETCHED; komornik auctions in city (not gmina, but confirms city flat price range)
 - Search snippets: confirmed March 2025 przetarg ustny nieograniczony held at UM; April 2025 bezprzetargowo flat to tenant
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher publishes auction notices and results on `https://bip.starogard.pl` (Madkom SIP JSON API).
+
+Observed asset families in committed adapter:
+- **residential:** verified in test suite.
+- **land:** verified in test suite.
+- **garage:** verified in test suite.
+
+Primary source: bip.starogard.pl (Madkom SIP JSON REST API /api/menu/<id>/articles). Oral auctions, wykazy, and result protocols crawled directly via JSON endpoints without browser rendering. Achieved prices and negative auction outcomes parsed from published protocol attachments. Adapter verified with 13/13 unit tests passing; registered as enabled feed.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

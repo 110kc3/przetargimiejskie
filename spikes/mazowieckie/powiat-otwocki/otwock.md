@@ -43,3 +43,14 @@ Contact: Wydział Gospodarki Nieruchomościami, UM Otwock, ul. Armii Krajowej 5,
 - **Blockers:** None hard. No rate-limit/auth/CAPTCHA. Watch-items: (1) OCR accuracy on 200 dpi scans (adequate but validate numeric fields — cena/wadium/powierzchnia); (2) separate announcement (1018) vs result (1039) boards to reconcile; (3) filter out land/lease and dedupe I/II/III rounds of the same lokal; (4) do NOT scrape ZGM (zgm-otwock.pl) for sales — it only runs lease/repair tenders.
 
 **VERDICT: BUILD (Medium effort)** — recurring open municipal flat auctions on a clean INTERmedi@ server-HTML BIP (menu 1018) with a dedicated results board (menu 1039); only friction is scanned-PDF→OCR for the structured fields. Strong signal confirmed.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Prezydent Miasta Otwocka) publishes auction announcements on `https://bip.otwock.pl/?bip=1&cid=1018` (INTERmedi@ CMS-BIP 3.0).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+
+Announcements processed via pdfText with ocrPdf OCR fallback for scanned attachments. Achieved prices and auction outcomes extracted from result notices.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

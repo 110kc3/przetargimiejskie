@@ -24,11 +24,8 @@
 export const config = {
   id: 'gora',
   // Gmina Góra (gmina miejsko-wiejska), powiat górowski, woj. dolnośląskie.
-  // WOJ 02 + POW 05 (powiat górowski) + GMINA 01 (Góra) + RODZAJ 3 (miejsko-
-  // wiejska) = 0205013. Placeholder from TERYT structure — NOT cross-checked
-  // against a live ULDK/geoportal parcel query from this sandbox. Confirm on
-  // first geoportal run.
-  teryt: '0205013',
+  // SIMC 0954449, TERC 0204014 (gmina miejska Góra).
+  teryt: '0204014',
   label: 'Góra',
   voivodeship: 'dolnoslaskie',
   authority: 'Urząd Miasta i Gminy w Górze',

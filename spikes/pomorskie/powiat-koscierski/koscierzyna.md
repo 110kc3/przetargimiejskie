@@ -61,3 +61,15 @@ Each entry detail page: `https://bip.koscierzyna.gda.pl/?bip=2&cid=<year_cid>&id
 2. Achieved-price presence in flat-specific wyniki PDF not yet directly confirmed (only seen on land lots).
 
 **Verdict: BUILD — Low–Medium effort.** Standard BIP CMS, text PDFs, no technical blockers. Volume is low but the achieved-price trail is present. Effort is Low if wyniki PDFs confirm price in header; Medium if PDF layout requires regex tuning.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher publishes auction notices and results on `https://bip.koscierzyna.gda.pl` (INTERmedi@ CMS-BIP 3.0).
+
+Observed asset families in committed adapter:
+- **residential:** verified in test suite.
+- **land:** verified in test suite.
+
+Primary source: bip.koscierzyna.gda.pl (INTERmedi@ CMS-BIP 3.0 year boards under cid=206). Announcements and companion result notices parsed from born-digital text PDFs (pdfText) with ocrPdf fallback. Supports single and multi-flat notices; achieved prices and sold/unsold outcomes parsed from attached result notices. Adapter verified with 17/17 unit tests passing; registered as enabled feed.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

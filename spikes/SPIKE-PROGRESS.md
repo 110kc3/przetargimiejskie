@@ -8,8 +8,8 @@
 
 | Status | Count |
 |---|---|
-| ✅ BUILT | 121 |
-| 🟢 BUILD | 50 |
+| ✅ BUILT | 136 |
+| 🟢 BUILD | 35 |
 | 🟡 VERIFY | 0 |
 | 🔴 NO-BUILD | 156 |
 | ❌ Dropped | 6 |
@@ -25,18 +25,18 @@
 | research | surveyed | 336 |
 | research | unresearched | 690 |
 | implementation | deferred | 9 |
-| implementation | enabled | 121 |
+| implementation | enabled | 136 |
 | implementation | no-source-found | 156 |
-| implementation | ready | 50 |
+| implementation | ready | 35 |
 | implementation | unresearched | 690 |
-| runtime | monitored | 121 |
-| runtime | not-enabled | 905 |
+| runtime | monitored | 136 |
+| runtime | not-enabled | 890 |
 
 Lifecycle totals are retained manifest declarations, not a live health result. Source freshness and failures are recorded in [data/index.json](../data/index.json) and enforced by the health checks.
 
 ## Existing-city source/asset audit
 
-121 enabled cities: **0 complete**, **121 partial**, **0 unchecked**. Source observations do not prove parser completeness or healthy hosted monitoring. Remaining execution is in [TODO.md](../TODO.md).
+136 enabled cities: **0 complete**, **136 partial**, **0 unchecked**. Source observations do not prove parser completeness or healthy hosted monitoring. Remaining execution is in [TODO.md](../TODO.md).
 
 | City | Last source check | Audit | Observed sale assets | Evidence |
 |---|---|---|---|---|
@@ -55,10 +55,12 @@ Lifecycle totals are retained manifest declarations, not a live health result. S
 | Chełm | 2026-10-21 | partial | residential, building | [source notes](../spikes/lubelskie/chelm/chelm.md) |
 | Chełmno | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/kujawsko-pomorskie/powiat-chelminski/chelmno.md) |
 | Chodzież | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/wielkopolskie/powiat-chodzieski/chodziez.md) |
+| Chojnice | 2026-10-21 | partial | residential, land, commercial | [source notes](../spikes/pomorskie/powiat-chojnicki/chojnice.md) |
 | Choszczno | 2026-10-21 | partial | residential, commercial, land, building | [source notes](../spikes/zachodniopomorskie/powiat-choszczenski/choszczno.md) |
 | Chrzanów | 2026-10-21 | partial | land | [source notes](../spikes/malopolskie/powiat-chrzanowski/chrzanow.md) |
 | Cieszyn | 2026-10-21 | partial | building, residential | [source notes](../spikes/slaskie/powiat-cieszynski/cieszyn.md) |
 | Drawsko Pomorskie | 2026-10-21 | partial | residential | [source notes](../spikes/zachodniopomorskie/powiat-drawski/drawsko-pomorskie.md) |
+| Dzierżoniów | 2026-10-21 | partial | residential, land | [source notes](../spikes/dolnoslaskie/powiat-dzierzoniowski/dzierzoniow.md) |
 | Elbląg | 2026-10-21 | partial | building, land, residential | [source notes](../spikes/warminsko-mazurskie/elblag/elblag.md) |
 | Gdańsk | 2026-10-21 | partial | residential | [source notes](../spikes/pomorskie/gdansk/gdansk.md) |
 | Giżycko | 2026-10-21 | partial | residential | [source notes](../spikes/warminsko-mazurskie/powiat-gizycki/gizycko.md) |
@@ -69,6 +71,8 @@ Lifecycle totals are retained manifest declarations, not a live health result. S
 | Golub-Dobrzyń | 2026-10-21 | partial | land, residential | [source notes](../spikes/kujawsko-pomorskie/powiat-golubsko-dobrzynski/golub-dobrzyn.md) |
 | Gorzów Wielkopolski | 2026-10-21 | partial | residential | [source notes](../spikes/lubuskie/gorzow-wielkopolski/gorzow-wielkopolski.md) |
 | Gostyń | 2026-10-21 | partial | land | [source notes](../spikes/wielkopolskie/powiat-gostynski/gostyn.md) |
+| Góra | 2026-10-21 | partial | residential, land | [source notes](../spikes/dolnoslaskie/powiat-gorowski/gora.md) |
+| Grodzisk Mazowiecki | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/mazowieckie/powiat-grodziski/grodzisk-mazowiecki.md) |
 | Grudziądz | 2026-10-21 | partial | residential | [source notes](../spikes/kujawsko-pomorskie/grudziadz/grudziadz.md) |
 | Jarocin | 2026-10-20 | partial | land | [source notes](../spikes/wielkopolskie/powiat-jarocinski/jarocin.md) |
 | Jelenia Góra | 2026-10-21 | partial | residential, commercial, land | [source notes](../spikes/dolnoslaskie/jelenia-gora/jelenia-gora.md) |
@@ -82,17 +86,21 @@ Lifecycle totals are retained manifest declarations, not a live health result. S
 | Kłodzko | 2026-10-21 | partial | residential | [source notes](../spikes/dolnoslaskie/powiat-klodzki/klodzko.md) |
 | Kolbuszowa | 2026-10-21 | partial | residential, land | [source notes](../spikes/podkarpackie/powiat-kolbuszowski/kolbuszowa.md) |
 | Końskie | 2026-10-21 | partial | residential | [source notes](../spikes/swietokrzyskie/powiat-konecki/konskie.md) |
+| Kościerzyna | 2026-10-21 | partial | residential, land | [source notes](../spikes/pomorskie/powiat-koscierski/koscierzyna.md) |
 | Kraków | 2026-10-21 | partial | residential, land, building, commercial, garage | [source notes](../spikes/malopolskie/krakow/krakow.md) |
 | Krosno Odrzańskie | 2026-10-21 | partial | residential | [source notes](../spikes/lubuskie/powiat-krosnienski/krosno-odrzanskie.md) |
 | Kwidzyn | 2026-10-21 | partial | residential, land | [source notes](../spikes/pomorskie/powiat-kwidzynski/kwidzyn.md) |
 | Legnica | 2026-10-21 | partial | residential, commercial | [source notes](../spikes/dolnoslaskie/legnica/legnica.md) |
 | Lębork | 2026-10-21 | partial | residential, commercial, land | [source notes](../spikes/pomorskie/powiat-leborski/lebork.md) |
 | Lipsko | 2026-10-21 | partial | land | [source notes](../spikes/mazowieckie/powiat-lipski/lipsko.md) |
+| Lubań | 2026-10-21 | partial | residential, land | [source notes](../spikes/dolnoslaskie/powiat-lubanski/luban.md) |
 | Lubin | 2026-10-19 | partial | land | [source notes](../spikes/dolnoslaskie/powiat-lubinski/lubin.md) |
 | Lubliniec | 2026-10-21 | partial | residential, commercial, garage, land, building | [source notes](../spikes/slaskie/powiat-lubliniecki/lubliniec.md) |
 | Lwówek Śląski | 2026-10-21 | partial | residential, commercial, land | [source notes](../spikes/dolnoslaskie/powiat-lwowecki/lwowek-slaski.md) |
 | Łódź | 2026-10-21 | partial | residential, commercial, garage | [source notes](../spikes/lodzkie/lodz/lodz.md) |
+| Malbork | 2026-10-21 | partial | residential | [source notes](../spikes/pomorskie/powiat-malborski/malbork.md) |
 | Międzyrzecz | 2026-10-21 | partial | residential | [source notes](../spikes/lubuskie/powiat-miedzyrzecki/miedzyrzecz.md) |
+| Mogilno | 2026-10-21 | partial | residential, land | [source notes](../spikes/kujawsko-pomorskie/powiat-mogilenski/mogilno.md) |
 | Mrągowo | 2026-10-21 | partial | residential, land | [source notes](../spikes/warminsko-mazurskie/powiat-mragowski/mragowo.md) |
 | Mysłowice | 2026-10-21 | partial | residential, commercial, land, building | [source notes](../spikes/slaskie/myslowice/myslowice.md) |
 | Nakło nad Notecią | 2026-10-21 | partial | residential, land | [source notes](../spikes/kujawsko-pomorskie/powiat-nakielski/naklo-nad-notecia.md) |
@@ -104,13 +112,17 @@ Lifecycle totals are retained manifest declarations, not a live health result. S
 | Olsztyn | 2026-10-21 | partial | residential | [source notes](../spikes/warminsko-mazurskie/olsztyn/olsztyn.md) |
 | Opole | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/opolskie/opole/opole.md) |
 | Ostrołęka | 2026-10-21 | partial | residential | [source notes](../spikes/mazowieckie/ostroleka/ostroleka.md) |
+| Ostrzeszów | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/wielkopolskie/powiat-ostrzeszowski/ostrzeszow.md) |
 | Oświęcim | 2026-10-21 | partial | residential | [source notes](../spikes/malopolskie/powiat-oswiecimski/oswiecim.md) |
+| Otwock | 2026-10-21 | partial | residential | [source notes](../spikes/mazowieckie/powiat-otwocki/otwock.md) |
+| Ożarów Mazowiecki | 2026-10-21 | partial | residential, land | [source notes](../spikes/mazowieckie/powiat-warszawski-zachodni/ozarow-mazowiecki.md) |
 | Pabianice | 2026-10-21 | partial | residential | [source notes](../spikes/lodzkie/powiat-pabianicki/pabianice.md) |
 | Pajęczno | 2026-10-21 | partial | residential, land | [source notes](../spikes/lodzkie/powiat-pajeczanski/pajeczno.md) |
 | Piła | 2026-10-21 | partial | residential | [source notes](../spikes/wielkopolskie/powiat-pilski/pila.md) |
 | Pisz | 2026-10-21 | partial | residential, land | [source notes](../spikes/warminsko-mazurskie/powiat-piski/pisz.md) |
 | Pleszew | 2026-10-21 | partial | residential, land | [source notes](../spikes/wielkopolskie/powiat-pleszewski/pleszew.md) |
 | Płock | 2026-10-21 | partial | residential, building | [source notes](../spikes/mazowieckie/plock/plock.md) |
+| Płońsk | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/mazowieckie/powiat-plonski/plonsk.md) |
 | Poddębice | 2026-10-21 | partial | land, residential | [source notes](../spikes/lodzkie/powiat-poddebicki/poddebice.md) |
 | Poznań | 2026-10-21 | partial | land | [source notes](../spikes/wielkopolskie/poznan/poznan.md) |
 | Proszowice | 2026-10-21 | partial | residential, land | [source notes](../spikes/malopolskie/powiat-proszowicki/proszowice.md) |
@@ -124,16 +136,19 @@ Lifecycle totals are retained manifest declarations, not a live health result. S
 | Sępólno Krajeńskie | 2026-10-21 | partial | residential, commercial | [source notes](../spikes/kujawsko-pomorskie/powiat-sepolenski/sepolno-krajenskie.md) |
 | Siedlce | 2026-10-21 | partial | residential, building | [source notes](../spikes/mazowieckie/siedlce/siedlce.md) |
 | Skarżysko-Kamienna | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/swietokrzyskie/powiat-skarzyski/skarzysko-kamienna.md) |
+| Słubice | 2026-10-21 | partial | residential | [source notes](../spikes/lubuskie/powiat-slubicki/slubice.md) |
 | Słupsk | 2026-10-21 | partial | residential | [source notes](../spikes/pomorskie/slupsk/slupsk.md) |
 | Sopot | 2026-10-21 | partial | commercial, garage, residential | [source notes](../spikes/pomorskie/sopot/sopot.md) |
 | Sosnowiec | 2026-10-21 | partial | residential, commercial, land, building | [source notes](../spikes/slaskie/sosnowiec/sosnowiec.md) |
 | Stargard | 2026-10-21 | partial | residential, land | [source notes](../spikes/zachodniopomorskie/powiat-stargardzki/stargard.md) |
+| Starogard Gdański | 2026-10-21 | partial | residential, land, garage | [source notes](../spikes/pomorskie/powiat-starogardzki/starogard-gdanski.md) |
 | Strzelce Krajeńskie | 2026-10-21 | partial | land | [source notes](../spikes/lubuskie/powiat-strzelecko-drezdenecki/strzelce-krajenskie.md) |
 | Strzelce Opolskie | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/opolskie/powiat-strzelecki/strzelce-opolskie.md) |
 | Sucha Beskidzka | 2026-10-21 | partial | residential, land | [source notes](../spikes/malopolskie/powiat-suski/sucha-beskidzka.md) |
 | Sulęcin | 2026-10-21 | partial | residential, land | [source notes](../spikes/lubuskie/powiat-sulecinski/sulecin.md) |
 | Szczecin | 2026-10-21 | partial | residential | [source notes](../spikes/zachodniopomorskie/szczecin/szczecin.md) |
 | Szczecinek | 2026-10-21 | partial | residential, land, building | [source notes](../spikes/zachodniopomorskie/powiat-szczecinecki/szczecinek.md) |
+| Sztum | 2026-10-21 | partial | residential, land | [source notes](../spikes/pomorskie/powiat-sztumski/sztum.md) |
 | Środa Wielkopolska | 2026-10-21 | partial | residential, land | [source notes](../spikes/wielkopolskie/powiat-sredzki/sroda-wielkopolska.md) |
 | Świdnica | 2026-10-21 | partial | residential, commercial | [source notes](../spikes/dolnoslaskie/powiat-swidnicki/swidnica.md) |
 | Świętochłowice | 2026-10-21 | partial | residential, commercial, land, building | [source notes](../spikes/slaskie/swietochlowice/swietochlowice.md) |
@@ -162,13 +177,13 @@ Lifecycle totals are retained manifest declarations, not a live health result. S
 | Żagań | 2026-10-19 | partial |  | [source notes](../spikes/lubuskie/powiat-zaganski/zagan.md) |
 | Żnin | 2026-10-21 | partial | residential, commercial, land | [source notes](../spikes/kujawsko-pomorskie/powiat-zninski/znin.md) |
 
-## Built adapters (121)
+## Built adapters (136)
 
-Augustów, Bełchatów, Biała Podlaska, Białystok, Bielsko-Biała, Bochnia, Bolesławiec, Braniewo, Brzeg, Busko-Zdrój, Bydgoszcz, Bytom, Chełm, Chełmno, Chodzież, Choszczno, Chrzanów, Cieszyn, Drawsko Pomorskie, Elbląg, Gdańsk, Giżycko, Gliwice, Głogów, Głubczyce, Gniezno, Golub-Dobrzyń, Gorzów Wielkopolski, Gostyń, Grudziądz, Jarocin, Jelenia Góra, Kalisz, Kamienna Góra, Katowice, Kędzierzyn-Koźle, Kętrzyn, Kielce, Kłobuck, Kłodzko, Kolbuszowa, Końskie, Kraków, Krosno Odrzańskie, Kwidzyn, Legnica, Lębork, Lipsko, Lubin, Lubliniec, Lwówek Śląski, Łódź, Międzyrzecz, Mrągowo, Mysłowice, Nakło nad Notecią, Namysłów, Nowa Sól, Nysa, Olesno, Olkusz, Olsztyn, Opole, Ostrołęka, Oświęcim, Pabianice, Pajęczno, Piła, Pisz, Pleszew, Płock, Poddębice, Poznań, Proszowice, Przemyśl, Pszczyna, Pułtusk, Racibórz, Rawa Mazowiecka, Rybnik, Sandomierz, Sępólno Krajeńskie, Siedlce, Skarżysko-Kamienna, Słupsk, Sopot, Sosnowiec, Stargard, Strzelce Krajeńskie, Strzelce Opolskie, Sucha Beskidzka, Sulęcin, Szczecin, Szczecinek, Środa Wielkopolska, Świdnica, Świętochłowice, Świnoujście, Tarnowskie Góry, Tczew, Tomaszów Mazowiecki, Toruń, Trzebinia, Trzebnica, Wałbrzych, Warszawa, Wąbrzeźno, Wejherowo, Węgorzewo, Węgrów, Włocławek, Wołów, Wrocław, Wschowa, Zabrze, Ząbkowice Śląskie, Zduńska Wola, Zgorzelec, Złotoryja, Żagań, Żnin.
+Augustów, Bełchatów, Biała Podlaska, Białystok, Bielsko-Biała, Bochnia, Bolesławiec, Braniewo, Brzeg, Busko-Zdrój, Bydgoszcz, Bytom, Chełm, Chełmno, Chodzież, Chojnice, Choszczno, Chrzanów, Cieszyn, Drawsko Pomorskie, Dzierżoniów, Elbląg, Gdańsk, Giżycko, Gliwice, Głogów, Głubczyce, Gniezno, Golub-Dobrzyń, Gorzów Wielkopolski, Gostyń, Góra, Grodzisk Mazowiecki, Grudziądz, Jarocin, Jelenia Góra, Kalisz, Kamienna Góra, Katowice, Kędzierzyn-Koźle, Kętrzyn, Kielce, Kłobuck, Kłodzko, Kolbuszowa, Końskie, Kościerzyna, Kraków, Krosno Odrzańskie, Kwidzyn, Legnica, Lębork, Lipsko, Lubań, Lubin, Lubliniec, Lwówek Śląski, Łódź, Malbork, Międzyrzecz, Mogilno, Mrągowo, Mysłowice, Nakło nad Notecią, Namysłów, Nowa Sól, Nysa, Olesno, Olkusz, Olsztyn, Opole, Ostrołęka, Ostrzeszów, Oświęcim, Otwock, Ożarów Mazowiecki, Pabianice, Pajęczno, Piła, Pisz, Pleszew, Płock, Płońsk, Poddębice, Poznań, Proszowice, Przemyśl, Pszczyna, Pułtusk, Racibórz, Rawa Mazowiecka, Rybnik, Sandomierz, Sępólno Krajeńskie, Siedlce, Skarżysko-Kamienna, Słubice, Słupsk, Sopot, Sosnowiec, Stargard, Starogard Gdański, Strzelce Krajeńskie, Strzelce Opolskie, Sucha Beskidzka, Sulęcin, Szczecin, Szczecinek, Sztum, Środa Wielkopolska, Świdnica, Świętochłowice, Świnoujście, Tarnowskie Góry, Tczew, Tomaszów Mazowiecki, Toruń, Trzebinia, Trzebnica, Wałbrzych, Warszawa, Wąbrzeźno, Wejherowo, Węgorzewo, Węgrów, Włocławek, Wołów, Wrocław, Wschowa, Zabrze, Ząbkowice Śląskie, Zduńska Wola, Zgorzelec, Złotoryja, Żagań, Żnin.
 
-## BUILD-ready queue (50, by effort)
+## BUILD-ready queue (35, by effort)
 
-Bartoszyce (Medium), Będzin (Medium), Brzesko (Medium), Chojnice (Medium), Człuchów (Medium), Dzierżoniów (Medium), Ełk (Medium), Goleniów (Medium), Góra (Medium), Grodzisk Mazowiecki (Medium), Grodzisk Wielkopolski (Medium), Gryfino (Medium), Iława (Medium), Jędrzejów (Medium), Kluczbork (Medium), Kolno (Medium), Kołobrzeg (Medium), Kościerzyna (Medium), Lidzbark Warmiński (Medium), Lubań (Medium), Łęczyca (Medium), Łobez (Medium), Malbork (Medium), Mogilno (Medium), Nidzica (Medium), Oława (Medium), Ostrzeszów (Medium), Otwock (Medium), Ożarów Mazowiecki (Medium), Płońsk (Medium), Prudnik (Medium), Słubice (Medium), Sochaczew (Medium), Starachowice (Medium), Starogard Gdański (Medium), Staszów (Medium), Szamotuły (Medium), Szczytno (Medium), Sztum (Medium), Szydłowiec (Medium), Śrem (Medium), Środa Śląska (Medium), Wałcz (Medium), Wodzisław Śląski (Medium), Września (Medium), Zakopane (Medium), Zgierz (Medium), Złotów (Medium), Żary (Medium), Żyrardów (Medium).
+Bartoszyce (Medium), Będzin (Medium), Brzesko (Medium), Człuchów (Medium), Ełk (Medium), Goleniów (Medium), Grodzisk Wielkopolski (Medium), Gryfino (Medium), Iława (Medium), Jędrzejów (Medium), Kluczbork (Medium), Kolno (Medium), Kołobrzeg (Medium), Lidzbark Warmiński (Medium), Łęczyca (Medium), Łobez (Medium), Nidzica (Medium), Oława (Medium), Prudnik (Medium), Sochaczew (Medium), Starachowice (Medium), Staszów (Medium), Szamotuły (Medium), Szczytno (Medium), Szydłowiec (Medium), Śrem (Medium), Środa Śląska (Medium), Wałcz (Medium), Wodzisław Śląski (Medium), Września (Medium), Zakopane (Medium), Zgierz (Medium), Złotów (Medium), Żary (Medium), Żyrardów (Medium).
 
 ## Unresearched official cities (690)
 
@@ -192,10 +207,10 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Chocianów | 0954060 | powiat polkowicki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Chojnów | 0954076 | powiat legnicki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Duszniki-Zdrój | 0983913 | powiat kłodzki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Dzierżoniów | 0983988 | powiat dzierżoniowski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Dzierżoniów | 0983988 | powiat dzierżoniowski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Głogów | 0954082 | powiat głogowski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Głuszyca | 0984002 | powiat wałbrzyski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Góra | 0954449 | powiat górowski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Góra | 0954449 | powiat górowski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Gryfów Śląski | 0936003 | powiat lwówecki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Jawor | 0954120 | powiat jaworski | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
 | Jaworzyna Śląska | 0984019 | powiat świdnicki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
@@ -212,7 +227,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Lądek-Zdrój | 0984203 | powiat kłodzki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Legnica | 0954047 | Legnica (m.n.p.p.) | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Leśna | 0936121 | powiat lubański | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Lubań | 0936150 | powiat lubański | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Lubań | 0936150 | powiat lubański | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Lubawka | 0936180 | powiat kamiennogórski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Lubin | 0954142 | powiat lubinski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Lubomierz | 0936210 | powiat lwówecki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
@@ -311,7 +326,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Lubraniec | 0985929 | powiat włocławski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Łabiszyn | 0929405 | powiat żniński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Łasin | 0983557 | powiat grudziądzki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Mogilno | 0929428 | powiat mogileński | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Mogilno | 0929428 | powiat mogileński | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Mrocza | 0929440 | powiat nakielski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Nakło nad Notecią | 0929463 | powiat nakielski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Nieszawa | 0985987 | powiat aleksandrowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
@@ -431,7 +446,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Rzepin | 0935682 | powiat słubicki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Skwierzyna | 0935699 | powiat międzyrzecki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Sława | 0988589 | powiat wschowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Słubice | 0935736 | powiat słubicki | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Słubice | 0935736 | powiat słubicki | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Strzelce Krajeńskie | 0935742 | powiat strzelecko-drezdenecki | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Sulechów | 0988595 | powiat zielonogórski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Sulęcin | 0935759 | powiat sulęciński | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
@@ -605,7 +620,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Głowaczów | 0619366 | powiat kozienicki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Gostynin | 0968977 | powiat gostyniński | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
 | Góra Kalwaria | 0920321 | powiat piaseczyński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Grodzisk Mazowiecki | 0920380 | powiat grodziski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Grodzisk Mazowiecki | 0920380 | powiat grodziski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Grójec | 0973352 | powiat grójecki | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
 | Halinów | 0002766 | powiat miński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Iłża | 0973375 | powiat radomski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
@@ -649,14 +664,14 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Osieck | 0683192 | powiat otwocki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Ostrołęka | 0966079 | Ostrołęka (m.n.p.p.) | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Ostrów Mazowiecka | 0966330 | powiat ostrowski | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
-| Otwock | 0921237 | powiat otwocki | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
-| Ożarów Mazowiecki | 0921415 | powiat warszawski zachodni | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Otwock | 0921237 | powiat otwocki | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
+| Ożarów Mazowiecki | 0921415 | powiat warszawski zachodni | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Piaseczno | 0921438 | powiat piaseczynski | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
 | Piastów | 0921496 | powiat pruszkowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Pilawa | 0975753 | powiat garwoliński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Pionki | 0973748 | powiat radomski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Płock | 0968687 | Płock (m.n.p.p.) | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
-| Płońsk | 0930800 | powiat płoński | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Płońsk | 0930800 | powiat płoński | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Podkowa Leśna | 0921504 | powiat grodziski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Pruszków | 0921510 | powiat pruszkowski | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
 | Przasnysz | 0966398 | powiat przasnyski | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
@@ -853,7 +868,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 |---|---|---|---|---|---|---|---|
 | Brusy | 0928848 | powiat chojnicki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Bytów | 0977290 | powiat bytowski | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
-| Chojnice | 0928854 | powiat chojnicki | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Chojnice | 0928854 | powiat chojnicki | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Czarna Woda | 0162139 | powiat starogardzki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Czarne | 0977309 | powiat człuchowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Czersk | 0928920 | powiat chojnicki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
@@ -868,12 +883,12 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Kartuzy | 0934547 | powiat kartuski | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
 | Kępice | 0977344 | powiat słupski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Kobylnica | 0745289 | powiat słupski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Kościerzyna | 0934553 | powiat kościerski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Kościerzyna | 0934553 | powiat kościerski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Krynica Morska | 0932755 | powiat nowodworski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Kwidzyn | 0932790 | powiat kwidzyński | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Lębork | 0977373 | powiat lęborski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Łeba | 0977380 | powiat lęborski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Malbork | 0932815 | powiat malborski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Malbork | 0932815 | powiat malborski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Miastko | 0977404 | powiat bytowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Nowy Dwór Gdański | 0932880 | powiat nowodworski | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
 | Nowy Staw | 0932904 | powiat malborski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
@@ -887,8 +902,8 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Skórcz | 0934777 | powiat starogardzki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Słupsk | 0977278 | Słupsk (m.n.p.p.) | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Sopot | 0934783 | Sopot (m.n.p.p.) | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
-| Starogard Gdański | 0934837 | powiat starogardzki | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
-| Sztum | 0932991 | powiat sztumski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Starogard Gdański | 0934837 | powiat starogardzki | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
+| Sztum | 0932991 | powiat sztumski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Tczew | 0934903 | powiat tczewski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Ustka | 0977427 | powiat słupski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Wejherowo | 0934984 | powiat wejherowski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
@@ -1158,7 +1173,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Osieczna | 0954567 | powiat leszczyński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Ostroróg | 0971264 | powiat szamotulski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Ostrów Wielkopolski | 0937132 | powiat ostrowski | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
-| Ostrzeszów | 0937250 | powiat ostrzeszowski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Ostrzeszów | 0937250 | powiat ostrzeszowski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Piła | 0966530 | powiat pilski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Pleszew | 0937280 | powiat pleszewski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Pniewy | 0971270 | powiat szamotulski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |

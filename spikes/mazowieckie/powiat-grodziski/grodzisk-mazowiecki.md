@@ -63,3 +63,16 @@ BIP is a SPA that fully renders in browser — page text extractable via Chrome 
 **Effort:** Medium — two sources, one needs JS rendering, but both are well-structured and public.
 
 **VERDICT: BUILD (Medium effort)** — active flat auction programme, 5-8 auctions/year, dual-source HTML (one WordPress, one SPA BIP), achieved prices on BIP result boards, no auth/bot blocks.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Burmistrz Grodziska Mazowieckiego (Gmina Grodzisk Mazowiecki)) publishes auction announcements on `https://nieruchomosci.grodzisk.pl/sprzedaz/` (WordPress HTML + Logonet BIP REST API).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **building:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered HTML posts and born-digital PDF attachments. Concluded results and achieved prices parsed from Logonet BIP article endpoints.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

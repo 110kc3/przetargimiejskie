@@ -113,17 +113,28 @@ async function crawlAll() {
   //    auction-date anchor, which a past result notice ("odbył się") never has,
   //    and every ogłoszenie carries a "Cena osiągnięta w przetargu płatna …"
   //    clause that would otherwise trip a result-notice heuristic.
-  const annAtts = harvestAttachments(await fetchHtml(ANN_BOARD)).filter((a) => isFlatSlug(a.slug));
+  const annHtml = await fetchHtml(ANN_BOARD);
+  const annAtts = harvestAttachments(annHtml).filter((a) => isFlatSlug(a.slug));
+  let annParsedAll = true;
   for (const att of annAtts) {
-    if (Date.now() > deadline) { console.error('  gora: crawl budget reached (announcements)'); break; }
+    if (Date.now() > deadline) {
+      console.error('  gora: crawl budget reached (announcements)');
+      annParsedAll = false;
+      break;
+    }
     const text = await extractText(att);
-    if (!text) continue;
+    if (!text) {
+      annParsedAll = false;
+      continue;
+    }
     const rec = parseAnnouncement(text, att.url);
     if (rec) listings.push(rec);
   }
 
   console.error(`  gora: ${listings.length} flat listing(s), ${resultRefs.length} flat result notice(s)`);
-  return { listings, resultRefs };
+  const valid_empty = Boolean(annHtml && annParsedAll && listings.length === 0);
+  const valid_empty_land = false;
+  return { listings, resultRefs, valid_empty, valid_empty_land };
 }
 
 /** Result notices (achieved-price stream). source:'html' ⇒ refs carry `.text`. */
@@ -132,11 +143,11 @@ export async function crawlResultDocs() {
   return (await crawlPromise).resultRefs;
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
+/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[], valid_empty: boolean, valid_empty_land: boolean }>} */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
-  const { listings } = await crawlPromise;
-  return { listings, wykaz: [], land: [] };
+  const { listings, valid_empty, valid_empty_land } = await crawlPromise;
+  return { listings, wykaz: [], land: [], valid_empty: Boolean(valid_empty), valid_empty_land: Boolean(valid_empty_land) };
 }
 
 // live smoke test: `node src/cities/gora/crawl.js`

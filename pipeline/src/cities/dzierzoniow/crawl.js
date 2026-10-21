@@ -85,12 +85,14 @@ function itemTitle(item) {
 /** Walk one board (bounded), newest-first, collecting {id, link, title}. */
 async function fetchBoardItems(menuId, archived) {
   const items = [];
+  let complete = true;
   for (let page = 0; page < MAX_LIST_PAGES; page++) {
     let json;
     try {
       json = JSON.parse(await getText(listUrl(menuId, page * LIST_COUNT, archived), FETCH_OPTS));
     } catch (err) {
       console.error(`  dzierzoniow: board ${menuId} page ${page} failed: ${err.message}`);
+      complete = false;
       break;
     }
     const arts = Array.isArray(json?.articles) ? json.articles : [];
@@ -102,17 +104,18 @@ async function fetchBoardItems(menuId, archived) {
     const total = Number(json?.total) || 0;
     if ((page + 1) * LIST_COUNT >= total) break;
   }
+  items.complete = complete;
   return items;
 }
 
-/** Fetch one article's attachments -> [{ id, name, extension }]. */
+/** Fetch one article's attachments -> [{ id, name, extension }] or null on error. */
 async function fetchAttachments(articleId) {
   let json;
   try {
     json = JSON.parse(await getText(articleUrl(articleId), FETCH_OPTS));
   } catch (err) {
     console.error(`  dzierzoniow: article ${articleId} failed: ${err.message}`);
-    return [];
+    return null;
   }
   return (Array.isArray(json?.attachments) ? json.attachments : [])
     .filter((a) => a?.id != null && String(a?.extension || '').toLowerCase() === 'pdf')
@@ -124,12 +127,19 @@ let crawlPromise = null;
 async function crawlAll() {
   const listings = [];    // active future flat announcements
   const resultRefs = [];  // { text, pdf_url, auction_date }
+  let allParsed = true;
 
   // ---- ANNOUNCEMENTS (menu 1838, current) --------------------------------
-  const annItems = (await fetchBoardItems(ANNOUNCE_MENU, false)).filter((i) => isFlat(i.title));
+  const boardItems = await fetchBoardItems(ANNOUNCE_MENU, false);
+  const annComplete = Boolean(boardItems.complete);
+  const annItems = boardItems.filter((i) => isFlat(i.title));
   console.error(`  dzierzoniow: ${annItems.length} flat announcement article(s)`);
   for (const item of annItems) {
     const atts = await fetchAttachments(item.id);
+    if (atts === null) {
+      allParsed = false;
+      continue;
+    }
     if (!atts.length) continue; // pre-auction (wykaz) stage — no ogłoszenie PDF yet
     const og = atts.find((a) => /og[łl]oszeni/i.test(a.name)) || atts[0];
     let body;
@@ -137,10 +147,15 @@ async function crawlAll() {
       body = await pdfText(fileUrl(og.id), FETCH_OPTS);
     } catch (err) {
       console.error(`  dzierzoniow: ann pdf ${og.id} failed: ${err.message}`);
+      allParsed = false;
       continue;
     }
     const rec = parseAnnouncement(body, item.title, pageUrl(item.link));
-    if (rec) listings.push(rec);
+    if (rec) {
+      listings.push(rec);
+    } else {
+      allParsed = false;
+    }
   }
 
   // ---- RESULTS (menu 63, archived) ---------------------------------------
@@ -161,6 +176,7 @@ async function crawlAll() {
     processed++;
 
     const atts = await fetchAttachments(item.id);
+    if (!atts?.length) continue;
     const pdf = atts.find((a) => /rozstrzyg|wynik/i.test(a.name)) || atts[0];
     if (!pdf) continue;
     const pdf_url = fileUrl(pdf.id);
@@ -187,7 +203,12 @@ async function crawlAll() {
     `  dzierzoniow: ${active.length} active flat listing(s) (of ${listings.length} parsed), ` +
     `${resultRefs.length} result document(s) with flats`,
   );
-  return { listings: active, resultRefs };
+  return {
+    listings: active,
+    resultRefs,
+    valid_empty: annComplete && allParsed && active.length === 0,
+    valid_empty_land: false,
+  };
 }
 
 /** Concluded records (achieved-price stream). source:'html' ⇒ refs carry `.text`. */
@@ -196,11 +217,11 @@ export async function crawlResultDocs() {
   return (await crawlPromise).resultRefs;
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
+/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[], valid_empty: boolean, valid_empty_land: boolean }>} */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
-  const { listings } = await crawlPromise;
-  return { listings, wykaz: [], land: [] };
+  const { listings, valid_empty, valid_empty_land } = await crawlPromise;
+  return { listings, wykaz: [], land: [], valid_empty, valid_empty_land };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

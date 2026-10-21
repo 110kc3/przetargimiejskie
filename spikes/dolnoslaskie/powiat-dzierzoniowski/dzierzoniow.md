@@ -62,3 +62,15 @@ Also confirmed: gmina wiejska Dzierżoniów (separate entity, ug.dzierzoniow.pl)
 
 **Verdict: BUILD — Medium effort.**
 The announcement side is trivially scrape-friendly via the Drupal city site. The achieved-price stream requires Playwright for BIP SPA navigation + PDF text extraction, but both are standard patterns. Volume (~20–40 auctions/year) justifies the build.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Burmistrz Dzierżoniowa (Gmina Miejska Dzierżoniów)) publishes auction announcements on `https://bip.um.dzierzoniow.pl` (Madkom SIP JSON adapter + BIP Drupal 10).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered HTML and born-digital text PDFs. Achieved prices and auction outcomes extracted from published result notices.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

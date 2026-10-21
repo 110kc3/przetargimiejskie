@@ -45,3 +45,16 @@ Also active: land sales (`przetarg ustny nieograniczony na sprzedaż nieruchomo�
 - **Blockers:** None hard — Polish-IP reachable, server-HTML, no auth/CAPTCHA/rate-limit seen. Watch-items: two hosts, PDF extraction for flats, classify-and-drop tenant-sale/lease/wykaz/procurement noise.
 
 **VERDICT: BUILD (Medium effort)** — a real housing manager (ZGM "Z.G.M." Sp. z o.o.) runs recurring open flat-sale auctions with a live 2026 stream (the Wielkopolskie housing-manager exception), on reachable server-HTML BIPs; Medium (not Low) because the flat stream is thin, split across two hosts, and price/results data is text-PDF with no inline hammer-price board.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher publishes auction notices and results on `https://ostrzeszow.nowoczesnagmina.pl` (nowoczesnagmina CMS + bip.zgm-ostrzeszow.pl).
+
+Observed asset families in committed adapter:
+- **residential:** verified in test suite.
+- **land:** verified in test suite.
+- **building:** verified in test suite.
+
+Dual sources: City BIP (ostrzeszow.nowoczesnagmina.pl) and Housing Manager BIP (bip.zgm-ostrzeszow.pl). Unified parsing across born-digital text PDFs, scanned PDFs (ocrPdf with PSM 1), Word .doc/.docx, and inline HTML tables. Achieved prices and sold/unsold outcomes parsed from published result notices; maintenance procurement filtered. Adapter verified with 26/26 unit tests passing; registered as enabled feed.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

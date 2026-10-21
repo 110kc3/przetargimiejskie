@@ -40,3 +40,15 @@ Authority: Burmistrz Miasta i Gminy Sztum (Bartosz Mazerski); Referat Inwestycji
 - **Blockers:** None hard. Watch-items: incomplete TLS chain (use `-k`/browser-UA fetch); mixed land+flat+rokowania board (classify + filter); low flat volume (land is in-scope for the wider dataset anyway); pagination/history params for backfill (bound it).
 
 **VERDICT: BUILD (Medium effort)** — genuine open oral municipal flat auctions on a clean server-HTML BIP with born-digital result PDFs carrying exact `Cena wywoławcza` / `Najwyższa cena osiągnięta` fields; new `template4` CMS family (no drop-in clone) + single mixed land-dominated board push effort to Medium, but no technical blockers.
+
+## Partial source/asset audit — 2026-10-21
+
+The official municipal publisher (Burmistrz Miasta i Gminy Sztum) publishes auction announcements on `https://bip.sztum.pl/1186.html` (Municipal BIP portal (bip.sztum.pl)).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices extracted from born-digital text PDFs (pdfText) with intermediate TLS support. Achieved prices and oral auction/rokowania outcomes parsed directly from result PDFs.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.
