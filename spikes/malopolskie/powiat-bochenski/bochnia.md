@@ -104,3 +104,20 @@ The BIP SPA "Wyniki przetargów" board at https://bip.malopolska.pl/umbochnia,m,
 - The BIP SPA mirror is useless for fetching — must not use bip.malopolska.pl for this city.
 
 **Verdict: BUILD — Low effort.** The WordPress CMS is clean, fetchable, and requires no special handling. Plugs directly into a standard paginated-HTML poller identical to other small Małopolska cities. Volume is low but non-zero, and both announcement and result streams are in one place.
+
+## Partial source/asset audit — 2026-10-21
+
+Urząd Miasta Bochnia conducts property auctions via the WordPress category
+archive "Komunikaty i ogłoszenia" at `https://bochnia.eu/kategorie/komunikaty-i-ogloszenia/`.
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** open oral flat auctions (e.g. Murowianka, Kmity, Floris).
+- **Land (działki):** municipal land parcels (e.g. Smyków, Kuczkiewicza).
+
+All 8 active flat listings from 2024/2025 aged out into archived history; recent
+posts are land-only. Server experiences intermittent 503/507 errors under load.
+Because recent pagination stops under the time budget and the live board currently
+has no flats, the property stream is marked degraded while the land stream is
+healthy with **24 plots**.
+
+Committed dataset maintains **6 unique properties / 24 land plots**.

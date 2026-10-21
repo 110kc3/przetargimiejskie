@@ -1,6 +1,6 @@
 {
   "schema": "city-manifest/2",
-  "generated_at": "2026-09-06",
+  "generated_at": "2026-10-21",
   "note": "Canonical official-city inventory. Historic spike verdicts are preserved in status/spike; lifecycle and capabilities are separate.",
   "source": {
     "publisher": "Główny Urząd Statystyczny, rejestr TERYT",
@@ -18551,18 +18551,18 @@
         {
           "url": "https://bip.kwidzyn.pl/api/menu/13536",
           "evidence_path": "spikes/pomorskie/powiat-kwidzynski/kwidzyn.md",
-          "verified_at": "2026-10-20",
+          "verified_at": "2026-10-21",
           "scope": "source-asset-audit",
           "audit_status": "partial",
           "observed_assets": [
             "residential",
             "land"
           ],
-          "access_environment": "local",
+          "access_environment": "hosted",
           "limitations": [
-            "Cached current announcements must remain eligible: Hallera 15/15 and Chopina 34/8 both auction on 2026-10-23. Isolated property recovery verified; hosted follow-up pending.",
-            "Only current/prior-year menus traversed; older linked archives and thirteen unsupported scanned land result tables keep coverage incomplete.",
-            "Retained first-parcel land identities and the historical Hallera row missing its flat number still require source-backed repair. No full-review deadline or runtime promotion."
+            "Cached current announcements remain eligible; scheduled hosted refresh 1bd92093e confirmed recovery live: Hallera 15/15 and Chopina 34/8 active auctions retained (6 properties / 3 plots; property stream healthy).",
+            "Thirteen unsupported scanned land result tables and older linked archives keep land and results streams degraded.",
+            "Retained first-parcel land identities and the historical Hallera row missing its flat number still require source-backed repair."
           ]
         }
       ],
@@ -24867,31 +24867,51 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "City BIP HTML + i-BIIP catalog",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
-          "commercial": "unknown",
-          "garage": "unknown"
+          "commercial": "observed",
+          "garage": "observed"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/slaskie/bytom/bytom.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom",
+          "evidence_path": "spikes/slaskie/bytom/bytom.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "commercial",
+            "garage",
+            "land",
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "BIP listing covers property announcements and relisting rounds; i-BIIP catalog provides price, area, and auction dates.",
+            "Announcements use .doc format; parsed text is retained in doc-text-cache so listings survive board rotations.",
+            "Separate achieved-price result notices are not published on the BIP; result stream is not available.",
+            "Production refresh maintains 28 properties and 13 land plots, with both property and land streams healthy."
+          ]
         }
       ],
       "review": {
@@ -25080,17 +25100,17 @@
         {
           "url": "https://bip.malopolska.pl/umchrzanow,a,2950984,przetarg-na-sprzedaz-nieruchomosci-polozoenj-przy-ul-dzialkowej-w-chrzanowie.html",
           "evidence_path": "spikes/malopolskie/powiat-chrzanowski/chrzanow.md",
-          "verified_at": "2026-10-20",
+          "verified_at": "2026-10-21",
           "scope": "source-asset-audit",
           "audit_status": "partial",
           "observed_assets": [
             "land"
           ],
-          "access_environment": "local",
+          "access_environment": "hosted",
           "limitations": [
-            "Public article JSON replaces the SPA renderer after a hosted zero-row regression; both article IDs and the umchrzanow context link are checked.",
-            "Current Działkowa notice remains one combined lot: 43439 m², 8005000 PLN, 2026-12-17. Isolated refresh retains four plots and passes strict integrity/coverage health.",
-            "Result ingestion, building/flat parsing and full source/asset coverage remain unverified; hosted follow-up is pending."
+            "Public article JSON replaces the SPA renderer; scheduled hosted refresh 1bd92093e confirmed recovery live with healthy land stream and four plots retained.",
+            "Current Działkowa notice remains one combined lot: 43439 m², 8005000 PLN, 2026-12-17. Strict integrity and coverage health pass.",
+            "Result ingestion, building/flat parsing and full source/asset coverage remain unverified; issue #831 resolved."
           ]
         }
       ],
@@ -25363,26 +25383,26 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "ZGM custom HTML + BIP Gliwice HTML",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
-          "commercial": "unknown",
-          "garage": "unknown"
+          "commercial": "observed",
+          "garage": "observed"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
@@ -25390,9 +25410,23 @@
           "verified_at": "2026-07-20"
         },
         {
+          "url": "https://zgm-gliwice.pl/przetargi/",
           "evidence_path": "spikes/slaskie/gliwice/gliwice.md",
-          "verified_at": "2026-10-19",
-          "note": "Local source/extraction diagnosis; hosted recovery pending."
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "commercial",
+            "garage",
+            "land",
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Dual source: ZGM (Zakład Gospodarki Mieszkaniowej) for residential/commercial and bip.gliwice.eu for land.",
+            "Result documents are scanned image PDFs requiring OCR; historical area backfill remains pending for older listings.",
+            "Garage address normalisation resolved (Kozielska 13 g. 1); 214 properties and 80 land plots monitored with healthy streams."
+          ]
         }
       ],
       "review": {
@@ -31204,7 +31238,7 @@
         {
           "url": "https://www.bip.krakow.pl/?news_id=263185",
           "evidence_path": "spikes/malopolskie/krakow/krakow.md",
-          "verified_at": "2026-10-20",
+          "verified_at": "2026-10-21",
           "scope": "source-asset-audit",
           "audit_status": "partial",
           "observed_assets": [
@@ -31214,11 +31248,11 @@
             "commercial",
             "garage"
           ],
-          "access_environment": "local",
+          "access_environment": "hosted",
           "limitations": [
-            "One-based official board pagination and the current land-share notice were checked locally.",
-            "Archive discovery is bounded to six pages per board and is not exhaustive result coverage.",
-            "Source fixtures verify examples of all five asset classes; historical result parsing still requires full review and hosted recovery is pending."
+            "One-based official board pagination and grouped land share notices verified live; CodeQL #132 resolved in noticeText with iterative unwrapping.",
+            "Archive discovery is bounded to six pages per board and is not exhaustive result coverage; results stream remains degraded.",
+            "Source fixtures verify examples of all five asset classes; historical result parsing still requires full review."
           ]
         }
       ],
@@ -44177,26 +44211,26 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "IDcom e-bip.pl HTML + gniezno.eu HTML",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
@@ -44204,9 +44238,21 @@
           "verified_at": "2026-07-20"
         },
         {
+          "url": "https://bip.gniezno.eu/wiadomosci/11287/lista/przetargi_na_sprzedaz_i_dzierzawe_nieruchomosci",
           "evidence_path": "spikes/wielkopolskie/powiat-gnieznienski/gniezno.md",
-          "verified_at": "2026-10-19",
-          "note": "Local source/extraction diagnosis; hosted recovery pending."
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "land",
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Source uses custom Let's Encrypt R36 intermediate certificate chain configured in source-tls.js.",
+            "Calendar validation and latest-announcement selection disambiguate multiple relisting rounds.",
+            "Monitors 7 properties and 7 land plots; hosted publication verified healthy."
+          ]
         }
       ],
       "review": {
@@ -49341,31 +49387,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "devcomm bipv45 (DataTables JSON list + text PDF)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
+        "announcements": "observed",
         "results": "unknown"
       },
       "sources": [
         {
           "evidence_path": "spikes/lodzkie/powiat-poddebicki/poddebice.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.poddebice.pl/index.php?id=102",
+          "evidence_path": "spikes/lodzkie/powiat-poddebicki/poddebice.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "land",
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Single city board 'Ogłoszenia Burmistrza' served as DataTables JSON endpoint with born-digital text PDFs.",
+            "No separate result/hammer price stream published by source; asking-price only dataset.",
+            "Expired TLS certificate on host handled without bypassing security policy; 1 property and 14 land plots monitored."
+          ]
         }
       ],
       "review": {
@@ -50035,26 +50098,26 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "bip.net v7 (Extranet)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
-          "building": "unknown",
+          "residential": "observed",
+          "land": "observed",
+          "building": "observed",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
@@ -50062,9 +50125,22 @@
           "verified_at": "2026-07-20"
         },
         {
+          "url": "https://bip.rawamazowiecka.pl/1311,przetargi",
           "evidence_path": "spikes/lodzkie/powiat-rawski/rawa-mazowiecka.md",
-          "verified_at": "2026-10-19",
-          "note": "Local source/extraction diagnosis; hosted recovery pending."
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "building",
+            "land",
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Year-partitioned announcement boards (7 boards) and result boards (7 boards) from 2020 to 2026.",
+            "Year-menu discovery handles removed ARIA attributes; inline notice text and text PDF attachments.",
+            "Monitors 4 properties and 12 land plots; hosted publication verified healthy."
+          ]
         }
       ],
       "review": {
@@ -54751,31 +54827,48 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "WordPress HTML",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/malopolskie/powiat-bochenski/bochnia.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bochnia.eu/kategorie/komunikaty-i-ogloszenia/",
+          "evidence_path": "spikes/malopolskie/powiat-bochenski/bochnia.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "land",
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Mixed WordPress category archive 'Komunikaty i ogłoszenia' filtered by title/body.",
+            "All 8 active flat listings from 2024/2025 aged out into archived history; recent posts are land-only.",
+            "Server experiences intermittent 503/507 errors under load; property stream marked degraded while land stream is healthy with 24 plots."
+          ]
         }
       ],
       "review": {
@@ -55514,26 +55607,26 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "bip.net v7 (extranet.pl)",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
@@ -55541,9 +55634,21 @@
           "verified_at": "2026-07-20"
         },
         {
+          "url": "https://bip.golub-dobrzyn.pl/583,przetargi",
           "evidence_path": "spikes/kujawsko-pomorskie/powiat-golubsko-dobrzynski/golub-dobrzyn.md",
-          "verified_at": "2026-10-19",
-          "note": "Local source/extraction diagnosis; hosted recovery pending."
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "land",
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "Dual publisher: Gmina Miasto Golub-Dobrzyń (bip.golub-dobrzyn.pl) and Starostwo Powiatowe (bip.golub-dobrzyn.com.pl).",
+            "Scanned multi-flat announcement tables parsed via geometry/column OCR rules.",
+            "Monitors 7 properties, 10 land plots, and 6 active auctions; hosted publication verified healthy."
+          ]
         }
       ],
       "review": {
@@ -56075,31 +56180,47 @@
         "runtime": "monitored"
       },
       "capabilities": {
-        "cms_family": "unknown",
+        "cms_family": "Logonet eUrząd BIP",
         "accessibility": "unknown",
         "coverage_period": {
           "from": null,
           "to": null
         },
         "assets": {
-          "residential": "unknown",
+          "residential": "observed",
           "land": "unknown",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
-          "negotiations": "unknown"
+          "negotiations": "observed"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
           "evidence_path": "spikes/dolnoslaskie/walbrzych/walbrzych.md",
           "verified_at": "2026-07-20"
+        },
+        {
+          "url": "https://bip.um.walbrzych.pl/przetargi-nieruchomosci/2359",
+          "evidence_path": "spikes/dolnoslaskie/walbrzych/walbrzych.md",
+          "verified_at": "2026-10-21",
+          "scope": "source-asset-audit",
+          "audit_status": "partial",
+          "observed_assets": [
+            "residential"
+          ],
+          "access_environment": "hosted",
+          "limitations": [
+            "High-volume flat stream published on bip.um.walbrzych.pl with born-digital PDF results tables.",
+            "Daily result discovery runs under a bounded crawl budget; empty text PDFs fall back to OCR; negotiations accepted.",
+            "Incomplete result discovery is explicitly tracked as a degraded result stream; 74 properties monitored."
+          ]
         }
       ],
       "review": {

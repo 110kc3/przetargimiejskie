@@ -47,3 +47,19 @@ Owner: Referat Gospodarki Nieruchomościami i Urbanistyki, Urząd Miejski w Podd
 ```json
 {"city_slug":"poddebice","voivodeship":"lodzkie","powiat_slug":"powiat-poddebicki","status":"build","effort":"Low","confidence":"LIVE","note":"open flat auctions (Przejazd 18, przetarg 7.07.2026; Południowa 1A, Targowa 16/18) on single 'Ogłoszenia Burmistrza' board id=102, 279 docs; list=DataTables JSON (&akcja=pobierz_dokumenty_ajax), detail=born-digital text-PDF (no OCR); NO manager, NO results/hammer board, land-dominated, 0 flat auctions 2022-25 then resumed 2026; marginal build; analog=JSON-list(MADKOM)+text-PDF(bip.net)","host":"bip.poddebice.pl","cms":"devcomm bipv45 (DataTables JSON list + PDF attach)"}
 ```
+
+## Partial source/asset audit — 2026-10-21
+
+Gmina Poddębice conducts municipal property auctions via the single city board
+"Ogłoszenia Burmistrza Poddębic" at `https://bip.poddebice.pl/index.php?id=102`
+(devcomm bipv45 CMS), providing a DataTables AJAX JSON endpoint.
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** open oral auctions with born-digital text PDF details (e.g. ul. Przejazd 18, Południowa 1A).
+- **Land (działki):** municipal land parcels (14 plots).
+
+Terms are extracted from attached born-digital PDFs. The source does not publish
+an achieved-price results board (`crawlResultDocs` returns `[]`).
+
+Committed dataset maintains **1 property / 14 land plots**. Hosted publication
+verified healthy on both property and land streams.

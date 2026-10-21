@@ -82,3 +82,20 @@ Both entities do NOT restrict flat sales exclusively to bezprzetargowy tryb for 
 ## Source repair recheck — 19 October 2026
 
 Geometry-based scanned multi-flat table repair; isolated live probe: 10 property / 6 land records. No local production freshness advance. Hosted publication and three-day health remain pending. Source details and regression evidence: `REPAIR-EVIDENCE-2026-10.md`.
+
+## Partial source/asset audit — 2026-10-21
+
+Municipal property disposal in Golub-Dobrzyń is published across two `bip.net` v7
+portals: Gmina Miasto Golub-Dobrzyń (`bip.golub-dobrzyn.pl/583,przetargi`) and
+Starostwo Powiatowe (`bip.golub-dobrzyn.com.pl`).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** open oral auctions across both publishers (e.g. Piłsudskiego 9/1, Chopina 16/6, Zamkowa 18/5, PTTK 23/5).
+- **Land (działki):** municipal land parcels.
+
+Announcements include scanned tabular listings requiring geometry-based column
+OCR extraction. Result notices are plain-text HTML pages containing achieved
+prices and buyer identities.
+
+Committed dataset maintains **7 unique properties / 10 land plots**, with 6 active
+auctions. Hosted publication verified healthy on both streams.

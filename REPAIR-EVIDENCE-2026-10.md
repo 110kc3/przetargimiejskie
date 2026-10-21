@@ -619,3 +619,41 @@ Production health re-evaluated against `1bd92093e` (21 October 2026):
     - Property streams (2): Bochnia (active flats aged out; recent posts on `bochnia.eu` are land-only; origin returning 503/507 under load; property stream degraded while land is healthy with 24 plots), Ząbkowice Śląskie (garage notice 11008 lacks street number; implementation gap documented in spike; degraded property stream kept visible).
     - Results streams (5): Kraków, Wałbrzych, Zgorzelec, Trzebnica, Jarocin (incomplete results).
     - Results + Land (1): Kwidzyn (scanned result tables and land tables).
+
+## Existing-city source/asset audit expansion — 21 October 2026
+
+The canonical existing-city source/asset audit advances from **12 partial / 109 unchecked**
+to **20 partial / 101 unchecked** enabled feeds in `spikes/master-cities.json` and
+`spikes/SPIKE-PROGRESS.md`.
+
+Eight enabled adapters were profiled against their live source boards, CMS families,
+asset classes and result availability, with source notes added to their canonical spike
+evidence files:
+1. **Bytom** (`spikes/slaskie/bytom/bytom.md`): City BIP HTML + i-BIIP catalog;
+   commercial, garage, land, residential observed (28 properties / 13 plots). `.doc`
+   announcement retention in doc-text-cache; no separate result notices published on BIP.
+2. **Gliwice** (`spikes/slaskie/gliwice/gliwice.md`): ZGM custom HTML + BIP Gliwice HTML;
+   commercial, garage, land, residential observed (214 properties / 80 plots). Scanned
+   PDF results via OCR; garage address normalisation reconciled.
+3. **Gniezno** (`spikes/wielkopolskie/powiat-gnieznienski/gniezno.md`): IDcom e-bip.pl HTML
+   + gniezno.eu HTML; residential, land observed (7 properties / 7 plots). Let's Encrypt
+   R36 intermediate TLS chain; BIP attached result PDFs + HTML news items.
+4. **Golub-Dobrzyń** (`spikes/kujawsko-pomorskie/powiat-golubsko-dobrzynski/golub-dobrzyn.md`):
+   bip.net v7 (extranet.pl); residential, land observed across city and powiat publishers
+   (7 properties / 10 plots). Scanned multi-flat tables via geometry OCR; plain-text HTML results.
+5. **Rawa Mazowiecka** (`spikes/lodzkie/powiat-rawski/rawa-mazowiecka.md`): bip.net v7 Extranet;
+   building, land, residential observed (4 properties / 12 plots). 7 announcement and 7 result
+   boards (2020–2026); inline text + text PDFs.
+6. **Poddębice** (`spikes/lodzkie/powiat-poddebicki/poddebice.md`): devcomm bipv45; land,
+   residential observed (1 property / 14 plots). DataTables AJAX JSON endpoint with
+   born-digital text PDFs; asking-price only dataset (no results board).
+7. **Wałbrzych** (`spikes/dolnoslaskie/walbrzych/walbrzych.md`): Logonet eUrząd BIP;
+   residential observed (74 properties). Born-digital PDF results tables; bounded daily
+   budget and negotiations supported; degraded results stream explicitly tracked.
+8. **Bochnia** (`spikes/malopolskie/powiat-bochenski/bochnia.md`): WordPress HTML; land,
+   residential observed (6 properties / 24 plots). Active flats aged out into archived
+   history; recent posts are land-only; property stream degraded while land is healthy.
+
+Additionally, hosted verification evidence is updated for Chrzanów (article API recovery
+live, healthy land), Kwidzyn (current flats Hallera/Chopina retained live, healthy property),
+and Kraków (CodeQL alert #132 resolved with iterative unwrapping).

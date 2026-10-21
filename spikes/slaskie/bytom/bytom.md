@@ -12,3 +12,24 @@ Adapter is live: `pipeline/src/cities/bytom/` → data in `data/bytom/` (registe
 - **Coverage audit:** [SPIKE-COVERAGE.md](../../../SPIKE-COVERAGE.md).
 
 *No re-spike needed; this file exists so every covered city has a node in the spikes/ tree.*
+
+## Partial source/asset audit — 2026-10-21
+
+The city BIP at `https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom` publishes
+announcements and relisting rounds for municipal property disposals, supplemented
+by the i-BIIP catalog (`i-biip.um.bytom.pl`) for cadastral enrichment, starting
+prices and floor areas.
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** open oral auctions with relisting rounds.
+- **Commercial (lokale użytkowe):** multi-round sales.
+- **Garages (garaże):** individual unit disposals.
+- **Land (działki):** undeveloped municipal land parcels (13 plots).
+
+Announcements frequently use `.doc` attachments; text is ingested via `docText`
+and persisted in `doc-text-cache` to ensure listings survive board rotation.
+Bytom does not publish separate achieved-price result notices, so the result
+stream remains absent/unmonitored (`crawlResultDocs` returns `[]`).
+
+Committed dataset maintains **28 unique properties / 13 land plots**, with 3 active
+auctions. Both property and land streams are verified healthy in production.

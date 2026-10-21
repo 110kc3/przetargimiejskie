@@ -57,4 +57,6 @@ coverage health pass. Official TERC identity from the canonical ledger is
 
 This only repairs the observed land-body path. Building/flat parsing, results,
 older boards and full source/asset completeness remain unverified. Hosted
-publication of this follow-up is pending; no local refresh output is published.
+scheduled publication `1bd92093e` confirmed the anonymous article API follow-up
+live: healthy land check, four plots retained, strict integrity clean.
+Issue #831 resolved; wider asset/result coverage remains incomplete.

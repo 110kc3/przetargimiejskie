@@ -2,7 +2,7 @@
 
 > **GENERATED FILE — do not hand-edit.** Regenerate with `node spikes/build-progress.mjs` after updating [master-cities.json](./master-cities.json) (the source of truth).
 >
-> Updated 2026-10-20 from the official GUS TERYT snapshot effective 2026-01-01. Queue: [backlog.json](./backlog.json) (0 pending / 380 done of 380 powiat rows; 335 distinct seat cities). Inventory differences: [inventory/DISCREPANCIES.md](./inventory/DISCREPANCIES.md). Build guide: [../pipeline/ADAPTER-GUIDE.md](../pipeline/ADAPTER-GUIDE.md).
+> Updated 2026-10-21 from the official GUS TERYT snapshot effective 2026-01-01. Queue: [backlog.json](./backlog.json) (0 pending / 380 done of 380 powiat rows; 335 distinct seat cities). Inventory differences: [inventory/DISCREPANCIES.md](./inventory/DISCREPANCIES.md). Build guide: [../pipeline/ADAPTER-GUIDE.md](../pipeline/ADAPTER-GUIDE.md).
 
 ## Official inventory roll-up (1026 cities)
 
@@ -36,18 +36,26 @@ Lifecycle totals are retained manifest declarations, not a live health result. S
 
 ## Existing-city source/asset audit
 
-121 enabled cities: **0 complete**, **12 partial**, **109 unchecked**. Source observations do not prove parser completeness or healthy hosted monitoring. Remaining execution is in [TODO.md](../TODO.md).
+121 enabled cities: **0 complete**, **20 partial**, **101 unchecked**. Source observations do not prove parser completeness or healthy hosted monitoring. Remaining execution is in [TODO.md](../TODO.md).
 
 | City | Last source check | Audit | Observed sale assets | Evidence |
 |---|---|---|---|---|
+| Bochnia | 2026-10-21 | partial | land, residential | [source notes](../spikes/malopolskie/powiat-bochenski/bochnia.md) |
 | Bolesławiec | 2026-10-19 | partial | residential | [source notes](../spikes/dolnoslaskie/powiat-boleslawiecki/boleslawiec.md) |
 | Busko-Zdrój | 2026-10-20 | partial | land | [source notes](../spikes/swietokrzyskie/powiat-buski/busko-zdroj.md) |
-| Chrzanów | 2026-10-20 | partial | land | [source notes](../spikes/malopolskie/powiat-chrzanowski/chrzanow.md) |
+| Bytom | 2026-10-21 | partial | commercial, garage, land, residential | [source notes](../spikes/slaskie/bytom/bytom.md) |
+| Chrzanów | 2026-10-21 | partial | land | [source notes](../spikes/malopolskie/powiat-chrzanowski/chrzanow.md) |
+| Gliwice | 2026-10-21 | partial | commercial, garage, land, residential | [source notes](../spikes/slaskie/gliwice/gliwice.md) |
+| Gniezno | 2026-10-21 | partial | land, residential | [source notes](../spikes/wielkopolskie/powiat-gnieznienski/gniezno.md) |
+| Golub-Dobrzyń | 2026-10-21 | partial | land, residential | [source notes](../spikes/kujawsko-pomorskie/powiat-golubsko-dobrzynski/golub-dobrzyn.md) |
 | Jarocin | 2026-10-20 | partial | land | [source notes](../spikes/wielkopolskie/powiat-jarocinski/jarocin.md) |
-| Kraków | 2026-10-20 | partial | residential, land, building, commercial, garage | [source notes](../spikes/malopolskie/krakow/krakow.md) |
-| Kwidzyn | 2026-10-20 | partial | residential, land | [source notes](../spikes/pomorskie/powiat-kwidzynski/kwidzyn.md) |
+| Kraków | 2026-10-21 | partial | residential, land, building, commercial, garage | [source notes](../spikes/malopolskie/krakow/krakow.md) |
+| Kwidzyn | 2026-10-21 | partial | residential, land | [source notes](../spikes/pomorskie/powiat-kwidzynski/kwidzyn.md) |
 | Lubin | 2026-10-19 | partial | land | [source notes](../spikes/dolnoslaskie/powiat-lubinski/lubin.md) |
+| Poddębice | 2026-10-21 | partial | land, residential | [source notes](../spikes/lodzkie/powiat-poddebicki/poddebice.md) |
+| Rawa Mazowiecka | 2026-10-21 | partial | building, land, residential | [source notes](../spikes/lodzkie/powiat-rawski/rawa-mazowiecka.md) |
 | Trzebnica | 2026-10-19 | partial | residential, land | [source notes](../spikes/dolnoslaskie/powiat-trzebnicki/trzebnica.md) |
+| Wałbrzych | 2026-10-21 | partial | residential | [source notes](../spikes/dolnoslaskie/walbrzych/walbrzych.md) |
 | Wschowa | 2026-10-19 | partial |  | [source notes](../spikes/lubuskie/powiat-wschowski/wschowa.md) |
 | Ząbkowice Śląskie | 2026-10-19 | partial | land, garage | [source notes](../spikes/dolnoslaskie/powiat-zabkowicki/zabkowice-slaskie.md) |
 | Zgorzelec | 2026-10-20 | partial | land, building | [source notes](../spikes/dolnoslaskie/powiat-zgorzelecki/zgorzelec.md) |

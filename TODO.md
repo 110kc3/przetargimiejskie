@@ -194,13 +194,14 @@ The older dated sections below preserve diagnosis and do not override this state
   TERC `120303_4` and Kwidzyn municipal TERC `220701_1`, matching the canonical
   national ledger. No official ledger identity or full-review date was changed.
 - **Existing-city asset audit is now recorded in the canonical manifest:**
-  **0 complete / 12 partial / 109 unchecked**, generated in
-  [SPIKE-PROGRESS.md](spikes/SPIKE-PROGRESS.md). The partial checks cover
-  Bolesławiec, Trzebnica, Chrzanów, Zgorzelec, Ząbkowice Śląskie, Lubin, Wschowa
-  and Żagań, plus Kraków, Jarocin, Busko-Zdrój and Kwidzyn. Lubin/Wschowa/Żagań fold in evidence
-  committed in `046f3b07c`.
-  They retain the full
-  review deadlines and do not promote hosted runtime status. Zgorzelec's linked
+  **0 complete / 20 partial / 101 unchecked**, generated in
+  [SPIKE-PROGRESS.md](spikes/SPIKE-PROGRESS.md). The audit expands with eight newly
+  audited enabled feeds: Bytom, Gliwice, Gniezno, Golub-Dobrzyń, Rawa Mazowiecka,
+  Poddębice, Wałbrzych, and Bochnia. Hosted verification in `1bd92093e` confirms
+  Chrzanów land recovery (4 plots, healthy) and Kwidzyn current flats (6 properties /
+  3 plots, 2 active auctions). Kraków's CodeQL #132 formatting unwrapping is resolved.
+  The partial checks cover 20 cities; all retain their full review deadlines and
+  do not promote runtime status. Zgorzelec's linked
   announcement archives are now crawled; its result discovery remains incomplete.
   Ząbkowice notice 11008 is a genuine 19.43 m²
   garage / 44,000 zł sale missed because no street number is published; its

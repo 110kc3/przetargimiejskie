@@ -121,3 +121,20 @@ No authentication required. No JS SPA (standard server-rendered HTML). The BIP u
 ## Source repair recheck — 19 October 2026
 
 Authenticated current R36 chain, land/date routing and latest announcement; isolated live probe: 7 property / 7 land records. No local production freshness advance. Hosted publication and three-day health remain pending. Source details and regression evidence: `REPAIR-EVIDENCE-2026-10.md`.
+
+## Partial source/asset audit — 2026-10-21
+
+Gmina Miasto Gniezno publishes municipal auctions on `bip.gniezno.eu` (IDcom e-bip.pl
+CMS, `przetargi_na_sprzedaz_i_dzierzawe_nieruchomosci`) with announcements and attached
+result PDFs, supplemented by short HTML result notices on `gniezno.eu`.
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** open oral auctions with relisting rounds (e.g. Sienkiewicza, Wyszyńskiego, Chrobrego).
+- **Land (działki):** municipal land parcels (e.g. Wyszyńskiego land).
+
+The origin requires the Let's Encrypt R36 intermediate certificate chain configured
+in `pipeline/src/core/source-tls.js`. Latest announcement selection and calendar
+validation handle multi-round relistings.
+
+Committed dataset maintains **7 unique properties / 7 land plots**, with 1 active
+auction. Hosted publication verified healthy on both streams.

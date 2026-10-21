@@ -114,6 +114,8 @@ repair; this slice does not relabel or delete them. Full land-table extraction,
 archive traversal and retained-ledger migrations remain accepted follow-up work.
 
 Official municipal TERC is **220701_1**, as recorded in the canonical official
-ledger; the adapter's old `220501_1` was incorrect. No full-review deadline,
-source timestamp or hosted runtime status is promoted by this local check.
-No local crawl output is published; hosted verification remains pending.
+ledger; the adapter's old `220501_1` was incorrect. Hosted scheduled publication
+`1bd92093e` confirmed the current-flat retention live: **6 properties / 3 plots**,
+property stream healthy, active auctions = 2 (Hallera 15/15 and Chopina 34/8).
+Thirteen scanned land result tables and older archives remain degraded. No
+full-review deadline is promoted by this check.

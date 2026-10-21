@@ -26,7 +26,7 @@ TLS chain/auction rounds, repairs Trzebnica history handling and fixes
 Chrzanów's combined-lot table. Jarocin's grouped land-table repair and Kraków's
 pagination/HTML-lot repair follow, with exact source fixtures and guarded repairs
 to previously committed identities, prices and outcomes. The canonical manifest
-records eleven partial source/asset audits (none yet complete), with 110 enabled cities unchecked.
+records twenty partial source/asset audits (none yet complete), with 101 enabled cities unchecked.
 Zgorzelec now walks its linked announcement archives and separates parcel
 prices/floor areas; its result discovery remains incomplete. Busko-Zdrój now
 reads PDF-only land announcements and the full visible feed, retaining three

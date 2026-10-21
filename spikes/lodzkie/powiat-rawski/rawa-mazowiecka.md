@@ -43,3 +43,20 @@ Housing manager: **Rawskie Towarzystwo Budownictwa Społecznego Sp. z o.o.** (`b
 ## Source repair recheck — 19 October 2026
 
 Repaired changed year-menu discovery; 7 announcement and 7 result boards, 4 property / 10 land records. No local production freshness advance. Hosted publication and three-day health remain pending. Source details and regression evidence: `REPAIR-EVIDENCE-2026-10.md`.
+
+## Partial source/asset audit — 2026-10-21
+
+Gmina Miasto Rawa Mazowiecka publishes municipal tenders on `bip.rawamazowiecka.pl`
+(bip.net Extranet v7.32) across year-partitioned boards (`1311,przetargi`).
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** recurring open auctions (e.g. Reymonta flats 1, 4, 5).
+- **Buildings (budynki):** whole-building/residential property sales.
+- **Land (działki):** municipal land parcels (e.g. Mszczonowska, Biała).
+
+The adapter walks 7 announcement and 7 result boards (2020–2026). Notices are
+server-rendered HTML documents (`redir,<board>?tresc=<id>`) with text PDF attachments.
+Matching *informacja o wyniku przetargu* result boards supply achieved prices.
+
+Committed dataset maintains **4 unique properties / 12 land plots**. Hosted
+publication verified healthy on both streams.

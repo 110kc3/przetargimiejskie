@@ -79,3 +79,7 @@ coverage stays degraded because archive bounds and unsupported items remain.
 The frozen production-land fixture additionally verifies migration of the old
 17/1-only current lot to 17/1 + 17/2, both share prices, and parcel 215's explicit
 385,000 zł sale. Source timestamps and runtime/review declarations are untouched.
+
+On 21 October 2026, `noticeText` in `parse.js` was refactored with iterative
+`unwrapInlineFormatting` to resolve CodeQL alert #132 (CWE-116); hosted Security
+passed in run 39589069355. Property/land monitoring remains healthy.

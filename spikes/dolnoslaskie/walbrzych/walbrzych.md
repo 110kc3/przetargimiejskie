@@ -86,3 +86,20 @@ TLS: standard HTTPS, no auth. The workspace IP was blocked by the server (empty 
 **Effort estimate:** 3–5 days for full adapter (listing + results + PDF parser + incremental). Low-medium — no OCR needed, no JS SPA, no auth. Main time sink is the PDF table parser and mosparo token handling.
 
 **VERDICT: BUILD.** High flat-auction volume (~60/year), clean born-digital PDFs with achieved prices, single well-structured BIP, no auth. Strong signal city.
+
+## Partial source/asset audit — 2026-10-21
+
+Prezydent Miasta Wałbrzycha runs regular municipal flat auctions on `bip.um.walbrzych.pl`
+(Logonet eUrząd BIP, `przetargi-nieruchomosci/2359`), with batched auctions and born-digital
+PDF result summaries.
+
+Observed asset families in committed data:
+- **Residential (lokale mieszkalne):** high-volume open auctions (e.g. Mickiewicza, Proletariacka, Rynek, Słowicza).
+- **Negotiations (rokowania):** published rokowania procedures supported.
+
+Daily result discovery runs under a bounded crawl budget; empty text PDFs fall back to OCR.
+Incomplete result discovery is explicitly tracked as a degraded result stream rather than
+claiming full historical capture.
+
+Committed dataset maintains **74 unique properties / 0 land plots**. Property stream
+monitoring is healthy; results stream remains degraded.
