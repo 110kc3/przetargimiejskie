@@ -597,3 +597,25 @@ Proszowice is the newly failed attempt, retaining 9 properties / 13 plots; its
 last successful check is 09:13 UTC and latest failed attempt 09:38 UTC.
 Świętochłowice remains failed. Source clocks are preserved; this is committed
 data evidence, not another CI status poll or a full workflow-success claim.
+
+## Continuation closeout — 21 October 2026
+
+Commit `54a4371cf` hosted verification:
+- Scheduled municipal publication `1bd92093e` (and prior `796e7725f`) confirms **Chrzanów** API recovery: healthy land stream, 4 plots retained, strict integrity clean.
+- **Kwidzyn** current-flat retention is verified live in `1bd92093e`: **6 properties / 3 plots**, 2 active auctions (Hallera 15/15 and Chopina 34/8) and 8 archived auctions; property stream is healthy, while 13 scanned land result tables and older archives remain explicitly degraded.
+- **Proszowice** recovered from its prior failed attempt, retaining 9 properties / 13 plots with clean refresh.
+- **Bytom** property and land streams are verified healthy in hosted production refresh.
+
+Security release gate (CodeQL alert #132):
+- CodeQL alert #132 (`js/incomplete-multi-character-sanitization`) flagged `noticeText` in `pipeline/src/cities/krakow/parse.js` for single-pass regex tag replacement.
+- Replaced with iterative unwrapping `unwrapInlineFormatting(input)` using a `do...while` fixed-point loop, adhering to CodeQL's recommended multi-character sanitization pattern to strip nested formatting tags (`span`, `strong`, `em`, `b`, `i`, `u`) without splitting word boundaries.
+- Targeted tests in `pipeline/tests/parse-krakow.test.js` and `pipeline/tests/krakow-source-state.test.js` pass with zero failures.
+
+Production health re-evaluated against `1bd92093e` (21 October 2026):
+- Health check reports **13 active findings**:
+  - 3 network / reachability findings: Świętochłowice (issue #911, Azure hosted runner connection timeout; 98 properties preserved), Olkusz (issue #1043, intermittent connection timeout during scheduled refresh; 2 properties preserved; local live probe verified reachable with 145KB body), Brzeg (issue #1042, anti-DDoS waiting room challenge; 3 properties preserved).
+  - 2 expired egress staleness exemptions: Racibórz (issue #427, 46d > 21d; 21 properties preserved) and Pszczyna (issue #420, 46d > 21d; 18 properties preserved). Both remain excluded from hosted automation and exposed as visible hard gaps per `ROADMAP.md` and `PL-EGRESS-PLAN.md`.
+  - 8 degraded streams:
+    - Property streams (2): Bochnia (active flats aged out; recent posts on `bochnia.eu` are land-only; origin returning 503/507 under load; property stream degraded while land is healthy with 24 plots), Ząbkowice Śląskie (garage notice 11008 lacks street number; implementation gap documented in spike; degraded property stream kept visible).
+    - Results streams (5): Kraków, Wałbrzych, Zgorzelec, Trzebnica, Jarocin (incomplete results).
+    - Results + Land (1): Kwidzyn (scanned result tables and land tables).

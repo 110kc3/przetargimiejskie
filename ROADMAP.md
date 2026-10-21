@@ -39,15 +39,18 @@ with newer records and source timestamps retained. Targeted tests and isolated
 source validation are recorded in the queue. Hosted acceptance for this
 continuation is pending.
 
-Current production health against `f4a80d80c`, checked 20 October, has 13
-findings: nine degraded streams, one failed attempt, two expired egress exceptions
-and one Busko empty-data gap pending hosted publication. Kraków/Jarocin now have
-healthy hosted property/land checks at the validated counts, with incomplete
-results still degraded. Chrzanów's latest land stream regressed and retains its
-four last-good plots. Zgorzelec/Busko changes still await hosted verification.
-Continue source-specific repair and the existing-city source/asset audit before
-expanding adapters. A successful land board must not hide a failed property/result
-board.
+Current production health against `1bd92093e`, checked 21 October, has 13
+findings: eight degraded streams, three network/timeout attempts and two expired
+egress exceptions. Chrzanów API recovery is verified live with healthy land stream
+and four retained plots. Kwidzyn confirms six properties / three plots with both
+current flats retained, while land and results stay degraded. Proszowice refresh
+succeeded cleanly. Kraków inline formatting unwrapping resolves CodeQL alert #132
+under targeted tests. Olkusz and Brzeg retain last-good data during transient
+timeout/challenge periods, while Świętochłowice connection timeouts and
+Racibórz/Pszczyna egress exclusions remain visible hard gaps. Bochnia and
+Ząbkowice Śląskie property streams remain degraded. Continue source-specific
+repair and the existing-city source/asset audit before expanding adapters. A
+successful land board must not hide a failed property/result board.
 
 An earlier scheduled refresh's municipal publisher completed, but its provider
 gate failed after PKP connection timeouts on three hosted runners. Fresh retained

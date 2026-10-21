@@ -221,16 +221,24 @@ The older dated sections below preserve diagnosis and do not override this state
   85 auction events**, retaining the newer records: Sandomierz **22 plots / 39
   events**, Ząbkowice **71 / 120**. Only land counts change in metadata/index;
   all source attempt/success timestamps remain unchanged. National integrity passes.
-- **Current production health: 13 findings** against scheduled `9f9d754d4`,
-  read during the 20 October closeout: nine degraded streams, two failed attempts
-  and two expired egress exceptions. Busko's repaired source now publishes four
-  plots with healthy land coverage, removing its former empty-data finding.
-  Zgorzelec confirms **4 properties / 3 plots**, property/land healthy and results
-  incomplete; Kraków/Jarocin recovery also remains observed. Świętochłowice still
-  fails, and Proszowice now has a failed refresh attempt while retaining
-  **9 properties / 13 plots** (last good check 09:13 UTC, failed attempt 09:38 UTC).
-  Chrzanów and Kwidzyn retain the source degradations repaired locally above;
-  this new API/incremental follow-up awaits hosted publication.
+- **Current production health: 13 findings** against scheduled `1bd92093e`,
+  read during the 21 October closeout: eight degraded streams, three network/timeout
+  failures and two expired egress exceptions. Chrzanów's anonymous article API follow-up
+  is verified live with **4 plots** and healthy land coverage. Kwidzyn confirms
+  **6 properties / 3 plots** with both current flats (**Hallera 15/15** and **Chopina 34/8**)
+  retained and property stream healthy; land and result tables remain degraded.
+  Proszowice recovered cleanly, retaining **9 properties / 13 plots**.
+  Zgorzelec (**4 properties / 3 plots**) and Busko (**4 plots**) remain healthy.
+  Świętochłowice still encounters Azure hosted-runner timeouts, while Brzeg (anti-DDoS
+  waiting room) and Olkusz (transient connection timeout; local probe verified reachable)
+  retain preserved data. Racibórz and Pszczyna remain excluded with expired exemptions
+  exposed as visible hard gaps per PL-EGRESS-PLAN.md. Bochnia (active flat auctions
+  aged out; recent posts are land-only; origin 503/507 under load) and Ząbkowice Śląskie
+  (garage notice 11008 lacks street number) retain degraded property streams.
+- **Security gate repair (CodeQL #132):** Kraków's `noticeText` regex in `pipeline/src/cities/krakow/parse.js`
+  was flagged under CWE-116. It now uses iterative unwrapping (`unwrapInlineFormatting`)
+  until a fixed point is reached to strip nested formatting tags without word boundary collapse.
+  Targeted parser and state tests pass.
 - **Earlier refresh workflow failure diagnosed:** municipal publication completed;
   the provider gate failed because PKP timed out connecting to `www.pkp.pl` on
   the primary and both fresh-runner retries. Last-good provider health alone
@@ -256,11 +264,12 @@ PKP/Świętochłowice reachability and Racibórz/Pszczyna's excluded egress rema
 visible gaps. Store submission, Search Console acceptance and received 30-day
 interest evidence remain external gates. See [repair evidence](REPAIR-EVIDENCE-2026-10.md).
 
-**Latest continuation check:** `8b2ba8e6b` was checked once on 20 October.
-[Refresh 39398605739](https://github.com/110kc3/przetargimiejskie/actions/runs/39398605739)
-was pending and [Security 39398605742](https://github.com/110kc3/przetargimiejskie/actions/runs/39398605742)
-was in progress. No further status poll or workflow dispatch was made. The new
-Chrzanów/Kwidzyn push remains pending hosted verification.
+**Latest continuation check:** `54a4371cf` was checked once on 21 October.
+[Refresh 39431230421](https://github.com/110kc3/przetargimiejskie/actions/runs/39431230421) passed,
+[deployment 39434985834](https://github.com/110kc3/przetargimiejskie/actions/runs/39434985834) passed,
+and scheduled refresh `1bd92093e` confirmed live recovery for Chrzanów and Kwidzyn.
+[Security 39431230458](https://github.com/110kc3/przetargimiejskie/actions/runs/39431230458) failed on CodeQL alert #132,
+now repaired locally with iterative unwrapping. The new push remains pending hosted security verification.
 
 **Earlier continuation check:** `feb5ad3b2` was checked once on 20 October.
 [Refresh 39393552992](https://github.com/110kc3/przetargimiejskie/actions/runs/39393552992)

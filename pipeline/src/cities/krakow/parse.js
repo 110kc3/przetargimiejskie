@@ -11,8 +11,19 @@ import { htmlToText, parsePLN, areaFromText } from '../../core/finn-bip.js';
 
 export { htmlToText };
 
-// Formatting tags can split a single word (e.g. <span>l</span>okalu).
-const noticeText = text => htmlToText(String(text || '').replace(/<\/?(?:span|strong|em|b|i|u)\b[^>]*>/gi, ''));
+// Formatting tags can split a single word (e.g. <span>l</span>okalu). Repeated
+// replacement strips nested wrappers until a fixed point is reached.
+function unwrapInlineFormatting(input) {
+  let previous;
+  let text = String(input || '');
+  do {
+    previous = text;
+    text = text.replace(/<\/?(?:span|strong|em|b|i|u)\b[^>]*>/gi, '');
+  } while (text !== previous);
+  return text;
+}
+
+const noticeText = text => htmlToText(unwrapInlineFormatting(text));
 
 const PL_MONTH = { stycznia: 1, lutego: 2, marca: 3, kwietnia: 4, maja: 5, czerwca: 6, lipca: 7, sierpnia: 8, 'września': 9, wrzesnia: 9, 'października': 10, pazdziernika: 10, listopada: 11, grudnia: 12 };
 function isoFrom(d, mo, y) { const m = PL_MONTH[String(mo).toLowerCase()]; return m ? `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}` : null; }

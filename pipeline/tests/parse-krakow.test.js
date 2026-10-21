@@ -190,3 +190,8 @@ test('HTML ordered-list lots retain separate commercial, flat and land identitie
   ]);
   assert.ok(rows.every(r => r.auction_date === '2026-09-02'));
 });
+
+test('inline formatting unwraps without splitting words or retaining nested wrapper remnants', () => {
+  const date = noticeDate('odbędą się przetargi w dniu <span>15</span> <strong>kwietnia</strong> 2026 r.');
+  assert.equal(date, '2026-04-15');
+});
