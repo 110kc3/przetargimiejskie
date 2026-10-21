@@ -215,7 +215,7 @@
       "obreb": "Bojków",
       "street": null,
       "building": null,
-      "address_raw": "ul. Chmielna",
+      "address_raw": "ul. Chmielna-3",
       "dzialka_id": "246601_1.0018.1312/2",
       "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246601_1.0018.1312%2F2",
       "area_m2": 1097,
@@ -224,7 +224,7 @@
       "listings": [
         {
           "date": "2026-10-21",
-          "round": 1,
+          "round": 4,
           "starting_price_pln": 336000,
           "outcome": "active",
           "area_m2": 1097,
@@ -6716,6 +6716,13 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 760000,
+          "outcome": "active",
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-dzialka-nr-12011-obreb-zerniki-ul-omankowskiej-12"
+        },
         {
           "date": null,
           "round": 1,

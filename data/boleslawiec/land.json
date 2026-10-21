@@ -126,6 +126,37 @@
       ]
     },
     {
+      "key": "dz|0007|1216/23",
+      "kind": "grunt",
+      "city": "boleslawiec",
+      "dzialka_nr": "1216/23",
+      "obreb": "0007",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Obręb: 0007-       Obręb: 0007-        Obręb: 0007-       Obręb: 0007-       Obręb: 0007-       Obręb: 0007-",
+      "dzialka_id": "020101_1.0007.1216/23",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0007.1216%2F23",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-13",
+          "round": 1,
+          "starting_price_pln": 256000,
+          "outcome": "unsold",
+          "source_url": "https://www.um.boleslawiec.bip-gov.pl/public/getFile?id=253197"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1216/23",
+          "dzialka_id": "020101_1.0007.1216/23",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0007.1216%2F23"
+        }
+      ]
+    },
+    {
       "key": "dz|0007|1216/8",
       "kind": "grunt",
       "city": "boleslawiec",

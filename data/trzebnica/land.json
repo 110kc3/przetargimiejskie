@@ -1450,6 +1450,15 @@
       "status": null,
       "listings": [
         {
+          "date": "2022-11-17",
+          "round": 1,
+          "starting_price_pln": 202800,
+          "outcome": "archived",
+          "area_m2": 1216,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1126/przetargggnp832022",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/2165"
+        },
+        {
           "date": "2023-04-14",
           "round": 3,
           "starting_price_pln": 141960,
@@ -1508,6 +1517,15 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": "2022-11-17",
+          "round": 1,
+          "starting_price_pln": 221500,
+          "outcome": "archived",
+          "area_m2": 1274,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1128/przetargggnp852022",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/2167"
+        },
         {
           "date": "2023-04-14",
           "round": 3,
@@ -1984,6 +2002,102 @@
       "parcels": [
         {
           "nr": "31"
+        }
+      ]
+    },
+    {
+      "key": "dz|trzebnica ogłoszenie|8/31",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "8/31",
+      "obreb": "Trzebnica OGŁOSZENIE",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%208%2F31%20Trzebnica%20OG%C5%81OSZENIE%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1000,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-12-05",
+          "round": 5,
+          "starting_price_pln": 155000,
+          "outcome": "archived",
+          "area_m2": 1000,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1159/przetargggnp912022",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/2234"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "8/31",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%208%2F31%20Trzebnica%20OG%C5%81OSZENIE%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|trzebnica|319",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "319",
+      "obreb": "Trzebnica",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20319%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 87,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-12-05",
+          "round": 1,
+          "starting_price_pln": 100000,
+          "outcome": "archived",
+          "area_m2": 87,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1156/przetargggnp902022",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/2221"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "319",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20319%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|trzebnica|0",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "0",
+      "obreb": "Trzebnica",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1200,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-11-17",
+          "round": 1,
+          "starting_price_pln": 221500,
+          "outcome": "archived",
+          "area_m2": 1200,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1124/przetargggnp812022",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/2163"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "0",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki"
         }
       ]
     },

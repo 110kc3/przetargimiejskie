@@ -2,35 +2,35 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "bialystok",
-  "generated_at": "2026-10-21T11:10:56.419Z",
+  "generated_at": "2026-10-21T14:43:00.260Z",
   "source_pdf_count": 296,
   "parsed_records": 0,
   "parser_note_count": 24,
   "unique_properties": 233,
-  "active_listings": 18,
+  "active_listings": 17,
   "active_auctions": 12,
   "archived_auctions": 351,
   "wykaz_entries": 0,
   "land_plots": 0,
   "land_listings": 0,
-  "retained_properties": 216,
+  "retained_properties": 217,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-21T11:04:00.112Z",
-  "last_successful_source_check_at": "2026-10-21T11:04:00.112Z",
+  "last_source_attempt_at": "2026-10-21T14:35:49.892Z",
+  "last_successful_source_check_at": "2026-10-21T14:35:49.892Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-21T11:04:00.112Z",
-      "last_success_at": "2026-10-21T11:04:00.112Z"
+      "last_attempt_at": "2026-10-21T14:35:49.892Z",
+      "last_success_at": "2026-10-21T14:35:49.892Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-10-21T11:04:00.112Z",
+      "last_attempt_at": "2026-10-21T14:35:49.892Z",
       "last_success_at": null
     }
   }
