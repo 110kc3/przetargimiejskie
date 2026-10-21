@@ -1,6 +1,47 @@
 {
   "schema_version": 1,
   "city": "bytom",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "uzytkowy",
+      "address_raw": "artura grottgera",
+      "address": {
+        "key": "artura grottgera|5|13",
+        "street": "artura grottgera",
+        "street_norm": "artura grottgera",
+        "building": "5",
+        "apt": "13",
+        "warning": null
+      },
+      "auction_date": "2026-11-18",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 23.43,
+      "starting_price_pln": 50000,
+      "detail_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Grottgera-5_13,25511.doc",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "uzytkowy",
+      "address_raw": "artura grottgera",
+      "address": {
+        "key": "artura grottgera|6|11",
+        "street": "artura grottgera",
+        "street_norm": "artura grottgera",
+        "building": "6",
+        "apt": "11",
+        "warning": null
+      },
+      "auction_date": "2026-11-18",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 23.78,
+      "starting_price_pln": 50000,
+      "detail_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html",
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Grottgera-6_11,25501.doc",
+      "round_source": "inferred"
+    }
+  ],
   "wykaz": []
 }

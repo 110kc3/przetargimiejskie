@@ -3,6 +3,167 @@
   "city": "lodz",
   "properties": [
     {
+      "key": "turoszowska|4|1U",
+      "street": "Turoszowska",
+      "street_norm": "turoszowska",
+      "building": "4",
+      "apt": "1U",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-12-17",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 30000,
+          "outcome": "active",
+          "area_m2": 24.52,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnych-lokali-uzytkowych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-turoszowskiej-4-ul-klonowej-6-ul-wawelskiej-13-15-ul-emilii-plater-35-37-ul-augusta-cieszkowskiego-22-24-ul-pomorskiej-5-ul-rewolucji-1905-r-nr-2-ul-fabrycznej-22-id183064/2026/10/21/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 24.52
+    },
+    {
+      "key": "klonowa|6|4",
+      "street": "Klonowa",
+      "street_norm": "klonowa",
+      "building": "6",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 50000,
+          "outcome": "active",
+          "area_m2": 14.47,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnych-lokali-uzytkowych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-turoszowskiej-4-ul-klonowej-6-ul-wawelskiej-13-15-ul-emilii-plater-35-37-ul-augusta-cieszkowskiego-22-24-ul-pomorskiej-5-ul-rewolucji-1905-r-nr-2-ul-fabrycznej-22-id183064/2026/10/21/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 14.47
+    },
+    {
+      "key": "wawelska|13|1U",
+      "street": "Wawelska",
+      "street_norm": "wawelska",
+      "building": "13",
+      "apt": "1U",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-12-17",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 190000,
+          "outcome": "active",
+          "area_m2": 48.95,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnych-lokali-uzytkowych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-turoszowskiej-4-ul-klonowej-6-ul-wawelskiej-13-15-ul-emilii-plater-35-37-ul-augusta-cieszkowskiego-22-24-ul-pomorskiej-5-ul-rewolucji-1905-r-nr-2-ul-fabrycznej-22-id183064/2026/10/21/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 48.95
+    },
+    {
+      "key": "emilii plater|35|2",
+      "street": "Emilii Plater",
+      "street_norm": "emilii plater",
+      "building": "35",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 210000,
+          "outcome": "active",
+          "area_m2": 37.13,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnych-lokali-uzytkowych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-turoszowskiej-4-ul-klonowej-6-ul-wawelskiej-13-15-ul-emilii-plater-35-37-ul-augusta-cieszkowskiego-22-24-ul-pomorskiej-5-ul-rewolucji-1905-r-nr-2-ul-fabrycznej-22-id183064/2026/10/21/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 37.13
+    },
+    {
+      "key": "augusta cieszkowskiego|22|42",
+      "street": "Augusta Cieszkowskiego",
+      "street_norm": "augusta cieszkowskiego",
+      "building": "22",
+      "apt": "42",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "active",
+          "area_m2": 17.36,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnych-lokali-uzytkowych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-turoszowskiej-4-ul-klonowej-6-ul-wawelskiej-13-15-ul-emilii-plater-35-37-ul-augusta-cieszkowskiego-22-24-ul-pomorskiej-5-ul-rewolucji-1905-r-nr-2-ul-fabrycznej-22-id183064/2026/10/21/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 17.36
+    },
+    {
+      "key": "pomorska|5|31",
+      "street": "Pomorska",
+      "street_norm": "pomorska",
+      "building": "5",
+      "apt": "31",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 380000,
+          "outcome": "active",
+          "area_m2": 72.93,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnych-lokali-uzytkowych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-turoszowskiej-4-ul-klonowej-6-ul-wawelskiej-13-15-ul-emilii-plater-35-37-ul-augusta-cieszkowskiego-22-24-ul-pomorskiej-5-ul-rewolucji-1905-r-nr-2-ul-fabrycznej-22-id183064/2026/10/21/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 72.93
+    },
+    {
+      "key": "fabryczna|22|52",
+      "street": "Fabryczna",
+      "street_norm": "fabryczna",
+      "building": "22",
+      "apt": "52",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "active",
+          "area_m2": 20.84,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnych-lokali-uzytkowych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-turoszowskiej-4-ul-klonowej-6-ul-wawelskiej-13-15-ul-emilii-plater-35-37-ul-augusta-cieszkowskiego-22-24-ul-pomorskiej-5-ul-rewolucji-1905-r-nr-2-ul-fabrycznej-22-id183064/2026/10/21/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 20.84
+    },
+    {
       "key": "polnocna|5|44",
       "street": "Północna",
       "street_norm": "polnocna",

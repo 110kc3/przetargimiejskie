@@ -3,6 +3,52 @@
   "city": "bytom",
   "properties": [
     {
+      "key": "artura grottgera|5|13",
+      "street": "artura grottgera",
+      "street_norm": "artura grottgera",
+      "building": "5",
+      "apt": "13",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-11-18",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 50000,
+          "outcome": "active",
+          "area_m2": 23.43,
+          "detail_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 23.43
+    },
+    {
+      "key": "artura grottgera|6|11",
+      "street": "artura grottgera",
+      "street_norm": "artura grottgera",
+      "building": "6",
+      "apt": "11",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-11-18",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 50000,
+          "outcome": "active",
+          "area_m2": 23.78,
+          "detail_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 23.78
+    },
+    {
       "key": "falata|24|5",
       "street": "Fałata",
       "street_norm": "falata",

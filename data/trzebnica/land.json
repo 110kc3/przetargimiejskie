@@ -1450,6 +1450,15 @@
       "status": null,
       "listings": [
         {
+          "date": "2023-04-14",
+          "round": 3,
+          "starting_price_pln": 141960,
+          "outcome": "archived",
+          "area_m2": 1216,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1333/przetargggnp212023",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/2559"
+        },
+        {
           "date": "2023-06-22",
           "round": 4,
           "starting_price_pln": 144120,
@@ -1495,10 +1504,19 @@
       "address_raw": null,
       "dzialka_id": null,
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F7%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1200,
+      "area_m2": 1274,
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": "2023-04-14",
+          "round": 3,
+          "starting_price_pln": 155050,
+          "outcome": "archived",
+          "area_m2": 1200,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1334/przetargggnp222023",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/2560"
+        },
         {
           "date": "2023-06-22",
           "round": 4,
@@ -1843,6 +1861,38 @@
         }
       ],
       "parcels": []
+    },
+    {
+      "key": "dz|trzebnica ogłoszenie|32/7",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "32/7",
+      "obreb": "Trzebnica OGŁOSZENIE",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F7%20Trzebnica%20OG%C5%81OSZENIE%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1200,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-04-14",
+          "round": 3,
+          "starting_price_pln": 155050,
+          "outcome": "archived",
+          "area_m2": 1200,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1331/przetargggnp192023",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/2557"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "32/7",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F7%20Trzebnica%20OG%C5%81OSZENIE%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
     },
     {
       "key": "addr|ul. fiołkowa",

@@ -3,6 +3,40 @@
   "city": "lubliniec",
   "plots": [
     {
+      "key": "dz|240701, 858",
+      "kind": "grunt",
+      "city": "lubliniec",
+      "dzialka_nr": "240701, 858",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20240701%2C%20858%20Lubliniec%20geoportal%20dzia%C5%82ki",
+      "area_m2": 7987,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-29",
+          "round": 1,
+          "starting_price_pln": 1000214021620000,
+          "outcome": "active",
+          "area_m2": 7987,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=27675&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=27675&idmp=93&r=r"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "240701"
+        },
+        {
+          "nr": "858"
+        }
+      ]
+    },
+    {
       "key": "dz|24701",
       "kind": "grunt",
       "city": "lubliniec",
@@ -1918,6 +1952,15 @@
           "area_m2": 782,
           "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=26826&idmp=93&r=r",
           "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=26826&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 157000,
+          "outcome": "active",
+          "area_m2": 782,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=26826&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=26826&idmp=93&r=r"
         }
       ],
       "parcels": [
@@ -1950,6 +1993,56 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": 160000,
+          "outcome": "active",
+          "area_m2": 784,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=26579&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=26579&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 175000,
+          "outcome": "active",
+          "area_m2": 784,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=26282&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=26282&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 175000,
+          "outcome": "active",
+          "area_m2": 784,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=25878&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=25878&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 4,
+          "starting_price_pln": 169000,
+          "outcome": "active",
+          "area_m2": 784,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24977&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24977&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 175000,
+          "outcome": "unsold",
+          "area_m2": 784
+        },
+        {
+          "date": null,
+          "round": 4,
+          "starting_price_pln": 169000,
+          "outcome": "unsold",
+          "area_m2": 784
+        },
         {
           "date": null,
           "round": 3,
@@ -2269,6 +2362,15 @@
           "area_m2": 283,
           "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=25097&idmp=93&r=r",
           "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=25097&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 30000,
+          "outcome": "active",
+          "area_m2": 283,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=25097&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=25097&idmp=93&r=r"
         }
       ],
       "parcels": [
@@ -2299,6 +2401,15 @@
           "outcome": "sold",
           "final_price_pln": 20200,
           "area_m2": 170
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 20000,
+          "outcome": "active",
+          "area_m2": 170,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=25096&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=25096&idmp=93&r=r"
         },
         {
           "date": null,
@@ -2450,6 +2561,15 @@
           "area_m2": 817,
           "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20881&idmp=93&r=r",
           "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20881&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 115000,
+          "outcome": "active",
+          "area_m2": 817,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20881&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20881&idmp=93&r=r"
         }
       ],
       "parcels": [
@@ -2473,6 +2593,15 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 173,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24687&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24687&idmp=93&r=r"
+        },
         {
           "date": null,
           "round": 1,
@@ -2565,6 +2694,31 @@
           "notes": [
             "parse: missing starting price"
           ]
+        },
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 1288,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24532&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24532&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 205000,
+          "outcome": "active",
+          "area_m2": 1288,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24379&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24379&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": 205000,
+          "outcome": "unsold",
+          "area_m2": 1288
         },
         {
           "date": null,
@@ -2898,6 +3052,42 @@
           "area_m2": 817,
           "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22495&idmp=93&r=r",
           "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22495&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 180000,
+          "outcome": "active",
+          "area_m2": 817,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24408&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24408&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": 163000,
+          "outcome": "active",
+          "area_m2": 817,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=23192&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=23192&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 163000,
+          "outcome": "active",
+          "area_m2": 817,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22801&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22801&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 163000,
+          "outcome": "active",
+          "area_m2": 817,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22495&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22495&idmp=93&r=r"
         }
       ],
       "parcels": [
@@ -2924,6 +3114,15 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 205000,
+          "outcome": "active",
+          "area_m2": 1288,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24069&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=24069&idmp=93&r=r"
+        },
         {
           "date": null,
           "round": 1,
@@ -3058,6 +3257,15 @@
           "area_m2": 18,
           "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22386&idmp=93&r=r",
           "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22386&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 5000,
+          "outcome": "active",
+          "area_m2": 18,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22386&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22386&idmp=93&r=r"
         }
       ],
       "parcels": [
@@ -3090,6 +3298,15 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 163000,
+          "outcome": "active",
+          "area_m2": 817,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22385&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22385&idmp=93&r=r"
+        },
         {
           "date": null,
           "round": 1,
@@ -3207,6 +3424,15 @@
           "area_m2": 439,
           "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22000&idmp=93&r=r",
           "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22000&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 38000,
+          "outcome": "active",
+          "area_m2": 439,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22000&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=22000&idmp=93&r=r"
         }
       ],
       "parcels": [
@@ -3280,6 +3506,15 @@
           "area_m2": 490,
           "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=21999&idmp=93&r=r",
           "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=21999&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 9750,
+          "outcome": "active",
+          "area_m2": 490,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=21999&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=21999&idmp=93&r=r"
         }
       ],
       "parcels": [
@@ -3306,6 +3541,15 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 2420,
+          "outcome": "active",
+          "area_m2": 121,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=21198&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=21198&idmp=93&r=r"
+        },
         {
           "date": null,
           "round": 1,
@@ -3434,6 +3678,15 @@
           "area_m2": 90,
           "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20970&idmp=93&r=r",
           "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20970&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 5000,
+          "outcome": "active",
+          "area_m2": 90,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20970&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20970&idmp=93&r=r"
         }
       ],
       "parcels": [
@@ -3457,6 +3710,15 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 115000,
+          "outcome": "active",
+          "area_m2": 817,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20635&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20635&idmp=93&r=r"
+        },
         {
           "date": null,
           "round": 1,
@@ -3571,6 +3833,15 @@
           "area_m2": 679,
           "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20334&idmp=93&r=r",
           "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20334&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 95000,
+          "outcome": "active",
+          "area_m2": 679,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20334&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20334&idmp=93&r=r"
         }
       ],
       "parcels": [
@@ -3603,6 +3874,15 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 97000,
+          "outcome": "active",
+          "area_m2": 693,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20333&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20333&idmp=93&r=r"
+        },
         {
           "date": null,
           "round": 1,
@@ -3773,6 +4053,24 @@
           "area_m2": 176,
           "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20075&idmp=93&r=r",
           "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20075&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 14600,
+          "outcome": "active",
+          "area_m2": 176,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20239&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20239&idmp=93&r=r"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 14600,
+          "outcome": "active",
+          "area_m2": 176,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20075&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=20075&idmp=93&r=r"
         }
       ],
       "parcels": [
@@ -3796,6 +4094,15 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 91500,
+          "outcome": "active",
+          "area_m2": 653,
+          "detail_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=19742&idmp=93&r=r",
+          "source_url": "https://lubliniec.bip.info.pl/dokument.php?iddok=19742&idmp=93&r=r"
+        },
         {
           "date": null,
           "round": 1,
@@ -3921,6 +4228,13 @@
           "starting_price_pln": 160000,
           "outcome": "sold",
           "final_price_pln": 161600
+        },
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": 160000,
+          "outcome": "sold",
+          "final_price_pln": 161600
         }
       ],
       "parcels": [
@@ -3947,6 +4261,16 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 170,
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
         {
           "date": null,
           "round": 3,
@@ -4064,6 +4388,14 @@
           "outcome": "sold",
           "final_price_pln": 48480,
           "area_m2": 222
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 48000,
+          "outcome": "sold",
+          "final_price_pln": 48480,
+          "area_m2": 222
         }
       ],
       "parcels": [
@@ -4087,6 +4419,16 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 817,
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
         {
           "date": null,
           "round": 2,
@@ -4226,6 +4568,17 @@
             "parse: missing starting price",
             "parse: no achieved price and no explicit negative outcome"
           ]
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 4323,
+          "notes": [
+            "parse: missing starting price",
+            "parse: no achieved price and no explicit negative outcome"
+          ]
         }
       ],
       "parcels": [
@@ -4258,6 +4611,16 @@
           "notes": [
             "parse: missing starting price",
             "parse: no achieved price and no explicit negative outcome"
+          ]
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 679,
+          "notes": [
+            "parse: missing starting price"
           ]
         },
         {

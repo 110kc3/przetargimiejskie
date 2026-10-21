@@ -1233,6 +1233,83 @@
       ]
     },
     {
+      "key": "andersa|113|2",
+      "street": "Andersa",
+      "street_norm": "andersa",
+      "building": "113",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-06-25",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/52917",
+          "notes": []
+        },
+        {
+          "date": "2025-09-17",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 129000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53761",
+          "notes": []
+        },
+        {
+          "date": "2025-11-05",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54477",
+          "notes": [],
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "pilsudskiego|82|1",
+      "street": "Piłsudskiego",
+      "street_norm": "pilsudskiego",
+      "building": "82",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-09-17",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 88000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53761",
+          "notes": []
+        },
+        {
+          "date": "2025-11-05",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 70000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/54477",
+          "notes": [],
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
       "key": "piotra skargi|1|6",
       "street": "Piotra Skargi",
       "street_norm": "piotra skargi",
@@ -1499,59 +1576,6 @@
           "outcome": "sold",
           "unsold_reason": null,
           "final_price_pln": 343400,
-          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53761",
-          "notes": []
-        }
-      ]
-    },
-    {
-      "key": "andersa|113|2",
-      "street": "Andersa",
-      "street_norm": "andersa",
-      "building": "113",
-      "apt": "2",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-06-25",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 140000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/52917",
-          "notes": []
-        },
-        {
-          "date": "2025-09-17",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 129000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53761",
-          "notes": []
-        }
-      ]
-    },
-    {
-      "key": "pilsudskiego|82|1",
-      "street": "Piłsudskiego",
-      "street_norm": "pilsudskiego",
-      "building": "82",
-      "apt": "1",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-09-17",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 88000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
           "source_pdf": "https://bip.um.walbrzych.pl/attachments/download/53761",
           "notes": []
         }

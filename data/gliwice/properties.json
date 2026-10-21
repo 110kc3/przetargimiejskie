@@ -88,6 +88,56 @@
       "area_m2": 134.17
     },
     {
+      "key": "chodkiewicza|10|8",
+      "street": "Chodkiewicza",
+      "street_norm": "chodkiewicza",
+      "building": "10",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-30",
+          "round": 2,
+          "round_source": "explicit",
+          "kind": "mieszkalny",
+          "starting_price_pln": 255000,
+          "outcome": "active",
+          "area_m2": 36.06,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-lokal-mieszkalny-przy-ul-chodkiewicza-108-wlasnosc-skarbu-panstwa",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "bip",
+          "owner_type": "state_treasury"
+        }
+      ],
+      "area_m2": 36.06
+    },
+    {
+      "key": "chodkiewicza|12|15",
+      "street": "Chodkiewicza",
+      "street_norm": "chodkiewicza",
+      "building": "12",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-30",
+          "round": 2,
+          "round_source": "explicit",
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "active",
+          "area_m2": 35.66,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-lokal-mieszkalny-przy-ul-chodkiewicza-1215-wlasnosc-skarbu-panstwa",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "bip",
+          "owner_type": "state_treasury"
+        }
+      ],
+      "area_m2": 35.66
+    },
+    {
       "key": "zwyciestwa|11|6C",
       "street": "Zwycięstwa",
       "street_norm": "zwyciestwa",
