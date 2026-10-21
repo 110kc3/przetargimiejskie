@@ -3,6 +3,127 @@
   "city": "legnica",
   "properties": [
     {
+      "key": "piastowska|10|7",
+      "street": "Piastowska",
+      "street_norm": "piastowska",
+      "building": "10",
+      "apt": "7",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-07-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": 56.2,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38589,Ogloszenie-o-przetargu-na-lokal-przy-ul-Piastowskiej-10.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-11-19",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 56.2,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39346,Ogloszenie-o-przetargu-na-lokal-przy-ul-Piastowskiej-10.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 56.2
+    },
+    {
+      "key": "wroclawska|131|6",
+      "street": "Wrocławska",
+      "street_norm": "wroclawska",
+      "building": "131",
+      "apt": "6",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-11-19",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 45000,
+          "outcome": "active",
+          "area_m2": 12.03,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39347,Ogloszenie-o-przetargu-na-lokal-przy-ul-Wroclawskiej-131.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 12.03
+    },
+    {
+      "key": "rzeczypospolitej|107|6",
+      "street": "Rzeczypospolitej",
+      "street_norm": "rzeczypospolitej",
+      "building": "107",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 46.7,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39345,Ogloszenie-o-przetargu-na-lokal-przy-al-Rzeczypospolitej-107.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 46.7
+    },
+    {
+      "key": "ul glogowska|65|6",
+      "street": "ul.Głogowska",
+      "street_norm": "ul glogowska",
+      "building": "65",
+      "apt": "6",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-11-19",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 190000,
+          "outcome": "active",
+          "area_m2": 59.1,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39344,Ogloszenie-o-przetargu-na-lokal-przy-ul-Glogowskiej-65.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 59.1
+    },
+    {
+      "key": "dmowskiego|8|11",
+      "street": "Dmowskiego",
+      "street_norm": "dmowskiego",
+      "building": "8",
+      "apt": "11",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-11-19",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 190000,
+          "outcome": "active",
+          "area_m2": 59.1,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39341,Ogloszenie-o-przetargu-na-lokal-przy-ul-Dmowskiego-8.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 59.1
+    },
+    {
       "key": "zolnierzy ii armii wojska polskiego|2|2",
       "street": "Żołnierzy II Armii Wojska Polskiego",
       "street_norm": "zolnierzy ii armii wojska polskiego",
@@ -485,28 +606,6 @@
         }
       ],
       "area_m2": 82.75
-    },
-    {
-      "key": "piastowska|10|7",
-      "street": "Piastowska",
-      "street_norm": "piastowska",
-      "building": "10",
-      "apt": "7",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-16",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 200000,
-          "outcome": "archived",
-          "area_m2": 56.2,
-          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38589,Ogloszenie-o-przetargu-na-lokal-przy-ul-Piastowskiej-10.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 56.2
     },
     {
       "key": "jaworzynska|5|4",

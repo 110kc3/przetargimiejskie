@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "jarocin",
-  "generated_at": "2026-10-21T09:20:48.770Z",
+  "generated_at": "2026-10-21T11:24:05.677Z",
   "source_pdf_count": 53,
   "parsed_records": 0,
   "parser_note_count": 27,
@@ -16,8 +16,8 @@
   "retained_properties": 1,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-21T09:18:39.696Z",
-  "last_successful_source_check_at": "2026-10-21T09:18:39.696Z",
+  "last_source_attempt_at": "2026-10-21T11:21:57.324Z",
+  "last_successful_source_check_at": "2026-10-21T11:21:57.324Z",
   "monitored_assets": [
     "building",
     "land",
@@ -27,19 +27,19 @@
     "results": {
       "status": "degraded",
       "complete": false,
-      "last_attempt_at": "2026-10-21T09:18:39.696Z",
+      "last_attempt_at": "2026-10-21T11:21:57.324Z",
       "last_success_at": null
     },
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-21T09:18:39.696Z",
-      "last_success_at": "2026-10-21T09:18:39.696Z"
+      "last_attempt_at": "2026-10-21T11:21:57.324Z",
+      "last_success_at": "2026-10-21T11:21:57.324Z"
     },
     "land": {
       "status": "healthy",
       "complete": false,
-      "last_attempt_at": "2026-10-21T09:18:39.696Z",
-      "last_success_at": "2026-10-21T09:18:39.696Z"
+      "last_attempt_at": "2026-10-21T11:21:57.324Z",
+      "last_success_at": "2026-10-21T11:21:57.324Z"
     }
   },
   "land_complete": false

@@ -1445,7 +1445,7 @@
       "address_raw": null,
       "dzialka_id": null,
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2031%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1216,
+      "area_m2": 1274,
       "zoning": null,
       "status": null,
       "listings": [
@@ -1891,6 +1891,99 @@
         {
           "nr": "32/7",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F7%20Trzebnica%20OG%C5%81OSZENIE%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|319",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "319",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20319%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 87,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-02-10",
+          "round": 2,
+          "starting_price_pln": 90000,
+          "outcome": "archived",
+          "area_m2": 87,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1261/ggnp92023",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/2412"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "319"
+        }
+      ]
+    },
+    {
+      "key": "dz|32/7",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "32/7",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F7%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1274,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-02-10",
+          "round": 2,
+          "starting_price_pln": 199000,
+          "outcome": "archived",
+          "area_m2": 1200,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1259/ggnp72023",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/2410"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "32/7"
+        }
+      ]
+    },
+    {
+      "key": "dz|31",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "31",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2031%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1216,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-02-10",
+          "round": 2,
+          "starting_price_pln": 190000,
+          "outcome": "archived",
+          "area_m2": 1216,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/1258/ggnp62023",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/2409"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "31"
         }
       ]
     },

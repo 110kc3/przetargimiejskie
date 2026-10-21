@@ -4,6 +4,96 @@
   "listings": [
     {
       "kind": "unknown",
+      "address_raw": "ul. Wrocławska 131/6",
+      "address": {
+        "street": "Wrocławska",
+        "street_norm": "wroclawska",
+        "building": "131",
+        "apt": "6",
+        "key": "wroclawska|131|6",
+        "warning": null
+      },
+      "auction_date": "2026-11-19",
+      "round": 1,
+      "area_m2": 12.03,
+      "starting_price_pln": 45000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39347,Ogloszenie-o-przetargu-na-lokal-przy-ul-Wroclawskiej-131.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/66164/20261012przetargwroc.docx"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Piastowska 10/7",
+      "address": {
+        "street": "Piastowska",
+        "street_norm": "piastowska",
+        "building": "10",
+        "apt": "7",
+        "key": "piastowska|10|7",
+        "warning": null
+      },
+      "auction_date": "2026-11-19",
+      "round": 1,
+      "area_m2": 56.2,
+      "starting_price_pln": 200000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39346,Ogloszenie-o-przetargu-na-lokal-przy-ul-Piastowskiej-10.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/66163/20261012przetargPiast.docx"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Al. Rzeczypospolitej 107/6",
+      "address": {
+        "street": "Rzeczypospolitej",
+        "street_norm": "rzeczypospolitej",
+        "building": "107",
+        "apt": "6",
+        "key": "rzeczypospolitej|107|6",
+        "warning": null
+      },
+      "auction_date": "2026-11-19",
+      "round": 1,
+      "area_m2": 46.7,
+      "starting_price_pln": 150000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39345,Ogloszenie-o-przetargu-na-lokal-przy-al-Rzeczypospolitej-107.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/66186/20261012przetargrzecz.docx"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul.Głogowska 65/6",
+      "address": {
+        "street": "ul.Głogowska",
+        "street_norm": "ul glogowska",
+        "building": "65",
+        "apt": "6",
+        "key": "ul glogowska|65|6",
+        "warning": null
+      },
+      "auction_date": "2026-11-19",
+      "round": 1,
+      "area_m2": 59.1,
+      "starting_price_pln": 190000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39344,Ogloszenie-o-przetargu-na-lokal-przy-ul-Glogowskiej-65.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/66160/20261012przetargglog.docx"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "Dmowskiego 8/11",
+      "address": {
+        "street": "Dmowskiego",
+        "street_norm": "dmowskiego",
+        "building": "8",
+        "apt": "11",
+        "key": "dmowskiego|8|11",
+        "warning": null
+      },
+      "auction_date": "2026-11-19",
+      "round": 1,
+      "area_m2": 59.1,
+      "starting_price_pln": 190000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39341,Ogloszenie-o-przetargu-na-lokal-przy-ul-Dmowskiego-8.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/66187/20261012przetargglog.docx"
+    },
+    {
+      "kind": "unknown",
       "address_raw": "ul. Dmowskiego 20/1A",
       "address": {
         "street": "Dmowskiego",
