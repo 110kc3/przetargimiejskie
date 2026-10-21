@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "provider": "amw",
-  "generated_at": "2026-10-21T18:53:32.008Z",
+  "generated_at": "2026-10-21T22:14:29.914Z",
   "listings": [
     {
       "title": "Warszawa, ul. Dzierzby 14, dz. 86",
@@ -177,6 +177,41 @@
       "outcome": "active",
       "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/miroslawiec-gorny-ul-lotnictwa-polskiego-4-6-10357",
       "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/miroslawiec-gorny-ul-lotnictwa-polskiego-4-6-10357"
+    },
+    {
+      "title": "Wędrzyn, Wędrzyn 12A/3, dz. 628/7",
+      "city": "Wędrzyn",
+      "address_raw": "Wędrzyn 12A/3",
+      "seller_id": "amw",
+      "seller_name": "Agencja Mienia Wojskowego",
+      "seller_type": "state_agency",
+      "transaction_type": "sale",
+      "auction_mode": "unknown",
+      "kind": "mieszkalny",
+      "city_norm": "wedrzyn",
+      "voivodeship": "lubuskie",
+      "street": "Wędrzyn",
+      "building": "12A",
+      "apt": "3",
+      "area_m2": 44,
+      "land_area_m2": null,
+      "publication_date": null,
+      "auction_date": "2026-11-23",
+      "bid_deadline": null,
+      "wadium_deadline": null,
+      "round": null,
+      "starting_price_pln": 173000,
+      "final_price_pln": null,
+      "bidders": null,
+      "categories": [
+        "mieszkaniowe"
+      ],
+      "event_key": "amw:04456cc1bcf01d92",
+      "external_id": "11569",
+      "source_status": "Ogłoszony",
+      "outcome": "active",
+      "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/wedrzyn-wedrzyn-12a-3-11569",
+      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/wedrzyn-wedrzyn-12a-3-11569"
     },
     {
       "title": "Mirosławiec Górny, ul. Lotnictwa Polskiego 29/19, dz. 50/40",
