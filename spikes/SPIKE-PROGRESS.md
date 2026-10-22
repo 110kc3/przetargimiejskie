@@ -8,8 +8,8 @@
 
 | Status | Count |
 |---|---|
-| ✅ BUILT | 136 |
-| 🟢 BUILD | 35 |
+| ✅ BUILT | 156 |
+| 🟢 BUILD | 15 |
 | 🟡 VERIFY | 0 |
 | 🔴 NO-BUILD | 156 |
 | ❌ Dropped | 6 |
@@ -25,18 +25,18 @@
 | research | surveyed | 336 |
 | research | unresearched | 690 |
 | implementation | deferred | 9 |
-| implementation | enabled | 136 |
+| implementation | enabled | 156 |
 | implementation | no-source-found | 156 |
-| implementation | ready | 35 |
+| implementation | ready | 15 |
 | implementation | unresearched | 690 |
-| runtime | monitored | 136 |
-| runtime | not-enabled | 890 |
+| runtime | monitored | 156 |
+| runtime | not-enabled | 870 |
 
 Lifecycle totals are retained manifest declarations, not a live health result. Source freshness and failures are recorded in [data/index.json](../data/index.json) and enforced by the health checks.
 
 ## Existing-city source/asset audit
 
-136 enabled cities: **0 complete**, **136 partial**, **0 unchecked**. Source observations do not prove parser completeness or healthy hosted monitoring. Remaining execution is in [TODO.md](../TODO.md).
+146 enabled cities: **0 complete**, **136 partial**, **10 unchecked**. Source observations do not prove parser completeness or healthy hosted monitoring. Remaining execution is in [TODO.md](../TODO.md).
 
 | City | Last source check | Audit | Observed sale assets | Evidence |
 |---|---|---|---|---|
@@ -177,13 +177,13 @@ Lifecycle totals are retained manifest declarations, not a live health result. S
 | Żagań | 2026-10-19 | partial |  | [source notes](../spikes/lubuskie/powiat-zaganski/zagan.md) |
 | Żnin | 2026-10-21 | partial | residential, commercial, land | [source notes](../spikes/kujawsko-pomorskie/powiat-zninski/znin.md) |
 
-## Built adapters (136)
+## Built adapters (156)
 
-Augustów, Bełchatów, Biała Podlaska, Białystok, Bielsko-Biała, Bochnia, Bolesławiec, Braniewo, Brzeg, Busko-Zdrój, Bydgoszcz, Bytom, Chełm, Chełmno, Chodzież, Chojnice, Choszczno, Chrzanów, Cieszyn, Drawsko Pomorskie, Dzierżoniów, Elbląg, Gdańsk, Giżycko, Gliwice, Głogów, Głubczyce, Gniezno, Golub-Dobrzyń, Gorzów Wielkopolski, Gostyń, Góra, Grodzisk Mazowiecki, Grudziądz, Jarocin, Jelenia Góra, Kalisz, Kamienna Góra, Katowice, Kędzierzyn-Koźle, Kętrzyn, Kielce, Kłobuck, Kłodzko, Kolbuszowa, Końskie, Kościerzyna, Kraków, Krosno Odrzańskie, Kwidzyn, Legnica, Lębork, Lipsko, Lubań, Lubin, Lubliniec, Lwówek Śląski, Łódź, Malbork, Międzyrzecz, Mogilno, Mrągowo, Mysłowice, Nakło nad Notecią, Namysłów, Nowa Sól, Nysa, Olesno, Olkusz, Olsztyn, Opole, Ostrołęka, Ostrzeszów, Oświęcim, Otwock, Ożarów Mazowiecki, Pabianice, Pajęczno, Piła, Pisz, Pleszew, Płock, Płońsk, Poddębice, Poznań, Proszowice, Przemyśl, Pszczyna, Pułtusk, Racibórz, Rawa Mazowiecka, Rybnik, Sandomierz, Sępólno Krajeńskie, Siedlce, Skarżysko-Kamienna, Słubice, Słupsk, Sopot, Sosnowiec, Stargard, Starogard Gdański, Strzelce Krajeńskie, Strzelce Opolskie, Sucha Beskidzka, Sulęcin, Szczecin, Szczecinek, Sztum, Środa Wielkopolska, Świdnica, Świętochłowice, Świnoujście, Tarnowskie Góry, Tczew, Tomaszów Mazowiecki, Toruń, Trzebinia, Trzebnica, Wałbrzych, Warszawa, Wąbrzeźno, Wejherowo, Węgorzewo, Węgrów, Włocławek, Wołów, Wrocław, Wschowa, Zabrze, Ząbkowice Śląskie, Zduńska Wola, Zgorzelec, Złotoryja, Żagań, Żnin.
+Augustów, Bartoszyce, Bełchatów, Będzin, Biała Podlaska, Białystok, Bielsko-Biała, Bochnia, Bolesławiec, Braniewo, Brzeg, Busko-Zdrój, Bydgoszcz, Bytom, Chełm, Chełmno, Chodzież, Chojnice, Choszczno, Chrzanów, Cieszyn, Drawsko Pomorskie, Dzierżoniów, Elbląg, Gdańsk, Giżycko, Gliwice, Głogów, Głubczyce, Gniezno, Golub-Dobrzyń, Gorzów Wielkopolski, Gostyń, Góra, Grodzisk Mazowiecki, Grodzisk Wielkopolski, Grudziądz, Iława, Jarocin, Jelenia Góra, Jędrzejów, Kalisz, Kamienna Góra, Katowice, Kędzierzyn-Koźle, Kętrzyn, Kielce, Kluczbork, Kłobuck, Kłodzko, Kolbuszowa, Kolno, Kołobrzeg, Końskie, Kościerzyna, Kraków, Krosno Odrzańskie, Kwidzyn, Legnica, Lębork, Lidzbark Warmiński, Lipsko, Lubań, Lubin, Lubliniec, Lwówek Śląski, Łęczyca, Łódź, Malbork, Międzyrzecz, Mogilno, Mrągowo, Mysłowice, Nakło nad Notecią, Namysłów, Nidzica, Nowa Sól, Nysa, Olesno, Olkusz, Olsztyn, Opole, Ostrołęka, Ostrzeszów, Oświęcim, Otwock, Ożarów Mazowiecki, Pabianice, Pajęczno, Piła, Pisz, Pleszew, Płock, Płońsk, Poddębice, Poznań, Proszowice, Prudnik, Przemyśl, Pszczyna, Pułtusk, Racibórz, Rawa Mazowiecka, Rybnik, Sandomierz, Sępólno Krajeńskie, Siedlce, Skarżysko-Kamienna, Słubice, Słupsk, Sopot, Sosnowiec, Starachowice, Stargard, Starogard Gdański, Strzelce Krajeńskie, Strzelce Opolskie, Sucha Beskidzka, Sulęcin, Szamotuły, Szczecin, Szczecinek, Szczytno, Sztum, Środa Wielkopolska, Świdnica, Świętochłowice, Świnoujście, Tarnowskie Góry, Tczew, Tomaszów Mazowiecki, Toruń, Trzebinia, Trzebnica, Wałbrzych, Wałcz, Warszawa, Wąbrzeźno, Wejherowo, Węgorzewo, Węgrów, Włocławek, Wodzisław Śląski, Wołów, Wrocław, Wschowa, Zabrze, Zakopane, Ząbkowice Śląskie, Zduńska Wola, Zgierz, Zgorzelec, Złotoryja, Złotów, Żagań, Żnin.
 
-## BUILD-ready queue (35, by effort)
+## BUILD-ready queue (15, by effort)
 
-Bartoszyce (Medium), Będzin (Medium), Brzesko (Medium), Człuchów (Medium), Ełk (Medium), Goleniów (Medium), Grodzisk Wielkopolski (Medium), Gryfino (Medium), Iława (Medium), Jędrzejów (Medium), Kluczbork (Medium), Kolno (Medium), Kołobrzeg (Medium), Lidzbark Warmiński (Medium), Łęczyca (Medium), Łobez (Medium), Nidzica (Medium), Oława (Medium), Prudnik (Medium), Sochaczew (Medium), Starachowice (Medium), Staszów (Medium), Szamotuły (Medium), Szczytno (Medium), Szydłowiec (Medium), Śrem (Medium), Środa Śląska (Medium), Wałcz (Medium), Wodzisław Śląski (Medium), Września (Medium), Zakopane (Medium), Zgierz (Medium), Złotów (Medium), Żary (Medium), Żyrardów (Medium).
+Brzesko (Medium), Człuchów (Medium), Ełk (Medium), Goleniów (Medium), Gryfino (Medium), Łobez (Medium), Oława (Medium), Sochaczew (Medium), Staszów (Medium), Szydłowiec (Medium), Śrem (Medium), Środa Śląska (Medium), Września (Medium), Żary (Medium), Żyrardów (Medium).
 
 ## Unresearched official cities (690)
 
@@ -490,7 +490,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Lutomiersk | 0705893 | powiat pabianicki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Lututów | 0706651 | powiat wieruszowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Łask | 0976296 | powiat łaski | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
-| Łęczyca | 0969250 | powiat łęczycki | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Łęczyca | 0969250 | powiat łęczycki | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Łowicz | 0977031 | powiat łowicki | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
 | Łódź | 0957650 | Łódź (m.n.p.p.) | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Opoczno | 0967943 | powiat opoczyński | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
@@ -522,7 +522,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Wolbórz | 0556648 | powiat piotrkowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Zduńska Wola | 0976675 | powiat zduńskowolski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Zelów | 0968664 | powiat bełchatowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Zgierz | 0959263 | powiat zgierski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Zgierz | 0959263 | powiat zgierski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Złoczew | 0976830 | powiat sieradzki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Żarnów | 0558274 | powiat opoczyński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Żychlin | 0969391 | powiat kutnowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
@@ -592,7 +592,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Wojnicz | 0836276 | powiat tarnowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Wolbrom | 0945315 | powiat olkuski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Zakliczyn | 0837436 | powiat tarnowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Zakopane | 0963773 | powiat tatrzanski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Zakopane | 0963773 | powiat tatrzanski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Zator | 0927576 | powiat oświęcimski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Żabno | 0982641 | powiat tarnowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 
@@ -733,7 +733,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Grodków | 0965401 | powiat brzeski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Kędzierzyn-Koźle | 0965424 | powiat kędzierzyńsko-kozielski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Kietrz | 0965602 | powiat głubczycki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Kluczbork | 0965619 | powiat kluczborski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Kluczbork | 0965619 | powiat kluczborski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Kolonowskie | 0965631 | powiat strzelecki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Korfantów | 0496946 | powiat nyski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Krapkowice | 0965677 | powiat krapkowicki | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
@@ -749,7 +749,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Paczków | 0965855 | powiat nyski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Praszka | 0932353 | powiat oleski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Prószków | 0502523 | powiat opolski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Prudnik | 0965878 | powiat prudnicki | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Prudnik | 0965878 | powiat prudnicki | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Strzelce Opolskie | 0965915 | powiat strzelecki | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Strzeleczki | 0503600 | powiat krapkowicki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Tułowice | 0504090 | powiat opolski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
@@ -837,7 +837,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Jedwabne | 0957382 | powiat łomżyński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Kleszczele | 0031727 | powiat hajnowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Knyszyn | 0923213 | powiat moniecki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Kolno | 0957420 | powiat kolneński | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Kolno | 0957420 | powiat kolneński | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Krynki | 0032655 | powiat sokólski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Lipsk | 0977717 | powiat augustowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Łapy | 0923271 | powiat białostocki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
@@ -914,7 +914,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 
 | City | SIMC | District | Historic verdict | Research | Implementation | Runtime | Review due |
 |---|---|---|---|---|---|---|---|
-| Będzin | 0937899 | powiat bedzinski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Będzin | 0937899 | powiat bedzinski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Bielsko-Biała | 0923584 | Bielsko-Biała (m.n.p.p.) | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Bieruń | 0938077 | powiat bierunsko-ledzinski | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
 | Blachownia | 0931365 | powiat częstochowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
@@ -981,7 +981,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Wilamowice | 0926996 | powiat bielski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Wisła | 0927091 | powiat cieszyński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Włodowice | 0146821 | powiat zawierciański | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Wodzisław Śląski | 0944853 | powiat wodzisławski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Wodzisław Śląski | 0944853 | powiat wodzisławski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Wojkowice | 0945232 | powiat będziński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Woźniki | 0932494 | powiat lubliniecki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Zabrze | 0945380 | Zabrze (m.n.p.p.) | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
@@ -1004,7 +1004,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Działoszyce | 0946987 | powiat pińczowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Gowarczów | 0620659 | powiat konecki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Iwaniska | 0793673 | powiat opatowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Jędrzejów | 0947030 | powiat jędrzejowski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Jędrzejów | 0947030 | powiat jędrzejowski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Kazimierza Wielka | 0947076 | powiat kazimierski | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
 | Kielce | 0945930 | Kielce (m.n.p.p.) | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Klimontów | 0795933 | powiat sandomierski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
@@ -1034,7 +1034,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Skalbmierz | 0947627 | powiat kazimierski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Skarżysko-Kamienna | 0947716 | powiat skarzyski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Sobków | 0270604 | powiat jędrzejowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Starachowice | 0947930 | powiat starachowicki | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Starachowice | 0947930 | powiat starachowicki | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Staszów | 0981274 | powiat staszowski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
 | Stąporków | 0948271 | powiat konecki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Stopnica | 0272951 | powiat buski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
@@ -1051,7 +1051,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | City | SIMC | District | Historic verdict | Research | Implementation | Runtime | Review due |
 |---|---|---|---|---|---|---|---|
 | Barczewo | 0964577 | powiat olsztyński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Bartoszyce | 0964583 | powiat bartoszycki | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Bartoszyce | 0964583 | powiat bartoszycki | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Biała Piska | 0977640 | powiat piski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Biskupiec | 0964590 | powiat olsztyński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Bisztynek | 0964608 | powiat bartoszycki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
@@ -1064,13 +1064,13 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Giżycko | 0977692 | powiat gizycki | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Gołdap | 0977700 | powiat gołdapski | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
 | Górowo Iławeckie | 0964643 | powiat bartoszycki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Iława | 0964650 | powiat iławski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Iława | 0964650 | powiat iławski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Jeziorany | 0964703 | powiat olsztyński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Kętrzyn | 0964710 | powiat kętrzyński | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Kisielice | 0932749 | powiat iławski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Korsze | 0964726 | powiat kętrzyński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Lidzbark | 0930644 | powiat działdowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Lidzbark Warmiński | 0964732 | powiat lidzbarski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Lidzbark Warmiński | 0964732 | powiat lidzbarski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Lubawa | 0964749 | powiat iławski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Mikołajki | 0977723 | powiat mrągowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Miłakowo | 0481761 | powiat ostródzki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
@@ -1078,7 +1078,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Młynary | 0932873 | powiat elbląski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Morąg | 0964850 | powiat ostródzki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Mrągowo | 0964896 | powiat mrągowski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
-| Nidzica | 0964904 | powiat nidzicki | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Nidzica | 0964904 | powiat nidzicki | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Nowe Miasto Lubawskie | 0983563 | powiat nowomiejski | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
 | Olecko | 0977798 | powiat olecki | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
 | Olsztyn | 0964465 | Olsztyn (m.n.p.p.) | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
@@ -1095,7 +1095,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Ryn | 0977893 | powiat giżycki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Sępopol | 0964985 | powiat bartoszycki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Susz | 0932979 | powiat iławski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Szczytno | 0964991 | powiat szczycieński | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Szczytno | 0964991 | powiat szczycieński | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Tolkmicko | 0933000 | powiat elbląski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Węgorzewo | 0977947 | powiat węgorzewski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Wielbark | 0490470 | powiat szczycieński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
@@ -1123,7 +1123,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Gołańcz | 0966820 | powiat wągrowiecki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Gostyń | 0954395 | powiat gostyński | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Grabów nad Prosną | 0936760 | powiat ostrzeszowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Grodzisk Wielkopolski | 0970810 | powiat grodziski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Grodzisk Wielkopolski | 0970810 | powiat grodziski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Jaraczewo | 0199088 | powiat jarociński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Jarocin | 0936776 | powiat jarociński | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Jastrowie | 0966843 | powiat złotowski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
@@ -1200,7 +1200,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Sulmierzyce | 0937333 | powiat krotoszyński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Swarzędz | 0971502 | powiat poznański | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Szamocin | 0967096 | powiat chodzieski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Szamotuły | 0971531 | powiat szamotulski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Szamotuły | 0971531 | powiat szamotulski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Ślesin | 0949282 | powiat koniński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Śmigiel | 0954656 | powiat kościański | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Śrem | 0971560 | powiat śremski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
@@ -1223,7 +1223,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Zaniemyśl | 0598546 | powiat średzki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Zbąszyń | 0988655 | powiat nowotomyski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Zduny | 0937439 | powiat krotoszyński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Złotów | 0967423 | powiat złotowski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Złotów | 0967423 | powiat złotowski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Żerków | 0937445 | powiat jarociński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 
 ### Zachodniopomorskie (66)
@@ -1258,7 +1258,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Kalisz Pomorski | 0949916 | powiat drawski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Kamień Pomorski | 0979113 | powiat kamieński | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
 | Karlino | 0949968 | powiat białogardzki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Kołobrzeg | 0950026 | powiat kolobrzeski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Kołobrzeg | 0950026 | powiat kolobrzeski | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Koszalin | 0949448 | Koszalin (m.n.p.p.) | 🔴 NO-BUILD | surveyed | no-source-found | not-enabled | 2026-10-18 |
 | Lipiany | 0979120 | powiat pyrzycki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Łobez | 0979136 | powiat łobeski | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
@@ -1292,7 +1292,7 @@ These are inventory entries, not claims of monitoring or source absence. Researc
 | Trzebiatów | 0979969 | powiat gryficki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Tuczno | 0967185 | powiat wałecki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Tychowo | 0313839 | powiat białogardzki | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
-| Wałcz | 0967245 | powiat wałecki | 🟢 BUILD | surveyed | ready | not-enabled | 2026-10-18 |
+| Wałcz | 0967245 | powiat wałecki | ✅ BUILT | surveyed | enabled | monitored | 2026-10-18 |
 | Węgorzyno | 0980062 | powiat łobeski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Wolin | 0980079 | powiat kamieński | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |
 | Złocieniec | 0950374 | powiat drawski | ⚪ UNRESEARCHED | unresearched | unresearched | not-enabled | — |

@@ -293,6 +293,26 @@ import starogardGdanski from './starogard-gdanski/index.js';
 import slubice from './slubice/index.js';
 import luban from './luban/index.js';
 import ostrzeszow from './ostrzeszow/index.js';
+import starachowice from './starachowice/index.js';
+import wodzislawSlaski from './wodzislaw-slaski/index.js';
+import bedzin from './bedzin/index.js';
+import kolobrzeg from './kolobrzeg/index.js';
+import jedrzejow from './jedrzejow/index.js';
+import kolno from './kolno/index.js';
+import zgierz from './zgierz/index.js';
+import zakopane from './zakopane/index.js';
+import bartoszyce from './bartoszyce/index.js';
+import ilawa from './ilawa/index.js';
+import kluczbork from './kluczbork/index.js';
+import lidzbarkWarminski from './lidzbark-warminski/index.js';
+import nidzica from './nidzica/index.js';
+import prudnik from './prudnik/index.js';
+import szczytno from './szczytno/index.js';
+import walcz from './walcz/index.js';
+import zlotow from './zlotow/index.js';
+import leczyca from './leczyca/index.js';
+import grodziskWielkopolski from './grodzisk-wielkopolski/index.js';
+import szamotuly from './szamotuly/index.js';
 
 export const cities = [
   gliwice,
@@ -431,6 +451,26 @@ export const cities = [
   slubice,
   luban,
   ostrzeszow,
+  starachowice,
+  wodzislawSlaski,
+  bedzin,
+  kolobrzeg,
+  jedrzejow,
+  kolno,
+  zgierz,
+  zakopane,
+  bartoszyce,
+  ilawa,
+  kluczbork,
+  lidzbarkWarminski,
+  nidzica,
+  prudnik,
+  szczytno,
+  walcz,
+  zlotow,
+  leczyca,
+  grodziskWielkopolski,
+  szamotuly,
 ];
 
 /** @param {string} id @returns {object|null} */

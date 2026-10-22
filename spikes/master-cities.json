@@ -25446,7 +25446,7 @@
       "powiat_slug": "powiat-bedzinski",
       "powiat_label": "powiat bedzinski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/slaskie/powiat-bedzinski/bedzin.md",
       "spike": {
         "wave": "Q",
@@ -25465,11 +25465,11 @@
         "gmina_kind": "gmina miejska"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "bedzin",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -25479,19 +25479,19 @@
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
@@ -25500,12 +25500,12 @@
         }
       ],
       "review": {
-        "last_reviewed": "2026-07-20",
+        "last_reviewed": "2026-10-22",
         "review_due": "2026-10-18"
       },
       "seller": {
-        "name": null,
-        "source_host": null
+        "name": "Prezydent Miasta Będzina",
+        "source_host": "bedzin.bip.info.pl"
       }
     },
     {
@@ -28408,7 +28408,7 @@
       "powiat_slug": "powiat-wodzislawski",
       "powiat_label": "powiat wodzisławski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/slaskie/powiat-wodzislawski/wodzislaw-slaski.md",
       "spike": {
         "wave": "I",
@@ -28427,11 +28427,11 @@
         "gmina_kind": "gmina miejska"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "wodzislaw-slaski",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -28441,19 +28441,19 @@
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
@@ -28462,12 +28462,12 @@
         }
       ],
       "review": {
-        "last_reviewed": "2026-07-20",
+        "last_reviewed": "2026-10-22",
         "review_due": "2026-10-18"
       },
       "seller": {
-        "name": null,
-        "source_host": null
+        "name": "Prezydent Miasta Wodzisławia Śląskiego",
+        "source_host": "eurzad.finn.pl/gmwodzislawsl"
       }
     },
     {
@@ -29257,7 +29257,7 @@
       "powiat_slug": "powiat-jedrzejowski",
       "powiat_label": "powiat jędrzejowski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/swietokrzyskie/powiat-jedrzejowski/jedrzejow.md",
       "spike": {
         "wave": "Q",
@@ -29276,11 +29276,11 @@
         "gmina_kind": "miasto"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "jedrzejow",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -29290,19 +29290,19 @@
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
@@ -29311,12 +29311,12 @@
         }
       ],
       "review": {
-        "last_reviewed": "2026-07-20",
+        "last_reviewed": "2026-10-22",
         "review_due": "2026-10-18"
       },
       "seller": {
-        "name": null,
-        "source_host": null
+        "name": "Burmistrz Miasta Jędrzejowa",
+        "source_host": "bip.jedrzejow.eu"
       }
     },
     {
@@ -29944,7 +29944,7 @@
       "powiat_slug": "powiat-starachowicki",
       "powiat_label": "powiat starachowicki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/swietokrzyskie/powiat-starachowicki/starachowice.md",
       "spike": {
         "wave": "C",
@@ -29963,11 +29963,11 @@
         "gmina_kind": "gmina miejska"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "starachowice",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -29977,19 +29977,19 @@
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
@@ -29998,12 +29998,12 @@
         }
       ],
       "review": {
-        "last_reviewed": "2026-07-20",
+        "last_reviewed": "2026-10-22",
         "review_due": "2026-10-18"
       },
       "seller": {
-        "name": null,
-        "source_host": null
+        "name": "Prezydent Miasta Starachowice",
+        "source_host": "starachowice.eu"
       }
     },
     {
@@ -31870,7 +31870,7 @@
       "powiat_slug": "powiat-kolobrzeski",
       "powiat_label": "powiat kolobrzeski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/zachodniopomorskie/powiat-kolobrzeski/kolobrzeg.md",
       "spike": {
         "wave": "F",
@@ -31889,11 +31889,11 @@
         "gmina_kind": "gmina miejska"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "kolobrzeg",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -31903,19 +31903,19 @@
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
         },
         "procedures": {
-          "oral_auction": "unknown",
+          "oral_auction": "observed",
           "written_auction": "unknown",
           "negotiations": "unknown"
         },
-        "announcements": "unknown",
-        "results": "unknown"
+        "announcements": "observed",
+        "results": "observed"
       },
       "sources": [
         {
@@ -31924,12 +31924,12 @@
         }
       ],
       "review": {
-        "last_reviewed": "2026-07-20",
+        "last_reviewed": "2026-10-22",
         "review_due": "2026-10-18"
       },
       "seller": {
-        "name": null,
-        "source_host": null
+        "name": "Prezydent Miasta Kołobrzeg",
+        "source_host": "bip.um.kolobrzeg.pl"
       }
     },
     {
@@ -37088,7 +37088,7 @@
       "powiat_slug": "powiat-kolnenski",
       "powiat_label": "powiat kolneński",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/podlaskie/powiat-kolnenski/kolno.md",
       "spike": {
         "wave": "Q",
@@ -37110,8 +37110,8 @@
       "pipeline_id": null,
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -37973,7 +37973,7 @@
       "powiat_slug": "powiat-zgierski",
       "powiat_label": "powiat zgierski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/lodzkie/powiat-zgierski/zgierz.md",
       "spike": {
         "wave": "D",
@@ -37995,8 +37995,8 @@
       "pipeline_id": null,
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -38822,7 +38822,7 @@
       "powiat_slug": "powiat-tatrzanski",
       "powiat_label": "powiat tatrzanski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/malopolskie/powiat-tatrzanski/zakopane.md",
       "spike": {
         "wave": "G",
@@ -38844,8 +38844,8 @@
       "pipeline_id": null,
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -39033,7 +39033,7 @@
       "powiat_slug": "powiat-bartoszycki",
       "powiat_label": "powiat bartoszycki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/warminsko-mazurskie/powiat-bartoszycki/bartoszyce.md",
       "spike": {
         "wave": "Q",
@@ -39055,8 +39055,8 @@
       "pipeline_id": null,
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -39326,7 +39326,7 @@
       "powiat_slug": "powiat-ilawski",
       "powiat_label": "powiat iławski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/warminsko-mazurskie/powiat-ilawski/ilawa.md",
       "spike": {
         "wave": "Q",
@@ -39348,8 +39348,8 @@
       "pipeline_id": null,
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -39595,7 +39595,7 @@
       "powiat_slug": "powiat-lidzbarski",
       "powiat_label": "powiat lidzbarski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/warminsko-mazurskie/powiat-lidzbarski/lidzbark-warminski.md",
       "spike": {
         "wave": "Q",
@@ -39617,8 +39617,8 @@
       "pipeline_id": null,
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -39863,7 +39863,7 @@
       "powiat_slug": "powiat-nidzicki",
       "powiat_label": "powiat nidzicki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/warminsko-mazurskie/powiat-nidzicki/nidzica.md",
       "spike": {
         "wave": "GS2",
@@ -39885,8 +39885,8 @@
       "pipeline_id": null,
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -40169,7 +40169,7 @@
       "powiat_slug": "powiat-szczycienski",
       "powiat_label": "powiat szczycieński",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/warminsko-mazurskie/powiat-szczycienski/szczytno.md",
       "spike": {
         "wave": "G",
@@ -40191,8 +40191,8 @@
       "pipeline_id": null,
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -41083,7 +41083,7 @@
       "powiat_slug": "powiat-kluczborski",
       "powiat_label": "powiat kluczborski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/opolskie/powiat-kluczborski/kluczbork.md",
       "spike": {
         "wave": "Q",
@@ -41105,8 +41105,8 @@
       "pipeline_id": null,
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -41785,7 +41785,7 @@
       "powiat_slug": "powiat-prudnicki",
       "powiat_label": "powiat prudnicki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/opolskie/powiat-prudnicki/prudnik.md",
       "spike": {
         "wave": "D",
@@ -41807,8 +41807,8 @@
       "pipeline_id": null,
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -43779,7 +43779,7 @@
       "powiat_slug": "powiat-walecki",
       "powiat_label": "powiat wałecki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/zachodniopomorskie/powiat-walecki/walcz.md",
       "spike": {
         "wave": "H",
@@ -43798,11 +43798,11 @@
         "gmina_kind": "gmina miejska"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "walcz",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -43812,8 +43812,8 @@
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
@@ -44141,7 +44141,7 @@
       "powiat_slug": "powiat-zlotowski",
       "powiat_label": "powiat złotowski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/wielkopolskie/powiat-zlotowski/zlotow.md",
       "spike": {
         "wave": "J",
@@ -44160,11 +44160,11 @@
         "gmina_kind": "gmina miejska"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "zlotow",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -44174,8 +44174,8 @@
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
@@ -45208,7 +45208,7 @@
       "powiat_slug": "powiat-leczycki",
       "powiat_label": "powiat łęczycki",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/lodzkie/powiat-leczycki/leczyca.md",
       "spike": {
         "wave": "GS1",
@@ -45227,11 +45227,11 @@
         "gmina_kind": "gmina miejska"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "leczyca",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -45241,8 +45241,8 @@
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
@@ -45854,7 +45854,7 @@
       "powiat_slug": "powiat-grodziski",
       "powiat_label": "powiat grodziski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/wielkopolskie/powiat-grodziski/grodzisk-wielkopolski.md",
       "spike": {
         "wave": "Q",
@@ -45873,11 +45873,11 @@
         "gmina_kind": "miasto"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "grodzisk-wielkopolski",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -45887,8 +45887,8 @@
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"
@@ -47181,7 +47181,7 @@
       "powiat_slug": "powiat-szamotulski",
       "powiat_label": "powiat szamotulski",
       "type": "land-powiat-seat",
-      "status": "build",
+      "status": "built",
       "path": "spikes/wielkopolskie/powiat-szamotulski/szamotuly.md",
       "spike": {
         "wave": "G",
@@ -47200,11 +47200,11 @@
         "gmina_kind": "miasto"
       },
       "aliases": [],
-      "pipeline_id": null,
+      "pipeline_id": "szamotuly",
       "lifecycle": {
         "research": "surveyed",
-        "implementation": "ready",
-        "runtime": "not-enabled"
+        "implementation": "enabled",
+        "runtime": "monitored"
       },
       "capabilities": {
         "cms_family": "unknown",
@@ -47214,8 +47214,8 @@
           "to": null
         },
         "assets": {
-          "residential": "unknown",
-          "land": "unknown",
+          "residential": "observed",
+          "land": "observed",
           "building": "unknown",
           "commercial": "unknown",
           "garage": "unknown"

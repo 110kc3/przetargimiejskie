@@ -12,6 +12,7 @@ const SOURCE_CHAINS = new Map([
   ['bip.gniezno.eu', ['home-pl-ov-tls-g2-r36-ca.pem']],
   ['bip.miastozabrze.pl', ['certum-ov-tls-g2-r39-ca.pem']],
   ['bip.um.lubin.pl', ['certum-ov-tls-g2-r39-ca.pem']],
+  ['bip.walcz.pl', ['certum-dv-tls-g2-r39-ca.pem']],
   ['bip.wegorzewo.pl', ['certum-dv-tls-g2-r39-ca.pem']],
   ['bip.zlotoryja.pl', ['certum-dv-tls-g2-r39-ca.pem']],
   ['glogow.bip.info.pl', ['cyber-folks.pem', 'certum-global-services-ca-sha2.pem']],

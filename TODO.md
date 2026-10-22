@@ -1071,13 +1071,19 @@ current owner action or a prerequisite for the municipal pilot.
 
 ## 6 · Expansion queues [RPI5]
 
-- **Build the BUILD-ready queue — 35 land-powiat seats remain (15 built & registered 2026-10-21: 121 → 136)** (ledger in
-  SPIKE-PROGRESS): 15 new cities built across 3 concurrent batches of 5:
-  - Batch 1: dzierzoniow, gora, grodzisk-mazowiecki, otwock, ozarow-mazowiecki
-  - Batch 2: chojnice, mogilno, plonsk, malbork, sztum
-  - Batch 3: koscierzyna, starogard-gdanski, slubice, luban, ostrzeszow
-  All 15 adapters registered in pipeline/src/cities/index.js, source/asset audits recorded in spikes/master-cities.json, all unit tests and sanity checks green.
-  Remaining queue: 35 Medium-effort land-powiat seats. (ledger in
+- **Build the BUILD-ready queue — 15 land-powiat seats remain (35 built & registered: 121 → 156)** (ledger in
+  SPIKE-PROGRESS): 35 new cities built across 7 concurrent batches of 5:
+  - 2026-10-21 batch (121 → 136):
+    - Batch 1: dzierzoniow, gora, grodzisk-mazowiecki, otwock, ozarow-mazowiecki
+    - Batch 2: chojnice, mogilno, plonsk, malbork, sztum
+    - Batch 3: koscierzyna, starogard-gdanski, slubice, luban, ostrzeszow
+  - 2026-10-22 batch (136 → 156):
+    - Batch 1 (136 → 141): starachowice, wodzislaw-slaski, bedzin, kolobrzeg, jedrzejow
+    - Batch 2 (141 → 146): kolno, zgierz, zakopane, bartoszyce, ilawa
+    - Batch 3 (146 → 151): lidzbark-warminski, szczytno, nidzica, prudnik, kluczbork
+    - Batch 4 (151 → 156): walcz, zlotow, leczyca, grodzisk-wielkopolski, szamotuly
+  All 35 adapters registered in pipeline/src/cities/index.js, source/asset audits recorded in spikes/master-cities.json, all unit tests and sanity checks green.
+  Remaining queue: 15 Medium-effort land-powiat seats. (ledger in
   SPIKE-PROGRESS): dispatch per `spikes/README.md` + `pipeline/ADAPTER-GUIDE.md`
   via the `przetargi-city-triage` skill, max 3 concurrent Sonnet build-agents on
   the Pi. **PROGRESS 2026-07-16→19: all remaining big cities + city-counties
