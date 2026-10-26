@@ -1,72 +1,89 @@
-# Przetargi miejskie — nowe ogłoszenia (2026-10-19)
+# Przetargi miejskie — nowe ogłoszenia (2026-10-26)
 
-**43** nowe ogłoszenia w 13 miastach.
+**54** nowe ogłoszenia w 16 miastach.
 
-## Gliwice (21)
-- **[ul. Kozielska 13/garaz-1](https://zgm-gliwice.pl/kozielska-13-g-1-19-10-2026-r/)** · Garaż · 34 860 zł · 16,92 m² · 2 060 zł/m² · przetarg 19.10.2026 (runda 4)
-- **[ul. Zygmunta Starego 29/4](https://bip.gliwice.eu/sprzedaz-przetarg-19102026-ul-ks-marcina-strzody-38-ul-zygmunta-starego-294-ul-mewy-39-lokale-mieszkalne-ul-paulinska-51-ul-krolowej-jadwigi-89-al-wojciecha-korfantego-17i-lokale-uzytkowe-ul-kozielska-13-garaz-nr-1)** · Lokal mieszkalny · 358 890 zł · 86,79 m² · 4 135 zł/m² · przetarg 19.10.2026 (runda 4)
-- **[ul. Z. Starego 29/4](https://zgm-gliwice.pl/z-starego-29-4-19-10-2026-r/)** · Lokal mieszkalny · 358 890 zł · 86,79 m² · 4 135 zł/m² · przetarg 19.10.2026 (runda 2)
-- **[ul. Ks. M. Strzody 3/8](https://zgm-gliwice.pl/ks-marcina-strzody-3-8-19-10-2026-r/)** · Lokal mieszkalny · 348 100 zł · 56,61 m² · 6 149 zł/m² · przetarg 19.10.2026 (runda 1)
-- **[ul. Kr. Jadwigi 8/9](https://zgm-gliwice.pl/krolowej-jadwigi-8-9-19-10-2026-r/)** · Lokal użytkowy · 56 500 zł · 15,65 m² · 3 610 zł/m² · przetarg 19.10.2026 (runda 1)
-- **[ul. Al.W.Korfantego 17/I](https://zgm-gliwice.pl/al-w-korfantego-17-i-19-10-2026-r/)** · Lokal użytkowy · 154 620 zł · 41,14 m² · 3 758 zł/m² · przetarg 19.10.2026 (runda 1)
-- **[ul. Mewy 3/9](https://zgm-gliwice.pl/mewy-3-9-19-10-2026-r/)** · Lokal mieszkalny · 204 700 zł · 28 m² · 7 311 zł/m² · przetarg 19.10.2026 (runda 1)
-- **[ul. Paulińska 5/1](https://zgm-gliwice.pl/paulinska-5-1-19-10-2026-r/)** · Lokal użytkowy · 57 800 zł · 15,62 m² · 3 700 zł/m² · przetarg 19.10.2026 (runda 1)
-- **[ul. Królowej Jadwigi 8/9](https://bip.gliwice.eu/sprzedaz-przetarg-19102026-ul-ks-marcina-strzody-38-ul-zygmunta-starego-294-ul-mewy-39-lokale-mieszkalne-ul-paulinska-51-ul-krolowej-jadwigi-89-al-wojciecha-korfantego-17i-lokale-uzytkowe-ul-kozielska-13-garaz-nr-1)** · Lokal użytkowy · 56 500 zł · 15,65 m² · 3 610 zł/m² · przetarg 19.10.2026 (runda 1)
-- **[ul. Zwycięstwa 11/6C](https://bip.gliwice.eu/sprzedaz-przetarg-9112026-ul-derkacza-28-ul-lipcowa-921-ul-wielkiej-niedzwiedzicy-119-ul-zwyciestwa-116c-lokale-mieszkalne)** · Lokal mieszkalny · 271 200 zł · 71,07 m² · 3 816 zł/m² · przetarg 09.11.2026 (runda 5)
-- **[ul. Wielkiej Niedźwiedzicy 11/9](https://bip.gliwice.eu/sprzedaz-przetarg-9112026-ul-derkacza-28-ul-lipcowa-921-ul-wielkiej-niedzwiedzicy-119-ul-zwyciestwa-116c-lokale-mieszkalne)** · Lokal mieszkalny · 361 980 zł · 62,64 m² · 5 779 zł/m² · przetarg 09.11.2026 (runda 2)
-- **[ul. Lipcowa 9/21](https://bip.gliwice.eu/sprzedaz-przetarg-9112026-ul-derkacza-28-ul-lipcowa-921-ul-wielkiej-niedzwiedzicy-119-ul-zwyciestwa-116c-lokale-mieszkalne)** · Lokal mieszkalny · 212 700 zł · 36,09 m² · 5 894 zł/m² · przetarg 09.11.2026 (runda 1)
-- **[ul. Derkacza 2/8](https://bip.gliwice.eu/sprzedaz-przetarg-9112026-ul-derkacza-28-ul-lipcowa-921-ul-wielkiej-niedzwiedzicy-119-ul-zwyciestwa-116c-lokale-mieszkalne)** · Lokal mieszkalny · 239 100 zł · 36,87 m² · 6 485 zł/m² · przetarg 09.11.2026 (runda 1)
-- **[ul. Prymasa Stefana Wyszyńskiego 14D/V](https://zgm-gliwice.pl/prymasa-stefana-wyszynskiego-14d-v-14-12-2026-r/)** · Lokal użytkowy · 4 258 300 zł · przetarg 14.12.2026 (runda 1)
-- **ul. Witkiewicza 32/7** · Nieruchomość · termin nieznany
-- **ul. Strzody 6A/11** · Nieruchomość · termin nieznany
-- **ul. Zwycięstwa 3/IV** · Nieruchomość · termin nieznany
-- **ul. Krakusa 20/8** · Nieruchomość · termin nieznany
-- **ul. Zawiszy Czarnego 4/3** · Nieruchomość · termin nieznany
-- **ul. Mikołowska 20/14** · Nieruchomość · termin nieznany
-- **ul. Mikołowska 20/2** · Nieruchomość · termin nieznany
+## Gliwice (2)
+- **[ul. Chodkiewicza 10/8](https://bip.gliwice.eu/sprzedaz-lokal-mieszkalny-przy-ul-chodkiewicza-108-wlasnosc-skarbu-panstwa)** · Lokal mieszkalny · 255 000 zł · 36,06 m² · 7 072 zł/m² · przetarg 30.11.2026 (runda 2)
+- **[ul. Chodkiewicza 12/15](https://bip.gliwice.eu/sprzedaz-lokal-mieszkalny-przy-ul-chodkiewicza-1215-wlasnosc-skarbu-panstwa)** · Lokal mieszkalny · 250 000 zł · 35,66 m² · 7 011 zł/m² · przetarg 30.11.2026 (runda 2)
 
-## Mysłowice (2)
-- **[ul. Armii Krajowej 16C/24](https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c)** · Lokal mieszkalny · 190 000 zł · 46,02 m² · 4 129 zł/m² · przetarg 17.11.2026 (runda 5)
-- **[ul. Chrzanowskiej 60](https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-stanowiacych)** · Nieruchomość zabudowana · 200 000 zł · 128 m² · 1 563 zł/m² · przetarg 01.12.2026 (runda 3)
+## Bytom (2)
+- **[ul. artura grottgera 5/13](https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html)** · Lokal użytkowy · 50 000 zł · 23,43 m² · 2 134 zł/m² · przetarg 18.11.2026 (runda 1)
+- **[ul. artura grottgera 6/11](https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html)** · Lokal użytkowy · 50 000 zł · 23,78 m² · 2 103 zł/m² · przetarg 18.11.2026 (runda 1)
 
-## Legnica (4)
-- **[ul. Żołnierzy II Armii Wojska Polskiego 2/2](https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39310,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zolnierzy-II-Armii-Wojska-Polskiego-2.html)** · Nieruchomość · 190 000 zł · 58,59 m² · 3 243 zł/m² · przetarg 16.11.2026 (runda 1)
-- **[ul. Dmowskiego 20/1A](https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39312,Ogloszenie-o-przetargu-na-lokal-przy-ul-Dmowskiego-20.html)** · Nieruchomość · 50 000 zł · 20,8 m² · 2 404 zł/m² · przetarg 16.11.2026 (runda 1)
-- **[ul. Dmowskiego 19/1A](https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39311,Ogloszenie-o-przetargu-na-lokal-przy-ul-Dmowskiego-19.html)** · Nieruchomość · 160 000 zł · 73,6 m² · 2 174 zł/m² · przetarg 16.11.2026 (runda 1)
-- **[ul. Żeglarska 15/1](https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39309,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zeglarskiej-15.html)** · Lokal użytkowy · 110 000 zł · 43,5 m² · 2 529 zł/m² · przetarg 16.11.2026 (runda 1)
+## Kędzierzyn-Koźle (1)
+- **[ul. Skarbowa 1A](https://bip.kedzierzynkozle.pl/artykul/127/30569/ogloszenia-o-przetargu-lokale-mieszkalne)** · Lokal mieszkalny · 170 000 zł · 51,12 m² · 3 326 zł/m² · przetarg 24.11.2026 (runda 5)
 
-## Toruń (1)
-- **[ul. Sebastiana Klonowica 21/2](https://bip.torun.pl/przetarg-nieruchomosci/63808/ul-sebastiana-klonowica-21-m-2)** · Lokal mieszkalny · 270 000 zł · 45,43 m² · 5 943 zł/m² · przetarg 17.11.2026 (runda 1)
+## Kraków (1)
+- **[ul. Centrum A 5/7](https://www.bip.krakow.pl/?news_id=209854)** · Lokal mieszkalny · 564 000 zł · 70,67 m² · 7 981 zł/m² · termin nieznany (runda 3)
 
-## Białystok (1)
-- **[ul. Włókiennicza 17/68](https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wlokiennicza-17-m-68-1.html)** · Lokal mieszkalny · 326 100 zł · przetarg 02.12.2026 (runda 2)
+## Legnica (5)
+- **[ul. Piastowska 10/7](https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39346,Ogloszenie-o-przetargu-na-lokal-przy-ul-Piastowskiej-10.html)** · Nieruchomość · 200 000 zł · 56,2 m² · 3 559 zł/m² · przetarg 19.11.2026 (runda 1)
+- **[ul. Wrocławska 131/6](https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39347,Ogloszenie-o-przetargu-na-lokal-przy-ul-Wroclawskiej-131.html)** · Nieruchomość · 45 000 zł · 12,03 m² · 3 741 zł/m² · przetarg 19.11.2026 (runda 1)
+- **[ul. Rzeczypospolitej 107/6](https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39345,Ogloszenie-o-przetargu-na-lokal-przy-al-Rzeczypospolitej-107.html)** · Lokal mieszkalny · 150 000 zł · 46,7 m² · 3 212 zł/m² · przetarg 19.11.2026 (runda 1)
+- **[ul. ul.Głogowska 65/6](https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39344,Ogloszenie-o-przetargu-na-lokal-przy-ul-Glogowskiej-65.html)** · Nieruchomość · 190 000 zł · 59,1 m² · 3 215 zł/m² · przetarg 19.11.2026 (runda 1)
+- **[ul. Dmowskiego 8/11](https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39341,Ogloszenie-o-przetargu-na-lokal-przy-ul-Dmowskiego-8.html)** · Nieruchomość · 190 000 zł · 59,1 m² · 3 215 zł/m² · przetarg 19.11.2026 (runda 1)
 
-## Stargard (3)
-- **[ul. Aleja Gryfa 15/1](https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-aleja-gryfa-15-1-v-przetarg-na-sprzedaz/)** · Lokal mieszkalny · 221 000 zł · 52,83 m² · 4 183 zł/m² · przetarg 20.11.2026 (runda 5)
-- **[ul. Lechicka 1/4](https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-lechicka-1-4-v-przetarg-ustny-nieograniczony/)** · Lokal mieszkalny · 232 000 zł · 53,99 m² · 4 297 zł/m² · przetarg 20.11.2026 (runda 5)
-- **[ul. Jugosłowiańska 29/4](https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-jugoslowianska-29-4-v-przetarg-ustny-nieograniczony/)** · Lokal mieszkalny · 204 000 zł · 46 m² · 4 435 zł/m² · przetarg 20.11.2026 (runda 5)
+## Łódź (7)
+- **[ul. Turoszowska 4/1U](https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnych-lokali-uzytkowych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-turoszowskiej-4-ul-klonowej-6-ul-wawelskiej-13-15-ul-emilii-plater-35-37-ul-augusta-cieszkowskiego-22-24-ul-pomorskiej-5-ul-rewolucji-1905-r-nr-2-ul-fabrycznej-22-id183064/2026/10/21/)** · Lokal użytkowy · 30 000 zł · 24,52 m² · 1 223 zł/m² · przetarg 17.12.2026 (runda 1)
+- **[ul. Klonowa 6/4](https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnych-lokali-uzytkowych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-turoszowskiej-4-ul-klonowej-6-ul-wawelskiej-13-15-ul-emilii-plater-35-37-ul-augusta-cieszkowskiego-22-24-ul-pomorskiej-5-ul-rewolucji-1905-r-nr-2-ul-fabrycznej-22-id183064/2026/10/21/)** · Lokal mieszkalny · 50 000 zł · 14,47 m² · 3 455 zł/m² · przetarg 17.12.2026 (runda 1)
+- **[ul. Wawelska 13/1U](https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnych-lokali-uzytkowych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-turoszowskiej-4-ul-klonowej-6-ul-wawelskiej-13-15-ul-emilii-plater-35-37-ul-augusta-cieszkowskiego-22-24-ul-pomorskiej-5-ul-rewolucji-1905-r-nr-2-ul-fabrycznej-22-id183064/2026/10/21/)** · Lokal użytkowy · 190 000 zł · 48,95 m² · 3 882 zł/m² · przetarg 17.12.2026 (runda 1)
+- **[ul. Emilii Plater 35/2](https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnych-lokali-uzytkowych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-turoszowskiej-4-ul-klonowej-6-ul-wawelskiej-13-15-ul-emilii-plater-35-37-ul-augusta-cieszkowskiego-22-24-ul-pomorskiej-5-ul-rewolucji-1905-r-nr-2-ul-fabrycznej-22-id183064/2026/10/21/)** · Lokal mieszkalny · 210 000 zł · 37,13 m² · 5 656 zł/m² · przetarg 17.12.2026 (runda 1)
+- **[ul. Augusta Cieszkowskiego 22/42](https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnych-lokali-uzytkowych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-turoszowskiej-4-ul-klonowej-6-ul-wawelskiej-13-15-ul-emilii-plater-35-37-ul-augusta-cieszkowskiego-22-24-ul-pomorskiej-5-ul-rewolucji-1905-r-nr-2-ul-fabrycznej-22-id183064/2026/10/21/)** · Lokal mieszkalny · 100 000 zł · 17,36 m² · 5 760 zł/m² · przetarg 17.12.2026 (runda 1)
+- **[ul. Pomorska 5/31](https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnych-lokali-uzytkowych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-turoszowskiej-4-ul-klonowej-6-ul-wawelskiej-13-15-ul-emilii-plater-35-37-ul-augusta-cieszkowskiego-22-24-ul-pomorskiej-5-ul-rewolucji-1905-r-nr-2-ul-fabrycznej-22-id183064/2026/10/21/)** · Lokal mieszkalny · 380 000 zł · 72,93 m² · 5 210 zł/m² · przetarg 17.12.2026 (runda 1)
+- **[ul. Fabryczna 22/52](https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-i-samodzielnych-lokali-uzytkowych-wraz-z-udzialem-w-prawie-wlasnosci-gruntu-usytuowanych-w-budynkach-polozonych-w-lodzi-przy-ul-turoszowskiej-4-ul-klonowej-6-ul-wawelskiej-13-15-ul-emilii-plater-35-37-ul-augusta-cieszkowskiego-22-24-ul-pomorskiej-5-ul-rewolucji-1905-r-nr-2-ul-fabrycznej-22-id183064/2026/10/21/)** · Lokal mieszkalny · 100 000 zł · 20,84 m² · 4 798 zł/m² · przetarg 17.12.2026 (runda 1)
 
-## Przemyśl (1)
-- **[ul. Franciszkańskiej 8/11](https://bip.przemysl.pl/83715/prezydent-miasta-przemysla-oglasza-kolejny-przetarg-na-zbycie-lokalu-mieszkalnego-przy-ul-franciszkanskiej-811.html)** · Lokal mieszkalny · termin nieznany (runda 2)
+## Chełmno (1)
+- **[ul. Dominikańska 26/9](https://bip.chelmno.pl/przetarg-nieruchomosci/11879/ul-dominikanska-26-9-86-200-chelmno)** · Lokal mieszkalny · 45 000 zł · 20,84 m² · 2 159 zł/m² · przetarg 26.11.2026 (runda 9)
 
-## Bydgoszcz (1)
-- **[ul. Stanisława Wyspiańskiego 6/3](https://bip.um.bydgoszcz.pl/artykul/1208/11182/lokal-uzytkowy-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-20-11-2026-r-ul-s-wyspianskiego-6-lokal-uzytkowy-nr-3)** · Lokal użytkowy · 250 000 zł · 32,56 m² · 7 678 zł/m² · przetarg 20.11.2026 (runda 1)
+## Namysłów (3)
+- **[ul. Jana Pawła II 5A/2](https://zan-namyslow.pl/v-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-przy-ul-jana-pawla-ii-5a-w-namyslowie/)** · Lokal mieszkalny · 150 000 zł · 60,12 m² · 2 495 zł/m² · przetarg 03.12.2026 (runda 5)
+- **[ul. Piłsudskiego 19/5](https://zan-namyslow.pl/i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz/)** · Lokal mieszkalny · 130 000 zł · 30,93 m² · 4 203 zł/m² · przetarg 03.12.2026 (runda 1)
+- **[ul. Szkolna 1/2A](https://zan-namyslow.pl/i-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2a-przy-ul-szkolnej-1-w-namyslowie/)** · Lokal mieszkalny · 94 000 zł · 21,99 m² · 4 275 zł/m² · przetarg 03.12.2026 (runda 1)
 
-## Jarocin (1)
-- **[ul. Bema 31A/4](https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-o-przetargu-bema-31a-4-bip.pdf)** · Lokal mieszkalny · 401 000 zł · 50,9 m² · 7 878 zł/m² · przetarg 02.12.2026 (runda 1)
+## Ząbkowice Śląskie (1)
+- **[ul. Bartosza Głowackiego 0/10-21](https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/11008/zabkowice-slaskie-przy-ul-bartosza-glowackiego)** · Garaż · 44 000 zł · 19,43 m² · 2 265 zł/m² · przetarg 18.11.2026 (runda 1)
 
-## Głubczyce (1)
-- **[ul. Chomiąży 35](https://bip.glubczyce.pl/download/attachment/29419/21-chomiaza-35.doc?v=1791968097)** · Nieruchomość zabudowana · przetarg 17.11.2026 (runda 1)
+## Jelenia Góra (4)
+- **[ul. Dwudziestolecia 10/8](https://bip.jeleniagora.pl/artykul/126/26138/110-2026)** · Lokal mieszkalny · 320 000 zł · 42,65 m² · 7 503 zł/m² · przetarg 25.11.2026 (runda 1)
+- **[ul. Zjednoczenia Narodowego 63A/1](https://bip.jeleniagora.pl/artykul/126/26138/110-2026)** · Lokal mieszkalny · 250 000 zł · 51,81 m² · 4 825 zł/m² · przetarg 25.11.2026 (runda 1)
+- **[ul. 1 Maja 59/4](https://bip.jeleniagora.pl/artykul/126/26139/111-2026)** · Lokal mieszkalny · 510 000 zł · 153,18 m² · 3 329 zł/m² · przetarg 22.12.2026 (runda 1)
+- **[ul. 1 Maja 28/4A](https://bip.jeleniagora.pl/artykul/126/26139/111-2026)** · Lokal mieszkalny · 450 000 zł · 43,18 m² · 10 421 zł/m² · przetarg 22.12.2026 (runda 1)
 
-## Elbląg (1)
-- **[ul. Łęczycka 26](https://bip.elblag.eu/przetarg-nieruchomosci/11157/i-pisemny-przetarg-nieograniczony-ul-leczycka-26-nieruchomosc-zabudowana-14-12-2026-r)** · Nieruchomość zabudowana · 6 305 000 zł · przetarg 14.12.2026 (runda 1)
+## Żnin (1)
+- **[ul. Jadowniki Rycerskie 27/4](https://bip.gminaznin.pl/nieruchomosc/trzeci-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-4-polozonego-w-jadownik-1)** · Lokal mieszkalny · 41 000 zł · 56 m² · 732 zł/m² · przetarg 19.11.2026 (runda 3)
 
-## Golub-Dobrzyń (5)
-- **[ul. Piłsudskiego 9/1](https://bip.golub-dobrzyn.pl/plik,10722,burmistrz-miasta-golubia-dobrzynia-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-wolnych-lokali-mieszkalnych-w-budynku-wielorodzinnym-wraz-z-udzialem-w-czesciach-wspolnych-i-ulamkowa-czescia-gruntu-pdf.pdf)** · Lokal mieszkalny · 62 000 zł · 24,52 m² · 2 529 zł/m² · przetarg 12.11.2026 (runda 1)
-- **[ul. Chopina 16/6](https://bip.golub-dobrzyn.pl/plik,10722,burmistrz-miasta-golubia-dobrzynia-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-wolnych-lokali-mieszkalnych-w-budynku-wielorodzinnym-wraz-z-udzialem-w-czesciach-wspolnych-i-ulamkowa-czescia-gruntu-pdf.pdf)** · Lokal mieszkalny · 62 800 zł · 23,83 m² · 2 635 zł/m² · przetarg 12.11.2026 (runda 1)
-- **[ul. Zamkowa 18/5](https://bip.golub-dobrzyn.pl/plik,10722,burmistrz-miasta-golubia-dobrzynia-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-wolnych-lokali-mieszkalnych-w-budynku-wielorodzinnym-wraz-z-udzialem-w-czesciach-wspolnych-i-ulamkowa-czescia-gruntu-pdf.pdf)** · Lokal mieszkalny · 56 300 zł · 22,28 m² · 2 527 zł/m² · przetarg 12.11.2026 (runda 1)
-- **[ul. PTTK 23/5](https://bip.golub-dobrzyn.pl/plik,10722,burmistrz-miasta-golubia-dobrzynia-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-wolnych-lokali-mieszkalnych-w-budynku-wielorodzinnym-wraz-z-udzialem-w-czesciach-wspolnych-i-ulamkowa-czescia-gruntu-pdf.pdf)** · Lokal mieszkalny · 74 800 zł · 29,74 m² · 2 515 zł/m² · przetarg 12.11.2026 (runda 1)
-- **[ul. Św. Mikołaja 6](https://www.bip.golub-dobrzyn.com.pl/redir,8612)** · Lokal mieszkalny · 4 000 zł · termin nieznany (runda 1)
+## Otwock (2)
+- **[ul. gen. Władysława Sikorskiego 1/13](https://bip.otwock.pl/?bip=2&cid=1018&id=30905)** · Lokal mieszkalny · 470 000 zł · 56 m² · 8 393 zł/m² · przetarg 03.12.2026 (runda 3)
+- **[ul. Stanisława Wyspiańskiego 6/27](https://bip.otwock.pl/?bip=2&cid=1018&id=30906)** · Lokal mieszkalny · 440 000 zł · 49,42 m² · 8 903 zł/m² · przetarg 08.12.2026 (runda 3)
 
-## Głogów (1)
-- **[ul. Obrońców Pokoju 7C/58](https://glogow.bip.info.pl/api/fo/files/9C897FEC-96D0-4130-A1E3-85B4C98F408E/download)** · Lokal mieszkalny · 150 000 zł · 28,4 m² · 5 282 zł/m² · przetarg 24.11.2026 (runda 4)
+## Sztum (3)
+- **[ul. Nowowiejskiego 18/1A](https://bip.sztum.pl/1186.html?file=19975)** · Lokal mieszkalny · 199 000 zł · 67,39 m² · 2 953 zł/m² · przetarg 24.11.2026 (runda 4)
+- **[ul. Skłodowskiej 17D/7](https://bip.sztum.pl/1186.html?file=19971)** · Lokal mieszkalny · 208 000 zł · 43,56 m² · 4 775 zł/m² · przetarg 24.11.2026 (runda 5)
+- **[ul. Mickiewicza 39](https://bip.sztum.pl/1186.html?file=19549)** · Lokal mieszkalny · termin nieznany (runda 1)
+
+## Starogard Gdański (12)
+- **ul. Osiedlowa 5B/3** · Nieruchomość · przetarg 16.09.2020
+- **ul. Chojnicka 45** · Nieruchomość · przetarg 16.11.2020
+- **ul. Chojnicka 45** · Nieruchomość · przetarg 16.11.2020
+- **ul. Skarszewska 2C/14** · Nieruchomość · przetarg 02.03.2021
+- **ul. Piłsudskiego 10/8** · Nieruchomość · przetarg 02.03.2021
+- **ul. Kanałowa 19A** · Nieruchomość · przetarg 30.08.2023
+- **ul. Kopernika 32F** · Nieruchomość · przetarg 30.08.2023
+- **ul. Piłsudskiego 16** · Nieruchomość · przetarg 30.08.2023
+- **ul. Skarszewska 2C** · Nieruchomość · przetarg 30.08.2023
+- **ul. Skośna 5** · Nieruchomość · przetarg 30.08.2023
+- **ul. Ściegiennego 5** · Nieruchomość · przetarg 30.08.2023
+- **ul. Wybickiego 6/5** · Nieruchomość · przetarg 26.11.2024
+
+## Lubań (5)
+- **[ul. Stanisława Worcella 2/12](https://luban.pl/artykul/126961/burmistrz-miasta-luban-oglasza-drugi-przetarg-ustny-nieograniczony)** · Lokal mieszkalny · 90 000 zł · 46,19 m² · 1 948 zł/m² · przetarg 09.11.2026 (runda 2)
+- **[ul. Bankowa 3/3](https://luban.pl/artykul/126838/mieszkanie-do-sprzedania-ul-bankowa)** · Lokal mieszkalny · 181 000 zł · 63,74 m² · 2 840 zł/m² · przetarg 18.11.2026 (runda 1)
+- **[ul. Plac 3 Maja 6/4](https://luban.pl/artykul/126943/do-sprzedania-mieszkanie-przy-placu-3-maja)** · Lokal mieszkalny · 150 000 zł · 53,3 m² · 2 814 zł/m² · przetarg 20.11.2026 (runda 1)
+- **[ul. Warszawska 15B/3](https://luban.pl/artykul/126867/burmistrz-miasta-luban-oglasza-pierwszy-przetarg-ustny-nieograniczony)** · Lokal mieszkalny · 206 000 zł · 78,95 m² · 2 609 zł/m² · przetarg 24.11.2026 (runda 1)
+- **[ul. Warszawska 3/2](https://luban.pl/artykul/127000/burmistrz-miasta-luban-oglasza-pierwszy-przetarg-ustny-nieograniczony)** · Lokal mieszkalny · 104 000 zł · 35,71 m² · 2 912 zł/m² · przetarg 30.11.2026 (runda 1)
+
+## Ostrzeszów (4)
+- **ul. 21 Stycznia 1A/2** · Nieruchomość · termin nieznany
+- **ul. Kolejowa 29/3** · Nieruchomość · termin nieznany
+- **ul. Wolności 3B/5** · Nieruchomość · termin nieznany
+- **ul. Chmielna 1** · Nieruchomość · termin nieznany
