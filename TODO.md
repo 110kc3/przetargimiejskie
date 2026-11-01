@@ -87,6 +87,7 @@
   - `bash build-site.sh _site`: 3,216 sitemap URLs, self-canonical, zero noindex errors.
   - `npm test --prefix pipeline`: >4,900 unit tests passing without error.
   - `RUN_BROWSER_TESTS=1 CATALOG_SITE_DIR=_site node --test pipeline/tests/catalog-browser.test.js`: 4/4 passing in Chromium.
+  - Hosted runner policy restored: fixed `extension-ci.yml` runner specification to `ubuntu-latest`, passing `node pipeline/scripts/check-workflow-runners.js` (22 jobs across 8 workflows).
   - Zero null bytes verified across repository.
 
 ### Previous Expansion milestone — 31 October 2026 (Items 1 & 2 Shipped: 296 Enabled Cities)
