@@ -710,6 +710,8 @@ const inject = (marker, replacement) => {
   if (!landing.includes(marker)) throw new Error(`landing injection marker not found: ${marker}`);
   landing = landing.replace(marker, replacement);
 };
+const statMonitored = (index.cities || []).length;
+inject('<div class="stat-value" id="stat-monitored">—</div>', `<div class="stat-value" id="stat-monitored">${fmtInt(statMonitored)}</div>`);
 inject('<div class="stat-value" id="stat-cities">—</div>', `<div class="stat-value" id="stat-cities">${fmtInt(cities.length)}</div>`);
 inject('<div class="stat-value" id="stat-props">—</div>', `<div class="stat-value" id="stat-props">${fmtInt(statProps)}</div>`);
 inject('<div class="stat-value" id="stat-active">—</div>', `<div class="stat-value" id="stat-active">${fmtInt(statActive)}</div>`);
@@ -730,6 +732,7 @@ console.error('  seo: baked landing stats + city chips into index.html');
 const publicIds = new Set(cities.map((c) => c.id));
 const outIndex = {
   ...index,
+  monitored_cities: (index.cities || []).length,
   public_city_ids: [...publicIds],
   cities: (index.cities || []).map((c) => ({
     ...c,

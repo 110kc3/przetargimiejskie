@@ -78,12 +78,22 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
   }
 
   console.error('Crawling result documents ...');
-  const docRefs = await city.crawlResultDocs();
+  const crawlResultDocsFn = typeof city.crawlResultDocs === 'function'
+    ? city.crawlResultDocs.bind(city)
+    : typeof city.crawlResults === 'function'
+    ? city.crawlResults.bind(city)
+    : async () => [];
+  const docRefs = await crawlResultDocsFn();
   console.error(`Found ${docRefs.length} result documents.\n`);
 
   console.error('OCR + parsing result documents (cached entries are instant) ...');
   const allRecords = [];
   let parsedNoteCount = 0;
+  const parseResultDocFn = typeof city.parseResultDoc === 'function'
+    ? city.parseResultDoc.bind(city)
+    : typeof city.parseResult === 'function'
+    ? (text, date, url) => city.parseResult(text, url)
+    : () => [];
   for (const ref of docRefs) {
     let text;
     try {
@@ -94,7 +104,7 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
       console.error(`  ERROR OCR ${ref.pdf_url}: ${err.message}`);
       continue;
     }
-    const recs = city.parseResultDoc(text, ref.auction_date, ref.pdf_url);
+    const recs = parseResultDocFn(text, ref.auction_date, ref.pdf_url) || [];
     if (recs.length === 0) {
       console.error(`  WARN ${ref.auction_date}: parser returned 0 records from ${ref.pdf_url}`);
     }
@@ -123,10 +133,21 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
   );
 
   console.error('Crawling active listings + wykaz ...');
-  const activeCrawl = await city.crawlActive();
+  const rawActiveCrawl = typeof city.crawlActive === 'function'
+    ? await city.crawlActive()
+    : typeof city.crawl === 'function'
+    ? await city.crawl()
+    : { listings: [], wykaz: [], land: [] };
+  const activeCrawl = Array.isArray(rawActiveCrawl)
+    ? {
+        listings: rawActiveCrawl.filter((x) => x && x.type !== 'result'),
+        wykaz: [],
+        land: rawActiveCrawl.filter((x) => x && (x.kind === 'grunt' || x.type === 'land')),
+      }
+    : (rawActiveCrawl || { listings: [], wykaz: [], land: [] });
   const {
-    listings: active,
-    wykaz,
+    listings: active = [],
+    wykaz = [],
     land = [],
     valid_empty = false,
     valid_empty_land = false,
