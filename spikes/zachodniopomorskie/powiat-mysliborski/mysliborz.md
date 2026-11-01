@@ -41,3 +41,14 @@ Contact: Urząd Miejski, Rynek im. Jana Pawła II 1, 74-300 Myślibórz; tel. 95
 - **Blockers / why NO-BUILD:** The dataset target is **open flat auctions with achieved prices**; Myślibórz has essentially none. Residential disposal here is bezprzetargowo (tenant adaptation) + wykaz; open auctions skew entirely to land. No ZGM/ZBM/TBS manager. Unlike drawsko-pomorskie / stargard (BUILD) or łobez (spiked BUILD), Myślibórz shows zero recurring flat-auction volume. Not worth an adapter for flats.
 
 **VERDICT: NO-BUILD** — real land-sale auction board with a results stream, but ~0 open flat auctions (one 2015 PDF); flats move bezprzetargowo/wykaz, notices are PDF-backed, no housing manager. Generic land + tenant-sale city-BIP.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Myślibórz) publishes auction announcements on `https://bip.mysliborz.pl/przetargi/361/status/0/` (systemdobip).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared systemdobip platform engine and registered as an enabled pipeline feed.

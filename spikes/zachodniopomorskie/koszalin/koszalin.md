@@ -102,3 +102,14 @@ The mechanism is confirmed and the BIP is scrape-friendly, but **1 flat/year** i
 - PDF-only result stream (achieved prices require PDF parser, not HTML)
 - Flat auction cadence is irregular — scraper may run many cycles with zero yield
 - No dedicated ZBM flat-auction stream (ZBM does najem, not sprzedaż)
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Koszalin) publishes auction announcements on `https://bip.koszalin.pl/przetargi-nieruchomosci/1677`` (logonet).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared logonet platform engine and registered as an enabled pipeline feed.

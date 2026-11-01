@@ -44,3 +44,14 @@ Authority: Urząd Miasta i Gminy Strzelin, ul. Ząbkowicka 11, 57-100 Strzelin (
 - **Blockers / reason for NO-BUILD:** No `lokal mieszkalny` auctions exist — flats leave the gminna zasób **bezprzetargowo na rzecz najemcy**, not via open oral auction. The auction board is 100% land / built property. Fails the flat-auction BUILD criterion despite an otherwise ideal, easily scrapeable source.
 
 **VERDICT: NO-BUILD** — Strzelin runs a clean, recurring open-auction stream on a scrapeable FINN eBIP BIP (born-digital PDFs, dedicated results stream), but it is **entirely land**; municipal flats are sold bezprzetargowo to sitting tenants, so there are ~0 open flat-sale auctions to scrape. Revisit only if the dataset scope expands to municipal land auctions (then Low effort).
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Strzelin) publishes auction announcements on `https://bip.gmstrzelin.finn.pl/bipkod/023` (finn).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared finn platform engine and registered as an enabled pipeline feed.

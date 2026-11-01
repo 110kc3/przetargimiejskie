@@ -39,3 +39,16 @@ Gmina Świebodzin (Urząd Miejski, Burmistrz Świebodzina) sells municipal prope
 - **Effort field:** — (not worth building).
 
 **VERDICT: NO-BUILD** — SystemDoBIP.pl BIP is technically easy, but there is no recurring municipal flat-auction volume (land-dominated; flats sold bezprzetargowo to tenants) and no achieved-price publication. Nothing usable to extract. Revisit only if a dedicated ZGM/STBS open-flat-auction stream with results appears.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Świebodzina) publishes auction announcements on `https://bip.swiebodzin.eu/przetargi/361/status/` (SystemDoBIP.pl).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

@@ -38,3 +38,14 @@ Everything else on the board is **lease/rental**: recurring `przetarg ustny nieo
 - **Blocker (decisive):** No product. The target dataset is open flat-sale auctions with achieved prices; Limanowa disposes of residential stock via **lease and sitting-tenant (bezprzetargowo)**, not auction, and its auction stream is sparse land + one demolition-bound building. Building an adapter would yield near-zero in-scope flat records.
 
 **VERDICT: NO-BUILD** — gmina miejska with a municipal housing manager (MZGKiM) but a residential stream that is all najem/dzierżawa + bezprzetargowo and ~0 open flat-sale auctions; sale-by-auction is a thin land trickle plus one distressed building. Sources are fine (WordPress server-HTML mirror of a bip.malopolska.pl SPA), but there is no open flat-auction / hammer-price stream to justify an adapter.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Limanowa) publishes auction announcements on `https://bip.malopolska.pl/umlimanowa` (madkom).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared madkom platform engine and registered as an enabled pipeline feed.

@@ -45,3 +45,14 @@ Contact: sekretariat@opolelubelskie.pl, tel. +48 81 827-72-01, ul. Lubelska 4. (
 ```json
 {"city_slug":"opole-lubelskie","voivodeship":"lubelskie","powiat_slug":"powiat-opolski","status":"no-build","effort":"—","confidence":"LIVE","note":"no housing manager; Wrota Lubelszczyzny bip.lubelskie.pl DataTables board id=326/id=83 + born-digital PDF; ~1 open flat auction (Stare Komaszyce 38) in years, stream is land+KOWR+lokal uzytkowy; generic lubelskie NO-BUILD analog","host":"umopolelubelskie.bip.lubelskie.pl","cms":"bip.lubelskie.pl / Wrota Lubelszczyzny"}
 ```
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Opole Lubelskie) publishes auction announcements on `https://umopolelubelskie.bip.lubelskie.pl` (biplubelskie).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared biplubelskie platform engine and registered as an enabled pipeline feed.

@@ -43,3 +43,15 @@ Contact: Referat Rolnictwa i Gospodarki Nieruchomościami, Agnieszka Drogosz, po
 - **Blockers:** None hard. No auth/rate-limit/CAPTCHA. Watch-items: low flat volume (expect a thin stream); e-signature wrapper on PDFs (verify text layer, else OCR fallback); title-based classification must reliably separate the ~2 flats/yr from the land majority.
 
 **VERDICT: BUILD (Medium effort)** — Łobez genuinely runs recurring OPEN flat auctions (`przetarg ustny nieograniczony na zbycie niewyodrębnionego lokalu mieszkalnego`) with I/II rounds and published result notices on a clean 2ClickPortal server-HTML BIP; the only friction is PDF-locked prices and low flat volume in a land-dominated stream.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Łobza (Urząd Miejski w Łobzie)) publishes auction announcements on `https://bip.lobez.pl` (BIP Zachodniopomorskie CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered HTML listings and PDF attachments. Unit tests: 10/10 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

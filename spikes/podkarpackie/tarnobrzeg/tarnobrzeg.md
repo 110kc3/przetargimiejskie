@@ -66,3 +66,14 @@ Result notices (achieved price) are published on the same BIP board under "Infor
 - The one observed flat (Barwinek 2, Kielce) is an oddity — a Kielce asset managed by Tarnobrzeg city, not a local mieszkanie komunalne. May not recur.
 
 **VERDICT: NO-BUILD.** Flat auction volume is effectively zero; dominant disposal route is bezprzetargowa to sitting tenants; no housing-manager board supplements the city BIP. Technical scraping is feasible but there is nothing useful to aggregate.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Tarnobrzeg) publishes auction announcements on `https://bip.tarnobrzeg.pl/artykuly/60/przetargi` (logonet).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared logonet platform engine and registered as an enabled pipeline feed.

@@ -42,3 +42,14 @@ Contact: Urząd Miasta Rypin, ul. Warszawska 40, 87-500 Rypin, tel. +48 54 280 9
 - **Blockers:** No open *lokal mieszkalny* auctions (flats go bezprzetargowo to tenants); the only auction sales are land + lokale użytkowe. That is the disqualifier. Secondary note: bot-UA 403 (needs browser UA) — trivial if a build were ever warranted.
 
 **VERDICT: NO-BUILD** — Gmina Miasta Rypin publishes a clean, scrapeable server-HTML property board on `bip.rypin.eu` (Alfa TV BIP), but its open auctions are land + commercial (lokale użytkowe) only; flat sales are bezprzetargowo (one isolated 2019 mieszkalny auction, none in 2025–2026). ~0 open flat auctions/year → no usable flat-auction stream.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Rypin) publishes auction announcements on `https://bip.rypin.eu/przetargi/361/status/0/` (systemdobip).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared systemdobip platform engine and registered as an enabled pipeline feed.

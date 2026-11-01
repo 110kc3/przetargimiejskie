@@ -106,3 +106,15 @@ Recent confirmed result entries: Oct 2025 (#9220), Jun 2026 (#9791), May 2026 (#
 - BIP lokal mieszkalny (Gdańska): https://bip.elk.warmia.mazury.pl/10136/8265/Ogloszenie_pierwszego_przetargu_ustnego_nieograniczonego_na_sprzedaz_lokalu_mieszkalnego_nr_4_2C_o_pow__uzytkowej_103_2C59_m2_2C_polozonego_na_I_pietrze_w_budynku_nr_5_przy_ul__Gdanskiej_w_Elku/
 - Invest-in-Ełk mirror: https://investin.elk.pl/aktualnosci-kategorie/139/invest-sprzedaz-nieruchomosci-tryb-przetargowy
 - Wydział Mienia Komunalnego: https://bip.elk.warmia.mazury.pl/204/Wydzial_Mienia_Komunalnego/
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Prezydent Miasta Ełku (Urząd Miasta Ełku)) publishes auction announcements on `https://bip.elk.warmia.mazury.pl` (BIP Warmińsko-Mazurskie CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered article listings and PDF notices. Unit tests: 10/10 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

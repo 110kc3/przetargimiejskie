@@ -46,3 +46,14 @@ Gmina Miasto Sokołów Podlaski (Urząd Miasta, Burmistrz — Insp. d/s Mienia K
 - **Effort:** — (N/A).
 
 **VERDICT: NO-BUILD** — Miasto Sokołów Podlaski runs open oral auctions only for land (działki) and commercial lease; municipal flats are disposed of via wykaz→bezprzetargowo na rzecz najemcy (art. 34), with ~0 open flat-sale auctions across 2023–2026. Source is technically clean (nv.pl React SPA with a public JSON API + born-digital PDFs), but there is no in-scope flat-auction stream to extract.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Sokołów Podlaski) publishes auction announcements on `https://bip.sokolowpodl.pl/przetargi-nieruchomosci/376` (logonet).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared logonet platform engine and registered as an enabled pipeline feed.

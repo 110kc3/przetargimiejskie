@@ -42,3 +42,15 @@ Both natural and legal persons may bid; 10% wadium. Sold directly by the town (R
 - **Blockers:** None hard. No rate-limit/auth/CAPTCHA signals on either host. Watch-items: dual-source dedupe (WP post vs BIP article) and lease/land filtering.
 
 **VERDICT: BUILD (Medium effort)** — recurring open municipal flat auctions with real addresses/areas/prices, exposed cleanly via a WordPress REST API (with a Nefeni Next.js BIP as legal backstop); no blockers, only a weak achieved-price stream and free-text/multi-lot parsing keep it out of "Low".
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Łęczyca) publishes auction announcements on `https://leczyca.info.pl`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

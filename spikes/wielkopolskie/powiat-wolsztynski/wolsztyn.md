@@ -45,3 +45,14 @@ Gmina Wolsztyn (miejsko-wiejska, Urząd Miejski w Wolsztynie) **does** sell muni
 - **Blockers:** the substantive one — **no open municipal flat-auction stream**. Flats are sold bezprzetargowo na rzecz najemcy; the auction board is land/building-only. Building this adapter would add land notices, not the flat-auction rows the dataset targets.
 
 **VERDICT: NO-BUILD** — clean, scrapeable JSON-API BIP, but the municipal-property auction stream is land + whole-building sales; flats go bezprzetargowo to sitting tenants and reach auction only exceptionally. No dedicated ZGM/TBS flat-auction source. Revisit only if a `sprzedaż lokali mieszkalnych w drodze przetargu` board appears.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Wolsztyn) publishes auction announcements on `https://bip.wolsztyn.pl/bip/przetargi/` (wokiss).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared wokiss platform engine and registered as an enabled pipeline feed.

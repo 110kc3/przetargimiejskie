@@ -41,3 +41,15 @@ No separate housing manager (ZGM/ZBM/TBS) publishes sales — the Gmina disposes
 - **Blockers:** None technical. No rate-limit/auth/CAPTCHA signals. Watch-items: (1) low absolute flat volume + heavy repeat rounds (dedupe by KW/address across I–IV przetarg); (2) two overlapping surfaces (module `/257` vs article board `/258`) — reconcile so the same auction isn't double-counted; (3) Word-doc (not PDF) extraction for achieved prices.
 
 **VERDICT: BUILD (Low–Medium effort)** — recurring OPEN flat auctions (`przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego`) on a clean server-HTML SystemDoBIP BIP with a structured tender module and a binary results board; low volume but non-zero and parse-friendly, no blockers.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Nidzicy) publishes auction announcements on `https://bip.nidzica.pl`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

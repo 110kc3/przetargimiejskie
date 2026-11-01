@@ -62,3 +62,14 @@ Live check via WebFetch/WebSearch. All three desk blockers resolved:
 3. **Achieved price: INLINE HTML** (unknown resolved). Sample from /17717: "Cena wywoławcza - 109.700,00 zł"; achieved "za cenę netto 110.800,00 zł ... + 23% podatek VAT tj. 25.484,00 zł = cena brutto – 136.284,00 zł"; bidder count ("trzy uczestników") and winner name inline. No PDF needed.
 
 **Deal-breaker found**: content is land-only. 2025 results — all 20 entries "sprzedaż działki niezabudowanej"; 2026 announcements — działki / użytkowanie wieczyste / dzierżawa / bezprzetargowo, no lokale; 2024 (30 titles) and 2023 (22 titles) — no `lokal mieszkalny` in any title. Site-search hits for flat auctions land on the 2016/2017 boards (`/3718`, `/3080`). The desk estimate of ~2–6 flat auctions/yr is NOT supported live; the ~325-unit gmina stock is disposed bezprzetargowo to tenants (generic wykazy). No usable flat-auction stream → **NO-BUILD**.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Krapkowice) publishes auction announcements on `https://bip.krapkowice.pl/przetargi/361/status/0/` (systemdobip).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared systemdobip platform engine and registered as an enabled pipeline feed.

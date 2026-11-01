@@ -45,3 +45,15 @@ Contact: Biuro Obsługi Inwestora, tel. 61 28 47 134; Urząd Miejski w Śremie, 
 - **Blockers:** Only the TLS cert-name mismatch — a small, well-understood fetch-config fix, not a hard blocker. No rate-limit/auth signals.
 
 **VERDICT: BUILD (Medium effort)** — recurring OPEN municipal flat auctions with a published achieved-price stream on a clean server-HTML iBIP BIP (`bip.srem.pl`); Medium because iBIP is a new CMS shape for the fleet and the shared-hosting TLS cert needs a per-host fetch tweak.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Śremu (Urząd Miejski w Śremie)) publishes auction announcements on `https://bip.srem.pl` (BIP Wielkopolskie CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered HTML tender tables and born-digital PDF notices. Unit tests: 10/10 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

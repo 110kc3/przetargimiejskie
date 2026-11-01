@@ -25,3 +25,16 @@ Flats bezprzetargowo to tenants (150 flats, bonifikata); only 2016 one-off new-b
 ## Method
 
 Spiked as part of the all-Poland per-city coverage effort (one investigation per powiat seat). Result recorded in the consolidated NO-BUILD ledger; this file is the per-city extract. Re-verify live before any reconsideration to BUILD.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Prezydent Miasta Legionowo (Urząd Miasta Legionowo)) publishes auction announcements on `https://bip.legionowo.pl` (MADKOM eBIP REST API).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified active/historical notices in test suite.
+
+Announcements parsed from municipal notice feed and attachments. Unit tests: 5/5 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

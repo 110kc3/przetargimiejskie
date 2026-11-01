@@ -39,3 +39,15 @@ Contrast: rural **Gmina Złotów** (separate JST, out of scope) publishes on `gm
 - **Blockers:** No auth/CAPTCHA/rate-limit signals. Main watch-items: the client-fetched listing (SPA), PDF-only notice bodies, and the mixed flat/land/lease stream (title-regex classification). All standard, none fatal.
 
 **VERDICT: BUILD (Medium effort)** — Gmina Miasto Złotów runs recurring open oral flat auctions (Aleja Piasta 3/2, Domańskiego 16/3) with a published results stream, on a modern Nefeni BIPv2 (Next.js SPA + `bip-api.zlotow.pl` REST + born-digital PDFs). Medium (not Low) only because the listing is JS-gated and notice details are PDF-bound; clone Wolsztyn's Nefeni-JSON approach + puck/tczew PDF path.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Złotów) publishes auction announcements on `https://bip.zlotow.pl`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

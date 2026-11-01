@@ -142,7 +142,7 @@ async function getBufferWithSourceChain(url, opts = {}) {
  * @returns {Promise<Response>}
  */
 export async function politeGet(url, opts = {}) {
-  const { retries = 3, accept = '*/*', userAgent } = opts;
+  const { retries = 3, accept = '*/*', userAgent, timeoutMs } = opts;
   // When a city overrides the UA (browser mode), send the rest of a browser's
   // baseline headers too — some municipal WAFs (e.g. bip.miastozabrze.pl) reject
   // requests that present a browser UA but lack Accept-Language / Sec-Fetch-*.
@@ -170,7 +170,7 @@ export async function politeGet(url, opts = {}) {
       const res = await fetch(url, {
         headers,
         redirect: 'follow',
-        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+        signal: AbortSignal.timeout(timeoutMs || REQUEST_TIMEOUT_MS),
       });
       if (res.status >= 500 || res.status === 429) {
         throw new Error(`http ${res.status} on ${url}`);
@@ -226,6 +226,7 @@ export async function getText(url, opts = {}) {
     accept: 'text/html,application/xhtml+xml',
     userAgent: opts.userAgent,
     retries: opts.retries,
+    timeoutMs: opts.timeoutMs,
   });
   if (!res.ok) throw new Error(`http ${res.status} on ${url}`);
   const text = await res.text();

@@ -25,3 +25,14 @@ Flats bezprzetargowo to tenants (wykup, pierwszeństwo); GS.6840 auctions land o
 ## Method
 
 Spiked as part of the all-Poland per-city coverage effort (one investigation per powiat seat). Result recorded in the consolidated NO-BUILD ledger; this file is the per-city extract. Re-verify live before any reconsideration to BUILD.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Kozienice) publishes auction announcements on `https://bip.kozienice.pl/przetargi-nieruchomosci/376` (logonet).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared logonet platform engine and registered as an enabled pipeline feed.

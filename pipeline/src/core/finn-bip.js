@@ -701,3 +701,26 @@ export async function crawlResultDocs() {
 export function parseResultDoc(_text, _date, _url) {
   return [];
 }
+
+export function makeFinnCity(options) {
+  const origin = (options.origin || (options.host ? `https://${options.host}` : '')).replace(/\/$/, '');
+  const boardUrl = options.boardUrl || (options.indexUrls ? options.indexUrls[0] : `${origin}/artykul/przetargi`);
+  const crawlActive = makeCrawlActive({
+    id: options.id,
+    origin,
+    indexUrls: options.indexUrls || [boardUrl],
+  });
+
+  return {
+    id: options.id,
+    teryt: options.teryt,
+    label: options.label,
+    voivodeship: options.voivodeship,
+    authority: options.authority || `Burmistrz Miasta ${options.label}`,
+    host: options.host || (origin ? new URL(origin).host : ''),
+    source: boardUrl,
+    contact: options.contact || `bip@${options.id}.pl`,
+    crawlActive,
+    crawlResults: crawlResultDocs,
+  };
+}

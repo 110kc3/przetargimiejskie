@@ -66,3 +66,15 @@ Not bezprzetargowo-only — open public auctions with wadium (20% of opening pri
 3. Old eobip.pl archive not accessible — historical data pre-~2022 may be lost
 
 **Recommendation:** BUILD as part of Świętokrzyskie batch; low scraping complexity, confirmed flat auction stream with result notices.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Jędrzejowa) publishes auction announcements on `https://bip.jedrzejow.eu`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

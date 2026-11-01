@@ -51,3 +51,16 @@ Flat (`lokal mieszkalny`) sales by the gmina are **rare one-offs**, not a recurr
 - Revisit trigger: only if Miechów stands up a dedicated municipal housing manager and starts a recurring `ustny przetarg nieograniczony na sprzedaż lokali mieszkalnych` line with published wyniki.
 
 **VERDICT: NO-BUILD** — generic gmina property board dominated by land, lease and wykaz lists; no municipal housing manager, no recurring open flat auctions, and no achieved-price stream. Primary BIP is a `bip.malopolska.pl` SPA; the clean WordPress mirror doesn't carry the flat-auction volume that would justify an adapter.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Gminy i Miasta Miechów) publishes auction announcements on `https://bip.malopolska.pl/ugimmiechow` (MADKOM eBIP).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

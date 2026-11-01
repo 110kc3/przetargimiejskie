@@ -45,3 +45,15 @@ Contact: Urząd Miejski w Prudniku, ul. Kościuszki 3, 48-200 Prudnik.
 - **Blockers:** None hard. No OCR (born-digital), no auth, no rate-limit signals (LiteSpeed, sets a session cookie only). Watch-items: (1) multi-lot PDFs need robust per-lot segmentation; (2) achieved prices live in a separately-named result PDF on the same page — pair by page, not filename; (3) some 2012–2023 backfill sits on the legacy skyCMS archive host if deep history is wanted.
 
 **VERDICT: BUILD (Medium effort)** — recurring open municipal flat auctions on a clean Joomla server-HTML board with born-digital text-PDF ogłoszenia AND a real "Informacja o wynikach" achieved-price stream; separate lease board makes sale-only crawling clean. Medium only due to multi-lot PDF parsing.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Prudnika) publishes auction announcements on `https://bip.prudnik.pl`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

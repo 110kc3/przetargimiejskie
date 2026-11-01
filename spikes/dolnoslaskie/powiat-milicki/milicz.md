@@ -48,3 +48,16 @@ Contact: Urząd Miejski w Miliczu, Referat Gospodarki Nieruchomościami (editor 
 ```json
 {"city_slug":"milicz","voivodeship":"dolnoslaskie","powiat_slug":"powiat-milicki","status":"no-build","effort":"—","confidence":"LIVE","note":"Urząd Miejski (no ZGM/housing mgr); MADKOM eBIP React JS-SPA w/ clean JSON API (/api/menu/{id}/articles, /api/articles/{id}); terms in .doc attachments; board 472 = 1047 notices, 936 land vs ~9 unique OPEN flats over ~10yr, 1 flat in recent 200; wyniki board 765 (250) only 1 flat, many negatywny; land-dominated → NO-BUILD","host":"bip.milicz.pl","cms":"MADKOM eBIP (React JS-SPA + JSON REST API)"}
 ```
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Gminy Milicz) publishes auction announcements on `https://bip.milicz.pl` (MADKOM eBIP).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

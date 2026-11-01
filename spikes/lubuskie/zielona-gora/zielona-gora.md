@@ -91,3 +91,14 @@ Zielona Góra does run *ustny przetarg nieograniczony na sprzedaż lokali mieszk
 **VERDICT: NO-BUILD**
 
 The BIP is technically clean and an adapter would be Low–Medium effort to write. The decision is product-side: estimated 1–3 open flat auctions per year is below the minimum viable volume for meaningful market-intelligence output. The city routes most flat disposals bezprzetargowo. Build only if the product expands to (a) include land auctions, (b) cover bezprzetargowe wykaz listings with a different value framing, or (c) bundles Zielona Góra with Gorzów Wielkopolski (Lubuskie pair) to reach combined viable volume — both share this BIP platform architecture.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Zielona Góra) publishes auction announcements on `https://bip.zielonagora.pl/przetargi/361/status/0/` (systemdobip).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared systemdobip platform engine and registered as an enabled pipeline feed.

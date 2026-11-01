@@ -97,3 +97,14 @@ Rzeszów BGM (Biuro Gospodarki Mieniem Miasta Rzeszowa) runs active *przetarg us
 **Corroborating signal:** per City Council Resolution LXIII/1342/2022 (24.05.2022), bezprzetargowa sale of municipal flats to sitting tenants was also halted — Rzeszów has effectively stopped disposing of flats altogether; the residual auction stream is land parcels (~5–23 entries/yr). The 2017 W. Pola 12 flat auction cited above predates this archive window (oldest crawled entries are 2019) — consistent with a flat stream already near-dead by 2019.
 
 **Pagination mechanics (for the record, if ever revisited):** the `hash` per page is deterministic (identical across fresh sessions — NOT rotating as previously suspected), but requests succeed only with a session cookie + Referer + browser UA; bare `?strona=N` (no hash) and cold hash requests return HTTP 200 with an empty body. A chained crawl (extract next-page hash from the current page, 1 s delay, same cookie jar) covered all 28 pages without errors.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Rzeszów) publishes auction announcements on `https://bip.erzeszow.pl/przetargi/361/status/0/` (systemdobip).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared systemdobip platform engine and registered as an enabled pipeline feed.

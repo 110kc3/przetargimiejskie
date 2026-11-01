@@ -124,3 +124,15 @@ Flat auctions authorized by Rada Miasta uchwały (e.g. Nr XI/183/25 z 26.02.2025
 **Verdict: BUILD (Medium effort)**
 
 The flat-auction mechanism is confirmed, active, and legally mandated (consistent Rada Miasta uchwały). Volume is modest (2–3 distinct flats/year) but above the Koszalin floor. The resort-town premium pricing makes each listing high-value. Main effort is solving the SPA rendering problem — once resolved, the adapter pattern is identical to existing Gliwice/Bytom adapters. Recommend pairing the BIP SPA investigation with other Zachodniopomorskie SPA BIPs (check Szczecin/Świnoujście pattern) before building standalone to amortize that discovery cost.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Prezydent Miasta Kołobrzeg) publishes auction announcements on `https://bip.um.kolobrzeg.pl`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

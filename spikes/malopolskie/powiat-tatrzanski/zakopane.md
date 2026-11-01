@@ -105,3 +105,15 @@ Sources: [adradar.pl — Urząd Miasta Zakopane](https://przetargi.adradar.pl/p/
 **Effort estimate:** Medium-Low — 1 scraper for `bip.zakopane.eu` (listing page + individual articles). If BIP index pages serve full HTML without JS, the listing crawl is trivial. Individual article rendering adds Playwright overhead but is a solved problem. Simpler than Bolesławiec (no dual-source architecture).
 
 **VERDICT: BUILD** — The gmina runs confirmed ustny przetarg nieograniczony na sprzedaż lokali mieszkalnych, published on BIP with achieved-price result notices. Single-source BIP architecture, no housing manager split. Volume is low but resort pricing makes each listing high-value. Confidence: **Medium** (volume is desk-estimated; exact annual count unconfirmed — but the programme's existence and continuity across 2022–2026 is LIVE-VERIFIED).
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Zakopane) publishes auction announcements on `https://bip.zakopane.eu`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

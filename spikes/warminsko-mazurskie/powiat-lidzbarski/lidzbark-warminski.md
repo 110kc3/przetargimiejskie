@@ -54,3 +54,15 @@ Primary scrape target: `bip.lidzbarkw.pl` (modern BIP, HTML, clean URL structure
 **Blockers**: None identified. No auth, no CAPTCHA, no SPA. Main risk is low absolute volume (may yield sparse data stream). Reference number format `GG.6840.X.Y.YEAR.AT` is parseable.
 
 **Verdict: BUILD** — confirmed flat auctions at open _ustny przetarg nieograniczony_, clean HTML BIP, achieved-price board present. Low scraping friction; medium effort due to mixed-type board filtering and multi-round deduplication.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Lidzbarka Warmińskiego) publishes auction announcements on `https://bip.lidzbarkw.pl`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

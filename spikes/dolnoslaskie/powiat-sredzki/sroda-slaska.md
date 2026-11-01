@@ -42,3 +42,15 @@ Sales are **open oral auctions** (natural + legal persons, wadium), NOT purely *
 - **Blockers:** None hard. Watch-items: reliable enumeration of the search-form board, and distinguishing announcement vs wynik PDFs. Confirm the results-notice URL shape on first build run.
 
 **VERDICT: BUILD (Medium effort)** — recurring municipal flat auctions (open oral, incl. II rounds) on a clean e-bip.eu server-HTML BIP with born-digital PDF terms and a results stream; IDcom-style analog, no hard blockers, but the search-form list surface + PDF parsing lift it above the Low-effort bip.info.pl cases.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Środy Śląskiej (Urząd Miejski w Środzie Śląskiej)) publishes auction announcements on `https://bip.srodaslaska.pl` (BIP Dolnośląskie CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered HTML notices with OCR/PDF text fallback. Unit tests: 11/11 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

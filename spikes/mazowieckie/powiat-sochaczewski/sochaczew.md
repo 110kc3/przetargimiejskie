@@ -46,3 +46,15 @@ So this is a genuine open **flat-sale** auction stream, not flats-only-*bezprzet
 - **Blockers:** None hard. Watch-items: (1) no dedicated board → classification runs over a broad feed (title-regex + drop-list needed); (2) notice bodies are PDF, not inline HTML; (3) expired-article 404 churn caps backfill; (4) modest volume. All standard, none technical.
 
 **VERDICT: BUILD (Medium effort)** — recurring open *ustny przetarg nieograniczony* flat sales by the Burmistrz on a clean 2ClickPortal server-HTML BIP (`bip.sochaczew.pl/aktualnosci/`) with born-digital PDF notices and a same-channel results stream; Medium (not Low) only because there is no dedicated property board (classify a mixed feed) and content sits in PDF attachments with expired-article churn.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Sochaczew (Urząd Miejski w Sochaczewie)) publishes auction announcements on `https://bip.sochaczew.pl` (BIP Mazowieckie CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered HTML notice bodies and attachments. Unit tests: 10/10 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

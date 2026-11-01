@@ -57,3 +57,15 @@ The "II przetarg" designation implies at least one prior round failed, confirmin
 **Effort: Medium.** Announcement text is clean, structured, in Polish plain text once rendered. Volume is low but steady. Standard przetarg fields (address, surface, cena wywoławcza, przetarg date) are clearly present. Main work is the JS-render layer and wyniki confirmation.
 
 **VERDICT: BUILD** — gmina confirms flat auctions via ustny przetarg nieograniczony; text is structured; volume is real. Implement with Chrome-rendered BIP fetch + Adradar as redundancy for announcements.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Grodziska Wielkopolskiego) publishes auction announcements on `https://bip.grodzisk.wlkp.pl`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

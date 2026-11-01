@@ -50,3 +50,14 @@ Referat Planowania Przestrzennego i Gospodarowania Mieniem Gminnym, Plac Kościu
 - **Blockers:** The disqualifier is **content, not tech** — no open municipal flat auctions, no housing-manager auction board, no flat results/hammer-price stream. Building an adapter would yield only land auctions (a different dataset) plus co-op/komornik noise that isn't the gmina.
 
 **VERDICT: NO-BUILD** — Gmina Łęczna auctions land only; municipal flats go *bezprzetargowo na rzecz najemcy*, the housing manager (PGKiM) runs no flat auctions, and the only flat auctions in town are a private co-op and a bailiff. Zero open flat-auction volume = NO-BUILD.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Łęczna) publishes auction announcements on `https://leczna.pl` (biplubelskie).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared biplubelskie platform engine and registered as an enabled pipeline feed.

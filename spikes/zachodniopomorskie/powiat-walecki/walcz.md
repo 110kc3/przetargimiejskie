@@ -44,3 +44,15 @@ Housing manager: sales are run directly by the Urząd Miasta (property/gospodark
 - **Blockers:** None hard. No rate-limit/auth signals; only the TLS-chain gap and PDF-only bodies add routine handling.
 
 **VERDICT: BUILD (Medium effort)** — Gmina Miejska Wałcz runs recurring OPEN oral flat auctions (6 live at spike) on a clean Joomla server-HTML BIP with a dedicated results board; only wrinkles are PDF-attachment notice bodies (born-digital → pdfText) and an incomplete TLS chain (browser UA). Standard HTML-list + PDF-attachment analog, no hard blockers.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Wałcz) publishes auction announcements on `https://bip.walcz.pl`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

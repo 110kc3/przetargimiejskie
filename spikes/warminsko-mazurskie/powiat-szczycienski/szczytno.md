@@ -44,3 +44,15 @@ Contact: Wydział Gospodarki Nieruchomościami, Urząd Miejski w Szczytnie, ul. 
 - **Blockers:** None hard. Watch-items: (1) notice text is always in an attachment (no inline body) — extraction pipeline mandatory; (2) bot-UA 403 / HTTP-only + cert quirks; (3) low flat frequency — most volume is land; (4) vendor typo slugs ("przetragu") in result URLs; (5) an older `?id=NNNN` archive/legacy host if backfill is wanted.
 
 **VERDICT: BUILD (Medium effort)** — recurring open oral auctions on a clean server-rendered `bip.um.szczytno.pl` BIP, with lokale mieszkalne reaching OPEN przetarg (Żeromskiego 3/4, Dąbrowskiego 4/4a, Odrodzenia 36 result) alongside a larger land stream and a working `informacja o wyniku` achieved-price board; the only real cost is DOC/PDF attachment extraction + browser-UA handling.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Szczytno) publishes auction announcements on `https://bip.um.szczytno.pl`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

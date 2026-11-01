@@ -141,3 +141,16 @@ in adradar's 2022–2026 Ostrów Wielkopolski archive).
 - https://bip.mzgm.pl/index.php?id=51,0,0,0,0,99 — MZGM BIP procurement (operaty szacunkowe)
 - https://jakiwniosek.pl/wnioski/nieruchomosci/wykup-mieszkania-komunalnego/ostrow-wielkopolski — bezprzetargowy tenant buyout procedure confirmed
 - https://platformazakupowa.pl/pn/mzgm_ostrow/proceedings — MZGM procurement platform profile
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Ostrowa Wielkopolskiego) publishes auction announcements on `https://bip.umostrow.pl/artykuly/187/gospodarka-nieruchomosciami` (Logonet eUrząd).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

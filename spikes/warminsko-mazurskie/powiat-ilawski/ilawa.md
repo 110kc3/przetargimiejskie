@@ -60,3 +60,15 @@ Adapter needs: HTML scraper for the listing index → per-entry URL; PDF fetch +
 - Achieved price only in PDF/DOC attachment (not in HTML body) — requires reliable PDF text extraction
 - Volume is low (≈2–4 flat auctions/year); may not justify standalone adapter unless batched with other powiat-ilawski cities or similar-platform cities
 - No wyniki board separate from announcements board — must classify by title pattern on the shared `/77/` listing
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Iławy) publishes auction announcements on `https://bip.umilawa.pl`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

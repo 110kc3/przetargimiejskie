@@ -50,3 +50,16 @@ Contact: Wydział Mienia UMiG Myślenice, Rynek 8/9, pok. 24/26, tel. 12-639-23-
 ```json
 {"city_slug":"myslenice","voivodeship":"malopolskie","powiat_slug":"powiat-myslenicki","status":"no-build","effort":"—","confidence":"LIVE","note":"no housing manager (only RPGK utilities); BIP bip.malopolska.pl JS-SPA (chrzanow render.js analog) + server-HTML myslenice.pl WP mirror (Dark Red CMS); Nieruchomosci m,380123 + Wyniki m,80937 boards; volume=land only (dz.602/1+603/1 1.99M zl, dz.910/15 ograniczony) + dzierzawa/bezprzetargowo wykazy, ~0 open flat auctions; only flats = SM ZORZA coop + Urzad Skarbowy licytacja (out of scope)","host":"bip.malopolska.pl/umigmyslenice","cms":"bip.malopolska.pl JS-SPA (+ Dark Red CMS WordPress mirror myslenice.pl)"}
 ```
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta i Gminy Myślenice) publishes auction announcements on `https://bip.malopolska.pl/umigmyslenice` (MADKOM eBIP).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

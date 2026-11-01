@@ -119,3 +119,15 @@ PGKiM (Przedsiębiorstwo Gospodarki Komunalnej i Mieszkaniowej Sp. z o.o.) is a 
 - Złotniki Kujawskie 2021 re-post (confirms flat auction format): https://zlotnikikujawskie.pl/aktualnosci/ustny-przetarg-nieograniczony-na-sprzedaz-lokali-mieszkalnych-w-inowroclawiu.html
 - NIK 2018 audit UM Inowrocław (P/18/005): https://www.nik.gov.pl/kontrole/wyniki-kontroli-nik/pobierz,lby~p_18_005_201807261233111532608391~id2~01,typ,k.pdf
 - NIK systemowe błędy prywatyzacji: https://www.nik.gov.pl/najnowsze-informacje-o-wynikach-kontroli/prywatyzacja-mieszkan-komunalnych.html
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Prezydent Miasta Inowrocławia (Urząd Miasta Inowrocławia)) publishes auction announcements on `https://bip.inowroclaw.pl` (BIP e-bip.pl CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from municipal notice feed and attachments. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

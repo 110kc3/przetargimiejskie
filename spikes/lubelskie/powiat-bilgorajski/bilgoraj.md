@@ -84,3 +84,14 @@ Primary scraping target (bilgoraj.pl aktualności) is **straightforward HTML**, 
 - https://przetargi.adradar.pl/p/a/10341/Bi%C5%82goraj/a (adradar Biłgoraj listings, LIVE — confirms Urząd Miasta = commercial only)
 - https://przetargi.adradar.pl/przetarg/komercyjne/Bi%C5%82goraj/miasto/16878242 (Apr 2026 lokal użytkowy Nr II)
 - https://rejestr.io/krs/163868/zaklad-gospodarki-mieszkaniowej-towarzystwo-budownictwa-spolecznego (TBS KRS, DESK)
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Biłgoraj) publishes auction announcements on `https://www.bilgoraj.pl` (biplubelskie).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared biplubelskie platform engine and registered as an enabled pipeline feed.

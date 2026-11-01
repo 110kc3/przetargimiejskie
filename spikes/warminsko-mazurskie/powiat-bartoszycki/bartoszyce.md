@@ -56,3 +56,15 @@ Contact for auction details: Wydział Gospodarowania Mieniem i Planowania Przest
 3. Low volume may not justify dedicated adapter vs. grouping with other Warmia-Mazury cities.
 
 **VERDICT: BUILD** — city does sell flats at open auction, published on standard BIP. Medium effort due to PDF/OCR requirement and missing achieved-price stream.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Bartoszyce) publishes auction announcements on `https://bip.bartoszyce.pl`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

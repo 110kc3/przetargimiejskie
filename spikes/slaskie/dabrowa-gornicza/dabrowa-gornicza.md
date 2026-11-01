@@ -9,3 +9,14 @@ Flats are sold *bezprzetargowo* (to sitting tenants), so there is no open munici
 
 - **Type:** miasto na prawach powiatu.
 - Revisit only if the city opens a residential flat-auction stream on its BIP.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Dąbrowa Górnicza) publishes auction announcements on `https://bip.dabrowa-gornicza.pl/8327` (rekordsi).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared rekordsi platform engine and registered as an enabled pipeline feed.

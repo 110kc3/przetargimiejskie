@@ -40,3 +40,14 @@ No municipal **lokal mieszkalny** offered at auction was found across searches +
 - **Blockers / why NO-BUILD:** No municipal open-oral **flat** auction stream — the load-bearing scope requirement. Municipal disposal here is (a) land at auction and (b) flats to sitting tenants bezprzetargowo via WTBS; the only flat auctions are a private cooperative's. No achieved-price flat stream. Building an adapter would yield land-only records with no flat signal.
 
 **VERDICT: NO-BUILD** — Gmina Miejska Wągrowiec auctions only land (building plots); municipal flats go bezprzetargowo na rzecz najemcy through WTBS, and the sole flat auctions belong to the out-of-scope Spółdzielnia Mieszkaniowa. Clean WOKISS/Nefeni BIP, but no flat-auction volume and no achieved-price stream to justify a build.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Wągrowiec) publishes auction announcements on `https://bip.wagrowiec.eu/wagrowiecm/bip/przetargi/` (wokiss).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared wokiss platform engine and registered as an enabled pipeline feed.

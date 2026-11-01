@@ -40,3 +40,15 @@ Also active: ustny przetarg nieograniczony for land (nieruchomość gruntowa in 
 - **Blockers:** None for scraping. Achieved-price gap is a data quality issue, not a technical blocker. Volume is low so value-per-adapter is limited.
 - **Effort:** Medium (pagination + keyword filter + HTML parser; no OCR, no auth). Low if achieved-price is accepted as NULL.
 - **Verdict:** BUILD — confirmed flat auction type, clean HTML, no blocks. Low cadence reduces priority but the pipeline pattern is straightforward.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Brzeska (Urząd Miejski w Brzesku)) publishes auction announcements on `https://www.brzesko.pl` (WebImpuls CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered HTML and PDF attachments. Unit tests: 10/10 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

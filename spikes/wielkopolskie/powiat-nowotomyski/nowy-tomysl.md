@@ -44,3 +44,14 @@ Contact (WGN): Agnieszka Słowińska-Kuchta, tel. **61 44 26 647**, Urząd Miejs
 - **Blockers / why NO-BUILD:** generic city-BIP skewing to **land + neighbour-restricted strips**; residential disposal is bezprzetargowo-na-rzecz-najemcy (wykaz) or private-developer, not open flat auction; housing manager (ZGM) only leases lokale użytkowe. Matches the Wielkopolskie-seat NO-BUILD pattern — the "housing-manager-exists" exception does **not** apply because this ZGM sells no flats.
 
 **VERDICT: NO-BUILD (effort —)** — clean MADKOM eBIP JSON API, but open municipal FLAT-auction volume is ≈ 0 (last ~2010); the gmina auctions land and the ZGM only leases commercial premises. No flat stream, no flat results board → nothing to harvest.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Nowy Tomyśl) publishes auction announcements on `https://bip.nowytomysl.pl` (madkom).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared madkom platform engine and registered as an enabled pipeline feed.

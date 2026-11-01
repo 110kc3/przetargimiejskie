@@ -44,3 +44,16 @@ Gmina Miasto Siemiatycze (town gmina miejska, ~14.5k pop.; **not** the surroundi
   3. **Very low volume** even on land, and notice content locked in per-item PDFs with no achieved-price board — poor yield for the build cost.
 
 **VERDICT: NO-BUILD** — Gmina Miasto Siemiatycze sells flats only bezprzetargowo na rzecz najemcy and runs only sporadic land auctions; open municipal flat-auction volume ≈ 0 and no achieved-price stream. The area's flat auctions belong to the powiat/starostwo (out of scope).
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Siemiatycze) publishes auction announcements on `https://bip.um.siemiatycze.wrotapodlasia.pl` (Wrota Podlasia).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

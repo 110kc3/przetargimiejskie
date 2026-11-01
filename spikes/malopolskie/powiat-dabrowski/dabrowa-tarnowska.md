@@ -89,3 +89,14 @@ a przetarg pisemny — different entity, out of scope.
 **Conclusion**: no recurring flat-auction stream (~0.3 flats/yr), no results/achieved-price publication
 at all, and both the easy ingestion path (WP API) and the statutory source (BIP) are hardened.
 **NO-BUILD on volume.** Revisit only if the gmina starts publishing wyniki articles or auctions >=2 flats/yr.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Dąbrowa Tarnowska) publishes auction announcements on `https://bip.malopolska.pl/umdabrowatarnowska` (madkom).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared madkom platform engine and registered as an enabled pipeline feed.

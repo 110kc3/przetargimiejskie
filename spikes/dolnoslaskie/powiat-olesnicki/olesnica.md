@@ -125,3 +125,15 @@ Gmina Miasto Oleśnica does sell municipal **flats by open auction** (ustny prze
 | Example flat auction (Rynek 33/1) | https://olesnica.pl/urzad/ogloszenia-burmistrza/Ogloszenie-I-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-Olesnicy-przy-ul.-Rynek-331/idn:398 |
 | Example WYKAZ bezprzetargowy (9/2026) | https://www.olesnica.pl/urzad/ogloszenia-burmistrza/WYKAZ-NR-92026-o-przeznaczeniu-nieruchomosci-do-sprzedazy-na-terenie-miasta-Olesnicy-w-drodze-bezprzetargowej/idn:3055 |
 | Sprzedaż nieruchomości gminnych (invest page) | https://www.olesnica.pl/invest-in-olesnica/sprzedaz-nieruchomosci-gminnych |
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Oleśnicy (Urząd Miasta Oleśnicy)) publishes auction announcements on `https://olesnica.pl` (IntraCOM CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered HTML notice pagination and born-digital PDF attachments. Unit tests: 11/11 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

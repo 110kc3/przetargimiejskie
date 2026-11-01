@@ -42,3 +42,14 @@ Housing manager: **TBS Ropczyce sp. z o.o.** (`tbs-ropczyce.pl`). Also present b
 - **Re-check trigger:** if a flat cluster reappears on `/kategorie/143` (watch for `lokal mieszkalny` / Grunwaldzka), revisit — the CMS itself is easy.
 
 **VERDICT: NO-BUILD** — Ropczyce sells communal flats bezprzetargowo to tenants (TBS + bonifikaty); the live BIP board is land-only and the historical open flat auctions are a thin, now-unreachable trickle. Clean Nefeni bip.net.pl CMS, but no recurring open flat-auction volume to justify an adapter.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Ropczyce) publishes auction announcements on `https://ropczyce.bip.net.pl/przetargi/361/status/0/` (systemdobip).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared systemdobip platform engine and registered as an enabled pipeline feed.

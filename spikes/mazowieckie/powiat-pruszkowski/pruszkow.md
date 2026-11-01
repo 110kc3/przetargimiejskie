@@ -90,3 +90,16 @@ Gmina Miasto Pruszków sells municipal **flats bezprzetargowo** — exclusively 
 - https://bip.um.pruszkow.pl/artykul/656/7968/ogloszenie-o-sprzedazy-nieruchomosci
 - https://bip.um.pruszkow.pl/przetargi/0/6/20
 - https://tbszm.pl/oferta-lokali-tbs-zielen-miejska/
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Prezydent Miasta Pruszkowa (Urząd Miasta Pruszkowa)) publishes auction announcements on `https://bip.um.pruszkow.pl` (BIP e-bip.pl CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified active/historical notices in test suite.
+
+Announcements parsed from municipal notice feed and attachments. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

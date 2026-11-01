@@ -95,3 +95,15 @@ Not found for flat sales (because flat sales via open auction appear not to occu
 Tarnów's municipal land/commercial auction stream is active but **residential flat auction volume is effectively zero** — the city transfers flats bezprzetargowo to sitting tenants. Building an adapter would yield a land-only feed (low differentiation, low user value) from a BIP platform that already needs headless rendering. Not worth the effort at this stage.
 
 If the project scope later expands to include land/commercial parcels, Tarnów can be revisited as a **Medium-effort** addition (bip.malopolska.pl platform already known from Kraków; harmonogram on tarnow.pl is trivially scrapable).
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Prezydent Miasta Tarnowa (Urząd Miasta Tarnowa)) publishes auction announcements on `https://tarnow.pl` (Municipal Portal CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered structured schedule table on municipal investor portal. Unit tests: 10/10 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

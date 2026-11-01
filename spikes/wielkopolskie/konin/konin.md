@@ -87,3 +87,15 @@ Two active hosts (both HTTPS, no auth):
 - https://bip.pgkimplus.konin.pl/index.php/przetargi (LIVE-VERIFIED — full HTML fetched)
 - https://bip.konin.eu/index.php?d=oglkosp (no text content returned — archive page)
 - https://bip.konin.eu/index.php?d=przet_nieruch_aktual (DESK — indexed by search engines)
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Prezydent Miasta Konina (Urząd Miejski w Koninie)) publishes auction announcements on `https://gospodarka.konin.pl` (Investor Portal CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered tender board (Przetargi.htmlx) and born-digital PDF files. Unit tests: 11/11 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

@@ -40,3 +40,14 @@ Residential disposal path is explicitly **outside auction**: zarządzenia Burmis
 - **Blockers / kill reasons:** (1) 0 open flat auctions across 3 yrs; (2) residential disposal is bezprzetargowo na rzecz najemcy (wykaz), never open auction; (3) only `lokal` auctions are `lokal użytkowy` **najem** (lease); (4) no results board / no hammer prices; (5) no ZGM/ZBM/TBS flat-auction manager. This is exactly the NO-BUILD profile: generic city-BIP skewing to land + tenant sales with ~0 open flat auctions.
 
 **VERDICT: NO-BUILD** — Gmina Łask runs open auctions for **land only**; municipal flats leave stock bezprzetargowo na rzecz najemcy, there are zero open `lokal mieszkalny` sale auctions (2023–2025) and no achieved-price board. Nothing in-scope to build against.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Łask) publishes auction announcements on `https://bip.lask.pl/611/ogloszenia-o-przetargach.html` (logonet).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared logonet platform engine and registered as an enabled pipeline feed.

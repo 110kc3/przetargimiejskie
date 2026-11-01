@@ -137,3 +137,15 @@ snippet dated 23.03.2026).
 - wrzesnia.info.pl news article (LIVE-FETCHED 2026-06-29): <https://wrzesnia.info.pl/pl/19_wiadomosci-z-regionu/635_wrzesnia/38298_gmina-wrzesnia-sprzedaje-mieszkania-ceny-wywolawcze-kusza.html>
 - adradar.pl Monitor Przetargów — gm. Września: <https://przetargi.adradar.pl/p/a/99032/Wrze%C5%9Bnia/a>
 - BIP Powiatu Wrzesińskiego (separate entity, out of scope): <https://www.bip.wrzesnia.powiat.pl/>
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta i Gminy Września (Urząd Miasta i Gminy Września)) publishes auction announcements on `https://bip.wrzesnia.pl` (BIP Wielkopolskie CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered HTML notice pagination and attachments. Unit tests: 10/10 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

@@ -1,0 +1,2798 @@
+[
+  {
+    "id": "biezun",
+    "label": "Bieżuń",
+    "voivodeship": "mazowieckie",
+    "host": "bip.biezun.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "olszyna",
+    "label": "Olszyna",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.olszyna.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "pruszcz",
+    "label": "Pruszcz",
+    "voivodeship": "kujawsko-pomorskie",
+    "host": "bip.pruszcz.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "opatowek",
+    "label": "Opatówek",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.opatowek.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "sochocin",
+    "label": "Sochocin",
+    "voivodeship": "mazowieckie",
+    "host": "bip.sochocin.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "chocz",
+    "label": "Chocz",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.chocz.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "bodzentyn",
+    "label": "Bodzentyn",
+    "voivodeship": "swietokrzyskie",
+    "host": "bip.bodzentyn.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "krzanowice",
+    "label": "Krzanowice",
+    "voivodeship": "slaskie",
+    "host": "bip.krzanowice.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "lubowidz",
+    "label": "Lubowidz",
+    "voivodeship": "mazowieckie",
+    "host": "bip.uglubowidz.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "lopuszno",
+    "label": "Łopuszno",
+    "voivodeship": "swietokrzyskie",
+    "host": "bip.lopuszno.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "krynki",
+    "label": "Krynki",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "glinojeck",
+    "label": "Glinojeck",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "opatowiec",
+    "label": "Opatowiec",
+    "voivodeship": "swietokrzyskie",
+    "host": "bip.opatowiec.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "przyrow",
+    "label": "Przyrów",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "jaraczewo",
+    "label": "Jaraczewo",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "pilica",
+    "label": "Pilica",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "dobrzyca",
+    "label": "Dobrzyca",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.ugdobrzyca.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "pacanow",
+    "label": "Pacanów",
+    "voivodeship": "swietokrzyskie",
+    "host": "bip.pacanow.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "grabow",
+    "label": "Grabów",
+    "voivodeship": "lodzkie",
+    "host": "bip.grabow.pl",
+    "platform": "ebip",
+    "hasAuctions": true
+  },
+  {
+    "id": "stopnica",
+    "label": "Stopnica",
+    "voivodeship": "swietokrzyskie",
+    "host": "bip.stopnica.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "tarczyn",
+    "label": "Tarczyn",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "sosnicowice",
+    "label": "Sośnicowice",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "lubniewice",
+    "label": "Lubniewice",
+    "voivodeship": "lubuskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "nowy-korczyn",
+    "label": "Nowy Korczyn",
+    "voivodeship": "swietokrzyskie",
+    "host": "bip.nowykorczyn.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "tykocin",
+    "label": "Tykocin",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "halinow",
+    "label": "Halinów",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "gasawa",
+    "label": "Gąsawa",
+    "voivodeship": "kujawsko-pomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "suchowola",
+    "label": "Suchowola",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "michalowo",
+    "label": "Michałowo",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "kleszczele",
+    "label": "Kleszczele",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "pierzchnica",
+    "label": "Pierzchnica",
+    "voivodeship": "swietokrzyskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "nowa-slupia",
+    "label": "Nowa Słupia",
+    "voivodeship": "swietokrzyskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "daleszyce",
+    "label": "Daleszyce",
+    "voivodeship": "swietokrzyskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "szydlow",
+    "label": "Szydłów",
+    "voivodeship": "swietokrzyskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "olsztyn-0140675",
+    "label": "Olsztyn",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "wachock",
+    "label": "Wąchock",
+    "voivodeship": "swietokrzyskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "mielno",
+    "label": "Mielno",
+    "voivodeship": "zachodniopomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "janow",
+    "label": "Janów",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "czarna-woda",
+    "label": "Czarna Woda",
+    "voivodeship": "pomorskie",
+    "host": "bip.um.czarnawoda.pl",
+    "platform": "systemdobip",
+    "hasAuctions": false
+  },
+  {
+    "id": "kaczory",
+    "label": "Kaczory",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.kaczory.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "bodzanow",
+    "label": "Bodzanów",
+    "voivodeship": "mazowieckie",
+    "host": "bip.bodzanow.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "pasym",
+    "label": "Pasym",
+    "voivodeship": "warminsko-mazurskie",
+    "host": "bip.pasym.pl",
+    "platform": "conceptintermedia",
+    "hasAuctions": true
+  },
+  {
+    "id": "nowe-brzesko",
+    "label": "Nowe Brzesko",
+    "voivodeship": "malopolskie",
+    "host": "bip.nowebrzesko.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "zarnow",
+    "label": "Żarnów",
+    "voivodeship": "lodzkie",
+    "host": "bip.zarnow.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "dabrowice",
+    "label": "Dąbrowice",
+    "voivodeship": "lodzkie",
+    "host": "bip.dabrowice.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "starozreby",
+    "label": "Staroźreby",
+    "voivodeship": "mazowieckie",
+    "host": "bip.starozreby.pl",
+    "platform": "conceptintermedia",
+    "hasAuctions": true
+  },
+  {
+    "id": "jozefow-nad-wisla",
+    "label": "Józefów nad Wisłą",
+    "voivodeship": "lubelskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "inowlodz",
+    "label": "Inowłódz",
+    "voivodeship": "lodzkie",
+    "host": "bip.inowlodz.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "zaniemysl",
+    "label": "Zaniemyśl",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.zaniemysl.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "olesnica-0257118",
+    "label": "Oleśnica",
+    "voivodeship": "swietokrzyskie",
+    "host": "bip.gminaolesnica.pl",
+    "platform": "systemdobip",
+    "hasAuctions": true
+  },
+  {
+    "id": "wawolnica",
+    "label": "Wąwolnica",
+    "voivodeship": "lubelskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "narol",
+    "label": "Narol",
+    "voivodeship": "podkarpackie",
+    "host": "bip.narol.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "wielbark",
+    "label": "Wielbark",
+    "voivodeship": "warminsko-mazurskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "miasteczko-krajenskie",
+    "label": "Miasteczko Krajeńskie",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "sanniki",
+    "label": "Sanniki",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "magnuszew",
+    "label": "Magnuszew",
+    "voivodeship": "mazowieckie",
+    "host": "bip.magnuszew.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "myszyniec",
+    "label": "Myszyniec",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "parzeczew",
+    "label": "Parzęczew",
+    "voivodeship": "lodzkie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "kamiensk",
+    "label": "Kamieńsk",
+    "voivodeship": "lodzkie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "wolborz",
+    "label": "Wolbórz",
+    "voivodeship": "lodzkie",
+    "host": "bip.um.wolborz.pl",
+    "platform": "systemdobip",
+    "hasAuctions": false
+  },
+  {
+    "id": "czyzew",
+    "label": "Czyżew",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "goscino",
+    "label": "Gościno",
+    "voivodeship": "zachodniopomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "milakowo",
+    "label": "Miłakowo",
+    "voivodeship": "warminsko-mazurskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "czerwinsk-nad-wisla",
+    "label": "Czerwińsk nad Wisłą",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "kurow",
+    "label": "Kurów",
+    "voivodeship": "lubelskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "przytyk",
+    "label": "Przytyk",
+    "voivodeship": "mazowieckie",
+    "host": "bip.przytyk.pl",
+    "platform": "conceptintermedia",
+    "hasAuctions": true
+  },
+  {
+    "id": "jawornik-polski",
+    "label": "Jawornik Polski",
+    "voivodeship": "podkarpackie",
+    "host": "bip.gminajawornikpolski.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "ceglow",
+    "label": "Cegłów",
+    "voivodeship": "mazowieckie",
+    "host": "bip.ceglow.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "odrzywol",
+    "label": "Odrzywół",
+    "voivodeship": "mazowieckie",
+    "host": "bip.odrzywol.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "gowarczow",
+    "label": "Gowarczów",
+    "voivodeship": "swietokrzyskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "jastrzab",
+    "label": "Jastrząb",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "przeclaw",
+    "label": "Przecław",
+    "voivodeship": "podkarpackie",
+    "host": "bip.przeclaw.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "piatek",
+    "label": "Piątek",
+    "voivodeship": "lodzkie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "jedlnia-letnisko",
+    "label": "Jedlnia-Letnisko",
+    "voivodeship": "mazowieckie",
+    "host": "bip.um.jedlnia-letnisko.pl",
+    "platform": "systemdobip",
+    "hasAuctions": false
+  },
+  {
+    "id": "maciejowice",
+    "label": "Maciejowice",
+    "voivodeship": "mazowieckie",
+    "host": "bip.maciejowice.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "gielniow",
+    "label": "Gielniów",
+    "voivodeship": "mazowieckie",
+    "host": "bip.um.gielniow.pl",
+    "platform": "systemdobip",
+    "hasAuctions": true
+  },
+  {
+    "id": "bolimow",
+    "label": "Bolimów",
+    "voivodeship": "lodzkie",
+    "host": "bip.bolimow.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "jezow",
+    "label": "Jeżów",
+    "voivodeship": "lodzkie",
+    "host": "bip.jezow.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "iwaniska",
+    "label": "Iwaniska",
+    "voivodeship": "swietokrzyskie",
+    "host": "bip.iwaniska.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "pruchnik",
+    "label": "Pruchnik",
+    "voivodeship": "podkarpackie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "latowicz",
+    "label": "Latowicz",
+    "voivodeship": "mazowieckie",
+    "host": "bip.latowicz.pl",
+    "platform": "systemdobip",
+    "hasAuctions": false
+  },
+  {
+    "id": "stanislawow",
+    "label": "Stanisławów",
+    "voivodeship": "mazowieckie",
+    "host": "bip.stanislawow.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "drobin",
+    "label": "Drobin",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "miescisko",
+    "label": "Mieścisko",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "miekinia",
+    "label": "Miękinia",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.miekinia.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "brzostek",
+    "label": "Brzostek",
+    "voivodeship": "podkarpackie",
+    "host": "bip.brzostek.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "klimontow",
+    "label": "Klimontów",
+    "voivodeship": "swietokrzyskie",
+    "host": "bip.klimontow.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "prusice",
+    "label": "Prusice",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.prusice.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "brwinow",
+    "label": "Brwinów",
+    "voivodeship": "mazowieckie",
+    "host": "bip.brwinow.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "lututow",
+    "label": "Lututów",
+    "voivodeship": "lodzkie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "lutomiersk",
+    "label": "Lutomiersk",
+    "voivodeship": "lodzkie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "solec-nad-wisla",
+    "label": "Solec nad Wisłą",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "kosow-lacki",
+    "label": "Kosów Lacki",
+    "voivodeship": "mazowieckie",
+    "host": "bip.kosowlacki.pl",
+    "platform": "ebip",
+    "hasAuctions": true
+  },
+  {
+    "id": "ciepielow",
+    "label": "Ciepielów",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "lomianki",
+    "label": "Łomianki",
+    "voivodeship": "mazowieckie",
+    "host": "bip.lomianki.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "nekla",
+    "label": "Nekla",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "gora-kalwaria",
+    "label": "Góra Kalwaria",
+    "voivodeship": "mazowieckie",
+    "host": "bip.gora-kalwaria.pl",
+    "platform": "systemdobip",
+    "hasAuctions": false
+  },
+  {
+    "id": "izbica",
+    "label": "Izbica",
+    "voivodeship": "lubelskie",
+    "host": "bip.izbica.pl",
+    "platform": "systemdobip",
+    "hasAuctions": false
+  },
+  {
+    "id": "zielonka",
+    "label": "Zielonka",
+    "voivodeship": "mazowieckie",
+    "host": "bip.zielonka.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "milanowek",
+    "label": "Milanówek",
+    "voivodeship": "mazowieckie",
+    "host": "bip.milanowek.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "piotrkow-kujawski",
+    "label": "Piotrków Kujawski",
+    "voivodeship": "kujawsko-pomorskie",
+    "host": "bip.piotrkowkujawski.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "piastow",
+    "label": "Piastów",
+    "voivodeship": "mazowieckie",
+    "host": "bip.piastow.pl",
+    "platform": "ebip",
+    "hasAuctions": true
+  },
+  {
+    "id": "kazanow",
+    "label": "Kazanów",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "zabki",
+    "label": "Ząbki",
+    "voivodeship": "mazowieckie",
+    "host": "bip.zabki.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "jadow",
+    "label": "Jadów",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "serock",
+    "label": "Serock",
+    "voivodeship": "mazowieckie",
+    "host": "bip.serock.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "boguchwala",
+    "label": "Boguchwała",
+    "voivodeship": "podkarpackie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "dobre",
+    "label": "Dobre",
+    "voivodeship": "mazowieckie",
+    "host": "bip.ugdobre.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "sulejowek",
+    "label": "Sulejówek",
+    "voivodeship": "mazowieckie",
+    "host": "bip.sulejowek.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "siennica",
+    "label": "Siennica",
+    "voivodeship": "mazowieckie",
+    "host": "bip.ugsiennica.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "skoczow",
+    "label": "Skoczów",
+    "voivodeship": "slaskie",
+    "host": "bip.skoczow.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "podkowa-lesna",
+    "label": "Podkowa Leśna",
+    "voivodeship": "mazowieckie",
+    "host": "bip.podkowalesna.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "mrozy",
+    "label": "Mrozy",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "kobylka",
+    "label": "Kobyłka",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "marki",
+    "label": "Marki",
+    "voivodeship": "mazowieckie",
+    "host": "bip.um.marki.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "wasilkow",
+    "label": "Wasilków",
+    "voivodeship": "podlaskie",
+    "host": "bip.wasilkow.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "wiskitki",
+    "label": "Wiskitki",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "siechnice",
+    "label": "Siechnice",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "kamieniec-zabkowicki",
+    "label": "Kamieniec Ząbkowicki",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.um.kamienieczabkowicki.pl",
+    "platform": "systemdobip",
+    "hasAuctions": false
+  },
+  {
+    "id": "czersk",
+    "label": "Czersk",
+    "voivodeship": "pomorskie",
+    "host": "bip.czersk.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "wisla",
+    "label": "Wisła",
+    "voivodeship": "slaskie",
+    "host": "bip.wisla.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "knyszyn",
+    "label": "Knyszyn",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "lapy",
+    "label": "Łapy",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "suprasl",
+    "label": "Supraśl",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "czarna-bialostocka",
+    "label": "Czarna Białostocka",
+    "voivodeship": "podlaskie",
+    "host": "bip.czarnabialostocka.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "suraz",
+    "label": "Suraż",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "zakroczym",
+    "label": "Zakroczym",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "pakosc",
+    "label": "Pakość",
+    "voivodeship": "kujawsko-pomorskie",
+    "host": "bip.pakosc.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "zabludow",
+    "label": "Zabłudów",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "gniewkowo",
+    "label": "Gniewkowo",
+    "voivodeship": "kujawsko-pomorskie",
+    "host": "bip.gniewkowo.pl",
+    "platform": "systemdobip",
+    "hasAuctions": false
+  },
+  {
+    "id": "strzelno",
+    "label": "Strzelno",
+    "voivodeship": "kujawsko-pomorskie",
+    "host": "bip.strzelno.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "nasielsk",
+    "label": "Nasielsk",
+    "voivodeship": "mazowieckie",
+    "host": "bip.nasielsk.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "trzemeszno",
+    "label": "Trzemeszno",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.trzemeszno.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "dabrowa-bialostocka",
+    "label": "Dąbrowa Białostocka",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "solec-kujawski",
+    "label": "Solec Kujawski",
+    "voivodeship": "kujawsko-pomorskie",
+    "host": "bip.solec-kujawski.pl",
+    "platform": "systemdobip",
+    "hasAuctions": false
+  },
+  {
+    "id": "wozniki",
+    "label": "Woźniki",
+    "voivodeship": "slaskie",
+    "host": "bip.wozniki.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "choroszcz",
+    "label": "Choroszcz",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "blonie",
+    "label": "Błonie",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "janikowo",
+    "label": "Janikowo",
+    "voivodeship": "kujawsko-pomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "dzierzgon",
+    "label": "Dzierzgoń",
+    "voivodeship": "pomorskie",
+    "host": "bip.dzierzgon.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "szczyrk",
+    "label": "Szczyrk",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "kruszwica",
+    "label": "Kruszwica",
+    "voivodeship": "kujawsko-pomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "drohiczyn",
+    "label": "Drohiczyn",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "jozefow-0920404",
+    "label": "Józefów",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "gniew",
+    "label": "Gniew",
+    "voivodeship": "pomorskie",
+    "host": "bip.gniew.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "ustron",
+    "label": "Ustroń",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "wiecbork",
+    "label": "Więcbork",
+    "voivodeship": "kujawsko-pomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "janowiec-wielkopolski",
+    "label": "Janowiec Wielkopolski",
+    "voivodeship": "kujawsko-pomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "pelplin",
+    "label": "Pelplin",
+    "voivodeship": "pomorskie",
+    "host": "bip.pelplin.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "gorzow-slaski",
+    "label": "Gorzów Śląski",
+    "voivodeship": "opolskie",
+    "host": "bip.gorzowslaski.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "jastarnia",
+    "label": "Jastarnia",
+    "voivodeship": "pomorskie",
+    "host": "bip.jastarnia.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "wilamowice",
+    "label": "Wilamowice",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "miedzyrzec-podlaski",
+    "label": "Międzyrzec Podlaski",
+    "voivodeship": "lubelskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "zarki",
+    "label": "Żarki",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "skarszewy",
+    "label": "Skarszewy",
+    "voivodeship": "pomorskie",
+    "host": "bip.skarszewy.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "rumia",
+    "label": "Rumia",
+    "voivodeship": "pomorskie",
+    "host": "bip.rumia.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "zukowo",
+    "label": "Żukowo",
+    "voivodeship": "pomorskie",
+    "host": "bip.zukowo.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "lidzbark",
+    "label": "Lidzbark",
+    "voivodeship": "warminsko-mazurskie",
+    "host": "bip.lidzbark.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "raciaz",
+    "label": "Raciąż",
+    "voivodeship": "mazowieckie",
+    "host": "bip.gminaraciaz.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "mlynary",
+    "label": "Młynary",
+    "voivodeship": "warminsko-mazurskie",
+    "host": "bip.mlynary.pl",
+    "platform": "logonet",
+    "hasAuctions": true
+  },
+  {
+    "id": "paslek",
+    "label": "Pasłęk",
+    "voivodeship": "warminsko-mazurskie",
+    "host": "bip.paslek.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "drezdenko",
+    "label": "Drezdenko",
+    "voivodeship": "lubuskie",
+    "host": "bip.drezdenko.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "lubomierz",
+    "label": "Lubomierz",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.lubomierz.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "mirsk",
+    "label": "Mirsk",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.mirsk.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "nowy-staw",
+    "label": "Nowy Staw",
+    "voivodeship": "pomorskie",
+    "host": "bip.nowystaw.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "kozieglowy",
+    "label": "Koziegłowy",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "wlen",
+    "label": "Wleń",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.wlen.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "piechowice",
+    "label": "Piechowice",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.piechowice.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "lesna",
+    "label": "Leśna",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.lesna.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "blachownia",
+    "label": "Blachownia",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "kisielice",
+    "label": "Kisielice",
+    "voivodeship": "warminsko-mazurskie",
+    "host": "bip.kisielice.pl",
+    "platform": "warmia-mazury",
+    "hasAuctions": true
+  },
+  {
+    "id": "mikstat",
+    "label": "Mikstat",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.mikstat.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "miedzyborz",
+    "label": "Międzybórz",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.miedzyborz.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "piensk",
+    "label": "Pieńsk",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "swierzawa",
+    "label": "Świerzawa",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "odolanow",
+    "label": "Odolanów",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.odolanow.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "koniecpol",
+    "label": "Koniecpol",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "szklarska-poreba",
+    "label": "Szklarska Poręba",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.szklarskaporeba.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "zduny",
+    "label": "Zduny",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.zduny.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "osno-lubuskie",
+    "label": "Ośno Lubuskie",
+    "voivodeship": "lubuskie",
+    "host": "bip.osnolubuskie.pl",
+    "platform": "systemdobip",
+    "hasAuctions": false
+  },
+  {
+    "id": "frombork",
+    "label": "Frombork",
+    "voivodeship": "warminsko-mazurskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "krynica-morska",
+    "label": "Krynica Morska",
+    "voivodeship": "pomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "czerwionka-leszczyny",
+    "label": "Czerwionka-Leszczyny",
+    "voivodeship": "slaskie",
+    "host": "bip.czerwionka-leszczyny.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "stawiszyn",
+    "label": "Stawiszyn",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.stawiszyn.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "tolkmicko",
+    "label": "Tolkmicko",
+    "voivodeship": "warminsko-mazurskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "czeladz",
+    "label": "Czeladź",
+    "voivodeship": "slaskie",
+    "host": "bip.czeladz.pl",
+    "platform": "finn",
+    "hasAuctions": true
+  },
+  {
+    "id": "grabow-nad-prosna",
+    "label": "Grabów nad Prosną",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.grabownadprosna.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "imielin",
+    "label": "Imielin",
+    "voivodeship": "slaskie",
+    "host": "bip.imielin.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "hel",
+    "label": "Hel",
+    "voivodeship": "pomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "kozmin-wielkopolski",
+    "label": "Koźmin Wielkopolski",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "barlinek",
+    "label": "Barlinek",
+    "voivodeship": "zachodniopomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "wegliniec",
+    "label": "Węgliniec",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "wojcieszow",
+    "label": "Wojcieszów",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "knurow",
+    "label": "Knurów",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "ledziny",
+    "label": "Lędziny",
+    "voivodeship": "slaskie",
+    "host": "bip.um.ledziny.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "dzialoszyce",
+    "label": "Działoszyce",
+    "voivodeship": "swietokrzyskie",
+    "host": "bip.dzialoszyce.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "kostrzyn-nad-odra",
+    "label": "Kostrzyn nad Odrą",
+    "voivodeship": "lubuskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "lubawka",
+    "label": "Lubawka",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "zawidow",
+    "label": "Zawidów",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "poreba",
+    "label": "Poręba",
+    "voivodeship": "slaskie",
+    "host": "bip.umporeba.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "gryfow-slaski",
+    "label": "Gryfów Śląski",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "ogrodzieniec",
+    "label": "Ogrodzieniec",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "nowe-skalmierzyce",
+    "label": "Nowe Skalmierzyce",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "zagorow",
+    "label": "Zagórów",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.zagorow.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "witkowo",
+    "label": "Witkowo",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.witkowo.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "uniejow",
+    "label": "Uniejów",
+    "voivodeship": "lodzkie",
+    "host": "bip.uniejow.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "bobolice",
+    "label": "Bobolice",
+    "voivodeship": "zachodniopomorskie",
+    "host": "bip.bobolice.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "pszow",
+    "label": "Pszów",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "sycow",
+    "label": "Syców",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "lazy",
+    "label": "Łazy",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "skalbmierz",
+    "label": "Skalbmierz",
+    "voivodeship": "swietokrzyskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "polanow",
+    "label": "Polanów",
+    "voivodeship": "zachodniopomorskie",
+    "host": "bip.polanow.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "slawkow",
+    "label": "Sławków",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "karlino",
+    "label": "Karlino",
+    "voivodeship": "zachodniopomorskie",
+    "host": "bip.karlino.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "iwonicz-zdroj",
+    "label": "Iwonicz-Zdrój",
+    "voivodeship": "podkarpackie",
+    "host": "bip.iwonicz-zdroj.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "orzesze",
+    "label": "Orzesze",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "kleczew",
+    "label": "Kleczew",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "kuznia-raciborska",
+    "label": "Kuźnia Raciborska",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "jedlicze",
+    "label": "Jedlicze",
+    "voivodeship": "podkarpackie",
+    "host": "bip.jedlicze.pl",
+    "platform": "conceptintermedia",
+    "hasAuctions": false
+  },
+  {
+    "id": "wojkowice",
+    "label": "Wojkowice",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "suchedniow",
+    "label": "Suchedniów",
+    "voivodeship": "swietokrzyskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "rychwal",
+    "label": "Rychwał",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "pyzdry",
+    "label": "Pyzdry",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "dukla",
+    "label": "Dukla",
+    "voivodeship": "podkarpackie",
+    "host": "bip.um.dukla.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "jutrosin",
+    "label": "Jutrosin",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.jutrosin.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "barwice",
+    "label": "Barwice",
+    "voivodeship": "zachodniopomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "dobczyce",
+    "label": "Dobczyce",
+    "voivodeship": "malopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "kalisz-pomorski",
+    "label": "Kalisz Pomorski",
+    "voivodeship": "zachodniopomorskie",
+    "host": "bip.kaliszpomorski.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "miejska-gorka",
+    "label": "Miejska Górka",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.miejska-gorka.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "pogorzela",
+    "label": "Pogorzela",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.pogorzela.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "zagorz",
+    "label": "Zagórz",
+    "voivodeship": "podkarpackie",
+    "host": "bip.um.zagorz.pl",
+    "platform": "logonet",
+    "hasAuctions": false
+  },
+  {
+    "id": "poniec",
+    "label": "Poniec",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.poniec.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "rydzyna",
+    "label": "Rydzyna",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.rydzyna.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "darlowo",
+    "label": "Darłowo",
+    "voivodeship": "zachodniopomorskie",
+    "host": "bip.gminadarlowo.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "slesin",
+    "label": "Ślesin",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "rymanow",
+    "label": "Rymanów",
+    "voivodeship": "podkarpackie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "chocianow",
+    "label": "Chocianów",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.gminachocianow.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "laziska-gorne",
+    "label": "Łaziska Górne",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "czaplinek",
+    "label": "Czaplinek",
+    "voivodeship": "zachodniopomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "sompolno",
+    "label": "Sompolno",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "prochowice",
+    "label": "Prochowice",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "rajgrod",
+    "label": "Rajgród",
+    "voivodeship": "podlaskie",
+    "host": "bip.rajgrod.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "bialy-bor",
+    "label": "Biały Bór",
+    "voivodeship": "zachodniopomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "aleksandrow-lodzki",
+    "label": "Aleksandrów Łódzki",
+    "voivodeship": "lodzkie",
+    "host": "bip.aleksandrow-lodzki.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "deblin",
+    "label": "Dęblin",
+    "voivodeship": "lubelskie",
+    "host": "bip.um.deblin.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "scinawa",
+    "label": "Ścinawa",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "dobra-0949000",
+    "label": "Dobra",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "polczyn-zdroj",
+    "label": "Połczyn-Zdrój",
+    "voivodeship": "zachodniopomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "ciechanowiec",
+    "label": "Ciechanowiec",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "chojnow",
+    "label": "Chojnów",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "kobylin",
+    "label": "Kobylin",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "przemkow",
+    "label": "Przemków",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "jedwabne",
+    "label": "Jedwabne",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "nowogrod",
+    "label": "Nowogród",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "wasosz",
+    "label": "Wąsosz",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "korsze",
+    "label": "Korsze",
+    "voivodeship": "warminsko-mazurskie",
+    "host": "bip.korsze.pl",
+    "platform": "warmia-mazury",
+    "hasAuctions": true
+  },
+  {
+    "id": "wolczyn",
+    "label": "Wołczyn",
+    "voivodeship": "opolskie",
+    "host": "bip.wolczyn.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "goniadz",
+    "label": "Goniądz",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "brok",
+    "label": "Brok",
+    "voivodeship": "mazowieckie",
+    "host": "bip.brok.pl",
+    "platform": "conceptintermedia",
+    "hasAuctions": true
+  },
+  {
+    "id": "chorzele",
+    "label": "Chorzele",
+    "voivodeship": "mazowieckie",
+    "host": "bip.chorzele.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "szczuczyn",
+    "label": "Szczuczyn",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "szlichtyngowa",
+    "label": "Szlichtyngowa",
+    "voivodeship": "lubuskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "siewierz",
+    "label": "Siewierz",
+    "voivodeship": "slaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "borek-wielkopolski",
+    "label": "Borek Wielkopolski",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "konstantynow-lodzki",
+    "label": "Konstantynów Łódzki",
+    "voivodeship": "lodzkie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "ozimek",
+    "label": "Ozimek",
+    "voivodeship": "opolskie",
+    "host": "bip.ozimek.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "golancz",
+    "label": "Gołańcz",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.golancz.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "rogozno",
+    "label": "Rogoźno",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.rogozno.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "lobzenica",
+    "label": "Łobżenica",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.lobzenica.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "olsztynek",
+    "label": "Olsztynek",
+    "voivodeship": "warminsko-mazurskie",
+    "host": "bip.olsztynek.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "wielen",
+    "label": "Wieleń",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.wielen.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "biala",
+    "label": "Biała",
+    "voivodeship": "opolskie",
+    "host": "bip.gminabiala.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "zelow",
+    "label": "Zelów",
+    "voivodeship": "lodzkie",
+    "host": "bip.zelow.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "stawiski",
+    "label": "Stawiski",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "jeziorany",
+    "label": "Jeziorany",
+    "voivodeship": "warminsko-mazurskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "wronki",
+    "label": "Wronki",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.wronki.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "gabin",
+    "label": "Gąbin",
+    "voivodeship": "mazowieckie",
+    "host": "bip.gabin.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "dobre-miasto",
+    "label": "Dobre Miasto",
+    "voivodeship": "warminsko-mazurskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "rozan",
+    "label": "Różan",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "krosniewice",
+    "label": "Krośniewice",
+    "voivodeship": "lodzkie",
+    "host": "bip.krosniewice.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "rabka-zdroj",
+    "label": "Rabka-Zdrój",
+    "voivodeship": "malopolskie",
+    "host": "bip.rabkazdroj.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "mosina",
+    "label": "Mosina",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.mosina.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "lubon",
+    "label": "Luboń",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.lubon.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "sepopol",
+    "label": "Sępopol",
+    "voivodeship": "warminsko-mazurskie",
+    "host": "bip.sepopol.pl",
+    "platform": "warmia-mazury",
+    "hasAuctions": true
+  },
+  {
+    "id": "murowana-goslina",
+    "label": "Murowana Goślina",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.murowana-goslina.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "ozorkow",
+    "label": "Ozorków",
+    "voivodeship": "lodzkie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "tluszcz",
+    "label": "Tłuszcz",
+    "voivodeship": "mazowieckie",
+    "host": "bip.um.tluszcz.pl",
+    "platform": "conceptintermedia",
+    "hasAuctions": false
+  },
+  {
+    "id": "pobiedziska",
+    "label": "Pobiedziska",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.pobiedziska.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "koluszki",
+    "label": "Koluszki",
+    "voivodeship": "lodzkie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "pniewy",
+    "label": "Pniewy",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.pniewy.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "opalenica",
+    "label": "Opalenica",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.opalenica.pl",
+    "platform": "wokiss",
+    "hasAuctions": false
+  },
+  {
+    "id": "paczkow",
+    "label": "Paczków",
+    "voivodeship": "opolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "tuszyn",
+    "label": "Tuszyn",
+    "voivodeship": "lodzkie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "swarzedz",
+    "label": "Swarzędz",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.swarzedz.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "margonin",
+    "label": "Margonin",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "buk",
+    "label": "Buk",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "oleszyce",
+    "label": "Oleszyce",
+    "voivodeship": "podkarpackie",
+    "host": "bip.oleszyce.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "sieniawa",
+    "label": "Sieniawa",
+    "voivodeship": "podkarpackie",
+    "host": "bip.sieniawa.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "lwowek",
+    "label": "Lwówek",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "ilza",
+    "label": "Iłża",
+    "voivodeship": "mazowieckie",
+    "host": "bip.ilza.pl",
+    "platform": "conceptintermedia",
+    "hasAuctions": true
+  },
+  {
+    "id": "drzewica",
+    "label": "Drzewica",
+    "voivodeship": "lodzkie",
+    "host": "bip.drzewica.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "reszel",
+    "label": "Reszel",
+    "voivodeship": "warminsko-mazurskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "mogielnica",
+    "label": "Mogielnica",
+    "voivodeship": "mazowieckie",
+    "host": "bip.mogielnica.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "miloslaw",
+    "label": "Miłosław",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "wysmierzyce",
+    "label": "Wyśmierzyce",
+    "voivodeship": "mazowieckie",
+    "host": "bip.wysmierzyce.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "skaryszew",
+    "label": "Skaryszew",
+    "voivodeship": "mazowieckie",
+    "host": "bip.skaryszew.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "wysoka",
+    "label": "Wysoka",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.um.wysoka.pl",
+    "platform": "systemdobip",
+    "hasAuctions": false
+  },
+  {
+    "id": "gorowo-ilaweckie",
+    "label": "Górowo Iławeckie",
+    "voivodeship": "warminsko-mazurskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "skoki",
+    "label": "Skoki",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "krzyz-wielkopolski",
+    "label": "Krzyż Wielkopolski",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.um.krzyzwielkopolski.pl",
+    "platform": "finn",
+    "hasAuctions": false
+  },
+  {
+    "id": "ksiaz-wielkopolski",
+    "label": "Książ Wielkopolski",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.ksiazwielkopolski.pl",
+    "platform": "systemdobip",
+    "hasAuctions": false
+  },
+  {
+    "id": "dynow",
+    "label": "Dynów",
+    "voivodeship": "podkarpackie",
+    "host": "bip.dynow.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "zloczew",
+    "label": "Złoczew",
+    "voivodeship": "lodzkie",
+    "host": "bip.zloczew.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "debrzno",
+    "label": "Debrzno",
+    "voivodeship": "pomorskie",
+    "host": "bip.debrzno.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "czarne",
+    "label": "Czarne",
+    "voivodeship": "pomorskie",
+    "host": "bip.czarne.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "mszczonow",
+    "label": "Mszczonów",
+    "voivodeship": "mazowieckie",
+    "host": "bip.mszczonow.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "kepice",
+    "label": "Kępice",
+    "voivodeship": "pomorskie",
+    "host": "bip.kepice.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "wyszogrod",
+    "label": "Wyszogród",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "ustka",
+    "label": "Ustka",
+    "voivodeship": "pomorskie",
+    "host": "bip.um.ustka.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "cedynia",
+    "label": "Cedynia",
+    "voivodeship": "zachodniopomorskie",
+    "host": "bip.cedynia.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "nowe-miasto-nad-pilica",
+    "label": "Nowe Miasto nad Pilicą",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "mordy",
+    "label": "Mordy",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "zelechow",
+    "label": "Żelechów",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "biala-rawska",
+    "label": "Biała Rawska",
+    "voivodeship": "lodzkie",
+    "host": "bip.bialarawska.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "glogow-malopolski",
+    "label": "Głogów Małopolski",
+    "voivodeship": "podkarpackie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "orzysz",
+    "label": "Orzysz",
+    "voivodeship": "warminsko-mazurskie",
+    "host": "bip.orzysz.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "nowa-sarzyna",
+    "label": "Nowa Sarzyna",
+    "voivodeship": "podkarpackie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "ruciane-nida",
+    "label": "Ruciane-Nida",
+    "voivodeship": "warminsko-mazurskie",
+    "host": "bip.ruciane-nida.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "resko",
+    "label": "Resko",
+    "voivodeship": "zachodniopomorskie",
+    "host": "bip.resko.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "maszewo",
+    "label": "Maszewo",
+    "voivodeship": "zachodniopomorskie",
+    "host": "bip.maszewo.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "leba",
+    "label": "Łeba",
+    "voivodeship": "pomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "ryn",
+    "label": "Ryn",
+    "voivodeship": "warminsko-mazurskie",
+    "host": "bip.ryn.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "pionki",
+    "label": "Pionki",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "tyczyn",
+    "label": "Tyczyn",
+    "voivodeship": "podkarpackie",
+    "host": "bip.gminatyczyn.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "laskarzew",
+    "label": "Łaskarzew",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "pilzno",
+    "label": "Pilzno",
+    "voivodeship": "podkarpackie",
+    "host": "bip.pilzno.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "radomysl-wielki",
+    "label": "Radomyśl Wielki",
+    "voivodeship": "podkarpackie",
+    "host": "bip.radomysl-wielki.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "kaluszyn",
+    "label": "Kałuszyn",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "pilawa",
+    "label": "Pilawa",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "blazowa",
+    "label": "Błażowa",
+    "voivodeship": "podkarpackie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "sedziszow-malopolski",
+    "label": "Sędziszów Małopolski",
+    "voivodeship": "podkarpackie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "sokolow-malopolski",
+    "label": "Sokołów Małopolski",
+    "voivodeship": "podkarpackie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "ozarow",
+    "label": "Ożarów",
+    "voivodeship": "swietokrzyskie",
+    "host": "bip.um.ozarow.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "boguszow-gorce",
+    "label": "Boguszów-Gorce",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.boguszow-gorce.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "chociwel",
+    "label": "Chociwel",
+    "voivodeship": "zachodniopomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "duszniki-zdroj",
+    "label": "Duszniki-Zdrój",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.duszniki-zdroj.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "jablonowo-pomorskie",
+    "label": "Jabłonowo Pomorskie",
+    "voivodeship": "kujawsko-pomorskie",
+    "host": "bip.jablonowo-pomorskie.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "polaniec",
+    "label": "Połaniec",
+    "voivodeship": "swietokrzyskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "warka",
+    "label": "Warka",
+    "voivodeship": "mazowieckie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "steszew",
+    "label": "Stęszew",
+    "voivodeship": "wielkopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "lipsk",
+    "label": "Lipsk",
+    "voivodeship": "podlaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "zabno",
+    "label": "Żabno",
+    "voivodeship": "malopolskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "biala-piska",
+    "label": "Biała Piska",
+    "voivodeship": "warminsko-mazurskie",
+    "host": "bip.um.bialapiska.pl",
+    "platform": "conceptintermedia",
+    "hasAuctions": false
+  },
+  {
+    "id": "trzebiatow",
+    "label": "Trzebiatów",
+    "voivodeship": "zachodniopomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "gorzno",
+    "label": "Górzno",
+    "voivodeship": "kujawsko-pomorskie",
+    "host": "bip.um.gorzno.pl",
+    "platform": "systemdobip",
+    "hasAuctions": false
+  },
+  {
+    "id": "polanica-zdroj",
+    "label": "Polanica-Zdrój",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.polanica-zdroj.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "insko",
+    "label": "Ińsko",
+    "voivodeship": "zachodniopomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "dobrzany",
+    "label": "Dobrzany",
+    "voivodeship": "zachodniopomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "rudnik-nad-sanem",
+    "label": "Rudnik nad Sanem",
+    "voivodeship": "podkarpackie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "szczytna",
+    "label": "Szczytna",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.szczytna.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "chodecz",
+    "label": "Chodecz",
+    "voivodeship": "kujawsko-pomorskie",
+    "host": "bip.chodecz.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "swiebodzice",
+    "label": "Świebodzice",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.swiebodzice.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "szczawno-zdroj",
+    "label": "Szczawno-Zdrój",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.szczawno-zdroj.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "zarow",
+    "label": "Żarów",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.um.zarow.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "radzyn-chelminski",
+    "label": "Radzyń Chełmiński",
+    "voivodeship": "kujawsko-pomorskie",
+    "host": "bip.radzynchelminski.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "oborniki-slaskie",
+    "label": "Oborniki Śląskie",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.oborniki-slaskie.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "jelcz-laskowice",
+    "label": "Jelcz-Laskowice",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.jelcz-laskowice.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "izbica-kujawska",
+    "label": "Izbica Kujawska",
+    "voivodeship": "kujawsko-pomorskie",
+    "host": "bip.izbica-kujawska.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "kowal",
+    "label": "Kowal",
+    "voivodeship": "kujawsko-pomorskie",
+    "host": "bip.kowal.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "pieszyce",
+    "label": "Pieszyce",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "bardo",
+    "label": "Bardo",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "chelmza",
+    "label": "Chełmża",
+    "voivodeship": "kujawsko-pomorskie",
+    "host": "bip.gminachelmza.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "szczebrzeszyn",
+    "label": "Szczebrzeszyn",
+    "voivodeship": "lubelskie",
+    "host": "bip.szczebrzeszyn.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "jedlina-zdroj",
+    "label": "Jedlina-Zdrój",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.um.jedlina-zdroj.pl",
+    "platform": "systemdobip",
+    "hasAuctions": false
+  },
+  {
+    "id": "ladek-zdroj",
+    "label": "Lądek-Zdrój",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.um.ladek-zdroj.pl",
+    "platform": "systemdobip",
+    "hasAuctions": false
+  },
+  {
+    "id": "strzegom",
+    "label": "Strzegom",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.um.strzegom.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "bielawa",
+    "label": "Bielawa",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "kudowa-zdroj",
+    "label": "Kudowa-Zdrój",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "nieszawa",
+    "label": "Nieszawa",
+    "voivodeship": "kujawsko-pomorskie",
+    "host": "bip.nieszawa.pl",
+    "platform": "systemdobip",
+    "hasAuctions": true
+  },
+  {
+    "id": "baranow-sandomierski",
+    "label": "Baranów Sandomierski",
+    "voivodeship": "podkarpackie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "stronie-slaskie",
+    "label": "Stronie Śląskie",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.stronieslaskie.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "zbaszyn",
+    "label": "Zbąszyń",
+    "voivodeship": "wielkopolskie",
+    "host": "bip.zbaszyn.pl",
+    "platform": "unknown",
+    "hasAuctions": true
+  },
+  {
+    "id": "wiazow",
+    "label": "Wiązów",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "zmigrod",
+    "label": "Żmigród",
+    "voivodeship": "dolnoslaskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "dobrzyn-nad-wisla",
+    "label": "Dobrzyń nad Wisłą",
+    "voivodeship": "kujawsko-pomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "brzeg-dolny",
+    "label": "Brzeg Dolny",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.brzegdolny.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "zwierzyniec",
+    "label": "Zwierzyniec",
+    "voivodeship": "lubelskie",
+    "host": "bip.zwierzyniec.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "dobra-0978852",
+    "label": "Dobra",
+    "voivodeship": "zachodniopomorskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "ilowa",
+    "label": "Iłowa",
+    "voivodeship": "lubuskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "gozdnica",
+    "label": "Gozdnica",
+    "voivodeship": "lubuskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "jaworzyna-slaska",
+    "label": "Jaworzyna Śląska",
+    "voivodeship": "dolnoslaskie",
+    "host": "bip.um.jaworzynaslaska.pl",
+    "platform": "systemdobip",
+    "hasAuctions": false
+  },
+  {
+    "id": "malomice",
+    "label": "Małomice",
+    "voivodeship": "lubuskie",
+    "status": "NO_HOST"
+  },
+  {
+    "id": "bytom-odrzanski",
+    "label": "Bytom Odrzański",
+    "voivodeship": "lubuskie",
+    "host": "bip.bytomodrzanski.pl",
+    "platform": "unknown",
+    "hasAuctions": false
+  },
+  {
+    "id": "nowogrod-bobrzanski",
+    "label": "Nowogród Bobrzański",
+    "voivodeship": "lubuskie",
+    "host": "bip.nowogrodbobrzanski.pl",
+    "platform": "systemdobip",
+    "hasAuctions": false
+  },
+  {
+    "id": "borne-sulinowo",
+    "label": "Borne Sulinowo",
+    "voivodeship": "zachodniopomorskie",
+    "status": "NO_HOST"
+  }
+]

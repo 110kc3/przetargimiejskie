@@ -40,3 +40,16 @@ Contact for property: UM Olecko, Plac Wolności 3, 19-400 Olecko, pokój 21, tel
 - **Why NO-BUILD anyway:** the deliverable target is municipal **open flat** auctions. Olecko yields ~0 recurring open flat auctions — land + building plots dominate, the few flats are restricted (`ograniczony`) or chronically-unsold re-runs, and there is **no housing manager**. That is precisely the "generic city-BIP skewing to land ... ~0 open flat auctions" NO-BUILD profile. Revisit only if land/building-plot disposals are promoted into scope (then Medium BUILD, the wynik stream is worth it).
 
 **VERDICT: NO-BUILD** — clean, easy server-HTML BIP with a real results stream, but land-dominated with essentially zero recurring open municipal-flat auctions and no housing manager; fails the flat-auction mandate.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Olecka) publishes auction announcements on `https://bip.olecko.pl/1539/sprzedaz-nieruchomosci.html` (SkyCMS / BIP).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

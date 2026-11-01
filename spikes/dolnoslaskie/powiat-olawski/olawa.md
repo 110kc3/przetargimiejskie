@@ -45,3 +45,15 @@ Contact: Urząd Miejski w Oławie, **Pl. Zamkowy 15, 55-200 Oława**; housing/pr
 - **Blockers:** None hard. Watch-items: (1) data is in PDF attachments, not JSON body — must pull attachments; (2) announcement + result live in the **same** board (and same article, as a later attachment) — de-dupe by lokal; (3) avoid the `m,203` procurement trap and the two neighbouring JSTs sharing the "Oława" name.
 
 **VERDICT: BUILD (Medium effort)** — recurring open flat auctions by Burmistrz Miasta Oława on a clean MADKOM JSON-API BIP with born-digital ogłoszenie + informacja-o-wyniku PDFs (achieved prices); Milicz analog, no blockers.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Oławy (Urząd Miejski w Oławie)) publishes auction announcements on `https://bip.um.olawa.pl` (BIP Dolnośląskie CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered HTML notice text and attachments. Unit tests: 10/10 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

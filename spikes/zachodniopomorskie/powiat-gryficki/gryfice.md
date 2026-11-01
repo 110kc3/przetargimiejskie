@@ -84,3 +84,14 @@ Live re-check via WebFetch + WebSearch (2 fetch attempts on BIP host, per polite
 **3. Conclusion.** Realized open flat-auction volume is ~0–1 residential item/yr, and that one item was a fractional building share re-auctioned across 18 months. Gmina Gryfice's flats are disposed bezprzetargowo to tenants; the open-auction stream is land + commercial. This is exactly the README heuristic's "generic city-BIP property section skewing to land + tenant sales" profile. The desk TL;DR's "4–8 flats/yr to open auction" conflated wykaz/bezprzetargowy items with auction lots.
 
 **VERDICT: NO-BUILD** — no usable open flat-auction stream; volume ≈0 regardless of fetch strategy. Revisit only if a future batch shows self-contained lokale mieszkalne at przetarg ustny nieograniczony (if so: gryfice.eu mirror is plain-fetchable, BIP needs browser-mode fetch; effort would be Low–Medium).
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Gryfice) publishes auction announcements on `https://bip.gminagryfice.pl/przetargi/361/status/0/` (systemdobip).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared systemdobip platform engine and registered as an enabled pipeline feed.

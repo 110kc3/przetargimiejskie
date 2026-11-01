@@ -56,3 +56,15 @@ No separate dedicated wyniki/achieved-price sub-board confirmed; results appear 
 **Effort rating**: Medium (headless index step adds complexity vs. pure-HTML BIPs, but individual pages are trivial).
 
 **VERDICT: BUILD** — flat auctions confirmed active 2026, BIP publicly accessible, HTML format, no bot blocks observed.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta i Gminy Gryfino (Urząd Miasta i Gminy w Gryfinie)) publishes auction announcements on `https://bip.gryfino.pl` (ICOR Application Server CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered static table (chapter_56933.asp) and born-digital PDF notices. Unit tests: 11/11 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

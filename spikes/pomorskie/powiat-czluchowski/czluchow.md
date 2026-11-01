@@ -58,3 +58,15 @@ No separate "wyniki" index page — results PDF is attached to the same announce
 2. Low volume (1–2/year) — marginal signal for monitoring; worth including if OCR pipeline already exists from other cities
 
 **Verdict: BUILD (Medium effort)** — flat auctions at ustny przetarg nieograniczony are confirmed live. The only non-trivial work is the OCR layer. If the project already has a scanned-PDF OCR adapter, this is Low effort.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Człuchowa (Urząd Miejski w Człuchowie)) publishes auction announcements on `https://bip.czluchow.pl` (BIP e-bip.pl CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered HTML article boards and attachments. Unit tests: 9/9 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

@@ -15,6 +15,8 @@ const SOURCE_CHAINS = new Map([
   ['bip.walcz.pl', ['certum-dv-tls-g2-r39-ca.pem']],
   ['bip.wegorzewo.pl', ['certum-dv-tls-g2-r39-ca.pem']],
   ['bip.zlotoryja.pl', ['certum-dv-tls-g2-r39-ca.pem']],
+  ['bip.pruszcz-gdanski.pl', ['home-pl-dv-tls-g2-r36-ca.pem']],
+  ['umgostynin.bip.org.pl', ['home-pl-dv-tls-g2-r36-ca.pem']],
   ['glogow.bip.info.pl', ['cyber-folks.pem', 'certum-global-services-ca-sha2.pem']],
   ['www.glogow.pl', ['yr1.pem', 'isrg-root-yr-cross-signed.pem']],
   ['www.gniezno.eu', ['home-pl-ov-tls-g2-r36-ca.pem']],

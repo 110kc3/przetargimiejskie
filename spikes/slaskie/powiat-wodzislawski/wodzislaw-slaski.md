@@ -46,3 +46,15 @@ Housing manager: **Biuro Gospodarki Lokalowej** (`/633-biuro-gospodarki-lokalowe
 - **Blockers:** (1) SPA rendering (needs Playwright/render.js). (2) Broken TLS chain — crawler must tolerate it. (3) Mixed land/flat/garaż stream + a parallel bezprzetargowo track — classify carefully. No rate-limit/auth/CAPTCHA seen.
 
 **VERDICT: BUILD (Medium effort)** — genuine open municipal flat auctions from the Prezydent Miasta with a dedicated achieved-price results board, but delivered entirely through a FINN.pl eUrząd JS SPA (BIP iframe + city-site both JS-loaded), so it needs the render.js (chrzanow) analog plus born-digital-PDF extraction — a step above a plain bip.info.pl clone.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Prezydent Miasta Wodzisławia Śląskiego) publishes auction announcements on `https://bip.wodzislaw-slaski.pl`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

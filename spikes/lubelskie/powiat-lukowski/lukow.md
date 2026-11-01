@@ -50,3 +50,14 @@ Contact: WGN, ul. Piłsudskiego 17 pok. 7, tel. (25) 797 66 10, sekretariat@um.l
 ```json
 {"city_slug":"lukow","voivodeship":"lubelskie","powiat_slug":"powiat-lukowski","status":"no-build","effort":"—","confidence":"LIVE","note":"Burmistrz sells LAND via przetarg ustny nieogr.; only 1 flat (Klimeckiego 6/23, went to 3rd round); board 100% building plots; ZGL=najem manager in liquidation 2025, no flat-sale pipeline; no per-notice results/hammer board; notices on Joomla www.lukow.pl + bip.lubelskie.pl DataTables; classic Lubelskie land-heavy NO-BUILD","host":"umlukow.bip.lubelskie.pl","cms":"bip.lubelskie.pl / Wrota Lubelszczyzny (DataTables JSON) + Joomla city portal www.lukow.pl"}
 ```
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Łuków) publishes auction announcements on `https://umlukow.bip.lubelskie.pl` (biplubelskie).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared biplubelskie platform engine and registered as an enabled pipeline feed.

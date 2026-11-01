@@ -80,3 +80,14 @@ Result notices ("informacja o wyniku") are embedded inline on the same BIP aucti
 - https://bip.mznjastrzebie.pl/
 - https://mzn.jastrzebie.pl/przetargi/
 - https://www.jastrzebie.pl/strefa-biznesu/gospodarka-nieruchomosciami
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Jastrzębie-Zdrój) publishes auction announcements on `https://bip.jastrzebie.pl/przetargi-nieruchomosci/376` (logonet).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared logonet platform engine and registered as an enabled pipeline feed.

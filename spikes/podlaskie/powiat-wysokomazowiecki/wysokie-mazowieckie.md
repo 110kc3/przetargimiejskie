@@ -42,3 +42,16 @@ So the one in-scope signal — an **open oral flat auction** — is absent. This
 - **Blockers:** **Content blocker — decisive.** Municipal flats are sold bezprzetargowo to sitting tenants (wykaz only); auctions are land-only; no achieved-price stream for flats. No dedicated municipal housing manager (ZGM/TBS), only a cooperative. Minor operational note: the `wrotapodlasia.pl` host label was DNS-unresolvable from the Pi; use `bip-umwysokiemaz.podlaskie.eu`.
 
 **VERDICT: NO-BUILD** — small podlaskie town: open oral auctions are land-only, municipal flats go bezprzetargowo na rzecz najemcy (wykaz, no hammer price), no housing-manager flat-auction stream. Clean Wrota Podlasia/podlaskie.eu HTML, but nothing in scope to extract.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Wysokie Mazowieckie) publishes auction announcements on `https://bip.wysokiemazowieckie.pl` (Wrota Podlasia).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

@@ -126,3 +126,15 @@ The city actively auctions municipal flats at confirmed ~3–4 sessions/year (~1
 - [MPGM — Archiwum przetargów](https://mpgm.pl/category/przetargi/archiwum-przetargow/)
 - [BIP wynik — VIII przetarg pl. Kilińskiego 7 (2026-04-16)](https://zgierz.bip.net.pl/kategorie/74-nieruchomosci/artykuly/1198-viii-przetarg-ustny-nieograniczony-na-zakup-lokalu-nr-28-przy-placu-jana-kilinskiego-7-w-zgierzu-wynik)
 - [BIP wynik — V przetarg ul. 3 Maja 34 (Dec 2024)](https://bip.zgierz.pl/?a=2253)
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Prezydent Miasta Zgierza) publishes auction announcements on `https://zgierz.bip.net.pl`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

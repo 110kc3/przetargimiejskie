@@ -46,3 +46,14 @@ Gmina Miejska Nowe Miasto Lubawskie (Urząd Miejski) **does** run open oral auct
 ```json
 {"city_slug":"nowe-miasto-lubawskie","voivodeship":"warminsko-mazurskie","powiat_slug":"powiat-nowomiejski","status":"no-build","effort":"—","confidence":"LIVE","note":"no housing manager (MPGK utilities/SIM KZN new-build); flats sold bezprzetargowo na rzecz najemcy; auction stream = land (dz. 479.x ul. Tysiaclecia, Swierkowa, Kolejowa) + garage + lokal uzytkowy najem; 0 open flat auctions 2020-2026; custom server-HTML BIP /artykul/+/pliki/ PDF; analog=clean single-board gmina BIP","host":"bip.umnowemiasto.pl","cms":"custom modern server-HTML BIP (/artykul/ slug + /pliki/ PDF, DataTables)"}
 ```
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Nowe Miasto Lubawskie) publishes auction announcements on `https://bip.umnowemiasto.pl/przetargi/361/status/0/` (systemdobip).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared systemdobip platform engine and registered as an enabled pipeline feed.

@@ -34,3 +34,14 @@ Contact: Urząd Miasta i Gminy w Wieliczce, ul. Powstania Warszawskiego 1; Wydzi
 - **Blocker for the flat target:** **No municipal flat-auction stream.** Everything sold at open auction is land / lokal użytkowy / garaż / rolna; flats (if any) go `bezprzetargowo na rzecz najemcy` via ZBK. For a flat-auction dataset there is nothing to extract → NO-BUILD. Reclassify to BUILD (Low) only if the project decides to ingest land/commercial auctions for affluent suburbs.
 
 **VERDICT: NO-BUILD** — Wieliczka publishes a clean, results-backed server-HTML auction stream on `www.wieliczka.eu`, but it is land + commercial only; no open `lokal mieszkalny` auctions and a rent-only housing manager (ZBK). Low-effort to build for land if ever in scope, but out of scope for municipal flat auctions.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Wieliczka) publishes auction announcements on `https://www.wieliczka.eu/przetargi/361/status/0/` (systemdobip).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared systemdobip platform engine and registered as an enabled pipeline feed.

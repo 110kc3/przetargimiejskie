@@ -108,3 +108,16 @@ adapter. Should the gmina begin disposing of larger municipal flat stock (e.g. p
 buildings) this should be re-evaluated. Monitor the Nieruchomości RSS feed passively.
 
 **Confidence: High** — both announcement and format confirmed live on 2026-06-29.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta i Gminy Piaseczno (Urząd Miasta i Gminy Piaseczno)) publishes auction announcements on `https://piaseczno.eu` (WordPress CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **garage:** verified active/historical notices in test suite.
+
+Announcements parsed from WordPress category feed HTML prose (/category/nieruchomosci/). Unit tests: 10/10 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

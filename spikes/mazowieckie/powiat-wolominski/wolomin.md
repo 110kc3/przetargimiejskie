@@ -89,3 +89,15 @@ No separate housing manager (ZGL, TBS, MZGL, etc.) publishing flat-sale przetarg
 - `https://przetargi.adradar.pl/p/a/53750/Wo%C5%82omin/przetargi` — Adradar: archiwalne przetargi gm. Wołomin (LIVE-VERIFIED: fetched, HTML renders)
 - `https://przetargi.adradar.pl/przetarg/mieszkania/Wo%C5%82omin/miasto/16777815` — Adradar: 1. przetarg Chopina 1 (Mar 2026, 420 000 zł)
 - `https://przetargi.adradar.pl/przetarg/mieszkania/Wo%C5%82omin/miasto/15437867` — Adradar: Rokowania Chopina 1 (May 2025, 299 000 zł)
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Wołomina (Urząd Miejski w Wołominie)) publishes auction announcements on `https://bip.wolomin.org` (bip.biuletyn.net.pl CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from municipal notice feed and attachments. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

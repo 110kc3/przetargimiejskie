@@ -43,3 +43,15 @@ Gmina Miejska Radzyń Podlaski (Urząd Miasta, Burmistrz) does run open oral auc
 - **Blocker (scope, decisive):** flats sold **bezprzetargowo na rzecz najemcy** (tenant wykup), and the open-auction board carries only land + stall lease + premises rental. Zero recurring open flat-sale auctions. Fails the BUILD test in EXPANSION.md / spikes README heuristic.
 
 **VERDICT: NO-BUILD** — Gmina Miejska Radzyń Podlaski auctions only land, market-stall leases, and premises rentals; municipal flats go bezprzetargowo to sitting tenants (wykup lokalu komunalnego przez najemcę). No open flat-auction stream despite a clean, easily-scrapeable Wrota Lubelszczyzny JSON-backed BIP. Re-verify only if the town later starts publishing `przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego`.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Radzyń Podlaski (Urząd Miasta Radzyń Podlaski)) publishes auction announcements on `https://umradzynpodlaski.bip.lubelskie.pl` (BIP Lubelskie CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from municipal notice feed and attachments. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

@@ -42,3 +42,16 @@ The mixed board also carries land sales (działki), *wykaz do dzierżawy*, and o
 - **Blockers:** None technical. No rate-limit/auth/CAPTCHA signals. Watch-items: (1) mixed board → robust keyword classification + drop non-property + drop *przetarg ograniczony* if only open auctions are targeted; (2) low absolute flat volume + repeat rounds (dedupe by address/KW across I–IV przetarg); (3) PDF extraction for achieved prices.
 
 **VERDICT: BUILD (Low–Medium effort)** — recurring OPEN flat auctions (`przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego`) on a clean server-HTML SystemDoBIP BIP with an inline-HTML announcement body and a born-digital result-PDF stream; low volume and a mixed board are the only frictions, no technical blockers. Direct clone of the nidzica/iława SystemDoBIP analog.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Szydłowca (Urząd Miejski w Szydłowcu)) publishes auction announcements on `https://bip.szydlowiec.pl` (BIP Mazowieckie CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered HTML notices and PDF attachments. Unit tests: 10/10 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

@@ -44,3 +44,16 @@ Contact: Urząd Miasta Sejny, pok. 6, tel. (87) 5 162 011.
 - **Blockers:** No technical blocker — the board is cleanly scrapeable. The blocker is **content**: essentially zero open flat-sale auctions; the pipeline is dominated by land parcels with repeat rounds. A ~5k town with no dedicated housing manager (no ZGM/ZBM/TBS) — flat disposals are rare and, when they happen, typically bezprzetargowo na rzecz najemcy.
 
 **VERDICT: NO-BUILD** — Miasto Sejny publishes on a clean, scrapeable Wrota Podlasia server-HTML board, but its auction stream is land-only; the sole open flat auction found is from 2019 and flats do not recur. ~0 open flat-sale auctions → below the BUILD threshold. Revisit only if a ZGM-style flat pipeline or a run of lokal-mieszkalny przetargi appears.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Sejny) publishes auction announcements on `https://bip.um.sejny.wrotapodlasia.pl` (Wrota Podlasia).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

@@ -52,3 +52,14 @@ Address for przetargi: Urząd Miasta Mikołów, Rynek 16.
 - **Note for reviewer:** the gmina *does* run a clean, recurring **land/garage** open-auction program on this same Nefeni BIP — if project scope later prioritizes land disposals, Mikołów flips to a Low-effort BUILD for land; for flats it stays NO-BUILD.
 
 **VERDICT: NO-BUILD (effort —)** — clean Nefeni city BIP, but ~0 recurring open flat auctions (land/garage-dominated), residential disposal is tenant wykup via ZGL, and no achieved-price board. Confirming near-zero flat volume early is the valuable answer here.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Mikołów) publishes auction announcements on `https://bip.mikolow.eu/przetargi/361/status/0/` (systemdobip).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared systemdobip platform engine and registered as an enabled pipeline feed.

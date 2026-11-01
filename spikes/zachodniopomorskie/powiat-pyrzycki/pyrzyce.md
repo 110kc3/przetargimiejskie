@@ -43,3 +43,14 @@ Flats reach the market **off-auction**: the WebSearch surfaced **Wykaz nr 18/202
 - **Blockers / why NO-BUILD:** the load-bearing signal — recurring OPEN flat-sale auctions — is absent. Municipal flats are sold off-auction to sitting tenants; only land + a fire truck reach open oral auction. Building here would yield essentially no `lokal mieszkalny` records. Re-check in a year only if the `/nieruchomosci` module starts carrying `Lokal mieszkalny / Sprzedaż` auction entries.
 
 **VERDICT: NO-BUILD** — Gmina Pyrzyce auctions only land + movables at open oral przetarg; flats are disposed `bezprzetargowo na rzecz najemcy` (Wykaz 18/2026). 2024–2025 boards on `bip.pyrzyce.um.gov.pl` show zero flat auctions; ~0 open flat-auction volume/yr.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Pyrzyce) publishes auction announcements on `https://bip.pyrzyce.um.gov.pl/przetargi/361/status/0/` (systemdobip).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared systemdobip platform engine and registered as an enabled pipeline feed.

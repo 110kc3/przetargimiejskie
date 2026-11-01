@@ -69,3 +69,15 @@ No dedicated result-notice URL pattern isolated yet; results appear in the same 
 - Volume is low (3–5/year) — adapter is low-maintenance once built
 
 **Effort: Medium** — BIP-HTML scraper is well-understood pattern, but result-notice linkage to original auction needs investigation (no explicit wyniki sub-section found; DESK risk).
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Prezydent Miasta Będzina) publishes auction announcements on `https://bedzin.bip.info.pl`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

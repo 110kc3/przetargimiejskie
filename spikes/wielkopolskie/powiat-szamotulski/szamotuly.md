@@ -47,3 +47,15 @@ Bidders: natural + legal persons; wadium + dowód tożsamości required. Contact
 - **Blockers:** None. SPA shell is bypassed by the JSON API; no auth/CAPTCHA/rate-limit. Use a browser UA. Watch: `search=` param is a no-op (filter client-side); confirm TERYT on first geoportal run.
 
 **VERDICT: BUILD (Medium effort)** — recurring open oral auctions (land + occasional residential flat with an achieved-price results stream) exposed via a clean, directly-reachable Symfony JSON API behind a React SPA; clone the Logonet menu/articles crawl shape minus the PDF step. Flat volume is low but real; land makes the source worthwhile for the wider dataset. No technical blockers.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta i Gminy Szamotuły) publishes auction announcements on `https://bip.szamotuly.pl`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

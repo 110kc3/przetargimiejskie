@@ -46,3 +46,14 @@ Contact: Urząd Gminy Polkowice, Rynek 1 / ul. Górna 2, 59-100 Polkowice; Wydzi
 - **Effort field: —** (NO-BUILD; not worth building despite the easy API).
 
 **VERDICT: NO-BUILD** — clean MADKOM eBIP JSON API, but municipal flats are sold to sitting tenants via `wykaz`/bezprzetargowo, not at open auction (~1 open flat auction ever). Auction stream is land + dzierżawa + lokale użytkowe. No open-flat-auction volume → correct call is NO-BUILD.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Polkowice) publishes auction announcements on `https://bip.polkowice.eu` (madkom).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared madkom platform engine and registered as an enabled pipeline feed.

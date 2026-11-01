@@ -42,3 +42,15 @@ Contact: Urząd Miejski w Tucholi, Referat Gospodarki Nieruchomościami, plac Za
 - **Blockers / why NO-BUILD:** the disqualifier is **content, not tech** — municipal flat sales are near-zero and go bezprzetargowo to sitting tenants; the auction stream is entirely building plots; no ZGM/TBS housing manager producing a flat-auction pipeline. Per the project heuristic this is a land + tenant-sale BIP, not a flat-auction source.
 
 **VERDICT: NO-BUILD** — Tuchola auctions only municipal building plots; flats are disposed bezprzetargowo to tenants (~1/yr, one auctioned flat went unsold). Clean scrapeable comma-path BIP, but no flat-auction volume and no flat achieved-price stream to justify an adapter.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Tucholi (Urząd Miejski w Tucholi)) publishes auction announcements on `https://bip.tuchola.pl` (MADKOM eBIP REST API).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from municipal notice feed and attachments. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

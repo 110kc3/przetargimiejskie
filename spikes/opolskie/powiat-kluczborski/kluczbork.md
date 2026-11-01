@@ -76,3 +76,15 @@ Live re-check (WebFetch against bip.kluczbork.eu + local pdftotext on downloaded
 - Boilerplate PDFs (oświadczenia, regulamin) attached alongside — filter by filename (`ogloszenie-przetargu` / `informacja-o-wyniku`).
 
 **Verdict: BUILD — Medium effort.** Standard BIP (redir/tresc + plik URL scheme), text-PDF extraction for both announcements and results, closest analog Olesno/Brzeg. Effort drivers: PDF-only content (no inline HTML), diacritic-lossy text layer, cancellation/negative-result handling and re-list de-duplication. Low volume means low payoff per year but near-zero ongoing maintenance.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Kluczborka) publishes auction announcements on `https://bip.kluczbork.eu`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

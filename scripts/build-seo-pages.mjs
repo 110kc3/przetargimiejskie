@@ -738,7 +738,12 @@ const outIndex = {
   })),
 };
 writeFileSync(join(OUT, 'data', 'index.json'), JSON.stringify(outIndex, null, 2));
-const outCatalog = {...catalog,cities:catalog.cities.map(c=>({...c,seo_indexable:publicIds.has(c.pipeline_id)}))};
+const outCatalog = {
+  ...catalog,
+  cities: catalog.cities
+    .filter(c => c.pipeline_id && c.searchable)
+    .map(c => ({...c, seo_indexable: publicIds.has(c.pipeline_id)}))
+};
 writeFileSync(join(OUT,'data','catalog.json'),JSON.stringify(outCatalog)+'\n');
 console.error(`  seo: published data/index.json — ${publicIds.size} public of ${(index.cities || []).length} cities`);
 

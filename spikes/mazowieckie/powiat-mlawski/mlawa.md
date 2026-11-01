@@ -41,3 +41,15 @@ Contact: Wydział Gospodarki Nieruchomościami i Planowania Przestrzennego, pok.
 - **Blockers / why NO-BUILD:** residential disposal is **only** bezprzetargowo na rzecz najemcy (Uchwała XVI/160/2012); open `przetarg ustny nieograniczony` is land-only; the TBS manager is procurement/rental, not a flat-sale auctioneer; no results board with hammer prices. Textbook generic city-BIP skewing to land + tenant sales with ~0 open flat auctions.
 
 **VERDICT: NO-BUILD** — Mława sells municipal flats bezprzetargowo to sitting tenants (Uchwała XVI/160/2012); its open oral auctions are undeveloped land, with no flat-auction volume and no achieved-price results stream. Larger-seat size did not change the outcome — verified honestly against live BIP.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Mława (Urząd Miasta Mława)) publishes auction announcements on `https://bip.mlawa.pl` (BIP e-bip.pl CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from municipal notice feed and attachments. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

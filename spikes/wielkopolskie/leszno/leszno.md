@@ -105,3 +105,14 @@ The achieved price stream is available but locked inside Word documents. The HTM
 **Verdict: NO-BUILD.** Volume is too low (~2 flat auctions/year at best) to justify the adapter build cost, especially given the `.doc` result-notice extraction requirement. If flat auction volume increases or a full historical audit shows more entries in the pre-2016 archive, revisit. The technical adapter itself would be Low effort (Logonet BIP is well-understood), but the signal/noise ratio does not warrant it today.
 
 **Confidence: Medium** — confirmed flat auctions exist and BIP format is live-verified, but 2025 shows zero, making annual volume estimate uncertain. A full crawl of all 27 pages filtered by `lokal mieszkalny` would give a definitive count; this was not done (would require JS-driven form submit or XML-endpoint parameter testing).
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Leszno) publishes auction announcements on `https://bip.leszno.pl/przetargi-nieruchomosci/43` (logonet).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared logonet platform engine and registered as an enabled pipeline feed.

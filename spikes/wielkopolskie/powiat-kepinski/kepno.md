@@ -25,3 +25,14 @@ Flats bezprzetargowo to tenants (20-60% discount, bip.kepno.pl ?c=5870); ustny p
 ## Method
 
 Spiked as part of the all-Poland per-city coverage effort (one investigation per powiat seat). Result recorded in the consolidated NO-BUILD ledger; this file is the per-city extract. Re-verify live before any reconsideration to BUILD.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Kępno) publishes auction announcements on `https://bip.kepno.pl/przetargi/361/status/0/` (systemdobip).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared systemdobip platform engine and registered as an enabled pipeline feed.

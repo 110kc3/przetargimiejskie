@@ -41,3 +41,15 @@ Contact: **Referat Majątku Komunalnego**, ul. Wejhera 5A, pok. 3, tel. 55 625 7
 - **Blockers:** none technical (clean server-HTML). Blocker is **data thinness**, not access. Revisit only if bundled into a shared 2ClickPortal multi-gmina adapter (łobez family) where NDG rides along at near-zero marginal cost.
 
 **VERDICT: NO-BUILD** — open flat auctions exist but are near-zero volume (1 recurring unsold flat; 16:1 land skew), no housing manager, no property results/achieved-price board. Clean 2ClickPortal CMS (łobez analog), so revisit only as a bundled add-on, not a standalone build.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Nowego Dworu Gdańskiego (Urząd Miejski w Nowym Dworze Gdańskim)) publishes auction announcements on `https://bip.miastonowydwor.pl` (BIP e-bip.pl RSS/HTML CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from municipal notice feed and attachments. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

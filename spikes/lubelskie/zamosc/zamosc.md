@@ -89,3 +89,16 @@ There is no machine-readable stream, no JSON API, and no structured result archi
 - https://zglzamosc.bip.gov.pl/ (ZGL BIP)
 - https://listaprzetargow.pl/oferty/864 (aggregator: only AMW flat-sale from 2018)
 - https://przetargi.adradar.pl/przetargi/all/17376/Zamo%C5%9B%C4%87/all (adradar: komornicze only, no city flat sales)
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Zamość) publishes auction announcements on `https://umzamosc.bip.lubelskie.pl` (BIP Lubelskie).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

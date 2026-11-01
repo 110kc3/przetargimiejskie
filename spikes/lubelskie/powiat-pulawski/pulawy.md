@@ -74,3 +74,14 @@ No *ustny przetarg nieograniczony na sprzedaż lokali mieszkalnych* found in any
 **VERDICT: NO-BUILD** — Puławy does not hold open flat auctions. Municipal flats are sold exclusively bezprzetargowo to sitting tenants. The city's auction activity (land plots, occasional commercial) is out of scope for the aggregator. No adapter warranted.
 
 **Confidence: High** — confirmed via live fetch of two separate official pages plus multiple search corroborations.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Puławy) publishes auction announcements on `https://www.pulawy.eu` (biplubelskie).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared biplubelskie platform engine and registered as an enabled pipeline feed.

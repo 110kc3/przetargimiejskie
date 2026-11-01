@@ -45,3 +45,15 @@ Contact: Urząd Miasta Myszkowa, ul. Kościuszki 26; wydział gospodarki nieruch
 - **Blockers:** N/A for the crawl; the blocker is content (no flat auctions), not technology.
 
 **VERDICT: NO-BUILD** — bip.net.pl v2 city BIP; a KZGM housing manager exists but manages rental stock (no BIP sale board); live auction board = car sales + garage-box lease auctions; property sales are undeveloped land via wykaz lists; zero open municipal flat-sale auctions.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Myszkowa (Urząd Miasta Myszkowa)) publishes auction announcements on `https://bip.miastomyszkow.pl` (bip.biuletyn.net.pl CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from municipal notice feed and attachments. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

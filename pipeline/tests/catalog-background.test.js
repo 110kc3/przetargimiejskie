@@ -1,4 +1,4 @@
-import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';import vm from'node:vm';
+import test from'node:test';import assert from'node:assert/strict';import{readFileSync,existsSync}from'node:fs';import vm from'node:vm';
 const ext=new URL('../../extension/',import.meta.url);
 function worker(initial={}){
  const storage=structuredClone(initial),requests=[];let fail=false,current=0,max=0;
@@ -21,7 +21,7 @@ test('first load fetches only the catalogue; a new city loads within bounded con
  const data=await w.run("getOrFetch(false,['jarocin'])");assert.ok(data.properties.properties.length);assert.equal(data.meta.cities[0],'jarocin');assert.ok(w.max()<=2);assert.equal(w.requests.filter(u=>u.includes('/jarocin/')).length,4);
 });
 test('per-city last-good cache survives failure and eviction stays bounded',async()=>{
- const w=worker();const ids=w.catalog.cities.filter(c=>c.pipeline_id).slice(0,10).map(c=>c.pipeline_id);
+ const w=worker();const ids=w.catalog.cities.filter(c=>c.pipeline_id&&existsSync(new URL('../../data/'+c.pipeline_id+'/properties.json',import.meta.url))).slice(0,10).map(c=>c.pipeline_id);
  for(const id of ids)await w.run('getOrFetch(false,'+JSON.stringify([id])+')');assert.equal(Object.keys(w.storage).filter(k=>k.startsWith('cache:v4:city:')).length,8);
  const id=ids.at(-1);w.offline();const data=await w.run('getOrFetch(true,'+JSON.stringify([id])+')');assert.ok(data.meta.unavailable_cities.includes(id));assert.ok(data.properties.properties.length||data.land.plots.length);
 });

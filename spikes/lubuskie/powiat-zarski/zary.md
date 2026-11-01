@@ -39,3 +39,15 @@
 - **Blockers:** None hard. Watch-items: (1) SystemDoBIP/E-LINE hosts can 403/empty on bot UAs — pass a browser UA via `getText` (as Gorzów already does); (2) verify whether results PDFs are born-digital or scanned on first run (drives pdfText-vs-OCR); (3) three separate boards to wire.
 
 **VERDICT: BUILD (Medium effort)** — recurring monthly municipal flat auctions on a clean SystemDoBIP server-HTML BIP with a dedicated results board; a near-exact clone of the already-built `gorzow-wielkopolski` lubuskie analog, PDF extraction being the only real work.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Żary (Urząd Miejski w Żarach)) publishes auction announcements on `https://bip.zary.pl` (BIP Lubuskie CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered HTML notice text and digital PDF documents. Unit tests: 10/10 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

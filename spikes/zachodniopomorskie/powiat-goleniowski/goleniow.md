@@ -63,3 +63,15 @@ Blockers / work items:
 6. No auth/bot wall expected.
 
 **Verdict: BUILD** — flat auctions confirmed, open (nieograniczony) format, regular cadence, HTML (rendered) format, achieved-price posts present. Medium effort due to SPA rendering requirement and result-URL live-verify gap.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Gminy Goleniów (Urząd Gminy i Miasta w Goleniowie)) publishes auction announcements on `https://bip.goleniow.pl` (BIP Zachodniopomorskie CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered HTML tables and born-digital PDF attachments. Unit tests: 10/10 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

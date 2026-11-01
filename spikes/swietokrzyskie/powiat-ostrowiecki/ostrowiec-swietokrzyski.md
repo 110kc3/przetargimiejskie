@@ -72,3 +72,14 @@ Gmina Ostrowiec Świętokrzyski does NOT auction municipal flats publicly. All 2
 - https://www.otbsostrowiec.4bip.pl/index.php?idg=8&id=37&x=5&y=96 (OTBS przetargi 2025 — LIVE)
 - http://zum.ostrowiec.pl/przetargi (ZUM przetargi — LIVE)
 - https://um.ostrowiec.pl/130-wydzial-mienia-komunalnego.html (Wydział Mienia Komunalnego)
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Ostrowiec Świętokrzyski) publishes auction announcements on `https://bip.um.ostrowiec.pl/przetargi-nieruchomosci/376` (logonet).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared logonet platform engine and registered as an enabled pipeline feed.

@@ -92,3 +92,16 @@ Result notices (*informacja o wyniku przetargu*) published on the same BIP board
 - Low signal-to-noise: scraping cost likely exceeds data value.
 
 **VERDICT: NO-BUILD.** The open-auction flat volume is too low (2–4/year) and the success rate too poor (most end negatively) to produce a meaningful achieved-price stream. The dominant disposal route is bezprzetargowy to tenants — not relevant to open-market price tracking. If the project ever expands to include bezprzetargowy wykaz valuations, revisit; but for auction-price aggregation this city does not qualify.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Świdnik) publishes auction announcements on `https://e-bip.swidnik.pl` (BIP Lubelskie).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

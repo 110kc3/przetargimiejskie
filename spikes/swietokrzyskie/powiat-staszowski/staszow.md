@@ -44,3 +44,15 @@ Housing manager: no separate ZGM/TBS company publishing auctions found — flat 
 - **Blockers:** None hard. No rate-limit/auth/TLS issues observed on `www.bip.staszow.pl`. Watch-items: per-year category-id discovery, PDF filenames contain spaces/Polish chars (URL-encode), and separating flats from the land-heavy stream.
 
 **VERDICT: BUILD (Medium effort)** — recurring OPEN municipal flat auctions on a clean Joomla server-HTML BIP with born-digital (pdftotext-friendly) notice PDFs and an in-stream achieved-price feed; standard HTML+PDF analog, no blockers.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta i Gminy Staszów (Urząd Miasta i Gminy w Staszowie)) publishes auction announcements on `https://bip.staszow.pl` (BIP Świętokrzyskie CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered HTML table entries and born-digital PDF notices. Unit tests: 10/10 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

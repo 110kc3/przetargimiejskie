@@ -42,3 +42,16 @@ The flat stream is entirely **bezprzetargowe** and lives on the sale board (id=9
 - **Blocker:** zero open flat-sale auctions. Residential disposal is 100% *bezprzetargowo na rzecz najemcy*; the only open auctions are land and garage lease. This is precisely the NO-BUILD pattern in the heuristic ("the ONLY residential disposal is bezprzetargowo na rzecz najemcy … or a wykaz list with no real auctions"). The genuine flat auctions belong to the Spółdzielnia Mieszkaniowa, which is out of scope.
 
 **VERDICT: NO-BUILD** — Gmina Miasto Lubartów auctions only land (+garage lease) on a clean bip.lubelskie.pl JSON board; all 89 municipal flat disposals are tenant bezprzetargowo wykaz notices with no bidding and no hammer price. No open flat-auction stream = nothing to build.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Lubartów) publishes auction announcements on `https://umlubartow.bip.lubelskie.pl` (BIP Lubelskie).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

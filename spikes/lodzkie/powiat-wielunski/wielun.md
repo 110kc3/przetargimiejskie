@@ -40,3 +40,14 @@ Contact for nieruchomości: Michał Janik, janikm@um.wielun.pl.
 - **Blockers:** No open municipal **flat**-auction stream. No ZGM/ZBM/TBS. Flats sold bezprzetargowo na rzecz najemcy. Procurement and property share confusingly-labelled boards ("Przetargi" = zamówienia publiczne).
 
 **VERDICT: NO-BUILD** — Wieluń publishes only land (`działka`) oral auctions plus dzierżawa wykazy on its BIP; municipal flats are sold to sitting tenants bezprzetargowo (bonifikata/wykup), with no dedicated housing manager and no open flat-auction or flat-price stream to extract.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Wieluń) publishes auction announcements on `https://www.bip.um.wielun.pl/przetargi-nieruchomosci/376` (logonet).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared logonet platform engine and registered as an enabled pipeline feed.

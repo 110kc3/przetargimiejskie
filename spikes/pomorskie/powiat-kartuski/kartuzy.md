@@ -25,3 +25,15 @@ Flats bezprzetargowo to tenants (40-60% bonifikata, ~400 flats); BIP przetargi o
 ## Method
 
 Spiked as part of the all-Poland per-city coverage effort (one investigation per powiat seat). Result recorded in the consolidated NO-BUILD ledger; this file is the per-city extract. Re-verify live before any reconsideration to BUILD.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Kartuz (Urząd Miejski w Kartuzach)) publishes auction announcements on `https://bip.kartuzy.pl` (MADKOM eBIP REST API).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from municipal notice feed and attachments. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

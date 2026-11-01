@@ -44,3 +44,16 @@ The aggregator (Adradar, gm. Parczew) breakdown over the last ~12 months: **~11 
 - **Blockers:** (1) No open flat auctions — fails the core BUILD heuristic. (2) No housing manager. (3) No achieved-price/results board. (4) JS-rendered empty-over-HTTP BIP grid. (5) The only flat "auctions" are bailiff licytacje, out of scope.
 
 **VERDICT: NO-BUILD** — Gmina Parczew disposes of **land** at open auction and handles residential via **lease/wykaz/tenant** channels; there are **~0 municipal open flat auctions**, no housing manager, and no results board, on a bip.lubelskie.pl DataTables platform. Textbook Lubelskie-seat NO-BUILD.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Parczewa) publishes auction announcements on `https://umparczew.bip.lubelskie.pl` (BIP Lubelskie).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

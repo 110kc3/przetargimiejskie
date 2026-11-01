@@ -43,3 +43,14 @@ So open flat auctions occur roughly **once every few years**; the recurring, hig
 - **Blockers to a useful flat build:** the data itself — municipal flats are sold bezprzetargowo to tenants, not at open auction; and there is no achieved-price stream. Both of the project's value signals (recurring open flat auctions; cena osiągnięta) are absent.
 
 **VERDICT: NO-BUILD** — Miasto Sławno's open-auction stream is ~99% land (55/57 registry entries); open flat auctions occur roughly once every few years and there is no cena-osiągnięta stream. The `bip.slawno.pl` Logonet registry is a best-case scrapeable source, so revisit as a trivial **Low-effort** build only if/when scope broadens to municipal land sales; on the current flat-centric criterion it fails.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Sławno) publishes auction announcements on `https://bip.slawno.pl/przetargi-nieruchomosci/376` (logonet).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared logonet platform engine and registered as an enabled pipeline feed.

@@ -121,3 +121,15 @@ Two-phase adapter needed:
 - Archiwum BIP — 2013 results (Zakończone): https://archiwum.bip.zyrardow.pl/3832,zakonczone
 - Archiwum BIP — 2014 results: https://www.bip.zyrardow.pl/4133,zakonczone?tresc=28020
 - Archiwum BIP — multi-flat announcement .doc: https://archiwum.bip.zyrardow.pl/plik,2926,ogloszenie-przetarg-ustny-sprzedaz-lokali-mieszkalnych-przy-ul-1-maja-76-m-28-i-ul-sloneczna-2-m-58.doc
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Prezydent Miasta Żyrardowa (Urząd Miasta Żyrardowa)) publishes auction announcements on `https://bip.zyrardow.pl` (MADKOM eBIP JSON REST API).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements discovered via MADKOM REST API and parsed from born-digital PDF notices via pdfText. Unit tests: 10/10 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

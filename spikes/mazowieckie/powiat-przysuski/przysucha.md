@@ -37,3 +37,14 @@ Everything else on the board is land or lease. Procedure run by **Wydział Mieni
 - **Blockers to value (not tech):** (1) **flat volume ~1/year** — far below the "recurring open flat auctions" bar; (2) **no housing manager** (Wydział Mienia Komunalnego only); (3) **no achieved-price results board**; (4) board is a **generic city-BIP skewing to działki budowlane** + tenant/lease items. This is the textbook NO-BUILD profile for a small Mazowieckie miejsko-wiejska seat.
 
 **VERDICT: NO-BUILD** — Przysucha sells the odd municipal flat at open auction but only ~1/year, on a land-dominated generic city-BIP with no housing manager and no hammer-price board; the MADKOM SPA adapter effort (Medium) is not justified by the flat volume.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Przysucha) publishes auction announcements on `https://bip.gminaprzysucha.pl` (madkom).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared madkom platform engine and registered as an enabled pipeline feed.

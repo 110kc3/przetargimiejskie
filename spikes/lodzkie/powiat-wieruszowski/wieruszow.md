@@ -43,3 +43,14 @@ Contact: Wydział Planowania Przestrzennego, Ochrony Środowiska i Gospodarki Ni
 - **Blockers:** (1) flats are tenant sales, not auctions — the core BUILD signal is absent; (2) no dedicated property or results board — notices are mixed into generic yearly pages as PDF attachments; (3) very low absolute volume; (4) housing manager (PK S.A.) runs an installment program, not auctions.
 
 **VERDICT: NO-BUILD** — no `ustny przetarg nieograniczony na sprzedaż lokalu mieszkalnego` stream: Wieruszów flats go bezprzetargowo to tenants (z bonifikatą), open auctions are land-only, low-volume, and published as loose PDF attachments on a mixed WOKISS-BIP ogłoszenia board with no results board. Not worth an adapter.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Wieruszów) publishes auction announcements on `https://bip3.wokiss.pl/wieruszowm/` (finn).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared finn platform engine and registered as an enabled pipeline feed.

@@ -74,3 +74,14 @@ Result notices (wyniki przetargu): not found as a dedicated page. Results likely
 **Risks:** Even if the gmina occasionally holds a competitive flat auction (e.g. for flats with no eligible tenant), no historical evidence found and frequency would be too low (~0–1/year at best) to justify adapter build.
 
 **VERDICT: NO-BUILD.** Jarosław Gmina Miejska sells municipal flats exclusively bezprzetargowo to tenants. The BIP przetarg stream is land/plot-only. No flat-auction price-achieved data exists. Build effort (SPA + scanned PDFs) would be Medium for zero return on the product's core signal.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Jarosław) publishes auction announcements on `https://bip.miastojaroslaw.pl/przetargi-nieruchomosci` (logonet).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared logonet platform engine and registered as an enabled pipeline feed.

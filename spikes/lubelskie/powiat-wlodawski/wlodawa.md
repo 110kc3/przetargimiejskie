@@ -38,3 +38,16 @@ Gmina Miejska Włodawa (Urząd Miejski we Włodawie, town gmina — **not** the 
 - **Blockers / why NO-BUILD:** (1) in-scope open-auction volume too thin; (2) **no achieved-price/results stream** — the dataset's core value (starting vs hammer price) is unobtainable here; (3) target category dominated by out-of-scope leases + bezprzetargowo tenant sales. AJAX rendering is *not* the blocker (JSON is fetchable); the data value is.
 
 **VERDICT: NO-BUILD** — Gmina Miejska Włodawa does hold occasional open oral flat auctions, but on a thin, lease-dominated Wrota-Lubelszczyzny registry with no achieved-price stream; Medium effort for ~1-4 in-scope flats/yr and zero results is not worth it. Revisit only if a `wynik przetargu` stream appears or flat-auction cadence rises.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Włodawy) publishes auction announcements on `https://umwlodawa.bip.lubelskie.pl` (BIP Lubelskie).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

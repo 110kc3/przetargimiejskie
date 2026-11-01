@@ -42,3 +42,14 @@ There is no dedicated, static "ogłoszenia o przetargu (lokale)" board; property
 - **Effort if ever forced:** High for ~0 flat signal — not worth it.
 
 **VERDICT: NO-BUILD** — Gmina Ryki sells lokale mieszkalne only *bezprzetargowo na rzecz najemców* (confirmed in its 2024 Raport o stanie gminy); open oral auctions cover land plots only. Combined with the JS-driven Wrota Lubelszczyzny (`bip.lubelskie.pl`) registry CMS, there is no scrapeable open flat-auction stream to justify an adapter.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Ryki) publishes auction announcements on `https://umryki.bip.lubelskie.pl` (biplubelskie).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared biplubelskie platform engine and registered as an enabled pipeline feed.

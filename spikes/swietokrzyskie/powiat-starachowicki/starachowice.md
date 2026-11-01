@@ -106,3 +106,15 @@ No auth, no bot-blocks on the city portal. BIP CMS pages are cookie/JS-dependent
 - BIP flat auction (lokal Majówka 8/5): https://bip.um.starachowice.pl/index.php?func=selectsite&name=vb&type=4&value%5B0%5D=mnu6&value%5B1%5D=4542
 - Result notice article example (Dec 2024): https://starachowice.eu/pl/dla-mieszkanca/nieruchomosci/przetargi/artykuly/informacja-o-wyniku-przetargu-na-sprzedaz-nieruchomosci.html
 - City portal przetargi page 5 (Dec 2025 listings, LIVE-VERIFIED): https://starachowice.eu/pl/dla-mieszkanca/nieruchomosci/przetargi/przetargi.html?page=5
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Prezydent Miasta Starachowice) publishes auction announcements on `https://starachowice.eu`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

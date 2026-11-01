@@ -38,3 +38,16 @@ Contact: Urząd Miejski, Plac Kościuszki 1, Sokółka; tel. 85 711 09 03.
 - **Scope blocker (decisive):** the project targets **open flat-sale auctions**. Sokółka publishes **near-zero** lokale-mieszkalne auctions; flats go *bezprzetargowo na rzecz najemcy*, and ZGKiM only runs *najem* (rentals). The recurring open-auction stream is land + commercial + building shares, not flats.
 
 **VERDICT: NO-BUILD** — clean, scrapeable Wrota Podlasia/podlaskie.eu server-HTML board with colocated achieved-price PDFs, but **no recurring open flat-sale auctions** (2024–2025 = 0 lokale mieszkalne; flats sold bezprzetargowo to tenants). Revisit only if scope broadens to land/commercial, where it becomes a Low-effort build.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Sokółki) publishes auction announcements on `https://bip.sokolka.pl` (Wrota Podlasia).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

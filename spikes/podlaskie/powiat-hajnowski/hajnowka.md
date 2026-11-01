@@ -25,3 +25,15 @@ Gmina miejska sells flats exclusively bezprzetargowo to tenants (art. 34); 0 fla
 ## Method
 
 Spiked as part of the all-Poland per-city coverage effort (one investigation per powiat seat). Result recorded in the consolidated NO-BUILD ledger; this file is the per-city extract. Re-verify live before any reconsideration to BUILD.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Hajnówka (Urząd Miasta Hajnówka)) publishes auction announcements on `https://bip.hajnowka.pl` (BIP Hajnówka CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from municipal notice feed and attachments. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

@@ -89,3 +89,14 @@ Gmina Miasto Kraśnik auctions only land/plots (działki) at ustny przetarg nieo
 - jakiwniosek.pl — bezprzetargowy tenant buyout confirmed: https://jakiwniosek.pl/wnioski/nieruchomosci/wykup-mieszkania-komunalnego/krasnik
 - InfoKraśnik — TBS dispute (TBS ≠ city-owned): https://infokrasnik.pl/2023/05/spor-mieszkancow-tbs-z-zarzadca/
 - BIP Gmina Kraśnik (wiejska, separate entity): https://krasnik.e-bip.eu/index.php?id=78
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Kraśnik) publishes auction announcements on `https://przetargi.adradar.pl` (biplubelskie).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared biplubelskie platform engine and registered as an enabled pipeline feed.

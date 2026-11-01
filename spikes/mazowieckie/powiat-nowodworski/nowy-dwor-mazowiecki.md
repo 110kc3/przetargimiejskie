@@ -41,3 +41,16 @@ Contact: Wydział Gospodarki Nieruchomościami, Urząd Miejski, ul. Zakroczymska
 - **Effort:** — (n/a — no flat-auction product to build).
 
 **VERDICT: NO-BUILD** — clean, easily-scrapable bip.net/extranet BIP, but residential disposal is tenant right-to-buy (bezprzetargowo, −90%), the przetarg stream is land-only, and the ZBK housing company runs no sale auctions. ~0 recurring open flat auctions = correct NO-BUILD.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Nowy Dwór Mazowiecki (Urząd Miejski w Nowym Dworze Mazowieckim)) publishes auction announcements on `https://bip.nowydwormaz.pl` (BIP e-bip.pl CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified active/historical notices in test suite.
+
+Announcements parsed from municipal notice feed and attachments. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

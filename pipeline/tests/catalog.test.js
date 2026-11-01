@@ -3,7 +3,7 @@ import {buildCityCatalog} from '../src/core/city-catalog.js';
 const read=p=>JSON.parse(readFileSync(new URL('../../'+p,import.meta.url),'utf8'));
 test('official compact catalogue includes every enabled city independent of SEO eligibility',()=>{
  const manifest=read('spikes/master-cities.json'),index=read('data/index.json');const c=buildCityCatalog(manifest,index,{now:new Date('2026-10-18T12:00:00Z')});
- assert.equal(c.cities.length,1026);assert.equal(c.cities.filter(c=>c.searchable).length,121);
+ assert.equal(c.cities.length,1026);assert.equal(c.cities.filter(c=>c.searchable).length,index.cities.length);
  assert.equal(new Set(c.cities.map(c=>c.simc)).size,1026);
  assert.ok(c.cities.some(c=>c.searchable&&!c.seo_indexable));
  assert.ok(c.cities.filter(c=>!c.searchable).every(c=>c.active_auctions===null&&c.land_plots===null));

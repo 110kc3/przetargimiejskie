@@ -157,3 +157,14 @@ of the city. Effort to build an adapter would be wasted regardless of technical 
 - https://przetargi.adradar.pl/p/a/23709/Radomsko/przetargi?page=1&sort=termin_desc — Adradar: all Radomsko auctions by all organisers
 - https://rsm-radomsko.pl/przetargi/ — RSM flat auction listings (LIVE-VERIFIED: WordPress, text PDF, monthly flat auctions by cooperative)
 - http://bip2.pgk-radomsko.pl/przetargi/fc — PGK BIP przetargi (service contracts only)
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Radomsko) publishes auction announcements on `https://bip.radomsko.pl/bipkod/009/003` (finn).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared finn platform engine and registered as an enabled pipeline feed.

@@ -61,3 +61,15 @@ Note: Do NOT confuse with **Gmina Kolno** (wiejska, Wójt) — separate entity o
 - Legacy HTTP-only BIP alias may redirect or drop; use `bip-umkolno.wrotapodlasia.pl` (HTTPS) as canonical.
 
 **Verdict: BUILD — Medium effort.** Standard wrotapodlasia.pl scrape with multi-round deduplication logic. Low volume limits value but confirms the pipeline pattern for the platform. If Zambrów adapter already exists, reuse with config pointing at Kolno's section hash.
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Kolno) publishes auction announcements on `https://bip-umkolno.podlaskie.eu`.
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements and result notices parsed and verified with unit test suite.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

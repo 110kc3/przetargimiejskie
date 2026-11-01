@@ -46,3 +46,16 @@ Contact: Wydział Gospodarki Gruntami, ul. Bankowa 18, Police. ZGKiM: ul. Bankow
 ```json
 {"city_slug":"police","voivodeship":"zachodniopomorskie","powiat_slug":"powiat-policki","status":"no-build","effort":"—","confidence":"LIVE","note":"ZGKiM housing mgr but lease-only; Logonet eUrzad BIP bip.police.pl sale board skews land+dzierzawa; flats disposed bezprzetargowo na rzecz najemcy; open flat auctions ~0 (Nowopol 38/6 sole candidate, now 404); no flat hammer-price board; analog chelmno","host":"bip.police.pl","cms":"Logonet eUrzad"}
 ```
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Polic) publishes auction announcements on `https://bip.police.pl/przetargi-nieruchomosci/376` (Logonet eUrząd).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

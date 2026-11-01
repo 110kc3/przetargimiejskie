@@ -86,3 +86,14 @@ Result notices (wyniki przetargów): The BIP path https://bip.umsieradz.pl/bipko
 - Adradar flat przetargi Sieradz (SSM dominant): https://przetargi.adradar.pl/przetargi/mieszkania/24469/Sieradz/all
 - jakiwniosek.pl — wykup mieszkania komunalnego Sieradz: https://jakiwniosek.pl/wnioski/nieruchomosci/wykup-mieszkania-komunalnego/sieradz
 - Sieradzka Spółdzielnia Mieszkaniowa: https://ssmsieradz.pl/przetargi
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Sieradz) publishes auction announcements on `https://bip.umsieradz.pl/bipkod/036` (finn).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared finn platform engine and registered as an enabled pipeline feed.

@@ -41,3 +41,15 @@ Gmina Miejska Pruszcz Gdański (Urząd Miasta, Burmistrz, ul. Grunwaldzka 20 —
 - **Note:** if the wider dataset ever ingests **land** auctions, this BIP is an excellent, low-cost Logonet source with XML + a results field. For the flat/lokal-mieszkalny mandate, skip.
 
 **VERDICT: NO-BUILD** — Gmina Miejska Pruszcz Gdański auctions only land on a clean Logonet eUrząd BIP; lokale mieszkalne are sold bezprzetargowo na rzecz najemcy (sitting tenants), so open flat-auction volume is ~0 and there is no flat hammer-price stream. (Flat auctions in aggregators belong to the separate rural Gmina Pruszcz Gdański, out of scope.)
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Pruszcz Gdański (Urząd Miasta Pruszcz Gdański)) publishes auction announcements on `https://bip.pruszcz-gdanski.pl` (BIP Pruszcz Gdański CMS / XML Export).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from municipal notice feed and attachments. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

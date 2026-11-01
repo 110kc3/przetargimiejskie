@@ -159,3 +159,15 @@ Q3 (format) resolved BUILD-favourable, but Q1/Q2 resolved fatal: no recurring op
 - BIP Gospodarowanie nieruchomościami (bezprzetargowa procedure): `https://umgostynin.bip.org.pl/id/2192`
 - ListaPrzetargow.pl — Gostynin (housing cooperative SM Polam, NOT municipal): `https://listaprzetargow.pl/oferty/217667`
 - WebSearch: "Gostynin Burmistrz ogłasza przetarg lokal mieszkalny" — confirmed Q2 2024 annotation re: Wojska Polskiego 28B lokal 83
+
+## Partial source/asset audit — 2026-10-30
+
+The official municipal publisher (Burmistrz Miasta Gostynina (Urząd Miasta Gostynina)) publishes auction announcements on `https://umgostynin.bip.org.pl` (bip.org.pl CMS).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+
+Announcements parsed from server-rendered HTML boards (/id/4667 and /id/2294) with registered intermediate CA. Unit tests: 11/11 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

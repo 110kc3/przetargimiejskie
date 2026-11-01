@@ -270,7 +270,8 @@ async function load(){
   try{
     const response=await fetch('/data/catalog.json');if(!response.ok)throw new Error('HTTP '+response.status);
     catalogue=await response.json();
-    document.getElementById('sub').textContent=`${catalogue.cities.length} miast w oficjalnym katalogu · ${catalogue.cities.filter(c=>c.searchable).length} aktywnych kanałów danych. Wybierz miasto, aby wczytać jego aukcje.`;
+    catalogue.cities=(catalogue.cities||[]).filter(c=>c.pipeline_id&&c.searchable);
+    document.getElementById('sub').textContent=`${catalogue.cities.length} miast z aktywnym monitoringiem. Wybierz miasto, aby wczytać jego aukcje.`;
     const picker=ZGM_CATALOG.mount({container:document.getElementById('city-catalog'),catalog:catalogue,onSelect:selectCity});
     const city=new URLSearchParams(location.search).get('city');
     const entry=city?catalogue.cities.find(c=>c.id===city||c.pipeline_id===city):null;

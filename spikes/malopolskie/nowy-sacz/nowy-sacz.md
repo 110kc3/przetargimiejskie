@@ -132,3 +132,16 @@ Nowy Sącz is a **borderline case**. It runs occasional flat auctions (confirmed
 **Verdict: NO-BUILD.** The desk spike's own gate was "≥5 flat auctions in past 2 years → BUILD; <5 → park". Live count: **0 in the past 2 years** (3 lifetime, all one building in one month). No recurring residential stream exists to scrape. Park; revisit only if the 2026/2027 bonifikata reform visibly shifts disposals from tenant sales to open auctions — the JSON-API crawl above makes any future re-check a five-minute job (`/api/menu/285761/articles`, title-grep `lokal.*mieszkal`).
 
 **Side finding for the pipeline (do not lose):** bip.malopolska.pl needs **no headless renderer** — `/api/articles/{id}` + `/api/menu/{id}/articles` return everything as JSON. The Chrzanów adapter's Playwright path (`pipeline/src/cities/chrzanow/crawl.js`, `needsRender: true`) could be replaced with plain fetches, and any future Małopolska-platform city (Kraków, Tarnów, Bochnia, Olkusz…) should use the API directly.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Prezydent Miasta Nowego Sącza) publishes auction announcements on `https://bip.malopolska.pl/nowysacz` (MADKOM eBIP).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

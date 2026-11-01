@@ -38,3 +38,14 @@ Gmina Miejska Słupca (a ~13k-inhabitant town gmina, **Burmistrz**) publishes al
 - **Effort:** — (not applicable).
 
 **VERDICT: NO-BUILD** — Gmina Miejska Słupca sells flats predominantly *bezprzetargowo na rzecz najemcy* (80% bonifikata); open flat auctions are non-recurring (~1 in 3 years), the only recurring auction stream is land, and there is no achieved-price board. FINN CMS, mirroring the Sieradz NO-BUILD precedent.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Słupca) publishes auction announcements on `https://www.bip.umslupca.finn.pl/bipkod/005/006/003?showArchive=true`**` (finn).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared finn platform engine and registered as an enabled pipeline feed.

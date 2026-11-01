@@ -43,3 +43,14 @@ Contact: Urząd Miasta Tomaszów Lubelski, **Wydział Gospodarki Komunalnej** (h
 - **Blockers:** (1) tiny flat volume (≈1 unit cycling); (2) AJAX-populated registry (no static list); (3) inactive/empty results board → no achieved-price stream.
 
 **VERDICT: NO-BUILD** — flats do reach open oral auction here (better than pure bezprzetargowo), but the live flat pipeline is a single recurring unit, the Wrota Lubelszczyzny registry is AJAX-gated, and the results board yields no achieved-price stream. Skip unless a shared `bip.lubelskie.pl` adapter is built and this seat rides along for free.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Tomaszów Lubelski) publishes auction announcements on `https://umtomaszowlubelski.bip.lubelskie.pl` (biplubelskie).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared biplubelskie platform engine and registered as an enabled pipeline feed.

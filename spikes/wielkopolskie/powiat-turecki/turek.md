@@ -43,3 +43,14 @@ Authority: Urząd Miejski w Turku, Wydział Gospodarki Nieruchomościami i Lokal
 - **Blocker (decisive):** **no target signal.** Zero open flat auctions in ~3.5 years; the municipal-flat volume is sold bezprzetargowo to tenants (wykaz-only, no przetarg). The auction stream that IS scrapeable is land/garages, and notices expire to 404 (thin, live-window-only history). Building here yields land records only — not the flat-auction dataset this project targets.
 
 **VERDICT: NO-BUILD** — clean AlfaTV server-HTML BIP with a real auction + results board, but the stream is **land/garages/rentals only**; municipal flats are disposed to sitting tenants bezprzetargowo (wykaz, no auction). No open flat-auction stream to extract. Effort N/A. Re-verify only if Turek later switches to selling flats by open przetarg.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Turek) publishes auction announcements on `https://bip.miastoturek.pl/przetargi/361/status/0/` (systemdobip).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared systemdobip platform engine and registered as an enabled pipeline feed.

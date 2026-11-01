@@ -39,3 +39,14 @@ Gmina Miasto Sierpc (Urząd Miejski, Burmistrz Miasta Sierpca) runs `przetarg us
 - **Effort:** — (no-build).
 
 **VERDICT: NO-BUILD** — Gmina Miasto Sierpc sells flats only bezprzetargowo to sitting tenants (with bonifikata); its open oral auctions on `bip.sierpc.pl` are undeveloped land + one lease, giving ~0 municipal flat-sale auctions per year. Clean scrapeable BIP, but nothing in scope to build.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Sierpc) publishes auction announcements on `https://bip.sierpc.pl` (finn).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Adapter built using shared finn platform engine and registered as an enabled pipeline feed.

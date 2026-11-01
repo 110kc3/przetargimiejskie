@@ -74,3 +74,16 @@ Scraping path: ikrotoszyn.pl is readable, but it is a *news republication* of of
 **Effort if reversed to BUILD:** Medium — would need headless-browser scraper for BIP index (or ikrotoszyn.pl as proxy), PDF parser for attachment-type notices, and a manual/email lookup for achieved prices. Adapter code ~2–3 days; ongoing data value near zero.
 
 **VERDICT: NO-BUILD** — volume is too low (1 flat/year in open auction), achieved-price data is offline-only, and the BIP requires headless rendering. The gmina's dominant flat-disposal method is bezprzetargowy tenant sale. Revisit only if a dedicated housing company (ZGM/TBS) is ever established for Krotoszyn that publishes its own flat-auction board.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Krotoszyna) publishes auction announcements on `https://bip.um.krotoszyn.pl` (MADKOM eBIP).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

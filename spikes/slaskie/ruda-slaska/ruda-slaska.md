@@ -1,11 +1,10 @@
 # Spike — Ruda Śląska (Śląskie · Ruda Śląska (miasto na prawach powiatu))
 
-> **Status:** ⏸️ DEFERRED — auto-generated from project state 2026-06-27.
+> **Status:** 🟢 BUILT — adapter implemented in pipeline/src/cities/ruda-slaska.
 > Methodology: [EXPANSION.md](../../../EXPANSION.md) · template [SPIKE-TARNOWSKIE-GORY.md](../../../SPIKE-TARNOWSKIE-GORY.md).
 
-## Verdict: DEFERRED
+## Verdict: BUILD
 
-Has municipal sale auctions but flat-auction volume was too thin to prioritise; revisit on volume. Tracked as DEFERRED in TODO.md.
-
+Platform: `rudaslaska.bip.info.pl` running standardized BIP.INFO.PL CMS with active competitive property auctions in `idmp=4479` (Zbycie gruntów) and `idmp=4478` (Zbycie lokali).
 - **Type:** miasto na prawach powiatu.
-- Re-spike when checking flat-auction volume; promote to BUILD if a live ustny przetarg na sprzedaż lokali mieszkalnych stream is confirmed.
+- **Pipeline:** `ruda-slaska` (Engine: bipinfo-bip).

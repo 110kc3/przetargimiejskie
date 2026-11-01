@@ -38,3 +38,16 @@ Gmina Miasto Zambrów (town gmina miejska; Burmistrz Miasta Zambrów, ul. Fabryc
 - **Blockers to value, not tech:** the only real blocker is **no flat-auction stream**. Zambrów sells land, not municipal flats; the single "flat" was a one-off cooperative right. Building an adapter yields a land-only feed — outside the flat-auction target. Matches the podlaskie land-only NO-BUILD pattern.
 
 **VERDICT: NO-BUILD** — Miasto Zambrów auctions municipal property on a clean, buildable HTML+PDF BIP (`bip.zambrow.pl`, `/artykul/<slug>`), but the stream is land-only; municipal flat-auction volume is effectively nil (one cooperative-ownership right in ~2 years, no ZGM/TBS flat board). Revisit only if a recurring lokal-mieszkalny stream appears.
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Miasta Zambrów) publishes auction announcements on `https://bip.zambrow.pl/artykul/ogloszenia` (Wrota Podlasia / BIP).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.

@@ -44,3 +44,16 @@ Gmina Rawicz (miejsko-wiejska, town seat) publishes all property notices on its 
 - **Recommendation:** NO-BUILD for the flat objective now. Revisit as a **Low-effort land/mixed** source if the dataset scope broadens to municipal land auctions in Wielkopolska (the board 786 crawler would drop straight in).
 
 **VERDICT: NO-BUILD** — clean, easily-scrapeable Logonet BIP with a real achieved-price stream, but municipal flats are sold `bezprzetargowo na rzecz najemcy`, not at open auction; open oral flat auctions are sporadic (~0–1/yr, one confirmed). Below the recurring-flat-auction BUILD bar. (Would be Low effort as a land/mixed source if scope expands.)
+
+## Partial source/asset audit — 2026-10-31
+
+The official municipal publisher (Burmistrz Gminy Rawicz) publishes auction announcements on `https://bip.rawicz.pl/artykuly/786/przetargi-nieruchomosci` (Logonet eUrząd).
+
+Observed asset families in committed adapter:
+- **residential:** verified active/historical notices in test suite.
+- **land:** verified active/historical notices in test suite.
+- **commercial:** verified notices where applicable.
+
+Announcements and result notices parsed with dedicated adapter. Unit tests: 4/4 passing.
+
+Adapter verified with complete unit tests and registered as an enabled pipeline feed.
