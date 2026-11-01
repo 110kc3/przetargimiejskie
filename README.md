@@ -2,7 +2,7 @@
 
 A pipeline that scrapes municipal property auctions from Polish cities (nationwide coverage that began with the Silesian / Górnośląsko-Zagłębiowska cluster), plus an isolated pilot for nationwide institutional sellers, parses them into structured JSON, and surfaces price/round history — so that when browsing an active auction listing you can see whether the property has been offered before, in which round, and at what prices.
 
-**Coverage inventory:** **1,026 official cities and towns**, keyed by GUS SIMC: 121 monitored adapters, 215 other previously surveyed cities and 690 unresearched cities. The generated state is [`spikes/SPIKE-PROGRESS.md`](./spikes/SPIKE-PROGRESS.md); monitored-city counts and source hosts are in [`data/index.json`](./data/index.json). Each adapter lives under `pipeline/src/cities/<city>/` and is registered in `pipeline/src/cities/index.js`.
+**Coverage inventory:** **1,026 official cities and towns**, keyed by GUS SIMC: **619 monitored adapters** registered in `pipeline/src/cities/index.js`, **404 audited no-build municipalities** (with documented statutory tenant pre-emption or lack of open competitive electronic auctions), **3 dropped**, **0 deferred**, and **0 unresearched**. The generated state is [`spikes/SPIKE-PROGRESS.md`](./spikes/SPIKE-PROGRESS.md); monitored-city counts and source hosts are in [`data/index.json`](./data/index.json). Each adapter lives under `pipeline/src/cities/<city>/` and is registered in `pipeline/src/cities/index.js`.
 
 The production architecture is deliberately simple: **GitHub-hosted pipeline → JSON committed to this repo → Chrome extension fetches the JSON from `raw.githubusercontent.com`.** No private runner, private-network tunnel, paid service or hosted database is required. See [PLAN.md](./PLAN.md) for the why.
 
@@ -142,7 +142,7 @@ Lives in [`extension/`](./extension). MV3, no build step, no dependencies. Load 
 
 What it does:
 
-- **Background service worker** (`background.js`) reads `data/catalog.json`: all 1,026 official cities and 121 enabled feeds, including honest unavailable/unknown states. It loads a selected city or the current overlay's city, and scans only watched cities for notifications. Per-city public JSON is fetched with bounded concurrency and a six-hour soft TTL; at most eight city payloads are stored, with last-good fallback. Keys remain namespaced and legacy watchlist/address aliases migrate without dropping history.
+- **Background service worker** (`background.js`) reads `data/catalog.json`: all 1,026 official cities and 619 enabled feeds, including honest unavailable/unknown states. It loads a selected city or the current overlay's city, and scans only watched cities for notifications. Per-city public JSON is fetched with bounded concurrency and a six-hour soft TTL; at most eight city payloads are stored, with last-good fallback. Keys remain namespaced and legacy watchlist/address aliases migrate without dropping history.
 - **Content script** (`content.js` + per-site adapters in `sites/`) runs on each covered host:
   - On listing index pages: appends a stats chip to each card — round (`2. przetarg`), starting price, area, zł/m², a **deal score** (`▼ N% below median` / `▲ N% above median` vs the city's median zł/m²), auction date — plus a color-coded history badge (green = no prior auctions / `brak danych archiwalnych` for a re-listing we have no archive for; gray = previously sold; amber = one prior unsold; red = ≥2 unsold). Hover for the full prior-attempt table.
   - On property-detail pages: injects a sidebar with a chronological history table and a price-delta summary versus the first historical attempt.
@@ -202,7 +202,7 @@ OVH is the **only** deploy path (the former GitHub Pages fallback, `pages.yml`, 
 
 ## Current coverage (data quality notes)
 
-Counts per city live in `data/<city>/meta.json` and `data/index.json`. Achieved sold-price history is no longer Gliwice-only — most adapters (~45 of 55) parse achieved-price result streams; Gliwice's OCR'd result PDFs remain the deepest history. A handful of cities (Bytom, Bielsko-Biała, Rybnik, Świnoujście, Nowa Sól, Gdańsk) publish no usable result stream and stay active-only.
+Counts per city live in `data/<city>/meta.json` and `data/index.json`. Achieved sold-price history is no longer Gliwice-only — adapters across the 619 monitored cities parse available result notices and active announcements; Gliwice's OCR'd result PDFs remain the deepest historical set. Municipalities without online result announcements stay active-announcement monitored.
 
 ### Gliwice
 

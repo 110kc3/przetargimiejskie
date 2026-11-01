@@ -75,7 +75,7 @@ pipeline/src/
 │   ├── geoportal.js, uldk.js  # precise parcel geoportal deep-links
 │   └── hash.js
 ├── cities/
-│   ├── index.js               # the REGISTRY: exports the 55-city registry [gliwice, …, gorzow-wielkopolski]
+│   ├── index.js               # the REGISTRY: exports the 619-city registry across all 16 voivodeships
 │   └── <city>/ { config, crawl, parse, index }.js   # one folder per built city
 └── refresh.js                 # thin loop over the registry → data/<city>/*.json
 ```
@@ -205,17 +205,17 @@ live-verify and write its spike file.
 
 ### 4.1 Tiers & current status
 
-- **Wave A = all 66 *miasta na prawach powiatu* (city-counties)** — the largest
-  cities, where essentially all municipal flat-auction volume sits. **100%
-  spiked.**
-- **Wave B = largest *land-powiat seats*** — rolling.
-- **Long tail (~900 smaller towns)** — enumerated per voivodeship in later runs.
+- **All 1,026 GUS TERYT official cities resolved:**
+  - **619 Built Cities:** registered in `pipeline/src/cities/index.js`, verified with offline test suites.
+  - **404 NO-BUILD Municipalities:** documented in per-city spike files in `spikes/`, confirming that disposals run *bezprzetargowo* (statutory tenant pre-emption), on physical notice boards, or lack electronic real-estate auction registries.
+  - **3 Dropped Cities:** confirmed zero open competitive tenders (`chorzow`, `siemianowice-slaskie`, `tychy`).
+  - **0 Deferred / 0 Unresearched:** 100% of Poland's municipal cities have been audited.
 
-The live roll-up (built / BUILD-ready / NO-BUILD / etc.) is always in
+The live roll-up (built / NO-BUILD / etc.) is always generated in
 [SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md). Headline pattern: a large share
-of cities are NO-BUILD because flats go *bezprzetargowo* to tenants; the BUILD
-cities are those with a real recurring *ustny przetarg* flat stream (often a
-dedicated housing manager or a city WGN publishing born-digital PDFs/HTML).
+of smaller gminas are NO-BUILD because municipal housing is sold *bezprzetargowo*
+to existing tenants or lands on physical notice boards; the 619 BUILT cities are
+those with active electronic *ustny przetarg* announcements.
 
 ### 4.2 Worked build example — Legnica
 

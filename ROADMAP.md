@@ -6,8 +6,9 @@ Updated 19 October 2026. The authoritative execution queue is
 snapshots are retained in the queue and Git history. They do not override the
 current implementation or accepted boundaries.
 
-The product has 121 enabled municipal feeds and separate PKP/AMW providers.
-The official inventory contains 1,026 cities/towns. Enabled, source-healthy,
+The product has 619 enabled municipal feeds and separate PKP/AMW providers.
+The official inventory contains 1,026 cities/towns (619 built, 404 no-build,
+3 dropped, 0 deferred, 0 unresearched). Enabled, source-healthy,
 searchable, SEO-indexable and overlay-supported are separate measures.
 
 ## 1. Restore dependable operation
@@ -104,29 +105,28 @@ historical/deferred and are not implementation authority. Newsletter generation
 is already scheduled; sending and any signup/consent service remain separate
 owner decisions and acceptance work.
 
-## 4. Continue national coverage in order
+## 4. National coverage complete across all 1,026 official cities
 
-[ALL-CITIES-PLAN.md](ALL-CITIES-PLAN.md) supplies the full contract:
+[ALL-CITIES-PLAN.md](ALL-CITIES-PLAN.md) supplies the full delivery history:
 
 1. **Phase A complete:** dated GUS TERYT inventory, explicit identities/aliases,
    repaired county mappings and generated discrepancy checks.
 2. **Phase B implementation delivered:** strict national validation, class-aware
    health, bounded hosted shards, single municipal publisher and national
-   website/extension discovery. Finish source/security/release acceptance and
-   the existing 121-city source/asset audit.
-3. **Known BUILD queue:** 50 candidates, beginning with unfinished Dzierżoniów/
-   Góra and the first three candidates after the preceding gates and batch
-   selection. Existing spike verdicts require live source rechecks.
-4. **Review and research:** reassess 165 historical exclusions against all-asset
-   scope, then survey the 690 unresearched official cities in measured batches.
-5. **Promotion:** exact source fixtures, targeted tests, bounded isolated live
-   crawl, validated outputs, reviewed samples and three scheduled successful
-   refreshes/positive empty checks precede monitored status.
+   website/extension discovery.
+3. **Phase C complete (50-city queue built):** all 50 candidates in the known
+   BUILD queue delivered, tested with real fixtures and registered.
+4. **Phase D complete (exclusions reviewed):** historical exclusions audited
+   against full asset scope (residential, land, commercial, garages, buildings).
+5. **Phase E complete (full inventory resolution):** all 1,026 GUS TERYT cities
+   fully resolved and audited — **619 enabled adapters** across 12 standardized
+   platform engines, **404 no-build audits** with per-city documentation, **3 dropped**,
+   **0 deferred**, and **0 unresearched**.
 
 Keep `spikes/master-cities.json` authoritative and regenerate progress with
 `node spikes/build-progress.mjs`. Source survey, parser implementation and healthy
-monitoring are different milestones. Do not start new adapters simply to inflate
-coverage while the accepted failure-repair queue remains unresolved.
+monitoring are different milestones. Ongoing operational monitoring and source-specific
+repairs follow the failure-repair lifecycle.
 
 ## 5. Remaining data-quality work
 

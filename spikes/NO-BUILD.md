@@ -1,6 +1,6 @@
 # NO-BUILD — spiked cities with no usable municipal flat-auction stream
 
-> Consolidated record (replaces individual NO-BUILD spike .md files). 73 cities. Dominant reason: flats sold *bezprzetargowo* to tenants, leaving only land/commercial at auction. Machine-readable status: [master-cities.json](./master-cities.json).
+> Consolidated historical record of early NO-BUILD spike files (the comprehensive national audit of all 404 NO-BUILD cities across all 1,026 official cities is tracked authoritatively in [master-cities.json](./master-cities.json) and [SPIKE-PROGRESS.md](./SPIKE-PROGRESS.md)). Dominant reason: flats sold *bezprzetargowo* to tenants, leaving only land/commercial at auction. Machine-readable status: [master-cities.json](./master-cities.json).
 
 ## Dolnośląskie (2)
 

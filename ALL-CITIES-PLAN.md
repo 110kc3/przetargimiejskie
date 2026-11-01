@@ -180,7 +180,8 @@ After the pilot, forecast from **remaining research / measured research rate + q
 - Scheduled refresh, class-aware health, per-source failure detection, history retention and publication pass at full scale for 14 consecutive days without silent omissions. Document genuine upstream outages as coverage gaps; do not reset freshness to hide them.
 - Runtime, source request volume, storage and maintenance effort fit the measured operating budget. Quarterly source reviews and periodic GUS imports generate actionable changes.
 
-Phase A is complete. B1/B2 follow-up remediation and Phase B3 implementation
-are locally verified as of 19 October 2026, with hosted recovery/store acceptance
-recorded in TODO. The known expansion/research queues remain separate; the
-October selection did not authorize starting them.
+Phase A, B, C, D, and E are complete as of November 2026.
+The complete national GUS TERYT city inventory of 1,026 official cities has been
+audited and onboarded: **619 built adapters** registered in `pipeline/src/cities/index.js`,
+**404 audited no-build municipalities** documented in per-city spike notes, **3 dropped**,
+**0 deferred**, and **0 unresearched**. The generated state is tracked in [spikes/SPIKE-PROGRESS.md](spikes/SPIKE-PROGRESS.md).

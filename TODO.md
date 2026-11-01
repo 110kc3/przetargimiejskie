@@ -66,7 +66,7 @@
     - 24 previously overlooked candidate cities promoted from no-build to built across MADKOM, REKORD SI, Logonet, and Nefeni engines (including Rumia, Bytów, Aleksandrów Łódzki, Ustka, Żukowo, Skarszewy, Pelplin, Gniew, Brzeg Dolny, Jelcz-Laskowice, Oborniki Śląskie, Zielonka, Brwinów, Pobiedziska, Wieleń, Cedynia, Gościno, Miękinia, Prusice, Olszyna, Lubowidz, Jutrosin, Kościan, Kowal).
   - **3 Dropped & 0 Deferred Remaining:** The 3 remaining dropped cities (`chorzow`, `siemianowice-slaskie`, `tychy`) were confirmed to have 0 competitive open residential/land auctions (tenant pre-emption wykazy, commercial leases, or PZP public procurement only). All deferred cities are 100% resolved.
   - **0 Unresearched Cities remaining.**
-- **9 Standardized Core Platform Engines:**
+- **12 Standardized Core Platform Engines:**
   - `madkom-bip.js` (MADKOM eBIP REST API & Angular SPA)
   - `logonet-bip.js` (Logonet eUrząd v2.9.x estate module)
   - `biplubelskie-bip.js` (BIP Lubelskie regional DataTables Ajax)
@@ -76,12 +76,15 @@
   - `biuletynnet-bip.js` (`*.biuletyn.net` standardized engine)
   - `conceptintermedia-bip.js` (CONCEPT Intermedia SAM 3)
   - `smartsite-bip.js` (SmartSite by BIT Sp. z o.o.)
+  - `rekordsi-bip.js` (REKORD SI BIP platform)
+  - `nefeni-bip.js` (Nefeni BIP2 platform)
+  - `bipinfo-bip.js` (BIP.INFO.PL engine)
 - **All Quality Gates Green:**
-  - `node pipeline/src/build-index.js`: 590 cities written.
-  - `node spikes/build-progress.mjs`: 1026 cities (590 built, 428 no-build, 6 dropped, 2 deferred, 0 unresearched).
-  - `node spikes/inventory/import-teryt.mjs verify`: 1026 official cities, 590 enabled, 380 powiat rows.
-  - `node pipeline/scripts/sanity-check.js`: 133 city files clean.
-  - `bash build-site.sh _site`: 3,200 sitemap URLs, self-canonical, zero noindex errors.
+  - `node pipeline/src/build-index.js`: 619 cities written.
+  - `node spikes/build-progress.mjs`: 1026 cities (619 built, 404 no-build, 3 dropped, 0 deferred, 0 unresearched).
+  - `node spikes/inventory/import-teryt.mjs verify`: 1026 official cities, 619 enabled, 380 powiat rows.
+  - `node pipeline/scripts/sanity-check.js`: 134 city files clean.
+  - `bash build-site.sh _site`: 3,216 sitemap URLs, self-canonical, zero noindex errors.
   - `npm test --prefix pipeline`: >4,900 unit tests passing without error.
   - `RUN_BROWSER_TESTS=1 CATALOG_SITE_DIR=_site node --test pipeline/tests/catalog-browser.test.js`: 4/4 passing in Chromium.
   - Zero null bytes verified across repository.
@@ -1195,10 +1198,9 @@ current owner action or a prerequisite for the municipal pilot.
 - **Phase B3 — implemented (`6ac3fd36c`):** national website/extension discovery,
   bounded selected-city loading and release package/browser checks are complete.
   Owner store acceptance and ongoing source recovery remain open.
-- **NEXT:** source-specific health repairs and the current 121-city source/asset
-  audit. The separate 50-city BUILD queue follows the Phase B acceptance gates.
-- **National research:** after Phase B gates and the known 50-city queue, review
-  165 historic exclusions against the broader asset scope and survey the 690
-  unresearched official cities in measured batches. See [ALL-CITIES-PLAN.md](./ALL-CITIES-PLAN.md).
-- **Deferred revisits:** Jaworzno, Żory, Ruda Śląska (deferred on flat-auction
-  volume — re-spike if volume appears).
+- **Phase C, D & E — completed nationwide expansion (November 2026):**
+  - All 50 candidates in the known BUILD queue were delivered, tested and registered.
+  - All 165 historical exclusions were re-reviewed across all asset classes (residential, land, commercial, garages, buildings).
+  - All 690 remaining official cities in the GUS TERYT denominator were surveyed and audited.
+  - Jaworzno, Częstochowa, Ruda Śląska, Piekary Śląskie, Dąbrowa Górnicza and 24 other candidates were promoted to built status with dedicated or platform-engine adapters.
+  - Final national resolution: **1,026 official cities** (619 built, 404 no-build audits, 3 dropped, 0 deferred, 0 unresearched). Monitored adapters registered across 12 standardized platform engines in `pipeline/src/cities/index.js`. See [ALL-CITIES-PLAN.md](./ALL-CITIES-PLAN.md) and [spikes/SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md).

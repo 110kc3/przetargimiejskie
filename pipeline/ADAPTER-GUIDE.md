@@ -112,13 +112,22 @@ build-properties → merge-history → write data/<city>/*.json`.
 Most Polish BIPs run one of a handful of CMS platforms. Identify the host's
 platform, then **clone the closest existing adapter** instead of starting cold.
 
-| CMS / platform | host shape | analog adapters | how data comes |
+| CMS / platform | host shape | analog adapters / core engine | how data comes |
 |---|---|---|---|
-| **Logonet eUrząd** | `/artykul/<board>/<id>`, `/api/menu/<id>/articles` | `tarnowskie-gory`, `kedzierzyn-kozle`, `skarzysko-kamienna` | born-digital text PDFs (some scanned); result notices inline |
+| **MADKOM eBIP** | `/api/contexts/...`, `/api/menu/...` | `core/madkom-bip.js` (`makeMadkomCity`) | JSON REST API + Angular SPA contexts |
+| **Logonet eUrząd** | `/artykul/<board>/<id>`, `/api/menu/<id>/articles` | `core/logonet-bip.js` (`makeLogonetCity`), `tarnowskie-gory` | born-digital text PDFs (some scanned); result notices inline |
+| **BIP Lubelskie** | `/bip/`, DataTables ajax | `core/biplubelskie-bip.js` (`makeBipLubelskieCity`) | regional DataTables JSON endpoints |
+| **SystemDoBIP** | `/przetargi/<id>/status/{0,1}/` | `core/systemdobip.js` (`makeSystemDoBipCity`) | clean HTML feeds with category tabs |
+| **FINN BIP** | `/artykul/przetargi` | `core/finn-bip.js` (`makeFinnCity`) | Net-BIP v3 articles with attachments |
+| **WOKISS BIP** | `bip.<city>...` WOKISS engine | `core/wokiss-bip.js` (`makeWokissCity`) | Wielkopolska regional municipal engine |
+| **Biuletyn.net** | `*.biuletyn.net` | `core/biuletynnet-bip.js` (`makeBiuletynNetCity`) | standardized BIP notices & results |
+| **CONCEPT Intermedia** | SAM 3 CMS | `core/conceptintermedia-bip.js` (`makeConceptCity`) | structured estate notice tables |
+| **SmartSite** | `bipum.<city>…` / `bip.um.<city>…` | `core/smartsite-bip.js` (`makeSmartSiteCity`), `kielce`, `augustow` | HTML; results in DOCX or PDF |
+| **REKORD SI** | `bip.<city>…` / `…rekord.com.pl` | `core/rekordsi-bip.js` (`makeRekordSiCity`), `oswiecim`, `bielsko` | `/<board>/dokument/<id>`, `/api/download/file?id=` |
+| **Nefeni BIP2** | `bip.net.pl`, `/kategorie/` | `core/nefeni-bip.js` (`makeNefeniCity`) | structured multi-category municipal boards |
+| **BIP.INFO.PL** | `bip.info.pl` | `core/bipinfo-bip.js` (`makeBipInfoCity`) | standardized Silesian/national board format |
 | **IDcom** | `bip.<city>…/wiadomosci/<cat>/<id>` | `tczew`, `gniezno`, `gizycko` | HTML + text/scanned PDF attachments |
-| **SmartSite** | `bipum.<city>…` / `bip.um.<city>…` | `kielce`, `augustow` | HTML; results in DOCX or PDF |
 | **BIP-E.PL** | `um.bip.<city>…` boards | `legnica`, `gliwice`, `zabrze`, `bytom` | HTML boards + `.doc`/`.docx` results |
-| **REKORD SI** | `bip.<city>…` / `…rekord.com.pl` | `oswiecim`, `bielsko` | `/<board>/dokument/<id>`, `/api/download/file?id=` (**relative hrefs!**) |
 | **WordPress / custom HTML** | `<city>.pl/…`, `bip.<city>.pl` | `brzeg`, `nowa-sol`, `bochnia`, `olkusz`, `trzebinia` | HTML tables/articles, PDF attachments |
 | **Bespoke server-rendered** | varies | `krakow`, `lodz`, `slupsk` | in-band HTML + born-digital PDFs |
 | **JS SPA** (no server HTML) | `bip.malopolska.pl/...`, Liferay, Next.js | `chrzanow` (render.js); `warszawa` (ETO aggregator) | needs `core/render.js` (Playwright) |
