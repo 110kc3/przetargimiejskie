@@ -74,7 +74,7 @@ export function isSkippableTitle(title, slug) {
     /\bnajem\b|dzier[zż]aw/i.test(s) ||
     /lista\s+os[óo]b/i.test(s) ||
     /sprostowanie/i.test(s) ||
-    /(^|\W)wykaz\b|wywieszeniu\s+wykazu/i.test(s) ||
+    /(^|\W)wykaz\w*|wywieszeniu\s+wykazu/i.test(s) ||
     /odwo[łl]ani|uniewa[zż]ni/i.test(s) ||
     /rozstrzygni[ęe]ci\w*\s+skarg|skarg\w*\s+na\s+czynno/i.test(s) ||
     /\brokowani/i.test(s)

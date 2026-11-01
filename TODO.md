@@ -912,10 +912,8 @@ street contains that paragraph, `ogłasza`, `przetarg` or `Prezydent`. The build
   **No code change made.** Residual (cosmetic, optional, if WARN noise ever
   matters): a full-history reprocess emits ≥59 such WARNs — ~38 land-class + ~17
   wykaz-class (genitive "wykazu"/"podaniu … wykazu" that escape `isSkippableTitle`
-  whose `\bwykaz\b` matches only nominative). Extending `isSkippableTitle` to
-  `wykaz\w*` silences the ~17 wykaz WARNs; moving the grunt check before the
-  address gate reclassifies the land WARNs. Both are log-noise only.
-  **Owner:** agent (only if noise matters) · **Blockers:** none.
+  whose `\bwykaz\b` matched only nominative). Extended `isSkippableTitle` in `src/cities/tarnowskie-gory/parse.js` to
+  `wykaz\w*` and verified with unit tests in `tests/parse-tarnowskie-gory.test.js`.
 - **Tarnowskie Góry:** ~45 land plots (meta `land_plots: 45`) fall back to
   Google search because TG obręby are name-only — build a **TG obręb
   name→number map** for precise geoportal links (12 addr-only plots can never be

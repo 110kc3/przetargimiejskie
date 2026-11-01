@@ -30,6 +30,8 @@ import {
 test('isSkippableTitle: rentals, wykazy, lists, corrections, cancellations, rokowania', () => {
   assert.equal(isSkippableTitle('Burmistrz Miasta ogłasza przetarg ustny (licytację) ograniczony do branży na najem lokali użytkowych', ''), true);
   assert.equal(isSkippableTitle('Wykaz nieruchomości przeznaczonej do sprzedaży - lokal mieszkalny', ''), true);
+  assert.equal(isSkippableTitle('Informacja o podaniu do publicznej wiadomości wykazu nieruchomości', ''), true);
+  assert.equal(isSkippableTitle('Ogłoszenie wykazu lokali przeznaczonych do sprzedaży na rzecz najemców', ''), true);
   assert.equal(isSkippableTitle('Lista osób zakwalifikowanych do uczestnictwa w drugim przetargu', ''), true);
   assert.equal(isSkippableTitle('OGŁOSZENIE BURMISTRZA O ODWOŁANIU PRZETARGÓW NA SPRZEDAŻ', ''), true);
   assert.equal(isSkippableTitle('BURMISTRZ MIASTA ogłasza rokowania na sprzedaż nieruchomości', ''), true);
