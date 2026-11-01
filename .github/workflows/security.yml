@@ -23,6 +23,20 @@ name: 6. Security
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'data/**'
+      - 'site/**'
+      - '_site/**'
+      - 'spikes/**'
+      - 'screenshots/**'
+      - 'newsletter/**'
+      - '**/*.md'
+      - 'pipeline/ocr-cache/**'
+      - 'pipeline/pdf-text-cache/**'
+      - 'pipeline/doc-text-cache/**'
+      - 'pipeline/rtf-text-cache/**'
+      - 'pipeline/detail-cache/**'
+      - 'pipeline/uldk-cache/**'
   # Run on stacked PRs too; otherwise a security-sensitive follow-up does not
   # receive CodeQL/Trivy until its base branch lands on main.
   pull_request:

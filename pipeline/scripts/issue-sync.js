@@ -218,6 +218,11 @@ async function main() {
   const dryRun = a['dry-run'] === 'true';
   const failuresDir = a['failures-dir'] || '';
 
+  if (process.env.ENABLE_ISSUE_SYNC !== 'true' && a['force-sync'] !== 'true' && !dryRun) {
+    console.error('issue-sync: automated issue creation/sync disabled to prevent notification email flood. Set ENABLE_ISSUE_SYNC=true or pass --force-sync to run.');
+    return;
+  }
+
   // Health path: materialize failure dirs from health-check.js's JSON first,
   // reusing triage-report.js's renderer so both sources share one template.
   if (a['health-json'] && existsSync(a['health-json'])) {

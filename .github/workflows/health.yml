@@ -23,6 +23,11 @@ on:
         description: 'true = print planned issue ops without executing'
         required: false
         default: ''
+      sync_issues:
+        description: 'Sync GitHub issues for broken cities (default: false to prevent email flood)'
+        required: false
+        type: boolean
+        default: false
   # Also gate PRs that touch data so a bad hand-edit is caught before merge.
   pull_request:
     paths:
@@ -99,6 +104,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          ENABLE_ISSUE_SYNC: ${{ inputs.sync_issues == true && 'true' || 'false' }}
         run: |
           # Recovered universe from the committed index (no npm ci needed here —
           # importing the live registry would pull in the adapter modules).

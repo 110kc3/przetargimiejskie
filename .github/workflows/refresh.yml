@@ -37,6 +37,11 @@ on:
     # To run on EVERY push instead, delete this whole `paths-ignore` block.
     paths-ignore:
       - 'data/**'
+      - 'site/**'
+      - '_site/**'
+      - 'spikes/**'
+      - 'screenshots/**'
+      - 'newsletter/**'
       - 'pipeline/ocr-cache/**'
       - 'pipeline/pdf-text-cache/**'
       - 'pipeline/doc-text-cache/**'
@@ -59,6 +64,11 @@ on:
         description: 'City id to force-fail (triage E2E test — see scripts/triage-report.js)'
         required: false
         default: ''
+      sync_issues:
+        description: 'Sync GitHub issues for broken cities (default: false to prevent email flood)'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -584,6 +594,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          ENABLE_ISSUE_SYNC: ${{ inputs.sync_issues == true && 'true' || 'false' }}
           # The recovered universe = the hosted cities THIS run actually
           # refreshed. Egress-deferred cities must not have incidents closed by
           # a run that deliberately omitted them.

@@ -58,7 +58,7 @@ test('TLS compatibility rejects untrusted, wrong-host and expired certificates',
   execFileSync('openssl', ['req', '-x509', '-newkey', 'rsa:2048', '-nodes', '-days', '2',
     '-subj', '/CN=bip.elblag.eu', '-addext', 'subjectAltName=DNS:bip.elblag.eu',
     '-keyout', keyPath, '-out', certPath], { stdio: 'ignore' });
-  execFileSync('openssl', ['x509', '-in', certPath, '-signkey', keyPath, '-days', '-1',
+  execFileSync('openssl', ['x509', '-in', certPath, '-signkey', keyPath, '-days', '0',
     '-out', expiredPath], { stdio: 'ignore' });
   const key = readFileSync(keyPath);
   const cert = readFileSync(certPath);
