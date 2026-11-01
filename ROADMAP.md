@@ -14,7 +14,7 @@ searchable, SEO-indexable and overlay-supported are separate measures.
 ## 1. Restore dependable operation
 
 The October feed/quarantine repair batch is implemented as `6ac3fd36c`.
-All 121 feeds enforce integrity; none remains quarantined. Hosted municipal
+All 619 feeds enforce integrity; none remains quarantined. Hosted municipal
 publication, deployment and extension CI passed for that commit. Current data
 also demonstrates one successful hosted publication for Gliwice, Gniezno,
 Rawa Mazowiecka, Golub-Dobrzyń and Poddębice. Three-day source stability remains
@@ -67,7 +67,7 @@ and [SECURITY.md](SECURITY.md). Isolated local source probes are validation only
 
 National website/extension discovery is implemented in `6ac3fd36c`:
 
-- The compact catalogue represents all 1,026 cities and links all 121 feeds.
+- The compact catalogue represents all 1,026 cities and links all 619 feeds.
 - Users select cities before complete histories load; bounded caches and
   last-good fallback preserve watchlists and failure visibility.
 - Searchability is independent of the ten-auction SEO threshold. Land-only and

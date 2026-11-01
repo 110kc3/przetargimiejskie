@@ -4,7 +4,7 @@
 
 - Official cities (SIMC RM=96): **1026**
 - Preserved historic city entries: **336**
-- Enabled pipeline cities reconciled: **121**
+- Enabled pipeline cities reconciled: **619**
 - Powiat rows reconciled: **380**
 - Distinct powiat-seat cities: **335**
 - Duplicate official names requiring SIMC-backed identities: **6**

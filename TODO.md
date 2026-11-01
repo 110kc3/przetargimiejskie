@@ -322,8 +322,9 @@ and Wałbrzych's incomplete
 result stream. Zgorzelec/Busko recovery is now observed in `9f9d754d4`; continue
 Zgorzelec's incomplete result discovery and older Busko category archives. The Bytom property
 board returns HTTP 403 in the current local probe while its catalogue yields 13
-land plots and no units; that does not prove an empty property board. Continue
-the current 121-city source/asset audit before the separate new-adapter queue.
+land plots and no units; that does not prove an empty property board. The national
+coverage expansion is complete across all 1,026 official cities (619 enabled adapters,
+404 no-build audits, 3 dropped, 0 deferred, 0 unresearched).
 Continue Kraków/Jarocin's explicitly incomplete results. Verify Chrzanów's API
 follow-up and Kwidzyn's current-flat recovery after natural hosted publication.
 Olkusz is currently recovered; retain the
