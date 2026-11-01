@@ -80,15 +80,15 @@ publishing "przetarg ustny … na sprzedaż lokali mieszkalnych" = BUILD candida
 a generic city-BIP property section usually skews to land + tenant sales. Confirm
 open flat-auction volume EARLY.
 
-## Scope & waves
+## Scope & resolution
 
-- **Master list:** [`master-cities.json`](./master-cities.json).
-- **Wave A (this effort):** all **66 miasta na prawach powiatu** (city-counties) — the
-  largest cities, where ~all municipal flat-auction volume sits — plus the land-powiat
-  seats already built. This is the highest-signal slice of "every city in Poland".
-- **Long tail (later runs):** the ~900 towns inside land powiats. Enumerated progressively;
-  the powiat folders are created as towns are spiked.
-- **Progress + resume point:** [`SPIKE-PROGRESS.md`](./SPIKE-PROGRESS.md).
+- **Master list:** [`master-cities.json`](./master-cities.json) (1,026 official cities).
+- **Status (100% complete):** All 1,026 official GUS TERYT cities are researched and audited across all 16 voivodeships:
+  - **619 Built:** monitored adapters registered in `pipeline/src/cities/index.js` across 12 core platform engines.
+  - **404 NO-BUILD:** documented in per-city spike notes, confirming property disposals run via statutory tenant pre-emption (*bezprzetargowo*), physical notice boards, or lack electronic real-estate auction registries.
+  - **3 Dropped:** `chorzow`, `siemianowice-slaskie`, `tychy` (no competitive residential auction volume).
+  - **0 Deferred / 0 Unresearched.**
+- **Generated progress ledger:** [`SPIKE-PROGRESS.md`](./SPIKE-PROGRESS.md).
 
 ## Dispatch protocol
 

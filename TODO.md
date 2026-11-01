@@ -568,7 +568,7 @@ These are the deliberately unstarted steps left after the current failure-repair
 security pass:
 
 - [x] **National extension coverage (previous step 5):** implemented in `6ac3fd36c`;
-      all 121 feeds use lazy catalogue discovery, scalable region filters and PL/EN
+      all 619 feeds use lazy catalogue discovery, scalable region filters and PL/EN
       labels. Actual browser checks and extension CI passed; v1.33.0 ZIP,
       screenshots and store copy are prepared. Owner store submission remains open.
 - **CI sharding shipped in Phase B2 (8 September):** 119 hosted-safe cities now
@@ -976,10 +976,10 @@ Remaining work:
 
 ## 3 · Extension
 
-### T1 — surface all 121 built cities (data-driven CITIES) [GUI]
+### T1 — surface all built cities (data-driven CITIES) [GUI]
 
 **Implemented in `6ac3fd36c` (v1.33.0), with hosted extension CI passing.**
-The shared catalogue contains all 1,026 official cities and links all 121 enabled
+The shared catalogue contains all 1,026 official cities and links all 619 enabled
 feeds. Popup/archive data loading, filters, cache bounds, watch-key migration and
 PL/EN labels have targeted tests and actual Chromium checks. SEO eligibility and
 in-page overlay support remain independent. The ZIP, real browser captures and
@@ -1031,7 +1031,7 @@ data-only. **Owner:** Kamil (scope) / agent (build).
   made a published store listing false. The file now carries a scope note saying
   so, so this doesn't get "fixed" wrongly next time.
 - **National extension discovery — implemented 19 October (`6ac3fd36c`).**
-  All 121 feeds are available through data views; overlays retain seven adapters.
+  All 619 feeds are available through data views; overlays retain seven adapters.
   Current store/privacy copy and the v1.33.0 package describe that distinction.
 - **Chrome Web Store resubmit [ACCOUNT] — NOT the blocker it was recorded as.**
   Corrected 2026-08-02: this entry claimed live was **v1.3.3 (29 May)** with "~5
@@ -1189,10 +1189,10 @@ current owner action or a prerequisite for the municipal pilot.
 - **Phase A national inventory — COMPLETE 2026-09-06:** the reproducible GUS
   TERYT importer maps exactly 1,026 SIMC city identities, preserves all 336
   historic verdicts, repairs all 45 duplicate-seat evidence paths, reconciles all
-  121 pipeline IDs and generates a zero-blocker discrepancy report. The annual
+  619 pipeline IDs and generates a zero-blocker discrepancy report. The annual
   refresh and PR test run entirely on GitHub-hosted infrastructure.
 - **Phase B1/B2 — implemented; hosted municipal publication verified.**
-  National strict validation now covers all 121 feeds; the quarantine map is
+  National strict validation now covers all 619 feeds; the quarantine map is
   empty after `6ac3fd36c`. Hosted shards, isolation and the single publisher run
   successfully. Racibórz/Pszczyna remain excluded. Production source health
   is still red; see the current continuation above.

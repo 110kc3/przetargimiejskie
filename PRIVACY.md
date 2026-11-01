@@ -20,7 +20,7 @@ Everything the extension stores stays on your computer. The only network request
 ## Cities covered
 
 The catalogue represents 1,026 official Polish cities. Public auction data can
-be opened for the 121 enabled municipal feeds, with freshness and coverage state
+be opened for the 619 enabled municipal feeds, with freshness and coverage state
 shown separately. This does not promise exhaustive coverage. In-page overlays
 remain limited to Gliwice, Katowice, Bytom, Rybnik, Mysłowice, Świętochłowice and
 Bielsko-Biała through the existing municipal adapters.

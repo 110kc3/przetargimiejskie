@@ -11,11 +11,11 @@ Przetargi miejskie
 
 Polish:
 
-> Historia miejskich przetargów i cen. Katalog 1 026 miast, dane 121 kanałów. Nakładki na wybranych stronach BIP.
+> Historia miejskich przetargów i cen. Katalog 1 026 miast, dane 619 kanałów. Nakładki na wybranych stronach BIP.
 
 English:
 
-> Municipal auction history and prices. Search Poland's city catalogue and 121 data feeds. Overlays on selected BIP sites.
+> Municipal auction history and prices. Search Poland's city catalogue and 619 data feeds. Overlays on selected BIP sites.
 
 ## Full description — Polish
 
@@ -23,7 +23,7 @@ Zanim zalicytujesz, sprawdź historię ogłoszenia: poprzednie rundy, opublikowa
 ceny wywoławcze i — jeśli urząd je udostępnia — wyniki sprzedaży.
 
 - Katalog 1 026 oficjalnych miast, wyszukiwanie po nazwie, powiecie i województwie.
-- Dostęp do danych 121 włączonych kanałów miejskich, także o niewielkiej liczbie
+- Dostęp do danych 619 włączonych kanałów miejskich, także o niewielkiej liczbie
   aukcji lub obejmujących wyłącznie działki. Nie oznacza to pełnego monitoringu
   wszystkich rodzajów nieruchomości ani wszystkich miast w Polsce.
 - Jasna informacja o stanie źródła i dacie sprawdzenia. Brak monitoringu nie
@@ -47,7 +47,7 @@ nieoficjalne i nie jest związane z żadnym urzędem.
 
 Review previous auction rounds, published starting prices and sale results when
 the municipality publishes them. Search the official catalogue of 1,026 cities
-and open 121 enabled municipal data feeds, including small and land-only datasets.
+and open 619 enabled municipal data feeds, including small and land-only datasets.
 Coverage, last source checks and unavailable sources are shown explicitly.
 
 Select a city before downloading its archive. Filter flats, buildings, land,
