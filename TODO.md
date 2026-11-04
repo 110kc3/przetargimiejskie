@@ -51,6 +51,11 @@
 
 ## 1 · Ops / health
 
+### Recent City Enhancements — 4 November 2026
+
+- **Zabrze obreb mapping & precise geoportal deep-links:** Added `ZABRZE_OBREB_MAP` (14 official cadastral districts) and `geoportal()` resolver to `pipeline/src/cities/zabrze/config.js`, allowing ULDK land enrichment to construct verified TERYT parcel identifiers and generate identifyParcel Geoportal deep-links. Unit-tested in `pipeline/tests/parse-zabrze.test.js` (19 tests pass).
+- **Tarnowskie Góry obreb mapping & precise geoportal deep-links:** Added verified obreb name-to-number map and deep-link resolver in `pipeline/src/cities/tarnowskie-gory/config.js`; covered in `pipeline/tests/parse-tarnowskie-gory.test.js`.
+
 ### Expansion milestone — 1 November 2026 (Audits & Dropped City Re-verification: 619 Enabled Cities, 0 Deferred)
 
 - **100% Nationwide Resolution Complete with In-Depth Audits:**

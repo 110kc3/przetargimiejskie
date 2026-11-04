@@ -15,6 +15,7 @@ import {
   parseResultDoc,
   isResultNotice,
 } from '../src/cities/zabrze/parse.js';
+import { config as zabrzeConfig, ZABRZE_OBREB_MAP, zabrzeObrebCode } from '../src/cities/zabrze/config.js';
 
 test('roundFromTitle: Roman after "o", and bare = 1', () => {
   assert.equal(roundFromTitle('Ogłoszenie o II ustnych nieograniczonych przetargach na sprzedaż lokali mieszkalnych na dzień 18.06.2026 r.'), 2);
@@ -353,4 +354,38 @@ test('parseCommercialAttachment: multi-unit keeps distinct keys; footer viewing-
 
 test('parseCommercialAttachment: empty text → no units', () => {
   assert.deepEqual(parseCommercialAttachment(''), []);
+});
+
+test('Zabrze obreb mapping: maps cadastral districts to 4-digit codes and builds geoportal deep-links', () => {
+  assert.equal(zabrzeObrebCode('Grzybowice'), '0003');
+  assert.equal(zabrzeObrebCode('obręb Grzybowice'), '0003');
+  assert.equal(zabrzeObrebCode('ewidencyjny Sośnica'), '0009');
+  assert.equal(zabrzeObrebCode('Zabrze'), '0012');
+  assert.equal(zabrzeObrebCode('Mikulczyce'), '0006');
+  assert.equal(zabrzeObrebCode('Zaborze'), '0011');
+  assert.equal(zabrzeObrebCode('Bielszowice'), '0001');
+  assert.equal(zabrzeObrebCode('Biskupice'), '0002');
+  assert.equal(zabrzeObrebCode('Kończyce'), '0004');
+  assert.equal(zabrzeObrebCode('Makoszowy'), '0005');
+  assert.equal(zabrzeObrebCode('Rokitnica'), '0008');
+  assert.equal(zabrzeObrebCode('Helenka'), '0013');
+  assert.equal(zabrzeObrebCode('Maciejów'), '0014');
+
+  assert.equal(zabrzeConfig.teryt, '247801_1');
+
+  const plot = {
+    obreb: 'Grzybowice',
+    dzialka_nr: '634/115',
+  };
+  assert.equal(
+    zabrzeConfig.geoportal(plot),
+    'https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0003.634%2F115'
+  );
+
+  assert.equal(
+    zabrzeConfig.geoportal({ dzialka_id: '247801_1.0003.AR_4.634/115' }),
+    'https://mapy.geoportal.gov.pl/imap/?identifyParcel=247801_1.0003.AR_4.634%2F115'
+  );
+
+  assert.equal(zabrzeConfig.geoportal({ obreb: 'Grzybowice', dzialka_nr: null }), null);
 });
