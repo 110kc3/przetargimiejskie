@@ -914,12 +914,7 @@ street contains that paragraph, `ogłasza`, `przetarg` or `Prezydent`. The build
   wykaz-class (genitive "wykazu"/"podaniu … wykazu" that escape `isSkippableTitle`
   whose `\bwykaz\b` matched only nominative). Extended `isSkippableTitle` in `src/cities/tarnowskie-gory/parse.js` to
   `wykaz\w*` and verified with unit tests in `tests/parse-tarnowskie-gory.test.js`.
-- **Tarnowskie Góry:** ~45 land plots (meta `land_plots: 45`) fall back to
-  Google search because TG obręby are name-only — build a **TG obręb
-  name→number map** for precise geoportal links (12 addr-only plots can never be
-  precise). Also confirm the residual gaps — 5 of 64 listings missing
-  `starting_price_pln`, 21 missing `area_m2` (verified in data 07-07) — are
-  genuinely absent from the source PDFs.
+- **Tarnowskie Góry — SHIPPED 2026-11-04:** Built verified **TG obręb name→number map** (`TG_OBREB_MAP` in `src/cities/tarnowskie-gory/config.js`), corrected gmina TERYT from provisional `247701_1` to official `241304_1`, and wired `tgObrebCode` with precise geoportal deep-linking for mapped precincts (Tarnowskie Góry 0004, Lasowice 0005, Sowice 0006, Repty Śląskie 0007, Strzybnica 0015, Bobrowniki Śląskie 0019, Pniowiec 0023, Rybna 0033, Opatowice 0034). Added dictionary mapping support in `core/uldk.js` and verified with unit test suites in `tests/uldk.test.js` and `tests/parse-tarnowskie-gory.test.js`. Remaining 12 addr-only plots correctly retain fallback search links. Residual gaps (5 missing starting price, 21 missing area) confirmed genuinely absent from source PDFs.
 - **P2-B — area backfill:** ~37 Gliwice + ~40 Katowice concluded listings lack
   `area_m2`. One-off idempotent crawl of archived zgm-gliwice.pl detail slugs +
   Katowice DispForm pages (`pipeline/scripts/backfill-areas-<city>.js` — does

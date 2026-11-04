@@ -39,20 +39,35 @@ async function uldkGet(url, opts = {}) {
  * @param {{timeoutMs?:number, fetchImpl?:Function}} [opts]
  * @returns {Promise<string|null>} full TERYT parcel id, or null
  */
-export async function resolveTerytId({ obreb, parcel, terytGmina } = {}, opts = {}) {
+export async function resolveTerytId({ obreb, parcel, terytGmina, obreby } = {}, opts = {}) {
   if (!obreb || !parcel) return null;
 
   // Strategy 1 — construct + verify. When the obręb carries its NUMBER
-  // (e.g. "0012 Sosnowiec", "11 Zagórze", "03") and we know the gmina TERYT,
+  // (e.g. "0012 Sosnowiec", "11 Zagórze", "03") or is mapped via obreby and we know the gmina TERYT,
   // build the full identifier WWPPGG_R.OOOO.NR (obręb code zero-padded to 4) and
   // confirm it exists via GetParcelById. This bypasses unreliable obręb NAMES —
   // some sources use the CITY name as a placeholder ("0012 Sosnowiec"), which a
   // name search can never match. ULDK validates existence, so a wrong code just
   // yields null (never a false link), and we then fall through to the name search.
   if (terytGmina) {
+    let code = null;
     const m = String(obreb).match(/^\s*(\d{1,4})(?:\s|$)/);
     if (m) {
-      const code = m[1].padStart(4, '0');
+      code = m[1].padStart(4, '0');
+    } else {
+      const map = obreby || opts.obreby;
+      if (map) {
+        const clean = String(obreb)
+          .toLowerCase()
+          .replace(/^obr[ęe]b\w*\s*/i, '')
+          .replace(/\bewidencyjn\w*\b/gi, '')
+          .replace(/\barkusz\w*\b/gi, '')
+          .replace(/\s+/g, ' ')
+          .trim();
+        code = map[clean] || map[obreb] || null;
+      }
+    }
+    if (code) {
       const fullId = `${terytGmina}.${code}.${parcel}`;
       const txt = await uldkGet(`${ULDK_BY_ID}&id=${encodeURIComponent(fullId)}&result=id`, opts);
       const id = pickTerytId(txt, terytGmina);

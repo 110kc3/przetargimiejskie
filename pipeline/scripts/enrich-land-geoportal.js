@@ -56,7 +56,7 @@ async function enrichCity(city) {
       let id;
       if (ck in cache) { id = cache[ck]; fromCache++; }
       else {
-        id = await resolveTerytId({ obreb: p.obreb, parcel: parcel.nr, terytGmina: city.teryt });
+        id = await resolveTerytId({ obreb: p.obreb, parcel: parcel.nr, terytGmina: city.teryt, obreby: city.obreby });
         cache[ck] = id;
         if (id) resolved++;
       }

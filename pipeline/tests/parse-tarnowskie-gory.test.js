@@ -24,6 +24,7 @@ import {
   startingPriceFromText,
   unitAreaFromText,
 } from '../src/cities/tarnowskie-gory/parse.js';
+import { config as tgConfig, TG_OBREB_MAP, tgObrebCode } from '../src/cities/tarnowskie-gory/config.js';
 
 // ---------------------------------------------------------------- title routing
 
@@ -301,4 +302,33 @@ test('unitAreaFromText: "o powierzchni użytkowej" + leading-label phrasings; ex
   assert.equal(unitAreaFromText('piwnicy o powierzchni użytkowej 6,20 m2'), null);
   assert.equal(unitAreaFromText('Łączna powierzchnia użytkowa budynku głównego wraz z oficyną wynosi 405 m2'), null);
   assert.equal(unitAreaFromText('działka numer 98 o powierzchni 0,0573 ha'), null);
+});
+
+test('TG obreb mapping: maps precinct names to official 4-digit codes and builds precise geoportal deep-links', () => {
+  assert.equal(tgObrebCode('Bobrowniki Śląskie'), '0019');
+  assert.equal(tgObrebCode('obręb Bobrowniki Śląskie'), '0019');
+  assert.equal(tgObrebCode('ewidencyjny Bobrowniki'), '0019');
+  assert.equal(tgObrebCode('Tarnowskie Góry'), '0004');
+  assert.equal(tgObrebCode('ewidencyjny Tarnowskie'), '0004');
+  assert.equal(tgObrebCode('Sowice arkusz'), '0006');
+  assert.equal(tgObrebCode('Strzybnica'), '0015');
+  assert.equal(tgObrebCode('Pniowiec'), '0023');
+  assert.equal(tgObrebCode('Rybna'), '0033');
+  assert.equal(tgObrebCode('Opatowice'), '0034');
+  assert.equal(tgObrebCode('Lasowice'), '0005');
+  assert.equal(tgObrebCode('Repty Śląskie'), '0007');
+
+  assert.equal(tgConfig.teryt, '241304_1');
+
+  const plot = {
+    obreb: 'Bobrowniki Śląskie',
+    dzialka_nr: '2046/32',
+  };
+  assert.equal(
+    tgConfig.geoportal(plot),
+    'https://mapy.geoportal.gov.pl/imap/?identifyParcel=241304_1.0019.2046%2F32'
+  );
+
+  // Address-only or missing dzialka_nr returns null so fallback can handle
+  assert.equal(tgConfig.geoportal({ obreb: 'Sowice', dzialka_nr: null }), null);
 });

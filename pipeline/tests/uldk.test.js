@@ -55,6 +55,16 @@ test('resolveTerytId: name-only obręb (no number) goes straight to the name sea
   assert.ok(/GetParcelByIdOrNr/.test(url), 'no numeric code → name search only');
 });
 
+test('resolveTerytId: resolves via obreby mapping dictionary', async () => {
+  let url = null;
+  const fakeFetch = async (u) => { url = u; return { ok: true, text: async () => '1\n241304_1.0019.2046/32' }; };
+  const obreby = { 'bobrowniki slaskie': '0019', 'bobrowniki śląskie': '0019' };
+  const id = await resolveTerytId({ obreb: 'obręb Bobrowniki Śląskie', parcel: '2046/32', terytGmina: '241304_1', obreby }, { fetchImpl: fakeFetch });
+  assert.equal(id, '241304_1.0019.2046/32');
+  assert.ok(/GetParcelById\b/.test(url) && !/IdOrNr/.test(url), 'used GetParcelById with mapped code');
+  assert.ok(/241304_1\.0019\.2046\/32/.test(decodeURIComponent(url)), 'constructed full id using mapped code');
+});
+
 test('resolveTerytId: missing inputs / network error → null (defensive)', async () => {
   assert.equal(await resolveTerytId({ obreb: '', parcel: '1' }), null);
   assert.equal(await resolveTerytId({}), null);
