@@ -1,5 +1,25 @@
 # TODO
 
+## Current — 2026-11-04
+
+Last completed slice: adopted canonical AGENTS.md, mirror CLAUDE.md, and agent-instructions CI workflow (`21a2b1897`). Refreshed institutional provider feeds (`d7190bf20`).
+
+### Accepted next work
+
+- [ ] Chrome Web Store v1.33.0 package submission review and verification.
+- [ ] Daily refresh failure triage on quarantined city feeds.
+
+### Owner actions / blocked
+
+- Store submission: Chrome Web Store account credentials and submission approval are owner-only.
+- Commercial B2G outreach / consulting: superseded by self-service alert interest validation; do not initiate consulting outreach.
+
+### Pending verification
+
+- Commit `21a2b1897` pushed to `origin/main`; [Actions runs](https://github.com/110kc3/przetargimiejskie/actions) pending observation next session.
+
+### History / deferred
+
 > **Open backlog only** — shipped work lives in [CHANGELOG.md](./CHANGELOG.md)
 > (extension) and git history (pipeline/site/data). **City inventory refreshed
 > 6 September 2026; city-health/security follow-up refreshed 20 October 2026.** Structure/tiers/gates live in
