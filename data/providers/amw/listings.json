@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "provider": "amw",
-  "generated_at": "2026-11-05T11:45:37.002Z",
+  "generated_at": "2026-11-06T11:43:34.817Z",
   "listings": [
     {
       "title": "Warszawa, ul. Smocza 4, lok. 38",
@@ -73,6 +73,41 @@
       "outcome": "active",
       "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/deblin-os-stawy-3638-12358",
       "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/deblin-os-stawy-3638-12358"
+    },
+    {
+      "title": "Nysa, ul. Henryka Pobożnego, dz. 619",
+      "city": "Nysa",
+      "address_raw": "ul. Henryka Pobożnego",
+      "seller_id": "amw",
+      "seller_name": "Agencja Mienia Wojskowego",
+      "seller_type": "state_agency",
+      "transaction_type": "sale",
+      "auction_mode": "unknown",
+      "kind": "grunt",
+      "city_norm": "nysa",
+      "voivodeship": "opolskie",
+      "street": "ul. Henryka Pobożnego",
+      "building": null,
+      "apt": null,
+      "area_m2": null,
+      "land_area_m2": 784,
+      "publication_date": null,
+      "auction_date": "2026-12-16",
+      "bid_deadline": null,
+      "wadium_deadline": null,
+      "round": null,
+      "starting_price_pln": 240000,
+      "final_price_pln": null,
+      "bidders": null,
+      "categories": [
+        "mieszkaniowe"
+      ],
+      "event_key": "amw:02e81ca1ec7dccd7",
+      "external_id": "10436",
+      "source_status": "Ogłoszony",
+      "outcome": "active",
+      "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/nysa-ul-henryka-poboznego-10435-10436",
+      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/nysa-ul-henryka-poboznego-10435-10436"
     },
     {
       "title": "Tarnowskie Góry, ul. Wyspiańskiego 12/3",

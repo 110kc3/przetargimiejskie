@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-05T11:46:16.352Z",
+  "generated_at": "2026-11-06T11:44:12.106Z",
   "providers": [
     {
       "id": "pkp",
@@ -9,10 +9,10 @@
       "host": "www.pkp.pl",
       "source_url": "https://www.pkp.pl/pl/nieruchomosci-przetargi?menu=2",
       "minimum_fresh_rows": 50,
-      "generated_at": "2026-11-05T11:46:16.352Z",
+      "generated_at": "2026-11-06T11:44:12.106Z",
       "total_listings": 232,
-      "active_auctions": 46,
-      "historical_auctions": 186
+      "active_auctions": 43,
+      "historical_auctions": 189
     },
     {
       "id": "amw",
@@ -21,9 +21,9 @@
       "host": "amw.com.pl",
       "source_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci",
       "minimum_fresh_rows": 5,
-      "generated_at": "2026-11-05T11:45:37.002Z",
-      "total_listings": 70,
-      "active_auctions": 26,
+      "generated_at": "2026-11-06T11:43:34.817Z",
+      "total_listings": 71,
+      "active_auctions": 27,
       "historical_auctions": 44
     }
   ]
