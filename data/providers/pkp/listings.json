@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "provider": "pkp",
-  "generated_at": "2026-11-08T10:58:33.575Z",
+  "generated_at": "2026-11-09T12:25:03.085Z",
   "listings": [
     {
       "event_key": "pkp:31780",
@@ -34,6 +34,38 @@
       "outcome": "active",
       "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31780",
       "offer_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_nieruchomosci&show=31376"
+    },
+    {
+      "event_key": "pkp:31837",
+      "external_id": "31837",
+      "seller_id": "pkp",
+      "seller_name": "PKP S.A.",
+      "seller_type": "state_company",
+      "transaction_type": "sale",
+      "auction_mode": "written_tender",
+      "kind": "mieszkalny",
+      "title": "Przetarg pisemny nieograniczony na sprzedaż lokalu mieszkalnego Drawsko Pomorskie, ul. Kolejowa 4/3 (nr postępowania: 1008/KNO/847/2026)",
+      "city": "Drawsko Pomorskie",
+      "city_norm": "drawsko-pomorskie",
+      "voivodeship": "zachodniopomorskie",
+      "address_raw": "Przetarg pisemny nieograniczony na sprzedaż lokalu mieszkalnego Drawsko Pomorskie, ul. Kolejowa 4/3 (nr postępowania: 1008/KNO/847/2026)",
+      "street": "Przetarg pisemny nieograniczony na sprzedaż lokalu mieszkalnego Drawsko Pomorskie, ul. Kolejowa 4/3 (nr postępowania: 1008/KNO/847/2026)",
+      "building": null,
+      "apt": null,
+      "area_m2": 41.8,
+      "land_area_m2": 1751,
+      "publication_date": "2026-11-09",
+      "auction_date": "2026-12-15",
+      "bid_deadline": "2026-12-14",
+      "wadium_deadline": "2026-12-10",
+      "round": null,
+      "starting_price_pln": 72000,
+      "final_price_pln": null,
+      "bidders": null,
+      "source_status": "Ogłoszony",
+      "outcome": "active",
+      "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31837",
+      "offer_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_nieruchomosci&show=31219"
     },
     {
       "event_key": "pkp:31818",
@@ -1406,8 +1438,8 @@
       "starting_price_pln": 645000,
       "final_price_pln": null,
       "bidders": null,
-      "source_status": "Ogłoszony",
-      "outcome": "active",
+      "source_status": "Nierozstrzygnięty",
+      "outcome": "no_winner",
       "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31687",
       "offer_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_nieruchomosci&show=31110"
     },
