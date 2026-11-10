@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "provider": "amw",
-  "generated_at": "2026-11-09T12:24:24.940Z",
+  "generated_at": "2026-11-10T11:59:41.048Z",
   "listings": [
     {
       "title": "Warszawa, Grójecka 66, lok. 78",
@@ -143,6 +143,41 @@
       "outcome": "active",
       "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/nysa-ul-henryka-poboznego-10435-10436",
       "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/nysa-ul-henryka-poboznego-10435-10436"
+    },
+    {
+      "title": "Szczecin, ul. Brzozowskiego 10/6",
+      "city": "Szczecin",
+      "address_raw": "ul. Brzozowskiego 10/6",
+      "seller_id": "amw",
+      "seller_name": "Agencja Mienia Wojskowego",
+      "seller_type": "state_agency",
+      "transaction_type": "sale",
+      "auction_mode": "unknown",
+      "kind": "mieszkalny",
+      "city_norm": "szczecin",
+      "voivodeship": "zachodniopomorskie",
+      "street": "Brzozowskiego",
+      "building": "10",
+      "apt": "6",
+      "area_m2": 38.69,
+      "land_area_m2": null,
+      "publication_date": null,
+      "auction_date": "2026-12-15",
+      "bid_deadline": null,
+      "wadium_deadline": null,
+      "round": null,
+      "starting_price_pln": 228000,
+      "final_price_pln": null,
+      "bidders": null,
+      "categories": [
+        "mieszkaniowe"
+      ],
+      "event_key": "amw:bea7cc01c163a417",
+      "external_id": "12066",
+      "source_status": "Ogłoszony",
+      "outcome": "active",
+      "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/szczecin-ul-brzozowskiego-10-6-12066",
+      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/szczecin-ul-brzozowskiego-10-6-12066"
     },
     {
       "title": "Tarnowskie Góry, ul. Wyspiańskiego 12/3",
