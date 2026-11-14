@@ -18,10 +18,13 @@ on:
       - 'pipeline/src/core/fetch.js'
       - 'pipeline/src/core/request-metrics.js'
       - 'pipeline/src/refresh.js'
+      - 'pipeline/src/refresh-cohort.js'
+      - 'pipeline/src/cities/onboarding-cohort.js'
       - 'pipeline/tests/build-index.test.js'
       - 'pipeline/tests/coverage-health.test.js'
       - 'pipeline/tests/refresh-artifact.test.js'
       - 'pipeline/tests/refresh-matrix.test.js'
+      - 'pipeline/tests/refresh-cohort.test.js'
       - 'pipeline/tests/request-metrics.test.js'
       - 'pipeline/tests/refresh-shard.test.js'
       - 'pipeline/tests/validation-policy.test.js'
@@ -132,6 +135,7 @@ jobs:
             pipeline/tests/coverage-health.test.js \
             pipeline/tests/refresh-artifact.test.js \
             pipeline/tests/refresh-matrix.test.js \
+            pipeline/tests/refresh-cohort.test.js \
             pipeline/tests/request-metrics.test.js \
             pipeline/tests/refresh-shard.test.js \
             pipeline/tests/validation-policy.test.js
@@ -194,6 +198,7 @@ jobs:
         env:
           CITIES_JSON: ${{ toJSON(matrix.shard.cities) }}
           CITY_TIMEOUT_MS: '1200000'
+          SHARD_BUDGET_MS: '5400000'
           FORCE_FAIL: ${{ inputs.force_fail || '' }}
           ARTIFACT_ROOT: ${{ github.workspace }}/refresh-artifacts
           TRIAGE_ROOT: ${{ github.workspace }}/triage-artifacts

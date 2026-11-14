@@ -1,11 +1,12 @@
 # TODO
 
-## Current — 2026-11-04
+## Current — 2026-11-14
 
-Last completed slice: adopted canonical AGENTS.md, mirror CLAUDE.md, and agent-instructions CI workflow (`21a2b1897`). Refreshed institutional provider feeds (`d7190bf20`).
+Last completed slice: restored municipal publication (owner-selected review items 1–4): diagnosis, refresh cohort, shard contract and publication dead-man check. Pending hosted verification of the push (see below).
 
 ### Accepted next work
 
+- [ ] Verify the next scheduled refresh commits `data: refresh cities` and that health shows only legacy-city findings (check once next session).
 - [ ] Chrome Web Store v1.33.0 package submission review and verification.
 - [ ] Daily refresh failure triage on quarantined city feeds.
 
@@ -13,10 +14,26 @@ Last completed slice: adopted canonical AGENTS.md, mirror CLAUDE.md, and agent-i
 
 - Store submission: Chrome Web Store account credentials and submission approval are owner-only.
 - Commercial B2G outreach / consulting: superseded by self-service alert interest validation; do not initiate consulting outreach.
+- Record the real `/alerty/` availability date for the 30-day validation gate (T6 below).
+
+### Municipal publication freeze — diagnosis, 2026-11-14
+
+Two independent failures, read from Actions logs:
+
+- **22 October – 1 November:** the `setup` job failed at "Run parser tests" on `catalog.test.js` ("official compact catalogue includes every enabled city", `136 !== 121`). The hard-coded city count broke when the registry grew, so no crawl or publication ran. Last good publication: `faec30957` (21 October), run 39684904506 succeeded; run 39752449441 on 22 October is the first failure.
+- **1 November – now:** setup passes, but `refresh (shard-066 …)` fails and `publish_cities` rejects the set (B1). 46 cities on `bip.malopolska.pl` formed one shard above the runner's 10-city limit (run 43588460995 shows both failing steps).
+
+### Refresh cohort and shard contract — 2026-11-14
+
+- Daily hosted refresh now covers the **refresh cohort**: registered cities that already have `data/<id>/meta.json`, plus ids enrolled in `pipeline/src/cities/onboarding-cohort.js`. Never-published adapters (486 at this date) wait outside it; `ONLY_CITY` dispatch still reaches any city. See [pipeline/ADAPTER-GUIDE.md](pipeline/ADAPTER-GUIDE.md) for enrolment.
+- Matrix shards never exceed 10 cities; host groups larger than that are split (they no longer share one shard).
+- Shard runner has a time budget (`SHARD_BUDGET_MS`, 90 minutes) inside the 105-minute step timeout; cities it cannot start get `failed` artifacts, so one slow shard no longer blocks national publication (B6).
+- Health separates "pending first publication" from failures: findings fell from 635 to 149, all real staleness of published cities caused by the freeze.
+- `health.yml` fails when the newest `data: refresh cities` commit is older than 2 days and maintains one `publication-stalled` issue (edited in place, closed on recovery).
 
 ### Pending verification
 
-- Commit `21a2b1897` pushed to `origin/main`; [Actions runs](https://github.com/110kc3/przetargimiejskie/actions) pending observation next session.
+- This slice's push: [Actions runs](https://github.com/110kc3/przetargimiejskie/actions) pending observation next session; do not wait after pushing.
 
 ### History / deferred
 
@@ -1224,3 +1241,76 @@ current owner action or a prerequisite for the municipal pilot.
   - All 690 remaining official cities in the GUS TERYT denominator were surveyed and audited.
   - Jaworzno, Częstochowa, Ruda Śląska, Piekary Śląskie, Dąbrowa Górnicza and 24 other candidates were promoted to built status with dedicated or platform-engine adapters.
   - Final national resolution: **1,026 official cities** (619 built, 404 no-build audits, 3 dropped, 0 deferred, 0 unresearched). Monitored adapters registered across 12 standardized platform engines in `pipeline/src/cities/index.js`. See [ALL-CITIES-PLAN.md](./ALL-CITIES-PLAN.md) and [spikes/SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md).
+
+## Review findings and proposals — 2026-11-14 (not accepted work)
+
+These are unselected proposals from a read-only review. They do not change, reorder or extend the queue above; nothing here is accepted work until the owner selects it.
+
+Reviewed 2026-11-14 by Claude Code against commit `d2f0d3c00`. Nothing was fixed and no crawler, live source, workflow or deployment was run. All commands ran under Node 22.23.3 against a scratch `git archive` extract (pipeline, extension, scripts, site, data, spike, spikes, newsletter, root Markdown). The scratch tree's `git status` stayed clean after each run.
+
+- `node --test --test-reporter=dot tests/*.test.js` (in `pipeline/`): exit 0; 4,841 tests, 4,837 passed, 0 failed, 4 skipped, 76 suites. CI's setup job uses Node 20, which was not run here.
+- `node scripts/health-check.js` on the committed data: exit 1 with **635 findings across all 619 indexed cities**: 486 `meta-missing`, 130 `stale-data`, 9 `refresh-failed`, 7 `source-degraded`, 2 `exempt-expired` (Racibórz/Pszczyna, 71 days), 1 `empty-data`. Zero cities passed. 129 cities' data is 24 days old (last municipal publication `faec30957`, 21 October); Gliwice is 24 days old.
+- `node scripts/provider-health-check.js`: exit 0, with 2 provider feeds healthy. Provider data still publishes daily.
+- The comment strip in `d2f0d3c00` (1,106 files) was checked by tokenizing the pre-commit and post-commit versions of all 1,096 changed JS/MJS files with acorn. All 1,096 token streams match exactly. No shebangs were lost, no directive/eslint/global comments existed, and no strings, regexes or URLs were altered. The 7 non-JS files (2 shell, 3 CSS, 2 HTML) lost only comments. No files were added or deleted.
+- Sampled, not read in full: `refresh.js`, `refresh-matrix.js`, `refresh-shard.js`, `refresh-artifact.js`, `health-check.js`, `city-catalog.js`, `build-properties.js` (`buildCityData`), the Nefeni engine in full, and the other 11 platform engines by grep. Also `refresh.yml`, the `/alerty/` flow with its reporter, the extension background/archive/manifest, and the escaping in `build-seo-pages.mjs`. Not read: the 600+ city adapters, OCR/PDF parsing, newsletter generator, `ovh-deploy.yml`, `security.yml`, the spike ledgers and most Markdown docs.
+- Not checked: Actions run logs (CI was not queried), the live site, the store listing, Node 20 behaviour and browser tests (the 4 skips are env-gated).
+
+### Bugs
+
+- [x] **B1 · High · Municipal publication cannot succeed since 1 November: one shard exceeds the shard runner's 10-city limit.** In `pipeline/scripts/refresh-matrix.js:39`, a host group whose weight is at or above `maxWeight` becomes one dedicated bin with no size cap. The current registry yields 143 shards, and `shard-066` holds **46 cities on `bip.malopolska.pl`**. `pipeline/scripts/refresh-shard.js:17` throws `CITIES_JSON must contain 1-10 city ids` before running any city, so that shard uploads no artifacts. `publish_cities` then rejects the whole national set (`pipeline/scripts/refresh-artifact.js:244`, `artifact set mismatch`), and no city is published. Bisect: 0 oversized shards at `faec30957` and `3dd2cbc19`; 1 at `0d1332f22` and at HEAD. This matches the absence of any `data: refresh cities` commit after 21 October, while provider commits continue daily. Scenario: every daily refresh crawls 571 cities and then publishes nothing. The site keeps claiming "aktualizowane codziennie", and the extension reads frozen `data/` from `main`. **REPRODUCED**: the matrix was computed from the real registry, `refresh-shard.js` exited 1 with that shard's `CITIES_JSON` and wrote 0 files, and `applyCityArtifacts` rejected a synthetic incomplete set. `refresh-matrix.test.js` does not assert a shard-size bound. Acceptance: `buildRefreshMatrix(cities)` never emits a shard that `refresh-shard.js` rejects, a registry-wide test enforces this, and the next scheduled run commits `data: refresh cities`.
+
+- [ ] **B2 · High · The 11 platform engines added in October–November emit records that the refresh pipeline cannot turn into properties or land.** `refresh.js:102-107` accepts array-shaped crawls and partitions land only on `x.kind === 'grunt' || x.type === 'land'`. `buildCityData` keys on an address object (`addr.key`) and reads `starting_price_pln`/`kind`. The new engines (`nefeni-bip`, `madkom-bip`, `logonet-bip`, `rekordsi-bip`, `bipinfo-bip`, `biplubelskie-bip`, `systemdobip`, `wokiss-bip` and others; only the older `finn-bip` emits `starting_price_pln`/`kind`) emit `price`, `property_type` and `type: 'announcement'`. `nefeni-bip.js:140`, `rekordsi-bip.js:116` and `bipinfo-bip.js:127` also set `address: address.full`, but `parseAddress` returns no `full` field, so the address is always null. Nefeni additionally runs `parseAddress` on the whole article text, which returns null. Scenario: about 485 of the 619 registered cities would publish 0 properties and 0 land plots even when the source has real auctions. **REPRODUCED**: a synthetic Nefeni article for a flat at "ul. Kościuszki 12" and a land parcel produced 0 properties and 0 land (`buildCityData` dropped 2/2). Committed `data/aleksandrow-lodzki/` (Madkom, crawled 1 November) has 15 active rows, `unique_properties: 0`, every `price`/`address` null, and undecoded `&oacute;` in `raw_text`. Acceptance: a fixture-based test per engine pushes engine output through the real refresh partition and `buildCityData`, and asserts at least one property (and one land plot where applicable) with price, kind and address.
+
+- [ ] **B3 · Medium · The property stream is marked `healthy` even when every crawled row is discarded.** `pipeline/src/refresh.js:358` derives `source_checks.property.status` from the raw crawl size (`propertyCrawlEmpty` uses `active.length`), not from the properties actually built. Scenario: the committed `data/aleksandrow-lodzki/meta.json` shows `property: healthy` with `unique_properties: 0`. A parser that drops everything therefore looks healthy to per-stream checks; only the coarse `empty-data` rule catches it, and only when land is also zero. **REPRODUCED** from committed data. Acceptance: a refresh in which `buildCityData` drops all rows records the property stream as degraded (or a distinct status), and a regression test covers it.
+
+- [ ] **B4 · Medium · The health gate is permanently red, so new failures are indistinguishable from known ones.** `pipeline/scripts/health-check.js:91-94` hard-fails `meta-missing` unless the city is in `EXEMPT_NEW`, and `EXEMPT_NEW` is empty (`:27`). The 1 November expansion registered about 485 adapters that have never published, so health now reports 635 findings with every city failing. Issue sync is opt-in since `343fb8d73`, so the only signal left is a red workflow that has been red every day. Scenario: Gliwice or Kraków breaking tomorrow adds one line to a 635-line failure. **REPRODUCED** (offline health run above). Acceptance: registered-but-never-published adapters have an explicit, time-bounded onboarding state. The health output separates "new failures since the last run" from the standing backlog, and a healthy legacy city flips the run red only on its own regression.
+
+- [ ] **B5 · Medium · The shared engine date regex takes the first "dnia …" date, usually the publication date, as the auction date.** The pattern is the same at `nefeni-bip.js:107`, `madkom-bip.js:85`, `bipinfo-bip.js:94`, `biplubelskie-bip.js:87` and `wokiss-bip.js:87`. It is a single alternation, so the earliest match in the text wins. Scenario: "Kowal, dnia 3 listopada 2026 … Przetarg odbędzie się w dniu 15 grudnia 2026" yields `auction_date: 2026-11-03`, and the listing is archived as past before the auction happens. **REPRODUCED** for Nefeni; the other four are code-reading only (same regex). Acceptance: a fixture containing both a publication date and an auction date yields the auction date in every engine.
+
+- [x] **B6 · Medium · Any single missing city artifact blocks publication for all cities, and the shard step timeout is shorter than the per-city budget allows.** `refresh.yml:193` sets a 105-minute step timeout, while `:196` allows 20 minutes per city across up to 10 sequential cities (200 minutes worst case). When the step is killed, cities not yet packed have no artifact, and `refresh-artifact.js:243-244` rejects the whole set. Scenario: one slow host shard turns a partial outage into a national publication freeze. This is independent of B1. **CODE-READING ONLY** (the set rejection itself was reproduced). Acceptance: a timed-out shard still yields `failed` manifests for its unrun cities, or the publisher treats a missing city as `failed` while publishing the rest. Either way, a test covers a killed shard.
+
+- [ ] **B7 · Low · Areas given in hectares are stored as square metres.** At `nefeni-bip.js:120`, `rekordsi-bip.js:97` and `bipinfo-bip.js:107`, the area regex accepts `ha` but discards the unit. Scenario: "0,5120 ha" becomes `area: 0.512`, so zł/m² comes out 10,000× too high once these engines publish. **REPRODUCED** for Nefeni. Acceptance: hectare inputs convert to m² (5,120), with a test per engine.
+
+- [ ] **B8 · Low · Catalogue status is computed once at build time and never re-aged by consumers.** `pipeline/src/core/city-catalog.js:8` evaluates the 3-day staleness against `now` during `build-index`. The extension (`extension/catalog.js:4`) and site display the baked `status`. Scenario: if publication stops right after a healthy build, the catalogue keeps saying "Monitorowane" indefinitely. Today the reverse holds: the 1 November manual build marks all 618 runtime cities `unavailable`, including Gliwice, and aleksandrow-lodzki `unknown`. **CODE-READING ONLY**. Acceptance: consumers derive the freshness label from `last_success_at` at view time, or the catalogue carries the threshold and consumers re-evaluate it.
+
+- [ ] **B9 · Low · The new engines spoof a desktop Chrome User-Agent for every host.** The 11 new engine modules in `pipeline/src/core/` (`*-bip.js` and `systemdobip.js`; the older `finn-bip.js` also defines one) define `BROWSER_UA` and pass it on every request, contrary to `pipeline/ADAPTER-GUIDE.md:144`. That rule keeps the identifying `przetargimiejskie-bot` UA as the default and uses a browser UA only for hosts that gate it. Scenario: about 485 municipal hosts are crawled daily without an identifiable bot. **CODE-READING ONLY**. Acceptance: engines default to the bot UA, and a per-host opt-in lists the hosts with recorded gating evidence.
+
+- [ ] **B10 · Low · `d2f0d3c00` left 179 orphaned half-sentence `//` lines in 104 files.** Examples: `pipeline/src/refresh.js:175` "is removed until the next batch. Without this, the preserved listings" and `pipeline/scripts/health-check.js` "last-good data was preserved. The preserve path can refresh generated_at". The strip removed the first lines of multi-line comments and kept the rest. They are behaviour-neutral (token check above) but misleading, and contrary to the repo's no-comments rule. **REPRODUCED** (`git grep -c -E '^\s*//'` on pipeline/src, pipeline/scripts, extension, scripts). Acceptance: no fragmentary comment lines remain, and token streams are still unchanged.
+
+### Next development tasks
+
+- [x] **T1 · Registry-wide refresh contract test (S).** Why: B1 shipped because `refresh-matrix.test.js` checks host grouping but not the runner's own limits. Add one test that builds the matrix from the real registry and asserts that each shard passes `refresh-shard.js` validation and that the worst-case shard runtime fits the step timeout. Acceptance: the test fails on HEAD and passes after B1/B6 are addressed.
+- [ ] **T2 · Engine conformance suite replacing config-only tests (M).** Why: 403 of 622 `parse-*.test.js` files only assert `id/teryt/label/typeof crawlActive`, yet the 1 November entry describes them as "full mock suites". Add one real saved fixture per engine and one shared conformance harness (engine → refresh partition → `buildCityData`/`buildLand` → `sanity-check`). Acceptance: each of the 12 engines has at least one fixture-backed case producing a priced, addressed, kinded record, and B2/B5/B7 are covered.
+- [ ] **T3 · Staged enablement for engine-based cities (M).** Why: enabling 485 never-published adapters at once caused B1 and B4 and made health meaningless. Add an explicit `pending_first_publish` lifecycle and enable cohorts (for example 25 per week) only once their engine passes T2 and the cohort's first hosted publish is clean. Acceptance: the health backlog drops to legacy-city findings plus at most one cohort, and the catalogue labels pending cities honestly.
+- [x] **T4 · Publication dead-man check with one summary (S).** Why: the municipal freeze has been invisible for 24 days, and per-city issue sync was deliberately disabled for noise. Add a check in the daily health workflow: fail with one summary line (and at most one rolling issue) when the newest `data: refresh cities` commit is older than 2 days. Acceptance: the check would have fired on 23 October and opens or updates at most one issue.
+- [ ] **T5 · Truth pass on the 1 November milestone docs and site copy (S).** Why: TODO/ROADMAP state "619 enabled feeds", "All Quality Gates Green" and ">4,900 unit tests". The repo actually has 134 cities with published data, 485 never published, a health run with 635 findings and 4,841 tests. `site/index.html:41` claims daily updates. Acceptance: docs distinguish registered from published from healthy, with dated numbers, and the site copy stops promising daily updates while publication is stale.
+- [ ] **T6 · Start and record the alert-interest validation window (S, owner input).** Why: `ALERT-VALIDATION.md` requires the deployment date to be recorded in TODO before the 30-day gate can be evaluated, and no start date is recorded. Acceptance: the TODO entry has the real `/alerty/` availability date and the date of the single planned `report-alert-interest.mjs` evaluation.
+
+### Feature ideas
+
+- [ ] **F1 · Static per-city RSS/Atom feeds of new auctions (S–M).** Problem: people who want alerts today must come back daily or install the extension. Static feeds (`/feed/<city>.xml`, optionally per kind) give self-service alerts with no accounts, no e-mail and no personal data. Signal: feed request counts in Cloudflare (separate from page views) and at least 10 distinct subscribers' readers over 30 days.
+- [ ] **F2 · Calendar export for auctions and deposit deadlines (S).** Problem: missing the `wadium_deadline` or `viewing_date` disqualifies a bidder. Add an `.ics` link per active listing and a combined `.ics` for the extension watchlist, generated client-side. Signal: `.ics` downloads per listing view and repeat use from the same watchlist.
+- [ ] **F3 · Next-round price expectation (M).** Problem: buyers wonder whether to wait for a cheaper second or third round. Use each city's historical round-to-round reductions, which the data already has as rounds plus starting prices, to show "a typical next round is −X% (n observations)" on active listings, with low-sample suppression. Signal: clicks on the explanation, and backtested error against concluded rounds published in the doc.
+- [ ] **F4 · View-time freshness indicator (S).** Problem: users cannot tell whether a city's list is current (see B8 and the current 24-day freeze). Show "source checked N days ago" computed in the browser on city pages, the archive and the popup, with a warning colour after 3 days. Signal: fewer contact-mail questions about missing auctions, and the indicator matching health output.
+- [ ] **F5 · Map of active land plots (M).** Problem: land buyers think in locations, not addresses, and ULDK/geoportal enrichment already exists for many plots. Add a lightweight map on the city page (static tiles plus parcel centroids) linking to the existing geoportal deep links. Signal: map interactions per land-page view, and land-page engagement compared with the list-only baseline.
+- [ ] **F6 · Watchlist export/import in the extension (S).** Problem: watchlists live only in one browser's `chrome.storage.local` and are lost on a new device. Add JSON export/import (no server, no new permission). Signal: import counts are not measurable without telemetry, so judge by the absence of "lost my watchlist" mails and store-review mentions.
+
+### Unverified suspicions
+
+- No municipal publication happened between 22 October and 1 November either, before B1 existed (0 oversized shards then). B6 (a timed-out shard) is a plausible cause; the Actions logs for those runs were not read.
+- `pipeline/src/cities/kowal/index.js` crawls only category `166-2026`. If Nefeni year categories roll over, the feed will go silently empty in 2027.
+- Most new engines return `crawlResults = async () => []`, so the 485 engine-based cities would have no sold/unsold outcome history, which the README headline promises. This is a scope gap rather than a defect, and was not confirmed against the plan docs.
+- The engines swallow fetch errors (`catch {}` / `catch { break }`), so a partially failed category page looks like a complete, shorter board. For cities with prior data, retention probably masks this; it was not tested.
+- Test results under Node 20 (the version CI uses) were not checked.
+
+### Already recorded elsewhere (still open)
+
+- Chrome Web Store v1.33.0 submission and verification (owner account).
+- Daily refresh failure triage on quarantined city feeds (Current queue).
+- Racibórz/Pszczyna residential-egress exemptions expired: kept as visible hard gaps per `PL-EGRESS-PLAN.md`.
+- PKP and Świętochłowice hosted-runner reachability; Brzeg's waiting room.
+- Source repairs for Bytom, Ząbkowice Śląskie, Kwidzyn land tables, Trzebnica, Wałbrzych, Zgorzelec, and Kraków/Jarocin incomplete results.
+- Search Console ownership and sitemap acceptance (owner account).
+- 30-day received-interest evidence for `/alerty/` (external gate; see T6 for the missing start date).
+- `RODO-DRAFT.md` awaiting owner and lawyer review; newsletter ESP/send integration (P1-D) not built.
+- Per-city issue sync disabled by default since `343fb8d73` (deliberate noise reduction; T4 proposes one summary signal instead).

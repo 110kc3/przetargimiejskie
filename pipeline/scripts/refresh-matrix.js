@@ -2,6 +2,8 @@ import { appendFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 
 import { cities } from '../src/cities/index.js';
+import { selectRefreshCohort } from '../src/refresh-cohort.js';
+import { MAX_CITIES_PER_SHARD } from './refresh-shard.js';
 
 const DEFAULT_SHARD_WEIGHT = 5;
 const MAX_SHARDS = 240;
@@ -15,6 +17,21 @@ export const HEAVY_CITY_IDS = new Set([
   'tomaszow-mazowiecki', 'wabrzezno', 'warszawa', 'wegorzewo', 'wegrow',
   'wloclawek', 'wschowa', 'zabkowice-slaskie', 'znin',
 ]);
+
+function splitOversizedGroup(group, maxWeight) {
+  const chunks = [];
+  for (let start = 0; start < group.cities.length; start += MAX_CITIES_PER_SHARD) {
+    const slice = group.cities.slice(start, start + MAX_CITIES_PER_SHARD);
+    chunks.push({
+      host: group.host,
+      cities: slice,
+      weight: slice.reduce((total, city) => total + (
+        city.needsRender || HEAVY_CITY_IDS.has(city.id) ? maxWeight : 1
+      ), 0),
+    });
+  }
+  return chunks;
+}
 
 function shardCities(hosted, maxWeight) {
   const registryOrder = new Map(hosted.map((city, index) => [city.id, index]));
@@ -30,19 +47,23 @@ function shardCities(hosted, maxWeight) {
     weight: group.reduce((total, city) => total + (
       city.needsRender || HEAVY_CITY_IDS.has(city.id) ? maxWeight : 1
     ), 0),
-  })).sort((a, b) => b.weight - a.weight
+  })).flatMap((group) => (
+    group.cities.length > MAX_CITIES_PER_SHARD ? splitOversizedGroup(group, maxWeight) : [group]
+  )).sort((a, b) => b.weight - a.weight
     || registryOrder.get(a.cities[0].id) - registryOrder.get(b.cities[0].id));
 
   const bins = [];
   for (const group of groups) {
-    const dedicated = group.weight >= maxWeight;
+    const dedicated = group.weight >= maxWeight || group.cities.length >= MAX_CITIES_PER_SHARD;
     const bin = dedicated ? null : bins.find((candidate) => (
-      !candidate.dedicated && candidate.weight + group.weight <= maxWeight
+      !candidate.dedicated
+      && candidate.weight + group.weight <= maxWeight
+      && candidate.cityCount + group.cities.length <= MAX_CITIES_PER_SHARD
     ));
     if (bin) {
-      bin.groups.push(group); bin.weight += group.weight;
+      bin.groups.push(group); bin.weight += group.weight; bin.cityCount += group.cities.length;
     } else {
-      bins.push({ groups: [group], weight: group.weight, dedicated });
+      bins.push({ groups: [group], weight: group.weight, cityCount: group.cities.length, dedicated });
     }
   }
 
@@ -93,7 +114,9 @@ function main() {
   const outputPath = process.env.GITHUB_OUTPUT;
   if (!outputPath) throw new Error('GITHUB_OUTPUT is required');
 
-  const matrix = buildRefreshMatrix(cities, process.env.ONLY_CITY || '', {
+  const onlyCity = process.env.ONLY_CITY || '';
+  const registry = onlyCity ? cities : selectRefreshCohort(cities);
+  const matrix = buildRefreshMatrix(registry, onlyCity, {
     maxShardWeight: Number(process.env.MAX_SHARD_WEIGHT || DEFAULT_SHARD_WEIGHT),
   });
   for (const [name, value] of Object.entries(matrix)) {
@@ -101,6 +124,7 @@ function main() {
   }
 
   console.log(`Hosted refresh matrix: ${matrix.cities.length} cities`);
+  console.log(`Registered but awaiting first publication: ${registry === cities ? 0 : cities.length - registry.length}`);
   console.log(`Hosted refresh shards: ${matrix.shards.length}`);
   if (matrix.blocked_cities.length > 0) {
     console.log(`Operator-managed residential-egress cities excluded: ${matrix.blocked_cities.join(', ')}`);

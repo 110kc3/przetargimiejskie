@@ -58,6 +58,9 @@ jobs:
       issues: write   # per-city [city-broken] issues (skipped on pull_request)
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          fetch-depth: 0
+          filter: blob:none
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '20'
@@ -94,6 +97,42 @@ jobs:
           PROVIDER_STALE_DAYS: ${{ inputs.stale_days || (github.event_name == 'pull_request' && '14') || '3' }}
         run: node scripts/provider-health-check.js
 
+      - name: Check municipal publication freshness
+        id: publication
+        if: always() && github.event_name != 'pull_request'
+        continue-on-error: true
+        env:
+          PUBLICATION_SUMMARY_OUT: ${{ github.workspace }}/publication-summary.txt
+        run: node pipeline/scripts/publication-freshness.js
+
+      - name: Maintain the single publication-stalled issue
+        if: always() && github.event_name != 'pull_request' && steps.publication.outcome != 'skipped'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PUBLICATION_OUTCOME: ${{ steps.publication.outcome }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          label="publication-stalled"
+          title="Municipal data publication has stalled"
+          gh label create "$label" --color B60205 --description "No municipal data publication within the freshness limit" 2>/dev/null || true
+          existing=$(gh issue list --label "$label" --state open --json number --jq '.[0].number // empty')
+          if [ "$PUBLICATION_OUTCOME" = "success" ]; then
+            if [ -n "$existing" ]; then
+              gh issue close "$existing" --comment "Publication is fresh again. $RUN_URL"
+            fi
+            exit 0
+          fi
+          body="$(cat publication-summary.txt 2>/dev/null || echo 'Publication freshness check failed.')
+
+          Checked by the daily health run: $RUN_URL
+
+          Inspect the latest refresh run: publish_cities and the setup test gate."
+          if [ -n "$existing" ]; then
+            gh issue edit "$existing" --body "$body"
+          else
+            gh issue create --title "$title" --label "$label" --body "$body"
+          fi
+
       # Turn the FAILs into per-city issues + close recovered health-owned ones.
       # always(): the sync must run precisely when the step above exited 1.
       # Skipped on pull_request (fork tokens are read-only; PR runs are a merge
@@ -127,7 +166,9 @@ jobs:
           INTEGRITY: ${{ steps.integrity.outcome }}
           CITY_HEALTH: ${{ steps.city_health.outcome }}
           PROVIDER_HEALTH: ${{ steps.provider_health.outcome }}
+          PUBLICATION: ${{ steps.publication.outcome }}
         run: |
           test "$INTEGRITY" = success
           test "$CITY_HEALTH" = success
           test "$PROVIDER_HEALTH" = success
+          test "$PUBLICATION" != failure

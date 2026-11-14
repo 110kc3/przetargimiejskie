@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { validateLandDocument } from './coverage-health.js';
 import { validationPolicy } from './validation-policy.js';
+import { isInRefreshCohort } from '../src/refresh-cohort.js';
 
 const DATA_DIR = fileURLToPath(new URL('../../data/', import.meta.url));
 const STALE_DAYS = Number(process.env.STALE_DAYS || 14);
@@ -34,6 +35,7 @@ const EGRESS_STALE = new Map([
 const now = Date.now();
 const fails = [];
 const warns = [];
+const pendingFirstPublish = [];
 
 function daysSince(iso) {
   const t = Date.parse(iso);
@@ -89,6 +91,7 @@ for (const c of index.cities || []) {
   const metaPath = join(DATA_DIR, c.id, 'meta.json');
   if (!existsSync(metaPath)) {
     if (ex.active) warns.push(`${c.id}: meta.json missing (new adapter, pending first live refresh)`);
+    else if (!isInRefreshCohort(c.id)) pendingFirstPublish.push(c.id);
     else fail(c.id, 'meta-missing', 'meta.json missing');
     continue;
   }
@@ -187,6 +190,13 @@ for (const c of index.cities || []) {
     `${status === 'ok' ? '  ok ' : 'FAIL '}${c.id.padEnd(16)} ` +
     `unique:${String(unique).padStart(4)}  active:${String(activeAuctions).padStart(3)}  ` +
     `age:${age === Infinity ? '  ?' : age.toFixed(0).padStart(3)}d`,
+  );
+}
+
+if (pendingFirstPublish.length) {
+  console.error(
+    `\nPENDING FIRST PUBLICATION (not failing the run): ${pendingFirstPublish.length} registered ` +
+    'adapter(s) are outside the refresh cohort until enrolled in pipeline/src/cities/onboarding-cohort.js',
   );
 }
 

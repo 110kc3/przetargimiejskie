@@ -12,9 +12,12 @@ import { packArtifact } from './refresh-artifact.js';
 
 const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 
-function assertCities(value) {
-  if (!Array.isArray(value) || value.length === 0 || value.length > 10) {
-    throw new Error('CITIES_JSON must contain 1-10 city ids');
+export const MAX_CITIES_PER_SHARD = 10;
+export const MIN_CITY_BUDGET_MS = 60_000;
+
+export function assertCities(value) {
+  if (!Array.isArray(value) || value.length === 0 || value.length > MAX_CITIES_PER_SHARD) {
+    throw new Error(`CITIES_JSON must contain 1-${MAX_CITIES_PER_SHARD} city ids`);
   }
   for (const city of value) {
     if (!/^[a-z0-9-]+$/.test(city)) throw new Error(`invalid city id: ${city}`);
@@ -61,6 +64,12 @@ function runProcess(command, args, { cwd, env, logPath, timeoutMs, stream = true
       resolvePromise({ code: code ?? 1, signal, timedOut, output });
     });
   });
+}
+
+export function cityBudgetMs({ now, deadlineAt, cityTimeoutMs }) {
+  const remaining = deadlineAt - now;
+  if (remaining < MIN_CITY_BUDGET_MS) return 0;
+  return Math.min(cityTimeoutMs, remaining);
 }
 
 export async function runSequential(cities, execute) {
@@ -173,13 +182,19 @@ async function main() {
     triageRoot,
     scratchRoot: mkdtempSync(join(scratchBase, 'refresh-shard-')),
     cityTimeoutMs: Number(process.env.CITY_TIMEOUT_MS || 20 * 60_000),
+    deadlineAt: Date.now() + Number(process.env.SHARD_BUDGET_MS || 100 * 60_000),
     forceFail: process.env.FORCE_FAIL || '',
     runUrl: process.env.RUN_URL || '',
     runId: process.env.RUN_ID || '',
   };
   const outcomes = await runSequential(cities, async (city) => {
-    try { return await executeCity(city, options); }
-    catch (error) {
+    try {
+      const budgetMs = cityBudgetMs({
+        now: Date.now(), deadlineAt: options.deadlineAt, cityTimeoutMs: options.cityTimeoutMs,
+      });
+      if (budgetMs === 0) throw new Error('shard time budget exhausted before this city could run');
+      return await executeCity(city, { ...options, cityTimeoutMs: budgetMs });
+    } catch (error) {
       const attemptedAt = new Date().toISOString();
       const durationMs = 0;
       packArtifact({

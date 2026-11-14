@@ -219,6 +219,28 @@ truncation, re-write it (prefer the file Write tool). Two earlier builds
 
 ---
 
+## 7b. First publication: the refresh cohort
+
+Registering an adapter in `cities/index.js` does not put it in the daily hosted
+refresh. The matrix (`scripts/refresh-matrix.js`) covers the **refresh cohort**:
+cities that already have `data/<id>/meta.json`, plus ids listed in
+`src/cities/onboarding-cohort.js`. This keeps never-published adapters from
+blocking national publication and from turning the health run permanently red.
+
+To bring an adapter live:
+
+1. Verify the adapter end to end locally (section 6).
+2. Add its id to `onboarding-cohort.js` in small cohorts (about 25 cities).
+3. After the first hosted publication creates `data/<id>/meta.json` the city is
+   in the cohort by itself; remove it from the onboarding list in the same change
+   as the next cohort.
+4. A cohort city that fails to publish fails health as `meta-missing`, so a
+   broken first run stays visible.
+
+`ONLY_CITY` workflow dispatch bypasses the cohort and can refresh any
+registered city for diagnosis. Shards hold at most 10 cities; a host with more
+registered cities is split across shards.
+
 ## 8. When dispatching a build/spike agent
 
 Point every agent at this flow so it can't redo work or reinvent extraction:

@@ -18,3 +18,19 @@ test('a failed city does not prevent later cities in a shard from running', asyn
     { city: 'last', status: 'ready' },
   ]);
 });
+
+import { cityBudgetMs, MIN_CITY_BUDGET_MS } from '../scripts/refresh-shard.js';
+
+test('a city receives the full timeout while the shard has ample time', () => {
+  assert.equal(cityBudgetMs({ now: 0, deadlineAt: 60 * 60_000, cityTimeoutMs: 20 * 60_000 }), 20 * 60_000);
+});
+
+test('a city timeout is clamped to the remaining shard time', () => {
+  assert.equal(cityBudgetMs({ now: 0, deadlineAt: 5 * 60_000, cityTimeoutMs: 20 * 60_000 }), 5 * 60_000);
+});
+
+test('no city starts when less than the minimum budget remains', () => {
+  assert.equal(cityBudgetMs({
+    now: 0, deadlineAt: MIN_CITY_BUDGET_MS - 1, cityTimeoutMs: 20 * 60_000,
+  }), 0);
+});
