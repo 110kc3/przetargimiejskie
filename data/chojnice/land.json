@@ -117,7 +117,8 @@
           "outcome": "sold",
           "final_price_pln": 470000,
           "area_m2": 1678,
-          "source_url": "https://miastochojnice.pl/27-10-2026-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej-ul-szymborskiej-zeromskiego-dz-nr-3024-6/?aid=101885&sa=0"
+          "source_url": "https://miastochojnice.pl/27-10-2026-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej-ul-szymborskiej-zeromskiego-dz-nr-3024-6/?aid=101885&sa=0",
+          "detail_url": "https://miastochojnice.pl/pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-ul-szymborskiej-zeromskiego-dz-nr-3024-6-20-10-2026-r/"
         }
       ],
       "parcels": [
@@ -125,6 +126,32 @@
           "nr": "3024/6"
         }
       ]
+    },
+    {
+      "key": "addr|rod metalowiec",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ROD Metalowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ROD%20Metalowiec%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-03",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://miastochojnice.pl/przetarg-pisemny-ograniczony-na-sprzedaz-dzialki-rod-metalowiec-03-09-2026-r-godz-10-00/",
+          "source_url": "https://miastochojnice.pl/przetarg-pisemny-ograniczony-na-sprzedaz-dzialki-rod-metalowiec-03-09-2026-r-godz-10-00/?aid=100584&sa=0"
+        }
+      ],
+      "parcels": []
     },
     {
       "key": "dz|4608/105",

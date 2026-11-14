@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "city": "limanowa",
+  "plots": [
+    {
+      "key": "addr|jana pawla ii|9|",
+      "kind": "grunt",
+      "city": "limanowa",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Jana Pawła II",
+      "building": null,
+      "address_raw": "Jana Pawła II 9",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Jana%20Paw%C5%82a%20II%20Limanowa%20geoportal%20dzia%C5%82ki",
+      "area_m2": 291,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2012-07-26",
+          "round": 1,
+          "starting_price_pln": 300000,
+          "outcome": "archived",
+          "area_m2": 291,
+          "detail_url": "https://bip.malopolska.pl/umlimanowa,a,549806,zarzadzenie-nr-1262012burmistrza-miasta-limanowa-z-dnia-13-czerwca-2012-r-w-sprawie-zatwierdzenia-og.html",
+          "source_url": "https://bip.malopolska.pl/umlimanowa,a,549806,zarzadzenie-nr-1262012burmistrza-miasta-limanowa-z-dnia-13-czerwca-2012-r-w-sprawie-zatwierdzenia-og.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|zygmunta augusta w obrebie ewid nr|7|",
+      "kind": "grunt",
+      "city": "limanowa",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Zygmunta Augusta w obrębie ewid. Nr",
+      "building": null,
+      "address_raw": "Zygmunta Augusta\nw obrębie ewid. Nr 7",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Zygmunta%20Augusta%20w%20obr%C4%99bie%20ewid.%20Nr%20Limanowa%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3016,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2003-12-10",
+          "round": 1,
+          "starting_price_pln": 91660,
+          "outcome": "archived",
+          "area_m2": 3016,
+          "detail_url": "https://bip.malopolska.pl/umlimanowa,a,754626,zarzadzenie-nr-2552003-burmistrza-miasta-limanowa-z-dnia-18-listopada-2003-r-w-sprawie-zatwierdzenia.html",
+          "source_url": "https://bip.malopolska.pl/umlimanowa,a,754626,zarzadzenie-nr-2552003-burmistrza-miasta-limanowa-z-dnia-18-listopada-2003-r-w-sprawie-zatwierdzenia.html"
+        }
+      ],
+      "parcels": []
+    }
+  ]
+}

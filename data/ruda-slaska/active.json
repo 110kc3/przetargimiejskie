@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "city": "ruda-slaska",
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Ryszarda Siekiela 23/6",
+      "address": {
+        "street": "Ryszarda Siekiela",
+        "street_norm": "ryszarda siekiela",
+        "building": "23",
+        "apt": "6",
+        "key": "ryszarda siekiela|23|6",
+        "warning": null
+      },
+      "auction_date": "2026-12-08",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 43.7,
+      "starting_price_pln": 58000,
+      "detail_url": "https://rudaslaska.bip.info.pl/dokument.php?iddok=91444&idmp=4478&r=r",
+      "share": "1/3"
+    }
+  ],
+  "wykaz": []
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "city": "limanowa",
+  "properties": [
+    {
+      "key": "spacerowej w limanowej|2|",
+      "street": "Spacerowej w Limanowej.",
+      "street_norm": "spacerowej w limanowej",
+      "building": "2",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2009-02-19",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 2440000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.malopolska.pl/umlimanowa,a,542188,zarzadzenie-nr-23708-burmistrza-miasta-limanowa-z-dnia-13-listopada-2008r-w-sprawie-zatwierdzenia-og.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 10019
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 10019
+    },
+    {
+      "key": "fabrycznej i w witosa w obrebie ewid nr|3|",
+      "street": "Fabrycznej i W. Witosa w obrębie ewid. nr",
+      "street_norm": "fabrycznej i w witosa w obrebie ewid nr",
+      "building": "3",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2003-12-17",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 63790,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.malopolska.pl/umlimanowa,a,754615,zarzadzenie-nr-2802003-burmistrza-miasta-limanowa-z-dnia-27-listopada-2003-r-w-sprawie-zatwierdzenia.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 1731
+        },
+        {
+          "date": "2004-02-03",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 42000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.malopolska.pl/umlimanowa,a,755263,zarzadzenie-nr-92004-burmistrza-miasta-limanowa-z-dnia-12-stycznia-2004-r-w-sprawie-zatwierdzenia-og.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 1731
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 1731
+    },
+    {
+      "key": "m boskiej bolesnej|2|",
+      "street": "M. Boskiej Bolesnej.",
+      "street_norm": "m boskiej bolesnej",
+      "building": "2",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 300000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.malopolska.pl/umlimanowa,a,545754,zarzadzenie-nr-29809-burmistrza-miasta-limanowa-z-dnia-16-grudnia-2009-r-w-sprawie-zatwierdzenia-ogl.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 464.05
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 464.05
+    }
+  ]
+}
