@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseBoardLinks } from '../src/cities/wloclawek/crawl.js';
@@ -104,7 +103,7 @@ const KIL_II_HTML = noticeHtml(
     ],
     ['Cena wywoławcza', '110 270,00 zł, Wadium wynosi 10 000,00 zł.'],
   ],
-  [], // Nieroztrzygnięte -> no result attachment (checked live, see config.js)
+  [],
   'Pierwszy przetarg ustny nieograniczony na sprzedaż przedmiotowej nieruchomości miał miejsce w dniu 12 czerwca 2023 r. i zakończył się wynikiem negatywnym.',
 );
 
@@ -114,7 +113,7 @@ const JAG_III_HTML = noticeHtml(
   JAG_III_TITLE,
   [
     ['Typ przetargu', 'Przetarg ustny nieograniczony'],
-    ['Rodzaj nieruchomości', 'Nieruchomości niezabudowane'], // CMS mis-tag — see header comment
+    ['Rodzaj nieruchomości', 'Nieruchomości niezabudowane'],
     ['Rok publikacji', '2023'],
     ['Status Realizacji', 'Roztrzygnięte'],
     ['Data przetargu', '18-12-2023'],

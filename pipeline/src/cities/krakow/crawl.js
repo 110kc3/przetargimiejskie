@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { parseNotice, splitItems } from './parse.js';
 

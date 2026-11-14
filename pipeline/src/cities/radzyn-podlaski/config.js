@@ -1,4 +1,3 @@
-
 export const CONFIG = {
   id: 'radzyn-podlaski',
   teryt: '0615011',

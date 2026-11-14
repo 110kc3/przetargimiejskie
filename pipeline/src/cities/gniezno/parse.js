@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 
 
@@ -142,7 +141,6 @@ export function parseResultNotice(text, sourceUrl) {
   const auction_date = dateFromPolishWords(raw) || dateFromNumeric(raw) || null;
   const round = resultRoundFromText(t);
 
-  // Match apt on raw to preserve uppercase letter (e.g. "5A" not "5a")
   const aptM = /lokal[a-z]*\s+mieszkaln[a-z]*\s+nr\s+(\d+[A-Za-z]?)/i.exec(raw);
   const streetM = /przy\s+ulicy\s+([A-Za-z][A-Za-z0-9 .']*?)\s+(\d+[A-Za-z]?)(?:\s*[,.]|$|\s+stanowi|\s+wraz)/i.exec(raw);
 

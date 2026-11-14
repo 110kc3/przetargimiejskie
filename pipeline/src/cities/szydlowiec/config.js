@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'szydlowiec',
-  teryt: '1430054', // Szydłowiec (miasto)
+  teryt: '1430054',
   label: 'Szydłowiec',
   voivodeship: 'mazowieckie',
   authority: 'Burmistrz Szydłowca',

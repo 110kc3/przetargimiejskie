@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { parseAnnouncement, parseResultDoc as _parseResultDoc } from './parse.js';

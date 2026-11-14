@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -7,7 +6,6 @@ export function stripTags(s) {
   return (s || '')
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-    // <sup>2</sup> in "56 m<sup>2</sup>" → keep the digit joined: "56 m2"
     .replace(/<sup>([\s\S]*?)<\/sup>/gi, '$1')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&nbsp;/gi, ' ')

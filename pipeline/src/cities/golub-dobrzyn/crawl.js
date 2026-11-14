@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -142,7 +141,7 @@ async function crawlPowiat(buckets, budget) {
       added++;
     }
     if (parseBoardRefs(html).length === 0) break;
-    if (added === 0 && page > 1) { /* keep going a little — mixed board */ }
+    if (added === 0 && page > 1) {}
   }
   console.error(`  golub-dobrzyn(powiat): ${refs.length} property-title notice(s) to fetch`);
 

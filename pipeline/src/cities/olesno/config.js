@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'olesno',
-  teryt: '160701_4', // gmina miejsko-wiejska Olesno (powiat oleski) — confirm on first geoportal run
+  teryt: '160701_4',
   label: 'Olesno',
   voivodeship: 'opolskie',
   authority: 'Urząd Miejski w Oleśnie',

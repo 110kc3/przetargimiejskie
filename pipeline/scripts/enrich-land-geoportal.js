@@ -1,4 +1,3 @@
-// preserved — only the search-fallback links get upgraded; the parcel's resolved
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -24,9 +23,8 @@ async function enrichCity(city) {
   await mkdir(CACHE_DIR, { recursive: true });
   const cachePath = join(CACHE_DIR, `${city.id}.json`);
   let cache = {};
-  if (existsSync(cachePath)) { try { cache = JSON.parse(await readFile(cachePath, 'utf8')); } catch { /* fresh */ } }
+  if (existsSync(cachePath)) { try { cache = JSON.parse(await readFile(cachePath, 'utf8')); } catch {} }
 
-  // Flush cache + data periodically so a timeout (or interrupt) preserves
   const flush = async () => {
     await writeFile(cachePath, JSON.stringify(cache, null, 2) + '\n');
     await writeFile(landPath, JSON.stringify(data, null, 2) + '\n');

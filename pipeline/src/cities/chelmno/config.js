@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'chelmno',
-  teryt: '040401_1', // gmina miejska Chełmno (powiat chełmiński 0404, gmina-type
+  teryt: '040401_1',
   label: 'Chełmno',
   voivodeship: 'kujawsko-pomorskie',
   authority: 'Gmina Miasto Chełmno',

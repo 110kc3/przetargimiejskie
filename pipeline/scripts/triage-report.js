@@ -1,5 +1,3 @@
-// per-city throws and the preserve-on-empty path exits 0 (by design, so one
-
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -23,7 +21,7 @@ export function parseTriageLines(log, city) {
     try {
       const obj = JSON.parse(m[1]);
       if (!city || obj.city === city) out.push(obj);
-    } catch { /* malformed line — ignore, prose log still has the story */ }
+    } catch {}
   }
   return out;
 }

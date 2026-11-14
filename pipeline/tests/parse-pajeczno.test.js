@@ -1,5 +1,3 @@
-// area-unit character) are preserved byte-for-byte from the source, with only
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 

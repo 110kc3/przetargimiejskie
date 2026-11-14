@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -137,7 +136,7 @@ export function parseArticle(art) {
     address_raw,
     address,
     area_m2,
-    starting_price_pln: null, // enriched from DOC when available
+    starting_price_pln: null,
     auction_date,
     round,
     detail_url,

@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'busko-zdroj',
   teryt: '260101_3',

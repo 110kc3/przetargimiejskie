@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -72,31 +71,12 @@ export function isLease(text) {
   return /dzier[żz]aw|\bnajem\b|czynsz\s+dzier|z[łl]\s+miesi[ęe]cznie|miesi[ęe]cznie\s*$/i.test(t);
 }
 
-/** True when this looks like a "wynik przetargu" result notice (either the
- *  "Informacja pozytywna/negatywna …" or "INFORMACJA dotycząca wyniku …"
- *  convention, or the generic "…został przeprowadzony…"/"…osiągnięta…"
- *  phrasing) — and not a cancellation/complaint-resolution notice that also
- *  lands on the results board.
- *
- *  Deliberately NOT matched on a bare "wynik…(jest)…negatywny/pozytywny": an
- *  ACTIVE announcement's own round-history recap ("I, II, III przetargi
- *  ustne nieograniczone zakończyły się wynikiem negatywnym") uses exactly
- *  that phrase to describe a PRIOR round, which would otherwise make an
- *  announcement doc misclassify as a result doc (see
- *  MICKIEWICZA_IV_ACTIVE in the test — it carries that exact recap). Every
- *  real result doc observed live already opens with "Informacja
- *  pozytywna/negatywna …", so that (title-favoring, via TITLE-then-BODY
- *  concatenation) anchor plus the body-level anchors below are sufficient
- *  without the risky bare alternative. */
 export function isResultDoc(text) {
   if (isNonAuctionNotice(text)) return false;
   const t = whole(text);
   return /informacj\w*\s+(?:pozytywn|negatywn)\w*|dotycz[ąa]?\w*\s+wyniku|przeprowadzon\w*\s+zosta[łl]|zosta[łl]\s+przeprowadzon\w*|osi[ąa]gni[ęe]t/i.test(t);
 }
 
-/** True when the resolution explicitly states a negative (unsold) outcome —
- *  Lubliniec's nominative "wynik jest negatywny" as well as the instrumental
- *  "wynikiem negatywnym" seen elsewhere in this CMS family. */
 export function isNegativeOutcome(text) {
   const t = whole(text);
   return /wynik\w*\s+(?:jest\s+)?negatywn\w*|nikt\s+nie\s+przyst[ąa]pi|nie\s+przyst[ąa]pi|brak\s+ofert|uniewa[żz]ni|nie\s+odnotowano|nie\s+wp[łl]acono\s+wadium/i.test(t);

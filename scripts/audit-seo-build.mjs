@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve, sep } from 'node:path';
 

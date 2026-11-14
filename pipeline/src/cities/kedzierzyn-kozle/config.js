@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'kedzierzyn-kozle',
-  teryt: '160301_1', // gmina miejska Kędzierzyn-Koźle (powiat kędzierzyńsko-kozielski)
+  teryt: '160301_1',
   label: 'Kędzierzyn-Koźle',
   voivodeship: "opolskie",
   authority: 'Urząd Miasta Kędzierzyn-Koźle',

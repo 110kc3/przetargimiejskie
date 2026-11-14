@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { docText } from '../../core/doc-text.js';
@@ -117,7 +116,6 @@ export async function extractAttachmentText(docUrl, pdfUrl) {
       const text = await docText(docUrl, FETCH_OPTS);
       if (text && text.trim().length > 30) return text;
     } catch {
-      // ignore
     }
   }
   if (pdfUrl) {
@@ -125,13 +123,11 @@ export async function extractAttachmentText(docUrl, pdfUrl) {
       const text = await pdfText(pdfUrl, FETCH_OPTS);
       if (text && text.trim().length > 30) return text;
     } catch {
-      // ignore
     }
     try {
       const text = await ocrPdf(pdfUrl, FETCH_OPTS);
       if (text && text.trim().length > 30) return text;
     } catch {
-      // ignore
     }
   }
   return '';

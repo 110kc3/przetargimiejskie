@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'zabkowice-slaskie',
   teryt: '022305_3',

@@ -1,4 +1,3 @@
-
 import { appendFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 

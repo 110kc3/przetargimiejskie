@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -306,10 +305,10 @@ test('parseCatalogLand: empty HTML returns empty array without throwing', () => 
 
 test('nullImplausiblePrices nulls a 0/placeholder and a missing-thousands slip', () => {
   const recs = [
-    { address_raw: 'Falata 24/5', starting_price_pln: 0 },         // catalog 0,00 -> the #84 failure
-    { dzialka_nr: '60/5', starting_price_pln: 550 },               // Piekarska-style missing-thousands slip
-    { address_raw: 'Katowicka 44/8', starting_price_pln: 85000 },  // real price -- untouched
-    { address_raw: 'no price yet', starting_price_pln: null },     // already unknown -- untouched, not counted
+    { address_raw: 'Falata 24/5', starting_price_pln: 0 },
+    { dzialka_nr: '60/5', starting_price_pln: 550 },
+    { address_raw: 'Katowicka 44/8', starting_price_pln: 85000 },
+    { address_raw: 'no price yet', starting_price_pln: null },
   ];
   const nulled = nullImplausiblePrices(recs);
   assert.equal(nulled, 2);

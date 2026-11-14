@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 
 const ROMAN = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8 };
@@ -176,7 +175,7 @@ export function parseCommercialAttachment(text) {
     out.push({
       address_raw: addressRaw,
       address,
-      kind: 'uzytkowy', // board 552 is the commercial board by definition
+      kind: 'uzytkowy',
       area_m2: commercialAreaFromBlock(block),
       starting_price_pln: priceFromBlock(block),
     });

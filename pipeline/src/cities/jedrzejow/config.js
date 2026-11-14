@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'jedrzejow',
   teryt: '260202_4',

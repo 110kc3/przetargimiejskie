@@ -1,4 +1,3 @@
-
 export default {
   id: 'bielsk-podlaski',
   name: 'Bielsk Podlaski',

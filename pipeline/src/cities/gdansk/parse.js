@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 import { htmlToText, parsePLN, areaFromText } from '../../core/finn-bip.js';
@@ -64,7 +63,6 @@ function normaliseAptSuffix(raw) {
     .trim();
 }
 
-// pdftotext -layout preserves table columns, but long addresses can wrap over
 function tableAddress(block) {
   const leftColumn = (line) => line.trim().split(/\s{2,}/, 1)[0].trim();
   const lines = block.split('\n');

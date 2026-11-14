@@ -1,4 +1,3 @@
-
 import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
@@ -175,8 +174,6 @@ for (const c of index.cities || []) {
       fail(c.id, 'stale-data', `data stale (${ageStr} > ${STALE_DAYS}d) — crawl stopped updating`, meta);
     }
   }
-  // last-good data was preserved. The preserve path can refresh generated_at
-  // stuck on preserved data — surface the flag explicitly.
   if (meta.stale === true && !ex.active) {
     warns.push(`${c.id}: serving PRESERVED last-good data (meta.stale) — crawl is failing; check the refresh log / open triage issue`);
   }

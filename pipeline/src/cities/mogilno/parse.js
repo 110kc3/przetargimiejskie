@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -264,10 +263,6 @@ export function parseResultDoc(text, fallbackDate, sourcePdf) {
   }];
 }
 
-/**
- * Extract article entries from Nefeni category list HTML.
- * Optionally filter by category ID prefix (e.g. '98' or '101') to exclude global nav links.
- */
 export function parseListPage(html, catFilter = null) {
   if (!html) return [];
   const entries = [];

@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { ocrPdf } from '../../core/ocr-pdf.js';
@@ -30,7 +29,6 @@ async function getDocText(url) {
     try {
       return await docText(url, FETCH_OPTS);
     } catch {
-      // fallback
     }
   }
 
@@ -38,14 +36,12 @@ async function getDocText(url) {
     const text = await pdfText(url, FETCH_OPTS);
     if (text && text.trim().length >= 40) return text;
   } catch {
-    // not valid pdf or failed
   }
 
   try {
     const dText = await docText(url, FETCH_OPTS);
     if (dText && dText.trim().length >= 40) return dText;
   } catch {
-    // not a doc
   }
 
   return await ocrPdf(url, { ...FETCH_OPTS, psm: 1 });
@@ -200,7 +196,6 @@ async function crawlAll() {
         if (isGenuineSaleWykazText(fileLabel) || isGenuineSaleWykazText(title)) {
           const wRec = wykazRecordFromEntry(title, artUrl);
           if (wRec) wykaz.push(wRec);
-          // if it also has an auction notice in it, parse it
         }
 
         if (!seenPdf.has(fileUrl) && !/regulamin/i.test(fileLabel)) {

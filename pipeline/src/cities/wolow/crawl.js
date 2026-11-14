@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { gunzipSync } from 'node:zlib';
 import { getText, getBytes } from '../../core/fetch.js';
@@ -60,7 +59,6 @@ async function discoverCandidateUrls() {
     } else if (isFlatSlug) {
       flatWykaz.push({ id: u.id, url: u.url, isWykaz: true });
     }
-    // Non-flat wykaz is deliberately dropped — see header.
   }
   otherAnnounce.sort((a, b) => b.id - a.id);
   const bounded = otherAnnounce.slice(0, MAX_OTHER_ANNOUNCE);

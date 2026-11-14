@@ -183,21 +183,11 @@ export function buildGlobalStreetDisplay(dataDir) {
       for (const p of JSON.parse(readFileSync(path, 'utf8')).properties || []) {
         if (!byNorm.has(p.street_norm)) byNorm.set(p.street_norm, p.street);
       }
-    } catch { /* unreadable city — skip its evidence */ }
+    } catch {}
   }
   return byNorm;
 }
 
-/**
- * Flip an ambiguous -skiej/-ckiej/-dzkiej DISPLAY street to its nominative form
- * when a nominative twin exists in ANY city (per globalByNorm). Presentation
- * only — key and street_norm are untouched. Complements build-properties'
- * applyDisplayStreets, which only flips when the twin is in the SAME city; those
- * within-city flips already survive merge, these cross-city ones do not.
- * @param {Array} props   built properties array (mutated in place)
- * @param {string} cityId
- * @param {Map<string, string>} globalByNorm  from buildGlobalStreetDisplay
- */
 export function crossCityDisplay(props, cityId, globalByNorm) {
   if (!globalByNorm) return;
   for (const p of props) {
@@ -250,7 +240,6 @@ export function applyVerifiedJunk(props, cityId) {
 function repairBolescinResultIdentity(props, cityId) {
   if (cityId !== 'trzebnica') return props;
   const oldKey = 'bolescin|0|2';
-  // Preserve any other unknown-building rows rather than guessing their identity.
   const sources = new Map([
     ['2026-02-27', 'https://bip.trzebnica.pl/przetarg-nieruchomosci/3110/przetarg-ggn-p-5-2026'],
     ['2026-08-10', 'https://bip.trzebnica.pl/przetarg-nieruchomosci/3445/przetargggnp142026'],
@@ -269,16 +258,6 @@ function repairBolescinResultIdentity(props, cityId) {
   });
 }
 
-/**
- * Apply the complete durable post-build heal sequence used by normal refresh,
- * preserve-on-empty refresh, and the offline healer. Keeping one entry point
- * prevents an outage path from re-publishing aliases or stale inferred rounds
- * that the normal merge path would have fixed.
- * @param {Array} props
- * @param {string} cityId
- * @param {Map<string, string>} [globalByNorm]
- * @returns {Array}
- */
 export function applyDurablePropertyHeals(props, cityId, globalByNorm) {
   for (const property of props) {
     const decoded = htmlToText(property.street);

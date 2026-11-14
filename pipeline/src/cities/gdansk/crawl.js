@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -9,7 +8,6 @@ const INDEX_URL = `${ORIGIN}/urzad-miejski/Ogloszenia-o-przetargach,a,1439`;
 const INDEX_PATHNAME = new URL(INDEX_URL).pathname.toLowerCase();
 const ANN_LINK_RE =
   /\/urzad-miejski\/(?:OGLOSZENIE|ogloszenie)[^"'\s]*,a,\d+/i;
-// global accessibility PDF before the article body, so prefer the attachment
 const PDF_LINK_RE =
   /https?:\/\/download\.cloudgdansk\.pl\/gdansk-pl\/d\/[^"'\s)]+\.pdf/gi;
 const ARTICLE_FILE_ANCHOR_RE = /<a\b[^>]*class="[^"]*\barticle-file\b[^"]*"[^>]*>/gi;

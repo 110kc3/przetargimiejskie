@@ -1,4 +1,3 @@
-
 export const RESTORED = new Set(["bydgoszcz", "chelmno", "drawsko-pomorskie", "glogow", "glubczyce", "gniezno", "gorzow-wielkopolski", "grudziadz", "jarocin", "jelenia-gora", "kielce", "krakow", "kwidzyn", "skarzysko-kamienna", "slupsk", "stargard", "swinoujscie", "torun", "trzebnica", "warszawa", "wroclaw"]);
 export const QUARANTINED = new Map();
 export const QUARANTINE_REVIEW_DUE = null;

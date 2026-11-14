@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -163,7 +162,7 @@ export function parseAnnouncement(fields = {}) {
       kind: 'grunt',
       dzialka_nr: plot.dzialka_nr,
       obreb: plot.obreb,
-      area_m2: plot.area_m2, // PLOT area — land has no usable floor area
+      area_m2: plot.area_m2,
       address_raw,
       starting_price_pln,
       auction_date,

@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'wegorzewo',
   teryt: '281903_4',

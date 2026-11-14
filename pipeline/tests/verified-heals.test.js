@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -51,7 +50,7 @@ test('applyVerifiedJunk REFUSES to fold when the junk holds an uncovered date', 
   };
   const junk = {
     key: 'gornej 4 6 i|8|', street: 'Górnej', street_norm: 'gornej 4 6 i', building: '8', apt: null,
-    kind: 'unknown', listings: [listing('2099-01-01')], // date absent from survivor
+    kind: 'unknown', listings: [listing('2099-01-01')],
   };
   const out = applyVerifiedJunk([survivor, junk], 'katowice');
   assert.equal(out.length, 2, 'fold must be refused — both properties remain');
@@ -114,7 +113,7 @@ test('applyVerifiedRenames re-keys and moves a whole-property total to land', ()
 test('applyVerifiedRenames back-fills the verified area onto area-less listings', () => {
   const p = {
     key: 'przetargi|26|', street: 'Przetargi', street_norm: 'przetargi', building: '26', apt: null,
-    kind: 'mieszkalny', listings: [listing('2023-03-20', { outcome: 'sold' })], // no area
+    kind: 'mieszkalny', listings: [listing('2023-03-20', { outcome: 'sold' })],
   };
   applyVerifiedRenames([p], 'katowice');
   assert.equal(p.key, 'wita stwosza|1|11');

@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { ocrPdf } from '../../core/ocr-pdf.js';
@@ -103,7 +102,7 @@ async function crawlAll() {
       published_date: item.published_from,
       round: parsed.round,
       area_m2: parsed.area_m2,
-      starting_price_pln: null, // not in wykaz-phase announcements
+      starting_price_pln: null,
       detail_url: url,
       eto_nr: item.eto_nr,
       source: 'city',

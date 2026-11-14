@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'drawsko-pomorskie',
   teryt: '320203_3',

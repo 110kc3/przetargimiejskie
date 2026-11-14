@@ -1,5 +1,3 @@
-//   - Rejestr zmian: "Data wytworzenia dokumentu: <span>DD-MM-YYYY</span>"
-
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { parseAddress } from '../../core/normalize.js';
@@ -16,8 +14,6 @@ const MAX_PAGES = 10;
 export function currentListUrl(page = 1) {
   return `${ORIGIN}/wiadomosci/3/lista/${page}/przetargi`;
 }
-
-// ("Data wytworzenia dokumentu" in Rejestr zmian).
 
 const TITLE_LINK_RE = /<p class="title"><a href="([^"]+)">([^<]+)<\/a><\/p>/g;
 
@@ -38,12 +34,6 @@ export function parseListPage(html) {
 }
 
 
-/**
- * Extract publication date from detail page "Rejestr zmian" section.
- * HTML pattern: "Data wytworzenia dokumentu: <span>DD-MM-YYYY</span>"
- * @param {string} html
- * @returns {string|null} ISO date (YYYY-MM-DD) or null
- */
 export function publishedDateFromDetail(html) {
   if (!html) return null;
   const m = /Data wytworzenia dokumentu:\s*<span>(\d{2})[.-](\d{2})[.-](\d{4})(?:\s*r\.)?/i.exec(html);

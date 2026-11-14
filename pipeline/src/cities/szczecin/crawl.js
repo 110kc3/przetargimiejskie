@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import {
@@ -45,8 +44,6 @@ export function parseRss(xml) {
         href = parsed.toString();
       }
     } catch {
-      // Keep malformed/relative source values unchanged; downstream URL
-      // resolution and fetch validation will reject anything unusable.
     }
     out.push({ title, href, pubDate, pubMs: parsePubDate(pubDate) });
   }
@@ -119,8 +116,8 @@ async function crawlAll() {
     }
     if (!isResultNotice(html)) continue;
     resultRefs.push({
-      text: html,          // raw HTML; parseResultDoc receives this as its first arg
-      pdf_url: it.href,   // field name kept for compat with refresh.js result-stream contract
+      text: html,
+      pdf_url: it.href,
       auction_date: null,
     });
   }

@@ -1,4 +1,3 @@
-// Temp verification of CURRENT (buggy) direct extractors on spaced-digit CMS damage.
 function parsePLN(s){ if(!s) return null; let c=String(s).replace(/[\s ]/g,''); c=c.replace(/z[łl].*$/i,''); c=c.replace(/,-+$/,'').replace(/,\d{1,2}$/,''); c=c.replace(/[^\d]/g,''); return c?Number(c):null; }
 function priceFromText(text){ const m=/cen[aąęy]\s+wywo[łl]awcz[aąeyj]*[\s\S]{0,140}?([\d][\d.,\s -]*?)\s*z[łl]/i.exec(text||''); return m?parsePLN(m[1]):null; }
 const PL_MONTHS={stycznia:1,lutego:2,marca:3,kwietnia:4,maja:5,czerwca:6,lipca:7,sierpnia:8,'września':9,wrzesnia:9,'października':10,pazdziernika:10,listopada:11,grudnia:12};

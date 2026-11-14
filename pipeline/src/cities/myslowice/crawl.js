@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { config } from './config.js';
 import { makeCrawlActive, crawlResultDocs } from '../../core/finn-bip.js';

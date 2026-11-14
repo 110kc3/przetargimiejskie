@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'rawa-mazowiecka',
   teryt: '101301_1',

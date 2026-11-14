@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'zakopane',
   teryt: '121701_1',

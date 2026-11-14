@@ -6,7 +6,6 @@
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<!-- Natively dark — keeps dark-mode browser extensions from re-tinting. -->
 <meta name="color-scheme" content="dark" />
 <title>Archiwum przetargów — przetargimiejskie</title>
 <meta name="description" content="Przeszukiwalne archiwum miejskich przetargów na nieruchomości w całej Polsce. Ceny wywoławcze, rundy, zł/m² i wyniki z oficjalnych BIP-ów." />
@@ -23,7 +22,6 @@
 <meta name="twitter:description" content="Przeszukiwalne archiwum miejskich przetargów na mieszkania: ceny wywoławcze, rundy, zł/m² i wyniki." />
 <meta name="twitter:image" content="https://przetargimiejskie.pl/og-image.png" />
 <style>
-/* ===== przetargimiejskie — Slate Ledger (dark) ===== */
 :root{
   color-scheme: dark;
   --bg:#0d1117; --bg-grad:#131a26; --surface:#161b22; --surface-2:#1b2230;
@@ -80,7 +78,6 @@ a:hover{color:var(--accent);text-decoration:underline}
 .data-table .num{text-align:right;font-variant-numeric:tabular-nums}
 .data-table .addr{white-space:normal;min-width:200px}
 .data-table .muted-cell{color:var(--faint)}
-/* Działka column is hidden unless the Rodzaj filter is land/houses (toggled in render()). */
 body.hide-dz .dz-col{display:none}
 body.hide-map .map-col{display:none}
 .empty-row td{color:var(--faint);text-align:center;padding:22px}
@@ -182,49 +179,29 @@ body.hide-map .map-col{display:none}
 
 <script src="/catalog.js"></script>
 <script>
-// Europe/Warsaw civil date — UTC "today" flips 1-2 h before local midnight,
-// keeping an auction "active" too long (mirrors the extension's todayWarsaw()).
 const TODAY = new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Warsaw',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 const nf = new Intl.NumberFormat('pl-PL',{maximumFractionDigits:0});
 const nfArea = new Intl.NumberFormat('pl-PL',{maximumFractionDigits:2});
 const fmtPLN = n => n==null?'—':nf.format(n)+' zł';
-const fmtArea = a => a?nfArea.format(a)+' m²':'—'; // Polish decimal comma, not the raw JSON dot
+const fmtArea = a => a?nfArea.format(a)+' m²':'—';
 const fmtM2 = (p,a)=>(p==null||!a)?'—':nf.format(Math.round(p/a))+' zł/m²';
 const median = a => { if(!a.length) return null; const s=a.slice().sort((x,y)=>x-y); const m=s.length>>1; return s.length%2?s[m]:(s[m-1]+s[m])/2; };
-// Escape crawled strings before they go into innerHTML, and only let http(s)
-// URLs through to hrefs (mirrors the extension's esc()/safeHref(), v1.14.3).
 const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeHref = u => { if(!u) return ''; try{ const x=new URL(u,location.href); return (x.protocol==='http:'||x.protocol==='https:')?x.href:''; }catch{ return ''; } };
-// Polish-fold both sides of the street search so "zwyciestwa" matches "Zwycięstwa".
 const fold = s => String(s||'').toLowerCase()
   .replace(/[ąàá]/g,'a').replace(/[ćč]/g,'c').replace(/[ęè]/g,'e').replace(/[ł]/g,'l')
   .replace(/[ńñ]/g,'n').replace(/[óòô]/g,'o').replace(/[śš]/g,'s').replace(/[żź]/g,'z');
 const KIND = {mieszkalny:'mieszkalny',zabudowana:'dom',zabudowa:'dom',grunt:'działka',uzytkowy:'użytkowy',garaz:'garaż',unknown:'—'};
-// Fold legacy house aliases to the canonical kind so the "domy" filter + summary
-// tile (which compare === 'zabudowana') don't silently drop an aliased row.
-// null/undefined pass through unchanged so the l.kind||p.kind fallbacks still work.
 const KIND_ALIAS = {zabudowa:'zabudowana',zabudowy:'zabudowana'};
 const aliasKind = k => KIND_ALIAS[k] || k;
 const roundLabel = r => r ? `${r}. przet.` : '—';
 const OUTCOME = {sold:'sprzedane',unsold:'bez sprzedaży',archived:'zakończone (brak wyniku)',no_winner:'bez rozstrzygnięcia',cancelled:'odwołane / unieważnione'};
-// Why the auction didn't sell, in Polish. 'unknown' carries no info → suppressed
-// (the "bez sprzedaży" pill already says it didn't sell). Unmapped codes fall
-// through to their raw value so a new reason still surfaces rather than vanishes.
 const REASON = {no_deposits:'brak wpłat wadium',bidder_noshow:'oferent się nie stawił',bidder_withdrew:'oferent odstąpił',unknown:''};
 const reasonLabel = code => code==null?'':(REASON[code]??code);
-// Fractional-share sale ("sprzedaż udziału 4/6 części") — flagged so a price
-// that looks low against the others is read as a share, not the whole flat.
 const shareBadge = s => s?`<span class="badge-share" title="Sprzedaż udziału ${esc(s)} części nieruchomości">udział ${esc(s)}</span>`:'';
-// Direct "verify at the source" link — straight to the city BIP/ZGM page or
-// result PDF. Blank when the listing has no source URL.
 const srcLink = u => { const h=safeHref(u); return h?`<a class="src-link" href="${esc(h)}" target="_blank" rel="noopener">źródło ↗</a>`:''; };
-// Secondary source: the city BIP page for an auction whose primary źródło is
-// the ZGM listing (Gliwice lists the same auction on both boards).
 const bipLink = u => { const h=safeHref(u); return h?` <a class="src-link" href="${esc(h)}" target="_blank" rel="noopener">BIP ↗</a>`:''; };
-// Land: the city portal the plot was crawled from — its SOURCE, shown next to the
-// geoportal MAP link so a plot's origin is visible, not only its parcel map.
 const portalLink = u => { const h=safeHref(u); return h?` <a class="src-link" href="${esc(h)}" target="_blank" rel="noopener">portal ↗</a>`:''; };
-// Land plots link their parcel to a geoportal (resolved per-city in build-land).
 const geoLink = r => {
   if (r.parcels && r.parcels.length) {
     const links = r.parcels.map(p=>{const h=safeHref(p.geoportal_url);return h?`<a class="src-link" href="${esc(h)}" target="_blank" rel="noopener">${esc(p.nr)} ↗</a>`:esc(p.nr);}).join(' ');
@@ -232,9 +209,6 @@ const geoLink = r => {
   }
   const h=safeHref(r.geo); return h?`<a class="src-link" href="${esc(h)}" target="_blank" rel="noopener">${esc(r.dz||'mapa')} ↗</a>`:'—';
 };
-// Direct Google Maps link for non-land listings (flats/houses/commercial/garages).
-// Historical rows carry street+building; active rows carry the raw address (apt
-// stripped). Land plots use the Działka geoportal link instead.
 const mapsLink = r => {
   if (r.kind === 'grunt') return '';
   const base = (r.street ? `${r.street}${r.building?(' '+r.building):''}`
@@ -246,8 +220,6 @@ const mapsLink = r => {
 
 let CITIES=[], records=[], active=[], minDate, maxDate, lastRefresh, WOJ_BY_CITY={};
 let sortKey='date', sortDir='desc';
-// The "Aktualne aukcje" table has its own sort state so it can be ordered by
-// Cena / Powierzchnia / zł/m² independently of the history table below.
 let aSortKey='date', aSortDir='asc';
 
 function chip(city,label){ return `<span class="chip"><span class="city-dot dot-${esc(city)}"></span>${esc(label||city)}</span>`; }
@@ -308,8 +280,6 @@ async function loadSelected(selected,token){
   const SHOW_ALL = /archiwum-all/.test(location.pathname);
   CITIES = idx.cities;
   const MUNICIPAL_CITIES = CITIES.slice();
-  // Institutional feeds are a pilot visible only on /archiwum-all. Their
-  // files and metrics stay separate from the municipal city contract.
   let providerIndex={providers:[]}, providerDocs=[];
   if(SHOW_ALL){
     try{
@@ -337,14 +307,12 @@ async function loadSelected(selected,token){
     for(const p of providerIndex.providers||[]){const o=document.createElement('option');o.value=p.id;o.textContent=p.label;seller.appendChild(o);}
     document.getElementById('f-seller-field').hidden=false;
   }
-  // Voivodeship (województwo) filter, driven by index.json's per-city voivodeship.
   WOJ_BY_CITY = Object.fromEntries(CITIES.map(c=>[c.id, c.voivodeship||null]));
   const WOJ_LABELS = {dolnoslaskie:'Dolnośląskie','kujawsko-pomorskie':'Kujawsko-Pomorskie',lubelskie:'Lubelskie',lubuskie:'Lubuskie',lodzkie:'Łódzkie',malopolskie:'Małopolskie',mazowieckie:'Mazowieckie',opolskie:'Opolskie',podkarpackie:'Podkarpackie',podlaskie:'Podlaskie',pomorskie:'Pomorskie',slaskie:'Śląskie',swietokrzyskie:'Świętokrzyskie','warminsko-mazurskie':'Warmińsko-Mazurskie',wielkopolskie:'Wielkopolskie',zachodniopomorskie:'Zachodniopomorskie'};
   const wojs=[...new Set(CITIES.map(c=>c.voivodeship).filter(Boolean))].sort((a,b)=>(WOJ_LABELS[a]||a).localeCompare(WOJ_LABELS[b]||b,'pl'));
   const fw=document.getElementById('f-woj');
   wojs.forEach(w=>{const o=document.createElement('option');o.value=w;o.textContent=WOJ_LABELS[w]||w;fw.appendChild(o);});
   if(wojs.length>1) document.getElementById('f-woj-field').hidden=false;
-  // Picking a voivodeship narrows the city dropdown to that voivodeship.
   fw.addEventListener('change',()=>{ const w=fw.value; for(const o of fc.options){ if(o.value==='all') continue; o.hidden = w!=='all' && WOJ_BY_CITY[o.value]!==w; } if(fc.selectedOptions[0]&&fc.selectedOptions[0].hidden) fc.value='all'; });
 
   let retainedFallback=false;
@@ -353,9 +321,6 @@ async function loadSelected(selected,token){
       if(token!==cityLoadToken)return;
       retainedFallback=loaded.stale;
       const [props,act,land]=loaded.docs;
-      // Canonicalize legacy house-kind aliases in place before any === 'zabudowana'
-      // filter/summary comparison downstream (defence-in-depth; the pipeline now
-      // heals these too).
       for(const p of (props.properties||[])){
         if(p.kind) p.kind = aliasKind(p.kind);
         for(const l of (p.listings||[])) if(l.kind) l.kind = aliasKind(l.kind);
@@ -457,8 +422,6 @@ function refreshHeaders(){
   document.querySelectorAll('th[data-sort]').forEach(th=>{ th.innerHTML = th.dataset.label + arrow(th.dataset.sort); });
   document.querySelectorAll('th[data-asort]').forEach(th=>{ th.innerHTML = th.dataset.label + aArrow(th.dataset.asort); });
 }
-// Value a row sorts on in the active table; null = "missing" so it can be sunk
-// to the bottom regardless of direction (a plot with no price still shows, last).
 function activeVal(a){ switch(aSortKey){
   case 'round': return a.round ?? null;
   case 'area':  return a.area ?? null;
@@ -477,10 +440,7 @@ function render(){
         cls=document.getElementById('f-class').value,
         outcome=document.getElementById('f-outcome').value, year=document.getElementById('f-year').value,
         q=fold(document.getElementById('f-q').value.trim());
-  // The Działka column only applies to land + houses; hide it for flats /
-  // commercial / garages (the default view is flats, so it starts hidden).
   document.body.classList.toggle('hide-dz', cls!=='grunt'&&cls!=='zabudowana');
-  // The Mapa (Google Maps) column is for non-land listings only.
   document.body.classList.toggle('hide-map', cls==='grunt');
   const cityYear = r => (woj==='all'||WOJ_BY_CITY[r.city]===woj) && (city==='all'||r.city===city) && (year==='all'||(r.date||'').slice(0,4)===year);
   const showMunicipalSummary=seller==='all'||seller==='municipality';
@@ -508,8 +468,6 @@ function render(){
   </tr>`).join('') || '<tr class="empty-row"><td colspan="12">Brak rekordów dla wybranych filtrów.</td></tr>';
 
   const acts = active.filter(a=>(woj==='all'||WOJ_BY_CITY[a.city]===woj)&&(city==='all'||a.city===city)&&(seller==='all'||a.seller===seller)&&(cls==='all'||a.kind===cls)&&(!q||fold(a.addr).includes(q)));
-  // Header-driven sort (Data default = soonest first). Undated / unpriced rows
-  // always sink to the bottom so the "—" cells never displace rows with a value.
   acts.sort(activeCmp);
   document.getElementById('active-body').innerHTML = acts.map(a=>{
     const href = safeHref(a.url);

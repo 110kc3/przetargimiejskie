@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'poznan',
-  teryt: '306401_1', // miasto na prawach powiatu — confirm on first geoportal run
+  teryt: '306401_1',
   label: 'Poznań',
   voivodeship: 'wielkopolskie',
   authority: 'Urząd Miasta Poznania (Wydział Gospodarki Nieruchomościami)',

@@ -1,4 +1,3 @@
-
 import { mkdtemp, readFile, rm, writeFile, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -67,20 +66,17 @@ export async function extractAttachmentText(fileUrl) {
       const text = await ocrImage(fileUrl);
       if (text && text.trim().length > 20) return text;
     } catch {
-      // ignore
     }
   } else if (lower.endsWith('.pdf')) {
     try {
       const text = await pdfText(fileUrl, FETCH_OPTS);
       if (text && text.trim().length > 30) return text;
     } catch {
-      // ignore
     }
     try {
       const text = await ocrPdf(fileUrl, FETCH_OPTS);
       if (text && text.trim().length > 30) return text;
     } catch {
-      // ignore
     }
   }
   return '';

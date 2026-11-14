@@ -1,9 +1,8 @@
-
 const ORIGIN = 'https://bip.myslowice.pl';
 
 export const config = {
   id: 'myslowice',
-  teryt: '247001_1', // gmina TERYT (verified via ULDK) for precise geoportal deep-links
+  teryt: '247001_1',
   label: 'Mysłowice',
   voivodeship: "slaskie",
   authority: 'Urząd Miasta Mysłowice',

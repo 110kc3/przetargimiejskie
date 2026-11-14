@@ -7,7 +7,7 @@ test('flats — lokal mieszkalny → mieszkalny', () => {
     'Pierwszy przetarg ustny na sprzedaż lokalu mieszkalnego nr 5 przy ul. Kwiatowej 3',
     'sprzedaż samodzielnego lokalu mieszkalnego',
     'przetarg na zbycie prawa własności lokalu mieszkalnego',
-    'Lokal mieszkalny w budynku mieszkalnym przy ul. X 4/2', // flat in a building → still a flat
+    'Lokal mieszkalny w budynku mieszkalnym przy ul. X 4/2',
   ]) {
     assert.equal(classifyKind(s), 'mieszkalny', s);
   }
@@ -33,7 +33,7 @@ test('land — niezabudowana / działka / grunt → grunt', () => {
     'czwarty przetarg na sprzedaż nieruchomości niezabudowanej, działka nr 1963/59',
     'sprzedaż działki nr 233/1 o pow. 514 m2',
     'nieruchomość gruntowa niezabudowana',
-    'nieruchomości gruntowej przy ul. Solskiego', // bare gruntowa → land
+    'nieruchomości gruntowej przy ul. Solskiego',
   ]) {
     assert.equal(classifyKind(s), 'grunt', s);
   }

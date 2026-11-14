@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'malbork',
   teryt: '2209011',

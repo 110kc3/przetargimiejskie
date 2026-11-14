@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-
 import { spawn, execFileSync } from 'node:child_process';
 import {
   cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, symlinkSync, writeFileSync,
@@ -43,12 +42,12 @@ function runProcess(command, args, { cwd, env, logPath, timeoutMs, stream = true
       try {
         if (process.platform !== 'win32') process.kill(-child.pid, 'SIGTERM');
         else child.kill('SIGTERM');
-      } catch { /* process already exited */ }
+      } catch {}
       killTimer = setTimeout(() => {
         try {
           if (process.platform !== 'win32') process.kill(-child.pid, 'SIGKILL');
           else child.kill('SIGKILL');
-        } catch { /* process already exited */ }
+        } catch {}
       }, 5_000);
     }, timeoutMs);
     child.on('close', (code, signal) => {

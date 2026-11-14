@@ -1,12 +1,3 @@
-// Generates the 5 Chrome Web Store promo mockups (1280x800 SVG -> PNG).
-// Dark theme, faithful to the real extension UI: colours/labels copied from
-// extension/popup.css, archive.css, styles.css, i18n.js; sample data drawn from
-// data/<city>/*.json. Covers the current feature set: 9 cities, houses (dom) &
-// land (działka) via the Rodzaj filter, deal score (zł/m² vs city median),
-// Google-Maps/geoportal links, and the Raporty (reports) page.
-//
-//   node make.js            # writes 01..05 *.svg
-//   then render to PNG (cairosvg / ImageMagick) at 1280x800.
 const fs = require('fs');
 const W = 1280, H = 800;
 
@@ -40,11 +31,9 @@ const box = (x,y,w,h,o={}) =>
 const svg = inner => `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">`+
   box(0,0,W,H,{fill:C.bg})+inner+'</svg>';
 
-// approx text width at given size (DejaVu Sans average advance)
 const tw = (s,size=13) => String(s).length*(size*0.55);
 const fmt = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ');
 
-// solid saturated city pill with a white dot
 function tag(x,y,id,size=12){
   const label=LBL[id], w=tw(label,size)+26, h=size+10;
   return box(x,y,w,h,{r:h/2,fill:CITY[id]})+
@@ -53,28 +42,23 @@ function tag(x,y,id,size=12){
 }
 const tagW=(id,size=12)=>tw(LBL[id],size)+26;
 
-// deal-score badge: below = good (green ▼), above = bad (amber ▲)
 function deal(x,y,pct,below,anchor='start'){
   const s=(below?'▼ ':'▲ ')+pct+(below?'% poniżej':'% powyżej');
   return txt(x,y,s,{size:11.5,w:600,fill:below?C.good:C.bad,anchor});
 }
 
-/* ============================================================ 1) ON-PAGE CHIP */
 function shotChip(){
   let s='';
-  // browser chrome
   s+=box(0,0,W,56,{fill:'#dfe3ea'});
   s+='<circle cx="26" cy="28" r="7" fill="#ff5f57"/><circle cx="50" cy="28" r="7" fill="#febc2e"/><circle cx="74" cy="28" r="7" fill="#28c840"/>';
   s+=box(110,14,760,28,{r:14,fill:'#fff',stroke:'#c7cfdb'});
   s+=txt(128,33,'bip.um.sosnowiec.pl  ›  sprzedaż lokali  ›  przetarg ustny nieograniczony',{size:13,fill:'#5b6473'});
-  // faux BIP page (muted)
   s+=txt(64,118,'Ogłoszenie o I przetargu ustnym nieograniczonym',{size:26,w:700,fill:'#3a4150'});
   s+=txt(64,152,'na sprzedaż lokalu mieszkalnego stanowiącego własność Gminy Sosnowiec',{size:16,fill:'#39414f'});
   s+=box(64,176,1152,1,{fill:'#212a38'});
   s+=txt(64,232,'ul. Kaliskiej 14A/2',{size:22,w:700,fill:'#39414f'});
   s+=txt(64,262,'lokal mieszkalny, II piętro, 2 pokoje',{size:15,fill:'#39414f'});
   for(let i=0;i<5;i++) s+=box(64,300+i*26,720,12,{r:6,fill:'#1b2434'});
-  // injected card
   const cx=836,cy=196,cw=380,ch=290;
   s+=box(cx,cy,cw,ch,{r:14,fill:C.card,stroke:C.border});
   s+=box(cx,cy,cw,46,{r:14,fill:C.cardHd});
@@ -90,18 +74,15 @@ function shotChip(){
   s+=cell(cx+210,gy,'powierzchnia','48,25 m²');
   s+=cell(cx+18,gy+68,'cena za m²','5 000 zł/m²',C.teal);
   s+=cell(cx+210,gy+68,'termin','30.06.2026');
-  // NEW: deal-score row
   s+=box(cx+16,cy+ch-44,cw-32,30,{r:8,fill:C.goodBg,stroke:C.goodBorder});
   s+=txt(cx+30,cy+ch-24,'▼ 14% poniżej mediany',{size:13,w:600,fill:C.good});
   s+=txt(cx+cw-30,cy+ch-24,'mediana 5 800 zł/m²',{size:11.5,fill:C.muted,anchor:'end'});
-  // caption band
   s+=box(0,H-92,W,92,{fill:C.panel});
   s+=txt(64,H-50,'Widzisz od razu: runda, cena, m², zł/m², termin — i czy to okazja względem mediany miasta.',{size:20,w:600,fill:C.fg});
   s+=txt(64,H-26,'Wszystko doklejone wprost do ogłoszenia BIP — bez otwierania PDF-ów.',{size:14,fill:C.muted});
   return svg(s);
 }
 
-/* ================================================================= 2) POPUP */
 function shotPopup(){
   let s='';
   const pw=1130, px=(W-pw)/2, py=54, ph=694;
@@ -109,22 +90,18 @@ function shotPopup(){
   const PADX=px+30, RIGHT=px+pw-30;
   s+=txt(PADX,py+40,'Aktualne aukcje',{size:19,w:700});
   s+=txt(RIGHT,py+40,'przetargi miejskie · v1.30.1',{size:13,fill:C.muted,anchor:'end'});
-  // control row: tabs + Rodzaj filter
   const ty=py+62;
   const tab=(x,label,active)=>box(x,ty,tw(label,13)+28,30,{r:15,fill:active?C.blueBadgeBg:'none',stroke:active?'none':C.border})+
     txt(x+(tw(label,13)+28)/2,ty+20,label,{size:13,w:active?700:400,fill:active?C.blueBadgeFg:C.muted,anchor:'middle'});
   let tx=PADX;
   [['Wszystkie',1],['Obserwowane',0],['Aktualne',0]].forEach(t=>{ s+=tab(tx,t[0],t[1]); tx+=tw(t[0],13)+28+10; });
-  // Rodzaj dropdown pill (right)
   const rw=190; const rx=RIGHT-rw;
   s+=box(rx,ty,rw,30,{r:8,fill:C.input,stroke:C.border});
   s+=txt(rx+12,ty+20,'Rodzaj: wszystkie',{size:13,fill:C.fg});
   s+=txt(rx+rw-16,ty+20,'▾',{size:11,fill:C.muted,anchor:'end'});
   s+=txt(rx-14,ty+20,'☀',{size:14,fill:C.muted,anchor:'end'});
   s+=txt(rx-44,ty+20,'PL',{size:13,w:600,fill:C.muted,anchor:'end'});
-  // subtitle
   s+=txt(PADX,ty+54,'79 aktywnych · 9 miast · 614 nieruchomości w historii · odświeżono dziś 06:00',{size:12,fill:C.muted});
-  // table header
   const COL={addr:PADX+34,typ:PADX+402,price:PADX+640,m2:PADX+790,hist:PADX+830,map:PADX+1000};
   const thY=ty+92;
   s+=txt(PADX,thY,'NIERUCHOMOŚĆ',{size:11,w:600,fill:C.faint,ls:0.5});
@@ -134,7 +111,6 @@ function shotPopup(){
   s+=txt(COL.hist,thY,'HISTORIA',{size:11,w:600,fill:C.faint,ls:0.5});
   s+=txt(COL.map+18,thY,'MAPA',{size:11,w:600,fill:C.faint,ls:0.5,anchor:'end'});
   s+=box(PADX,thY+9,pw-60,1,{fill:C.line});
-  // rows: [city, addr, kind, price, m2, perm2, dealPct, below, round]
   const rows=[
     ['gliwice','Zygmunta Starego 29/4','mieszkalny','461 430 zł','86,79 m²','5 316',8,false,2],
     ['bielsko','Jana Sobieskiego 140','dom','299 000 zł','56 m²',null,null,null,3],
@@ -172,13 +148,11 @@ function shotPopup(){
   return svg(defs+s);
 }
 
-/* =============================================================== 3) ARCHIVE */
 function shotArchive(){
   let s=''; const M=32;
   s+=txt(M,48,'Archiwum przetargów',{size:24,w:700});
   s+=txt(M,74,'Wszystkie dotychczasowe miejskie przetargi — mieszkania, domy i działki · Górny Śląsk',{size:14,fill:C.muted});
   s+=txt(W-M,48,'9 miast · PL ☀',{size:13,fill:C.muted,anchor:'end'});
-  // filter pills
   const fy=96;
   const fpill=(x,lab,val,w)=>box(x,fy,w,32,{r:8,fill:C.input,stroke:C.border})+
     txt(x+12,fy+21,lab+': ',{size:12,fill:C.muted})+txt(x+12+tw(lab+': ',12),fy+21,val,{size:12,w:600,fill:C.fg})+
@@ -186,7 +160,6 @@ function shotArchive(){
   let fx=M;
   [['Miasto','wszystkie',180],['Rodzaj','wszystkie',180],['Wynik','wszystkie',170],['Rocznik','wszystkie',180]].forEach(f=>{s+=fpill(fx,f[0],f[1],f[2]);fx+=f[2]+12;});
   s+=box(W-M-250,fy,250,32,{r:8,fill:C.input,stroke:C.border})+txt(W-M-238,fy+21,'⌕  szukaj po ulicy…',{size:12.5,fill:C.faint});
-  // KPI cards (incl houses & land)
   const ky=150, kh=80, kw=(W-2*M-3*14)/4; let kx=M;
   const kpi=(big,sub,bf)=>{ const r=box(kx,ky,kw,kh,{r:10,fill:C.kpi,stroke:C.border})+
     txt(kx+18,ky+38,big,{size:26,w:700,fill:bf||C.fg})+txt(kx+18,ky+62,sub,{size:12,fill:C.muted}); kx+=kw+14; return r; };
@@ -194,12 +167,10 @@ function shotArchive(){
   s+=kpi('76','sprzedanych (Gliwice)',C.good);
   s+=kpi('318','domów i działek',C.teal);
   s+=kpi('4 920 zł/m²','mediana ceny wyw.',C.accent);
-  // table
   const ty=268;
   const cols=[['MIASTO',M],['ADRES',M+118],['TYP',M+430],['RUNDA',M+520],['POW.',M+600],['CENA WYW.',M+700],['ZŁ/M²',M+850],['DZIAŁKA',M+930],['WYNIK',M+1030]];
   cols.forEach(c=>s+=txt(c[1],ty,c[0],{size:11,w:600,fill:C.faint,ls:0.4}));
   s+=box(M,ty+9,W-2*M,1,{fill:C.line});
-  // [city, addr, kind, round, area, price, perm2, dzialka, outcome, sold]
   const data=[
     ['gliwice','Zygmunta Starego 29/4','mieszkalny','2.','86,79','461 430 zł','5 316','—','sprzedano',1],
     ['bielsko','Jana Sobieskiego 140','dom','3.','56,0','299 000 zł','5 339','—','w archiwum',0],
@@ -234,12 +205,10 @@ function shotArchive(){
   return svg(s);
 }
 
-/* ==================================================== 4) HOUSES & LAND / RODZAJ */
 function shotHousesLand(){
   let s=''; const M=40;
   s+=txt(M,52,'Domy i działki — nie tylko mieszkania',{size:25,w:700});
   s+=txt(M,80,'Jeden filtr Rodzaj przełącza między mieszkaniami, domami, działkami, lokalami i garażami.',{size:14,fill:C.muted});
-  // open Rodzaj dropdown
   const dx=M, dy=108, dw=240;
   s+=box(dx,dy,dw,34,{r:8,fill:C.input,stroke:C.accent,sw:1.5});
   s+=txt(dx+14,dy+22,'Rodzaj: działki',{size:13.5,w:600,fill:C.fg});
@@ -252,7 +221,6 @@ function shotHousesLand(){
     s+=txt(dx+18,y+20,o[0],{size:13,w:o[1]?700:400,fill:o[1]?C.blueBadgeFg:C.fg});
     if(o[1]) s+=txt(dx+dw-18,y+20,'✓',{size:13,fill:C.blueBadgeFg,anchor:'end'});
   });
-  // right: explanatory tiles
   const tilesX=dx+dw+28;
   const tile=(x,y,w,h,head,body,accent)=>box(x,y,w,h,{r:10,fill:C.tile,stroke:C.border})+
     txt(x+16,y+28,head,{size:15,w:700,fill:accent||C.fg})+txt(x+16,y+52,body,{size:12.5,fill:C.muted});
@@ -262,12 +230,10 @@ function shotHousesLand(){
   s+=tile(tilesX+2*(tW+14),dy,tW,84,'Geoportal','link do mapy każdej działki',C.accent);
   s+=txt(tilesX,dy+118,'Działki i domy mają własną kolumnę powierzchni i odnośnik do mapy parceli —',{size:13,fill:C.muted});
   s+=txt(tilesX,dy+138,'a ceny wywoławcze pojawiają się, gdy gmina ogłosi przetarg („wycena wkrótce” do tego czasu).',{size:13,fill:C.muted});
-  // table of houses + land
   const ty=360;
   const cols=[['MIASTO',M],['ADRES / OBRĘB',M+118],['TYP',M+470],['POWIERZCHNIA',M+560],['CENA WYWOŁAWCZA',M+730],['MAPA',M+960]];
   cols.forEach(c=>s+=txt(c[1],ty,c[0],{size:11,w:600,fill:C.faint,ls:0.4}));
   s+=box(M,ty+9,W-2*M,1,{fill:C.line});
-  // [city, addr, kind, area, price, sub]
   const data=[
     ['bielsko','Jana Sobieskiego 140','dom','56 m²','299 000 zł','dom · pow. użytkowa'],
     ['sosnowiec','Targowa 12','dom','1 920 m²','8 867 000 zł','nieruchomość zabudowana'],
@@ -297,12 +263,10 @@ function shotHousesLand(){
   return svg(s);
 }
 
-/* ================================================================ 5) RAPORTY */
 function shotRaporty(){
   let s=''; const M=36;
   s+=txt(M,48,'Raporty rynku',{size:25,w:700});
   s+=txt(M,74,'Skuteczność sprzedaży, mediany zł/m² i okazje po obniżce — Górny Śląsk',{size:14,fill:C.muted});
-  // filters + export
   const fy=96;
   const fpill=(x,lab,val,w)=>box(x,fy,w,32,{r:8,fill:C.input,stroke:C.border})+
     txt(x+12,fy+21,lab+': ',{size:12,fill:C.muted})+txt(x+12+tw(lab+': ',12),fy+21,val,{size:12,w:600,fill:C.fg})+
@@ -311,7 +275,6 @@ function shotRaporty(){
   [['Miasto','wszystkie',170],['Rodzaj','mieszkania',180],['Okres','12 miesięcy',170]].forEach(f=>{s+=fpill(fx,f[0],f[1],f[2]);fx+=f[2]+12;});
   s+=box(W-M-150,fy,70,32,{r:8,fill:C.input,stroke:C.border})+txt(W-M-150+35,fy+21,'⤓ CSV',{size:12,fill:C.accent,anchor:'middle'});
   s+=box(W-M-74,fy,74,32,{r:8,fill:C.blueBadgeBg})+txt(W-M-37,fy+21,'⤓ PDF',{size:12,w:600,fill:C.blueBadgeFg,anchor:'middle'});
-  // KPI row
   const ky=148, kh=78, kw=(W-2*M-3*14)/4; let kx=M;
   const kpi=(big,sub,bf)=>{ const r=box(kx,ky,kw,kh,{r:10,fill:C.kpi,stroke:C.border})+
     txt(kx+18,ky+38,big,{size:25,w:700,fill:bf||C.fg})+txt(kx+18,ky+61,sub,{size:12,fill:C.muted}); kx+=kw+14; return r; };
@@ -319,7 +282,6 @@ function shotRaporty(){
   s+=kpi('+3,8%','mediana ceny końcowej vs wyw.',C.teal);
   s+=kpi('4 920 zł/m²','mediana ceny uzyskanej',C.accent);
   s+=kpi('31','okazji po obniżce','#d8b06a');
-  // LEFT: medians zł/m² by city (the deal-score basis)
   const sy=252;
   s+=txt(M,sy,'Mediany zł/m² — mieszkania sprzedane',{size:16,w:700});
   s+=txt(M,sy+20,'Podstawa „deal score" w rozszerzeniu',{size:12,fill:C.muted});
@@ -335,7 +297,6 @@ function shotRaporty(){
     s+=box(bxStart,y,w,barH,{r:5,fill:CITY[m[0]]});
     s+=txt(bxStart+w-10,y+barH/2+5,fmt(m[1])+' zł/m²',{size:12.5,w:700,fill:'#0d1420',anchor:'end'});
   });
-  // RIGHT: Tablica okazji (deals after price drop)
   const rxX=620, rw=W-M-rxX;
   s+=txt(rxX,sy,'Tablica okazji — aktualne aukcje po obniżce',{size:16,w:700});
   s+=txt(rxX,sy+20,'Spadek ceny wywoławczej względem 1. podejścia',{size:12,fill:C.muted});
@@ -344,7 +305,6 @@ function shotRaporty(){
   const oc=[['NIERUCHOMOŚĆ',rxX+16],['TERAZ',rxX+rw-200],['1. RUNDA',rxX+rw-110],['SPADEK',rxX+rw-16]];
   oc.forEach((c,i)=>s+=txt(c[1],oy+26,c[0],{size:10.5,w:600,fill:C.faint,ls:0.4,anchor:i>=2||i===1?'end':'start'}));
   s+=box(rxX+12,oy+36,rw-24,1,{fill:C.line});
-  // [city, addr, now, first, dropPct]
   const deals=[
     ['bytom','Dworcowa 5/18','82 500','110 000','25'],
     ['zabrze','3 Maja 17/9','171 000','205 000','17'],

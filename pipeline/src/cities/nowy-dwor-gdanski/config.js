@@ -1,4 +1,3 @@
-
 export default {
   id: 'nowy-dwor-gdanski',
   name: 'Nowy Dwór Gdański',

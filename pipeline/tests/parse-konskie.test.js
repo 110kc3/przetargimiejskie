@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -263,7 +262,6 @@ const STRAZACKA_PLOT_REAL =
   'powierzchnia użytkowa 150,67 m², powierzchnia netto 174,38 m². W budynku znajduje się ' +
   'sześć lokali mieszkalnych, nie stanowiących samodzielnych lokali w świetle przepisów prawa.';
 
-// Real detail-page HTML excerpts (attachment link + Rejestr-zmian date),
 const DETAIL_HTML_REAL =
   '<div class="t1 attachment">\n' +
   '\t\t<a href="https://bip-v1-files.idcom-jst.pl/sites/46779/wiadomosci/882606/files/ogloszenie_udzial_lokal_mieszka_i_20260511.pdf" target="_blank" title=\'Otwórz w nowym oknie\' class="contener i2">\n' +

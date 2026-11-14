@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { loadKnownSourceUrls } from '../../core/known-urls.js';
@@ -35,7 +34,7 @@ export function itemsFromBoardHtml(html) {
     const refM = REF_RE.exec(chunk);
     items.push({
       title: titleM ? htmlToText(titleM[1]).trim() : '',
-      pdfUrl: ORIGIN + hrefM[1].slice(1), // "./ogloszenia/sn/x.pdf" -> origin + "/ogloszenia/sn/x.pdf"
+      pdfUrl: ORIGIN + hrefM[1].slice(1),
       ref: refM ? refM[1].trim() : null,
     });
   }

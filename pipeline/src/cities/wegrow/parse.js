@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -31,17 +30,6 @@ function stripHtml(s) {
     .trim();
 }
 
-/**
- * Assemble the labelled text blob every parse function reads: the article's
- * own TITLE (the XML board's <tytul> — carries round-number info the body
- * sometimes omits, e.g. "Ogłoszenie o drugim przetargu ...") + the extracted
- * PDF body (TRESC — pdftotext/OCR output, newlines preserved so the
- * street-header regex can use them as an unambiguous terminator). crawl.js
- * passes the live-fetched strings; the test passes the same real captured
- * strings.
- * @param {{title?:string, body?:string}} f
- * @returns {string}
- */
 export function buildRecordText(f = {}) {
   return [`TYTUL: ${stripHtml(f.title)}`, `TRESC:\n${(f.body || '').replace(/\r/g, '').trim()}`].join('\n');
 }
@@ -143,28 +131,6 @@ export function isResultNotice(text) {
 }
 
 
-/** Kind classification: TITLE first (concise, reliably states "lokal
- *  mieszkalny" / "nieruchomości gruntowych" for flats/land — though NOT for
- *  houses, whose title is often just "… przy ul. X", no asset-type word at
- *  all: article 10953), falling back to a WINDOWED body (first 700 chars —
- *  the sale-object description in point/paragraph 1) only when the title
- *  alone is unclassifiable.
- *
- *  REAL LIVE BUG avoided by the window: classify-kind's BUILT_RE guard is a
- *  global (unwindowed) text scan, and Węgrów's land announcements' OWN
- *  boilerplate describes NEIGHBORING parcels as built ("Otoczenie
- *  nieruchomości stanowią nieruchomości gruntowe zabudowane …", article
- *  12186 point 2) — feeding classifyKind() the FULL body lets that unrelated
- *  mention defeat the LAND_RE guard and misclassify the (niezabudowana)
- *  SUBJECT parcel as 'zabudowana'. Verified live on article 12186:
- *  "niezabudowane" sits at char 344 of the body; the polluting "Otoczenie …
- *  zabudowane" clause only starts at char 986 — a 700-char window (title
- *  fails to classify this one anyway, so windowing is moot for this specific
- *  article, but the margin is validated) keeps clear of it. Cross-checked
- *  against article 10953 (a genuine house, title also unclassifiable): its
- *  own legitimate zabudowanej/działka co-occurrence sits at chars 504/686 —
- *  both inside the window, and classify-kind's own "grunt(?!\w*\s+zabudowan)"
- *  lookahead already keeps that case out of 'grunt' correctly on its own. */
 function kindFromText(text) {
   const titleKind = classifyKind(titleField(text));
   if (titleKind !== 'unknown') return titleKind;

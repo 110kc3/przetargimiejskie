@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -230,7 +229,6 @@ test('parseDetailAddress: strips leading city prefix and trailing dz. nr fragmen
   const { address_raw, address } = parseDetailAddress(
     'Białystok, Aleja Józefa Piłsudskiego 24 m 62, dz. nr 1282',
   );
-  // address_raw must preserve the original string
   assert.equal(address_raw, 'Białystok, Aleja Józefa Piłsudskiego 24 m 62, dz. nr 1282');
   assert.ok(address, 'address must be parsed (not null)');
   assert.ok(!/Bia[łl]ystok/i.test(address.street), `street must not contain city name: ${address.street}`);

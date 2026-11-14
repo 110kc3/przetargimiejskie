@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -235,7 +234,7 @@ test('recordsFromActiveRow: pending flat (Dworcowa 1/5) — no bundling, address
       warning: null,
     },
     area_m2: 60.88,
-    starting_price_pln: 144000, // matches the spike's Dworcowa 1/5 figure exactly
+    starting_price_pln: 144000,
     auction_date: '2025-08-18',
     round: null,
     detail_url: DWORCOWA_1_5_PENDING.detailUrl,
@@ -257,7 +256,7 @@ test('recordsFromActiveRow: land bundle (Cisowa/Jodłowa/Czereśniowa, 9 parcels
     address_raw: null,
     starting_price_pln: 124000,
     auction_date: '2026-07-15',
-    round: 2, // "II przetarg" in Dotyczy, applied to every lot in the row
+    round: 2,
     detail_url: 'https://bip.gminawschowa.pl/przetargi/29/132/6_2FBN_2F2026__2880_2FBN_29/',
     source_url: 'https://bip.gminawschowa.pl/system/pobierz.php?plik=Ogloszenie__-__II_przetarg__28Cisowa-Jodlowa_Czeresniowa_29.pdf&id=f1a77de19df342fec0da98c552670cee',
   });
@@ -325,7 +324,7 @@ test('parseResultDoc: SOLD via PDF with NO explicit outcome sentence — inferre
       key: 'kilinskiego|11|4',
       warning: null,
     },
-    round: 2, // "II-gi … przetarg"
+    round: 2,
     starting_price_pln: 11100,
     final_price_pln: 11220,
     outcome: 'sold',
@@ -354,7 +353,7 @@ test('parseResultDoc: UNSOLD, no-fetch — built straight from a Negatywny board
       warning: null,
     },
     round: null,
-    starting_price_pln: 150000, // real unseparated "150000,00" — regression guard for the parsePLN fix
+    starting_price_pln: 150000,
     final_price_pln: null,
     outcome: 'unsold',
     unsold_reason: 'unknown',

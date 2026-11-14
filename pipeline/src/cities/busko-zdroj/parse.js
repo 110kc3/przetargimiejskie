@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -186,7 +185,6 @@ export function parseLandAnnouncementListings(htmlOrText, pageUrl, sourceUrl = p
   const common = { kind: 'grunt', auction_date, round: roundFromTitle(pageTitle(htmlOrText) || text),
     detail_url: pageUrl, source_url: sourceUrl };
 
-  // Preserve that explicit restriction; do not offer the building as an asset.
   if (/nak[łl]ady\s+te\s+stanowi[ąa]\s+w[łl]asno[śs][ćc]\s+dotychczasowego\s+dzier[żz]awcy\s+i\s+nie\s+s[ąa]\s+uwzgl[ęe]dnione\s+w\s+cenie\s+sprzeda[żz]y/i.test(text)) {
     const parcel = /w\s+ewidencji\s+grunt[óo]w\s+nr\s+(\d+(?:\/\d+)?)\s+o\s+powierzchni\s+(\d+[.,]\d+)\s*ha/i.exec(text);
     const price = /cena\s+wywo[łl]awcza\s+nieruchomo[śs]ci\s+wynosi\s+([\d][\d\s]*,\d{2})\s*z[łl]/i.exec(text);

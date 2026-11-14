@@ -1,5 +1,3 @@
-// Two functions exported for the registry contract:
-
 import { parseAddress } from '../../core/normalize.js';
 
 

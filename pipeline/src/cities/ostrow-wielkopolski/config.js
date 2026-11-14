@@ -1,4 +1,3 @@
-
 export const CONFIG = {
   id: 'ostrow-wielkopolski',
   teryt: '3017011',

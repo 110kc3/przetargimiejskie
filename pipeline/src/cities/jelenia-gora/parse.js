@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -40,7 +39,6 @@ const WORD_ORDINAL_STEMS = [
   ['siódm', 7], ['siodm', 7], ['ósm', 8], ['osm', 8],
 ];
 
-// nieograniczon(y|e)", scanned globally so a non-ordinal word right before the
 const ROUND_PHRASE_RE =
   /([A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż]+)\s+przetarg\S*\s+ustn\S*\s+nieograniczon\S*/gi;
 

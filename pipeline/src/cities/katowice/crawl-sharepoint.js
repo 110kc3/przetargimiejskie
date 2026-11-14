@@ -1,4 +1,3 @@
-
 import { politeGet } from '../../core/fetch.js';
 import { parseAnnouncements, parseLandAnnouncement } from './parse.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -85,7 +84,6 @@ function isNonAuctionDoc(pdfUrl, title) {
   try {
     name = decodeURIComponent(pdfUrl);
   } catch {
-    /* keep raw */
   }
   return NON_AUCTION_DOC.test(name) || NON_AUCTION_DOC.test(title || '');
 }

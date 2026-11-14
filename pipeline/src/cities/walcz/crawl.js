@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { ocrPdf } from '../../core/ocr-pdf.js';
@@ -100,7 +99,6 @@ export async function crawlActive() {
       try {
         wDetailHtml = await getText(wItem.url, FETCH_OPTS);
       } catch {
-        // proceed with title info
       }
       const address = extractAddress(wItem.title, wDetailHtml);
       if (address) {

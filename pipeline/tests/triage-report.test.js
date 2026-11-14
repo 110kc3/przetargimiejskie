@@ -1,4 +1,3 @@
-
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { classifyCity, renderTitle, renderIssueBody, parseTriageLines } from '../scripts/triage-report.js';

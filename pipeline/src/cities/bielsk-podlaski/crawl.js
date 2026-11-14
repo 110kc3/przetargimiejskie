@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -64,7 +63,6 @@ export async function crawlActive() {
               docText += `\n${pdfTxt}`;
             }
           } catch (_) {
-            // rely on HTML
           }
         }
       }

@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'plock',
   teryt: '146201_1',

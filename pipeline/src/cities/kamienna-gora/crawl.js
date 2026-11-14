@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -166,7 +165,6 @@ async function discoverAll() {
         if (a.address) announcements.push(a);
         else console.error(`  kamienna-gora announce no address: ${pdfUrl}`);
       }
-      // else: floor plan / unrelated PDF — ignore.
     }
   }
   console.error(`  kamienna-gora: ${announcements.length} announcement(s), ${results.length} result notice(s)`);

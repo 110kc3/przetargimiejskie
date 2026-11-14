@@ -1,4 +1,3 @@
-
 (function () {
   const STORAGE_KEY = 'theme';
   const listeners = new Set();

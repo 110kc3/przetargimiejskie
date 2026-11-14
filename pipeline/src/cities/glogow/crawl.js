@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -26,7 +25,6 @@ const COUNT = 30;
 
 const MAX_LIST_PAGES = 30;
 
-// Older history remains protected by the normal merge/preserve path.
 const MAX_OFFICIAL_FALLBACK_PAGES = 12;
 
 const CRAWL_BUDGET_MS = Number(process.env.GLOGOW_CRAWL_BUDGET_MS) || 10 * 60 * 1000;
@@ -242,7 +240,6 @@ async function crawlAll() {
           (parsed.kind === 'grunt' ? land : listings).push(enriched);
         }
       }
-      // else: neither gate matched (rare stray doc on the board) — ignore.
     }
   }
   console.error(`  glogow: skipped ${skippedQualifiedList} qualified-bidders-list notice(s)`);

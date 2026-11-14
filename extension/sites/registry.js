@@ -1,4 +1,3 @@
-
 (function () {
   if (typeof window === 'undefined') return;
   const adapters = [];

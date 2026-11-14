@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'strzelce-krajenskie',
   teryt: '080604_3',

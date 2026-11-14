@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { rtfText } from '../../core/rtf-text.js';
 import { classifyKind } from '../../core/classify-kind.js';

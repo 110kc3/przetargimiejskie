@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'pszczyna',
   teryt: '241005_4',

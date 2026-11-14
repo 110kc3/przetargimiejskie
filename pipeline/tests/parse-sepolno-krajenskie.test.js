@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseBoardLinks } from '../src/cities/sepolno-krajenskie/crawl.js';
@@ -167,7 +166,6 @@ lokal o powierzchni użytkowej 28,50 m2, składający się z: sali (12,30 m2), s
 PRZETARG NA SPRZEDAŻ WW. NIERUCHOMOŚCI ODBĘDZIE SIĘ W DNIU 12 WRZEŚNIA 2024 R.
 I przetarg odbył się w dniu 26 marca 2024 r. i zakończył się wynikiem negatywnym.`;
 
-// short); the address header line-break is preserved for addressFromResult.
 const HALLERA_RESULT_PDF = `INFORMACJA
 o wyniku przetargu ustnego nieograniczonego na sprzedaż prawa własności
 nieruchomości lokalowej – lokal mieszkalny położony w Sępólnie Krajeńskim,

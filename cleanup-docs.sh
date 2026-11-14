@@ -52,5 +52,4 @@ for f in GTM.md GTM-SPRINT.md REPORTS.md BUGCHECK-2026-06-25.md WEB_STORE_LISTIN
   [ -f "$f" ] && git mv "$f" docs/ || true
 done
 
-
 echo "Cleanup staged. Review: git status; git diff --staged. Then: git commit -m \"chore: consolidate NO-BUILD docs + tidy root\""

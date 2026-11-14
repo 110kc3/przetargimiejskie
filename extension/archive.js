@@ -1,4 +1,3 @@
-
 const $status = document.getElementById('status');
 const $summary = document.getElementById('summary');
 const $filters = document.getElementById('filters');
@@ -273,7 +272,6 @@ function matchesYear(r, year) {
   return !!r.date && r.date.slice(0, 4) === year;
 }
 
-// (newest first), with an "All years" option on top. Preserves the current
 function populateYears() {
   if (!$filterYear) return;
   const years = [...new Set(
@@ -563,7 +561,6 @@ function syncThemeButton() {
   window.ZGM_I18N.onChange(() => {
     applyStaticI18n();
     syncThemeButton();
-    // (populateYears preserves the current selection).
     populateYears();
     renderAll();
   });

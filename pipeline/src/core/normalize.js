@@ -1,4 +1,3 @@
-
 const POLISH_LOWER = (s) =>
   s
     .toLowerCase()
@@ -13,10 +12,10 @@ const ROMAN_OK = /^(I{1,3}|IV|V|VI{0,3}|IX|X)$/i;
 
 
 const NOMINATIVE_ENDINGS = [
-  ['owej', 'owa'],   // Sportowej → Sportowa, Kalinowej → Kalinowa
-  ['niej', 'nia'],   // Średniej → Średnia
-  ['czej', 'cza'],   // Hutniczej → Hutnicza
-  ['nej', 'na'],     // Cmentarnej → Cmentarna, Piwnej → Piwna
+  ['owej', 'owa'],
+  ['niej', 'nia'],
+  ['czej', 'cza'],
+  ['nej', 'na'],
 ];
 export function nominativeStreetDisplay(street) {
   if (!street || /[\s\-]/.test(street)) return street;
@@ -48,7 +47,6 @@ export function parseAddress(raw) {
   }
 
 
-  // Preserve the stated joint identity instead of putting numbers in street.
   const jointUnits = /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)\s*\/\s*(\d+[A-Za-z]?)\s*,\s*(\d+[A-Za-z]?)$/i.exec(s);
   if (jointUnits) {
     return buildAddress(jointUnits[1], jointUnits[2].toUpperCase(),

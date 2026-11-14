@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -9,11 +8,6 @@ const PL_MONTH = {
 };
 
 
-/** Collapse one article body's HTML to plain text (tags dropped, block-level
- *  tags become newlines, entities decoded). The CNT CMS renders notices as
- *  Word-exported HTML with heavy nested <span> styling — only the entities
- *  actually observed live are decoded explicitly; anything else falls back to
- *  the generic numeric-entity decoder. */
 export function stripTags(html) {
   if (!html) return '';
   let s = String(html).replace(/<\s*(br|\/p|\/div|\/li|\/tr|\/h\d|\/ul|\/ol)\s*\/?>/gi, '\n');
@@ -244,7 +238,7 @@ export function parseAnnouncement(text) {
       kind: 'grunt',
       dzialka_nr: plot.dzialka_nr,
       obreb: obrebFromText(t),
-      area_m2: plot.area_m2, // PLOT area (m2) — land has no usable floor area
+      area_m2: plot.area_m2,
       address_raw,
       starting_price_pln,
       auction_date,

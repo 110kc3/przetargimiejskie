@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -18,7 +17,6 @@ const LISTING_KINDS = new Set(['mieszkalny', 'zabudowana', 'uzytkowy', 'garaz'])
 export function parseBoardLinks(html) {
   const out = [];
   const seen = new Set();
-  // Scope to board-card titles. Once /405/ disappeared, a global href scan
   const re = /<div[^>]*class="cct-item__name"[^>]*>\s*<a href="((?:https?:\/\/[^"]+)?\/(\d+)\/(?:405\/)?([^"]+\.html))"/gi;
   let m;
   while ((m = re.exec(html)) !== null) {
@@ -101,7 +99,7 @@ export async function crawlActive() {
     listings.push({
       kind: n.kind,
       address_raw: n.address_raw,
-      address: n.address, // may be null (e.g. area-named garaż site) — pipeline drops it
+      address: n.address,
       round: n.round,
       starting_price_pln: n.starting_price_pln,
       auction_date: n.auction_date,

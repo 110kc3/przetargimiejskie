@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { htmlToText, parsePLN } from '../../core/finn-bip.js';
 

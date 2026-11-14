@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'zdunska-wola',
   teryt: '101901_1',

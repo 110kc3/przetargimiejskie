@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import {
   htmlToText as finnHtmlToText, parsePLN, areaFromText, auctionDateFromText, resolveKind,

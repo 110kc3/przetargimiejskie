@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -266,7 +265,7 @@ test('startingPriceFromText: CENA field (dot/space thousands), and WYNIK priorit
   );
   assert.equal(
     startingPriceFromText(buildRecordText({ ...SZCZYTKOWICE_FIELDS, wynik: SZCZYTKOWICE_49_2_WYNIK })),
-    188400, // NOT 158700 — regression guard for the WYNIK-priority design
+    188400,
   );
 });
 

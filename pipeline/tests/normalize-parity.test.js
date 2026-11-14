@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
@@ -25,9 +24,8 @@ const FIXTURES = [
   'Pszczyńskiej 7A/14',
   'al. Wojska Polskiego 5/2',
   'pl. Inwalidów 3',
-  'Skowrońskiego 18/1I',   // slash eaten by OCR → apt 1
-  'Chorzowska 40/TII',     // T misread for I → apt III
-  // Roman-numeral commercial apartments (preserved)
+  'Skowrońskiego 18/1I',
+  'Chorzowska 40/TII',
   'Barlickiego 12/I',
   'Na Piasku 3/II',
   'Zwycięstwa 34/9a',

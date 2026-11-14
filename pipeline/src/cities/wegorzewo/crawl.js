@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -184,7 +183,7 @@ async function fetchResultText(entry) {
     try {
       const text = await pdfText(pdfUrl, FETCH_OPTS);
       if (text && /cena\s+wywo[łl]awcza/i.test(text)) return `${entry.title}\n${text}`;
-    } catch { /* try OCR next */ }
+    } catch {}
     try {
       const text = await ocrPdf(pdfUrl, FETCH_OPTS);
       if (text) return `${entry.title}\n${text}`;

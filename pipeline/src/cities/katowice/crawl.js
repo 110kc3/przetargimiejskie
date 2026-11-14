@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { parseAnnouncements, parseLandAnnouncement } from './parse.js';
 import { classifyKind } from '../../core/classify-kind.js';

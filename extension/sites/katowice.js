@@ -1,4 +1,3 @@
-
 (function () {
   if (!window.ZGM_SITES) return;
 
@@ -47,7 +46,7 @@
           element: a,
           address,
           addressRaw: addrRaw,
-          area_m2: null,    // board surface has no area / price columns
+          area_m2: null,
           price_pln: null,
           descTarget: null,
         });

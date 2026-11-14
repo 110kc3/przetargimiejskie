@@ -1,4 +1,3 @@
-
 import { parseAddress, nominativeStreetDisplay } from '../../core/normalize.js';
 
 const ROMAN_ROUNDS = {

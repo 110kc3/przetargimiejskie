@@ -1,4 +1,3 @@
-
 export default {
   id: 'kartuzy',
   name: 'Kartuzy',

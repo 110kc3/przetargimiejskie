@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -146,7 +145,6 @@ export function unitAreaFromText(text) {
 
 const OBREB_RE = /\bobr(?:[ęe]b(?:ie)?\.?|\.)\s*(\d+)/i;
 
-/** obręb number (string, leading zero preserved), or null. */
 export function obrebFromText(text) {
   const m = OBREB_RE.exec(text || '');
   return m ? m[1] : null;
@@ -220,7 +218,7 @@ export function parseAnnouncement(text) {
       kind: 'grunt',
       dzialka_nr: plot.dzialka_nr,
       obreb,
-      area_m2: plot.area_m2, // PLOT area — land has no usable floor area
+      area_m2: plot.area_m2,
       address_raw,
       starting_price_pln,
       auction_date,

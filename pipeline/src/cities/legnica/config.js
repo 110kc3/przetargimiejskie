@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'legnica',
-  teryt: '026101_1', // gmina TERYT for Legnica — confirm on first geoportal run
+  teryt: '026101_1',
   label: 'Legnica',
   voivodeship: 'dolnoslaskie',
   authority: 'Urząd Miasta Legnicy (Wydział Gospodarki Nieruchomościami)',

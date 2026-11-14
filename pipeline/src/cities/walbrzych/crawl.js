@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { ocrPdf } from '../../core/ocr-pdf.js';
@@ -21,13 +20,7 @@ export function normalizeBoardAddress(raw) {
     .trim()
     .replace(/^Wa[łl]brzych,?\s*/i, '')
     .replace(/^przy\s+/i, '')
-    // Newer board labels append cadastral context after the flat address,
-    // e.g. "ul. Kosynierów 3A/1, obręb Podgórze nr 39". Leaving that suffix
-    // in place makes the generic parser treat precinct number 39 as the
-    // building and loses the actual 3A/1 unit.
     .replace(/\s*,?\s*obr[eę]b\b.*$/i, '')
-    // Result tables use the short official street form "Andersa". Keeping the
-    // board's honorific/initial would split one unit into two property keys.
     .replace(/^ul\.\s+gen\.\s+(?:W\.\s*)?Andersa\b/i, 'ul. Andersa')
     .trim();
 }
@@ -121,7 +114,6 @@ export function parseArticleUrls(html) {
 }
 
 export function parsePdfUrl(html) {
-  // the global contact box also contains a `/attachments/download/...` link
   const tagged = /<a\b(?=[^>]*\bid="attachments-title")[^>]*\bhref="(?:https?:\/\/[^"\/]+)?(\/attachments\/download\/\d+)"/i.exec(html);
   if (tagged) return ORIGIN + tagged[1];
 
@@ -143,7 +135,6 @@ async function crawlResultDocs() {
   const budget = Number(process.env.WALBRZYCH_CRAWL_BUDGET_MS) || 120000;
   const overBudget = () => Date.now() - started >= budget;
   const known = await loadKnownSourceUrls('walbrzych');
-  // Every year page currently embeds the same global month sidebar. Keep
   const seenMonthUrls = new Set();
   const seenArticleUrls = new Set();
   const seenPdfUrls = new Set();

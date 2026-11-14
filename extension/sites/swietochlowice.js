@@ -1,4 +1,3 @@
-
 (function () {
   if (!window.ZGM_SITES || !window.ZGM_FINN) return;
 

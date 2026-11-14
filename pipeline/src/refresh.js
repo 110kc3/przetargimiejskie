@@ -6,7 +6,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { setDefaultResultOrder } from 'node:dns';
 
-try { setDefaultResultOrder('ipv4first'); } catch { /* older node */ }
+try { setDefaultResultOrder('ipv4first'); } catch {}
 
 import { cities } from './cities/index.js';
 import { ocrPdf } from './core/ocr-pdf.js';
@@ -44,7 +44,6 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
   const attemptedAt = new Date().toISOString();
   console.error(`\n=== ${city.label} (${city.id}) ===`);
 
-  // crawler would, so the per-city catch + preserve logic is what's tested.
   if (process.env.FORCE_FAIL === city.id) {
     throw new Error('forced failure (triage E2E test)');
   }
@@ -142,7 +141,6 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
   const built = buildCityData({ allRecords, active, wykaz, detailAreas });
   let properties = built.properties;
 
-  // preserve-on-empty safety net below).
   const propPath = join(DATA_DIR, city.id, 'properties.json');
   const metaPath = join(DATA_DIR, city.id, 'meta.json');
   let prevProperties = [];
@@ -151,9 +149,8 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     catch { prevProperties = []; }
   }
   let prevMeta = null;
-  try { prevMeta = JSON.parse(await readFile(metaPath, 'utf8')); } catch { /* none */ }
+  try { prevMeta = JSON.parse(await readFile(metaPath, 'utf8')); } catch {}
 
-  // SAFETY NET — preserve on empty. A crawl that produced absolutely nothing
   const crawlEmpty = crawledActiveCount === 0 && beforeFloor === 0 && wykaz.length === 0 && landRecords.length === 0;
   const propertyCrawlEmpty = active.length === 0 && allRecords.length === 0 && wykaz.length === 0;
   const verifiedEmpty = propertyCrawlEmpty && valid_empty === true;
@@ -172,7 +169,6 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     prevProperties = applyDurablePropertyHeals(prevProperties, city.id, globalStreetDisplay);
     const preserveHealed = JSON.stringify(prevProperties) !== beforePreserveHeal;
 
-    // is removed until the next batch. Without this, the preserved listings
     const aged = archivePastActive(prevProperties, todayWarsaw());
     if (aged === 0 && !preserveHealed) {
       console.error('  nothing to age out; updating source-attempt state only.');
@@ -226,7 +222,7 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
       if (JSON.stringify(keep) !== JSON.stringify(prevActive.listings || [])) {
         await writeFile(activePath, JSON.stringify({ ...prevActive, listings: keep }, null, 2) + '\n');
       }
-    } catch { /* no previous active.json — nothing to age */ }
+    } catch {}
     const meta = {
       ...(prevMeta || { schema_version: SCHEMA_VERSION, parser_version: PARSER_VERSION }),
       city: city.id,
@@ -270,7 +266,6 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     } catch (err) {
       console.error(`  WARN: history merge skipped (${err.message}); writing fresh build.`);
     }
-    // preserve-on-empty, and the offline healer.
     const beforeHeal = properties.length;
     properties = applyDurablePropertyHeals(properties, city.id, globalStreetDisplay);
     if (properties.length !== beforeHeal) {
@@ -297,7 +292,6 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     for (const l of p.listings) {
       if (l.outcome === 'active') activeAuctions++;
       else if (l.outcome === 'archived' || l.outcome === 'sold' || l.outcome === 'unsold' || l.outcome === 'no_winner') archivedAuctions++;
-      // 'announced' (wykaz pre-announcements) counts as neither — it's an intent.
     }
   }
 
@@ -328,12 +322,12 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     parsed_records: allRecords.length,
     parser_note_count: parsedNoteCount,
     unique_properties: properties.length,
-    active_listings: active.length,        // raw crawl size (kept for back-compat)
-    active_auctions: activeAuctions,       // genuinely running (outcome 'active')
-    archived_auctions: archivedAuctions,   // concluded (archived/sold/unsold)
+    active_listings: active.length,
+    active_auctions: activeAuctions,
+    archived_auctions: archivedAuctions,
     wykaz_entries: wykaz.length,
-    land_plots: landPlots.length,          // unique parcels in land.json (preserved on empty-crawl outage)
-    land_listings: landRecords.length,     // raw land auction rows seen this run
+    land_plots: landPlots.length,
+    land_listings: landRecords.length,
     retained_properties: retained.kept_properties,
     valid_empty: verifiedEmpty,
     valid_empty_land: landRecords.length === 0 && valid_empty_land === true,

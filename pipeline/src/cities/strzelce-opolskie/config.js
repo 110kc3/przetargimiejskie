@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'strzelce-opolskie',
   teryt: '160905_3',

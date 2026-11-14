@@ -6,7 +6,7 @@ export async function buildCatalogFromDisk(index, { output = root+'data/catalog.
   const manifest=JSON.parse(await readFile(root+'spikes/master-cities.json','utf8'));
   const landByCity={};
   await Promise.all(index.cities.map(async c=>{
-    try {landByCity[c.id]=JSON.parse(await readFile(root+`data/${c.id}/land.json`,'utf8'));}catch{/* unknown, never zero */}
+    try {landByCity[c.id]=JSON.parse(await readFile(root+`data/${c.id}/land.json`,'utf8'));}catch{}
   }));
   const catalog=buildCityCatalog(manifest,index,{landByCity});
   const bytes=JSON.stringify(catalog)+'\n';

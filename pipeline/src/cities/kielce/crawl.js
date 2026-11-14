@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { docText } from '../../core/doc-text.js';
@@ -56,11 +55,11 @@ async function crawlAll() {
         kind: it.kind,
         address_raw: it.address_raw,
         address: it.address,
-        auction_date: null,         // not in list title; in PDF attachment
+        auction_date: null,
         published_date: it.published_date,
         round: it.round,
         area_m2: it.area_m2,
-        starting_price_pln: null,   // not in list title; in PDF attachment
+        starting_price_pln: null,
         detail_url: it.detail_url,
       });
       newFlats++;
@@ -135,8 +134,8 @@ async function crawlAll() {
 
     resolvedRefs.push({
       text,
-      pdf_url: attUrl,   // convention: refresh.js reads ref.pdf_url for provenance
-      auction_date: null, // filled by parseResultDoc from the DOCX body
+      pdf_url: attUrl,
+      auction_date: null,
     });
   }
 

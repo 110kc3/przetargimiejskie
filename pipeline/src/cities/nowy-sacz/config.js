@@ -1,4 +1,3 @@
-
 export const CONFIG = {
   id: 'nowy-sacz',
   teryt: '1262011',

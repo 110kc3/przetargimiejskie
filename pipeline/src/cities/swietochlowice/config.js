@@ -1,9 +1,8 @@
-
 const ORIGIN = 'https://www.bip.swietochlowice.pl';
 
 export const config = {
   id: 'swietochlowice',
-  teryt: '247601_1', // gmina TERYT (verified via ULDK) for precise geoportal deep-links
+  teryt: '247601_1',
   label: 'Świętochłowice',
   voivodeship: "slaskie",
   authority: 'Urząd Miejski w Świętochłowicach',

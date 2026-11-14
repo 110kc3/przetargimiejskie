@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -16,7 +15,6 @@ function parseAreaNum(numStr) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// non-global .exec() naturally picks the first (correct) one.
 const AREA_RE = /o\s+powierzchni\s+(\d+(?:[.,]\d+)?)\s*m/i;
 export function areaFromText(text) {
   const m = AREA_RE.exec(text || '');
@@ -136,7 +134,7 @@ export function parseActiveFlatRow(row) {
     area_m2: areaFromText(row.dotyczyText),
     starting_price_pln: startingPriceFromText(row.cenaText),
     auction_date: dateOnly(row.auctionDateRaw),
-    round: null, // see file header — only on the per-notice detail page
+    round: null,
     detail_url: row.detailUrl || null,
     source_url: firstAttachment ? firstAttachment.url : row.detailUrl || null,
   };
@@ -198,7 +196,7 @@ export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
       kind: 'mieszkalny',
       address_raw: addrRaw,
       address,
-      round: null, // result notices reference the announcement, not the round
+      round: null,
       starting_price_pln,
       final_price_pln: null,
       outcome: positive ? 'sold' : 'unsold',

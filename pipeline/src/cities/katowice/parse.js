@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 
 function decodeEntities(s) {
@@ -240,8 +239,6 @@ function parseResultRow(blob, anchorDate, sourceUrl) {
   ]
     .map((m) => m[1].trim().replace(/\s+/g, ' '))
     .filter((a) => !/^M[lł]y[nń]sk/i.test(a))
-    // Column-bleed sanity: a street that absorbed neighbouring table cells
-    // ("… Urząd Miasta … ustny …") is junk, not an address.
     .filter((a) => !/\b(urz[ąa]d|miasta|ustny|nieograniczon|przetarg|zako[ńn]czon|gruntow)\b/i.test(a));
   const addrRaw = addrCands[0] || '';
   const address = addrRaw ? parseAddress(addrRaw) : null;

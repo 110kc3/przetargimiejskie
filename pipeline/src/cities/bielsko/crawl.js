@@ -1,4 +1,3 @@
-
 import { setTimeout as sleep } from 'node:timers/promises';
 import { pathToFileURL } from 'node:url';
 
@@ -160,7 +159,6 @@ export async function crawlActive() {
           });
         }
       }
-      // garaż / unknown → skipped (the giełda rarely lists standalone garages).
     } catch (err) {
       console.error(`  bielsko node parse failed (${url}): ${err.message}`);
     }

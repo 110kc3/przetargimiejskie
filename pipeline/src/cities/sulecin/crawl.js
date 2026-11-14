@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -78,7 +77,6 @@ export function parseAttachments(html) {
     try {
       filename = decodeURIComponent(filename);
     } catch {
-      /* malformed escape — keep the raw (still classifiable) string */
     }
     out.push({ url: deamp(m[1]), filename });
   }

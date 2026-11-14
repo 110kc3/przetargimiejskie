@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'nowa-sol',
   teryt: '0808011',

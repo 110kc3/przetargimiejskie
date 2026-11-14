@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { harvestItems, normalizeArticleUrl } from '../src/cities/sandomierz/crawl.js';

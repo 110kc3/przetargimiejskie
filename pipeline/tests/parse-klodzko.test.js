@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -21,7 +20,6 @@ import { parseListingPage } from '../src/cities/klodzko/parse.js';
 import { classifyBoardTitle } from '../src/cities/klodzko/crawl.js';
 
 
-// Condensed but preserves all parseable phrases faithfully.
 const ANN_MICKIEWICZA = `Burmistrza Miasta Kłodzka ogłasza I przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 2 zlokalizowanego w Kłodzku przy ul. Adama Mickiewicza 3 o powierzchni 44,90 m² wraz z udziałem w wysokości 45/100 cz. w nieruchomości wspólnej, w tym w prawie własności nieruchomości oznaczonej geodezyjnie jako dz. nr 69/2 (AM-5) obręb Zacisze o powierzchni 0,0366 ha. Lokal mieszkalny nr 2 zlokalizowany jest na I kondygnacji – parter; składa się z jednego pokoju, kuchni, przedpokoju i pomieszczenia WC, powierzchnia 44,90 m²; piwnica przynależna do lokalu zlokalizowana jest w częściach wspólnych nieruchomości i nie podlega sprzedaży. Lokal w złym stanie technicznym, wymaga kapitalnego remontu. WARUNKI PRZETARGU : 1. CENA WYWOŁAWCZA – 140 000,00 zł (słownie: sto czterdzieści tysięcy złotych) 2. Minimalne postąpienie przetargowe – 1 400,00 zł. 3. Warunkiem przystąpienia do przetargu jest wniesienie wadium w wysokości 14 000,00 zł w terminie do dnia 09.07.2026 r. 4. Przetarg odbędzie się dnia 16.07.2026 r. o godz. 12.00 w Sali Rajców nr 201 II piętro Urzędu Miasta w Kłodzku, Pl. Bolesława Chrobrego 1.`;
 
 const ANN_WOJSKA = `Burmistrza Miasta Kłodzka ogłasza I przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 1 zlokalizowanego w Kłodzku przy ul. Wojska Polskiego 8 o powierzchni 76,95 m² wraz z udziałem w wysokości 57/1 000 cz. w nieruchomości wspólnej. Lokal mieszkalny nr 1 zlokalizowany jest na II kondygnacji – 1 piętro; składa się z 3 pokoi, kuchni, WC i przedpokoju, powierzchnia 76,95 m²; brak pomieszczeń przynależnych. Lokal w złym stanie technicznym, wymaga kapitalnego remontu. WARUNKI PRZETARGU : 1. CENA WYWOŁAWCZA – 330 000,00 zł (słownie: trzysta trzydzieści tysięcy złotych) 2. Minimalne postąpienie przetargowe – 3 300,00 zł. 3. Wadium w wysokości 33 000,00 zł w terminie do dnia 09.07.2026 r. 4. Przetarg odbędzie się dnia 16.07.2026 r. o godz. 10.00 w Sali Rajców nr 201 II piętro Urzędu Miasta w Kłodzku.`;

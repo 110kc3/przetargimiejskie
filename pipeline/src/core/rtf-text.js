@@ -1,4 +1,3 @@
-
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -14,7 +13,7 @@ const CP1250 = {
   0xb2: '²', 0xb3: 'ł', 0xb9: 'ą', 0xbf: 'ż',
   0xc6: 'Ć', 0xca: 'Ę', 0xd1: 'Ń', 0xd3: 'Ó',
   0xe6: 'ć', 0xea: 'ę', 0xf1: 'ń', 0xf3: 'ó',
-  0x9c: 'ś', 0x9f: 'ź', 0xa0: ' ', // nbsp (thousands separator)
+  0x9c: 'ś', 0x9f: 'ź', 0xa0: ' ',
 };
 
 function stripGroups(s) {
@@ -48,23 +47,18 @@ export function rtfToText(raw) {
   let s = stripGroups(
     raw.replace(/[\r\n]+/g, ' '),
   )
-    // \uN first, CONSUMING its fallback — either "?" or a \'xx byte. Decoding
-    // \'xx before \uN turned a "\uN\'xx" pair into a doubled character.
     .replace(/\\u(-?\d+)\s?(?:\\'[0-9a-fA-F]{2}|\?)?/g, (_, d) => {
       let n = Number(d);
       if (n < 0) n += 65536;
       return String.fromCharCode(n);
     })
-    // \'xx → cp1250 char
     .replace(/\\'([0-9a-fA-F]{2})/g, (_, h) => {
       const b = parseInt(h, 16);
       return CP1250[b] || (b < 0x80 ? String.fromCharCode(b) : '');
     })
-    // paragraph / line breaks
     .replace(/\\par[d]?\b/g, '\n')
     .replace(/\\line\b/g, ' ')
     .replace(/\\tab\b/g, ' ')
-    // remaining control words / symbols
     .replace(/\\[a-zA-Z]+-?\d* ?/g, '')
     .replace(/\\[^a-zA-Z]/g, '')
     .replace(/[{}]/g, '');

@@ -1,4 +1,3 @@
-
 import { getText } from './fetch.js';
 import { parseAddress } from './normalize.js';
 import { classifyKind } from './classify-kind.js';
@@ -226,7 +225,6 @@ export function makeMadkomCrawlActive(options) {
           }
         }
       } catch (err) {
-        // Skip failed endpoint gracefully
       }
     }
 

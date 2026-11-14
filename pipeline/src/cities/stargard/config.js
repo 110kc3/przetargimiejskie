@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'stargard',
-  teryt: '3212011', // gmina miejska Stargard (powiat stargardzki) — confirm on first geoportal run
+  teryt: '3212011',
   label: 'Stargard',
   voivodeship: 'zachodniopomorskie',
   authority: 'Gmina-Miasto Stargard',

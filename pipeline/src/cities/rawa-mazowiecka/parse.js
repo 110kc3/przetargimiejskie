@@ -1,5 +1,3 @@
-//      jest oddanie w najem …" — isLease() must gate these out before
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -157,9 +155,6 @@ export function kindFromText(text) {
 }
 
 
-//     Przedmiotem ustnego przetargu nieograniczonego jest…" (tresc=30279)
-//     terminator), so plain (non-global) regex backtracking naturally moves
-// TWO alternatives, tried in order (plain, non-global .exec() naturally
 const STREET_WORD = '[A-ZŁŚŻŹĆŃÓĄĘ][\\wąćęłńóśźż.]*';
 const REAL_TERMINATOR = '(?:,|\\.|\\s+w\\s+Raw\\w*|\\s+oraz\\b|$)';
 const LOOSE_TERMINATOR = `(?:${REAL_TERMINATOR}|\\s+[a-ząćęłńóśźż])`;
@@ -186,7 +181,6 @@ function buildingNumberFor(text, street) {
   return m ? m[1] : null;
 }
 
-// same "<parcel> o pow. <area> ha" shape, so ONE global scan over that shape
 const PARCEL_RE = /(\d+\/\d+|\d+)\s+o\s+pow\w*\.?\s*(\d+(?:[.,]\d+)?)\s*ha\b/gi;
 const TOTAL_AREA_RE = /[łl][ąa]czn\w*\s+(?:obszarze|powierzchni)\s+(\d+(?:[.,]\d+)?)\s*ha/i;
 

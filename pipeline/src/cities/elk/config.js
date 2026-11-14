@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'elk',
   teryt: '2805011',

@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText, getBytes } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';

@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -33,7 +32,7 @@ const SZYMANOWSKIEGO_LAND_PENDING = {
     'Pierwszy przetarg ustny nieograniczony na sprzedaż prawa własności nw. nieruchomości niezabudowanej - ul. Karola Szymanowskiego',
   tresc:
     '<p style="text-align: center;">PREZYDENT MIASTA<br />Zduńska Wola</p>\n<p style="text-align: center;">zawiadamia, że w dniu 8 lipca 2026 r. o godz. 9.00 w siedzibie Urzędu Miasta Zduńska Wola <br />ul. Stefana Złotnickiego nr 12 - Gabinet Radnego odbędzie się:</p>\n<p style="text-align: center;">PIERWSZY PRZETARG USTNY NIEOGRANICZONY</p>\n<p style="text-align: center;">na sprzedaż prawa własności nw. nieruchomości niezabudowanej</p>\n<p style="text-align: center;">Adres nieruchomości: ul. Karola Szymanowskiego</p>\n<p style="text-align: left;">Szczegóły w załączniku.</p>',
-  rozstrzygniecie: '', // tag entirely absent live — still pending
+  rozstrzygniecie: '',
 };
 
 const TOROWA_LAND_SOLD = {

@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'proszowice',
   teryt: '121101_4',

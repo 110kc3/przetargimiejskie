@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'ozarow-mazowiecki',
-  teryt: '1432064', // gmina miejsko-wiejska Ożarów Mazowiecki — confirm on first geoportal run
+  teryt: '1432064',
   label: 'Ożarów Mazowiecki',
   voivodeship: 'mazowieckie',
   authority: 'Burmistrz Ożarowa Mazowieckiego (Gmina Ożarów Mazowiecki)',

@@ -1,5 +1,3 @@
-// stray letter-spacing on signature blocks) is preserved verbatim, exactly
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 

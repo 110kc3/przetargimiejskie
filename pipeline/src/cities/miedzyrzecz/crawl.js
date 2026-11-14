@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { ocrPdf } from '../../core/ocr-pdf.js';
@@ -50,7 +49,6 @@ function parseAttachments(rowHtml) {
     try {
       filename = new URL(url).searchParams.get('plik') || '';
     } catch {
-      /* malformed URL — leave filename blank, callers just get no match */
     }
     out.push({ url, filename });
   }

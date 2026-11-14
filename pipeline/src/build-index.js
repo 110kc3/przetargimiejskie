@@ -1,4 +1,3 @@
-
 import { mkdir, readFile, writeFile, rename } from 'node:fs/promises';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -19,7 +18,7 @@ async function observedAssets(city, meta) {
   try {
     const properties = JSON.parse(await readFile(join(DATA_DIR, city, 'properties.json'), 'utf8')).properties || [];
     for (const property of properties) names.add(mapped[property.kind] || property.kind || 'unknown');
-  } catch { /* not published yet */ }
+  } catch {}
   if ((meta?.land_plots || 0) > 0) names.add('land');
   return [...names].sort();
 }
@@ -65,7 +64,7 @@ export async function buildIndexFromDisk({ outcomes = [], preserveGeneratedAt = 
     const previous = JSON.parse(await readFile(join(DATA_DIR, 'index.json'), 'utf8'));
     previousGeneratedAt = previous.generated_at;
     previousById = new Map((previous.cities || []).map((entry) => [entry.id, entry]));
-  } catch { /* first publication */ }
+  } catch {}
 
   const entries = [];
   for (const c of cities) {
@@ -73,7 +72,6 @@ export async function buildIndexFromDisk({ outcomes = [], preserveGeneratedAt = 
     try {
       m = JSON.parse(await readFile(join(DATA_DIR, c.id, 'meta.json'), 'utf8'));
     } catch {
-      /* city not yet published — zeros below */
     }
     const validation = validationPolicy(c.id);
     const sourceDegraded = Object.values(m?.source_checks || {}).some((source) => source?.status === 'degraded');

@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -214,7 +213,7 @@ test('isSaleAuctionTitle: accepts real flat/land sale titles', () => {
     isSaleAuctionTitle(
       'Ogłoszenie prztargu nieograniczonego na sprzedaż lokalu mieszkalnego nr 4 poł. w miejscowości Węgielsztyn 37 gm. Węgorzewo (III przetarg)',
     ),
-    true, // matches via "(III przetarg)" despite the source's own "prztargu" typo
+    true,
   );
   assert.equal(
     isSaleAuctionTitle(

@@ -1,6 +1,3 @@
-// crawl can "succeed" empty (preserve-on-empty, or a first-run adapter that
-// the 07:00 health run sees preserved last-good data as "healthy" and must NOT
-
 import { readFileSync, readdirSync, existsSync, mkdirSync, writeFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';

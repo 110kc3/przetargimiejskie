@@ -1,4 +1,3 @@
-
 import { setTimeout as sleep } from 'node:timers/promises';
 import { pathToFileURL } from 'node:url';
 
@@ -124,7 +123,6 @@ export function parseAttachments(html) {
     try {
       filename = decodeURIComponent(filename);
     } catch {
-      /* keep raw */
     }
     if (fullUrl && !out.some((a) => a.url === fullUrl)) {
       out.push({ url: fullUrl, filename });

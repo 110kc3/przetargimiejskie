@@ -1,4 +1,3 @@
-
 export const CONFIG = {
   id: 'wysokie-mazowieckie',
   teryt: '2013011',

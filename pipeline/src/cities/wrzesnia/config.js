@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'wrzesnia',
-  teryt: '3030054', // Września (miasto)
+  teryt: '3030054',
   label: 'Września',
   voivodeship: 'wielkopolskie',
   authority: 'Burmistrz Miasta i Gminy Września',

@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -263,7 +262,6 @@ export function parseListPage(html, catFilter = null) {
     const afterHref = m[5];
     const linkText = m[6].replace(/<[^>]+>/g, '').trim();
 
-    // Skip global nav links (sygnaliści, mobilny urzędnik)
     if (id === '807' || id === '813') continue;
 
     if (catFilter && catId !== String(catFilter) && !path.includes(`/kategorie/${catFilter}`)) {

@@ -1,4 +1,3 @@
-
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -69,7 +68,6 @@ for (const cityId of readdirSync(DATA_DIR, { withFileTypes: true })
     console.error(`${cityId}: ${p2.key} area ${a} m² → land_area_m2 (whole-property sale)`);
   }
 
-  //     both normal and preserve-on-empty refresh paths.
   props = applyDurablePropertyHeals(props, cityId, globalByNorm);
 
   if (JSON.stringify(props) !== before) {

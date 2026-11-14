@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 
 const PL_MONTH = {
@@ -207,7 +206,7 @@ export function parseResultItem(itemChunk, auction_date, sourceUrl) {
     kind: 'mieszkalny',
     address_raw: addrRaw,
     address,
-    round: null, // never stated per-item; build-properties derives it from history
+    round: null,
     starting_price_pln,
     final_price_pln: sold ? final_price_pln : null,
     outcome: sold ? 'sold' : 'unsold',

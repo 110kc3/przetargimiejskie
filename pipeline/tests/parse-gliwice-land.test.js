@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -175,8 +174,6 @@ test('parseMsipRecord: "przetarg wkrótce" → round null', () => {
   assert.equal(r.round, null);
 });
 
-// We test the HTML-stripping + regex path inline using the exported helper.
-
 const BIP_DZIALKA_HTML = `
 <!DOCTYPE html>
 <html lang="pl">
@@ -191,8 +188,6 @@ const BIP_DZIALKA_HTML = `
 </div>
 </body>
 </html>`;
-
-// Here we just confirm the exported parsers and the record shape are correct.
 
 test('parsePLN parses the exact price string found on bip.gliwice.eu działka pages', () => {
   assert.equal(parsePLN('2 370 000,00 zł'), 2370000);

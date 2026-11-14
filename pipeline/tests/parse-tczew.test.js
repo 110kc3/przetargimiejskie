@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -351,5 +350,4 @@ test('parseResultDoc: uses fallbackDate when PDF has no parseable date', () => {
   if (results.length > 0) {
     assert.equal(results[0].auction_date, '2026-03-11');
   }
-  // No throw is the key assertion
 });

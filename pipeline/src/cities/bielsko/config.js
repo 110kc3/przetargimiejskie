@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'bielsko',
-  teryt: '246101_1', // gmina TERYT (verified via ULDK) for precise geoportal deep-links
+  teryt: '246101_1',
   label: 'Bielsko-Biała',
   voivodeship: "slaskie",
   authority: 'Urząd Miejski w Bielsku-Białej',

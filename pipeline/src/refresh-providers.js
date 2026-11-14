@@ -1,4 +1,3 @@
-
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -8,7 +7,7 @@ import { setDefaultResultOrder } from 'node:dns';
 import { providers } from './providers/index.js';
 import { mergeProviderListings, providerCounts } from './providers/common.js';
 
-try { setDefaultResultOrder('ipv4first'); } catch { /* Node <18 */ }
+try { setDefaultResultOrder('ipv4first'); } catch {}
 
 const SCHEMA_VERSION = 1;
 const DATA_DIR = fileURLToPath(new URL('../../data/providers/', import.meta.url));

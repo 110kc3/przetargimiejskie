@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'plonsk',
-  teryt: '1420011', // gmina miejska Płońsk (powiat płoński) — confirm on first geoportal run
+  teryt: '1420011',
   label: 'Płońsk',
   voivodeship: 'mazowieckie',
   authority: 'Burmistrz Miasta Płońska (Gmina Miasto Płońsk)',

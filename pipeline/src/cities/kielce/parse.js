@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -249,7 +248,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     kind,
     address_raw: addressRaw,
     address,
-    round: null, // Kielce result DOCXes don't state the round — inferred from history
+    round: null,
     starting_price_pln: starting_price_pln ?? null,
     final_price_pln: negative ? null : (final_price_pln ?? null),
     outcome: negative ? 'unsold' : 'sold',

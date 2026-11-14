@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -78,7 +77,7 @@ async function attachmentText(url) {
   try {
     const t = await pdfText(url, { userAgent: BROWSER_UA });
     if (t.replace(/\s+/g, '').length >= 60) return t;
-  } catch { /* not a clean text layer — fall through to OCR */ }
+  } catch {}
   try {
     return await ocrPdf(url, { userAgent: BROWSER_UA });
   } catch (err) {

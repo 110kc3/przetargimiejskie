@@ -1,5 +1,3 @@
-// (/rpc/routeRejestryServiceManager*) to enumerate registers:
-
 export const config = {
   id: 'wodzislaw-slaski',
   teryt: '241504_1',

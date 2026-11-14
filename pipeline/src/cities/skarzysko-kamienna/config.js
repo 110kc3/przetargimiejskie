@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'skarzysko-kamienna',
-  teryt: '126201_1', // gmina miejska Skarżysko-Kamienna (powiat skarżyski 1262,
+  teryt: '126201_1',
   label: 'Skarżysko-Kamienna',
   voivodeship: 'swietokrzyskie',
   authority: 'Gmina Skarżysko-Kamienna',

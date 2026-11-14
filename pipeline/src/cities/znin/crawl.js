@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -107,11 +106,11 @@ export async function crawlActive() {
     kind: r.kind,
     address: r.address,
     address_raw: r.address_raw,
-    dzialka_nr: r.dzialka_nr,   // refresh.js partitions kind 'grunt' → land.json
+    dzialka_nr: r.dzialka_nr,
     obreb: r.obreb,
     area_m2: r.area_m2,
     starting_price_pln: r.starting_price_pln,
-    auction_date: r.auction_date,   // best-effort (OCR); null is fine (kept active)
+    auction_date: r.auction_date,
     round: r.round,
     detail_url: r.detail_url,
     published_date: r.published_date,
@@ -147,7 +146,6 @@ export async function crawlResultDocs() {
   return refs;
 }
 
-// Re-exported so index.js can wire the registry contract from one module.
 export { parseResultDoc };
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

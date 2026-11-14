@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { parseTbsDetail, parseTbsLandDetail, parseBipResultList } from './parse.js';
 
@@ -112,8 +111,6 @@ async function crawlBipResultPages() {
   console.error(`  stargard: ${all.length} flat/commercial BIP result notice(s)`);
   return all;
 }
-
-// Exported crawl functions (adapter contract)
 
 export async function crawlActive() {
   const { listings, land } = await crawlTbsListings();

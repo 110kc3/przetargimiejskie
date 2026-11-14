@@ -1,4 +1,3 @@
-
 import gliwice from './gliwice/index.js';
 import katowice from './katowice/index.js';
 import bytom from './bytom/index.js';

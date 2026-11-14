@@ -189,7 +189,7 @@ const candidates = (index.cities || [])
   .sort((a, b) => a.label.localeCompare(b.label, 'pl'));
 
 const today = new Date().toISOString().slice(0, 10);
-const recapFloor = (() => { // first day of the month RECAP_MONTHS-1 months ago
+const recapFloor = (() => {
   const d = new Date(); d.setUTCDate(1); d.setUTCMonth(d.getUTCMonth() - (RECAP_MONTHS - 1));
   return d.toISOString().slice(0, 7);
 })();
@@ -566,7 +566,6 @@ let landing = readFileSync(landingPath, 'utf8');
 const statProps = cities.reduce((s, c) => s + (c.unique_properties || 0), 0);
 const statActive = cities.reduce((s, c) => s + activeOf(c), 0);
 const statArchived = cities.reduce((s, c) => s + (c.archived_auctions || 0), 0);
-// own colour, and `a` is already text-decoration:none globally.
 const chipHtml = (c) => {
   const meta = chipMeta({ live: activeOf(c), archived: c.archived_auctions || 0, props: c.unique_properties || 0 });
   return `<a class="city-chip" href="/${c.id}/">${cityDot(c.id)}<span class="city-name">${esc(c.label)}</span><span class="city-meta">${meta}</span></a>`;
@@ -608,7 +607,7 @@ const outIndex = {
   public_city_ids: [...publicIds],
   cities: (index.cities || []).map((c) => ({
     ...c,
-    live_auctions: LIVE_BY_ID[c.id] ?? null, // null = not evaluated (outside the public voivodeship scope)
+    live_auctions: LIVE_BY_ID[c.id] ?? null,
     public: publicIds.has(c.id),
   })),
 };

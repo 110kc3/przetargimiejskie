@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 import {
@@ -162,7 +161,6 @@ export function unitAreaFromText(text, flatId) {
 }
 
 
-// instrumental-case ending "ą" (JS `\w` is ASCII-only) — "oznaczona jest
 const DZIALKA_STEM = 'dzia[łl]k[\\wąćęłńóśźżĄĆĘŁŃÓŚŹŻ]*\\s*(?:(?:ewidencyjn\\w*\\s*)?nr\\.?:?\\s*)?';
 function plausibleParcel(v) {
   return /\//.test(v) || v.length >= 2;

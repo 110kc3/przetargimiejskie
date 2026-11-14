@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { classifyKind, LAND_KIND } from '../../core/classify-kind.js';
 import {
@@ -30,12 +29,6 @@ function stripTags(html) {
     .trim();
 }
 
-/**
- * One `<div class="wiersz">` list row -> { published_date, auction_date,
- * href, title, status }. Exported for the test suite (groundtruthed against
- * a real fetched fragment of https://www.zglbp.pl/przetargi?filtruj=1&rodzaj=
- * sprzedaz_nieruchomosci).
- */
 export function parseListRows(html) {
   const rows = [];
   const blocks = (html || '').split('<div class="wiersz">').slice(1);

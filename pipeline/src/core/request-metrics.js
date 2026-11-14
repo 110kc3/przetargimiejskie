@@ -7,5 +7,5 @@ export function recordRequest(url) {
   try {
     const host = new URL(url).hostname.toLowerCase();
     appendFileSync(path, `${host}\n`, 'utf8');
-  } catch { /* metrics never affect a crawl */ }
+  } catch {}
 }

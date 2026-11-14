@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'sepolno-krajenskie',
   teryt: '041602_4',

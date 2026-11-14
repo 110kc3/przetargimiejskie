@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { parseAnnouncementPdf } from './parse.js';
@@ -112,7 +111,7 @@ async function crawlAll() {
         text: resultText,
         pdf_url: resultPdfUrl,
         detail_url: articleUrl,
-        auction_date: null, // parseResultDoc extracts from the PDF text
+        auction_date: null,
       });
     }
   }

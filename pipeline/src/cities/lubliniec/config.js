@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'lubliniec',
-  teryt: '240901_1', // gmina miejska Lubliniec (powiat lubliniecki 2409, gmina-
+  teryt: '240901_1',
   label: 'Lubliniec',
   voivodeship: 'slaskie',
   authority: 'Gmina Lubliniec',

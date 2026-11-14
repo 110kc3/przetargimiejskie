@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { ocrPdf } from '../../core/ocr-pdf.js';
@@ -62,13 +61,11 @@ export async function extractDetailContent(detailUrl) {
       try {
         pdfExtracted = await pdfText(pdfUrl, FETCH_OPTS);
       } catch {
-        // ignore
       }
       if (!pdfExtracted || pdfExtracted.trim().length < 30) {
         try {
           pdfExtracted = await ocrPdf(pdfUrl, FETCH_OPTS);
         } catch {
-          // ignore
         }
       }
     }

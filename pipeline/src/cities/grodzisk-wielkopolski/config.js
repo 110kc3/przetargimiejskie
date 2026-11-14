@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'grodzisk-wielkopolski',
   teryt: '3005024',

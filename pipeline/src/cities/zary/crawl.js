@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { ocrPdf } from '../../core/ocr-pdf.js';
@@ -59,13 +58,11 @@ export async function extractPdfText(url) {
     const text = await pdfText(url, FETCH_OPTS);
     if (text && text.trim().length > 30) return text;
   } catch {
-    // ignore
   }
   try {
     const text = await ocrPdf(url, FETCH_OPTS);
     if (text && text.trim().length > 30) return text;
   } catch {
-    // ignore
   }
   return '';
 }
@@ -119,7 +116,6 @@ export async function crawlActive() {
       });
     }
   } catch {
-    // ignore
   }
 
   return {

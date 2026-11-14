@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 import { htmlToText, parsePLN } from '../../core/finn-bip.js';
@@ -89,7 +88,7 @@ export function blockToListing(block) {
     kind: 'mieszkalny',
     address_raw: addressRaw,
     address,
-    area_m2: null, // enriched from the announcement .docx by crawl.js's enrichActive()
+    area_m2: null,
     round: roundFromPrzetargNa(block.przetargNa),
     starting_price_pln: parsePLN(block.cenaText),
     auction_date: block.auctionDate,

@@ -1,5 +1,3 @@
-// pdftotext -layout preserves the table columns as space-separated text on the
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 

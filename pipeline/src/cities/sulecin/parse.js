@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -329,7 +328,7 @@ export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
     final_price_pln: sold ? achieved : null,
     outcome: sold ? 'sold' : 'unsold',
     unsold_reason: sold ? null : 'unknown',
-    area_m2: null, // wynik docs don't restate usable area; announcement is the source for that field
+    area_m2: null,
     notes,
   }];
 }

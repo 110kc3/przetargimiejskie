@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'braniewo',
-  teryt: '280201_1', // gmina miejska Braniewo (powiat braniewski 2802, gmina-type
+  teryt: '280201_1',
   label: 'Braniewo',
   voivodeship: 'warminsko-mazurskie',
   authority: 'Gmina Miasta Braniewa',

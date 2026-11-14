@@ -1,4 +1,3 @@
-
 export const ZABRZE_OBREB_MAP = {
   'bielszowice': '0001',
   'biskupice': '0002',
@@ -35,7 +34,7 @@ export function zabrzeObrebCode(raw) {
 
 export const config = {
   id: 'zabrze',
-  teryt: '247801_1', // gmina TERYT (verified via ULDK) for precise geoportal deep-links
+  teryt: '247801_1',
   obreby: ZABRZE_OBREB_MAP,
   label: 'Zabrze',
   voivodeship: "slaskie",

@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -277,7 +276,6 @@ export function extractArticleText(html) {
   } else if (articleM) {
     raw = articleM[1];
   } else if (mainM) {
-    // main includes nav — cut off at "Metryczka" or "Rejestr zmian"
     raw = mainM[1].replace(/Metryczka[\s\S]*/, '').replace(/Rejestr zmian[\s\S]*/, '');
   } else {
     raw = html;

@@ -1,4 +1,3 @@
-
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -262,7 +261,6 @@ export async function crawlResultDocs() {
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, land, valid_empty, valid_empty_land } = await crawlPromise;
-  // Preserve land history through the same incremental merge as property history.
   return { listings, wykaz: [], land, valid_empty, valid_empty_land, land_complete: false };
 }
 

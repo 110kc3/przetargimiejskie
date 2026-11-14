@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -232,7 +231,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     } else if (pending !== null) {
       pending = pending + '\n' + line;
     }
-    // pre-record header/date text -- ignored (pending is null)
   }
   flush();
 

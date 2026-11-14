@@ -1,5 +1,3 @@
-
-// The watchlist module exposes globalThis.ZGM_WATCH when imported below.
 importScripts('watchlist.js', 'catalog.js');
 
 const REPO = '110kc3/przetargimiejskie';
@@ -340,16 +338,6 @@ function daysUntil(dateISO, today) {
   return Math.round((a - b) / 86400000);
 }
 
-/**
- * Which reminders are due for one watched listing. A reminder is due in the
- * [day-before, day-of] window — one notification per deadline (the id embeds
- * the deadline date, and `sent` dedupes), so catching it on the day itself
- * (e.g. the browser was closed yesterday) still works without double-firing.
- * Pure (exported for tests via globalThis below).
- * @param {{auction_date?:string, wadium_deadline?:string}} listing
- * @param {string} today  YYYY-MM-DD (Warsaw)
- * @returns {Array<{type:'wadium'|'auction', date:string}>}
- */
 function dueReminders(listing, today) {
   const out = [];
   for (const [type, date] of [

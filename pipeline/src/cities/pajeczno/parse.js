@@ -1,5 +1,3 @@
-//     Body: "Przedmiotem sprzedaży jest nieruchomość niezabudowana o numerze
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -144,8 +142,6 @@ const TITLE_RE = /<article class="news mb-4">\s*<h2 class="h5 mb-3">([\s\S]*?)<\
 const BODY_RE = /<div class="news_content_pdf">([\s\S]*?)<\/div>\s*<div style="clear:\s*both;">/i;
 const PUBLISHED_BLOCK_RE = /<div class="py-2 ps-2 bg-light">([\s\S]*?)<\/div>/i;
 const ATTACHMENT_PDF_RE = /<a href="([^"]+\.pdf)"[^>]*class="matomo_download"/i;
-
-// Exported (not just used internally by parseDetailPage below) because
 
 export function extractTitle(html) {
   const m = TITLE_RE.exec(html || '');

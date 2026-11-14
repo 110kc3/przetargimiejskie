@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -130,7 +129,6 @@ export function dateOnly(s) {
 }
 
 
-// cellText(), which preserves them; other single-line fields collapse
 const ITEM_ANCHOR_RE = /(?:^|\n)\s*(\d{1,2})[.)]\s*/g;
 
 export function splitNumberedItems(text) {
@@ -147,17 +145,6 @@ export function splitNumberedItems(text) {
   return out;
 }
 
-
-/**
- * @typedef {object} BoardRow
- * @property {string|null} detailUrl
- * @property {string} dotyczyText     "Dotyczy" cell prose
- * @property {string} cenaText        "Cena wywoławcza" cell (newlines preserved)
- * @property {string} wynikText       "Wynik" cell ("Pozytywny"/"Negatywny"/"Brak wyniku")
- * @property {string|null} announcedDate
- * @property {string|null} auctionDateRaw
- * @property {Array<{url:string, filename:string}>} attachments
- */
 
 export function recordsFromActiveRow(row) {
   const listings = [];

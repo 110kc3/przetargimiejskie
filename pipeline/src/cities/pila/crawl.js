@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -146,7 +145,6 @@ async function crawlAll() {
   console.error(
     `  pila: ${listings.length} active listing(s), ${resultRefs.length} result PDF ref(s)`,
   );
-  // not qualify and still trigger the global preserve-on-empty safety net.
   const validEmpty = stubs.length > 0 && flat.length === 0;
   return { listings, resultRefs, validEmpty };
 }

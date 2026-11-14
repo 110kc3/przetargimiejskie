@@ -1,4 +1,3 @@
-
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { rm } from 'node:fs/promises';
@@ -121,7 +120,6 @@ async function extractPdfText(url) {
   try {
     await rm(join(PDFTEXT_CACHE_DIR, urlCacheKey(url) + '.txt'), { force: true });
   } catch {
-    /* ignore */
   }
   return ocrPdf(url);
 }

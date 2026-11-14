@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { htmlToText } from '../../core/finn-bip.js';
 import { loadKnownSourceUrls } from '../../core/known-urls.js';

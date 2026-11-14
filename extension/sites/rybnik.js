@@ -1,4 +1,3 @@
-
 (function () {
   if (!window.ZGM_SITES) return;
 
@@ -36,7 +35,7 @@
           element: a,
           address,
           addressRaw: raw,
-          area_m2: null,   // figures live in the RTF, not on the board
+          area_m2: null,
           price_pln: null,
           descTarget: null,
         });

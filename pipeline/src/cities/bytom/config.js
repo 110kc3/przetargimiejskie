@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'bytom',
-  teryt: '246301_1', // gmina TERYT (verified via ULDK) for precise geoportal deep-links
+  teryt: '246301_1',
   label: 'Bytom',
   voivodeship: "slaskie",
   authority: 'Urząd Miasta Bytom',

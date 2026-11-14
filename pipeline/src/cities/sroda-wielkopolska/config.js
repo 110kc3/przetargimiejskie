@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'sroda-wielkopolska',
   teryt: '302504_3',

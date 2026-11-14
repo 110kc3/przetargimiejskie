@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -111,7 +110,6 @@ export function flatAreaFromText(text) {
   return m ? parseArea(m[1]) : null;
 }
 
-// "Lokal mieszkalny nr N położony jest ..." somewhere, which classifyKind's
 const PREMISES_RE = /nieruchomo[śs]ci?\s+lokalow[a-ząćęłńóśźż]*/i;
 function classifyEntryKind(text) {
   const t = text || '';

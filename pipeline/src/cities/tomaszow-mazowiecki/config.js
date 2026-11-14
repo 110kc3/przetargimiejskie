@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'tomaszow-mazowiecki',
   teryt: '101701_1',

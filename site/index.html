@@ -6,16 +6,10 @@
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<!-- Declare the page as natively dark so auto-dark/dark-mode browser
-     extensions don't re-tint the already-dark palette (washed accents,
-     magenta visited links). -->
 <meta name="color-scheme" content="dark" />
 <title>przetargimiejskie – Polska · historia miejskich przetargów na mieszkania</title>
 <meta name="description" content="Historia miejskich przetargów na sprzedaż mieszkań w Polsce: ceny wywoławcze, zł/m², rundy i terminy. Gliwice, Katowice, Kraków, Zabrze, Sosnowiec, Opole, Kędzierzyn-Koźle i kolejne miasta." />
 <link rel="canonical" href="https://przetargimiejskie.pl/" />
-<!-- Machine-readable twins of this page. /data/index.json is the same file the
-     landing's own script fetches to paint the counters, so an agent reading it
-     sees exactly what a visitor sees. Both are emitted by build-seo-pages.mjs. -->
 <link rel="alternate" type="text/markdown" href="https://przetargimiejskie.pl/llms.txt" title="llms.txt" />
 <link rel="alternate" type="application/json" href="https://przetargimiejskie.pl/data/index.json" title="Miasta i liczniki (JSON)" />
 <meta property="og:title" content="przetargimiejskie – Polska" />
@@ -53,7 +47,6 @@
 }
 </script>
 <style>
-/* ===== przetargimiejskie — Slate Ledger (dark) ===== */
 :root{
   color-scheme: dark;
   --bg:#0d1117; --bg-grad:#131a26; --surface:#161b22; --surface-2:#1b2230;
@@ -135,9 +128,6 @@ a:hover{color:var(--accent);text-decoration:underline}
   .stat-row{grid-template-columns:repeat(2,1fr)}
   .stat-row .stat:last-child{grid-column:span 2}
   .hero-title{font-size:30px}
-  /* Header stacks: brand on its own line, nav links in a row below —
-     prevents the nav squeezing next to the brand and "Jak działa"
-     breaking mid-link on phones. */
   .site-header{padding:14px 0}
   .site-nav{width:100%;gap:18px}
   .hero{padding:36px 0 28px}
@@ -221,18 +211,9 @@ a:hover{color:var(--accent);text-decoration:underline}
 </div>
 
 <script>
-  // "active" = an auction still ahead of us. `live_auctions` is written by
-  // scripts/build-seo-pages.mjs, which recomputes it at build time with the
-  // date-aware rule the city pages use; `active_auctions` is a snapshot frozen
-  // at the last data refresh and drifts stale as auction dates pass. Prefer the
-  // former so this page can never advertise auctions a city page then denies.
   const activeOf = c => (c.live_auctions ?? c.active_auctions ?? c.active_listings ?? 0);
   const archivedOf = c => (c.archived_auctions ?? 0);
   fetch('/data/index.json').then(r=>r.json()).then(idx=>{
-    // Public = whatever the publish gate in build-seo-pages.mjs marked `public`
-    // (voivodeship scope ∩ MIN_PUBLIC_AUCTIONS). Cities below the gate are still
-    // crawled and still reachable at /archiwum-all (test view); they just don't
-    // get advertised here.
     const allCities = idx.cities || [];
     const cities = allCities.filter(c => c.public !== false);
     const monitored = idx.monitored_cities || allCities.length;
@@ -246,25 +227,15 @@ a:hover{color:var(--accent);text-decoration:underline}
     document.getElementById('stat-active').textContent = active.toLocaleString('pl-PL');
     document.getElementById('stat-archived').textContent = archived.toLocaleString('pl-PL');
 
-    // Group the supported-city chips by voivodeship (województwo). index.json
-    // carries `voivodeship` per city; groups are ordered by city count (then
-    // name), cities within a group alphabetically.
     const WOJ = {dolnoslaskie:'Dolnośląskie','kujawsko-pomorskie':'Kujawsko-Pomorskie',lubelskie:'Lubelskie',lubuskie:'Lubuskie',lodzkie:'Łódzkie',malopolskie:'Małopolskie',mazowieckie:'Mazowieckie',opolskie:'Opolskie',podkarpackie:'Podkarpackie',podlaskie:'Podlaskie',pomorskie:'Pomorskie',slaskie:'Śląskie',swietokrzyskie:'Świętokrzyskie','warminsko-mazurskie':'Warmińsko-Mazurskie',wielkopolskie:'Wielkopolskie',zachodniopomorskie:'Zachodniopomorskie'};
     const plural = n => n===1 ? 'aukcja' : (n%10>=2 && n%10<=4 && (n%100<12 || n%100>14)) ? 'aukcje' : 'aukcji';
     const nf = n => Number(n).toLocaleString('pl-PL');
-    // Mirrors cityHue() in scripts/build-seo-pages.mjs — keep the two in step.
     const cityHue = id => { let h=0; for(let i=0;i<id.length;i++) h=(h*31+id.charCodeAt(i))%360; return h; };
-    // Mirrors chipMeta() in scripts/build-seo-pages.mjs — keep the two in step.
-    // A city with nothing scheduled must never read as a bare "0 aukcji"; fall
-    // back to the archive/property counts so every chip carries two real numbers.
     const chip = c => {
       const a = activeOf(c), arch = archivedOf(c), props = c.unique_properties || 0;
       const meta = a > 0 ? `${nf(a)} ${plural(a)} · ${nf(arch)} w archiwum`
                  : arch > 0 ? `${nf(arch)} w archiwum · ${nf(props)} nieruchomości`
                  : `${nf(props)} nieruchomości`;
-      // Must stay an <a> matching build-seo-pages.mjs's chipHtml() — the build
-      // bakes the same chips into this page's static HTML, and if the two shapes
-      // disagree the JS repaint would silently strip the links a crawler saw.
       return `<a class="city-chip" href="/${c.id}/"><span class="city-dot" style="background:hsl(${cityHue(c.id)} 58% 58%)"></span><span class="city-name">${c.label}</span><span class="city-meta">${meta}</span></a>`;
     };
     const groups = {};

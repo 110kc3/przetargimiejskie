@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -109,7 +108,6 @@ test('isInScopeRow: rokowania + zabudowana (Wielisławice) is skipped', () => {
 
 
 test('extractFlatAddress: VILLAGE form — glued building/apt, nominative recovered from "miejscowości" anchor', () => {
-  // jest w miejscowości Gilów, ok. 15 km od Strzelec Krajeńskich" elsewhere
   assert.equal(extractFlatAddress(GILOW_PDF_TEXT), 'Gilów 20/1');
 });
 

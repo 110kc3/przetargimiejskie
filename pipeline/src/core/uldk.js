@@ -1,4 +1,3 @@
-
 const ULDK_BY_NAME = 'https://uldk.gugik.gov.pl/?request=GetParcelByIdOrNr';
 const ULDK_BY_ID = 'https://uldk.gugik.gov.pl/?request=GetParcelById';
 

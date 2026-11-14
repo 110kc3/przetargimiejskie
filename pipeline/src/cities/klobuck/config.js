@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'klobuck',
-  teryt: '240405_3', // gmina miejsko-wiejska Kłobuck (woj. śląskie 24, powiat
+  teryt: '240405_3',
   label: 'Kłobuck',
   voivodeship: 'slaskie',
   authority: 'Gmina Kłobuck',

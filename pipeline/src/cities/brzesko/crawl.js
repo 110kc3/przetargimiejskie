@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { loadKnownSourceUrls } from '../../core/known-urls.js';
 import { extractArticleLinks, parseAnnouncementNotice, parseResultDoc } from './parse.js';

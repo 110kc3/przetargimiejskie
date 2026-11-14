@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { ocrPdf } from '../../core/ocr-pdf.js';
@@ -66,7 +65,6 @@ export async function extractAttachmentText(url) {
   try {
     text = await pdfText(url);
   } catch (err) {
-    // pdfText error, proceed to OCR
   }
 
   if (!text || text.trim().length < 50) {

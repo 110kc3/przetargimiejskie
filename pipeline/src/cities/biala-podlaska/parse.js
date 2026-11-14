@@ -1,4 +1,3 @@
-
 import { classifyKind } from '../../core/classify-kind.js';
 import { parseAddress } from '../../core/normalize.js';
 

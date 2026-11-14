@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { setTimeout as sleep } from 'node:timers/promises';
 import { getText } from '../../core/fetch.js';

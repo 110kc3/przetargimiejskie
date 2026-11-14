@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 
@@ -9,9 +8,9 @@ const PDF_RE =
   /href="(https:\/\/zgm-gliwice\.pl\/wp-content\/uploads\/[^"]+wyniki[^"]*\.pdf)"/gi;
 
 const DATE_PATTERNS = [
-  /\/(\d{2})\.(\d{2})\.(\d{4})[.-]/, // DD.MM.YYYY
-  /\/(\d{2})\.(\d{2})(\d{4})[.-]/,   // DD.MMYYYY
-  /\/(\d{2})\.(\d{2})\.(\d{2})[.-]/, // DD.MM.YY
+  /\/(\d{2})\.(\d{2})\.(\d{4})[.-]/,
+  /\/(\d{2})\.(\d{2})(\d{4})[.-]/,
+  /\/(\d{2})\.(\d{2})\.(\d{2})[.-]/,
 ];
 
 function extractAuctionDate(pdfUrl) {

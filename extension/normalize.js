@@ -1,5 +1,3 @@
-// Exposes a single global: window.ZGM_NORMALIZE.parseAddress(raw).
-
 (function () {
   const POLISH_LOWER = (s) =>
     s
@@ -43,7 +41,6 @@
     }
 
 
-    // Preserve the stated joint identity instead of putting numbers in street.
     const jointUnits = /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)\s*\/\s*(\d+[A-Za-z]?)\s*,\s*(\d+[A-Za-z]?)$/i.exec(s);
     if (jointUnits) {
       return buildAddress(jointUnits[1], jointUnits[2].toUpperCase(),

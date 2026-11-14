@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -28,7 +27,6 @@ const DABROWSKIEGO_29_15_PENDING = {
   przetargNa:
     'Trzeci przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 15 położonego przy ulicy Gen. H. Dąbrowskiego 29 w Nakle nad Notecią wraz z udziałem we własności nieruchomości wspólnej wynoszącym 33/1000. Lokal mieszkalny o powierzchni użytkowej 32,58 m2 składa się z dwóch pokoi 10,89 m2 i 3,42 m2; kuchni 8,71 m2; łazienki 2,04 m2; WC 0,78 m2; przedpokoju 2,33 m2 i pomieszczenia gospodarczego 4,41 m2 z przynależną piwnicą o powierzchni 0,80 m2, znajduje się na trzecim piętrze (4 kondygnacji) budynku oficyny. Lokal poddaszowy o wysokości w części poniżej 2,20 m. Wyposażony jest w instalację elektryczną, wodno-kanalizacyjną; ogrzewanie: piec kaflowy.',
   tresc: '',
-  // no `wynik` — still pending, no result attachment exists yet
 };
 
 const DABROWSKIEGO_44_6_UNSOLD = {

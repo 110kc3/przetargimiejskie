@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -261,11 +260,11 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
 
     out.push({
       auction_date: auctionDate,
-      source_pdf: sourceUrl,  // keeping the key name consistent with other adapters
+      source_pdf: sourceUrl,
       kind,
       address_raw: addressRaw,
       address,
-      round: null,  // Legnica result docs don't state the round number explicitly
+      round: null,
       starting_price_pln,
       final_price_pln: negative ? null : final_price_pln,
       outcome: negative ? 'unsold' : 'sold',

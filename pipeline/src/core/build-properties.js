@@ -65,7 +65,6 @@ export function dedupeListingsByDate(p) {
       continue;
     }
     const [primary, secondary] = prev.source_pdf || !l.source_pdf ? [prev, l] : [l, prev];
-    // Preserve that explicit anchor instead of retaining an already-derived
     const primaryRoundSource = roundSource(primary);
     const secondaryRoundSource = roundSource(secondary);
     if (

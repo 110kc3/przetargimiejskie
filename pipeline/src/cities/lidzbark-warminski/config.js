@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'lidzbark-warminski',
   teryt: '280901_1',

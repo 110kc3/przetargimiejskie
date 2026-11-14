@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'wegrow',
   teryt: '143301_1',

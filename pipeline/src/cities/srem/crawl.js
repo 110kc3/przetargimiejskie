@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { docText } from '../../core/doc-text.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -55,19 +54,16 @@ export async function extractAttachmentText(fileUrl) {
     const text = await docText(fileUrl);
     if (text && text.trim().length > 30) return text;
   } catch {
-    // ignore
   }
   try {
     const text = await pdfText(fileUrl);
     if (text && text.trim().length > 30) return text;
   } catch {
-    // ignore
   }
   try {
     const text = await ocrPdf(fileUrl);
     if (text && text.trim().length > 30) return text;
   } catch {
-    // ignore
   }
   return '';
 }
@@ -112,7 +108,6 @@ export async function crawlActive() {
             });
           }
         } catch {
-          // ignore
         }
       } else if (/sprzeda[żz]/i.test(sub.label) && !/wynik/i.test(sub.label)) {
         try {
@@ -147,7 +142,6 @@ export async function crawlActive() {
             }
           }
         } catch {
-          // ignore
         }
       }
     }
@@ -199,7 +193,6 @@ export async function crawlResultDocs() {
         });
       }
     } catch {
-      // ignore
     }
   }
 

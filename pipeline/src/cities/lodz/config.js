@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'lodz',
-  teryt: '1061000000', // confirm on first geoportal run
+  teryt: '1061000000',
   label: 'Łódź',
   voivodeship: 'lodzkie',
   authority: 'Urząd Miasta Łodzi (Wydział Zbywania i Nabywania Nieruchomości)',

@@ -1,4 +1,3 @@
-
 export const CITY_LOC = {
   gliwice: 'w Gliwicach', katowice: 'w Katowicach', bytom: 'w Bytomiu', zabrze: 'w Zabrzu',
   sosnowiec: 'w Sosnowcu', rybnik: 'w Rybniku', bielsko: 'w Bielsku-Białej',

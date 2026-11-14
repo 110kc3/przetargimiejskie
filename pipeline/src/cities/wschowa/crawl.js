@@ -1,5 +1,3 @@
-// numbered list. cellText() below preserves the cell's real embedded
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -35,7 +33,6 @@ function stripTags(s) {
     .trim();
 }
 
-// Preserves the cell's embedded newlines (a bundled "Cena wywoławcza" cell is
 function cellText(s) {
   return (s || '')
     .replace(/^\s*<div>[\s\S]*?<\/div>/i, '')
@@ -63,7 +60,6 @@ function parseAttachments(rowHtml) {
     try {
       filename = new URL(url).searchParams.get('plik') || '';
     } catch {
-      /* malformed URL — leave filename blank, callers just get no match */
     }
     out.push({ url, filename });
   }

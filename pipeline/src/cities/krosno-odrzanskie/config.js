@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'krosno-odrzanskie',
   teryt: '080206_3',

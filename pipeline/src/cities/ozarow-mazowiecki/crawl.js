@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { parseIndexPage, findAnnouncementPdfUrl, parseAnnouncement } from './parse.js';
@@ -40,7 +39,6 @@ async function crawlAll() {
       }
     }
   } catch (err) {
-    // category page may fail or 404, not fatal
   }
 
   console.error(`  ozarow-mazowiecki: ${candidates.length} candidate post(s) found`);

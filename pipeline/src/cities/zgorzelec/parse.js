@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -61,13 +60,6 @@ export function isSaleAuction(text) {
   return /przetarg/i.test(t) && /sprzeda[żz]/i.test(t);
 }
 
-/** True when the auction PURPOSE is a DZIERŻAWA / NAJEM lease (rent), not a sale.
- *  Anchored on the lease being the OBJECT of the auction ("… na/w/do dzierżawę",
- *  "oddanie w najem …", "czynsz dzierżawny …", a monthly rent) so a SALE notice
- *  that merely records the plot is ENCUMBERED by a pre-existing lease ("Działka …
- *  objęta jest umową dzierżawy gruntu rolnego") is NOT vetoed. Pure lease auctions
- *  are already dropped upstream by !isSaleAuction (they carry no "sprzedaż"); this
- *  is the secondary guard for a mixed notice. */
 export function isLease(text) {
   const t = whole(text);
   return /\b(?:na|w|do)\s+(?:wieloletni\w+\s+)?(?:dzier[żz]aw\w*|najem|najm\w+)\b/i.test(t)

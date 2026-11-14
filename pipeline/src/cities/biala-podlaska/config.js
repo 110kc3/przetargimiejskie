@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'biala-podlaska',
   teryt: '066101_1',

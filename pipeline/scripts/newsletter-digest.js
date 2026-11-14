@@ -1,5 +1,3 @@
-// Pure fns (listingId/buildModel/render*) are exported for the test; main() is
-
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -203,7 +201,6 @@ function main() {
       const arr = loadJSON(seenPath);
       if (Array.isArray(arr)) seen = new Set(arr.map(String));
     } catch {
-      /* corrupt/empty seen → treat as first run (re-seed) */
     }
   }
 

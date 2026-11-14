@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -95,8 +94,8 @@ function hasStopword(phrase) {
 }
 
 const PLACE_LOCATIVE_ENDINGS = [
-  ['ej', 'a'],  // adjective: Leśnej -> Leśna
-  ['cy', 'ca'], // "-ca" noun family: Kęszycy -> Kęszyca
+  ['ej', 'a'],
+  ['cy', 'ca'],
 ];
 function nominativePlace(phrase) {
   return phrase
@@ -237,7 +236,7 @@ export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
     kind: 'mieszkalny',
     address_raw: addrRaw,
     address,
-    round: null, // result notices reference the announcement, not the round
+    round: null,
     starting_price_pln,
     final_price_pln: positive ? achieved : null,
     outcome: positive ? 'sold' : 'unsold',

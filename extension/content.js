@@ -1,4 +1,3 @@
-
 (async function () {
   const site = window.ZGM_SITES && window.ZGM_SITES.findFor(location.hostname);
   if (!site) return;
@@ -329,11 +328,6 @@
         else await window.ZGM_WATCH.watch(watchKey, watchMeta || {});
         refresh();
       });
-      // Cross-tab watchlist edits are handled by a single page-level
-      // ZGM_WATCH.onChange(render) listener (registered once below) — we must
-      // NOT subscribe here, because injectPanel runs on every render and the
-      // listeners (each retaining a detached button via `refresh`) would
-      // accumulate for the life of the tab.
     }
   }
 
@@ -397,7 +391,7 @@
         });
         chip.appendChild(span);
       }
-    } catch { /* deal score is best-effort — never break the chip */ }
+    } catch {}
     return chip;
   }
 

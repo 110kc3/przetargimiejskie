@@ -1,5 +1,3 @@
-// Exposes a single global: window.ZGM_FINN.
-
 (function () {
   if (typeof window === 'undefined') return;
 

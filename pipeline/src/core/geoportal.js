@@ -1,4 +1,3 @@
-
 const GEOPORTAL_PARCEL = 'https://mapy.geoportal.gov.pl/imap/?identifyParcel=';
 const TERYT_ID = /^\d{6}_\d(?:\.[\w/]+){1,3}$/;
 

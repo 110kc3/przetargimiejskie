@@ -1,4 +1,3 @@
-
 export const TG_OBREB_MAP = {
   'tarnowskie gory': '0004',
   'tarnowskie góry': '0004',
@@ -31,7 +30,7 @@ export function tgObrebCode(raw) {
 
 export const config = {
   id: 'tarnowskie-gory',
-  teryt: '241304_1', // gmina miejska Tarnowskie Góry TERYT (powiat tarnogórski 2413, gmina-type 1)
+  teryt: '241304_1',
   label: 'Tarnowskie Góry',
   voivodeship: 'slaskie',
   authority: 'Urząd Miejski w Tarnowskich Górach',

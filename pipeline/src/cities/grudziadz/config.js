@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'grudziadz',
-  teryt: '046400_1', // Grudziądz grodzki — confirm on first geoportal run
+  teryt: '046400_1',
   label: 'Grudziądz',
   voivodeship: 'kujawsko-pomorskie',
   authority: 'Prezydent Grudziądza (Urząd Miejski w Grudziądzu, Wydział Geodezji i Gospodarki Nieruchomościami)',

@@ -1,4 +1,3 @@
-
 import { setTimeout as sleep } from 'node:timers/promises';
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -61,7 +60,6 @@ export function parseAttachments(html) {
     try {
       filename = decodeURIComponent(filename);
     } catch {
-      /* keep raw filename */
     }
     out.push({ url: deamp(fullUrl), filename });
   }

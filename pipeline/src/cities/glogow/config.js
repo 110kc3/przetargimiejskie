@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'glogow',
   teryt: '020301_1',

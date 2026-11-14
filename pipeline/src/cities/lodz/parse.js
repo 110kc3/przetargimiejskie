@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -130,7 +129,7 @@ export function parseAnnouncementPdf(text, ctx = {}) {
     out.push({
       ...rec,
       auction_date,
-      round: null, // Łódź announcements don't state the round ordinal in the body
+      round: null,
       detail_url: ctx.detail_url || null,
       source_url: ctx.source_url || null,
     });

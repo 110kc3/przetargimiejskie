@@ -1,4 +1,3 @@
-
 import { setTimeout as sleep } from 'node:timers/promises';
 import { pathToFileURL } from 'node:url';
 import { directFetch, getText, politeGet, snapshot } from '../../core/fetch.js';
@@ -15,15 +14,12 @@ const BROWSER_UA =
 
 const FETCH_OPTS = { userAgent: BROWSER_UA };
 
-// run source-unreachable — refresh.js preserves last-good data — instead of
-
 const WAITING_ROOM_TITLE_RE = /<title[^>]*>[^<]*prosz[eę]\s*czeka[cć][^<]*<\/title>/i;
 const WAITING_ROOM_RELOAD_RE = /setTimeout\s*\([\s\S]{0,200}?location\s*\.\s*reload/i;
 const WAITING_ROOM_RETRIES = 3;
 const WAITING_ROOM_DELAY_MS = 6000;
 
 export function isWaitingRoom(html) {
-  // "Weryfikacja / Nie jestem robotem" proof-of-work page. fetchListingHtml
   return Boolean(html) && (
     (WAITING_ROOM_TITLE_RE.test(html) && WAITING_ROOM_RELOAD_RE.test(html)) ||
     isChallengePage(html)
@@ -39,7 +35,6 @@ function harvestCookies(res, jar) {
   }
 }
 
-// DEBUG_FETCH_DIR triage artifact preserves exactly what the crawler saw.
 async function fetchListingHtml() {
   const res = await politeGet(LISTING_URL, FETCH_OPTS);
   if (!res.ok) throw new Error(`http ${res.status} on ${LISTING_URL}`);
@@ -97,7 +92,6 @@ export async function crawlActive() {
   try {
     html = await fetchListingHtml();
   } catch (err) {
-    // the old behavior: log and return empty (preserve-on-empty covers it).
     if (err.waitingRoom) throw err;
     console.error(`  brzeg: listing page fetch failed (${LISTING_URL}): ${err.message}`);
     return { listings: [], wykaz: [] };

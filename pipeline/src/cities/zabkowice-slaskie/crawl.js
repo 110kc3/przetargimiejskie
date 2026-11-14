@@ -1,4 +1,3 @@
-
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { existsSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
@@ -101,7 +100,7 @@ export async function loadKnownUrls() {
       const parsed = JSON.parse(await readFile(path, 'utf8'));
       const records = parsed?.properties || parsed?.plots || parsed?.land || [];
       for (const rec of Array.isArray(records) ? records : []) collectUrls(rec, urls);
-    } catch { /* first run / unreadable — skip nothing */ }
+    } catch {}
   }
   return urls;
 }

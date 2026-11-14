@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 
@@ -44,26 +43,6 @@ function stripHtml(html) {
     .trim();
 }
 
-/**
- * Extract the starting price (cena wywoławcza) from the *stripped* text of a
- * bip.gliwice.eu działka detail page. Returns null when no price is present.
- * Exported so the parser is unit-tested directly (no network) and so the test
- * and the live path can never drift apart.
- *
- * Two patterns, tried in order:
- *   1. Colon-anchored (primary). The price sits right after the label's colon,
- *      e.g. "Cena wywoławcza nieruchomości (brutto): 2 370 000,00 zł". The colon
- *      anchor means a digit *inside* the label (e.g. "… działki 389:") is part of
- *      [^:] and can't be mistaken for the amount.
- *   2. Keyword-anchored fallback (no colon). Some pages phrase it
- *      "… brutto 2 370 000,00 zł" or "… wynosi 2 370 000,00 zł". We require a
- *      brutto/netto/wynosi keyword immediately before the number and forbid any
- *      digit between the label and that keyword ([^:0-9]) so a label number can
- *      never leak in. Without this guard a bare-number fallback would risk
- *      grabbing a parcel number or the wadium.
- * @param {string} text  HTML-stripped page text
- * @returns {number|null}
- */
 export function priceFromBipText(text) {
   if (!text) return null;
   const primary =
@@ -94,13 +73,6 @@ function roundFromUwagi(uwagi) {
   return null;
 }
 
-/**
- * Parse one MSIP JSON record into a land record ready for buildLand.
- * Exported for unit tests.
- * @param {object} r     raw MSIP JSON object (NR_DZ, OBREB, POW_DZ, …)
- * @param {number|null} price  starting price (fetched separately from BIP)
- * @returns {object}
- */
 export function parseMsipRecord(r, price = null) {
   return {
     kind: 'grunt',
@@ -109,13 +81,13 @@ export function parseMsipRecord(r, price = null) {
     zoning:              (r.PRZEZN ?? '').trim() || null,
     area_m2:             typeof r.POW_DZ === 'number' && r.POW_DZ > 0 ? r.POW_DZ : null,
     address_raw:         (r.ADRES  ?? '').trim() || null,
-    street:              null,   // ADRES is a location hint, not a full street address
+    street:              null,
     starting_price_pln:  price,
     auction_date:        parseDate(r.DATA_OGL),
     round:               roundFromUwagi(r.UWAGI),
     status:              (r.UWAGI ?? '').trim() || null,
     detail_url:          r.LINK || null,
-    source_url:          MSIP_OFFERS_URL,  // human portal page, not the JSON export
+    source_url:          MSIP_OFFERS_URL,
   };
 }
 

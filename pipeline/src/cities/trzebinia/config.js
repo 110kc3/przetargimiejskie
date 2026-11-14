@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'trzebinia',
-  teryt: '120304_4', // gmina miejsko-wiejska Trzebinia (powiat chrzanowski) — confirm on first geoportal run
+  teryt: '120304_4',
   label: 'Trzebinia',
   voivodeship: "malopolskie",
   authority: 'Urząd Miasta w Trzebini',

@@ -45,7 +45,7 @@ test('changed XML, missing metadata, unparsed rows and duplicate pages withhold 
     '<h1>Service unavailable</h1>',
     board().replace('<ilosc-stron>1</ilosc-stron>', ''),
     board().replace('/przetarg-nieruchomosci/3489/', '/changed/3489/'),
-    board(undefined, 2), // page 2 repeats page 1 instead of returning new rows
+    board(undefined, 2),
   ]) {
     const result = await crawlAll({ knownUrls, cutoff: '2026-10-16', fetchText: async () => xml });
     assert.equal(result.valid_empty, false);

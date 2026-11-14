@@ -1,4 +1,3 @@
-
 (function () {
   const MIN_SAMPLE = 5;
 

@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'jelenia-gora',
   teryt: '026201_1',

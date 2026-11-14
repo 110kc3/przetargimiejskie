@@ -78,7 +78,6 @@ test('one plot per parcel; two rounds fold into one entry with 2 listings', () =
   assert.equal(p.city, 'myslowice');
   assert.equal(p.area_m2, 514);
   assert.equal(p.listings.length, 2);
-  // sorted oldest → newest, round preserved
   assert.deepEqual(p.listings.map((l) => l.round), [1, 4]);
   assert.equal(p.listings[0].outcome, 'archived');
 });

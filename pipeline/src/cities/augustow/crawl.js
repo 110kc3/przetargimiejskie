@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -160,7 +159,7 @@ async function crawlAll() {
     resolvedRefs.push({
       text,
       pdf_url: pdfUrl,
-      auction_date: null, // filled by parseResultDoc from PDF body
+      auction_date: null,
     });
   }
 

@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -234,7 +233,7 @@ test('addressRawFromText: land text (no building number anywhere) resolves to nu
 
 test('addressRawFromText: skips the UM office address and the "działka nr" junk capture to find the real address', () => {
   const officeFirst = buildRecordText({
-    title: 'Ogłoszenie', // deliberately no address, forcing a body-only search
+    title: 'Ogłoszenie',
     body:
       'Ogłoszenie niniejsze wywieszone jest na tablicy informacyjnej w siedzibie Urzędu Miejskiego w Lublińcu przy ul. Paderewskiego 5. ' +
       'Lokal mieszkalny nr 3 położony jest przy ul. Kościuszki 8 w Lublińcu.',

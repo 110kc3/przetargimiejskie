@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { docText } from '../../core/doc-text.js';
@@ -50,12 +49,6 @@ export function classifyArticle(title, slug) {
   return 'skip';
 }
 
-/**
- * A non-empty, completely traversed board with no in-scope announcement title
- * is positive evidence that the flat/commercial stream is genuinely empty.
- * A candidate that later fails to download or parse deliberately prevents this
- * proof, leaving refresh.js's preserve-on-empty guard in charge.
- */
 export function isVerifiedEmptyBoard({ boardVerified, boardComplete, activeCandidates }) {
   return boardVerified && boardComplete && activeCandidates === 0;
 }

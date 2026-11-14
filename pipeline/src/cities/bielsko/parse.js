@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 
 const ROUND_WORDS = [
@@ -201,13 +200,13 @@ export function parseLandNode(html, url) {
     street,
     building,
     address,
-    area_m2: plotAreaFrom(text), // PLOT area
+    area_m2: plotAreaFrom(text),
     starting_price_pln: priceFrom(text),
     auction_date: auctionDateFrom(text),
     round: roundFromForma(field(text, 'Forma przetargu')),
     detail_url: url,
     source_url: url,
-    geoportal_url: findMapLink(html), // source-provided map link, if present
+    geoportal_url: findMapLink(html),
   };
 }
 

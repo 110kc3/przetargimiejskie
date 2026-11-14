@@ -1,5 +1,3 @@
-// parsers, re-exported here. What's Świętochłowice-specific is the Liferay
-
 import {
   htmlToText,
   priceFromText,
@@ -130,7 +128,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     final_price_pln: negative ? null : parsePLN(achievedM[1]),
     outcome: negative ? 'unsold' : 'sold',
     unsold_reason: negative ? 'unknown' : null,
-    area_m2: null, // result notices rarely repeat the area; merge keeps the announcement's
+    area_m2: null,
     notes,
   }];
 }

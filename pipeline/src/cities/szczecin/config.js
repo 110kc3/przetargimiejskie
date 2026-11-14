@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'szczecin',
-  teryt: '326101_1', // Szczecin grodzki — confirm on first geoportal run
+  teryt: '326101_1',
   label: 'Szczecin',
   voivodeship: 'zachodniopomorskie',
   authority: 'Urząd Miasta Szczecin',

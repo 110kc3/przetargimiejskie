@@ -1,4 +1,3 @@
-
 const $status = document.getElementById('status');
 const $table = document.getElementById('active-table');
 const $tbody = $table.querySelector('tbody');
@@ -112,7 +111,6 @@ function applyStaticI18n() {
 let lastPayload = null;
 let lastWatchlist = {};
 
-// (most-relisted first, then prior count, then area) — preserves the
 let activeSortKey = null;
 let activeSortDir = 'asc';
 

@@ -1,4 +1,3 @@
-
 import { setTimeout as sleep } from 'node:timers/promises';
 import https from 'node:https';
 import { writeFileSync, mkdirSync } from 'node:fs';
@@ -19,7 +18,6 @@ const MIN_INTERVAL_MS = Number(process.env.FETCH_MIN_INTERVAL_MS) || 1000;
 const REQUEST_TIMEOUT_MS = Number(process.env.FETCH_TIMEOUT_MS) || 30000;
 let lastFetchAt = 0;
 
-// fetched body is also written to that dir so a breaking run preserves the
 const SNAPSHOT_DIR = process.env.DEBUG_FETCH_DIR || '';
 const SNAPSHOT_MAX_FILES = 25;
 const SNAPSHOT_MAX_BYTES = 15 * 1024 * 1024;
@@ -38,7 +36,7 @@ export function snapshot(url, body, isText) {
     writeFileSync(join(SNAPSHOT_DIR, name), buf);
     snapshotCount++;
     snapshotBytes += buf.length;
-  } catch { /* snapshots are best-effort observability — never fail a crawl */ }
+  } catch {}
 }
 
 async function throttle() {
@@ -151,7 +149,6 @@ export async function politeGet(url, opts = {}) {
   throw lastErr;
 }
 
-// source-unreachable instead of layout-change, and lets refresh.js preserve
 function assertNotChallenge(url, text) {
   if (!isChallengePage(text)) return text;
   const sig = challengeSignature(text) || 'challenge page';

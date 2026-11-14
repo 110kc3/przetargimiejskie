@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -28,8 +27,6 @@ test('normalizeBoardAddress: strips venue prose and aligns the Andersa spelling'
     'ul. Kosynierów 3A/1',
   );
 });
-
-// Column positions preserved (spaces count). Critical columns:
 
 const RESULT_22JAN = `                                              Informacja o wynikach przetargów przeprowadzonych w dniu 22.01.2025 r.
                                                          w siedzibie Urzędu Miejskiego przy ul. Kopernika 2

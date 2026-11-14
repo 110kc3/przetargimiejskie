@@ -1,6 +1,3 @@
-//      "Lokal mieszkalny jest przedmiotem sprzedaży NA RZECZ NAJEMCY" (95%
-//     "Lokal mieszkalny jest przedmiotem sprzedaży na rzecz najemcy ...
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -249,7 +246,6 @@ export function landAreaFromText(text) {
   return /ha/i.test(m[2]) ? Math.round(val * 10000) : Math.round(val);
 }
 
-// a global scan) so a LATER, unrelated "numer działki N" mention elsewhere in
 export function landPlotsFromText(text) {
   const t = whole(text);
   const seg = String.raw`\d+(?:\/\d+)?`;

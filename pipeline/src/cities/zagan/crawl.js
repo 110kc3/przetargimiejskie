@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { loadKnownSourceUrls } from '../../core/known-urls.js';
@@ -46,7 +45,6 @@ function parseAttachments(rowHtml) {
     try {
       filename = new URL(url).searchParams.get('plik') || '';
     } catch {
-      /* malformed URL — leave filename blank, callers just get no match */
     }
     out.push({ url, filename });
   }

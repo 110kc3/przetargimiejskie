@@ -1,5 +1,3 @@
-// `/aktualnosci-lista-strona-N.html`, but that generic path does NOT preserve
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { loadKnownSourceUrls } from '../../core/known-urls.js';

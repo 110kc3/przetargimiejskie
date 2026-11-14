@@ -1,4 +1,3 @@
-
 export default {
   id: 'myszkow',
   name: 'Myszków',

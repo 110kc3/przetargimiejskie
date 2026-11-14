@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -233,7 +232,7 @@ export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
       kind: 'mieszkalny',
       address_raw,
       address,
-      round: null, // result notices reference the announcement, not the round
+      round: null,
       starting_price_pln,
       final_price_pln: sold ? achieved : null,
       outcome: sold ? 'sold' : 'unsold',

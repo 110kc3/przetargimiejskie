@@ -1,4 +1,3 @@
-
 export const CONFIG = {
   id: 'nowy-dwor-mazowiecki',
   teryt: '1414011',

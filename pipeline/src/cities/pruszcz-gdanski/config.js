@@ -1,4 +1,3 @@
-
 export default {
   id: 'pruszcz-gdanski',
   name: 'Pruszcz Gdański',

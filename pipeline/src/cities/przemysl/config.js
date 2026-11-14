@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'przemysl',
-  teryt: '186101_1', // gmina miejska Przemyśl (powiat grodzki) — confirm on first geoportal run
+  teryt: '186101_1',
   label: 'Przemyśl',
   voivodeship: 'podkarpackie',
   authority: 'Urząd Miasta Przemyśla',

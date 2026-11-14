@@ -1,4 +1,3 @@
-
 let browserPromise = null;
 
 async function getBrowser() {
@@ -13,7 +12,7 @@ async function getBrowser() {
       );
     }
     browserPromise = chromium.launch({
-      args: ['--no-sandbox', '--disable-dev-shm-usage'], // required on CI runners
+      args: ['--no-sandbox', '--disable-dev-shm-usage'],
     });
   }
   return browserPromise;
@@ -41,7 +40,6 @@ export async function closeBrowser() {
     const browser = await browserPromise;
     await browser.close();
   } catch {
-    /* already gone */
   } finally {
     browserPromise = null;
   }

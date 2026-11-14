@@ -14,6 +14,5 @@ node scripts/build-seo-pages.mjs "$OUT"
 
 node scripts/audit-seo-build.mjs "$OUT"
 
-
 echo "Assembled '$OUT':"
 ls -1 "$OUT"

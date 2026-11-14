@@ -1,4 +1,3 @@
-
 const VENDOR_RE = [
   /Attention Required!\s*\|\s*Cloudflare/i,
   /cf-browser-verification|cf_chl_|__cf_chl|challenge-platform/i,

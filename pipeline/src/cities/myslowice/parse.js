@@ -1,4 +1,3 @@
-
 export {
   htmlToText,
   isFlatAuction,

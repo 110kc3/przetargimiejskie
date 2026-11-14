@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 
 
@@ -142,9 +141,6 @@ export function normaliseAddressLine(raw) {
   let s = (raw || '').trim()
     .replace(/\s{5,}.*$/, '')
     .replace(/\s+dz\..*$/i, '')
-    // Result templates alternate between abbreviated and plain patron names.
-    // Align the verified variants with the board/full-name result spellings so
-    // successive rounds stay on one property history.
     .replace(/^ul\.\s+gen\.\s+(?:W\.\s*)?Andersa\b/i, 'ul. Andersa')
     .replace(/^ul\.\s+P\.\s+Skargi\b/i, 'ul. Piotra Skargi')
     .trim();
@@ -165,12 +161,6 @@ function col(line, startX, endX) {
 }
 
 
-/**
- * Parse the multi-column table.
- * Exported for unit testing.
- * @param {string} text pdftotext -layout output
- * @returns {Array<{address1stLine, rodzaj, cenaWy, cenaOs, nabywca}>}
- */
 export function parseTableRows(text) {
   const lines = text.replace(/\r/g, '').replace(/\f/g, '').split('\n');
   const rows = [];

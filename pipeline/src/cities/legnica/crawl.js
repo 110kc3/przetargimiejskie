@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { docText } from '../../core/doc-text.js';
@@ -121,11 +120,11 @@ export async function crawlActive() {
         address_raw: addressRaw,
         address,
         auction_date: parseDate(row.dateRaw),
-        round: null,   // enriched from .docx attachment in enrichActive()
-        area_m2: null, // enriched from .docx attachment in enrichActive()
-        starting_price_pln: null, // enriched from detail HTML or .docx
+        round: null,
+        area_m2: null,
+        starting_price_pln: null,
         detail_url: row.detailUrl,
-        doc_url: null, // resolved lazily in enrichActive()
+        doc_url: null,
       });
       added++;
     }

@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -156,7 +155,6 @@ export async function crawlActive() {
         break;
       }
     } catch (err) {
-      // If 404 on first candidate, try the next
     }
   }
 

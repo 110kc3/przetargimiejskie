@@ -22,7 +22,6 @@
 <meta name="twitter:description" content="Opis miejskich przetargów na mieszkania: opublikowane wyniki, ceny vs wywoławcze, mediany zł/m² i historyczne zmiany cen." />
 <meta name="twitter:image" content="https://przetargimiejskie.pl/og-image.png" />
 <style>
-/* ===== przetargimiejskie — Slate Ledger (dark) — shared with / and /archiwum ===== */
 :root{
   color-scheme: dark;
   --bg:#0d1117; --bg-grad:#131a26; --surface:#161b22; --surface-2:#1b2230;
@@ -95,19 +94,15 @@ a:hover{color:var(--accent);text-decoration:underline}
 .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px}
 
-/* horizontal bars (spread buckets, benchmarks) */
 .hbars{display:flex;flex-direction:column;gap:9px;margin-top:6px}
 .hbar{display:grid;grid-template-columns:124px 1fr auto;align-items:center;gap:10px;font-size:13px}
 .hbar .hbar-label{color:var(--fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hbar .hbar-track{display:block;background:var(--track);border:1px solid var(--border);border-radius:6px;height:20px;overflow:hidden}
-/* fill MUST be display:block — inline spans ignore width/height. Base colour is an
-   inline background-color; the class layers a gloss gradient via background-image. */
 .hbar .hbar-fill{display:block;height:100%;border-radius:5px;min-width:0;background-color:var(--accent);
   background-image:linear-gradient(180deg,rgba(255,255,255,.24),rgba(255,255,255,0) 58%,rgba(0,0,0,.16))}
 .hbar .hbar-val{color:var(--muted);font-weight:600;white-space:nowrap}
 .hbar .hbar-val b{color:var(--fg-strong)}
 
-/* vertical column chart (supply) with value labels */
 .cols{display:flex;align-items:flex-end;gap:4px;height:180px;margin-top:8px}
 .col{flex:1 1 0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;min-width:0}
 .col-num{font-size:10.5px;color:var(--faint);line-height:1;margin-bottom:3px;font-variant-numeric:tabular-nums}
@@ -119,7 +114,6 @@ a:hover{color:var(--accent);text-decoration:underline}
 .col-axis span{flex:1 1 0;text-align:center;min-width:0;overflow:hidden;white-space:nowrap}
 .chart-empty{color:var(--faint);padding:30px 0;text-align:center}
 
-/* grouped zł/m² histogram (sold vs unsold) with value labels */
 .hist-legend{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin:0 0 14px;font-size:12.5px;color:var(--muted)}
 .hist-legend .key{display:inline-flex;align-items:center;gap:7px}
 .hist-legend .swatch{width:12px;height:12px;border-radius:3px;display:inline-block}
@@ -134,7 +128,6 @@ a:hover{color:var(--accent);text-decoration:underline}
 .hist-axis{display:flex;gap:14px;margin-top:7px;color:var(--faint);font-size:11px}
 .hist-axis span{flex:1 1 0;text-align:center;min-width:0}
 
-/* tables */
 .table-scroll{border:1px solid var(--border);border-radius:var(--radius);overflow-x:auto;margin-top:6px}
 .data-table{width:100%;border-collapse:collapse;font-size:13px}
 .data-table thead th{text-align:left;padding:10px 12px;background:var(--surface-2);color:var(--muted);
@@ -174,24 +167,18 @@ tr.deal-hot td.addr{box-shadow:inset 3px 0 0 var(--ok)}
 @media (max-width:720px){.hbar{grid-template-columns:96px 1fr auto}}
 
 @media print{
-  /* Force backgrounds/fills to print — without this Chrome drops every bar,
-     column and tile colour, so the charts come out blank. */
   *{ -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
   @page{ margin:13mm; }
-  /* color-scheme:light is the actual border fix — the page declares color-scheme:dark,
-     which makes the browser paint a DARK canvas; print-color-adjust:exact (needed for the
-     charts) was then forcing that dark canvas onto every page as a black frame. */
   :root{color-scheme:light;--bg:#fff;--bg-grad:#fff;--surface:#fff;--surface-2:#f1f3f6;--border:#ccd2da;--border-2:#b9c1cc;--track:#e7ebf1;
     --fg:#11161d;--fg-strong:#000;--muted:#444c57;--faint:#6b727c;--accent:#2f6fd0;--accent-hi:#2f6fd0;
     --ok:#1f8a53;--bad:#c23b30;--warn:#a8780f;--cyan:#127d7d;--accent-weak:#eef3fb}
   html,body{background:#fff !important;background-image:none !important;font-size:12px;color-scheme:light}
   .wrap{max-width:none;padding:0}
   .controls,.city-nav,.site-nav,.no-print{display:none !important}
-  /* keep charts + tiles whole on a page; let long tables flow across pages */
   .section{border-top:1px solid var(--border);padding:14px 0;margin-top:10px}
   .panel,.kpi-grid,.cols,.hist,.hbars{break-inside:avoid}
   .data-table{font-size:10.5px}
-  .data-table thead{display:table-header-group}     /* repeat header on each page */
+  .data-table thead{display:table-header-group}
   .table-scroll{overflow:visible;border-color:var(--border)}
   .hbar .hbar-track{background:#e7ebf1}
   a{color:var(--fg);text-decoration:none}
@@ -327,7 +314,6 @@ tr.deal-hot td.addr{box-shadow:inset 3px 0 0 var(--ok)}
 </div>
 
 <script>
-// ===== formatters & helpers (mirror /archiwum + the extension) =====
 const TODAY = new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Warsaw',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 const CURYM = TODAY.slice(0,7);
 const nf = new Intl.NumberFormat('pl-PL',{maximumFractionDigits:0});
@@ -341,9 +327,6 @@ const median = a => { if(!a.length) return null; const s=a.slice().sort((x,y)=>x
 const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeHref = u => { if(!u) return ''; try{ const x=new URL(u,location.href); return (x.protocol==='http:'||x.protocol==='https:')?x.href:''; }catch{ return ''; } };
 const KIND = {mieszkalny:'mieszkalny',zabudowana:'dom',zabudowa:'dom',grunt:'działka',uzytkowy:'użytkowy',garaz:'garaż',unknown:'—'};
-// Fold legacy house aliases to canonical so every === comparison + KPI keyed on
-// 'zabudowana' (filters, benchmarks, deal rows) counts an aliased house row.
-// null/undefined pass through unchanged so the l.kind||p.kind fallbacks still work.
 const KIND_ALIAS = {zabudowa:'zabudowana',zabudowy:'zabudowana'};
 const aliasKind = k => KIND_ALIAS[k] || k;
 const KIND_PLURAL = {mieszkalny:'mieszkania',zabudowana:'domy',grunt:'działki',uzytkowy:'lokale użytkowe',garaz:'garaże',all:'nieruchomości'};
@@ -353,26 +336,19 @@ const monthShort = ym => { const [y,m]=ym.split('-'); return new Intl.DateTimeFo
 const srcLink = u => { const h=safeHref(u); return h?`<a class="src-link" href="${esc(h)}" target="_blank" rel="noopener">źródło ↗</a>`:'—'; };
 function chip(city,label){ return `<span class="chip"><span class="city-dot dot-${esc(city)}"></span>${esc(label||city)}</span>`; }
 
-// ===== report period =====
 const PERIODS=[['12','Ostatnie 12 miesięcy'],['6','Ostatnie 6 miesięcy'],['3','Ostatnie 3 miesiące'],['24','Ostatnie 24 miesiące'],['all','Cały okres']];
 function periodLabel(){ return (PERIODS.find(p=>p[0]===fPeriod)||['','—'])[1]; }
 function periodStartYM(){ if(fPeriod==='all') return null; const n=+fPeriod; const [y,m]=CURYM.split('-').map(Number);
   const d=new Date(y,m-1-(n-1),1); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`; }
 const inPeriod = ds => { if(fPeriod==='all') return true; const ym=(ds||'').slice(0,7); return !!ym && ym>=periodStartYM(); };
 
-// ===== state =====
 let CITIES=[], CITY_LABEL={}, IDX=[], PROPS=[], ACTIVE=[], PBK=new Map(), lastRefresh='';
 let fCity='all', fKind='mieszkalny', fMonth='', fPeriod='12';
 
-// ===== load =====
 async function load(){
   let idx;
   try { idx = await fetch('/data/index.json').then(r=>r.json()); }
   catch(e){ document.getElementById('sub').innerHTML='<span class="err">Nie udało się wczytać danych.</span>'; return; }
-  // public = whatever the publish gate in scripts/build-seo-pages.mjs marked
-  // `public` in the published index.json. Same set the landing and /archiwum
-  // show, so the three pages can't report different city counts. (Gated-out
-  // cities stay reachable on the /archiwum-all test view.)
   IDX = (idx.cities||[]).filter(c=>c.public!==false); CITIES = IDX.map(c=>c.id);
   IDX.forEach(c=>CITY_LABEL[c.id]=c.label);
   lastRefresh = (idx.generated_at||'').slice(0,10);
@@ -395,8 +371,6 @@ async function load(){
         fetch(`/data/${c.id}/land.json`).then(r=>r.json()).catch(()=>({plots:[]})),
         fetch(`/data/${c.id}/active.json`).then(r=>r.json()).catch(()=>({listings:[]})),
       ]);
-      // Canonicalize legacy house-kind aliases in place before any === comparison
-      // downstream (defence-in-depth; the pipeline now heals these too).
       for(const p of (props.properties||[])){
         if(p.kind) p.kind = aliasKind(p.kind);
         for(const l of (p.listings||[])) if(l.kind) l.kind = aliasKind(l.kind);
@@ -423,9 +397,6 @@ async function load(){
         })).sort((a,b)=>String(a.date||'').localeCompare(String(b.date||'')));
         if(listings.length) PROPS.push({city:c.id,cityLabel:c.label,kind:'grunt',street:disp,building:'',apt:'',listings});
       }
-      // active.json = the canonical list of currently-running auctions, and the
-      // only place that reliably carries auction_date. The deal board joins these
-      // to property history (by address key) to compute the discount.
       for(const l of (act.listings||[])){
         ACTIVE.push({city:c.id, cityLabel:c.label, key:(l.address&&l.address.key)||null, kind:l.kind||'unknown',
           addr:l.address_raw||'', round:l.round, start:l.starting_price_pln, area:l.area_m2,
@@ -460,7 +431,6 @@ function setCity(city,push){
   render();
 }
 
-// listings in current city+kind scope. Period-filtered unless allTime=true.
 function scopedListings(kindOverride, allTime){
   const k = kindOverride||fKind;
   const out=[];
@@ -475,7 +445,6 @@ function scopedListings(kindOverride, allTime){
   return out;
 }
 
-// ===== render =====
 function render(){
   const cityLabel = fCity==='all' ? 'cała Polska' : (CITY_LABEL[fCity]||fCity);
   document.getElementById('page-title').textContent = fCity==='all' ? 'Raporty rynku — cała Polska' : `Raporty rynku — ${cityLabel}`;
@@ -501,9 +470,6 @@ function render(){
 function renderKPIs(){
   const scope = fCity==='all' ? IDX : IDX.filter(c=>c.id===fCity);
   const sum = k => scope.reduce((s,c)=>s+(c[k]||0),0);
-  // `live_auctions` is recomputed at build time with the date-aware rule the
-  // city pages use; `active_auctions` is frozen at the last refresh and drifts
-  // stale as auction dates pass. Prefer the former, fall back for safety.
   const props = sum('unique_properties'), land = sum('land_plots');
   const active = scope.reduce((s,c)=>s+(c.live_auctions ?? c.active_auctions ?? 0),0);
   const ls = scopedListings();
@@ -552,7 +518,6 @@ function renderSpread(){
       <span class="hbar-val"><b>${counts[i]}</b></span></div>`).join('');
 }
 
-// zł/m² distribution: how many sold (achieved) vs unsold (asking) fall in each price band.
 function renderM2Hist(){
   const ls = scopedListings();
   const soldM2=[], unsoldM2=[];
@@ -572,7 +537,7 @@ function renderM2Hist(){
   soldM2.forEach(v=>sC[band(v)]++); unsoldM2.forEach(v=>uC[band(v)]++);
   const max=Math.max(1,...sC,...uC);
   const kLabel=n=>(n%1000===0?(n/1000):(n/1000).toFixed(1))+'k';
-  const barH=v=>v/max*86;     // leave headroom for the value label above the bar
+  const barH=v=>v/max*86;
   host.innerHTML = sC.map((s,b)=>{
     const t=`${kLabel(b*step)}–${kLabel((b+1)*step)} zł/m² · sprzedane ${s}, niesprzedane ${uC[b]}`;
     return `<div class="hist-col" title="${esc(t)}">
@@ -623,30 +588,27 @@ function renderBenchmarks(){
       <span class="hbar-val"><b>${nf.format(Math.round(med))}</b> zł/m² <span style="color:var(--faint);font-weight:500">(${n})</span></span></div>`).join('');
 }
 
-// Deal board: currently-active auctions (from active.json — these carry the
-// auction date) priced BELOW their first historical attempt (history from
-// properties.json, joined by address key).
 function dealRows(){
   const out=[];
   for(const a of ACTIVE){
     if(fCity!=='all'&&a.city!==fCity) continue;
     if(fKind!=='all'&&a.kind!==fKind) continue;
-    if(a.date && a.date<TODAY) continue;                 // auction already happened
+    if(a.date && a.date<TODAY) continue;
     const pr = a.key ? PBK.get(a.city+'|'+a.key) : null;
     if(!pr) continue;
     const priced = pr.listings.filter(l=>l.start!=null && l.outcome!=='active' && l.outcome!=='announced');
-    if(!priced.length) continue;                         // no prior attempt to compare against
+    if(!priced.length) continue;
     const first = priced[0].start, now = a.start;
     if(now==null) continue;
     const cut = (now-first)/first*100;
-    if(!(cut<0)) continue;                               // only genuine reductions ("po obniżce")
+    if(!(cut<0)) continue;
     const priorUnsold = pr.listings.filter(l=>l.outcome==='unsold').length;
     const addr = `${pr.street||''} ${pr.building||''}${pr.apt?'/'+pr.apt:''}`.trim() || a.addr;
     const area = a.area || pr.listings.map(l=>l.area).find(x=>x) || null;
     out.push({city:a.city,cityLabel:a.cityLabel,kind:a.kind,addr,
       round:a.round, priorUnsold, first, now, cut, area, date:a.date, src:a.src});
   }
-  out.sort((x,y)=>x.cut-y.cut);   // biggest discount first
+  out.sort((x,y)=>x.cut-y.cut);
   return out;
 }
 function renderDeals(){
@@ -674,7 +636,7 @@ function renderRecap(){
   const lead=document.getElementById('recap-lead');
   if(!fMonth){ lead.textContent='Brak danych miesięcznych.'; return; }
   const inMonth = l => (l.date||'').slice(0,7)===fMonth;
-  const ls = scopedListings(null,true).filter(inMonth);   // recap is its own month — ignore the period filter
+  const ls = scopedListings(null,true).filter(inMonth);
   const listed = ls.slice().sort((a,b)=>String(a.date).localeCompare(b.date));
   const sold = ls.filter(l=>l.outcome==='sold'&&l.final!=null);
   lead.innerHTML = `<b>${monthName(fMonth)}</b>: wystawiono <b>${listed.length}</b>, sprzedano <b>${sold.length}</b>${
@@ -697,7 +659,6 @@ function renderRecap(){
     : '<tr class="empty-row"><td colspan="5">Brak sprzedaży.</td></tr>';
 }
 
-// ===== CSV export (published price changes; semicolon + BOM for PL Excel) =====
 function exportCSV(){
   const rows=dealRows();
   const head=['miasto','adres','rodzaj','runda','razy_bez_sprzedazy','cena_pierwsza_pln','cena_teraz_pln','obnizka_proc','powierzchnia_m2','zl_m2','data_aukcji'];

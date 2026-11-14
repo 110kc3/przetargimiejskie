@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -31,7 +30,6 @@ async function extractDocText(pdfUrl) {
       return text;
     }
   } catch (err) {
-    // fall through to OCR
   }
   try {
     const text = await ocrPdf(pdfUrl, FETCH_OPTS);

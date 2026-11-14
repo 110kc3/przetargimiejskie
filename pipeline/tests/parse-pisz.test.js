@@ -1,6 +1,3 @@
-//               states "Lokal mieszkalny jest przedmiotem sprzedaży NA RZECZ
-//     3. Numer KW – ..." parsed as parcels "232/8" AND "3"), and a global
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -198,7 +195,6 @@ test('obrebFromText: cadastral district name (announcement dash form + result "w
 
 test('landPlotsFromText: multi-parcel "i"-joined list, and the restricted-tender neighboring-parcel decoy', () => {
   assert.deepEqual(landPlotsFromText(b(LAND_PISZ2_450_RESULT_SOLD)), ['450/34', '450/38']);
-  // Real bug: a global scan across the whole doc folded in the LATER,
   assert.deepEqual(landPlotsFromText(b(LAND_DZ1886_24_RESTRICTED_ANNOUNCE)), ['1886/24']);
   assert.deepEqual(landPlotsFromText(b(LAND_KARWIK_69_4_ANNOUNCE)), ['69/4']);
 });

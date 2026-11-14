@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'miedzyrzecz',
-  teryt: '0810011_2', // gmina TERYT for Międzyrzecz — confirm on first geoportal run
+  teryt: '0810011_2',
   label: 'Międzyrzecz',
   voivodeship: 'lubuskie',
   authority: 'Urząd Miejski w Międzyrzeczu',

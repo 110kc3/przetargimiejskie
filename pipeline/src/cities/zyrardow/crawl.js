@@ -82,7 +82,6 @@ export async function crawl() {
                     attachmentsText += '\n' + txt;
                   }
                 } catch {
-                  // Ignore PDF extraction error
                 }
               }
             }
@@ -102,11 +101,9 @@ export async function crawl() {
             notices.push(parsed);
           }
         } catch {
-          // Ignore single article error
         }
       }
     } catch {
-      // Ignore single menu error
     }
   }
 

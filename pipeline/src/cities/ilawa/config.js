@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'ilawa',
-  teryt: '280701_1', // gmina miejska Iława (powiat iławski) — confirm on first geoportal run
+  teryt: '280701_1',
   label: 'Iława',
   voivodeship: 'warminsko-mazurskie',
   authority: 'Burmistrz Miasta Iławy',

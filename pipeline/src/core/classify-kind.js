@@ -1,4 +1,3 @@
-
 const FLAT_RE = /lokal\w*\s+mieszkaln|lokalu\s+mieszkaln|samodzieln\w+\s+lokal\w*\s+mieszkaln|prawa\s+w[łl]asno[śs]ci\s+lokalu\s+mieszkaln/i;
 const COMMERCIAL_RE = /lokal\w*\s+(?:u[żz]ytkow|niemieszkaln)/i;
 const GARAGE_RE = /gara[żz]/i;

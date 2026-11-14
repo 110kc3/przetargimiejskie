@@ -1,5 +1,3 @@
-// source-unreachable and preserve stale data).
-
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { isChallengePage, challengeSignature } from '../src/core/challenge-page.js';

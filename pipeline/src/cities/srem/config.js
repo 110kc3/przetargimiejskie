@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'srem',
-  teryt: '3026044', // Śrem (miasto)
+  teryt: '3026044',
   label: 'Śrem',
   voivodeship: 'wielkopolskie',
   authority: 'Burmistrz Śremu',

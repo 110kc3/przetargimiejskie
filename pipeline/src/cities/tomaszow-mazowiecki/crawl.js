@@ -1,4 +1,3 @@
-
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { readFile } from 'node:fs/promises';
 import { directFetch, getText, politeGet } from '../../core/fetch.js';

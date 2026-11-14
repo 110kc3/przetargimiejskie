@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'pabianice',
   teryt: '101201_1',

@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'sosnowiec',
-  teryt: '247501_1', // gmina TERYT (verified via ULDK) for precise geoportal deep-links
+  teryt: '247501_1',
   label: 'Sosnowiec',
   voivodeship: "slaskie",
   authority: 'Urząd Miejski w Sosnowcu',

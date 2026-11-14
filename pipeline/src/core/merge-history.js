@@ -1,4 +1,3 @@
-
 export function listingFingerprint(l) {
   const prefix = l.outcome === 'announced' ? 'w|' : '';
   if (l.date) return prefix + l.date;

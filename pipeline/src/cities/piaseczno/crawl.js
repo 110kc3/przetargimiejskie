@@ -67,7 +67,6 @@ export async function crawl() {
           notices.push(parsed);
         }
       } catch {
-        // Ignore single article error
       }
     }
   }

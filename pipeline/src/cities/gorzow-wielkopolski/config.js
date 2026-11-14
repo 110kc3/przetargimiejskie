@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'gorzow-wielkopolski',
-  teryt: '086101_1', // gmina TERYT for Gorzów Wlkp. grodzki — confirm on first geoportal run
+  teryt: '086101_1',
   label: 'Gorzów Wielkopolski',
   voivodeship: 'lubuskie',
   authority: 'Urząd Miasta Gorzowa Wielkopolskiego',

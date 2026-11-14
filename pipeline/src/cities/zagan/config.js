@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'zagan',
-  teryt: '081101_1', // gmina TERYT for Żagań miasto — confirm on first geoportal run
+  teryt: '081101_1',
   label: 'Żagań',
   voivodeship: 'lubuskie',
   authority: 'Urząd Miasta Żagań',

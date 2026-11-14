@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { ocrPdf } from '../../core/ocr-pdf.js';
@@ -14,7 +13,7 @@ const SKIP_RE = /MK\.6845|dzier[żz]aw|\bnajem\b|wykaz/i;
 const dokUrl = (id) => `${ORIGIN}${BOARD}/dokument/${id}`;
 
 async function attachmentText(url) {
-  try { const t = await pdfText(url); if (t.replace(/\s+/g, '').length >= 120) return t; } catch { /* not a text PDF */ }
+  try { const t = await pdfText(url); if (t.replace(/\s+/g, '').length >= 120) return t; } catch {}
   try { return await ocrPdf(url); } catch { return ''; }
 }
 

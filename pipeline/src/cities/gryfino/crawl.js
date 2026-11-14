@@ -63,7 +63,6 @@ export async function crawl() {
                 attachmentsText += '\n' + txt;
               }
             } catch {
-              // Ignore PDF download error
             }
           }
         }
@@ -85,7 +84,6 @@ export async function crawl() {
           notices.push(parsed);
         }
       } catch {
-        // Ignore single article error
       }
     }
   }

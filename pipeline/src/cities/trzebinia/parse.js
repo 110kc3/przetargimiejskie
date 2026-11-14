@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 import { htmlToText, parsePLN, areaFromText, auctionDateFromText, addressFrom } from '../../core/finn-bip.js';

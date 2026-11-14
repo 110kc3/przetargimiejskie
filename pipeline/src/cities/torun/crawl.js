@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { docText } from '../../core/doc-text.js';
@@ -68,7 +67,7 @@ async function crawlAll() {
       address,
       auction_date: r.auction_date,
       round: r.round,
-      area_m2: r.area_m2 ?? null, // multi-flat detail paragraphs carry individual areas
+      area_m2: r.area_m2 ?? null,
       starting_price_pln: r.starting_price_pln,
       detail_url: r.detail_url,
     };

@@ -1,4 +1,3 @@
-
 import { todayWarsaw } from './build-properties.js';
 import { geoportalUrl } from './geoportal.js';
 
@@ -53,9 +52,9 @@ export function buildLand(records, cityId, cfg = {}) {
         address_raw: r.address_raw ?? null,
         dzialka_id: r.dzialka_id ?? null,
         geoportal_url: r.geoportal_url ?? null,
-        area_m2: null, // PLOT area (not usable floor area) — kept separate from flat zł/m²
+        area_m2: null,
         zoning: r.zoning ?? null,
-        status: r.status ?? null, // source status (e.g. Gliwice MSIP "oferta do wznowienia")
+        status: r.status ?? null,
         listings: [],
       };
       plots.set(key, p);

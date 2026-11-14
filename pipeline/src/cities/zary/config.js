@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'zary',
-  teryt: '0811021', // Żary (gmina miejska)
+  teryt: '0811021',
   label: 'Żary',
   voivodeship: 'lubuskie',
   authority: 'Burmistrz Miasta Żary',

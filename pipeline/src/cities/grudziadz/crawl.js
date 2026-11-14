@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { docText } from '../../core/doc-text.js';
@@ -158,7 +157,7 @@ export async function crawlResultDocs() {
     refs.push({
       text,
       pdf_url: attUrl,
-      auction_date: null, // parseResultDoc re-extracts from the body text
+      auction_date: null,
       detail_url: row.detailUrl,
     });
   }

@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'konskie',
   teryt: '260501_3',
@@ -6,5 +5,5 @@ export const config = {
   voivodeship: 'swietokrzyskie',
   authority: 'Miasto i Gmina Końskie',
   host: 'bip.umkonskie.pl',
-  source: 'html', // crawl.js fetches the PDF itself (pdfText); refresh.js uses ref.text
+  source: 'html',
 };

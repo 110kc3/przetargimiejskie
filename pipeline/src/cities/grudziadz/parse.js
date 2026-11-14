@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -214,7 +213,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
       address_raw,
       address,
       round,
-      starting_price_pln: null, // not reliably extractable from the scanned table (see file header)
+      starting_price_pln: null,
       final_price_pln,
       outcome,
       unsold_reason,

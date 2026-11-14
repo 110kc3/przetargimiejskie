@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'opole',
-  teryt: '166101_1', // miasto Opole
+  teryt: '166101_1',
   label: 'Opole',
   voivodeship: "opolskie",
   authority: 'Urząd Miasta Opola (Wydział Gospodarki Nieruchomościami)',

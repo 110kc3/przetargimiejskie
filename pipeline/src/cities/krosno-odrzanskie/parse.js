@@ -1,5 +1,3 @@
-//     PDF body: "Nieruchomość położona jest w Krośnie Odrzańskim przy ul.
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 

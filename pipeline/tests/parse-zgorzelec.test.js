@@ -1,5 +1,3 @@
-//                          jest umową dzierżawy gruntu rolnego") — isLease() must
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -62,7 +60,6 @@ test('doc-type gates: isSaleAuction / isResultDoc split by board', () => {
 });
 
 test('isLease: an existing-lease ENCUMBRANCE on a land SALE is not a lease', () => {
-  // Francuska body: "Działka … objęta jest umową dzierżawy gruntu rolnego."
   assert.equal(isLease(b(LAND_FRANCUSKA)), false);
   assert.equal(isLease(b(FLAT_REYMONTA)), false);
   assert.equal(isLease(b(COMM_WARSZAWSKA)), false);

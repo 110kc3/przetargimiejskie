@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'szczytno',
   teryt: '281701_1',

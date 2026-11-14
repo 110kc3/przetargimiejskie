@@ -1,7 +1,3 @@
-//   - POST /rpc/routeRejestryServiceManager1 ("pobierzRejestry"): enumerates register items
-//   - POST /rpc/routeRejestryServiceManager2 ("pobierzRejestr"): fetches item detail + attachments
-//   - GET /server/pobierz_rejestry_zalacznik/<id>: downloads PDF attachments
-
 import { pathToFileURL } from 'node:url';
 import { directFetch } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -190,7 +186,6 @@ export async function crawlAll() {
           }
         }
       } catch {
-        // non-critical
       }
     }
   } catch (err) {

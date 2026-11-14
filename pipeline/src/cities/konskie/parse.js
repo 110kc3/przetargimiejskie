@@ -1,6 +1,3 @@
-//       "Przedmiotem sprzedaży jest spółdzielcze własnościowe prawo do lokalu
-//        Przedmiotem sprzedaży jest lokal mieszkalny nr 4 położony w
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 

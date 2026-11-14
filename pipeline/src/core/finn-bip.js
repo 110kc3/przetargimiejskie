@@ -1,4 +1,3 @@
-
 import { getText } from './fetch.js';
 import { parseAddress } from './normalize.js';
 import { classifyKind } from './classify-kind.js';
@@ -116,7 +115,6 @@ export function areaFromText(text) {
   if (!text) return null;
   const plausible = (v) => v != null && v >= 8 && v <= 300;
   const plausibleLab = (v) => v != null && v >= 8;
-  // GLOBAL match with a cellar/plot guard: announcements label the cellar the
   const LAB_EXCLUDE = /piwnic|kom[óo]rk|przynale[żz]|gara[żz]|strych|dzia[łl]k|grunt/i;
   const LAB = /pow(?:ierzchni)?\w*\.?\s+u[żz]ytkow\w*([^0-9]{0,40}?)([\d.,]+)\s*m\s*[²2]/gi;
   let lm;

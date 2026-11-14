@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -241,10 +240,10 @@ const COOP_CONTENT =
   '<p><strong>1.</strong> Cena wywo&#322;awcza do przetargu wynosi: <strong>241.250,00 z&#322;</strong>.</p>' +
   '<p><strong>3.</strong> Przetarg odb&#281;dzie si&#281; w dniu <strong>12.06.2026 r.</strong> o godz. 10.00.</p>';
 
-const COOP_TRUNC_TITLE = // title cut before "mieszkalnego" — body must confirm
+const COOP_TRUNC_TITLE =
   'Przetarg ustny nieograniczony na sprzedaż własnościowego prawa do lokalu poł. przy';
 
-const GENERIC_SALE_TITLE = // class word only in the body
+const GENERIC_SALE_TITLE =
   'Ogłoszenie o przetargu ustnym nieograniczonym na sprzedaż nieruchomości przy ul. Bohaterów Getta';
 
 test('classifiers route built / commercial / land / flat without overlap', () => {

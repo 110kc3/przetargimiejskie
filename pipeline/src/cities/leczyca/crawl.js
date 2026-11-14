@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { parsePost, decodeEntities } from './parse.js';
 

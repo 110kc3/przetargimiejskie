@@ -13,10 +13,10 @@ test('buildLand: null / empty / unkeyable input never throws', () => {
 test('buildLand: a malformed plot among good ones — good ones still build', () => {
   const recs = [
     { dzialka_nr: '1/1', obreb: 'A', area_m2: 100, starting_price_pln: 5, auction_date: '2026-09-01' },
-    null,                                         // null record (used to throw on .address)
-    undefined,                                    // undefined record
-    42,                                           // non-object
-    { dzialka_nr: 7, obreb: 7, area_m2: 'oops', auction_date: 123 }, // wrong types
+    null,
+    undefined,
+    42,
+    { dzialka_nr: 7, obreb: 7, area_m2: 'oops', auction_date: 123 },
     { dzialka_nr: '2/2', obreb: 'B', area_m2: 200, starting_price_pln: 9, auction_date: '2026-10-01' },
   ];
   let plots;
@@ -32,7 +32,7 @@ test('adapter isolation: a THROWING land crawl leaves the flats stream intact', 
   async function crawlActive() {
     const base = await crawlActiveFlats();
     let land = [];
-    try { land = await crawlLand(); } catch { /* isolated — kept flats */ }
+    try { land = await crawlLand(); } catch {}
     return { ...base, land };
   }
   const r = await crawlActive();

@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -79,7 +78,6 @@ async function extractPdfText(url) {
     const t = await pdfText(url, FETCH_OPTS);
     if (t && t.trim().length >= MIN_TEXT_LEN) return t;
   } catch {
-    // not a text PDF (or not a PDF at all) — fall through to OCR
   }
   return ocrPdf(url, FETCH_OPTS);
 }

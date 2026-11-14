@@ -1,4 +1,3 @@
-
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
@@ -268,7 +267,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     final_price_pln: outcome === 'sold' ? final_price_pln : null,
     outcome,
     unsold_reason: unsold ? 'wynik negatywny' : null,
-    area_m2: null, // flat result notices state only the land-share ha, not the flat's m²
+    area_m2: null,
     notes,
   }];
 }

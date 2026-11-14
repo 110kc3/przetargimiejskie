@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 
@@ -186,7 +185,7 @@ export async function crawlResultDocs() {
       refs.push({
         url,
         text,
-        date: null, // date is inside the text
+        date: null,
       });
     } catch (err) {
       console.error(`  gniezno result notice fetch failed (${url}): ${err.message}`);

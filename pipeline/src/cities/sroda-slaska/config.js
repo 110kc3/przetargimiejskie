@@ -1,7 +1,6 @@
-
 export const config = {
   id: 'sroda-slaska',
-  teryt: '0218044', // Środa Śląska (miasto)
+  teryt: '0218044',
   label: 'Środa Śląska',
   voivodeship: 'dolnoslaskie',
   authority: 'Burmistrz Środy Śląskiej',

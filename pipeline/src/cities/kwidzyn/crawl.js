@@ -1,4 +1,3 @@
-
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { rm } from 'node:fs/promises';
@@ -93,7 +92,7 @@ async function extractNoticeText(url) {
   let quick = '';
   try { quick = await pdfText(url, FETCH_OPTS); } catch { quick = ''; }
   if (quick && quick.replace(/\s/g, '').length >= 40) return quick;
-  try { await rm(join(PDFTEXT_CACHE_DIR, urlCacheKey(url) + '.txt'), { force: true }); } catch { /* ignore */ }
+  try { await rm(join(PDFTEXT_CACHE_DIR, urlCacheKey(url) + '.txt'), { force: true }); } catch {}
   return ocrPdf(url, FETCH_OPTS);
 }
 

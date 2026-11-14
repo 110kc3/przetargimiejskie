@@ -1,4 +1,3 @@
-
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -241,7 +240,7 @@ test('helpers: amountsInText / achievedPriceFromText / buyerFromText / areaFromR
 test('parseResultDoc: real BIP result .docx — Traugutta 141 SOLD (round from HTML, not the .docx)', () => {
   const refText = buildRefText({
     addressRaw: 'ul. generała Romualda Traugutta 141/4',
-    round: 3, // from the article's OWN "(III przetarg)" HTML field — see fixture header comment
+    round: 3,
     startingPricePln: 462000,
     auctionDate: '2026-07-01',
     body: WYNIK_TRAUGUTTA,

@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'naklo-nad-notecia',
   teryt: '041003_4',

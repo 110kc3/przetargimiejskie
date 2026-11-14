@@ -1,4 +1,3 @@
-
 export const config = {
   id: 'gora',
   teryt: '0204014',

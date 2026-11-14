@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { parseBoardPage, parseAnnouncementPage, isWykazSaleTitle, baseStreetAddress, stripTags } from './parse.js';

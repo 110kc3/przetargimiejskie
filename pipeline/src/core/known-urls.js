@@ -1,4 +1,3 @@
-
 import { readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -23,7 +22,7 @@ export async function loadKnownSourceUrls(cityId, { includeLand = false, resolve
           if (listing.pdf_url)    urls.add(listing.pdf_url);
         }
       }
-    } catch { /* A missing/bad stream must not discard the other stream's known history. */ }
+    } catch {}
   }
   return urls;
 }

@@ -1,4 +1,3 @@
-
 (function () {
   const STORAGE_KEY = 'lang';
   const DEFAULT_LANG = 'pl';

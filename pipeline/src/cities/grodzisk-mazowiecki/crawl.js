@@ -1,4 +1,3 @@
-
 import { getText } from '../../core/fetch.js';
 import { loadKnownSourceUrls } from '../../core/known-urls.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -115,7 +114,6 @@ async function resolveAnnouncementPdf(post, auctionMenus = []) {
         if (pdfAtt) return `${BIP_ORIGIN}/${pdfAtt.link}`;
       }
     } catch {
-      // ignore
     }
   }
 
@@ -130,7 +128,6 @@ async function resolveAnnouncementPdf(post, auctionMenus = []) {
         if (pdfAtt) return `${BIP_ORIGIN}/${pdfAtt.link}`;
       }
     } catch {
-      // ignore
     }
   }
 
@@ -154,7 +151,6 @@ async function resolveAnnouncementPdf(post, auctionMenus = []) {
             if (pdfAtt) return `${BIP_ORIGIN}/${pdfAtt.link}`;
           }
         } catch {
-          // ignore
         }
       }
     }
@@ -180,7 +176,6 @@ export async function crawlActive() {
         }
         findChildren(tree, mid);
       } catch {
-        // ignore
       }
     }
 

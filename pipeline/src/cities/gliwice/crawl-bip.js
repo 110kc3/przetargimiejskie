@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { parseAddress } from '../../core/normalize.js';
@@ -75,7 +74,7 @@ function makeListing(addressRaw, kind, date, round, figures, url, ownerType = nu
     starting_price_pln: figures.starting_price_pln,
     round: round ?? null,
     detail_url: url,
-    source: 'bip', // provenance marker; harmless extra field on the listing.
+    source: 'bip',
     ...(ownerType ? { owner_type: ownerType } : {}),
   };
 }

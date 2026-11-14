@@ -1,4 +1,3 @@
-
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -100,7 +99,6 @@ async function extractAttachmentText(att) {
     try {
       text = await pdfText(url, FETCH_OPTS);
     } catch {
-      // Ignore pdftotext error and fall back to OCR
     }
 
     if (!text || text.trim().length < 50) {
