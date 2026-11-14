@@ -2,6 +2,7 @@ import { getText } from './fetch.js';
 import { classifyKind } from './classify-kind.js';
 import { findAuctionDate, parseAreaSqm } from './engine-fields.js';
 import { withCanonicalRecords } from './engine-records.js';
+import { attachmentUrlsFromHtml } from './engine-attachments.js';
 
 export const PL_MONTHS = {
   stycznia: '01',
@@ -131,6 +132,7 @@ export function parseNefeniArticle(html, url = '', options = {}) {
     address: null,
     property_type: propertyType,
     type: isResult ? 'result' : 'announcement',
+    attachments: attachmentUrlsFromHtml(html, url),
     raw_text: text.slice(0, 1500),
   };
 }

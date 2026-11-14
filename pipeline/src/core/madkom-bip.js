@@ -3,6 +3,7 @@ import { parseAddress } from './normalize.js';
 import { classifyKind } from './classify-kind.js';
 import { findAuctionDate, parseAreaSqm } from './engine-fields.js';
 import { withCanonicalRecords } from './engine-records.js';
+import { attachmentUrlsFromMadkom } from './engine-attachments.js';
 
 export const PL_MONTHS = {
   stycznia: '01',
@@ -233,14 +234,16 @@ export function makeMadkomCrawlActive(options) {
       if (!isAnnouncementTitle(title) && !isResultTitle(title)) continue;
 
       let fullHtml = '';
+      let attachments = [];
       try {
         const detailRaw = await getText(`${apiBase}/articles/${item.id}`, { userAgent: BROWSER_UA });
         const detail = JSON.parse(detailRaw);
         fullHtml = detail?.content || '';
+        attachments = attachmentUrlsFromMadkom(detail, origin);
       } catch (err) {}
 
       if (isAnnouncementTitle(title)) {
-        results.push(parseMadkomAnnouncement(item, fullHtml, { ...options, origin }));
+        results.push({ ...parseMadkomAnnouncement(item, fullHtml, { ...options, origin }), attachments });
       } else if (isResultTitle(title)) {
         results.push(parseMadkomResult(item, fullHtml, { ...options, origin }));
       }

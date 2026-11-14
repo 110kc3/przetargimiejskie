@@ -5,7 +5,7 @@ const MONTHS = {
 };
 
 const DATE_WORDS = '([0-9]{1,2}\\s+[a-ząćęłńóśźż]+\\s+20\\d{2})';
-const DATE_NUMERIC = '([0-9]{1,2}\\.[0-9]{2}\\.20\\d{2})';
+const DATE_NUMERIC = '([0-9]{1,2}\\.[0-9]{1,2}\\.20\\d{2})';
 const AUCTION_LEAD = '(?:odb[ęe]dzie\\s+si[ęe]|odb[ęe]d[ąa]\\s+si[ęe]|termin\\s+przetargu|data\\s+przetargu|data\\s*:|termin\\s+i\\s+miejsce\\s+przetargu)';
 const AUCTION_DATE_PATTERN = new RegExp(
   `${AUCTION_LEAD}[\\s\\S]{0,120}?(?:${DATE_WORDS}|${DATE_NUMERIC})`,
@@ -14,8 +14,8 @@ const AUCTION_DATE_PATTERN = new RegExp(
 
 export function parsePolishDate(text) {
   if (!text) return null;
-  const numeric = text.match(/(0[1-9]|[12]\d|3[01])\.(0[1-9]|1[0-2])\.(20\d{2})/);
-  if (numeric) return `${numeric[3]}-${numeric[2]}-${numeric[1]}`;
+  const numeric = text.match(/(?<!\d)(0?[1-9]|[12]\d|3[01])\.(0?[1-9]|1[0-2])\.(20\d{2})/);
+  if (numeric) return `${numeric[3]}-${numeric[2].padStart(2, '0')}-${numeric[1].padStart(2, '0')}`;
   const words = text.match(/(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(20\d{2})/i);
   if (!words) return null;
   const month = MONTHS[words[2].toLowerCase()];

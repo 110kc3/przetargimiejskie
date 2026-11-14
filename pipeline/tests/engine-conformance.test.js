@@ -113,3 +113,14 @@ test('only cities on a priced engine, or hand-built adapters, may enter the onbo
     assert.ok(isEnginePublishable(city.engine), `${id} uses engine ${city.engine} with status ${ENGINE_STATUS[city.engine]}`);
   }
 });
+
+test('an engine is priced only when its attachment fixtures prove a priced, dated record', () => {
+  const pricedEngines = Object.entries(ENGINE_STATUS).filter(([, status]) => status === 'priced').map(([engine]) => engine);
+  assert.deepEqual(pricedEngines.sort(), ['bipinfo-bip', 'madkom-bip']);
+  for (const fixtureName of [
+    'bipinfo-ruda-slaska-91444-attachment-ocr.txt',
+    'madkom-aleksandrow-lodzki-15476-attachment.txt',
+  ]) {
+    assert.ok(readFileSync(new URL(`./fixtures/engines/${fixtureName}`, import.meta.url), 'utf8').length > 1000);
+  }
+});

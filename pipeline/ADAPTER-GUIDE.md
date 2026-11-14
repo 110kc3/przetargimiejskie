@@ -240,11 +240,27 @@ To bring an adapter live:
 Cities built on a shared platform engine (`core/*-bip.js`) carry an `engine` id.
 `core/engine-status.js` records each engine's conformance: `unverified` (no real
 auction fixture), `headline-only` (identity, address or parcel, but price and date
-sit in attachments) or `priced`. Only `priced` engines may enter the onboarding
-cohort; `tests/engine-conformance.test.js` enforces it. To promote an engine, add
-real captured pages under `tests/fixtures/engines/`, prove a priced, dated,
-addressed record through `canonicalizeEngineRecords`, `buildCityData` and
-`buildLand`, and change its status in the same commit.
+sit in attachments we do not read yet) or `priced`. Only `priced` engines may enter
+the onboarding cohort; `tests/engine-conformance.test.js` enforces it. Today BIP.INFO
+and MADKOM are `priced`; Nefeni and REKORD SI are `headline-only`; the rest are
+`unverified`.
+
+Priced engines read the notice's PDF/DOC attachment (`core/engine-attachments.js`):
+text layer first, OCR fallback, at most 30 attachments per crawl and 3 per notice.
+Price is taken only when exactly one distinct starting price appears (an ambiguous
+notice stays unpriced); the auction date is the announced date, never the
+publication date; multi-lot land tables expand into one plot per parcel row.
+To promote an engine, add real captured pages and attachment text under
+`tests/fixtures/engines/`, prove a priced, dated, addressed record through
+`enrichFromAttachments`, `canonicalizeEngineRecords`, `buildCityData` and
+`buildLand` (see `tests/engine-attachments.test.js`), run an isolated end-to-end
+refresh of one city with strict `sanity-check.js`, and change its status in the
+same commit.
+
+The compact catalogue (`city-catalog.js`) labels a registered adapter that has never
+published as `not_monitored` with `pending_first_publish: true`, no `pipeline_id`
+and `searchable: false`, so the extension, archive and SEO pages neither fetch nor
+list it until its first publication.
 
 `ONLY_CITY` workflow dispatch bypasses the cohort and can refresh any
 registered city for diagnosis. Shards hold at most 10 cities; a host with more

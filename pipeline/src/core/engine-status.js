@@ -1,7 +1,7 @@
 export const ENGINE_STATUS = {
   'nefeni-bip': 'headline-only',
-  'madkom-bip': 'headline-only',
-  'bipinfo-bip': 'headline-only',
+  'madkom-bip': 'priced',
+  'bipinfo-bip': 'priced',
   'rekordsi-bip': 'headline-only',
   'logonet-bip': 'unverified',
   'biplubelskie-bip': 'unverified',
