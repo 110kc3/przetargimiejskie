@@ -1,11 +1,3 @@
-// Reusable SystemDoBIP.pl / E-LINE platform engine.
-//
-// Handles municipalities running SYSTEMDOBIP.PL (E-LINE Systemy Internetowe)
-// common in Lubuskie and Warmińsko-Mazurskie.
-//
-// Boards:
-//   /przetargi/<boardId>/status/0/ (active)
-//   /przetargi/<boardId>/status/1/ (resolved)
 
 import { getText } from './fetch.js';
 import { parseAddress } from './normalize.js';
@@ -88,7 +80,6 @@ export function parseSystemDoBipRow(rowHtml, options = {}) {
   const cityLabel = options.label || 'Gmina';
   const cityId = options.id || 'systemdobip';
 
-  // Link and URL
   const linkMatch = rowHtml.match(/<a[^>]*href="([^"]*\/przetargi\/\d+\/(\d+)\/(\d+)[^"]*)"[^>]*>([\s\S]*?)<\/a>/i);
   if (!linkMatch) return null;
 
@@ -96,21 +87,17 @@ export function parseSystemDoBipRow(rowHtml, options = {}) {
   const sourceId = `${linkMatch[2]}-${linkMatch[3]}`;
   const title = cleanText(linkMatch[4]);
 
-  // Dates
   const date1Match = rowHtml.match(/<td class="td-date-1">[\s\S]*?(\d{4}-\d{2}-\d{2})/i);
   const date2Match = rowHtml.match(/<td class="td-date-2">[\s\S]*?(\d{4}-\d{2}-\d{2})/i);
   const auctionDate = date2Match ? date2Match[1] : (date1Match ? date1Match[1] : null);
 
-  // Price
   const priceMatch =
     text.match(/(?:cena wywoławcza|cena)\s*(?:netto|brutto)?[:\-]?\s*([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i);
   const price = priceMatch ? parsePrice(priceMatch[1]) : null;
 
-  // Parcel
   const parcelMatch = text.match(/\b(?:działk[aieę]|działce|dz\.|nr\s+działki)\s*(?:nr)?[:\s\-]{1,10}(\d+(?:\/\d+)?)/i);
   const parcel = parcelMatch ? parcelMatch[1] : null;
 
-  // Area
   const areaMatch = text.match(/pow(?:ierzchni|\.)[^\d]{1,25}([\d\s.]+(?:,\d{1,4})?)\s*(m2|m²|ha)/i);
   let area = null;
   if (areaMatch) {
@@ -122,7 +109,6 @@ export function parseSystemDoBipRow(rowHtml, options = {}) {
     }
   }
 
-  // Address
   const addrMatch = text.match(/(?:przy\s+ul\.?|ulicy|ul\.)\s+([A-ZĄĆĘŁŃÓŚŹŻ0-9][a-ząćęłńóśźż\s\d\/-]+?)(?:w\s+[A-ZĄĆĘŁŃÓŚŹŻ]|\.|,|KW|obręb)/i);
   const rawAddress = addrMatch ? `ul. ${addrMatch[1].trim()}` : cityLabel;
   const address = parseAddress(rawAddress, cityLabel);

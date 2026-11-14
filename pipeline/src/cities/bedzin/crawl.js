@@ -1,17 +1,3 @@
-// Będzin crawler — server-rendered bip.info.pl BIP, consumed as plain HTML
-// and attachment PDFs/ODTs. See config.js.
-//
-// Boards:
-//   ANNOUNCEMENTS (Nieruchomości): index.php?idmp=943&r=r (sub-board of 450)
-//   ANNOUNCEMENTS (Mieszkania):    index.php?idmp=35&r=r  (Informacje i ogłoszenia)
-//   RESULTS (Archiwum):            index.php?idmp=484&r=r (Archiwum Przetargi)
-//   RESULTS (Wyniki):              index.php?idmp=945&r=r (Wyniki ogłoszonych przetargów)
-//
-// Pagination param is `&istr=N`.
-// Each board row links to a document: dokument.php?iddok={id}&idmp={NN}&r=r.
-// Document text is extracted from HTML <div id="content-main">; if the notice
-// body is an attachment (common for results and some flat announcements), the
-// attachment text is extracted via pdfText/ocrPdf.
 
 import { pathToFileURL } from 'node:url';
 import { setTimeout as sleep } from 'node:timers/promises';
@@ -45,7 +31,6 @@ const boardUrl = (idmp, page) =>
   `${ORIGIN}/index.php?idmp=${idmp}&r=r${page > 1 ? `&istr=${page}` : ''}`;
 const docUrl = (iddok, idmp) => `${ORIGIN}/dokument.php?iddok=${iddok}&idmp=${idmp}&r=r`;
 
-/** Isolate the <div id="content-main"> region of a page. */
 function contentMain(html) {
   if (!html) return '';
   const i = html.indexOf('id="content-main"');
@@ -55,17 +40,10 @@ function contentMain(html) {
   return j > i ? html.slice(i, j) : html.slice(i);
 }
 
-/** Decode HTML entities in href. */
 function decodeHref(h) {
   return h.replace(/&amp;/gi, '&');
 }
 
-/**
- * Extract article refs from a board page HTML.
- * @param {string} html
- * @param {number} idmp
- * @returns {Array<{iddok:string, url:string, title:string}>}
- */
 export function parseBoardPage(html, idmp) {
   const region = contentMain(html);
   const out = [];
@@ -83,7 +61,6 @@ export function parseBoardPage(html, idmp) {
   return out;
 }
 
-/** All article refs on a board, walking bounded pages. */
 async function fetchBoardRefs(idmp, maxPages = MAX_PAGES) {
   const refs = [];
   const seen = new Set();
@@ -108,7 +85,6 @@ async function fetchBoardRefs(idmp, maxPages = MAX_PAGES) {
   return refs;
 }
 
-/** Extract plain text from document content-main. */
 export function extractDocBody(html) {
   let txt = contentMain(html)
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
@@ -130,7 +106,6 @@ export function extractDocBody(html) {
   return txt;
 }
 
-/** Extract attachment links from document HTML. */
 export function extractAttachmentLinks(html) {
   const region = contentMain(html);
   const out = [];
@@ -145,7 +120,6 @@ export function extractAttachmentLinks(html) {
   return out;
 }
 
-/** Fetch one document (HTML + attachment text if needed). */
 async function fetchDoc(ref) {
   let html;
   try {
@@ -156,7 +130,6 @@ async function fetchDoc(ref) {
   }
   let body = extractDocBody(html);
 
-  // If the body is short or explicitly points to an attachment, extract attachment text
   if (body.length < 300 || /za[łl][ąa]cznik/i.test(body)) {
     const attachments = extractAttachmentLinks(html);
     for (const att of attachments) {
@@ -191,7 +164,6 @@ async function fetchDoc(ref) {
   return { text, title: ref.title, url: ref.url };
 }
 
-/** Detail-fetch a list of refs bounded by time and count. */
 async function fetchDetailsBounded(refs, label) {
   const deadline = Date.now() + CRAWL_BUDGET_MS;
   const out = [];
@@ -220,7 +192,6 @@ async function crawlAll() {
 
   const knownUrls = await loadKnownSourceUrls('bedzin', { includeLand: true });
 
-  // 1. Announcements
   const announceRefs = [];
   const seenAnnounce = new Set();
 
@@ -253,7 +224,6 @@ async function crawlAll() {
     (parsed.kind === 'grunt' ? land : listings).push(enriched);
   }
 
-  // 2. Results
   const resultBoardRefs = [];
   const seenResults = new Set();
 
@@ -289,13 +259,11 @@ async function crawlAll() {
   return { listings, land, resultRefs };
 }
 
-/** Concluded records (achieved-price stream). */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resultRefs;
 }
 
-/** Active records (listings, wykaz, land). */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, land } = await crawlPromise;

@@ -1,6 +1,3 @@
-// Crawler for Nowy Sącz (bip.malopolska.pl/nowysacz)
-//
-// Fetches articles and attachments from Wrota Małopolski MADKOM API.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

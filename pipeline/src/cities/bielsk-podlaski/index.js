@@ -1,5 +1,3 @@
-// Adapter entry point for Bielsk Podlaski (powiat bielski, Podlaskie)
-// BIP: https://bip-umbielsk.podlaskie.eu
 
 import config from './config.js';
 import { crawlActive, crawlResultDocs, parseResultDoc } from './crawl.js';

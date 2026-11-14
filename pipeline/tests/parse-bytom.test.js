@@ -1,6 +1,3 @@
-// Bytom v2 parser tests. The live BIP list and i-BIIP catalog can't be reached
-// from CI sandboxes (DNS-restricted), so we exercise the two parsers against
-// fixtures that reproduce the real markup observed in a browser (May-2026).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -14,9 +11,7 @@ import {
   areaFromText,
 } from '../src/cities/bytom/parse.js';
 
-// ---- BIP list (primary source) -------------------------------------------
 
-// One <li> exactly as bytom.pl/bip renders it.
 function li({ date, href, addr, desc }) {
   return `<li class="aktualnosc__item">
     <span class="aktualnosci__data">${date}</span>
@@ -53,7 +48,7 @@ test('parseBipList extracts idn page URL, round, date and address', () => {
   const kat = items.find((i) => i.address.key === 'katowicka|44|8');
   assert.ok(kat);
   assert.equal(kat.kind, 'mieszkalny');
-  assert.equal(kat.round, 3); // "trzeci przetarg"
+  assert.equal(kat.round, 3);
   assert.equal(kat.published_date, '2026-05-13');
   assert.match(kat.detail_url, /\/idn:13500$/);
   assert.equal(kat.detail_url.startsWith('https://www.bytom.pl/bip/'), true);
@@ -69,12 +64,6 @@ test('parseBipList: empty / non-list HTML yields no items', () => {
   assert.deepEqual(parseBipList('<html><body>nic</body></html>'), []);
 });
 
-// Garage-plot SALES ("sprzedaż działki gruntu pod garażem") live ONLY on the
-// BIP list (no i-BIIP catalog row). They were dropped twice: kindFromText
-// returned null (no "mieszkaln"/"niemieszkaln") and the dz./działka address
-// guard discarded the parcel-bearing title. Live examples (June 2026):
-//   ul. Reja (działka gruntu nr 2237/14)  -- auction 2026-05-06
-//   ul. Witczaka (dz. 3143/37)            -- auction 2026-02-13
 const BIP_GARAGE_HTML = `<ul class="aktualnosci">
 ${li({ date: '2026-05-06', href: 'https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-dzialki-pod-garazami/ul.-Reja-dzialka-gruntu-nr-223714/idn:13230', addr: 'ul. Reja (dzialka gruntu nr 2237/14)', desc: 'Prezydent Bytomia oglasza przetarg ustny ograniczony na sprzedaz dzialki gruntu pod garazem, polozonej w Bytomiu przy ul. Reja (dzialka gruntu nr 2237/14)' })}
 ${li({ date: '2026-02-13', href: 'https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/sprzedaz-dzialki-pod-garazami/ul.-Witczaka-dz.-314337/idn:12731', addr: 'ul. Witczaka (dz. 3143/37)', desc: 'Prezydent Bytomia oglasza przetarg ustny ograniczony na sprzedaz dzialki gruntu pod garazem, polozonej w Bytomiu przy ul. Witczaka (dzialka gruntu nr 3143/37)' })}
@@ -89,8 +78,8 @@ test('parseBipList captures a garage-plot sale as kind=garaz, parcel-keyed', () 
   const reja = garages.find((g) => g.address.key === 'reja|2237|14');
   assert.ok(reja, 'Reja garage-plot must survive the dz./dzialka guard');
   assert.equal(reja.kind, 'garaz');
-  assert.equal(reja.address.street, 'Reja'); // street only, parenthetical stripped
-  assert.equal(reja.round, 1); // bare "przetarg" = first
+  assert.equal(reja.address.street, 'Reja');
+  assert.equal(reja.round, 1);
   assert.equal(reja.published_date, '2026-05-06');
   assert.match(reja.detail_url, /\/idn:13230$/);
 
@@ -101,15 +90,11 @@ test('parseBipList captures a garage-plot sale as kind=garaz, parcel-keyed', () 
 
 test('parseBipList: garage branch does not pull in land or the out-of-gmina house', () => {
   const items = parseBipList(BIP_GARAGE_HTML);
-  // The Parzymiechy house (Gmina Lipie) has no "garaz" in its description, so
-  // it stays dropped (out of scope -- different gmina).
   assert.ok(!items.some((i) => /gleboka/.test(i.address.key)), 'Parzymiechy house excluded');
-  // Plain land sales still come only from the i-BIIP catalog, never this list.
   const land = parseBipList(BIP_HTML).filter((i) => /zgrzebnioka/.test(i.address.key));
   assert.equal(land.length, 0, 'niezabudowana grunt parcel still excluded from the BIP list');
 });
 
-// ---- i-BIIP catalog (price/area enrichment, now a Map) --------------------
 
 const CATALOG_HTML = `<main>
   <div><p><strong>ADRES:</strong> ul. Katowicka 44/8</p>
@@ -144,7 +129,7 @@ const CATALOG_HTML = `<main>
 
 test('parseCatalog returns an enrichment Map keyed by address, land skipped', () => {
   const map = parseCatalog(CATALOG_HTML);
-  assert.equal(map.size, 2); // both land rows dropped, including one without a parcel suffix
+  assert.equal(map.size, 2);
   const kat = map.get('katowicka|44|8');
   assert.ok(kat);
   assert.equal(kat.kind, 'mieszkalny');
@@ -160,10 +145,7 @@ test('parseCatalog returns an enrichment Map keyed by address, land skipped', ()
   assert.equal(map.get('marszalka jozefa pilsudskiego|7|11').kind, 'uzytkowy');
 });
 
-//
-// ---- .doc announcement parser (enrichActive recovery path) ---------------
 
-// Spelled-out month, labelled area, cellar + plot present (must be ignored).
 const DOC_WOLSKI = `PREZYDENT MIASTA BYTOMIA
 oglasza drugi przetarg ustny nieograniczony na sprzedaz lokalu niemieszkalneg
 (uzytkowego) polozonego w Bytomiu przy pl. Michala Wolskiego 6/9 o powierzchni
@@ -173,7 +155,6 @@ Cena wywolawcza nieruchomosci wynosi 120 000,00 zl.
 Wadium wynosi 12 000,00 zl.
 Przetarg odbedzie sie w dniu 7 maja 2026 r. o godzinie 10:00 w siedzibie Urzedu.`;
 
-// Numeric date, bare "przetarg" (round 1), unlabelled area (fallback path).
 const DOC_TESTOWA = `Prezydent Miasta Bytomia oglasza przetarg ustny nieograniczony
 na sprzedaz lokalu mieszkalnego polozonego przy ul. Testowa 1/2.
 Powierzchnia lokalu 45,60 m2, piwnica 8,00 m2, dzialka 200 m2.
@@ -182,9 +163,9 @@ Przetarg odbedzie sie w dniu 15.06.2026 r.`;
 
 test('parseAnnouncement: spelled-out date, labelled area, ignores cellar + plot', () => {
   const f = parseAnnouncement(DOC_WOLSKI);
-  assert.equal(f.round, 2); // "drugi przetarg"
-  assert.equal(f.auction_date, '2026-05-07'); // "7 maja 2026"
-  assert.equal(f.area_m2, 84.3); // powierzchni uzytkowej, NOT piwnica/dzialka
+  assert.equal(f.round, 2);
+  assert.equal(f.auction_date, '2026-05-07');
+  assert.equal(f.area_m2, 84.3);
   assert.equal(f.starting_price_pln, 120000);
 });
 
@@ -192,7 +173,7 @@ test('parseAnnouncement: numeric date, bare przetarg=1, fallback area picks the 
   const f = parseAnnouncement(DOC_TESTOWA);
   assert.equal(f.round, 1);
   assert.equal(f.auction_date, '2026-06-15');
-  assert.equal(f.area_m2, 45.6); // 8,00 (piwnica) + 200 (dzialka) excluded
+  assert.equal(f.area_m2, 45.6);
   assert.equal(f.starting_price_pln, 88000);
 });
 
@@ -207,28 +188,21 @@ test('priceFromText handles dotted thousands "85.000,00 zl"', () => {
   assert.equal(priceFromText('Cena wywolawcza: 85.000,00 zl'), 85000);
 });
 
-// Regression (June 2026 review): re-listed announcements carry the mandatory
-// history clause "Pierwszy przetarg odbyl sie ... wynikiem negatywnym", which
-// used to win the whole-text ordinal scan and mark every re-listed auction
-// as round 1.
 test('roundFromText: history clause does not override the operative round', () => {
   const second = `PREZYDENT MIASTA BYTOMIA
 oglasza drugi przetarg ustny nieograniczony na sprzedaz lokalu mieszkalnego.
 Pierwszy przetarg odbyl sie w dniu 11 marca 2026 r. i zakonczyl sie wynikiem
 negatywnym. Przetarg odbedzie sie w dniu 16 czerwca 2026 r.`;
   assert.equal(roundFromText(second), 2);
-  // history clause BEFORE the operative sentence
   const historyFirst = `Pierwszy przetarg odbyl sie w dniu 11.03.2026 r. i zakonczyl sie
 wynikiem negatywnym. Drugi przetarg ustny nieograniczony odbedzie sie w dniu 16.06.2026 r.`;
   assert.equal(roundFromText(historyFirst), 2);
-  // "pierwszenstwo" (right of first refusal) is not an ordinal
   assert.equal(
     roundFromText('osobom, ktorym przysluguje pierwszenstwo w nabyciu, oglasza przetarg ustny'),
     1,
   );
 });
 
-// ---- attachment URL extraction from a /idn page --------------------------
 
 test('attachmentUrlFromDetail prefers .doc and resolves a relative href', () => {
   const html = `<a href="/bip/download/Ogloszenie-przetargu-pl.-Wolskiego-6_9,23775.doc">pobierz</a>
@@ -247,9 +221,6 @@ test('attachmentUrlFromDetail keeps an absolute href and falls back to .pdf', ()
   assert.equal(attachmentUrlFromDetail('<a href="/foo">no attachment</a>'), null);
 });
 
-// Joint-lot titles ("ul. Strazacka 3 i ul. Podgorna 6/1" -- one auction, one
-// price): key on the FIRST address instead of swallowing the whole phrase
-// into the street ("Strazacka 3 i ul. Podgorna", building 6).
 test('joint two-address title keys on the first address', () => {
   const html = `<li class="aktualnosc__item">
     <span class="aktualnosci__data">2026-02-12</span>
@@ -263,13 +234,6 @@ test('joint two-address title keys on the first address', () => {
   assert.equal(items[0].address_raw, 'ul. Strazacka 3 i ul. Podgorna 6/1');
 });
 
-// ---- parseCatalogLand (i-BIIP catalog land rows) --------------------------
-//
-// Fixtures reproduce the real <p><strong>LABEL:</strong> value</p> block
-// structure observed in the i-BIIP catalog (June 2026).
-//
-// One "grunty niezabudowane" row (with dz. parcel in address)
-// and one "grunty zabudowane" row (the previous bug: was silently dropped).
 const CATALOG_LAND_HTML = `<main>
   <div>
     <p><strong>ADRES:</strong> Alfonsa Zgrzebnioka dz. 1922/182</p>
@@ -328,7 +292,7 @@ test('parseCatalogLand: grunty zabudowane row -- previously dropped, now include
   assert.ok(prusa, 'Prusa 31a (grunty zabudowane) must NOT be dropped');
   assert.equal(prusa.kind, 'grunt');
   assert.equal(prusa.zoning, 'zabudowana');
-  assert.equal(prusa.dzialka_nr, null); // no "dz." in the address
+  assert.equal(prusa.dzialka_nr, null);
   assert.equal(prusa.starting_price_pln, 475000);
   assert.equal(prusa.area_m2, 763);
   assert.equal(prusa.round, 2);
@@ -340,15 +304,6 @@ test('parseCatalogLand: empty HTML returns empty array without throwing', () => 
   assert.deepEqual(parseCatalogLand('<html><body>nothing here</body></html>'), []);
 });
 
-// ---- sub-1000 price backstop (sanity-gate guard) -------------------------
-//
-// Regression (refresh #84, 2026-06-26): a flat at ul. Falata 24/5 reached
-// properties.json with starting_price_pln 0 -- the i-BIIP catalog row carried a
-// 0/placeholder price and the .doc repair could not recover a real number -- so
-// sanity-check's price-glue floor (< 1000 zl) hard-failed and blocked the WHOLE
-// Bytom data commit. crawlActive/enrichActive now null any price the repair
-// leaves below the floor, turning a city-blocking error into a gracefully
-// missing price (a null price is "unknown"; the gate skips it).
 test('nullImplausiblePrices nulls a 0/placeholder and a missing-thousands slip', () => {
   const recs = [
     { address_raw: 'Falata 24/5', starting_price_pln: 0 },         // catalog 0,00 -> the #84 failure
@@ -367,7 +322,7 @@ test('nullImplausiblePrices nulls a 0/placeholder and a missing-thousands slip',
 test('nullImplausiblePrices keeps the 1000 floor inclusive and is null-safe', () => {
   const recs = [{ starting_price_pln: 1000 }, { starting_price_pln: 999 }, null, {}];
   const nulled = nullImplausiblePrices(recs);
-  assert.equal(nulled, 1); // only 999; 1000 is the inclusive floor, null/{} skipped
+  assert.equal(nulled, 1);
   assert.equal(recs[0].starting_price_pln, 1000);
   assert.equal(recs[1].starting_price_pln, null);
 });

@@ -1,13 +1,3 @@
-// Warszawa parser tests.
-//
-// All fixtures derived from LIVE pages fetched 2026-06-29. No network calls.
-//
-// Live sources groundtruthed:
-//   ETO LIST   https://eto.um.warszawa.pl/category/165/announcement (11 items)
-//   DETAIL A   https://srodmiescie.um.warszawa.pl/-/marszalkowska-81-m-19-...
-//   DETAIL B   https://srodmiescie.um.warszawa.pl/-/ul-noakowskiego-4-...
-//   AMW DETAIL https://eto.um.warszawa.pl/category/165/announcement/153692
-//              PDF at /announcement/attachment/153692/255542
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -28,9 +18,6 @@ import {
   parseAmwPdfText,
 } from '../src/cities/warszawa/parse.js';
 
-// ---------------------------------------------------------------------------
-// Helper: build one ETO list <li> block (groundtruthed structure 2026-06-29)
-// ---------------------------------------------------------------------------
 function etoLi(etoId, etoNr, title, outerHref, pubFrom, pubTo) {
   return `<li>
   <div class="col-lg-12 custom-main_announcement_element">
@@ -48,7 +35,6 @@ function etoLi(etoId, etoNr, title, outerHref, pubFrom, pubTo) {
 </li>`;
 }
 
-// ---- Real titles from live ETO (2026-06-29) --------------------------------
 
 const TITLE_MARSZALKOWSKA_19 =
   'Marszałkowska 81 m 19 - lokal mieszkalny przeznaczony do sprzedaży w drodze przetargu';
@@ -75,9 +61,6 @@ ${etoLi('151079', '8108/2026', TITLE_NOAKOWSKI, 'https://srodmiescie.um.warszawa
 ${etoLi('148000', '7777/2026', TITLE_RESULT_OKRAG, 'https://bip.warszawa.pl/web/srodmiescie/-/wynik-okrag', '04-05-2026', '12-05-2026')}
 </ul></body></html>`;
 
-// ---------------------------------------------------------------------------
-// parseEtoListPage
-// ---------------------------------------------------------------------------
 
 test('parseEtoListPage: returns all 7 items', () => {
   const items = parseEtoListPage(ETO_LIST_HTML);
@@ -128,7 +111,6 @@ test('parseEtoListPage: result notice item is parsed', () => {
 
 test('parseEtoListPage: date DD-MM-YYYY → ISO YYYY-MM-DD (AMW Smocza)', () => {
   const items = parseEtoListPage(ETO_LIST_HTML);
-  // Title has genitive "Smoczej" not nominative "Smocza"
   const amw = items.find((i) => i.title.includes('Smoczej'));
   assert.ok(amw, 'AMW Smocza item (genitive "Smoczej") must be found');
   assert.equal(amw.published_from, '2026-05-26');
@@ -139,9 +121,6 @@ test('parseEtoListPage: empty HTML returns empty array', () => {
   assert.deepEqual(parseEtoListPage('<html><body></body></html>'), []);
 });
 
-// ---------------------------------------------------------------------------
-// isResultNoticeTitle
-// ---------------------------------------------------------------------------
 
 test('isResultNoticeTitle: detects result notice titles', () => {
   assert.ok(isResultNoticeTitle(TITLE_RESULT_OKRAG));
@@ -155,14 +134,7 @@ test('isResultNoticeTitle: does not flag normal auction titles', () => {
   assert.ok(!isResultNoticeTitle(TITLE_NOAKOWSKI));
 });
 
-// ---------------------------------------------------------------------------
-// articleTextFromHtml
-// ---------------------------------------------------------------------------
 
-// Real HTML structure from srodmiescie.um.warszawa.pl (groundtruthed 2026-06-29)
-// NOTE: older Liferay theme had class on the <article> tag; current live pages put
-// class="journal-content-article" on an outer <div>, with a bare <article> inside.
-// Both variants must be handled.
 const HTML_MARSZALKOWSKA = `<html><body>
 <article class="entry-full-content journal-content-article" data-analytics-asset-id="160944475">
 08.06.2026 Zarząd Dzielnicy Śródmieście m.st. Warszawy informuje, że na Elektronicznej Tablicy
@@ -172,8 +144,6 @@ ustnego nieograniczonego wraz z udziałem w prawie własności gruntu.
 </article>
 </body></html>`;
 
-// Real live HTML structure fetched 2026-06-29: class is on the outer <div>, not <article>.
-// The inner <div class="article-description"> holds a bare <p> with the article text.
 const HTML_MARSZALKOWSKA_LIVE = `<html><body>
 <div class="journal-content-article " data-analytics-asset-id="160944475"
      data-analytics-asset-title="Marszałkowska 81 m 19 - lokal mieszkalny...">
@@ -191,8 +161,6 @@ do sprzedaży w drodze przetargu ustnego nieograniczonego wraz z udziałem w pra
 </div>
 </body></html>`;
 
-// Real Noakowski article (groundtruthed 2026-06-29) — has two odbędzie się clauses:
-// first anchors to venue (no date), second to actual auction date.
 const HTML_NOAKOWSKI = `<html><body>
 <article class="entry-full-content journal-content-article" data-analytics-asset-id="157992894">
 22.04.2026 Zarząd Dzielnicy Śródmieście m.st. Warszawy informuje, że zostało podane do publicznej
@@ -222,9 +190,6 @@ test('articleTextFromHtml: empty string on missing article element', () => {
   assert.equal(articleTextFromHtml('<div>no article here</div>'), '');
 });
 
-// ---------------------------------------------------------------------------
-// parseDetailText
-// ---------------------------------------------------------------------------
 
 const TEXT_MARSZALKOWSKA = articleTextFromHtml(HTML_MARSZALKOWSKA);
 const TEXT_NOAKOWSKI = articleTextFromHtml(HTML_NOAKOWSKI);
@@ -276,7 +241,6 @@ test('parseDetailText: null input → all-null result', () => {
   assert.equal(r.auction_date, null);
 });
 
-// Synthetic text with area, round, and numeric auction date
 const TEXT_WITH_EXTRAS =
   'Zarząd ogłasza drugi przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 5 ' +
   'o powierzchni użytkowej 42,50 m2 znajdującego się przy ul. Pięknej 10 w Warszawie. ' +
@@ -297,7 +261,6 @@ test('parseDetailText: numeric auction date 15.09.2026', () => {
   assert.equal(r.auction_date, '2026-09-15');
 });
 
-// Form B: ETO list title as input — no article body fetched (BUG 2 fix)
 test('parseDetailText: ETO title "Marszałkowska 81 m 19 -" → address + apt (Form B)', () => {
   const r = parseDetailText(TITLE_MARSZALKOWSKA_19);
   assert.ok(r.address, 'address must be parsed from title');
@@ -317,7 +280,6 @@ test('parseDetailText: ETO title "Marszałkowska 81 m 11 -" → apt 11 (Form B)'
   assert.equal(r.address.apt, '11');
 });
 
-// Form C: AMW title "…, ul. Grójecka 66 w Dzielnicy…" (BUG 1 address fallback)
 test('parseDetailText: AMW title Grójecka 66 → street + building (Form C)', () => {
   const title = 'Agencja Mienia Wojskowego, Wykaz ws. sprzedaży w trybie przetargu ustnego ' +
     'nieograniczonego samodzielnego lokalu mieszkalnego nr 78, ul. Grójecka 66 ' +
@@ -332,9 +294,6 @@ test('parseDetailText: AMW title Grójecka 66 → street + building (Form C)', (
   assert.ok(r.address_raw.includes('78'));
 });
 
-// ---------------------------------------------------------------------------
-// roundFromText
-// ---------------------------------------------------------------------------
 
 test('roundFromText: Roman I / II / III prefix', () => {
   assert.equal(roundFromText('I przetarg ustny'), 1);
@@ -357,11 +316,7 @@ test('roundFromText: null when no przetarg', () => {
   assert.equal(roundFromText('informacja o wyniku'), null);
 });
 
-// ---------------------------------------------------------------------------
-// attachmentUrlFromEtoDetail
-// ---------------------------------------------------------------------------
 
-// Real HTML from ETO detail 153692 (AMW Andersa 20), groundtruthed 2026-06-29
 const AMW_DETAIL_WITH_ATT = `<div>
 <a href="/announcement/attachment/153692/255542">Ogłoszenie o przetargu nr 83/2026</a>
 <a href="/announcement/attachment/153692/255542">pobierz plik</a>
@@ -379,10 +334,6 @@ test('attachmentUrlFromEtoDetail: null when no attachment', () => {
   assert.equal(attachmentUrlFromEtoDetail(''), null);
 });
 
-// ---------------------------------------------------------------------------
-// Result notice parsers — groundtruthed on spike May 2026 data
-// (nr 8944/2026: Okrąg 2 sold 965k→1060k, nr 8936/2026: Noakowskiego 10)
-// ---------------------------------------------------------------------------
 
 const RESULT_TEXT_SOLD = `Informacja o wyniku przetargu ustnego nieograniczonego
 na sprzedaż lokalu mieszkalnego nr 11, położonego przy ul. Okrąg 2 w Warszawie,
@@ -461,9 +412,6 @@ test('addressFromResultText: Noakowskiego 10 — building 10', () => {
   assert.equal(addr.building, '10');
 });
 
-// ---------------------------------------------------------------------------
-// parseResultDoc — full round-trips
-// ---------------------------------------------------------------------------
 
 test('parseResultDoc: Okrąg 2 sold — correct prices, date, apt, address', () => {
   const recs = parseResultDoc(
@@ -529,9 +477,6 @@ test('parseResultDoc: non-result text returns empty array', () => {
   assert.deepEqual(recs, []);
 });
 
-// ---------------------------------------------------------------------------
-// attachmentUrlFromEtoDetail: absolute URL (live ETO pages use full https://)
-// ---------------------------------------------------------------------------
 
 test('attachmentUrlFromEtoDetail: handles absolute https:// URL (live page format)', () => {
   const html = '<div>' +
@@ -543,10 +488,6 @@ test('attachmentUrlFromEtoDetail: handles absolute https:// URL (live page forma
   assert.equal(url, 'https://eto.um.warszawa.pl/announcement/attachment/153692/255542');
 });
 
-// ---------------------------------------------------------------------------
-// parseAmwPdfText — AMW PDF OCR text parser
-// Fixtures derived from tesseract (eng) on PDFs 153692 and 154506, 2026-06-29.
-// ---------------------------------------------------------------------------
 
 const AMW_PDF_OCR_ANDERSA = [
   'ogtasza pierwszy (I) przetarg ustny nieograniczony nr 83/2026,',
@@ -672,12 +613,6 @@ test('parseAmwPdfText: null/empty returns all-null', () => {
   assert.equal(r.apt, null);
 });
 
-// ---------------------------------------------------------------------------
-// parseAmwPdfText — wykaz-format PDF (BUG 1 fix: price row "6 Cena NNN zl")
-// Groundtruthed on attachment 258223 (Grocjecka 66 m 78, wykaz 2026-06-25).
-// This is a pre-auction WYKAZ document: no "Przetarg odbedzie sie" line and
-// price row is "6 Cena 536 000,00 zl" (no "wywoławcza" / "netto" nearby).
-// ---------------------------------------------------------------------------
 
 const AMW_PDF_OCR_GROJECKA = [
   'DYREKTOR ODDZIALU REGIONALNEGO',
@@ -735,9 +670,6 @@ test('parseAmwPdfText: Grocjecka 66 m 78 (wykaz) — apt 78', () => {
 test('parseAmwPdfText: Grocjecka 66 m 78 (wykaz) — address Grocjecka building 66', () => {
   const r = parseAmwPdfText(AMW_PDF_OCR_GROJECKA);
   assert.ok(r.address, 'address must be parsed');
-  // ASCII fixture uses "Grocjecka" (OCR transliteration of Grójecka);
-  // street_norm = "grocjecka". Real cache has "Grójecka" → "grojecka".
-  // Match the common root "gr" + "jecka" to cover both variants.
   assert.ok(/gr[oo]cjecka|gr[oo]jecka/i.test(r.address.street_norm),
     'street_norm should match Grocjecka/Grojecka, got: ' + r.address?.street_norm);
   assert.equal(r.address.building, '66');

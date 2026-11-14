@@ -1,31 +1,3 @@
-// Malbork parsers.
-//
-// Burmistrz Miasta Malborka sells municipal residential properties (nieruchomości lokalowe)
-// at "ustny przetarg nieograniczony na sprzedaż" via the city BIP (bip.malbork.pl).
-// Both announcement and result documents are born-digital text PDFs extracted
-// via core's pdfText() (pdftotext).
-//
-// Document shapes:
-//   ANNOUNCEMENTS ("Ogłoszenie Burmistrza Miasta Malborka z ... o przetargu na sprzedaż nieruchomości"):
-//     - Header: "ogłasza w dniu <DATE> o godz. <TIME> <ROUND> ustny przetarg nieograniczony
-//       na sprzedaż nieruchomości lokalowej [or lokalowych]..."
-//     - Section 1 "Opis nieruchomości": prose description + property table:
-//       "l.p.  adres  Pow. lokalu  Nr działki  pow. działki  udział w działce  Cena wywoławcza lokalu (VAT zw)"
-//       Can list a single flat (e.g. ul. Wiosenna 31/2, ul. Mickiewicza 36/2, ul. Grunwaldzka 22/1)
-//       or multiple flats in one batch (e.g. ul. 17 Marca 21/4, 21/6).
-//     - Section 3 "Warunki nabycia nieruchomości": wadium deadline ("płatne najpóźniej do <DATE> r.").
-//
-//   RESULTS ("Informacja o wynikach przetargu przeprowadzonego w dniu <DATE> r. na sprzedaż nieruchomości lokalowej"):
-//     - Published under two boards:
-//       * Menu 180 (rozstrzygnięte): sales concluded (nabywca wyłoniony, cena wylicytowana).
-//       * Menu 203 (nierozstrzygnięte): negative outcomes (brak uczestników / nie wyłoniono nabywcy).
-//     - Section 2: property table with address, area and starting price.
-//     - Section 3: participant statement ("Do przetargu przystąpił jeden uczestnik" / "nie przystąpił żaden uczestnik").
-//     - Section 4: outcome clause:
-//       * Sold: "W wyniku przetargu wyłoniono nabywcę... za cenę <FINAL> zł" or
-//         "wylicytował lokal za cenę <FINAL> zł po udzieleniu bonifikaty...".
-//         In multi-flat auctions: bulleted per-unit lines ("- lokal 17 Marca 21/7 za cenę 905 210 zł").
-//       * Unsold: "W wyniku przetargu nie wyłoniono nabywcy nieruchomości".
 
 import { parseAddress } from '../../core/normalize.js';
 
@@ -41,7 +13,6 @@ const ROUND_MAP = {
   i: 1, ii: 2, iii: 3, iv: 4, v: 5, vi: 6, vii: 7, viii: 8,
 };
 
-/** Parse Polish currency string (e.g. "909 080 zł", "518 479,00 zł") to integer PLN. */
 export function parsePLN(str) {
   if (str == null) return null;
   const cleaned = String(str)
@@ -52,19 +23,16 @@ export function parsePLN(str) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/** Parse decimal number string (comma or dot) into float. */
 export function parseNum(str) {
   if (str == null) return null;
   const n = Number(String(str).replace(/[\s\u00a0]/g, '').replace(',', '.'));
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/** Normalize whitespace. */
 export function normalizeWs(s) {
   return (s == null ? '' : String(s)).replace(/\s+/g, ' ').trim();
 }
 
-/** Parse a Polish date string (DD.MM.YYYY or DD Month YYYY) into ISO YYYY-MM-DD. */
 export function parsePolishDate(str) {
   if (!str) return null;
   const dm = /(\d{1,2})\.(\d{1,2})\.(\d{4})/.exec(str);
@@ -77,12 +45,10 @@ export function parsePolishDate(str) {
   return null;
 }
 
-/** Check if text describes a flat sale (lokal mieszkalny / nieruchomość lokalowa). */
 export function isFlat(text) {
   return /lokal\w*\s+mieszkaln|nieruchomo[śs]c\w*\s+lokalow/i.test(text || '');
 }
 
-/** Check if title or attachment name is explicitly skippable (leases, seasonal sales, flowers). */
 export function isSkippable(text) {
   const t = String(text || '').toLowerCase();
   return (
@@ -91,16 +57,13 @@ export function isSkippable(text) {
   );
 }
 
-/** Extract auction date from notice text or fallback date. */
 export function extractAuctionDate(text, fallbackDate = null) {
   const norm = normalizeWs(text);
-  // Announcement pattern: "ogłasza w dniu <DATE> ... przetarg"
   const am = /og[łl]asza\s+w\s+dniu\s+(\d{1,2}(?:\.|\s+)[a-ząćęłńóśźż\d]+(?:\.|\s+)\d{4})/i.exec(norm);
   if (am) {
     const d = parsePolishDate(am[1]);
     if (d) return d;
   }
-  // Result pattern: "przeprowadzonego w dniu <DATE> ... na sprzedaż"
   const rm = /przeprowadzon\w*\s+w\s+dniu\s+(\d{1,2}(?:\.|\s+)[a-ząćęłńóśźż\d]+(?:\.|\s+)\d{4})/i.exec(norm);
   if (rm) {
     const d = parsePolishDate(rm[1]);
@@ -109,7 +72,6 @@ export function extractAuctionDate(text, fallbackDate = null) {
   return fallbackDate;
 }
 
-/** Extract round ordinal number from announcement text. */
 export function extractRound(text) {
   const norm = normalizeWs(text);
   const m = /og[łl]asza[\s\S]{0,120}?(pierwszy|drugi|trzeci|czwarty|pi[ąa]ty|sz[óo]sty|si[óo]dmy|[ivx]+)\s+ustny\s+przetarg/i.exec(norm);
@@ -120,7 +82,6 @@ export function extractRound(text) {
   return 1;
 }
 
-/** Extract wadium deadline date from announcement text. */
 export function extractWadiumDeadline(text) {
   const norm = normalizeWs(text);
   const m = /wadium[\s\S]{0,600}?p[łl]atne[\s\S]{0,600}?do\s+(\d{1,2}(?:\.|\s+)[a-ząćęłńóśźż\d]+(?:\.|\s+)\d{4})/i.exec(norm);
@@ -128,17 +89,12 @@ export function extractWadiumDeadline(text) {
   return null;
 }
 
-/**
- * Extract flat table rows from announcement or result notice text.
- * Each row returns { addressRaw, area_m2, starting_price_pln }.
- */
 export function extractTableRows(text) {
   const rows = [];
   const lines = String(text || '').split('\n');
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
 
-    // Standard row: "[1.] ul. Street 12/3  120,66 m2 ... 518 479 zł"
     const m = /(?:^\s*\d+\.?\s+)?(ul\.\s+[A-ZĄĆĘŁŃÓŚŹŻ0-9][^,\n]+?\s+\d+[a-zA-Z]?(?:\/\d+[a-zA-Z]?)?)\s+(\d+(?:[.,]\d+)?)\s*m[2²][\s\S]*?(\d{1,3}(?:[ \u00a0]\d{3})*)\s*z[łl]/i.exec(line);
     if (m) {
       rows.push({
@@ -149,9 +105,6 @@ export function extractTableRows(text) {
       continue;
     }
 
-    // Split line row (where building/apt is placed on next line below street):
-    // Line i:   "ul. Poczty Gdańskiej   126,38 m2 98/19 0.0178 0,261 542 029 zł"
-    // Line i+1: "        20/2                                 ha"
     const mSplit = /(?:^\s*\d+\.?\s+)?(ul\.\s+[A-ZĄĆĘŁŃÓŚŹŻ0-9][^\n]+?)\s+(\d+(?:[.,]\d+)?)\s*m[2²][\s\S]*?(\d{1,3}(?:[ \u00a0]\d{3})*)\s*z[łl]/i.exec(line);
     if (mSplit && i + 1 < lines.length) {
       const nextLine = lines[i + 1];
@@ -168,7 +121,6 @@ export function extractTableRows(text) {
     }
   }
 
-  // Fallback: single-flat announcement where table header is missing or non-tabular
   if (rows.length === 0) {
     const norm = normalizeWs(text);
     const addrM = /po[łl]o[żz]ona\s+w\s+budynku\s+przy\s+(ul\.\s+[A-ZĄĆĘŁŃÓŚŹŻ0-9][^,]+?\s+\d+[a-zA-Z]?)/i.exec(norm);
@@ -189,23 +141,16 @@ export function extractTableRows(text) {
   return rows;
 }
 
-/**
- * Extract mapping of sold flats to achieved prices from Section 4 of result notice.
- * Returns Map<flatIdentifier, pricePLN>.
- */
 export function extractSoldMap(text, rows) {
   const soldMap = new Map();
   const s4Idx = text.search(/4\.\s*W\s+wyniku\s+przetargu/i);
   if (s4Idx < 0) return soldMap;
   const s4Text = text.slice(s4Idx);
 
-  // If explicit negative outcome stated across the board
   if (/nie\s+wy[łl]oniono\s+nabywcy/i.test(s4Text)) {
     return soldMap;
   }
 
-  // Case 1: Bulleted list of sold flats (e.g. 17 Marca 21)
-  // e.g. "- lokal 17 Marca 21/7 za cenę 905 210 zł"
   const bulletRe = /[-–]\s*lokal\s+(?:(?:przy\s+ul\.\s+)?[^–\n]+?\s+)?(\d+[a-zA-Z]?(?:\/\d+[a-zA-Z]?)?)\s*(?:[-–]\s*)?za\s+cen[ęe]\s*(\d[\d\s\u00a0]*)\s*z[łl]/gi;
   let bm;
   while ((bm = bulletRe.exec(s4Text)) !== null) {
@@ -214,8 +159,6 @@ export function extractSoldMap(text, rows) {
     soldMap.set(ref, price);
   }
 
-  // Case 2: Named flat in prose:
-  // e.g. "wyłoniono nabywcę dla nieruchomości lokalowej przy ul. 17 Marca 22/2 – Arkadiusz Kisiel wylicytował lokal za cenę 350 970zł"
   const proseRe = /przy\s+ul\.\s+[^–\n]+?\s+(\d+[a-zA-Z]?(?:\/\d+[a-zA-Z]?)?)\s*[–-][^–\n]+?(?:wylicytowa[łl]\w*(?:\s+lokal)?\s+za\s+cen[ęe]|za\s+cen[ęe])\s*(\d[\d\s\u00a0]*)\s*z[łl]/gi;
   let pm;
   while ((pm = proseRe.exec(s4Text)) !== null) {
@@ -224,7 +167,6 @@ export function extractSoldMap(text, rows) {
     soldMap.set(ref, price);
   }
 
-  // Case 3: Single flat auction where buyer is declared
   if (rows.length === 1 && soldMap.size === 0 && /wy[łl]oniono\s+nabywc[ęe]/i.test(s4Text)) {
     const sm = /(?:wylicytowa[łl]\w*(?:\s+lokal)?\s+za\s+cen[ęe]|za\s+cen[ęe])\s*(\d[\d\s\u00a0]*)\s*z[łl]/i.exec(s4Text);
     if (sm) {
@@ -242,14 +184,6 @@ export function extractSoldMap(text, rows) {
   return soldMap;
 }
 
-/**
- * Parse an announcement PDF into listing records.
- * @param {string} pdfTextRaw   pdftotext text of the announcement PDF
- * @param {string} detailUrl    article URL on the BIP
- * @param {string} sourcePdf    direct PDF download URL
- * @param {string} [attName]    attachment file name (optional hint)
- * @returns {object[]} array of active listing objects
- */
 export function parseAnnouncement(pdfTextRaw, detailUrl, sourcePdf, attName = '') {
   if (!isFlat(pdfTextRaw) && !isFlat(attName)) return [];
 
@@ -279,13 +213,6 @@ export function parseAnnouncement(pdfTextRaw, detailUrl, sourcePdf, attName = ''
   return listings;
 }
 
-/**
- * Framework entry point: parse one result notice PDF into result records.
- * @param {string} text pdftotext text of the result notice PDF
- * @param {string|null} fallbackDate fallback ISO auction date
- * @param {string} sourceUrl the PDF download URL
- * @returns {object[]} array of result records
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!isFlat(text)) return [];
 

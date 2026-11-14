@@ -1,12 +1,3 @@
-// Mysłowice site adapter — bip.myslowice.pl (FINN eUrząd, server-rendered).
-//
-// The two category pages /artykul/aktualne-przetargi and
-// /artykul/archiwum-przetargow server-render every child announcement link
-// (/artykul/ogloszenie-…). Each flat announcement's title carries "… lokalu
-// mieszkalnego nr <apt> … przy ul. <Street> <bldg>" — enough to key it via
-// window.ZGM_FINN.addressFromTitle (mirrors the pipeline's core/finn-bip.js).
-// Announcement pages are themselves /artykul/ slugs, so they're also badged as
-// detail pages from the page <h1> title.
 
 (function () {
   if (!window.ZGM_SITES || !window.ZGM_FINN) return;
@@ -14,8 +5,6 @@
   const INDEX_PATH = /\/artykul\/(aktualne-przetargi|archiwum-przetargow)\/?$/i;
   const ANN_PATH = /\/artykul\/(ogloszenie|obwieszczenie)/i;
 
-  // A title yields a key only when it's a flat-sale auction AND parses to an
-  // address — otherwise no badge (land/garage/rental titles fall through).
   function rawFromTitle(title) {
     if (!window.ZGM_FINN.isFlatAuction(title)) return null;
     return window.ZGM_FINN.addressFromTitle(title);

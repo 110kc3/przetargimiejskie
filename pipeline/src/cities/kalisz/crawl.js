@@ -1,34 +1,3 @@
-// Kalisz crawler — bip.kalisz.pl WGM "Sprzedaż, dzierżawa nieruchomości"
-// board (r_ogl=SN). LIVE-VERIFIED 2026-07-16.
-//
-// Classic PHP-templated BIP (no JS, no JSON API): one board page lists ~14-18
-// current entries in numbered table rows. Each row has a plaintext title,
-// a linked PDF (`./ogloszenia/sn/<file>.pdf` — no stable naming convention,
-// must be discovered per-entry), and metadata ("Na stronie biuletynu od ...
-// do ...", "Na podstawie: <WGM ref>"). Confirmed live 2026-07-16: exactly
-// this structure, 18 items, dated 29-06-2025..16-07-2026.
-//
-// CRITICAL finding (this build, NOT in the spike): the board's own title
-// text can be STALE/MISMATCHED to its linked PDF's real content. Live item
-// #9 (2026-07-16) is titled "Informacja o wyniku II przetargu ustnego
-// ograniczonego na sprzedaż ... lokalu mieszkalnego ... Częstochowskiej
-// 7/6A" — but its PDF (03072026do24072026.pdf, ref WGM.6845.01.0008.2026.AM)
-// is actually an unrelated dzierżawa (lease) WYKAZ for ul. Wojciecha z
-// Brudzewa. The SAME ref number is bundled into a different live item's
-// (#15) lease-wykaz ref list — a real city CMS data-entry slip, not a
-// scraping artifact. Per ADAPTER-GUIDE.md §5.3 ("classifyKind is always run
-// on the PDF BODY, never the URL slug/title"), this crawler fetches every
-// entry's PDF and lets parse.js classify + extract fields from the PDF TEXT
-// ONLY; the board title is used solely for the human-readable log line.
-//
-// Consequence: every live entry's PDF is fetched (born-digital, pdfText —
-// no OCR). Volume is thin (~14-18 items/board fetch) so this is cheap even
-// at the default 1 req/sec fetch throttle; pdfText's on-disk content-
-// addressed cache makes a second pass (crawlActive after crawlResultDocs, or
-// vice versa) effectively free. One shared crawlAll() (memoized per process,
-// same pattern as krakow/crawl.js) does the single board-fetch + per-item
-// PDF-fetch + classify pass; crawlActive()/crawlResultDocs() just read their
-// half of the split.
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -47,15 +16,11 @@ function archiveUrl(year, page) {
     `&nr_porcji=${page}&sorttype=asc&arch=1`;
 }
 
-// Marks the start of each numbered board row: `<td width=25><font
-// color='#000080'><strong>N.</strong></font></td><td>`. LIVE-VERIFIED against
-// the real 2026-07-16 board HTML (18 matches for 18 visible items).
 const ITEM_START_RE = /<td width=25><font color=.#000080.><strong>(\d+)\.<\/strong><\/font><\/td><td>/g;
 const TITLE_RE = /<\/strong><\/font><\/td><td>([\s\S]*?)<br \/><br \/><\/td>/;
 const HREF_RE = /href="(\.\/ogloszenia\/sn\/[^"]+)"/;
 const REF_RE = /Na podstawie:.*?<span[^>]*>([^<]*)<\/span>/;
 
-/** @param {string} html board page HTML @returns {Array<{title:string, pdfUrl:string, ref:string|null}>} */
 export function itemsFromBoardHtml(html) {
   const marks = [...(html || '').matchAll(ITEM_START_RE)];
   const archIdx = html.indexOf('Archiwum dzia');
@@ -65,7 +30,7 @@ export function itemsFromBoardHtml(html) {
     const end = i + 1 < marks.length ? marks[i + 1].index : archIdx > 0 ? archIdx : html.length;
     const chunk = html.slice(start, end);
     const hrefM = HREF_RE.exec(chunk);
-    if (!hrefM) continue; // a row with no PDF link isn't a real entry
+    if (!hrefM) continue;
     const titleM = TITLE_RE.exec(chunk);
     const refM = REF_RE.exec(chunk);
     items.push({
@@ -77,8 +42,6 @@ export function itemsFromBoardHtml(html) {
   return items;
 }
 
-/** Parse the archive's paired DivBipRow-1 (title) + DivBipRow-2 (PDF/meta)
- * records. This layout is distinct from the current board's table rows. */
 export function itemsFromArchiveHtml(html) {
   const marks = [...(html || '').matchAll(/<div class="DivBipRow-1">/g)];
   const items = [];
@@ -187,10 +150,6 @@ async function crawlAll() {
   return {
     listings,
     resultRefs,
-    // A reachable board with either no unseen documents or at least one
-    // successfully inspected document can legitimately contain no new tracked
-    // flat. Do not report that quiet period as a source outage merely because
-    // a couple of unrelated/deleted attachments returned 403.
     validEmpty: listings.length === 0
       && resultRefs.length === 0
       && (items.length === 0 || fetchedDocs > 0),

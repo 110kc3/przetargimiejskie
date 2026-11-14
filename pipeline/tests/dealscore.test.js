@@ -1,7 +1,3 @@
-// Unit coverage for the extension's deal-score helper (extension/dealscore.js).
-// The DOM wiring (popup cell / content chip) can't run headless, but the
-// median + percentage math is pure and IS testable — load the IIFE in a
-// node:vm sandbox (same trick as normalize-parity.test.js) and exercise it.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -15,8 +11,6 @@ vm.createContext(sandbox);
 vm.runInContext(readFileSync(path, 'utf8'), sandbox, { filename: path });
 const DS = sandbox.window.ZGM_DEALSCORE;
 
-// A city with 5 priced residential flats at 1000..5000 zł/m² (median 3000),
-// plus a garage that must NOT skew the median, plus a too-small city.
 const PROPERTIES = [
   ...[1000, 2000, 3000, 4000, 5000].map((zlM2, i) => ({
     city: 'testowo', kind: 'mieszkalny', area_m2: 50,
@@ -38,14 +32,14 @@ test('buildCityMedians: residential-only median, min-sample gate', () => {
 
 test('score: below median is a good deal', () => {
   const med = DS.buildCityMedians(PROPERTIES).get('testowo');
-  const s = DS.score(50 * 2400, 50, 'mieszkalny', med); // 2400 vs 3000 → 20% below
+  const s = DS.score(50 * 2400, 50, 'mieszkalny', med);
   assert.ok(s && s.below === true);
   assert.equal(s.pct, 20);
 });
 
 test('score: above median is not a good deal', () => {
   const med = DS.buildCityMedians(PROPERTIES).get('testowo');
-  const s = DS.score(50 * 3600, 50, 'mieszkalny', med); // 3600 vs 3000 → 20% above
+  const s = DS.score(50 * 3600, 50, 'mieszkalny', med);
   assert.ok(s && s.below === false);
   assert.equal(s.pct, 20);
 });

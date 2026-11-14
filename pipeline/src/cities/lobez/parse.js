@@ -1,6 +1,3 @@
-// Łobez parser — bip.lobez.pl
-//
-// Extracts listing, land, and result records from born-digital text-PDF attachments.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -161,7 +158,6 @@ export function parseAnnouncement(text, title, url) {
   const parcels = extractParcels(combined);
   const kw = extractKw(combined);
 
-  // Address: w budynku mieszkalnym nr 26 położonym przy ulicy Niepodległości w Łobzie
   let address = null;
   const mAddr = combined.match(/(?:w\s+budynku\s+(?:mieszkalnym\s+)?(?:nr\s*)?([0-9A-Za-z]+)\s+położonym\s+przy\s+(?:ulicy|ul\.|al\.|alei)\s*([A-ZĄĆĘŁŃÓŚŹŻ0-9][a-ząćęłńóśźż0-9\.\s-]+?)(?:\s+w\s+Łobzie)?(?:,|\.|\s+wraz|\s+o\s+pow))/i);
   if (mAddr) {
@@ -174,7 +170,6 @@ export function parseAnnouncement(text, title, url) {
     }
   }
 
-  // Area
   let area_m2 = null;
   const mArea = combined.match(/(?:powierzchni(?:i|a)?\s+użytkowej|pow\.\s*użytkow[a-z]*|o\s+pow(?:ierzchni)?)\s*:?\s*([\d\s,.]+)\s*(?:m2|m²)/i);
   if (mArea) {
@@ -187,7 +182,6 @@ export function parseAnnouncement(text, title, url) {
     }
   }
 
-  // Price
   let price = null;
   const mPrice = combined.match(/Cena\s+wywoławcza[^\n\r:]*wynosi:?\s*([\d\s,.]+)\s*(?:zł|pln)/i);
   if (mPrice) {
@@ -197,7 +191,6 @@ export function parseAnnouncement(text, title, url) {
     if (mPriceFallback) price = parsePLN(mPriceFallback[1]);
   }
 
-  // Date
   let auction_date = null;
   const mDate = combined.match(/(?:odbędzie\s+się\s+w\s+dniu|przetarg\s+został\s+wyznaczony\s+na\s+dzień|termin\s+przetargu:?)\s*(\d{1,2}\s+[a-ząćęłńóśźż]+\s+\d{4}|\d{1,2}\.\d{1,2}\.\d{4}|\d{4}-\d{2}-\d{2})/i);
   if (mDate) {

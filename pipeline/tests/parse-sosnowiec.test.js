@@ -1,4 +1,3 @@
-// Sosnowiec parser tests -- fixtures from real API (June 2026).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -111,7 +110,6 @@ test('parseResultDoc: negative wording => unsold, no achieved price', () => {
   assert.equal(r.starting_price_pln, 77000);
 });
 
-// ============== LAND tests ================================================
 
 const LAND_TITLE_SINGLE =
   'Przetarg ustny nieograniczony na sprzedaz nieruchomosci niezabudowanej dzialka nr 2420 obreb 0010 Sosnowiec przy ul. Bohaterow Getta';
@@ -201,13 +199,7 @@ test('parseLandAnnouncement: multi-separate -- one record per plot, own price+da
   assert.equal(p2.auction_date, '2026-02-09');
 });
 
-// ============== BUILT / COMMERCIAL / CO-OP coverage =======================
-// Real titles/bodies from the live API (June 2026). Built-up properties
-// ("nieruchomość zabudowana", e.g. 563715 Targowej 12 & 562961 Szczecińskiej 11),
-// commercial units ("lokal użytkowy", e.g. 557464) and co-op flats
-// ("…prawa do lokalu mieszkalnego…", e.g. 563075) used to be dropped.
 
-// 563715 — Targowej 12: kamienica, parcel+area only in the body, no building area.
 const BUILDING_TITLE =
   'Przetarg ustny nieograniczony na sprzedaż nieruchomości zabudowanej położonej w Sosnowcu, przy ul. Targowej 12. ';
 const BUILDING_CONTENT =
@@ -220,7 +212,6 @@ const BUILDING_CONTENT =
   '<p><strong>1.</strong> Cena wywo&#322;awcza do przetargu wynosi: <strong>8 867 000,00 z&#322;</strong>.</p>' +
   '<p><strong>3.</strong> Przetarg odb&#281;dzie si&#281; w dniu <strong>21.08.2026 r.</strong>, o godz. 9.30.</p>';
 
-// 562961 — Szczecińskiej 11: budynek mieszkalno-użytkowy with a stated building area.
 const BUILDING2_TITLE =
   'Przetarg ustny nieograniczony  na sprzedaż nieruchomości zabudowanej położonej w Sosnowcu przy ul. Szczecińskiej 11';
 const BUILDING2_CONTENT =
@@ -232,7 +223,6 @@ const BUILDING2_CONTENT =
   '<p><strong>1.</strong> Cena wywo&#322;awcza do przetargu wynosi 2 505 000,00 z&#322;.</p>' +
   '<p>Przetarg odb&#281;dzie si&#281; w dniu <strong>19 czerwca 2026 r.</strong> w siedzibie Urz&#281;du.</p>';
 
-// 557464 — lokal użytkowy on Skłodowskiej-Curie (building number only in the body).
 const COMMERCIAL_TITLE =
   'Przetarg ustny nieograniczony na sprzedaż lokalu użytkowego położnego w Sosnowcu przy ul. M. Skłodowskiej-Curie';
 const COMMERCIAL_CONTENT =
@@ -242,7 +232,6 @@ const COMMERCIAL_CONTENT =
   '<p><strong>1.</strong> Cena wywo&#322;awcza do przetargu wynosi: <strong>68.150,00 z&#322;</strong>.</p>' +
   '<p><strong>3.</strong> Przetarg odb&#281;dzie si&#281; w dniu <strong>25.10.2024 r.</strong> o godz. 9.30.</p>';
 
-// 563075 — co-op flat on Kaliskiej 14a/2.
 const COOP_TITLE =
   'Przetarg ustny nieograniczony na sprzedaż spółdzielczego własnościowego prawa do lokalu mieszkalnego położnego w Sosnowcu przy ul. Kaliskiej 14a/2';
 const COOP_CONTENT =
@@ -259,30 +248,25 @@ const GENERIC_SALE_TITLE = // class word only in the body
   'Ogłoszenie o przetargu ustnym nieograniczonym na sprzedaż nieruchomości przy ul. Bohaterów Getta';
 
 test('classifiers route built / commercial / land / flat without overlap', () => {
-  // building: zabudowana, no lokal
   assert.equal(isBuildingAuction(BUILDING_TITLE), true);
   assert.equal(isBuildingAuction(BUILDING2_TITLE), true);
   assert.equal(isFlatAuction(BUILDING_TITLE), false);
   assert.equal(isCommercialAuction(BUILDING_TITLE), false);
-  assert.equal(isLandAuction(BUILDING_TITLE), false); // (?<!nie)zabudowan must not leak to land
-  // niezabudowana stays land, never building
+  assert.equal(isLandAuction(BUILDING_TITLE), false);
   assert.equal(isBuildingAuction('Przetarg ustny na sprzedaz nieruchomosci niezabudowanej dzialka nr 7'), false);
   assert.equal(isLandAuction('Przetarg ustny na sprzedaz nieruchomosci niezabudowanej dzialka nr 7'), true);
-  // commercial
   assert.equal(isCommercialAuction(COMMERCIAL_TITLE), true);
   assert.equal(isFlatAuction(COMMERCIAL_TITLE), false);
   assert.equal(isBuildingAuction(COMMERCIAL_TITLE), false);
   assert.equal(isLandAuction(COMMERCIAL_TITLE), false);
-  // lease / withdrawal / result never classify as a sale
   assert.equal(isBuildingAuction('Pisemny przetarg nieograniczony na oddanie w dzierzawe nieruchomosci zabudowanej'), false);
   assert.equal(isCommercialAuction('Wyniki przetargu na sprzedaz lokalu uzytkowego'), false);
 });
 
 test('co-op flat: full title direct, truncated title needs body confirmation', () => {
-  assert.equal(isFlatAuction(COOP_TITLE), true); // full title already carries "lokalu mieszkalnego"
-  assert.equal(isFlatAuction(COOP_TRUNC_TITLE), false); // title alone is not enough
+  assert.equal(isFlatAuction(COOP_TITLE), true);
+  assert.equal(isFlatAuction(COOP_TRUNC_TITLE), false);
   assert.equal(isFlatAuction(COOP_TRUNC_TITLE, 'na sprzedaż prawa do lokalu mieszkalnego nr 5'), true);
-  // a truncated *commercial* prawo-title must NOT be mistaken for a flat
   assert.equal(isFlatAuction('Przetarg na sprzedaz prawa do lokalu uzytkowego', 'lokal uzytkowy'), false);
 });
 
@@ -290,9 +274,7 @@ test('generic "na sprzedaż nieruchomości" title routes via the body', () => {
   assert.equal(isGenericSaleAuction(GENERIC_SALE_TITLE), true);
   assert.equal(isBuildingAuction(GENERIC_SALE_TITLE), false);
   assert.equal(isCommercialAuction(GENERIC_SALE_TITLE), false);
-  // with a działka in the body it becomes land
   assert.equal(isLandAuction(GENERIC_SALE_TITLE, 'oznaczonej jako działka nr 2420 obręb 0010'), true);
-  // without a parcel hint in the body it does not masquerade as land
   assert.equal(isLandAuction(GENERIC_SALE_TITLE, 'budynek kamienicy'), false);
 });
 
@@ -309,7 +291,7 @@ test('parsePropertyAnnouncement: built property (Targowej 12) → kind zabudowan
   assert.equal(r.address.apt, null);
   assert.equal(r.starting_price_pln, 8867000);
   assert.equal(r.auction_date, '2026-08-21');
-  assert.equal(r.area_m2, null); // no building usable area stated; plot area is carried separately
+  assert.equal(r.area_m2, null);
   assert.equal(r.dzialka_nr, '2802');
   assert.equal(r.obreb, '11 Sosnowiec');
   assert.equal(r.plot_area_m2, 1385);
@@ -320,7 +302,7 @@ test('parsePropertyAnnouncement: built property (Szczecińskiej 11) → building
   assert.ok(r);
   assert.equal(r.kind, 'zabudowana');
   assert.equal(r.address.building, '11');
-  assert.equal(r.area_m2, 709.58); // whole-building area, above the flat cap
+  assert.equal(r.area_m2, 709.58);
   assert.equal(r.starting_price_pln, 2505000);
   assert.equal(r.auction_date, '2026-06-19');
   assert.equal(r.dzialka_nr, '7212/1');
@@ -331,10 +313,9 @@ test('parsePropertyAnnouncement: commercial unit → kind uzytkowy, clean addres
   const r = parsePropertyAnnouncement(COMMERCIAL_TITLE, COMMERCIAL_CONTENT, 'uzytkowy');
   assert.ok(r);
   assert.equal(r.kind, 'uzytkowy');
-  // building number lives only in the body; address must not glue the title tail on
   assert.equal(r.address_raw, 'M. Skłodowskiej-Curie 14');
   assert.equal(r.address.building, '14');
-  assert.equal(r.area_m2, 27.26); // flat-sized usable area
+  assert.equal(r.area_m2, 27.26);
   assert.equal(r.starting_price_pln, 68150);
   assert.equal(r.auction_date, '2024-10-25');
 });
@@ -343,7 +324,7 @@ test('parseAnnouncement still keys a co-op flat as mieszkalny', () => {
   const r = parseAnnouncement(COOP_TITLE, COOP_CONTENT);
   assert.ok(r);
   assert.equal(r.kind, 'mieszkalny');
-  assert.equal(r.address.building, '14A'); // parseAddress upper-cases the building suffix
+  assert.equal(r.address.building, '14A');
   assert.equal(r.address.apt, '2');
   assert.equal(r.area_m2, 48.25);
   assert.equal(r.starting_price_pln, 241250);
@@ -354,10 +335,10 @@ test('result classifier keeps flat + commercial + built results and stamps the k
   assert.equal(saleResultKind('Wyniki ustnego przetargu nieograniczonego na sprzedaż lokalu mieszkalnego przy Alei Zwyciestwa 25/15'), 'mieszkalny');
   assert.equal(saleResultKind('Wyniki przetargu na sprzedaż lokalu użytkowego przy ul. Skłodowskiej-Curie 14'), 'uzytkowy');
   assert.equal(saleResultKind('Wyniki przetargu na sprzedaż nieruchomości zabudowanej przy ul. Targowej 12'), 'zabudowana');
-  assert.equal(saleResultKind('Wyniki przetargu na sprzedaż nieruchomości niezabudowanej'), null); // land result: not kept
+  assert.equal(saleResultKind('Wyniki przetargu na sprzedaż nieruchomości niezabudowanej'), null);
   assert.equal(saleResultKind('Wyniki przetargu na przekazanie w dzierzawe nieruchomosci zabudowanej'), null);
-  assert.equal(isSaleResult('Ogloszenie o przetargu na sprzedaz lokalu mieszkalnego'), false); // not a "Wyniki" notice
-  assert.equal(isFlatResult('Wyniki ustnego przetargu na sprzedaz lokalu mieszkalnego'), true); // legacy export unchanged
+  assert.equal(isSaleResult('Ogloszenie o przetargu na sprzedaz lokalu mieszkalnego'), false);
+  assert.equal(isFlatResult('Wyniki ustnego przetargu na sprzedaz lokalu mieszkalnego'), true);
 });
 
 test('parseResultDoc: built-property result → sold record, kind zabudowana, building area', () => {

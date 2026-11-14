@@ -1,6 +1,3 @@
-// Crawler for Sejny (bip-umsejny.podlaskie.eu)
-//
-// Scrapes Podlaskie platform property pages and PDF attachments.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

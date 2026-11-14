@@ -1,14 +1,3 @@
-// Zakopane crawler — bip.zakopane.eu (ESC S.A. / VelaBIP).
-// Server-rendered HTML listing + detail pages with attachments (PDF / Word DOC).
-//
-// Sources crawled:
-//   1. "Inne przetargi": https://bip.zakopane.eu/lista/inne-przetargi (cat 171)
-//   2. "Wydział Mienia": https://bip.zakopane.eu/lista/wydzial-mienia-i-nadzoru-wlascicielskiego-1 (cat 304)
-//   3. Site search: https://bip.zakopane.eu/szukaj//przetarg
-//
-// Each candidate is title/lead-routed (announcement / result / lease-skip / movable-skip).
-// Operative notice texts live in born-digital attachments (PDF or DOC), extracted
-// via pdfText() or docText().
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -96,18 +85,16 @@ export async function harvestCandidates() {
           role: isRes ? 'result' : 'ann',
         });
       }
-      if (items.length < 10) break; // Last page
+      if (items.length < 10) break;
     }
   }
 
-  // 1. Inne przetargi (category 171)
   await crawlSourcePages(
     (p) => (p <= 1 ? `${ORIGIN}/lista/inne-przetargi` : `${ORIGIN}/lista/inne-przetargi/${p}`),
     MAX_PAGES_INNE,
     'inne-przetargi',
   );
 
-  // 2. Wydział Mienia (category 304)
   await crawlSourcePages(
     (p) =>
       p <= 1
@@ -117,7 +104,6 @@ export async function harvestCandidates() {
     'wydzial-mienia',
   );
 
-  // 3. Search query: przetarg
   await crawlSourcePages(
     (p) => (p <= 1 ? `${ORIGIN}/szukaj//przetarg` : `${ORIGIN}/szukaj//przetarg////${p}`),
     MAX_PAGES_SEARCH,
@@ -202,7 +188,6 @@ async function crawlAll() {
       continue;
     }
 
-    // Announcement
     try {
       const rec = parseAnnouncement(detail.title, bodyText, c.href);
       if (rec) {

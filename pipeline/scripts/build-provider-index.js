@@ -1,8 +1,5 @@
 #!/usr/bin/env node
 
-// Trusted publisher-side index rebuild. It intentionally imports no crawler or
-// third-party dependency, so a repository-write token never shares a process
-// with downloaded code or source-network access.
 
 import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';

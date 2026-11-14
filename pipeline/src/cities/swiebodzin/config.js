@@ -1,7 +1,3 @@
-// Configuration for Świebodzin adapter (bip.swiebodzin.eu)
-//
-// Gmina Świebodzin (powiat świebodziński, lubuskie)
-// TERC: 0808054
 
 export const CONFIG = {
   id: 'swiebodzin',

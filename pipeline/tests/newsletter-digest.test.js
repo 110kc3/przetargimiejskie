@@ -48,8 +48,8 @@ test('plNoun: Polish 1 / 2-4 / 5+ forms with the 12-14 teens exception', () => {
   assert.equal(f(2), 'ogłoszenia');
   assert.equal(f(4), 'ogłoszenia');
   assert.equal(f(5), 'ogłoszeń');
-  assert.equal(f(12), 'ogłoszeń'); // teens → many
-  assert.equal(f(22), 'ogłoszenia'); // 22 → few
+  assert.equal(f(12), 'ogłoszeń');
+  assert.equal(f(22), 'ogłoszenia');
   assert.equal(f(25), 'ogłoszeń');
 });
 
@@ -65,7 +65,7 @@ test('buildModel: first run seeds the baseline silently and reports nothing', ()
   assert.equal(m.seededBaseline, true);
   assert.equal(m.totalNew, 0);
   assert.deepEqual(m.sections, []);
-  assert.deepEqual(m.nextSeen, ['P1']); // every current id recorded so next run is clean
+  assert.deepEqual(m.nextSeen, ['P1']);
 });
 
 test('buildModel: reports only unseen OPEN listings; concluded is tracked but hidden; zł/m² computed', () => {
@@ -91,7 +91,6 @@ test('buildModel: reports only unseen OPEN listings; concluded is tracked but hi
   assert.equal(it.priceFmt, '168 300');
   assert.equal(it.areaFmt, '37,06');
   assert.equal(it.zlM2Fmt, formatPLN(Math.round(168300 / 37.06)));
-  // seen is monotonic: prior seen ∪ all current ids (including the hidden sold one)
   assert.deepEqual(m.nextSeen, ['ALREADY_SEEN', 'NEW_OPEN', 'NEW_SOLD'].sort());
 });
 
@@ -149,7 +148,7 @@ test('renderMarkdown: baseline, empty, and populated digests', () => {
   assert.match(md, /4 218 zł\/m²/);
   assert.match(md, /przetarg 01\.08\.2026/);
   assert.match(md, /\(runda 2\)/);
-  assert.match(md, /\[ul\. A 1\/5\]\(https:\/\/x\/y\)/); // linked address
+  assert.match(md, /\[ul\. A 1\/5\]\(https:\/\/x\/y\)/);
 });
 
 test('renderHtml: escapes text/urls and links the address', () => {

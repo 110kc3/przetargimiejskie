@@ -1,6 +1,3 @@
-// Crawler for Mława (bip.mlawa.pl)
-//
-// Fetches notices from Drupal BIP search and ogloszenia feeds.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -49,11 +46,9 @@ export async function crawlActive() {
       const idMatch = notice.url.match(/\/([^\/?#]+)$/);
       const id = idMatch ? idMatch[1] : `doc-${Date.now()}`;
 
-      // Extract body text
       const bodyMatch = html.match(/class=\"[^\"]*field--name-body[^\"]*\">([\s\S]*?)<\/div>/i);
       let bodyText = bodyMatch ? bodyMatch[1] : html;
 
-      // Check for attached PDFs
       const pdfMatches = [...html.matchAll(/href=[\"'](https:\/\/bip\.mlawa\.pl\/sites\/default\/files\/[^\"]+\.pdf)[^\"']*[\"']/gi)];
       let attachmentText = '';
       for (const pm of pdfMatches) {

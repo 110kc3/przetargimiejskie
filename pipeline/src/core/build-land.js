@@ -1,28 +1,7 @@
-// Builds data/<city>/land.json — the SEPARATE parcel-keyed store for land
-// (działki / grunty) sale auctions. Land has no street|building|apt, so it does
-// NOT go through build-properties.js (which keys on address); it is collected
-// here, keyed by cadastral parcel number instead. Houses (kind 'zabudowana')
-// DO have addresses and stay in properties.json — only 'grunt' lands here.
-//
-// Introduced in HL-0 of the houses/land expansion (see SPIKE-HOUSES-LAND.md +
-// TODO.md). The shape deliberately mirrors a property: one entry per unique
-// parcel, with a chronological `listings[]`, so the extension/site can render
-// land with the same machinery as flats (minus zł/m², which is plot-based).
 
-/**
- * Stable per-city key for a land record. File is per-city, so the key is NOT
- * city-namespaced here — background.js namespaces at merge time, exactly like
- * properties.json. Preference: cadastral parcel (+ obręb to disambiguate the
- * same parcel number across districts), then a street address, then the raw
- * address string.
- * @param {object} r
- * @returns {string|null}
- */
 import { todayWarsaw } from './build-properties.js';
 import { geoportalUrl } from './geoportal.js';
 
-/** Split a parcel field ("263/2, 263/6" / "5/1; 5/2") into distinct parcel
- *  numbers, deduped, in source order. */
 export function splitParcels(dzialkaNr) {
   if (!dzialkaNr) return [];
   const seen = new Set();
@@ -47,15 +26,6 @@ export function landKey(r) {
   return raw ? `addr|${raw}` : null;
 }
 
-/**
- * Merge parcel-shaped land records into one entry per unique parcel.
- * @param {Array<object>} records  land listings (kind 'grunt'); each may carry
- *   dzialka_nr, obreb, address/address_raw/street/building, area_m2 (PLOT area),
- *   zoning, starting_price_pln, final_price_pln, auction_date, round, outcome,
- *   detail_url, source_url.
- * @param {string} cityId
- * @returns {{ plots: Array<object> }}
- */
 export function buildLand(records, cityId, cfg = {}) {
   const TODAY = todayWarsaw();
   const plots = new Map();
@@ -120,8 +90,6 @@ export function buildLand(records, cityId, cfg = {}) {
   }
 
   for (const p of plots.values()) {
-    // One auction event per parcel per date: fold same-date rows, keeping the
-    // most-resolved fields.
     const byDate = new Map();
     const out = [];
     for (const l of p.listings) {
@@ -137,8 +105,6 @@ export function buildLand(records, cityId, cfg = {}) {
     }
     out.sort((a, b) => (a.date || '9999').localeCompare(b.date || '9999'));
     p.listings = out;
-    // Derive the round from attempt order when the source didn't state it
-    // (same convention as build-properties.js).
     let attempt = 0;
     for (const l of p.listings) {
       attempt++;
@@ -148,8 +114,6 @@ export function buildLand(records, cityId, cfg = {}) {
   }
 
   for (const p of plots.values()) {
-    // Per-parcel list (multi-parcel plots link each one separately); the
-    // enrich step fills in each parcel's TERYT id + geoportal link.
     p.parcels = splitParcels(p.dzialka_nr);
     p.geoportal_url = geoportalUrl(p, cfg);
   }
@@ -162,18 +126,6 @@ export function buildLand(records, cityId, cfg = {}) {
   return { plots: arr };
 }
 
-/**
- * Merge a partial land crawl into the last published parcel history.
- *
- * Some continuity sources expose only a bounded current window. They may add
- * a newly announced parcel, but absence from that window is not evidence that
- * an older parcel/history entry should be deleted. Plot keys and auction dates
- * are stable identities, matching buildLand's own same-date folding rule.
- *
- * @param {Array<object>} previousPlots
- * @param {Array<object>} currentPlots
- * @returns {Array<object>}
- */
 export function mergePartialLand(previousPlots, currentPlots) {
   const plots = new Map();
 
@@ -195,8 +147,6 @@ export function mergePartialLand(previousPlots, currentPlots) {
       continue;
     }
 
-    // Prefer newly parsed, non-null metadata while retaining fields that the
-    // bounded source omitted.
     for (const [key, value] of Object.entries(incoming)) {
       if (key !== 'listings' && value != null) previous[key] = value;
     }
@@ -214,9 +164,6 @@ export function mergePartialLand(previousPlots, currentPlots) {
         continue;
       }
 
-      // A current-window announcement must never downgrade a previously
-      // resolved result for the same event. buildLand changes past announcements
-      // from active to archived; neither state is evidence of an auction result.
       const resolvedOutcome = existing.outcome && existing.outcome !== 'active' ? existing.outcome : null;
       for (const [key, value] of Object.entries(listing)) {
         if (value != null) existing[key] = value;
@@ -232,7 +179,6 @@ export function mergePartialLand(previousPlots, currentPlots) {
   });
 }
 
-/** Retain published events even when a complete current board rolls forward. */
 export function reconcileLandHistory(previous, current, {
   mergeHistory = true, complete = true, verifiedEmpty = false, today = null,
 } = {}) {

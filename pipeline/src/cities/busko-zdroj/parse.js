@@ -1,42 +1,3 @@
-// Busko-Zdrój parsers.
-//
-// parseIndexPage(html) — extract auction-announcement links from a page of the
-//   Joomla /ogloszenia feed. The feed is mostly obwieszczenia (warunki
-//   zabudowy / środowisko); we keep only links whose title matches the standard
-//   property-sale auction phrasing ("przetarg ustny nieograniczony na sprzedaż
-//   nieruchomości komunalnych"). Returns Array<{ url, title }> (absolute URLs).
-//
-// parseAnnouncementListings(html, url) — from ONE auction-announcement article
-//   page, extract every lokal-mieszkalny record. A single announcement can list
-//   a flat + a commercial building + land plots; only flats are returned.
-// parseLandAnnouncementListings(htmlOrText, url) handles the source's separate
-//   parcel descriptions/price list and the verified PDF-only land-sale family.
-//   The flat's address + starting price come from the "Ceny wywoławcze …"
-//   enumeration line ("190 000,00 zł lokal mieszkalny Busko-Zdrój os. Kościuszki
-//   7/6"); its area from the descriptive paragraph ("Lokal mieszkalny nr 6 o
-//   pow. użytkowej 26,38 m²"); the auction date from "Przetarg odbędzie się w
-//   dniu 7 sierpnia 2025 r."; the round from the article title ordinal.
-//
-// parseResultLink(html) — from the same article page, extract the result PDF
-//   URL ("Informacja o wynikach przetargu [pdf]") + the announcement PDF URL +
-//   the article's published date. Feeds crawlResultDocs.
-//
-// parseResultDoc(text, fallbackDate, sourceUrl) — registry contract. Parses a
-//   born-digital "Informacja o wynikach przetargu" PDF (pdftotext -layout).
-//   The PDF is multi-item (one numbered clause per property); supported flat
-//   and land clauses are returned. NOTE: some PDFs lose Polish diacritics, so the
-//   regexes are diacritic-tolerant (u\w+ for "użytkowej", osi\w+ for
-//   "osiągnięta", etc.).
-//
-// Groundtruthed against live fixtures fetched 2026-07-05:
-//   ANNOUNCEMENT: umig.busko.pl/ogloszenia/24147-…-gnwr-6840-23-2025.html
-//     flat: os. Kościuszki 7/6, 26,38 m², cena wywoławcza 190 000 zł,
-//           I (pierwszy) przetarg, 7 sierpnia 2025.
-//   RESULT PDF: dl.umig.busko.pl/bip/ogloszenia/2025/08/19/
-//               informacja_o_wybikach_przetargu_gnwr_6840_23_3_2025.pdf
-//     flat clause: cena osiągnięta 0 → przetarg zakończony wynikiem negatywnym
-//     (UNSOLD; no achieved price). The batch's other clause (Plac Zwycięstwa 26,
-//     zabudowana nieruchomość) is filtered out.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -45,9 +6,6 @@ import { pdfText } from '../../core/pdf-text.js';
 const HOST = 'https://www.umig.busko.pl';
 const DL_HOST = 'https://dl.umig.busko.pl';
 
-// ---------------------------------------------------------------------------
-// Shared helpers
-// ---------------------------------------------------------------------------
 
 function stripTags(s) {
   return (s || '')
@@ -66,8 +24,6 @@ function stripTags(s) {
     .trim();
 }
 
-// "190 000,00 zł" / "190000" → integer PLN, or null. Zero is treated as "no
-// price" (a result PDF prints "cena osiągnięta - 0" for an unsold lot).
 export function parsePLN(s) {
   if (s == null) return null;
   let cleaned = String(s).replace(/[\s  ]/g, '');
@@ -79,7 +35,6 @@ export function parsePLN(s) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// "26,38" / "26.38" → float m², or null.
 export function parseArea(s) {
   if (!s) return null;
   const cleaned = String(s).replace(/[\s ]/g, '').replace(',', '.');
@@ -91,15 +46,12 @@ function iso(y, m, d) {
   return `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
 }
 
-// Polish month-name → number. Genitive forms (both diacritic + ASCII-stripped,
-// since pdftotext drops diacritics on this host).
 const PL_MONTHS = {
   stycznia: 1, lutego: 2, marca: 3, kwietnia: 4, maja: 5, czerwca: 6,
   lipca: 7, sierpnia: 8, września: 9, wrzesnia: 9, października: 10,
   pazdziernika: 10, listopada: 11, grudnia: 12,
 };
 
-// "7 sierpnia 2025" / "07.08.2025" / "7 sierpnia 2025 r." → ISO date or null.
 export function parseDateText(s) {
   if (!s) return null;
   const num = /(\d{1,2})[.\-](\d{1,2})[.\-](\d{4})/.exec(s);
@@ -112,7 +64,6 @@ export function parseDateText(s) {
   return null;
 }
 
-// Round from a title / clause head. Polish ordinal words + Roman numerals.
 const ORDINAL_WORDS = {
   pierwszy: 1, drugi: 2, trzeci: 3, czwarty: 4, piaty: 5, 'piąty': 5,
   szosty: 6, 'szósty': 6, siodmy: 7, 'siódmy': 7, osmy: 8, 'ósmy': 8,
@@ -130,14 +81,12 @@ export function roundFromTitle(title) {
   if (rm) return ROMAN_MAP[rm[1]] ?? 1;
   const nm = /\b([1-9])\s+przetarg/i.exec(title);
   if (nm) return Number(nm[1]);
-  return 1; // bare "przetarg" = first
+  return 1;
 }
 
-// The standard property-sale auction title on this host.
 const AUCTION_TITLE_RE =
   /przetarg[\s\S]{0,40}?(?:ustn\w+\s+)?(?:nieograniczon\w+\s+)?na\s+sprzeda[żz][\s\S]{0,40}?nieruchomo[śs]ci\s+komunaln/i;
 
-// Isolate the Joomla article body (drops the surrounding nav/footer boilerplate).
 function articleBody(html) {
   if (!html) return '';
   const start = html.indexOf('com-content-article__body');
@@ -147,21 +96,12 @@ function articleBody(html) {
   return end === -1 ? rest : rest.slice(0, end);
 }
 
-// Page <title> (used for round detection when present).
 function pageTitle(html) {
   const m = /<title[^>]*>([\s\S]*?)<\/title>/i.exec(html || '');
   return m ? stripTags(m[1]) : '';
 }
 
-// ---------------------------------------------------------------------------
-// Index (feed) page parser
-// ---------------------------------------------------------------------------
 
-/**
- * Extract auction-announcement links from one /ogloszenia feed page.
- * @param {string} html
- * @returns {Array<{ url: string, title: string }>}
- */
 export function parseIndexPage(html) {
   if (!html) return [];
   const out = [];
@@ -179,22 +119,10 @@ export function parseIndexPage(html) {
   return out;
 }
 
-// ---------------------------------------------------------------------------
-// Announcement article parser (active flat listings)
-// ---------------------------------------------------------------------------
 
-// A flat's price+address anchor from the "Ceny wywoławcze nieruchomości
-// wynoszą:" enumeration, e.g.
-//   "190 000,00 zł lokal mieszkalny Busko-Zdrój os. Kościuszki 7/6"
 const PRICE_ADDR_RE =
   /([\d][\d\s ]*,\d{2})\s*z[łl]\s+lokal\w*\s+mieszkaln\w*\s+Busko[\-\s]?Zdr[oó]j\w*\s+(?:os\.|ul\.|al\.|pl\.)\s*([^\d,]+?)\s+(\d+[A-Za-z]?)\s*\/\s*(\d+[A-Za-z]?)/gi;
 
-/**
- * Parse one auction-announcement article page into flat listing record(s).
- * @param {string} html
- * @param {string} pageUrl
- * @returns {Array<object>}
- */
 export function parseAnnouncementListings(html, pageUrl) {
   if (!html) return [];
   const bodyText = stripTags(articleBody(html));
@@ -203,7 +131,6 @@ export function parseAnnouncementListings(html, pageUrl) {
   const title = pageTitle(html);
   const round = roundFromTitle(title || bodyText);
 
-  // Shared auction date: "Przetarg odbędzie się w dniu 7 sierpnia 2025 r."
   const dateM =
     /Przetarg\s+odb[eę]dzie\s+si[eę]\s+w\s+dniu\s+(\d{1,2}\s+[a-zżźćńłśąęó]+\s+\d{4})/i.exec(bodyText) ||
     /w\s+dniu\s+(\d{1,2}\s+[a-zżźćńłśąęó]+\s+\d{4})/i.exec(bodyText);
@@ -223,7 +150,6 @@ export function parseAnnouncementListings(html, pageUrl) {
     if (seen.has(address.key)) continue;
     seen.add(address.key);
 
-    // Area from the descriptive paragraph for this apartment number.
     const areaRe = new RegExp(
       `Lokal\\w*\\s+mieszkaln\\w*\\s+nr\\s+${apt}\\s+o\\s+pow\\.\\s+u[żz]ytkowej\\s+(\\d+[,.]\\d+)`,
       'i',
@@ -253,7 +179,6 @@ function announcementDate(text) {
   return date && Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === iso ? iso : null;
 }
 
-/** Land rows have their own descriptive parcel/area and enumerated price. */
 export function parseLandAnnouncementListings(htmlOrText, pageUrl, sourceUrl = pageUrl) {
   const text = stripTags(articleBody(htmlOrText));
   const auction_date = announcementDate(text);
@@ -261,7 +186,6 @@ export function parseLandAnnouncementListings(htmlOrText, pageUrl, sourceUrl = p
   const common = { kind: 'grunt', auction_date, round: roundFromTitle(pageTitle(htmlOrText) || text),
     detail_url: pageUrl, source_url: sourceUrl };
 
-  // This sale excludes the tenant-owned building improvements from its price.
   // Preserve that explicit restriction; do not offer the building as an asset.
   if (/nak[łl]ady\s+te\s+stanowi[ąa]\s+w[łl]asno[śs][ćc]\s+dotychczasowego\s+dzier[żz]awcy\s+i\s+nie\s+s[ąa]\s+uwzgl[ęe]dnione\s+w\s+cenie\s+sprzeda[żz]y/i.test(text)) {
     const parcel = /w\s+ewidencji\s+grunt[óo]w\s+nr\s+(\d+(?:\/\d+)?)\s+o\s+powierzchni\s+(\d+[.,]\d+)\s*ha/i.exec(text);
@@ -296,16 +220,7 @@ export function parseLandAnnouncementListings(htmlOrText, pageUrl, sourceUrl = p
   return records.length === prices.length && records.every(r => r.area_m2 > 0 && r.starting_price_pln > 0) ? records : [];
 }
 
-// ---------------------------------------------------------------------------
-// Result-link extractor (points crawlResultDocs at the result PDF)
-// ---------------------------------------------------------------------------
 
-/**
- * From an announcement article page, find the result PDF + announcement PDF +
- * an article date.
- * @param {string} html
- * @returns {{ resultPdf: string|null, announcementPdf: string|null, publishedDate: string|null }}
- */
 export function parseResultLink(html) {
   const empty = { resultPdf: null, announcementPdf: null, publishedDate: null };
   if (!html) return empty;
@@ -313,7 +228,6 @@ export function parseResultLink(html) {
   let resultPdf = null;
   let announcementPdf = null;
 
-  // Each attachment is: <strong>LABEL</strong> [ <a href="…pdf">pdf</a> ]
   const re = /<strong>\s*(?:<strong>)?\s*([^<\[]{4,80}?)\s*(?:<\/strong>)?\s*\[[\s\S]{0,40}?<a[^>]+href="([^"]+\.pdf)"/gi;
   let m;
   while ((m = re.exec(html)) !== null) {
@@ -327,7 +241,6 @@ export function parseResultLink(html) {
     }
   }
 
-  // Fallback: pick result/announcement PDFs straight from dl.umig links by name.
   if (!resultPdf || !announcementPdf) {
     const linkRe = /href="(https?:\/\/dl\.umig\.busko\.pl\/[^"]+\.pdf)"/gi;
     let lm;
@@ -339,7 +252,6 @@ export function parseResultLink(html) {
     }
   }
 
-  // Article date from "Zmodyfikowano" / "Opublikowano" or the body's own date.
   let publishedDate = null;
   const modM = /(?:Zmodyfikowano|Opublikowano)[^0-9]*(\d{1,2}[.\-]\d{1,2}[.\-]\d{4})/i.exec(html);
   if (modM) publishedDate = parseDateText(modM[1]);
@@ -351,12 +263,7 @@ export function parseResultLink(html) {
   return { resultPdf, announcementPdf, publishedDate };
 }
 
-// ---------------------------------------------------------------------------
-// Result PDF parser (registry contract: parseResultDoc)
-// ---------------------------------------------------------------------------
 
-// Split a multi-item result notice into per-property clauses. Each clause opens
-// with "N. <ordinal> przetarg ustny nieograniczony na sprzedaż …".
 function splitResultClauses(text) {
   const parts = text.split(/(?=\n?\s*\d+\.\s+\w+\s+przetarg\s+ustny\s+nieograniczony)/i);
   return parts.filter((p) => /\d+\.\s+\w+\s+przetarg\s+ustny/i.test(p));
@@ -374,13 +281,6 @@ function addressFromClause(clause) {
   return parseAddress(`${street} ${building}/${apt}`);
 }
 
-/**
- * Parse a "Informacja o wynikach przetargu" PDF text into flat result record(s).
- * @param {string} text  pdfText output
- * @param {string|null} fallbackDate  ISO date from the article page
- * @param {string} sourceUrl  absolute URL of the PDF
- * @returns {Array<object>}
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!text || !String(text).trim()) return [];
   const t = String(text).replace(/[–—]/g, '-');
@@ -391,8 +291,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     /wynik\w*\s+negatywn/i.test(t);
   if (!isResultNotice) return [];
 
-  // Shared auction date from the notice header: "które odbyły się w dniu 7
-  // sierpnia 2025 roku".
   let headerDate = fallbackDate ?? null;
   const hM =
     /w\s+dniu\s+(\d{1,2}\s+[a-zżźćńłśąęó]+\s+\d{4})/i.exec(t) ||
@@ -453,5 +351,4 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   return out;
 }
 
-// Re-export for crawl.js result-PDF extraction.
 export { pdfText };

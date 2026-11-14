@@ -1,6 +1,3 @@
-// Crawler for Pruszcz Gdański (bip.pruszcz-gdanski.pl)
-//
-// Fetches structured XML per auction using intermediate certificate chain.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

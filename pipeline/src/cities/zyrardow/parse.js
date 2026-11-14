@@ -66,7 +66,6 @@ export function extractDeposit(text) {
 }
 
 export function extractAuctionDate(text) {
-  // e.g. "w dniu 3 grudnia 2026 roku", "dnia 29 sierpnia 2024 r."
   const m = text.match(/(?:w\s+dniu|dnia)\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})(?:\s*r(?:\.|oku)?)?/i);
   if (m) {
     const day = m[1].padStart(2, '0');

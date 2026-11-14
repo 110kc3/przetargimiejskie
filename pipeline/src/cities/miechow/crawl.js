@@ -1,6 +1,3 @@
-// Crawler for Miechów (bip.malopolska.pl/ugimmiechow)
-//
-// Fetches articles and attachments from Wrota Małopolski MADKOM API.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

@@ -1,7 +1,3 @@
-// Configuration for Tuchola adapter (bip.tuchola.pl)
-//
-// Gmina Tuchola (powiat tucholski, kujawsko-pomorskie)
-// TERC: 0416064
 
 export const CONFIG = {
   id: 'tuchola',

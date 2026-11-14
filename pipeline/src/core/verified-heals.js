@@ -1,26 +1,4 @@
 import { repairPropertyLedger } from './ledger-repairs.js';
-// Verified, city-specific heals that must survive EVERY refresh — the single
-// source of truth shared by:
-//   - scripts/heal-properties.js  (manual, offline, whole-corpus healer)
-//   - refresh.js                  (per-city, post-merge, runs in CI)
-//
-// Why these live in the post-merge heal and not only in the parsers: history
-// merge re-seeds every previously-committed key from data/<city>/properties.json
-// on every run, so a since-fixed parser bug's junk key (or a display flip the
-// merge reverts via `old.street = fp.street`) is otherwise resurrected forever.
-// The street-variant, plot-area and kind heals already run post-merge inside
-// build-properties (healStreetVariants → applyDisplayStreets/healPlotAreas, and
-// healKinds). The three heals HERE close the remaining gaps:
-//   1. VERIFIED_RENAMES  — re-key a junk key to its verified true identity.
-//   2. crossCityDisplay  — the -skiej/-ckiej/-dzkiej display flip whose
-//        nominative-twin evidence lives in ANOTHER city (applyDisplayStreets
-//        only sees within-city twins, so these specific flips are lost on merge).
-//   3. VERIFIED_ALIASES  — fold two source spellings of one verified property.
-//   4. VERIFIED_JUNK     — fold a bled junk key into its named survivor.
-//
-// Every map entry is data-verified against the cached source document; do not
-// add speculative entries. Maps are keyed by city id and are no-ops for any
-// city without an entry, so calling all three unconditionally per city is safe.
 
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
@@ -38,14 +16,6 @@ import {
 
 const HTML_ENTITY_RE = /&(?:#\d+|#x[\da-f]+|[a-z][\w-]+);/gi;
 
-/**
- * Strip crawler/OCR suffix noise such as `;j` or `:x` without treating the
- * semicolon that terminates an HTML entity as noise. Some legacy adapters
- * publish encoded street names (for example `Grudzi&#x105;dzka`), so removing
- * everything after that semicolon corrupts both the display name and key.
- * @param {string} street
- * @returns {string}
- */
 export function stripOcrStreetNoise(street) {
   const entities = [];
   const protectedStreet = String(street ?? '').replace(HTML_ENTITY_RE, (entity) => {
@@ -57,20 +27,7 @@ export function stripOcrStreetNoise(street) {
   return cleaned.replace(/__HTML_ENTITY_(\d+)__/g, (_match, index) => entities[Number(index)]);
 }
 
-// city → [old key, replacement fields] — junk keys from since-fixed parser bugs
-// whose TRUE identity was verified against the cached source document.
-//   katowice przetargi 26 — page-break artifact in the 2023 yearly PDF: footer
-//     "Strona 1" + header "Przetargi" + row number "26." glued into an address.
-//     The row (Wita Stwosza 1/11, 144,07 m², 20.03.2023) identifies the flat.
-//   gliwice mastalerza — garage on a bare parcel ("zabudowanej garażem … przy
-//     ul. Mastalerza na działce nr 233/1"); re-keyed with the rejon-garage
-//     convention the fixed parser now emits.
-//   bytom strażacka — joint lot ("ul. Strażacka 3 i ul. Podgórna 6/1", one
-//     price); keyed on the first address, the 1 749 m² total is the whole
-//     property, not a unit → land_area_m2.
 export const VERIFIED_RENAMES = {
-  // The retained Chełmno ADRES field includes its cadastral-district preface.
-  // Its explicit trailing "przy ul." names the address; prices/dates stay intact.
   chelmno: [
     ['obr 3 miasta przy ul ignacego danielewskiego|6|', {
       key: 'ignacego danielewskiego|6|', street: 'Ignacego Danielewskiego',
@@ -114,10 +71,6 @@ export const VERIFIED_RENAMES = {
   ],
 };
 
-// city → [alias key, canonical key]. These are verified spellings of the same
-// physical street/property, not heuristic suffix matches. Unlike VERIFIED_JUNK,
-// an alias may legitimately contribute dates absent from the canonical stream;
-// all listings are therefore merged and only same-date duplicates are folded.
 export const VERIFIED_ALIASES = {
   gliwice: [
     ['karola libelta|10|1', 'libelta|10|1'],
@@ -137,26 +90,8 @@ export const VERIFIED_ALIASES = {
   ],
 };
 
-// city → [junk key, surviving key] — fold junk into survivor ONLY if every dated
-// listing of the junk property has a same-date listing on the survivor (with a
-// matching starting price when both carry one); otherwise the fold is refused.
-// Folding + per-date dedupe lets a result-backed junk row upgrade the survivor
-// (an announcement-only 'archived' row gains the sold outcome + achieved price)
-// instead of being thrown away.
-//   gornej 4 6 i|8|  — old capture-to-end-of-title bug; its one archived row is
-//                      byte-identical to gorna|4|'s.
-//   …ii ustny|66|    — yearly-summary column bleed; same date AND same 250 000 zł
-//                      start as powstanczej|5|10's archived row (fold also
-//                      contributes the achieved price).
-//   …i ustny|86|     — yearly-summary column bleed; "86" is the bled area
-//                      (86,38 m²); its 2025-02-24 / 450 000 → 517 500 zł sale
-//                      matches exactly powstanczej|5|8 (area 86,38).
 export const VERIFIED_JUNK = {
   gliwice: [
-    // Legacy output from the pre-unit parser duplicated the real 11.03.2024
-    // Bednarska 2B/7 result under a building-only key. The fixed parser emits
-    // units 7 and 8 separately; the guarded same-date/price check below makes
-    // this migration refuse to run if that verified duplicate ever diverges.
     ['bednarska|2B|', 'bednarska|2B|7'],
   ],
   katowice: [
@@ -166,14 +101,6 @@ export const VERIFIED_JUNK = {
   ],
 };
 
-/**
- * Apply the verified re-keys for a city, in place. Sets the property's true
- * key/street/fields; back-fills a verified area onto area-less listings; and,
- * when the entry sets `moveAreaToLand`, migrates a whole-property total out of
- * the unit-area field. No-op for a city with no entry.
- * @param {Array} props   built properties array (mutated in place)
- * @param {string} cityId
- */
 export function applyVerifiedRenames(props, cityId) {
   for (const [oldKey, repl] of VERIFIED_RENAMES[cityId] || []) {
     const p = props.find((x) => x.key === oldKey);
@@ -193,14 +120,6 @@ export function applyVerifiedRenames(props, cityId) {
   }
 }
 
-/**
- * Fold a source spelling alias into its verified canonical property. Refuse the
- * fold if either side is absent; a later crawl may provide the missing twin and
- * no listing is ever discarded speculatively.
- * @param {Array} props
- * @param {string} cityId
- * @returns {Array}
- */
 export function applyVerifiedAliases(props, cityId) {
   let out = props;
   for (const [aliasKey, canonicalKey] of VERIFIED_ALIASES[cityId] || []) {
@@ -229,12 +148,6 @@ export function applyVerifiedAliases(props, cityId) {
   return out;
 }
 
-// Old committed Gliwice rows predate round provenance. The adapter shapes let
-// us migrate them without guessing: unsuccessful ZGM result rows and ZGM board
-// rows had no source round and were history-derived; city-BIP rows state a Roman
-// round, as do successful/no-winner result paragraphs. This migration is scoped
-// to Gliwice and runs before a verified alias fold, where the distinction is
-// necessary to re-number inferred attempts without moving explicit anchors.
 export function backfillVerifiedRoundProvenance(props, cityId) {
   if (cityId !== 'gliwice') return;
   for (const property of props || []) {
@@ -258,21 +171,8 @@ export function backfillVerifiedRoundProvenance(props, cityId) {
   }
 }
 
-// Ambiguous adjectival endings: the genitive can be a place adjective
-// ("Raciborskiej" → "Raciborska") OR a female-patron surname ("Skłodowskiej",
-// which stays). The tell is a nominative twin street existing SOMEWHERE.
 const GLOBAL_TWIN_SUBS = [['skiej', 'ska'], ['ckiej', 'cka'], ['dzkiej', 'dzka']];
 
-/**
- * Build the cross-city display-evidence map (street_norm → display street) from
- * every committed city's properties.json. Used by crossCityDisplay to decide
- * whether an ambiguous -skiej/-ckiej/-dzkiej name is adjectival (has a
- * nominative twin somewhere) or a surname (no twin). Built once from the
- * committed baseline — the evidence is deliberately independent of the city
- * currently being refreshed.
- * @param {string} dataDir  absolute path to the data/ directory
- * @returns {Map<string, string>}
- */
 export function buildGlobalStreetDisplay(dataDir) {
   const byNorm = new Map();
   for (const cityId of readdirSync(dataDir, { withFileTypes: true })
@@ -318,17 +218,6 @@ export function crossCityDisplay(props, cityId, globalByNorm) {
   }
 }
 
-/**
- * Fold each verified junk key for a city into its named survivor, returning the
- * properties array with folded junk removed. A fold is REFUSED (and logged) if
- * the survivor is missing, or if the junk holds any dated listing not covered by
- * a same-date (price-compatible) listing on the survivor — so a re-seeded junk
- * key that no longer matches is never silently merged. No-op for a city with no
- * entry.
- * @param {Array} props   built properties array
- * @param {string} cityId
- * @returns {Array} properties with folded junk removed
- */
 export function applyVerifiedJunk(props, cityId) {
   let out = props;
   for (const [junkKey, survivorKey] of VERIFIED_JUNK[cityId] || []) {
@@ -361,7 +250,6 @@ export function applyVerifiedJunk(props, cityId) {
 function repairBolescinResultIdentity(props, cityId) {
   if (cityId !== 'trzebnica') return props;
   const oldKey = 'bolescin|0|2';
-  // Exact source events: announcement 6341 and results 7167/7396 identify 50/2.
   // Preserve any other unknown-building rows rather than guessing their identity.
   const sources = new Map([
     ['2026-02-27', 'https://bip.trzebnica.pl/przetarg-nieruchomosci/3110/przetarg-ggn-p-5-2026'],
@@ -420,8 +308,6 @@ export function applyDurablePropertyHeals(props, cityId, globalByNorm) {
   props = repairBolescinResultIdentity(props, cityId);
   backfillVerifiedRoundProvenance(props, cityId);
   applyVerifiedRenames(props, cityId);
-  // Exact identity repairs can meet a correctly parsed version already in the
-  // history. Merge their source rows before the variant engine creates a Map.
   const identities = new Map();
   for (const property of props) {
     const existing = identities.get(property.key);

@@ -1,60 +1,4 @@
-// Węgrów parser tests. Fixtures are REAL captured strings fetched live from
-// bip.wegrow.com.pl on 2026-07-10/11 (board 345 "Ogłoszenia sprzedaży"):
-// titles are verbatim from the board's own XML feed
-// (/artykuly/xml/345/1/1); bodies are the ACTUAL extracted text of each
-// article's primary PDF attachment — pdftotext (native) for the two
-// Narutowicza-7 2024 documents and the bezprzetargowo wykaz, `tesseract -l
-// pol` OCR (the ogłoszenie/wynik PDFs sampled live are 300dpi scans with no
-// embedded text layer — pdffonts lists zero fonts) for the four 2026
-// documents — so the OCR noise (mangled m² glyph, an "©" misread for "o",
 // stray letter-spacing on signature blocks) is preserved verbatim, exactly
-// as the real crawl would see it, not paraphrased or cleaned up.
-//
-//   article 12148  ul. Nowej 3/19       — PENDING flat, round unstated (1),
-//                   160 000 zł, przetarg 28.04.2026 (announcement OCR'd)
-//   article 12233  ul. Nowej 3/19       — UNSOLD (wynikiem negatywnym, "brak
-//                   uczestników / nikt nie wpłacił wadium"), round unstated,
-//                   same 160 000 zł — also the fixture that caught a REAL bug
-//                   (this notice restates the AUCTION VENUE, "przy ul. Rynek
-//                   Mariacki 16", the town hall's own address, BEFORE the
-//                   subject flat's own "przy ul. Nowej 3" — unguarded, that
-//                   venue mention was picked as "the" address)
-//   article 12186  ul. Ks. Kazimierza Czarkowskiego — PENDING land, round
-//                   unstated, 3 parcels (3286/2, 5742/2, 5773/7), 1282 m²,
-//                   500 000 zł netto, przetarg 16.06.2026 — the fixture that
-//                   caught a second REAL bug: OCR misreads the "o" in the
-//                   3rd parcel's OWN "5773/7 o pow. 0,0582 ha" as "©",
-//                   silently dropping it from the per-parcel regex; recovered
-//                   via the same announcement's summary list clause instead
-//   article 12289  ul. Ks. Kazimierza Czarkowskiego — SOLD, round unstated,
-//                   500 000 -> 605 000 zł netto (buyer: a sp. z o.o.)
-//   article 10953  ul. Narutowicza 7    — PENDING house (zabudowana), ROUND
-//                   2 EXPLICIT ("ogłasza drugi przetarg"), 500.000 zł
-//                   (dot-thousands, unlike the 2026 docs' space-thousands),
-//                   przetarg 26.03.2024 — also carries a live prior-round
-//                   history trap ("Pierwszy przetarg został ogłoszony w dniu
-//                   07 listopada 2023 r. i zakończył się wynikiem
-//                   negatywnym.") that a naive round regex could misfire on
-//   article 11070  ul. Narutowicza 7    — SOLD, round 2 explicit ("odbył się
-//                   drugi przetarg"), 500.000 -> 505.000 zł (en-dash
-//                   achieved-price phrasing, no "wyniosła" verb — a SECOND
-//                   live phrasing distinct from Czarkowskiego's)
-//   article 12147  ul. Piłsudskiego 9/19 — BEZPRZETARGOWO tenant wykaz
-//                   ("Sprzedaż w trybie bezprzetargowym na rzecz najemcy"),
-//                   222 586,00 zł — SKIPPED by title alone (isSkippableTitle),
-//                   never fetched as an announcement/result; a genuine
-//                   Word-produced native-text PDF (not a scan, unlike every
-//                   ogłoszenie/wynik document above)
-//
-// A REAL bug's context worth restating: classify-kind.js's BUILT_RE guard is
-// an UNWINDOWED full-text scan, and Węgrów's own land-announcement boilerplate
-// describes NEIGHBORING parcels as "zabudowane" ("Otoczenie nieruchomości
-// stanowią nieruchomości gruntowe zabudowane …", article 12186 point 2) —
-// feeding it the whole body would flip the (niezabudowana) SUBJECT parcel to
-// 'zabudowana'. kindFromText here tries the TITLE first (reliably terse) and
-// only falls back to a 700-char BODY WINDOW (comfortably clear of that later
-// paragraph on every live sample) — see parse.js for the exact character
-// offsets this was validated against.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -78,7 +22,6 @@ import {
 } from '../src/cities/wegrow/parse.js';
 import { parseBoardPage, primaryAttachmentUrl } from '../src/cities/wegrow/crawl.js';
 
-// --------------------------------------------------------------- real fixtures
 
 const NOWA_3_19_ANN_TITLE = "Ogłoszenie przetargu ustnego nieograniczonego na sprzedaż nieruchomości stanowiącej lokal mieszkalny nr 19 przy ul. Nowej 3 w Węgrowie";
 
@@ -108,7 +51,6 @@ const PILSUDSKIEGO_9_19_TITLE = "Wykaz lokalu mieszkalnego Nr 19 przy ul. Piłsu
 
 const PILSUDSKIEGO_9_19_BODY = "                                                                                                                                     Załącznik Nr 1 do Zarządzenia Nr 355/2026\n                                                                                                                              Burmistrza Miasta Węgrowa z dnia 16 marca 2026 r.\n\n\n                                                                     W Y K A Z\n                                           lokalu mieszkalnego przeznaczonego do sprzedaży na rzecz jego najemcy\n\n\n\n                                                                                                  Opis lokalu mieszkalnego                                                 Termin do\n                                                                                                                                                                       złożenia wniosku\n       Nr        Oznaczenie                                                                                                                                                o nabycie\n    ewidenc                     Powierzch                                                                                Udział w                             Cena\n                                                                                                                                                                        nieruchomości\n                     w                       Położenie                     Opis\nLp.   yjny                         nia                                                            Pow. Udział w         działkach       Przeznaczenie       lokalu w\n             Księdze wieczystej           nieruchomości                                    Nr                                                                  zł\n                                                                                                                                                                         przez osoby,\n                                                                     nieruchomości                użytk. działce nr     nr 5891/8 i                                          którym\n     nieruch                      w ha                                                   lokalu\n                   KW Nr                                                                           w m2 5891/16\n     omości                                                                                                              5891/17                                          przysługuje\n                                                                                                                                                                        pierwszeństwo\n                                                                                                                                                                            nabycia*\n 1      2               3                 4             5                   6               7        8          9            10               11               12              13\n                                                                    Działka 5891/16 -\n                                                                       zabudowana                                                                                      6 tygodni licząc od\n     5891/16 SI1W/00041962/3           0,0538                                                                                                                          dnia wywieszenia\n                                                                        budynkiem\n                                                                                                                                                                       wykazu\n     5891/8    SI1W/00041963/0         0,0847    ul. Piłsudskiego     mieszkalnym                                                      Sprzedaż w trybie\n1.                                                                   wielorodzinnym        19      45,50   514/11098 514/35614         bezprzetargowym 222 586,00\n     5891/17 SI1W/00041963/0           0,1227           9\n                                                                     działki 5891/8 i                                                  na rzecz najemcy\n                                                                         5891/17 -\n                                                                     niezabudowane\n\n\n1.Wykaz podlega wywieszeniu na tablicy ogłoszeń w Urzędzie Miejskim w Węgrowie na okres 21 dni. tj. od dnia 18.03.2026 r. do dnia 08.04.2026 r. oraz zamieszczeniu na stronie\n  internetowej Urzędu i w Biuletynie Informacji Publicznej.\n2.Informację o zamieszeniu wykazu należy ogłosić w prasie lokalnej o zasięgu obejmującym co najmniej powiat.\nUwaga!\n*-Pierwszeństwo w nabyciu nieruchomości przysługuje osobie, która spełnia jeden z następujących warunków:\n1. przysługuje jej roszczenie o nabycie nieruchomości z mocy ustawy z dnia 21 sierpnia 1997 r. o gospodarce nieruchomościami (Dz. U. z 2024 r., poz. 1145 z późn. zm.) lub odrębnych\n   przepisów, jeżeli złoży wniosek o nabycie przed upływem w/w terminu (art. 34 ust. 1 pkt. 1).\n2. jest poprzednim właścicielem zbywanej nieruchomości pozbawionym prawa własności tej nieruchomości przed dniem 5 grudnia 1990 r. albo jego spadkobiercą, jeżeli złoży wniosek o\n   nabycie przed upływem w/w terminu (art. 34 ust. 1 pkt. 2).\n\n                                                                                                                                                   BURMISTRZ\n                                                                                                                                                    Paweł Marchela\n\f";
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: space-thousands, dot-thousands, grosze tail', () => {
   assert.equal(parsePLN('160 000,00'), 160000);
@@ -118,15 +60,12 @@ test('parsePLN: space-thousands, dot-thousands, grosze tail', () => {
 });
 
 test('title routing: isSkippableTitle catches every wykaz variant (singular/plural/bare), qualified-bidder lists, cancellations, and movable-property sales', () => {
-  assert.equal(isSkippableTitle(PILSUDSKIEGO_9_19_TITLE), true); // bezprzetargowo tenant wykaz
-  assert.equal(isSkippableTitle('Wykaz nieruchomości stanowiącej lokal mieszkalny przeznaczonej do sprzedaży w drodze przetargu ustnego nieograniczonego'), true); // pre-przetarg designation wykaz — ALSO skipped (see crawl.js header)
-  assert.equal(isSkippableTitle('Wykazy lokali mieszkalnych przeznaczonych do sprzedaży na rzecz ich najemców (lokal nr 4 przy ul. Przemysłowej 10 i lokale nr 9 i 18 przy ul. Nowej 3)'), true); // plural "Wykazy"
-  assert.equal(isSkippableTitle('Wykaz'), true); // bare title, real (article 8528)
+  assert.equal(isSkippableTitle(PILSUDSKIEGO_9_19_TITLE), true);
+  assert.equal(isSkippableTitle('Wykaz nieruchomości stanowiącej lokal mieszkalny przeznaczonej do sprzedaży w drodze przetargu ustnego nieograniczonego'), true);
+  assert.equal(isSkippableTitle('Wykazy lokali mieszkalnych przeznaczonych do sprzedaży na rzecz ich najemców (lokal nr 4 przy ul. Przemysłowej 10 i lokale nr 9 i 18 przy ul. Nowej 3)'), true);
+  assert.equal(isSkippableTitle('Wykaz'), true);
   assert.equal(isSkippableTitle('Lista osób zakwalifikowanych do uczestnictwa w przetargu ustnym ograniczonym na sprzedaż nieruchomości gruntowej dz. nr 3975/2'), true);
   assert.equal(isSkippableTitle('ODWOŁANIE PRZETARGU NA SPRZEDAŻ NIERUCHOMOŚCI PRZY UL. ZWYCIĘSTWA 3'), true);
-  // movables (ruchomości, NOT nieruchomości) — a real historical false-positive
-  // risk: this title also contains "przetarg" + "sprzedaż", which would
-  // otherwise satisfy isAnnouncementTitle.
   assert.equal(isSkippableTitle('ogłoszenie o drugim przetargu na sprzedaż ruchomości po hurtowni elektrycznej'), true);
   assert.equal(isSkippableTitle(NOWA_3_19_ANN_TITLE), false);
 });
@@ -135,7 +74,7 @@ test('title routing: isResultTitle matches singular/plural/ograniczony phrasing'
   assert.equal(isResultTitle(NOWA_3_19_RESULT_TITLE), true);
   assert.equal(isResultTitle(CZARKOWSKIEGO_RESULT_TITLE), true);
   assert.equal(isResultTitle(NARUTOWICZA_RESULT_TITLE), true);
-  assert.equal(isResultTitle('Informacje o wyniku przetargów'), true); // plural, real (article 10842)
+  assert.equal(isResultTitle('Informacje o wyniku przetargów'), true);
   assert.equal(isResultTitle('Informacja o wyniku przetargu ustnego ograniczonego na sprzedaż nieruchomości dz. nr 3975/2'), true);
   assert.equal(isResultTitle(NOWA_3_19_ANN_TITLE), false);
 });
@@ -144,15 +83,10 @@ test('title routing: isAnnouncementTitle matches "Ogłoszenie (o) przetargu" and
   assert.equal(isAnnouncementTitle(NOWA_3_19_ANN_TITLE), true);
   assert.equal(isAnnouncementTitle(CZARKOWSKIEGO_ANN_TITLE), true);
   assert.equal(isAnnouncementTitle(NARUTOWICZA_ANN_TITLE), true);
-  assert.equal(isAnnouncementTitle('Przetarg na sprzedaż lokalu mieszkalnego nr 19 przy ul. Nowej 5'), true); // bare title, no "Ogłoszenie" (real, article 10357)
-  // isAnnouncementTitle is intentionally NOT exclusive of isResultTitle on its
-  // own (a result title also contains "przetarg" + "sprzedaż") — the actual
-  // routing precedence (isResultTitle checked BEFORE isAnnouncementTitle) is
-  // crawl.js's job and is exercised directly here:
+  assert.equal(isAnnouncementTitle('Przetarg na sprzedaż lokalu mieszkalnego nr 19 przy ul. Nowej 5'), true);
   assert.equal(isResultTitle(NOWA_3_19_RESULT_TITLE), true);
 });
 
-// ------------------------------------------------------------------- round
 
 test('roundFromText: unstated (round 1, implicit) on 2 independent real fixtures', () => {
   assert.equal(roundFromText(buildRecordText({ title: NOWA_3_19_ANN_TITLE, body: NOWA_3_19_ANN_BODY })), null);
@@ -162,37 +96,27 @@ test('roundFromText: unstated (round 1, implicit) on 2 independent real fixtures
 test('roundFromText: explicit round 2 ("ogłasza drugi przetarg" / "odbył się drugi przetarg"), not fooled by the prior-round-history clause', () => {
   const ann = buildRecordText({ title: NARUTOWICZA_ANN_TITLE, body: NARUTOWICZA_ANN_BODY });
   assert.equal(roundFromText(ann), 2);
-  // the fixture body ALSO contains "Pierwszy przetarg został ogłoszony w dniu
-  // 07 listopada 2023 r. i zakończył się wynikiem negatywnym." (point 5) —
-  // confirm that history clause is present (so this test is actually
-  // exercising the anchor's specificity) yet round still resolves to 2, not 1.
   assert.ok(/Pierwszy przetarg został ogłoszony/.test(NARUTOWICZA_ANN_BODY));
   const result = buildRecordText({ title: NARUTOWICZA_RESULT_TITLE, body: NARUTOWICZA_RESULT_BODY });
   assert.equal(roundFromText(result), 2);
 });
 
-// ------------------------------------------------------------------- dates
 
 test('auctionDateFromText: announcement ("odbędzie się") and result ("odbył się", incl. round-word bridging) phrasings', () => {
   assert.equal(auctionDateFromText(buildRecordText({ title: NOWA_3_19_ANN_TITLE, body: NOWA_3_19_ANN_BODY })), '2026-04-28');
   assert.equal(auctionDateFromText(buildRecordText({ title: NOWA_3_19_RESULT_TITLE, body: NOWA_3_19_RESULT_BODY })), '2026-04-28');
   assert.equal(auctionDateFromText(buildRecordText({ title: CZARKOWSKIEGO_ANN_TITLE, body: CZARKOWSKIEGO_ANN_BODY })), '2026-06-16');
-  // "16 czerwca 2026r." — no space before "r." (real live spacing quirk)
   assert.equal(auctionDateFromText(buildRecordText({ title: CZARKOWSKIEGO_RESULT_TITLE, body: CZARKOWSKIEGO_RESULT_BODY })), '2026-06-16');
   assert.equal(auctionDateFromText(buildRecordText({ title: NARUTOWICZA_ANN_TITLE, body: NARUTOWICZA_ANN_BODY })), '2024-03-26');
-  // result phrasing here is "... odbył się DRUGI przetarg ..." — the extra
-  // ordinal word between "się" and "przetarg" must not break the date anchor.
   assert.equal(auctionDateFromText(buildRecordText({ title: NARUTOWICZA_RESULT_TITLE, body: NARUTOWICZA_RESULT_BODY })), '2024-03-26');
 });
 
-// ------------------------------------------------------------------- prices
 
 test('startingPriceFromText: present-tense "wynosi" (announcements) and past-tense "wynosiła" (results)', () => {
   assert.equal(startingPriceFromText(buildRecordText({ title: NOWA_3_19_ANN_TITLE, body: NOWA_3_19_ANN_BODY })), 160000);
   assert.equal(startingPriceFromText(buildRecordText({ title: NOWA_3_19_RESULT_TITLE, body: NOWA_3_19_RESULT_BODY })), 160000);
   assert.equal(startingPriceFromText(buildRecordText({ title: CZARKOWSKIEGO_ANN_TITLE, body: CZARKOWSKIEGO_ANN_BODY })), 500000);
   assert.equal(startingPriceFromText(buildRecordText({ title: CZARKOWSKIEGO_RESULT_TITLE, body: CZARKOWSKIEGO_RESULT_BODY })), 500000);
-  // dot-thousands (2024 doc), unlike the 2026 docs' space-thousands
   assert.equal(startingPriceFromText(buildRecordText({ title: NARUTOWICZA_ANN_TITLE, body: NARUTOWICZA_ANN_BODY })), 500000);
   assert.equal(startingPriceFromText(buildRecordText({ title: NARUTOWICZA_RESULT_TITLE, body: NARUTOWICZA_RESULT_BODY })), 500000);
 });
@@ -210,7 +134,6 @@ test('isNegativeOutcome: "wynikiem negatywnym" (Nowa 3/19, incl. genitive "braku
   assert.equal(isNegativeOutcome(buildRecordText({ title: NARUTOWICZA_RESULT_TITLE, body: NARUTOWICZA_RESULT_BODY })), false);
 });
 
-// ------------------------------------------------------------------- area
 
 test('unitAreaFromText: usable floor area, tolerating the OCR-mangled m² glyph ("m?")', () => {
   assert.equal(unitAreaFromText(buildRecordText({ title: NOWA_3_19_ANN_TITLE, body: NOWA_3_19_ANN_BODY })), 52.70);
@@ -218,7 +141,6 @@ test('unitAreaFromText: usable floor area, tolerating the OCR-mangled m² glyph 
   assert.ok(/52,70 m\?/.test(NOWA_3_19_ANN_BODY), 'fixture must carry the real OCR-mangled m² glyph');
 });
 
-// ------------------------------------------------------------------- address
 
 test('streetFromHeader/addressRawFromText: flat address incl. unit number', () => {
   const text = buildRecordText({ title: NOWA_3_19_ANN_TITLE, body: NOWA_3_19_ANN_BODY });
@@ -244,7 +166,6 @@ test('streetFromHeader: house (Narutowicza 7) — the FIRST "przy ul. Narutowicz
   assert.equal(addressRawFromText(text), 'ul. Narutowicza 7');
 });
 
-// --------------------------------------------------------------- active listings
 
 test('parseAnnouncement: PENDING flat (real fixture, Nowa 3/19)', () => {
   const rec = parseAnnouncement(buildRecordText({ title: NOWA_3_19_ANN_TITLE, body: NOWA_3_19_ANN_BODY }));
@@ -283,16 +204,11 @@ test('parseAnnouncement: PENDING house, round 2 (real fixture, Narutowicza 7) �
 });
 
 test('bezprzetargowo tenant wykaz (real fixture, Piłsudskiego 9/19): SKIPPED by title alone, never fetched/parsed', () => {
-  // isSkippableTitle already asserted true above; this test corroborates it
-  // against the REAL native-PDF body text (a Word-produced table export, not
-  // OCR — Word: extractable natively via pdftotext, no scan needed), proving
-  // the classification story: it genuinely IS a bezprzetargowo sale.
   assert.equal(isSkippableTitle(PILSUDSKIEGO_9_19_TITLE), true);
   assert.ok(/bezprzetargowym/i.test(PILSUDSKIEGO_9_19_BODY));
   assert.ok(/na rzecz najemcy/i.test(PILSUDSKIEGO_9_19_BODY));
 });
 
-// ----------------------------------------------------------------- result records
 
 test('parseResultDoc: Nowa 3/19 UNSOLD (wynikiem negatywnym, no achieved price)', () => {
   const [r] = parseResultDoc(
@@ -302,7 +218,7 @@ test('parseResultDoc: Nowa 3/19 UNSOLD (wynikiem negatywnym, no achieved price)'
   );
   assert.equal(r.kind, 'mieszkalny');
   assert.equal(r.address.key, 'nowej|3|19');
-  assert.equal(r.address_raw, 'ul. Nowej 3/19'); // regression: NOT the "Rynek Mariacki 16" venue address
+  assert.equal(r.address_raw, 'ul. Nowej 3/19');
   assert.equal(r.area_m2, 52.70);
   assert.equal(r.starting_price_pln, 160000);
   assert.equal(r.final_price_pln, null);
@@ -350,7 +266,6 @@ test('parseResultDoc: returns [] for a PENDING (announcement, not yet concluded)
   );
 });
 
-// ------------------------------------------------------------- board XML + attachments
 
 test('parseBoardPage: extracts id/url/tytul/published_date from the real generic-article-board XML shape (board 345)', () => {
   const xml = `<?phpxml version="1.0" encoding="UTF-8"?><bip.wegrow.com.pl>
@@ -391,8 +306,6 @@ test('parseBoardPage: extracts id/url/tytul/published_date from the real generic
 });
 
 test('primaryAttachmentUrl: new-style article (body paragraph + #attachments both present) — exact title match wins the FIRST of several attachments', () => {
-  // shape mirrors article 12148's real #attachments section (Ogłoszenie +
-  // Regulamin, trimmed to 2 of the real 4 attachments for a compact fixture)
   const html = `<section id="attachments" class="attachments">
         <h2>Załączniki</h2>
                                     <div class="header">
@@ -412,10 +325,6 @@ test('primaryAttachmentUrl: new-style article (body paragraph + #attachments bot
 });
 
 test('primaryAttachmentUrl: old-style article (NO body paragraph at all, e.g. article 10953 — #attachments is the ONLY source) — falls back to the first entry when its label is a shortened paraphrase of the full board title', () => {
-  // shape mirrors article 10953's real (single-attachment) #attachments
-  // section — its label "Ogłoszenie o drugim przetargu" does NOT exactly
-  // match the fuller board title, so this exercises the fallback-to-first
-  // path, not the exact-match path.
   const html = `<section id="attachments" class="attachments">
         <h2>Załączniki</h2>
                                     <div class="header">

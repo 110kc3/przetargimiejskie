@@ -1,7 +1,3 @@
-// Configuration for Ostrów Wielkopolski adapter (bip.umostrow.pl)
-//
-// Gmina Miasto Ostrów Wielkopolski (powiat ostrowski, wielkopolskie)
-// TERC: 3017011
 
 export const CONFIG = {
   id: 'ostrow-wielkopolski',

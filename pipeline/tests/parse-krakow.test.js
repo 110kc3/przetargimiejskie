@@ -1,8 +1,3 @@
-// Kraków parser tests — MULTI-PROPERTY notices. Fixtures are condensed-but-
-// faithful copies of real notices (verified 2026-06-26): news_id 245809
-// (announcement) and 249643 (result), each bundling a garage (ul. Królewska 69
-// G12) and a land share (działka 169/16, obręb P-30). Shared auction date
-// 15.04.2026; achieved price reads "cena … została ustalona na kwotę …".
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -161,7 +156,7 @@ test('parseResultDoc: 2 properties — garage SOLD + land share NEGATIVE', () =>
   assert.equal(land.kind, 'grunt');
   assert.equal(land.dzialka_nr, '169/16');
   assert.equal(land.obreb, 'P-30');
-  assert.equal(land.area_m2, 216); // 0,0216 ha
+  assert.equal(land.area_m2, 216);
   assert.equal(land.starting_price_pln, 47700);
   assert.equal(land.outcome, 'unsold');
 });

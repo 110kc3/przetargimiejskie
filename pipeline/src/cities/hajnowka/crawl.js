@@ -1,6 +1,3 @@
-// Crawler for Hajnówka (bip.hajnowka.pl)
-//
-// Scrapes Siteor CMS articles and attached PDF documents.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

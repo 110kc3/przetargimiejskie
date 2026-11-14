@@ -1,16 +1,3 @@
-// Unit tests for Kościerzyna adapter parsers and crawl helpers.
-//
-// Groundtruthed against live BIP pages and extracted texts from bip.koscierzyna.gda.pl:
-// - Announcements:
-//   - WGN/4/2026 (id 1912): ul. Sikorskiego 6 m. 7 (52.13 m², 170 000 zł, auction 2026-07-31, round 2)
-//   - WGN/2/2026 (id 1873): ul. Sikorskiego 6 m. 7 (52.13 m², 200 000 zł, auction 2026-05-22, round 1)
-//   - WGN/5/2024 (id 1567): ul. Świętojańska 14 m. 5 (15.94 m², 50 750 zł, auction 2024-09-12, round 1)
-//   - WGN/1/2024 (id 1427): Multi-flat: ul. Sikorskiego 6 m. 7 (47.10 m², 175 000 zł)
-//     + ul. dr. Leona Heykego 1/C/11 (25.63 m², 120 000 zł), auction 2024-04-04, round 2
-// - Results:
-//   - Sold flat notice
-//   - Unsold flat notice (no bids)
-//   - Land result doc (out of scope for flat adapter -> returns [])
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -42,7 +29,6 @@ import {
   parseResultDoc,
 } from '../src/cities/koscierzyna/parse.js';
 
-// ── Config ───────────────────────────────────────────────────────────────────
 
 test('config: exports correct municipal metadata', () => {
   assert.equal(config.id, 'koscierzyna');
@@ -54,7 +40,6 @@ test('config: exports correct municipal metadata', () => {
   assert.equal(config.teryt, '220601_1');
 });
 
-// ── Crawl URL helpers ────────────────────────────────────────────────────────
 
 test('crawl urls: constructs correct year board pagination URLs and has valid cids', () => {
   assert.equal(yearBoardUrl(557, 0), 'https://bip.koscierzyna.gda.pl/?bip=1&bsc=N&cid=557&pg=0');
@@ -71,7 +56,6 @@ test('crawl urls: constructs correct year board pagination URLs and has valid ci
   assert.equal(y2023?.cid, 437);
 });
 
-// ── List-page parser ─────────────────────────────────────────────────────────
 
 const SAMPLE_LIST_HTML = `
 <div class="artykuly">
@@ -114,7 +98,6 @@ test('parseListPage: extracts items with full URLs, dates, titles, and summaries
   assert.equal(items[2].url, 'https://bip.koscierzyna.gda.pl/?bip=2&cid=557&id=1872');
 });
 
-// ── Attachment discovery helpers ─────────────────────────────────────────────
 
 const SAMPLE_DETAIL_WITH_RESULT_HTML = `
 <div class="aktualnosci-tresc">
@@ -147,10 +130,8 @@ test('attachment discovery: extracts and distinguishes announcement and result P
   );
 });
 
-// ── Filters ──────────────────────────────────────────────────────────────────
 
 test('isAnnouncement: identifies residential sales and rejects rentals, land, and non-flats', () => {
-  // Positive residential auction cases (including live typos from Kościerzyna BIP)
   assert.ok(
     isAnnouncement(
       'WGN/4/2026 ustny nieorganiczony przetarg na sprzedaż lokalu mieszklanego wraz z udziałem w nieruchomości wspólnej',
@@ -176,7 +157,6 @@ test('isAnnouncement: identifies residential sales and rejects rentals, land, an
     ),
   );
 
-  // Negative: rentals, leases, land, adverts, garages
   assert.equal(
     isAnnouncement(
       'WGN/5/2026 Ogłoszenie o publicznych ustnych aukcjach na najem części działki gruntu ozn. nr geodez. 42/2',
@@ -231,7 +211,6 @@ test('isResultNotice: identifies result notices and filters out voting/council r
   assert.equal(isResultNotice('Aukcja na najem lokalu', ''), false);
 });
 
-// ── Helper parsing ───────────────────────────────────────────────────────────
 
 test('helpers: cleanHtml, parsePLN, parseArea, cleanAddrStr, roundFromText', () => {
   assert.equal(cleanHtml('<p>Tekst&nbsp;z&nbsp;<strong>tagami</strong></p>'), 'Tekst z tagami');
@@ -287,7 +266,6 @@ test('auction dates: extracts dates correctly from announcements and results', (
   );
 });
 
-// ── Announcement fixtures (Groundtruthed against real BIP Kościerzyna notices) ─
 
 const FIXTURE_SIKORSKIEGO_2026_HTML = `
 <div class="aktualnosci-tresc">
@@ -473,7 +451,6 @@ test('parseAnnouncementDetail: parses multi-flat WGN/1/2024 (Sikorskiego 6/7 and
   assert.equal(flat2.round, 2);
 });
 
-// ── Result document parser ───────────────────────────────────────────────────
 
 const FIXTURE_SOLD_RESULT_DOC = `
 Informacja o wynikach przeprowadzonego pierwszego ustnego

@@ -1,11 +1,3 @@
-// Ostrzeszów parser — bip.nowoczesnagmina.pl and bip.zgm-ostrzeszow.pl
-//
-// Extracts structured listing, land, wykaz and result records from:
-// - Modern born-digital PDF notices and result documents
-// - Scanned PDF notices and result documents (via ocrPdf with psm: 1 for rotated scans)
-// - Legacy Word documents (.doc/.docx via docText)
-// - Inline HTML land tables (nowoczesnagmina CMS)
-// - Board teasers and attachment metadata
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -119,7 +111,6 @@ export function isSoldText(text) {
   return /pozytywnym|zosta[łl]\s+ustalon|nabywc[aą]/i.test(t) && !isUnsoldText(t);
 }
 
-// Skip non-sale notices, maintenance procurement on ZGM, and tenant-sale noise
 export function isSkippableEntryText(text) {
   const t = text || '';
   if (/dzier[żz]aw|najm|najem|u[żz]yczeni|lokalu\s+u[żz]ytkowego/i.test(t)) return true;
@@ -139,7 +130,6 @@ export function isResultLabel(text) {
   return /informacj[a-ząćęłńóśźż]*\s+o\s+wynik|wynik\s+przetargu|wyniku\s+przetargu|protok[oó][łl]/i.test(t);
 }
 
-// Municipality office streets (never the subject of property sale)
 const OFFICE_STREET_RE = /^(?:Zamkow[a-ząćęłńóśźż]*|Sportow[a-ząćęłńóśźż]*)$/i;
 
 export function streetBuildingFromText(text) {
@@ -152,7 +142,6 @@ export function streetBuildingFromText(text) {
     return { street, building: m[2].toUpperCase() };
   }
 
-  // Village/rural house number without street (e.g. "w miejscowości Szklarka Przygodzicka 89", "we wsi Szklarka Przygodzicka 89")
   const vRe = /(?:w\s+miejscowo[śs]ci|we\s+wsi)\s+([A-ZŻŹĆŁŚĄĘÓŃ][\wżźćłśąęóńĄĘŁŃÓŚŻŹ.\-]*(?:\s+[A-ZŻŹĆŁŚĄĘÓŃ][\wżźćłśąęóńĄĘŁŃÓŚŻŹ.\-]*)*?)(?:\s+nr\b)?\s+(\d+[A-Za-z]?)\b/i;
   const vm = vRe.exec(t);
   if (vm) {
@@ -217,9 +206,6 @@ export function classifyEntryKind(text) {
   return classifyKind(t);
 }
 
-// ---------------------------------------------------------------------------
-// Inline HTML table parsing (e.g. Niedźwiedź ?a=1752)
-// ---------------------------------------------------------------------------
 
 export function parseInlineTable(html, sourceUrl, pageText = '') {
   const tables = [...html.matchAll(/<table[^>]*>([\s\S]*?)<\/table>/gi)];
@@ -281,9 +267,6 @@ export function parseInlineTable(html, sourceUrl, pageText = '') {
   return records;
 }
 
-// ---------------------------------------------------------------------------
-// Document announcement parsing (PDF or DOC/DOCX)
-// ---------------------------------------------------------------------------
 
 export function parseAnnouncementDoc(text, sourceUrl, isLand = false) {
   const t = text || '';
@@ -330,9 +313,6 @@ export function parseAnnouncementDoc(text, sourceUrl, isLand = false) {
   };
 }
 
-// ---------------------------------------------------------------------------
-// Wykaz record from title/teaser
-// ---------------------------------------------------------------------------
 
 export function wykazRecordFromEntry(title, detailUrl) {
   const t = title || '';
@@ -364,9 +344,6 @@ export function wykazRecordFromEntry(title, detailUrl) {
   };
 }
 
-// ---------------------------------------------------------------------------
-// parseResultDoc — registry contract
-// ---------------------------------------------------------------------------
 
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const t = (text || '').trim();

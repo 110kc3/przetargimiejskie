@@ -1,41 +1,3 @@
-// Kamienna Góra crawler — bip.kamiennagora.pl (slug-based BIP; browser-UA-gated).
-//
-// DISCOVERY. Primary source is the site's OWN sitemap (robots.txt →
-// /sitemap.xml → the `site.xml` sub-sitemap), which lists every article on the
-// BIP (~1200 URLs, ~120 of them flat-sale) as stable, resolvable links. We keep
-// only FLAT-SALE announcement slugs ("[N] przetarg ustny … na zbycie lokalu
-// mieszkalnego …"), excluding najem/dzierżawa (rent/lease), odwołanie/
-// unieważnienie (cancelled) and the land/commercial/garage variants. The slug
-// filter ONLY bounds which pages get fetched — parse.js classifyKind(BODY) is
-// what actually decides kind.
-//
-// The sitemap truncates very long slugs at ~90 chars, but the CMS resolves a
-// truncated slug to the right article (confirmed live on a spread of 8 → all
-// 200 + correct H1), so the URLs are safe. We deliberately do NOT use the
-// `/<YEAR>.html` year-index pages as the primary source: their URLs are
-// context-unstable (2024's real index is `762-2024.html`; the bare `2024.html`
-// is an empty stub; the nav emits different numeric-prefixed variants per page).
-// As cheap insurance against any sitemap lag, we DO union in the current + next
-// year's bare index (`<YYYY>.html`, which works for the recent years), so a
-// just-published upcoming auction is caught even if the sitemap hasn't refreshed
-// (confirmed: all 10 live 2026 flat auctions were already in the sitemap).
-//
-// PER PAGE. Each flat-sale page carries the notice text ONLY as born-digital
-// PDF attachments (`files/file_add/download/<id>_<name>.pdf`) — never inline
-// HTML. We download every non-image, non-floorplan attachment, pdftotext it,
-// and route by BODY:
-//   • "INFORMACJA O WYNIKU … PRZETARGU"        → RESULT  (achieved-price stream)
-//   • "Burmistrz … ogłasza N przetarg …"       → ANNOUNCE (active-listing stream)
-// A page typically has one of each (the round's own ogłoszenie + its post-
-// auction wynik); floor plans ("…rzut…") and photos (.png/.jpg) are skipped by
-// name so we don't fetch them.
-//
-// BOT-BLOCK: the bare bot UA gets an EMPTY 199-byte body from this host; a
-// browser UA returns the real HTML/PDF. EVERY getText/pdfText below passes
-// BROWSER_UA (config.js documents the caveat). We never modify core/.
-//
-// One request per second (core/fetch.js throttle). Content-addressed pdf-text
-// cache means committed runs never re-extract.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -52,7 +14,7 @@ const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36';
 
 const SITEMAP_URL = `${ORIGIN}/sitemap.xml`;
-const MAX_CANDIDATES = 300; // safety ceiling; live flat-sale set is ~120 pages
+const MAX_CANDIDATES = 300;
 
 function toAsciiSlug(s) {
   return (s || '')
@@ -64,9 +26,6 @@ function toAsciiSlug(s) {
 
 const EXCLUDE_RE = /najem|dzierzaw|odwolan|uniewazni|wykaz/;
 
-/** True for a flat-SALE przetarg slug (not rent/lease/cancel, not land/
- *  commercial/garage). Handles the source's occasional concatenated slugs
- *  ("...nazbycie-lokalu-mieszkalnego..."). */
 export function isFlatSaleSlug(slug) {
   const s = toAsciiSlug(slug);
   if (!s.includes('przetarg')) return false;
@@ -77,14 +36,11 @@ export function isFlatSaleSlug(slug) {
 
 const YEAR_URL = (year) => `${ORIGIN}/${year}.html`;
 
-/** Absolute-ise a year-index href (relative, sometimes numeric-id-prefixed,
- *  sometimes with a trailing "?"). */
 function absoluteUrl(href) {
   if (/^https?:\/\//i.test(href)) return href.replace(/\?+$/, '');
   return `${ORIGIN}/${href.replace(/^\/+/, '').replace(/\?+$/, '')}`;
 }
 
-/** Parse a year-index page → flat-sale announcement page URLs (in page order). */
 export function parseYearIndex(html) {
   const urls = [];
   const seen = new Set();
@@ -100,8 +56,6 @@ export function parseYearIndex(html) {
   return urls;
 }
 
-/** Fetch the site's sitemap index → its `site.xml` sub-sitemap → every article
- *  <loc> URL on the BIP. */
 async function fetchSitemapUrls() {
   const index = await getText(SITEMAP_URL, { userAgent: BROWSER_UA });
   const siteM = /<loc>([^<]*\/site\.xml)<\/loc>/i.exec(index);
@@ -112,7 +66,6 @@ async function fetchSitemapUrls() {
   return urls;
 }
 
-/** Keep + absolute-ise the flat-sale announcement URLs from a sitemap URL list. */
 export function sitemapFlatUrls(allUrls) {
   const out = [];
   const seen = new Set();
@@ -127,8 +80,6 @@ export function sitemapFlatUrls(allUrls) {
   return out;
 }
 
-/** Current + next calendar year's bare index pages (fresh-auction insurance —
- *  see file header). Best-effort: a stub/404 year just yields nothing. */
 async function recentYearIndexUrls() {
   const now = new Date().getFullYear();
   const out = [];
@@ -142,7 +93,6 @@ async function recentYearIndexUrls() {
   return out;
 }
 
-/** Discover all flat-sale announcement page URLs (sitemap ∪ recent year index). */
 async function discoverCandidatePages() {
   const pages = [];
   const seen = new Set();
@@ -165,11 +115,9 @@ async function discoverCandidatePages() {
   return bounded;
 }
 
-// A notice PDF attachment (skip images + floor plans/photos by name).
 const PDF_HREF_RE = /href="(\/?files\/file_add\/download\/\d+_[^"]+\.pdf)"/gi;
 const SKIP_FILE_RE = /(rzut|mapa|mapka|szkic|zdjec|foto|klauzula|rodo)/i;
 
-/** Extract candidate notice-PDF URLs from a detail page's HTML. */
 export function parseAttachmentUrls(html) {
   const urls = [];
   const seen = new Set();
@@ -185,18 +133,9 @@ export function parseAttachmentUrls(html) {
   return urls;
 }
 
-// ---------------------------------------------------------------------------
-// Shared, memoized fetch-and-classify pass (crawlActive + crawlResultDocs are
-// each called once per refresh.js run — this never double-fetches).
-// ---------------------------------------------------------------------------
 
 let _cache = null;
 
-/**
- * @returns {Promise<{announcements: object[], results: object[]}>}
- *   announcements: parseAnnouncement() records (with detail_url)
- *   results:       { text, pdf_url, detail_url } refs for crawlResultDocs
- */
 async function discoverAll() {
   if (_cache) return _cache;
   const pages = await discoverCandidatePages();
@@ -235,20 +174,13 @@ async function discoverAll() {
   return _cache;
 }
 
-// ---------------------------------------------------------------------------
-// Public API
-// ---------------------------------------------------------------------------
 
-/**
- * Active flat listings = announcement notices whose auction is still upcoming.
- * @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>}
- */
 export async function crawlActive() {
   const todayIso = new Date().toISOString().slice(0, 10);
   const { announcements } = await discoverAll();
   const listings = [];
   for (const a of announcements) {
-    if (!a.auction_date || a.auction_date < todayIso) continue; // only genuinely upcoming
+    if (!a.auction_date || a.auction_date < todayIso) continue;
     listings.push({
       kind: a.kind,
       address_raw: a.address_raw,
@@ -266,12 +198,6 @@ export async function crawlActive() {
   return { listings, wykaz: [], land: [] };
 }
 
-/**
- * Result notices = the "INFORMACJA O WYNIKU" PDFs. source:'html' → each ref
- * carries `.text`; refresh.js calls parseResultDoc(ref.text, ref.auction_date,
- * ref.pdf_url). auction_date is null (parseResultDoc reads it from the body).
- * @returns {Promise<Array<{text:string, pdf_url:string, auction_date:null}>>}
- */
 export async function crawlResultDocs() {
   const { results } = await discoverAll();
   const refs = results.map((r) => ({ text: r.text, pdf_url: r.pdf_url, auction_date: null }));
@@ -279,9 +205,6 @@ export async function crawlResultDocs() {
   return refs;
 }
 
-// ---------------------------------------------------------------------------
-// CLI harness (manual testing: node crawl.js [active|results])
-// ---------------------------------------------------------------------------
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const mode = process.argv[2] ?? 'active';
   if (mode === 'results') {

@@ -1,7 +1,3 @@
-// Złotów city adapter configuration.
-//
-// Gmina Miasto Złotów (powiat złotowski, woj. wielkopolskie).
-// BIP platform: Nefeni BIPv2 (Next.js SSR/SPA with born-digital & scanned PDF notices).
 
 export const config = {
   id: 'zlotow',

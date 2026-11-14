@@ -1,29 +1,3 @@
-// Końskie parser tests. Fixtures are byte-faithful copies of REAL pdftotext
-// -layout output fetched live from bip.umkonskie.pl board 5027 (verified
-// 2026-07-10), read straight out of the on-disk pdf-text-cache after fetching
-// each PDF through the actual core/pdf-text.js used at runtime. Each fixture
-// feeds the SAME normalizeText() + field-extractor pipeline crawl.js drives,
-// so the parsers are groundtruthed against production data — including the
-// real line-wrap quirks pdftotext produces (see WARSZTATOWA_ANN_R2 below).
-//
-//   id 882606  Mieszka I 3/43   — ANNOUNCEMENT, round I  (coop-share, udział 1/2)
-//   id 891845  Mieszka I 3/43   — RESULT, round I, UNSOLD (0 wadium)
-//   id 868285  Warsztatowa 2B/4 — ANNOUNCEMENT, round II (price cut 109k->85k)
-//   id 849424  Warsztatowa 2B/4 — RESULT, round I,  UNSOLD (0 wadium)
-//   id 875621  Warsztatowa 2B/4 — RESULT, round II, UNSOLD (1 wadium, no-show)
-//
-// All 5 live fixtures are UNSOLD — 0 sales fell inside this crawl's window
-// (see parse.js header). ONE synthetic fixture (SOLD_SYNTHETIC, clearly
-// marked, built by editing only the outcome paragraph of a real result) is
-// included to sanity-check the sold-outcome code path; its extrapolated
-// regex is NOT live-confirmed — same caveat tczew's parser shipped with.
-//
-// The Warsztatowa round-2 ANNOUNCEMENT (id 868285) is the load-bearing
-// fixture for auctionDateFromText: it narrates the PRIOR round's history
-// ("Pierwszy przetarg został przeprowadzony w dniu 29 października 2025
-// roku") BEFORE stating the current round's schedule ("... odbędzie się
-// dnia 25 marca 2026 roku") later in the same PDF — catching this decoy
-// live is what forced the SCHEDULED-before-HELD priority split in parse.js.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -49,7 +23,6 @@ import {
 } from '../src/cities/konskie/parse.js';
 import { parseListPage, isAnnouncementTitle, isResultTitle } from '../src/cities/konskie/crawl.js';
 
-// --------------------------------------------------------------- real fixtures
 
 const ANN_MIESZKA_I = `                                                                  Końskie, dnia 11.05.2026 r.
 
@@ -145,10 +118,6 @@ Wywieszono dnia 02.07.2026 r.
 Zdjęto dnia …….07.2026 r.
 `;
 
-// Load-bearing fixture for the SCHEDULED-before-HELD date-priority fix: line
-// "Pierwszy przetarg został przeprowadzony w dniu 29 października 2025 roku."
-// (history) appears BEFORE "... odbędzie się dnia 25 marca 2026 roku."
-// (operative) — see auctionDateFromText's header comment in parse.js.
 const WARSZTATOWA_ANN_R2 = `              BURMISTRZ MIASTA I GMINY
                     KOŃSKIE
               26-200 Końskie, ul. Partyzantów 1, tel. ( 41 ) 372 32 49, fax ( 41 ) 372 29 55
@@ -270,11 +239,6 @@ Wywieszono dnia 02.04.2026 r.
 Zdjęto dnia …….04.2026 r.
 `;
 
-// SYNTHETIC — NOT fetched live. Built by replacing only RES_WARSZTATOWA_R2's
-// negative-outcome paragraph with a hypothetical positive one, in the same
-// §12-template shape used by chelmno/tczew's own (also-unvalidated) sold
-// regex. Exercises the sold code path only; achievedPriceFromText is NOT
-// live-confirmed for Końskie (see parse.js header VALIDATE note).
 const RES_WARSZTATOWA_SOLD_SYNTHETIC = RES_WARSZTATOWA_R2.replace(
   /Do dnia 19\.03\.2026[\s\S]*?wynikiem\s+negatywnym\./,
   'Do dnia 19.03.2026 r. zgodnie z ogłoszeniem na konto urzędu wpłynęły dwa wadia. Najwyższa\n' +
@@ -282,26 +246,11 @@ const RES_WARSZTATOWA_SOLD_SYNTHETIC = RES_WARSZTATOWA_R2.replace(
     'Anna Kowalska za cenę 92.500,00 złotych.',
 );
 
-// Real title string captured verbatim from board 5027 page 8 (2026-07-10) —
-// unusually long, doubles as body text. Used to confirm the classifyKind
-// gate rejects LAND entries (village/parcel-numbered, no street address) in
-// parseAnnouncement/parseResultDoc, exactly as board 5027 requires (flats
-// and land share one undifferentiated title stream — see crawl.js header).
 const LAND_TITLE_REAL =
   'OGŁOSZENIE O PRZETARGU  pierwszy przetarg ustny nieograniczony na sprzedaż ' +
   'niezabudowanej nieruchomości położonej w miejscowości Młynek Nieświński ' +
   'oznaczonej numerem działki 785 o pow. 0,1626 ha.';
 
-// Real (condensed-but-faithful) excerpt from the Strażacka 26 announcement
-// PDF (case GN.6840.6.2025.IG, board entry id 836195, fetched live
-// 2026-07-10) — a classifyKind() FALSE-POSITIVE fixture. The notice's own
-// sale-object clause says a "zabudowana działka" (built plot / whole
-// building) is being sold, but the body ALSO says the building contains six
-// "lokale mieszkalne" that are explicitly NOT independent units —
-// classifyKind() alone reads 'mieszkalny' off that substring. This is what
-// flatKindFromText()'s override exists to catch (real bug: this Strażacka
-// entry surfaced as a bogus flat listing, area 150.67 m² / price null, in
-// this adapter's first live crawlActive() run before the fix).
 const STRAZACKA_PLOT_REAL =
   'Burmistrz Miasta i Gminy Końskie działając na podstawie uchwały Rady Miejskiej ' +
   'w Końskich Nr XII/67/2007 z dnia 28 czerwca 2007 r. ogłasza pierwszy przetarg ustny ' +
@@ -315,7 +264,6 @@ const STRAZACKA_PLOT_REAL =
   'sześć lokali mieszkalnych, nie stanowiących samodzielnych lokali w świetle przepisów prawa.';
 
 // Real detail-page HTML excerpts (attachment link + Rejestr-zmian date),
-// captured verbatim from https://bip.umkonskie.pl/wiadomosci/5027/wiadomosc/882606/... (2026-07-10).
 const DETAIL_HTML_REAL =
   '<div class="t1 attachment">\n' +
   '\t\t<a href="https://bip-v1-files.idcom-jst.pl/sites/46779/wiadomosci/882606/files/ogloszenie_udzial_lokal_mieszka_i_20260511.pdf" target="_blank" title=\'Otwórz w nowym oknie\' class="contener i2">\n' +
@@ -324,8 +272,6 @@ const DETAIL_HTML_REAL =
   '    </div>\n' +
   '<span>Data wytworzenia dokumentu: <span>11.05.2026</span></span>';
 
-// Real board-5027 page-1 list excerpt (three consecutive entries, verbatim),
-// captured 2026-07-10 — mirrors chelmno's board-XML test.
 const LIST_PAGE_REAL =
   '<div class="wiadomosci ajaxContener"><div class="t1 clickable"><div class="contener">' +
   '<p class="title"><a href="https://bip.umkonskie.pl/wiadomosci/5027/wiadomosc/893479/ogloszenie__drugi_przetarg_ustny_nieograniczony_na_sprzedaz_nier">Ogłoszenie - drugi przetarg ustny nieograniczony na sprzedaż nieruchomości - Pomyków</a></p>' +
@@ -335,7 +281,6 @@ const LIST_PAGE_REAL =
   '<p class="title"><a href="https://bip.umkonskie.pl/wiadomosci/5027/wiadomosc/893081/wykaz_nieruchomosci_gminnych_przeznaczonych_do_zbycia__konskie_d">Wykaz nieruchomości gminnych przeznaczonych do zbycia - Końskie dz. 2384/19</a></p>' +
   '</div></div></div>';
 
-// ------------------------------------------------------------------- unit funcs
 
 test('normalizeText: collapses pdftotext line-wraps to single spaces', () => {
   assert.equal(normalizeText('ul. Mieszka\nI 3'), 'ul. Mieszka I 3');
@@ -347,17 +292,13 @@ test('aptFromText: "lokalu... nr N" (announce) vs "oznaczony numerem N" (result)
   assert.equal(aptFromText(normalizeText(RES_MIESZKA_I)), '43');
   assert.equal(aptFromText(normalizeText(RES_WARSZTATOWA_R1)), '4');
   assert.equal(aptFromText(normalizeText(RES_WARSZTATOWA_R2)), '4');
-  // Third template: "lokal mieszkalny nr 4" appears well before the street.
   assert.equal(aptFromText(normalizeText(WARSZTATOWA_ANN_R2)), '4');
 });
 
 test('streetBuildingFromText: "przy ul." and "przy ulicy" both resolve, across a mid-token line-wrap', () => {
   assert.deepEqual(streetBuildingFromText(normalizeText(ANN_MIESZKA_I)), { street: 'Mieszka I', building: '3' });
-  // RES_MIESZKA_I wraps "Mieszka\nI 3" across a line — normalizeText must
-  // repair this before the regex runs.
   assert.deepEqual(streetBuildingFromText(normalizeText(RES_MIESZKA_I)), { street: 'Mieszka I', building: '3' });
   assert.deepEqual(streetBuildingFromText(normalizeText(RES_WARSZTATOWA_R1)), { street: 'Warsztatowej', building: '2B' });
-  // RES_WARSZTATOWA_R2 wraps "Warsztatowej\n2B" across a line too.
   assert.deepEqual(streetBuildingFromText(normalizeText(RES_WARSZTATOWA_R2)), { street: 'Warsztatowej', building: '2B' });
 });
 
@@ -405,9 +346,6 @@ test('achievedPriceFromText: null for unsold; extrapolated §12 phrasing resolve
 test('roundFromText: "ogłasza <ordinal> przetarg" (announce) beats prior-round history; "wynikach <ordinal-genitive> przetargu" (result)', () => {
   assert.equal(roundFromText(normalizeText(ANN_MIESZKA_I)), 1);
   assert.equal(roundFromText(normalizeText(RES_MIESZKA_I)), 1);
-  // Load-bearing: "ogłasza drugi przetarg" (operative) must win over the
-  // history clause "Pierwszy przetarg został przeprowadzony ..." two
-  // sentences later in the SAME document.
   assert.equal(roundFromText(normalizeText(WARSZTATOWA_ANN_R2)), 2);
   assert.equal(roundFromText(normalizeText(RES_WARSZTATOWA_R1)), 1);
   assert.equal(roundFromText(normalizeText(RES_WARSZTATOWA_R2)), 2);
@@ -415,11 +353,6 @@ test('roundFromText: "ogłasza <ordinal> przetarg" (announce) beats prior-round 
 
 test('auctionDateFromText: SCHEDULED ("odbędzie się") beats the HELD-history decoy in a round-2 announcement', () => {
   assert.equal(auctionDateFromText(normalizeText(ANN_MIESZKA_I)), '2026-06-23');
-  // REGRESSION: WARSZTATOWA_ANN_R2 contains "Pierwszy przetarg został
-  // przeprowadzony w dniu 29 października 2025 roku" (prior-round history)
-  // BEFORE "... odbędzie się dnia 25 marca 2026 roku" (operative). A single
-  // combined regex without SCHEDULED-first priority would return
-  // '2025-10-29' here instead of the correct '2026-03-25'.
   assert.equal(auctionDateFromText(normalizeText(WARSZTATOWA_ANN_R2)), '2026-03-25');
 });
 
@@ -448,7 +381,6 @@ test('attachmentPdfUrlFromDetail: bip-v1-files.idcom-jst.pl PDF link, site 46779
   assert.equal(attachmentPdfUrlFromDetail('<p>no attachment here</p>'), null);
 });
 
-// ------------------------------------------------------------- parseAnnouncement
 
 test('parseAnnouncement: Mieszka I 3/43 (coop-share, round I)', () => {
   const rec = parseAnnouncement(ANN_MIESZKA_I, { detailUrl: 'https://bip.umkonskie.pl/x/882606', publishedDate: '2026-05-11' });
@@ -483,7 +415,6 @@ test('flatKindFromText: REGRESSION — a whole-building "zabudowana działka" sa
   assert.equal(parseAnnouncement(STRAZACKA_PLOT_REAL), null);
 });
 
-// ------------------------------------------------------------- parseResultDoc
 
 test('parseResultDoc: Mieszka I 3/43 UNSOLD (round I, 0 wadium)', () => {
   const [r] = parseResultDoc(RES_MIESZKA_I, '2026-07-02', 'https://bip-v1-files.idcom-jst.pl/.../informacja_o_wynikach_przetargu_z_2026_06_23.pdf');
@@ -535,7 +466,6 @@ test('parseResultDoc / parseAnnouncement: [] / null on empty text', () => {
   assert.equal(parseAnnouncement(''), null);
 });
 
-// ----------------------------------------------------------- crawl.js: board HTML
 
 test('parseListPage: extracts {url, title} from a real board-5027 list excerpt', () => {
   const entries = parseListPage(LIST_PAGE_REAL);
@@ -549,15 +479,10 @@ test('parseListPage: extracts {url, title} from a real board-5027 list excerpt',
 test('isAnnouncementTitle: real "Ogłoszenie" sale titles pass; wykaz/lease/restricted/cancelled/result titles are excluded', () => {
   assert.equal(isAnnouncementTitle('Ogłoszenie - pierwszy przetarg ustny nieograniczony na sprzedaż udziału w spółdzielczym własnościowym prawie do lokalu mieszkalnego'), true);
   assert.equal(isAnnouncementTitle('Ogłoszenie - drugi przetarg ustny nieograniczony na zbycie nieruchomości lokalowej - Końskie ul. Warsztatowa'), true);
-  // wykaz — pre-announcement, not a scheduled auction
   assert.equal(isAnnouncementTitle('Wykaz nieruchomości gminnych przeznaczonych do zbycia - Końskie dz. 2384/19'), false);
-  // lease
   assert.equal(isAnnouncementTitle('Wykaz nieruchomości gminnych przeznaczonych do wydzierżawienia i wynajmu'), false);
-  // restricted ("ograniczony" without "nie-"), also a lease tender
   assert.equal(isAnnouncementTitle('Ogłoszenie - przetarg ustny ograniczony na wydzierżawienie na okres do 5 miesięcy miejsc pod ogródki gastronomiczne - Końskie płyta rynku miejskiego'), false);
-  // cancelled
   assert.equal(isAnnouncementTitle('Ogłoszenie o odwołaniu przetargu ustnego nieograniczonego - Końskie ul. Strażacka'), false);
-  // a result notice, not an announcement
   assert.equal(isAnnouncementTitle('Informacja o wynikach przetargu - ul. Mieszka I'), false);
 });
 

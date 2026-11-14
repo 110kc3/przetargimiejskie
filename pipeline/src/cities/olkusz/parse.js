@@ -1,8 +1,3 @@
-// Olkusz parsers. WordPress posts titled by date, so the sale gate + kind come
-// from the BODY. Reuses core/finn-bip.js (htmlToText, parsePLN, priceFromText,
-// auctionDateFromText, roundFromText, areaFromText) + classifyKind; parcel / plot
-// area / street are Olkusz-specific. Groundtruthed against the real post for dz.
-// 638/25 (V przetarg, ul. Wapiennej, 627 400,00 zł, przetarg 11.04.2025).
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -10,9 +5,8 @@ import { htmlToText, parsePLN, priceFromText, areaFromText, auctionDateFromText,
 
 export { htmlToText };
 
-const OFFICE_STREET_RE = /^rynek$/i; // Urząd: Rynek 1
+const OFFICE_STREET_RE = /^rynek$/i;
 
-// The "ogłasza …" summary sentence (the post title is just a date).
 export function effectiveTitle(text) {
   const m = /og[łl]asza\s+([\s\S]{0,180}?)\./i.exec(text || '');
   return m ? m[1].replace(/\s+/g, ' ').trim() : '';

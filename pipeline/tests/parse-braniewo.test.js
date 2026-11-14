@@ -1,13 +1,3 @@
-// Braniewo parser tests. Fixtures are condensed-but-faithful copies of the REAL
-// `pdftotext -layout` output of live BIP attachments (verified live 2026-07-05):
-//   flat announcement (round I) — article 2833 / attachment 4802 (Krasickiego 12/3);
-//   result UNSOLD (round I)     — article 2930 / attachment 5023 ("– BRAK");
-//   result SOLD (round II)      — article 2795 / attachment 4729 (Plac Wolności 18/8);
-//   result SOLD (round III)     — article 2760 / attachment 4681 (Hozjusza 5/9,
-//                                 spółdzielcze własnościowe prawo do lokalu).
-// The join key the first real refresh must confirm: the Krasickiego announcement
-// and its result both key on `krasickiego|12|3` (round distinguishes attempts),
-// so build-properties folds them into one property's history.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -29,7 +19,6 @@ import {
   parseResultDoc,
 } from '../src/cities/braniewo/parse.js';
 
-// ---- real extracted-text fixtures (faithful excerpts) ---------------------
 
 const ANN_FLAT = `
                                        OGŁOSZENIE BURMISTRZA MIASTA BRANIEWA
@@ -113,7 +102,6 @@ cena wywoławcza 138 500,00 zł, wadium 20 000,00 zł
                      nabywca nieruchomości – Klaudia Steć zam. Wilczęta
 `;
 
-// ---- title routing --------------------------------------------------------
 
 test('isSkippableTitle: rentals, wykazy, qualified-person lists', () => {
   assert.equal(isSkippableTitle('Lista zakwalifikowanych do uczestnictwa w przetargu ustnym ograniczonym Plac Wolności 18 m 8', ''), true);
@@ -124,7 +112,7 @@ test('isSkippableTitle: rentals, wykazy, qualified-person lists', () => {
 test('isResultTitle / isAnnouncementTitle route the two streams', () => {
   assert.equal(isResultTitle('Wynik III przetargu ustnego nieograniczonego - spółdzielcze własnościowe prawo do lokalu mieszkalnego nr 9 ul. Hozjusza 5', ''), true);
   assert.equal(isAnnouncementTitle('Ogłoszenie o pierwszym przetargu ustnym nieograniczonym na lokal mieszkalny nr 3 przy ul. Krasickiego 12', ''), true);
-  assert.equal(isAnnouncementTitle('Wynik I przetargu ustnego nieograniczonego lokal nr 3', ''), true); // result title also mentions przetarg+lokal; body gate disambiguates
+  assert.equal(isAnnouncementTitle('Wynik I przetargu ustnego nieograniczonego lokal nr 3', ''), true);
 });
 
 test('isApplicationForm skips the blank ZGŁOSZENIE form but not the ogłoszenie', () => {
@@ -139,13 +127,12 @@ test('isResultNotice: body header is authoritative', () => {
   assert.equal(isResultNotice(ANN_FLAT), false);
 });
 
-// ---- field extraction -----------------------------------------------------
 
 test('roundFromText: word ordinals, nominative (announcement) + genitive (result)', () => {
-  assert.equal(roundFromText(ANN_FLAT), 1); // "PIERWSZY PRZETARG"
-  assert.equal(roundFromText(RES_UNSOLD), 1); // "PIERWSZEGO PRZETARGU"
-  assert.equal(roundFromText(RES_SOLD_PW), 2); // "DRUGIEGO PRZETARGU"
-  assert.equal(roundFromText(RES_SOLD_HZ), 3); // "TRZECIEGO PRZETARGU"
+  assert.equal(roundFromText(ANN_FLAT), 1);
+  assert.equal(roundFromText(RES_UNSOLD), 1);
+  assert.equal(roundFromText(RES_SOLD_PW), 2);
+  assert.equal(roundFromText(RES_SOLD_HZ), 3);
 });
 
 test('dates: announcement "odbędzie się dnia" vs result "odbył się w dniu"', () => {
@@ -158,19 +145,18 @@ test('dates: announcement "odbędzie się dnia" vs result "odbył się w dniu"',
 test('unitAreaFromText: flat area, first match (cellar excluded)', () => {
   assert.equal(unitAreaFromText(ANN_FLAT), 48.73);
   assert.equal(unitAreaFromText(RES_SOLD_PW), 16.25);
-  assert.equal(unitAreaFromText(RES_SOLD_HZ), 46.4); // not the 3,05 m² piwnica
+  assert.equal(unitAreaFromText(RES_SOLD_HZ), 46.4);
 });
 
 test('prices: prose cena wywoławcza, table cena wywoławcza, achieved / BRAK', () => {
   assert.equal(startingPriceFromText(RES_SOLD_PW), 18000);
   assert.equal(startingPriceFromText(RES_SOLD_HZ), 138500);
-  assert.equal(tablePriceFromText(ANN_FLAT), 170000); // table row; 48,73 area not mistaken for price
+  assert.equal(tablePriceFromText(ANN_FLAT), 170000);
   assert.equal(achievedPriceFromText(RES_SOLD_PW), 18190);
   assert.equal(achievedPriceFromText(RES_SOLD_HZ), 192000);
-  assert.equal(achievedPriceFromText(RES_UNSOLD), null); // "– BRAK"
+  assert.equal(achievedPriceFromText(RES_UNSOLD), null);
 });
 
-// ---- full-record parses ---------------------------------------------------
 
 test('parseAnnouncement: Krasickiego 12/3 flat (round I)', () => {
   const rec = parseAnnouncement(ANN_FLAT);

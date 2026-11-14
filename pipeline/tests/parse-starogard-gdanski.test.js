@@ -1,17 +1,3 @@
-// Starogard Gdański parser unit tests.
-// Tests groundtruthed against real municipal documents from Starogard Gdański:
-// 1. Municipal Wykaz board (starogard.pl/informacje-o-nieruchomosciach.html):
-//    - Zarządzenie Nr 450/11/2020: ul. Chojnicka 45 (94.98 m², udział 77/128)
-//    - Zarządzenie Nr 375/09/2020: ul. Osiedlowa 5B/3 (33.45 m², udział 3/4)
-//    - Zarządzenie Nr 74/03/2021:  ul. Skarszewska 2C/14 (49.02 m²) & ul. Piłsudskiego 10/8 (49.08 m²)
-//    - Zarządzenie Nr 494/11/2024: ul. Wybickiego 6/5 (58.06 m²)
-//    - Filtering: bezprzetargowo (ul. Chojnicka 28/2, ul. ks. Ściegiennego 3A/18) and dzierżawa
-// 2. Official BIP Oral Auction Announcements (bip.starogard.pl):
-//    - Kopernika 32C/2 (PDF 66179): I przetarg, 29.05 m², 120 000 zł, auction 2026-07-22
-//    - Traugutta garage (PDF 66873): I przetarg, 15.65 m², 50 000 zł, KW GD1A/00024974/9
-// 3. Official BIP Result Notices (bip.starogard.pl):
-//    - ul. Chabrowa (PDF 67283): sold parcels (70/98 & 70/99)
-//    - ul. Skarszewska (PDF 67437): unsold parcels (3/37 to 3/43, brak uczestnictwa)
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -26,9 +12,6 @@ import {
   parseResultDoc,
 } from '../src/cities/starogard-gdanski/parse.js';
 
-// ---------------------------------------------------------------------------
-// 0. Config verification
-// ---------------------------------------------------------------------------
 
 test('config: exports required metadata matching official assignment', () => {
   assert.equal(config.id, 'starogard-gdanski');
@@ -40,9 +23,6 @@ test('config: exports required metadata matching official assignment', () => {
   assert.equal(config.source, 'html');
 });
 
-// ---------------------------------------------------------------------------
-// 1. Helper utilities
-// ---------------------------------------------------------------------------
 
 test('polishDateToISO: parses Polish spelled and numeric dates', () => {
   assert.equal(polishDateToISO('16 listopada 2020 r.'), '2020-11-16');
@@ -68,9 +48,6 @@ test('kwFromText: extracts structured and standard KW patterns', () => {
   assert.equal(kwFromText('KW lokalu 48478, przynależny'), '48478');
 });
 
-// ---------------------------------------------------------------------------
-// 2. Municipal Wykaz board (starogard.pl/informacje-o-nieruchomosciach.html)
-// ---------------------------------------------------------------------------
 
 const WYKAZ_FIXTURE_CHOJNICKA = `
 <div class="site wysiwyg -clearafter">
@@ -206,9 +183,6 @@ test('parseWykazBoard: rejects non-auction (bezprzetargowe na rzecz najemcy) sal
   assert.equal(records.length, 0);
 });
 
-// ---------------------------------------------------------------------------
-// 3. Official BIP Oral Auction Announcements (PDF text)
-// ---------------------------------------------------------------------------
 
 const ANNOUNCEMENT_PDF_KOPERNIKA = `
 Na podstawie art. 38 ust. 1 i 2 ustawy z dnia 21 sierpnia 1997 r. o gospodarce nieruchomościami (Dz. U.
@@ -286,9 +260,6 @@ test('parseAnnouncement: parses garage auction at ul. Romualda Traugutta', () =>
   assert.equal(parsed.obreb, '12');
 });
 
-// ---------------------------------------------------------------------------
-// 4. Official BIP Result Notices (PDF text)
-// ---------------------------------------------------------------------------
 
 const RESULT_PDF_CHABROWA = `
 Na podstawie § 12 Rozporządzenia Rady Ministrów z dnia 14 września 2004 r. w sprawie sposobu i trybu

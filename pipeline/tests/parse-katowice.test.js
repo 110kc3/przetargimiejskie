@@ -1,9 +1,3 @@
-// Katowice result-PDF parser tests. The neg-wykaz fixture reproduces the
-// pdftotext -layout output of a real committed cache file
-// (pdf-text-cache/Wyniki_2019.05.2026_…neg.pdf.*.txt): negative rows carry
-// "Przetarg zakończony wynikiem negatywnym" in the buyer column and "------"
-// in the achieved-price column. Regression: these rows were published as
-// outcome:'sold' with final_price_pln:null.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -64,8 +58,6 @@ test('negative wykaz rows → outcome unsold, final price null', () => {
 });
 
 test('prices with grosze and dotted thousands parse (June 2026 fix)', () => {
-  // The row regex used to accept only "850 000 zł" — a row priced
-  // "150 000,00 zł" parsed BOTH prices to null.
   const pdf = `                                     WYKAZ Z DNIA 10.03.2026 r. DOTYCZĄCY WYNIKÓW PRZETARGÓW NA SPRZEDAŻ NIERUCHOMOŚCI
 
                                                           ul. Polna 5/3
@@ -92,12 +84,6 @@ test('positive wykaz row still parses as sold with both prices', () => {
   assert.equal(recs[0].final_price_pln, 286000);
 });
 
-// Yearly-summary table: the linearised columns can interleave the auction-type
-// cell into a street capture ("ul. Oddziałów Młodzieży  II ustny … 86 000 zł"
-// → street "Oddziałów Młodzieży II ustny…" with the price's leading digits as
-// the building). pickAddress now applies the same column-bleed vocabulary
-// filter as parseResultRow: such a candidate is junk, the row is dropped
-// rather than emitted under a garbage key. Clean rows still parse.
 const YEARLY_BLEED_PDF = `Wykaz nieruchomości sprzedanych w roku 2025
 
 1   07.04.2025r.  lokal mieszkalny  ul. Oddziałów Młodzieży   II ustny nieograniczony   86 000,00 zł   95 000,00 zł
@@ -117,12 +103,6 @@ test('yearly summary: column-bleed street ("… II ustny …") is rejected, clea
   assert.equal(ok.final_price_pln, 120000);
 });
 
-// Result-table row where the start-price cell has no own "zł" and the area
-// uses the terse "o pow. X m2" (the Widok 37/3 case, "Wyniki 03.02.2026
-// pozytywne.pdf"): whitespace collapse glues "180 000      221 400 zł" into
-// one 180-billion token. splitGluedAmounts must yield start + achieved, and
-// the lokal-anchored area fallback must catch 26,26 m² while the parcel's
-// "o łącznej pow. 68 194 m2" stays excluded.
 const GLUED_PRICE_PDF = `WYKAZ Z DNIA 05.02.2026 r. DOTYCZĄCY WYNIKÓW PRZETARGÓW NA SPRZEDAŻ NIERUCHOMOŚCI
 
                                                       ul. Widok 37/3
@@ -143,10 +123,6 @@ test('glued start+achieved prices are split; terse "o pow." area parsed (Widok 3
   assert.equal(r.area_m2, 26.26, 'flat area, not the 12 570 m² parcel');
 });
 
-// Whole-property rows (no lokal): the area is the PLOT/building total — it
-// must land in land_area_m2, never area_m2 (zł/m² from a 1080 m² plot next
-// to flat rows was apples-to-oranges). The bare-column area form ("1080,73"
-// with no m2 unit) parses; spaced-thousands price fragments can't match it.
 const YEARLY_ZABUDOWANA_PDF = `Wykaz nieruchomości sprzedanych w roku 2023
 
 32   20.03.2023r.  I ustny  lokal mieszkalny  ul. Wita Stwosza 1/11   144,07   430 000,00 zł   490 200,00 zł
@@ -165,11 +141,6 @@ test('yearly summary: zabudowana row area → land_area_m2, lokal row → area_m
   assert.equal(bldg.land_area_m2, 1080.73);
 });
 
-// Announcement area SELECTION (CI sanity-gate catch, June 2026): lokal
-// announcements state the PARCEL first ("nieruchomości gruntowej … o
-// powierzchni 800 m²"), so the old first-match grab published 800 m² "flats"
-// at 225 zł/m². The flat's own area must win; whole-property announcements
-// route their total to land_area_m2.
 test('announcement: parcel area is skipped, the lokal area wins', () => {
   const html = `<p>Sprzedaż lokalu mieszkalnego nr 57 położonego w budynku przy
     ul. Oswobodzenia 38C, usytuowanego na nieruchomości gruntowej oznaczonej
@@ -191,14 +162,7 @@ test('announcement: whole-property total → land_area_m2, never area_m2', () =>
   assert.equal(a.land_area_m2, 1049.48);
 });
 
-// ------------------------------------------------------------------ land
 
-// Live fixture modelled on bip.katowice.eu idr=152394:
-//   title: "Przetarg ustny nieograniczony na sprzedaż nieruchomości gruntowej
-//           … przy ul. Solskiego (dz. 1241/36)"
-//   body:  "działka nr 1241/36, z karty mapy 19, obręb Górne Lasy Pszczyńskie …
-//           o pow. 1772 m2 … Cena wywoławcza … 880 000 zł …
-//           Przetarg odbędzie się w dniu 15.09.2026 …"
 const LAND_HTML = `<p>Prezydent Miasta Katowice ogłasza przetarg ustny nieograniczony na sprzedaż nieruchomości gruntowej o
 pow. 1772 m2, położonej przy ul. Solskiego, oznaczonej jako działka nr
 1241/36, z karty mapy 19, obręb Górne Lasy Pszczyńskie, stanowiącej
@@ -228,7 +192,6 @@ test('parseLandAnnouncement: extracts dzialka_nr, obreb, area, price, date', () 
   assert.equal(r.starting_price_pln, 880000, 'starting price');
   assert.equal(r.auction_date, '2026-09-15', 'auction date');
   assert.equal(r.round, 1, 'first auction → round 1');
-  // Land parcels have no building number
   assert.equal(r.building, null);
   assert.equal(r.address, null);
   assert.ok(r.street, 'street extracted from title');
@@ -256,7 +219,6 @@ Miasta Katowice.</p>
   assert.equal(r.auction_date, '2026-06-16');
 });
 
-// -------------------------------------------------------- multi-unit announcement
 
 const MULTI_TITLE =
   'Przetargi ustne nieograniczone na sprzedaż 4 lokali mieszkalnych (ul. Rybnicka 8/8, ul. Broniewskiego 1b/13, ul. Sokolska 52/12 i ul. Grażyńskiego 42/4)';
@@ -335,17 +297,7 @@ test('single-unit announcement still yields exactly one listing', () => {
   assert.equal(recs[0].address.key, 'oswobodzenia|38C|57');
 });
 
-// Auction-date regex regression (June 2026): the multi-unit change rewrote the
-// shared auction-date pattern from `odb[ęe]dzie\s+si[ęe]` to
-// `odb[ęe]d[ąa]?\s*si[ęe]` to catch the plural "Przetargi odbędą się". But the
-// optional single `[ąa]` cannot span the "zie" in the SINGULAR "odbędzie się"
-// that every single-property announcement uses (verified live on
-// bip.katowice.eu idr=152394: "Przetarg odbędzie się w dniu 15.09.2026 …"), so
-// auction_date silently dropped to null for ~30 active listings. The fixed
-// alternation `odb[ęe]d(?:zie|[ąa])\s*si[ęe]` matches BOTH forms. This guards
-// the singular path; the multi-unit test above guards the plural one.
 test('single-unit announcement extracts auction_date from singular "odbędzie się"', () => {
-  // Body wording lifted verbatim from bip.katowice.eu idr=152394.
   const flatHtml = `<p>Sprzedaż lokalu mieszkalnego nr 5 przy ul. Solskiego 10
     o pow. użytkowej 42,10 m². Cena wywoławcza: 250 000 zł.
     Wadium może być wnoszone w pieniądzu do dnia 07.09.2026 r.
@@ -361,8 +313,6 @@ test('single-unit announcement extracts auction_date from singular "odbędzie si
   assert.equal(flat.wadium_deadline, '2026-09-07');
   assert.equal(flat.area_m2, 42.1, 'flat usable area');
 
-  // A single-unit zabudowana with the same singular wording: the date must
-  // resolve AND the plot total must route to land_area_m2, not area_m2.
   const zabHtml = `<p>Sprzedaż nieruchomości zabudowanej budynkiem mieszkalnym
     przy ul. Górnej 4 o powierzchni 1049,48 m². Cena wywoławcza: 2 000 000 zł.
     Przetarg odbędzie się w dniu 12.08.2026 o godz. 10:00.</p>`;
@@ -377,15 +327,6 @@ test('single-unit announcement extracts auction_date from singular "odbędzie si
   assert.equal(zab.land_area_m2, 1049.48, 'whole-property total → land_area_m2 (by design)');
 });
 
-// Regression: a unit's own digit must not become the price's leading group.
-// Real row from the 22.07.2026 wykaz (Broniewskiego 1b/13). Unlike
-// GLUED_PRICE_PDF above, the parcel text sits on the SAME line and BEFORE the
-// amounts — "o łącznej pow. 349 m2   170 000 zł" — so a lookbehind that only
-// excluded a preceding digit began matching at the "2" of "m2" and, since
-// spaces are thousands separators here, read 2 170 000. At 21,35 m² that is
-// 101 639 zł/m², which tripped the insane-m2 sanity gate and blocked every
-// katowice data commit from 2026-07-22 until this fix. splitGluedAmounts does
-// not help: 2.17M is well under its 50M plausibility ceiling.
 const UNIT_DIGIT_PDF = `WYKAZ Z DNIA 22.07.2026 r. DOTYCZĄCY WYNIKÓW PRZETARGÓW NA SPRZEDAŻ NIERUCHOMOŚCI
 
                                                       ul. Broniewskiego 1b/13
@@ -405,6 +346,5 @@ test('a preceding "m2" does not donate its digit to the price (Broniewskiego 1b/
   assert.equal(r.starting_price_pln, 170000, 'must be 170 000, not 2 170 000 from "m2"');
   assert.equal(r.final_price_pln, 171700);
   assert.equal(r.area_m2, 21.35, 'flat area, not the 349 m² parcel');
-  // The gate that caught this in production, asserted directly.
   assert.ok(r.starting_price_pln / r.area_m2 < 40000, 'zł/m² must stay inside the sanity band');
 });

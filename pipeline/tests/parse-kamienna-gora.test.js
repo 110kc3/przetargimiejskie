@@ -1,39 +1,3 @@
-// Kamienna Góra parser tests. Fixtures are condensed-but-faithful copies of the
-// REAL born-digital PDF text (pdftotext -layout) fetched live from
-// bip.kamiennagora.pl (verified 2026-07-11 from this Pi's Polish residential IP,
-// with the browser UA the host requires). Long non-load-bearing boilerplate
-// (wadium-handling procedure, pierwszeństwo/RODO paragraphs, MPZP clause,
-// notarial-cost warnings) is trimmed; every sentence that feeds a parsed field
-// (address, area, price, date, round, outcome) is kept VERBATIM.
-//
-// The announcement fixture deliberately KEEPS the real mid-street line break
-// ("...przy ul. Tadeusza\n Kościuszki 20\nPrzetarg odbędzie się...") as a
-// regression fixture: the subject sentence runs straight into the next sentence
-// with NO period after the building number, and the street name is split across
-// two physical lines — normalizeBody() must rejoin whitespace before the field
-// regexes run, and the building number must be found without relying on a
-// trailing period. It also keeps "...z 11,8% udziałem we współwłasności wynosi
-// 120 000,00 zł" so the price extractor is proven to skip the "11,8%" and land
-// on the real amount.
-//
-// Groundtruth (hand-verified against the live PDFs):
-//   ul. Tadeusza Kościuszki 20/8, obręb 6:
-//     OGŁOSZENIE   /609 ogłoszenie   round I  48,45 m²  cena wywoławcza 120 000 zł,
-//                   auction 04.11.2022, published 21.09.2022
-//     WYNIK NEG    /744 negatywny    round I  120 000 zł  → wynik negatywny
-//                   (SAME address key as the announcement — the merge point)
-//   ul. Mostowej 6/10, obręb 3:
-//     WYNIK POZ    /1897 pozytywny   round II 17,35 m²  39 000 → 39 400 zł SOLD,
-//                   auction 12.12.2023 (the "w dniu" auction date, NOT the
-//                   "dnia 20 grudnia" publication date)
-//   ul. Wiejskiej 4/17A, obręb 5:
-//     WYNIK POZ    /1752 pozytywny   round I  21,05 m²  51 000 → 51 510 zł SOLD,
-//                   auction 26.10.2023 — apartment "17A", obręb stated WITHOUT
-//                   "nr" ("w obrębie 5 miasta")
-//   pl. Wolności 22/5A, obręb 6:
-//     WYNIK NEG    /3574 negatywny   round IV (word "czwartego") 12,95 m²
-//                   21 000 zł → wynik negatywny, auction 03.09.2025 — a "pl."
-//                   (plac) address, not "ul.".
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -58,7 +22,6 @@ import {
   parseAttachmentUrls,
 } from '../src/cities/kamienna-gora/crawl.js';
 
-// --------------------------------------------------------------- fixtures
 
 const KOSCIUSZKI_ANNOUNCE = `Kamienna Góra, dnia 21 września 2022 r.
 OGŁOSZENIE
@@ -72,11 +35,6 @@ o pow. 16,24 m2, pokoju II o pow. 12,76 m2, kuchni o pow. 14,88 m2.
 Cena wywoławcza lokalu mieszkalnego nr 8 przy ul. Tadeusza Kościuszki 20 z 11,8% udziałem
 we współwłasności wynosi 120 000,00 zł brutto (słownie: sto dwadzieścia tysięcy złotych brutto).`;
 
-// A SECOND announcement, using the OTHER (dominant) real phrasing: the
-// full-word "przy ulicy …" street type (result notices abbreviate to "przy
-// ul."), "w Kamiennej Górze" with NO "w obrębie nr N miasta" (→ obręb null),
-// and a "N/1000 udziałem" share fraction sitting between the "Cena wywoławcza"
-// label and the real amount (the price extractor must skip "139/1000").
 const BOHATEROW_ANNOUNCE = `Kamienna Góra, dnia 20 czerwca 2022 r.
 OGŁOSZENIE
 Burmistrz Miasta Kamienna Góra ogłasza I przetarg ustny nieograniczony na zbycie lokalu
@@ -152,7 +110,6 @@ Podmiot wyłoniony w przetargu jako nabywca nieruchomości:
 W wyniku przetargu nie wyłoniono nabywcy nieruchomości.
 Z uwagi na powyższe przetarg zakończył się wynikiem negatywnym.`;
 
-// -------------------------------------------------------------- unit funcs
 
 test('parsePLN: space-thousands zł amounts and grosze', () => {
   assert.equal(parsePLN('120 000,00'), 120000);
@@ -190,7 +147,7 @@ test('isResultNotice / isAnnouncement: discriminate the two notice types on the 
   assert.equal(isResultNotice(MOSTOWA_SOLD), true);
   assert.equal(isResultNotice(KOSCIUSZKI_ANNOUNCE), false);
   assert.equal(isAnnouncement(KOSCIUSZKI_ANNOUNCE), true);
-  assert.equal(isAnnouncement(KOSCIUSZKI_NEG), false); // a result is never an announcement
+  assert.equal(isAnnouncement(KOSCIUSZKI_NEG), false);
 });
 
 test('extractSubject: street/building from "przy ul." with a mid-street line break, apt from "lokalu mieszkalnego nr", and a "pl." (plac) address', () => {
@@ -229,14 +186,13 @@ test('extractStartingPrice: skips a "N/1000 udziałem" share fraction, and survi
 
 test('isFlatSaleSlug: keeps flat-sale przetarg slugs, rejects rent/lease/cancel and land/commercial/garage', () => {
   assert.equal(isFlatSaleSlug('iv-przetarg-ustny-nieograniczony-na-zbycie-lokalu-mieszkalnego-nr-5a-polozonego-w-kamiennej-gorze-przy-placu-wolnosci-22.html'), true);
-  assert.equal(isFlatSaleSlug('iprzetarg-ustny-nieograniczony-nazbycie-lokalu-mieszkalnego-nr3-polozonego-wkamiennej-gorze.html'), true); // concatenated slug
-  assert.equal(isFlatSaleSlug('i-przetarg-ustny-nieograniczony-na-najem-garazu-murowanego-przy-ul-spacerowa.html'), false); // rent
-  assert.equal(isFlatSaleSlug('i-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-gruntowej-polozonej.html'), false); // land
-  assert.equal(isFlatSaleSlug('i-przetarg-ustny-nieograniczony-na-zbycie-lokalu-uzytkowego-polozonego.html'), false); // commercial
-  assert.equal(isFlatSaleSlug('odwolanie-i-przetargu-ustnego-nieograniczonego-na-najem-garazu.html'), false); // cancelled
+  assert.equal(isFlatSaleSlug('iprzetarg-ustny-nieograniczony-nazbycie-lokalu-mieszkalnego-nr3-polozonego-wkamiennej-gorze.html'), true);
+  assert.equal(isFlatSaleSlug('i-przetarg-ustny-nieograniczony-na-najem-garazu-murowanego-przy-ul-spacerowa.html'), false);
+  assert.equal(isFlatSaleSlug('i-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-gruntowej-polozonej.html'), false);
+  assert.equal(isFlatSaleSlug('i-przetarg-ustny-nieograniczony-na-zbycie-lokalu-uzytkowego-polozonego.html'), false);
+  assert.equal(isFlatSaleSlug('odwolanie-i-przetargu-ustnego-nieograniczonego-na-najem-garazu.html'), false);
 });
 
-// ---------------------------------------------------- parseAnnouncement (active)
 
 test('parseAnnouncement: Kościuszki 20/8 — round I, area, cena wywoławcza (skips "11,8%"), text-month auction+publication dates, address key', () => {
   const r = parseAnnouncement(KOSCIUSZKI_ANNOUNCE, 'https://bip.kamiennagora.pl/i-przetarg-...-kosciuszki-20.html');
@@ -269,7 +225,6 @@ test('parseAnnouncement: Bohaterów Getta 19/4 — full-word "przy ulicy" street
   assert.equal(r.obreb, null);
 });
 
-// ---------------------------------------------------- parseResultDoc (achieved price)
 
 test('parseResultDoc: Mostowej 6/10 SOLD — round II, achieved 39 400 zł, outcome sold, auction date from "w dniu" (12.12) NOT publication (20.12)', () => {
   const [r] = parseResultDoc(MOSTOWA_SOLD, null, 'https://bip.kamiennagora.pl/files/file_add/download/1897_ul-mostowa-6-10-ii-pozytywny.pdf');
@@ -333,7 +288,6 @@ test('parseResultDoc: empty/null input returns []', () => {
   assert.deepEqual(parseResultDoc(null, null, 'x'), []);
 });
 
-// ----------------------------------------------------------- crawl discovery
 
 test('parseYearIndex: keeps only flat-sale hrefs (absolute, deduped), drops numeric-prefix duplicates via URL, ignores rent/land/garage', () => {
   const html = `

@@ -1,5 +1,3 @@
-// City configuration for Pruszcz Gdański (powiat gdański, Pomorskie)
-// BIP: https://bip.pruszcz-gdanski.pl
 
 export default {
   id: 'pruszcz-gdanski',

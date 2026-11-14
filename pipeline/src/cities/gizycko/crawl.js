@@ -1,6 +1,3 @@
-// Giżycko crawler — bip.gizycko.pl, IDcom.pl bip-v1, site 3080.
-// Confirmed live 2026-06-29. Result PDFs are Xerox-scanned images (pdftotext empty).
-// See spikes/warminsko-mazurskie/powiat-gizycki/gizycko.md.
 
 import { getText } from '../../core/fetch.js';
 import { parseAddress } from '../../core/normalize.js';
@@ -24,7 +21,6 @@ function toAsciiPL(s) {
     .replace(/ś/g, 's').replace(/ź/g, 'z').replace(/ż/g, 'z');
 }
 
-// ---- list-page parser -------------------------------------------------------
 
 const TITLE_LINK_RE = /<p class="title"><a href="([^"]+)">([^<]+)<\/a><\/p>/g;
 
@@ -44,7 +40,6 @@ export function parseListPage(html) {
   return out;
 }
 
-// ---- title classifiers -------------------------------------------------------
 
 export function isAnnouncementTitle(title) {
   if (!title) return false;
@@ -63,7 +58,6 @@ export function isResultTitle(title) {
   return /wynik|informacja\s+o\s+wyniku/.test(t) && /lokal/.test(t);
 }
 
-// ---- detail-page helpers -----------------------------------------------------
 
 export function publishedDateFromDetail(html) {
   if (!html) return null;
@@ -96,7 +90,6 @@ export function attachmentPdfUrlsFromDetail(html) {
   return out;
 }
 
-// ---- body-text helpers -------------------------------------------------------
 
 function stripTags(html) {
   return (html || '')
@@ -200,37 +193,28 @@ export function startingPriceFromBody(text) {
 export function addressFromBody(text, title) {
   const source = text || title || '';
 
-  // Pattern A: body two-part form "lokal nr APT ... nr BLDG przy ul. STREET w Gizycku"
   const patA = /lokal\w*\s+(?:mieszkaln\w+\s+)?nr\s+(\d+[A-Za-z]?)[\s\S]{0,200}?nr\s+(\d+[A-Za-z]?)\s+przy\s+ul\.\s+([A-ZŁŚĆĘĄÓŹŻŃ][^\n,]+?)\s+w\s+Gi[zż]ycku/i.exec(source);
   if (patA) {
     return parseAddress(`${patA[3].replace(/\s+$/, '')} ${patA[2]}/${patA[1]}`);
   }
 
-  // Pattern B: "przy ul. STREET BLDG/APT"
   const patB = /przy\s+ul\.\s+([A-ZŁŚĆĘĄÓŹŻŃ][\wÀ-ɏ ]+?)\s+(\d+[A-Za-z]?)\/(\d+[A-Za-z]?)/i.exec(source);
   if (patB) {
     return parseAddress(`${patB[1].trim()} ${patB[2]}/${patB[3]}`);
   }
 
-  // Pattern C: title "lokal[u] STREET BLDG/APT"
   const patC = /lokal[au]?\s+([A-ZŁŚĆĘĄÓŹŻŃ][\wÀ-ɏ ]+?)\s+(\d+[A-Za-z]?)\/(\d+[A-Za-z]?)/i.exec(title || '');
   if (patC) {
     return parseAddress(`${patC[1].trim()} ${patC[2]}/${patC[3]}`);
   }
 
-  // Pattern D: "przy ul. STREET NR w Gizycku" (no apt)
   const patD = /przy\s+ul\.\s+([A-ZŁŚĆĘĄÓŹŻŃ][\wÀ-ɏ ]+?)\s+(\d+[A-Za-z]?)\s+w\s+Gi[zż]ycku/i.exec(source);
   if (patD) {
     return parseAddress(`${patD[1].trim()} ${patD[2]}`);
   }
 
-  // Pattern E (title fallback): "CAPITALIZED-WORDS BLDG/APT"
-  // Street words must start with UPPERCASE (no /i flag) to avoid matching
-  // lowercase tokens like "nr", "na", "do". The digit-slash guard prevents
-  // matching announcement numbers like "111/2024".
   const patE = /\b([A-ZĄĆĘŁŃÓŚŹŻ][A-Za-zÀ-ɏ]+(?: [A-ZĄĆĘŁŃÓŚŹŻ][A-Za-zÀ-ɏ]+)*)\s+(\d+[A-Za-z]?)\/(\d+[A-Za-z]?)(?:[^/]|$)/.exec(title || '');
   if (patE) {
-    // Skip if street name looks like an announcement number prefix
     const street = patE[1].trim();
     if (/^[A-Z][a-z]/.test(street) || /\s/.test(street)) {
       return parseAddress(`${street} ${patE[2]}/${patE[3]}`);
@@ -240,7 +224,6 @@ export function addressFromBody(text, title) {
   return null;
 }
 
-// ---- crawlActive ------------------------------------------------------------
 
 export async function crawlActive() {
   const allEntries = [];
@@ -312,7 +295,6 @@ export async function crawlActive() {
   return { listings, wykaz: [], land: [] };
 }
 
-// ---- crawlResultDocs --------------------------------------------------------
 
 export async function crawlResultDocs() {
   const allEntries = [];

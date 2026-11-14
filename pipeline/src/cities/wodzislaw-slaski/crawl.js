@@ -1,17 +1,6 @@
-// Wodzisław Śląski crawler — FINN eUrząd JSON-RPC service.
-//
-// The city BIP (bip.wodzislaw-slaski.pl) embeds the FINN.pl eUrząd SPA
-// (eurzad.finn.pl/gmwodzislawsl) in an iframe.
-// Rather than spinning up a headless browser, this adapter queries the FINN
-// eUrząd JSON-RPC backend directly:
 //   - POST /rpc/routeRejestryServiceManager1 ("pobierzRejestry"): enumerates register items
 //   - POST /rpc/routeRejestryServiceManager2 ("pobierzRejestr"): fetches item detail + attachments
 //   - GET /server/pobierz_rejestry_zalacznik/<id>: downloads PDF attachments
-//
-// Registers crawled:
-//   - IAG-Opost: Ogłoszenia o przetargach (active auctions -> listings + land)
-//   - NWP: Informacje o wynikach przetargów na zbycie nieruchomości (results -> crawlResultDocs)
-//   - IAG-Wsprz: Wykaz nieruchomości przeznaczonych do sprzedaży (wykaz)
 
 import { pathToFileURL } from 'node:url';
 import { directFetch } from '../../core/fetch.js';
@@ -31,7 +20,6 @@ const PUBLIC_BASE = `${ORIGIN}/?color=blue#!/rejestr/`;
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
-/** Call FINN eUrząd JSON-RPC endpoint. */
 export async function callRpc(route, params) {
   const res = await directFetch(`${RPC_BASE}/${route}`, {
     method: 'POST',
@@ -48,12 +36,10 @@ export async function callRpc(route, params) {
   return JSON.parse(data.result);
 }
 
-/** Fetch item details including attachments list. */
 export async function fetchItemDetail(id) {
   return callRpc('routeRejestryServiceManager2', [JSON.stringify(String(id))]);
 }
 
-/** Fetch list of items from a register. */
 export async function fetchRegisterPage(symbol, pageSize = 50, pageNumber = 1) {
   return callRpc('routeRejestryServiceManager1', [
     JSON.stringify(symbol),
@@ -75,8 +61,6 @@ export async function crawlAll() {
   const maxDocs = Number(process.env.WOD_MAX_DOCS) || 60;
   const deadline = Date.now() + (Number(process.env.WOD_CRAWL_BUDGET_MS) || 12 * 60 * 1000);
 
-  // 1) Results (NWP) - achieved-price stream.
-  // One page of size 100 covers all historical results.
   console.error('  wodzislaw-slaski: querying NWP results register...');
   try {
     const knownUrls = loadKnownSourceUrls('wodzislaw-slaski');
@@ -120,7 +104,6 @@ export async function crawlAll() {
     console.error(`  wodzislaw-slaski: error querying NWP register: ${err.message}`);
   }
 
-  // 2) Announcements (IAG-Opost).
   console.error('  wodzislaw-slaski: querying IAG-Opost announcements register...');
   try {
     const annPage = await fetchRegisterPage('IAG-Opost', 60, 1);
@@ -170,13 +153,11 @@ export async function crawlAll() {
     console.error(`  wodzislaw-slaski: error querying IAG-Opost register: ${err.message}`);
   }
 
-  // 3) Wykaz (IAG-Wsprz) - filter out tenant purchases, keep auction intents if any.
   console.error('  wodzislaw-slaski: checking IAG-Wsprz wykaz register...');
   try {
     const wykazPage = await fetchRegisterPage('IAG-Wsprz', 30, 1);
     const wykazItems = wykazPage?.lista || [];
     for (const item of wykazItems) {
-      // Tenant purchase is out of scope
       if (/bezprzetarg|na\s+rzecz\s+najemc/i.test(item.temat)) continue;
       if (!/przetarg/i.test(item.temat)) continue;
 
@@ -233,13 +214,11 @@ export async function crawlAll() {
   };
 }
 
-/** Achieved-price stream. */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resultRefs;
 }
 
-/** Active listings + land + wykaz. */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, wykaz, land, valid_empty, valid_empty_land } = await crawlPromise;

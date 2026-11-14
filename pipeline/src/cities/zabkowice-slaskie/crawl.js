@@ -1,30 +1,3 @@
-// Ząbkowice Śląskie crawler — the city BIP's Logonet eUrząd real-estate module
-// (server-rendered HTML). See config.js + parse.js.
-//
-// The estate board is filterable by status via a GET search endpoint:
-//   /przetargi-nieruchomosci/szukaj?order=sprzedaż&status=<S>&perPage=<N>&page=<P>
-//     status 0 = Aktualne (active/upcoming) · 2 = Rozstrzygnięte (concluded) ·
-//            1 = W trakcie rozstrzygania · 3 = Unieważnione
-// Each result row links a notice DETAIL page:
-//   /przetarg-nieruchomosci/<id>/<slug>
-// whose "Szczegóły" table carries the announcement fields INLINE (adres, przetarg
-// na, typ, rodzaj, cena wywoławcza, data przetargu — parsed by parse.extractFields,
-// no PDF). A concluded notice additionally attaches an "INFORMACJA O WYNIKU
-// PRZETARGU" **scanned** PDF (Konica Minolta — no text layer), fetched via
-//   /attachments/download/<attId>
-// and OCR'd here (core/ocr-pdf.js). Two streams:
-//
-//   crawlActive()      → status=0 notices → parse HTML fields → { listings, land }
-//   crawlResultDocs()  → status=2 notices → OCR the wynik PDF → refs carrying .text
-//                        (source:'html' ⇒ refresh.js hands ref.text to parseResultDoc)
-//
-// BOUNDED BACKFILL (bialystok/kędzierzyn pattern): the resolved archive is large
-// (~154 board pages total). crawlResultDocs enumerates all status=2 notices
-// (cheap HTML), SKIPS any whose notice URL is already in committed data, then
-// fetches+OCRs only NEW notices up to a per-run detail cap + wall-clock budget;
-// the remainder backfills on later runs (the committed OCR cache makes re-runs
-// instant). Env overrides: ZABKOWICE_MAX_DETAILS, ZABKOWICE_CRAWL_BUDGET_MS,
-// ZABKOWICE_MAX_ENUM_PAGES, ZABKOWICE_PER_PAGE.
 
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { existsSync } from 'node:fs';
@@ -40,7 +13,6 @@ const MAX_ENUM_PAGES = Number(process.env.ZABKOWICE_MAX_ENUM_PAGES) || 80;
 const MAX_DETAILS = Number(process.env.ZABKOWICE_MAX_DETAILS) || 120;
 const CRAWL_BUDGET_MS = Number(process.env.ZABKOWICE_CRAWL_BUDGET_MS) || 12 * 60 * 1000;
 
-// Status codes on the sale board.
 const STATUS_ACTIVE = 0;
 const STATUS_RESOLVED = 2;
 
@@ -64,7 +36,6 @@ async function fetchHtml(url) {
   }
 }
 
-/** Distinct notice detail links on one board/search page: [{ id, detailUrl }]. */
 export function noticeLinksFromPage(html) {
   const out = [];
   const seen = new Set();
@@ -79,7 +50,6 @@ export function noticeLinksFromPage(html) {
   return out;
 }
 
-/** Enumerate every distinct notice for one status, paginating defensively. */
 async function enumerateNotices(status) {
   const refs = [];
   const seen = new Set();
@@ -94,15 +64,11 @@ async function enumerateNotices(status) {
       refs.push(l);
       added++;
     }
-    // Stop at the last page (fewer than a full page of notices, or nothing new).
     if (links.length < PER_PAGE || added === 0) break;
   }
   return refs;
 }
 
-/** The "INFORMACJA O WYNIKU PRZETARGU" attachment URL on a notice detail page.
- *  Attachments carry the property description as their link text EXCEPT the result
- *  notice, whose link text is "Informacja o wyniku przetargu". */
 export function resultPdfUrl(html) {
   const re = /href="([^"]*\/attachments\/download\/\d+)"[^>]*>\s*([^<]*?)\s*</gi;
   let m;
@@ -112,11 +78,6 @@ export function resultPdfUrl(html) {
   return null;
 }
 
-// ---------------------------------------------------------------------------
-// Committed-data URL set (incremental skip) — read BOTH properties.json (flats/
-// commercial) and land.json (parcels), collecting every notice URL already
-// captured so only NEW resolved notices get fetched + OCR'd.
-// ---------------------------------------------------------------------------
 
 const PROPS_PATH = fileURLToPath(new URL('../../../../data/zabkowice-slaskie/properties.json', import.meta.url));
 const LAND_PATH = fileURLToPath(new URL('../../../../data/zabkowice-slaskie/land.json', import.meta.url));
@@ -145,9 +106,6 @@ export async function loadKnownUrls() {
   return urls;
 }
 
-// ---------------------------------------------------------------------------
-// Active announcements
-// ---------------------------------------------------------------------------
 
 let activePromise = null;
 
@@ -169,7 +127,7 @@ async function crawlActiveInner() {
       allParsed = false;
       continue;
     }
-    if (fields.przetargNa && !isSaleText(fields.przetargNa)) continue; // lease/rental
+    if (fields.przetargNa && !isSaleText(fields.przetargNa)) continue;
     const rec = parseAnnouncement(fields, ref.detailUrl);
     if (!rec) {
       console.error(`  zabkowice-slaskie WARN: active notice not parsed (${ref.detailUrl})`);
@@ -187,16 +145,12 @@ async function crawlActiveInner() {
   };
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
 export async function crawlActive() {
   activePromise ??= crawlActiveInner();
   const { listings, land, valid_empty, valid_empty_land } = await activePromise;
   return { listings, wykaz: [], land, valid_empty, valid_empty_land };
 }
 
-// ---------------------------------------------------------------------------
-// Result documents (achieved-price stream — OCR'd scanned wynik PDFs)
-// ---------------------------------------------------------------------------
 
 let resultPromise = null;
 
@@ -223,9 +177,9 @@ async function crawlResultsInner() {
     const html = await fetchHtml(ref.detailUrl);
     if (!html) continue;
     const fields = extractFields(html);
-    if (fields?.przetargNa && !isSaleText(fields.przetargNa)) continue; // lease/rental result
+    if (fields?.przetargNa && !isSaleText(fields.przetargNa)) continue;
     const pdfUrl = resultPdfUrl(html);
-    if (!pdfUrl) continue; // no published result notice yet
+    if (!pdfUrl) continue;
     let text;
     try {
       text = await ocrPdf(pdfUrl);
@@ -233,16 +187,12 @@ async function crawlResultsInner() {
       console.error(`  zabkowice-slaskie: OCR failed ${pdfUrl}: ${err.message}`);
       continue;
     }
-    // source:'html' ⇒ refresh.js uses ref.text (not ref.pdf_url) for extraction.
-    // We pass the stable NOTICE url as pdf_url so it becomes the record's
-    // source_pdf and drives the incremental skip on the next run.
     resultRefs.push({ text, pdf_url: ref.detailUrl, detail_url: ref.detailUrl, auction_date: fields?.auctionDate || null });
   }
   console.error(`  zabkowice-slaskie result: ${resultRefs.length} result notice(s) OCR'd this run`);
   return resultRefs;
 }
 
-/** Result notices (achieved-price stream). source:'html' ⇒ refs carry `.text`. */
 export async function crawlResultDocs() {
   resultPromise ??= crawlResultsInner();
   return resultPromise;

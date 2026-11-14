@@ -1,35 +1,3 @@
-// Węgorzewo crawler — bip.wegorzewo.pl, IDcom.pl (exact gizycko host shape).
-// Confirmed live 2026-07-10/11. TLS chain is incomplete (see config.js) —
-// every fetch here passes insecureTLS.
-//
-// TWO separate IDcom categories (UNLIKE gizycko, which shares one board for
-// both streams — confirmed by following the live "Informacje o wynikach
-// przetargów" nav link, which is a DIFFERENT category id from "Przetargi"):
-//   3      "Przetargi"                       — announcements  -> crawlActive()
-//   14619  "Informacje o wynikach przetargów" — results        -> crawlResultDocs()
-// Both are paginated per-year at /wiadomosci/<category>/lista/<page>/<year>
-// (confirmed live for years >= 2021 on category 14619; category 3 has no
-// such floor). List rows are `<p class="title"><a href="...">TEXT</a></p>`,
-// same markup as gizycko.
-//
-// Detail pages nest further <div>s INSIDE <div class="tresc"> (e.g. each
-// numbered section "<div><strong>IV. Cena wywoławcza ...</strong></div>" is
-// itself a <div> — confirmed live on wiadomosc/501783) — a naive
-// non-greedy-to-first-</div> extraction (gizycko's own regex, and the
-// indexOf-based one pisz/crawl.js uses) truncates the body immediately after
-// section I, losing price/date/wadium entirely. extractTrescDiv below does a
-// proper balanced-tag scan instead.
-//
-// Results are inline HTML with a structured "cena wywoławcza / najwyższa
-// cena osiągnięta / nabywca" block — see parse.js header "SOURCE CORRECTION"
-// for why this adapter does NOT stub parseResultDoc to always return [] the
-// way gizycko does. fetchResultText below still defensively tries
-// pdfText/ocrPdf if a result ever lacks that inline block AND carries a PDF
-// attachment — untested against any live fixture (none needed it), kept only
-// so a future format change degrades gracefully instead of silently
-// dropping the record.
-//
-// See spikes/warminsko-mazurskie/powiat-wegorzewski/wegorzewo.md.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -47,9 +15,6 @@ const BOARD_ANNOUNCEMENTS = '3';
 const BOARD_RESULTS = '14619';
 const FETCH_OPTS = { insecureTLS: true };
 
-// Board pages hold ~10 rows each; a short page (<5) signals the last page
-// for that year (same heuristic gizycko uses). MAX_PAGES bounds a broken
-// feed / pagination loop from ever running away (ADAPTER-GUIDE §5.1).
 const MAX_PAGES_ACTIVE = 6;
 const MAX_PAGES_RESULTS = 20;
 
@@ -61,7 +26,6 @@ export function listUrl(board, year, page = 1) {
   return `${ORIGIN}/wiadomosci/${board}/lista/${page}/${year}`;
 }
 
-// ---- list-page parser -------------------------------------------------------
 
 const TITLE_LINK_RE = /<p class="title"><a href="([^"]+)">([^<]+)<\/a><\/p>/g;
 
@@ -81,7 +45,6 @@ export function parseListPage(html) {
   return out;
 }
 
-// ---- detail-page helpers -----------------------------------------------------
 
 export function publishedDateFromDetail(html) {
   if (!html) return null;
@@ -117,9 +80,6 @@ function stripTags(html) {
     .trim();
 }
 
-/** Balanced-tag extraction of <div class="tresc">...</div> — wegorzewo's
- *  detail markup nests further <div>s inside it (see file header), so this
- *  tracks open/close depth instead of stopping at the first </div>. */
 export function extractTrescDiv(html) {
   const src = html || '';
   const openM = /<div[^>]*\bclass="tresc"[^>]*>/i.exec(src);
@@ -145,7 +105,6 @@ export function bodyTextFromDetail(html) {
   return stripTags(extractTrescDiv(html));
 }
 
-// ---- board walk --------------------------------------------------------------
 
 async function fetchBoardEntries(board, years, maxPages) {
   const allEntries = [];
@@ -170,13 +129,12 @@ async function fetchBoardEntries(board, years, maxPages) {
         added++;
       }
       console.error(`  wegorzewo: board ${board} ${year} page ${page}: ${items.length} entries (${added} new)`);
-      if (items.length < 5) break; // short page = last page for this year
+      if (items.length < 5) break;
     }
   }
   return allEntries;
 }
 
-// ---- crawlActive --------------------------------------------------------------
 
 export async function crawlActive() {
   const years = [currentYear(), currentYear() - 1];
@@ -208,14 +166,7 @@ export async function crawlActive() {
   return { listings, wykaz: [], land };
 }
 
-// ---- crawlResultDocs ------------------------------------------------------------
 
-/**
- * Extract a result entry's usable text: the inline tresc body (every live
- * fixture so far), or — defensively, never yet exercised — pdfText/ocrPdf
- * over an attached PDF if the body itself doesn't carry the expected
- * "cena wywoławcza" block. @returns {Promise<string|null>}
- */
 async function fetchResultText(entry) {
   let html = '';
   try {
@@ -228,8 +179,6 @@ async function fetchResultText(entry) {
   const fullText = `${entry.title}\n${body}`;
   if (/cena\s+wywo[łl]awcza/i.test(fullText)) return fullText;
 
-  // Defensive fallback (no live fixture has ever needed this path — see
-  // parse.js's "SOURCE CORRECTION" header).
   const pdfUrls = attachmentPdfUrlsFromDetail(html);
   for (const pdfUrl of pdfUrls) {
     try {
@@ -243,7 +192,7 @@ async function fetchResultText(entry) {
       console.error(`  wegorzewo: PDF/OCR fallback failed (${pdfUrl}): ${err.message}`);
     }
   }
-  return fullText; // whatever we have, even if thin — let parseResultDoc's own gates decide
+  return fullText;
 }
 
 export async function crawlResultDocs() {

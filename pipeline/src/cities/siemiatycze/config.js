@@ -1,7 +1,3 @@
-// Configuration for Siemiatycze adapter (bip-umsiemiatycze.podlaskie.eu)
-//
-// Gmina Miejska Siemiatycze (powiat siemiatycki, podlaskie)
-// TERC: 2010011
 
 export const CONFIG = {
   id: 'siemiatycze',

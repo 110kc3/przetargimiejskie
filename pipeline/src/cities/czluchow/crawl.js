@@ -1,7 +1,3 @@
-// Człuchów crawler — bip.czluchow.pl
-//
-// Crawls year subfolders of /artykul/przetargi-nieruchomosci.
-// Downloads attachment PDFs and extracts text with pdfText() (falling back to ocrPdf()).
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -59,7 +55,6 @@ async function crawlAll() {
       continue;
     }
 
-    // Match rows: <td><a href="/artykul/slug">Title</td>
     const linkRe = /<a[^>]+href="(\/artykul\/[^"]+)"[^>]*>([\s\S]*?)<\/td>/gi;
     let m;
     const articles = [];
@@ -88,7 +83,6 @@ async function crawlAll() {
         continue;
       }
 
-      // Look for PDF attachments in article HTML
       const pdfMatches = artHtml.match(/href="([^"]*\.pdf)"/gi) || [];
       const pdfUrls = [];
       for (const pm of pdfMatches) {

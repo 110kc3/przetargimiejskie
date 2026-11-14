@@ -1,5 +1,3 @@
-// Verified against committed official source text, 18 October 2026.
-// SHA-256 identifies the exact evidence behind each historical correction.
 export const SOURCE_CORRECTIONS = [
   {
     "city": "grudziadz",

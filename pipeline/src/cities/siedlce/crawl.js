@@ -1,34 +1,3 @@
-// Siedlce crawler — siedlce.pl "Aktualności" (Vela/ESC SA CMS), server-rendered
-// HTML, no auth/JS gate. See config.js + spikes/mazowieckie/siedlce/siedlce.md.
-//
-// siedlce.pl has NO dedicated przetarg/nieruchomości index — sale
-// announcements are mixed into the general news stream, which is
-// month-bucketed (/aktualnosci/<YYYY>/<MM>-<YYYY>/<slug>) but only paginable
-// as one flat list (~500 pages deep at the time of writing). Walking that
-// archive page-by-page would blow the politeness budget, so this crawler
-// instead drives the site's own full-text search
-// (/wyniki-wyszukiwania?search=<phrase>), which is relevance-ranked and puts
-// every known real-estate-sale announcement on page 1 — LIVE-VERIFIED
-// 2026-07-18:
-//   "lokalu mieszkalnego"           -> both known flat auctions (Piłsudskiego
-//                                       96/16, Jana III Sobieskiego 5/58), 0 noise
-//   "zabudowanej nieruchomości"     -> the Świętojańska 4 office-building
-//                                       auction (I/II/III przetarg), 1 noise item
-//   "nieruchomości niezabudowanej"  -> 0 hits (no land auction live today)
-//   "przetarg na sprzedaż działki"  -> 0 hits
-//   "informacja o wyniku przetargu" -> 0 hits (achieved prices go on the
-//                                       physical noticeboard only — §12 of the
-//                                       auction regulation; see spike). Queried
-//                                       anyway so a future online result stream
-//                                       is picked up without a code change.
-//
-// bip.siedlce.pl (the "authoritative" board per the regulation text) is
-// session-gated — confirmed live, blank body on a direct fetch — and is NOT
-// used.
-//
-// Bounded for CI: each query is capped at a few result pages plus a shared
-// wall-clock budget, even though every query above fit on a single page today.
-// One memoised pass serves both crawlActive() and crawlResultDocs().
 
 import { getText } from '../../core/fetch.js';
 import { htmlToText } from '../../core/finn-bip.js';
@@ -52,8 +21,6 @@ const RESULT_QUERIES = ['informacja o wyniku przetargu'];
 const MAX_PAGES_PER_QUERY = Number(process.env.SIEDLCE_MAX_PAGES) || 3;
 const TIME_BUDGET_MS = Number(process.env.SIEDLCE_TIME_BUDGET_MS) || 90000;
 
-// One (href, title) pair per search-result card: an
-// `<a href="/aktualnosci/...#nav">` immediately wrapping an `<h3>`.
 const ITEM_RE = /<a href="(\/aktualnosci\/[^"]+)#nav"[^>]*>\s*<h3>([\s\S]*?)<\/h3>/gi;
 
 function harvestResults(html) {
@@ -66,9 +33,6 @@ function harvestResults(html) {
   return out;
 }
 
-// Isolate the article body: from `class="post-content"` to the
-// `velacms-widget-tags` sentinel that closes every article (confirmed on 3
-// live fixtures: Piłsudskiego, Sobieskiego, Świętojańska).
 function articleBody(html) {
   const m = /<div class="post-content">/i.exec(html);
   if (!m) return html;

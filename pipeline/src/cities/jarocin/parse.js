@@ -1,54 +1,8 @@
-// Jarocin parsers — WOKISS BIP (`bip2.wokiss.pl/jarocin`, mirror
-// `www.wokiss.pl/jarocin`). The board `Przetargi na sprzedaż nieruchomości`
-// is a year-indexed HTML menu; each notice is a `?pid=N` page whose real
-// content is a single attached **born-digital text PDF** (pdftotext -layout,
-// no OCR — confirmed live 2026-07-11 on 6 real PDFs). crawl.js fetches the
-// PDFs (core/pdf-text.js `pdfText`) and hands their TEXT to these parsers.
-//
-// Two document families on the same board:
-//   * "Ogłoszenie [o] <ordinal> przetargu ustnym [nie]ograniczonym na sprzedaż
-//     nieruchomości ..."  → announcement (crawlActive listings).
-//   * "Informacja o wyniku [<ordinal>] przetargu ..."           → result
-//     (the achieved-price stream — parseResultDoc).
-// Skipped upstream in crawl.js: "Informacja o odwołaniu ..." (cancellation),
-// "Ogłoszenie kwalifikacyjne ..." (restricted-tender qualification list).
-//
-// KIND is decided by classifyKind(BODY), never the title/URL slug (per
-// ADAPTER-GUIDE §5): the gmina sells mostly LAND (grunt — działki, one notice
-// can list 20+ parcels) with the occasional flat (nieruchomość lokalowa →
-// mieszkalny, address-keyed). For land, the record is parcel-keyed on the
-// FIRST/primary działka + obręb (build-land.js keys primarily on dzialka_nr;
-// a multi-parcel notice yields one representative record + a `notes` marker —
-// a documented residual, not a bug).
-//
-// Round is a Polish ORDINAL WORD ("OGŁASZA TRZECI PRZETARG", "przeprowadzony
-// został pierwszy przetarg") more often than a Roman numeral ("wyniku I
-// przetargu") — roundFromText handles both. Dates come BOTH as Polish month
-// words ("8 maja 2025 r.", announcements) and numeric ("w dniu 20.03.2025 r.",
-// results) — parseDateText handles both.
-//
-// Fixture groundtruth (real live PDFs fetched 2026-07-11 from this Pi's Polish
-// IP — see tests/parse-jarocin.test.js):
-//   Flat announce (Os. Konstytucji 3 Maja 20/17, 68,30 m², round III):
-//     ogloszenie-przetarg-lokal-konstytucji-17.03.2025.pdf — cena wywoławcza
-//     320.800,00 zł, auction 8 maja 2025 (later ODWOŁANY — cancellation is a
-//     separate pid the crawler skips).
-//   Result SOLD (ul. St. Mikołajczyka, dz. 592/42, round I):
-//     wynik-przetargu-dz.-592-42-jarocin.pdf — cena wyw. 23.000, osiągnięta
-//     23.230, nabywca named, auction 20.03.2025.
-//   Result UNSOLD (Witaszyce ul. Słonecznej, dz. 1267/7, round I):
-//     informacja-o-wyniku... — cena wyw. 251.300, "wynikiem negatywnym"
-//     (niewstawienie się oferenta), auction 29.05.2025.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
-// ---------------------------------------------------------------------------
-// Shared text helpers (generic Polish-municipal-notice utilities, ported from
-// the wolow/brzeg analog family and re-verified against Jarocin's real PDFs)
-// ---------------------------------------------------------------------------
 
-/** Diacritic-safe lowercase-fold so keyword regexes stay ASCII. */
 export function toAscii(s) {
   return (s || '')
     .toLowerCase()
@@ -57,12 +11,6 @@ export function toAscii(s) {
     .replace(/ś/g, 's').replace(/ź/g, 'z').replace(/ż/g, 'z');
 }
 
-/**
- * Polish price string → integer PLN. Handles space-thousands ("50 000"),
- * dot-thousands + comma-grosze ("320.800,00", "2.323.300,00"), NBSP, and a
- * trailing grosze fraction. Ported verbatim from the wolow analog.
- * @param {string} s @returns {number|null}
- */
 export function parsePLN(s) {
   if (!s) return null;
   const cleaned = String(s).replace(/[\s ]/g, '');
@@ -73,14 +21,12 @@ export function parsePLN(s) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/** "0,1296" / "0.1296" / "68,30" → number, or null. */
 export function parseArea(s) {
   if (s == null) return null;
   const n = Number(String(s).replace(/[\s ]/g, '').replace(',', '.'));
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// Polish month names → number (genitive + nominative, diacritic + ASCII).
 const PL_MONTHS = {
   stycznia: 1, styczen: 1, styczeń: 1,
   lutego: 2, luty: 2,
@@ -100,12 +46,6 @@ function iso(y, m, d) {
   return `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
 }
 
-/**
- * "20.03.2025" / "20.03.2025r." / "8 maja 2025" / "27 sierpnia 2025 r." → ISO,
- * or null. A non-numeric / non-month token never matches, so a blank/garbled
- * date resolves to null rather than a fabricated guess.
- * @param {string} s @returns {string|null}
- */
 export function parseDateText(s) {
   if (!s) return null;
   const num = /(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})/.exec(s);
@@ -122,20 +62,10 @@ export function parseDateText(s) {
   return null;
 }
 
-// ---------------------------------------------------------------------------
-// Round + document classification
-// ---------------------------------------------------------------------------
 
 const PL_ORDINALS = { pierwsz: 1, drug: 2, trzec: 3, czwart: 4, piat: 5, szost: 6 };
 const ROMAN = { i: 1, ii: 2, iii: 3, iv: 4, v: 5, vi: 6 };
 
-/**
- * Round of a przetarg, from a Polish ordinal word ("PIERWSZY/drugiego/trzecim
- * ... przetarg") or a Roman numeral immediately before "przetarg" ("I
- * przetargu"). Word form is tried first (dominant on this source); the Roman
- * fallback is anchored right before "przetarg" so the Polish conjunction "i"
- * (and) can't be misread as Roman 1. @param {string} s @returns {number|null}
- */
 export function roundFromText(s) {
   const t = toAscii(s || '');
   const w = /\b(pierwsz|drug|trzec|czwart|piat|szost)\w*\s+przetarg/.exec(t);
@@ -145,36 +75,22 @@ export function roundFromText(s) {
   return null;
 }
 
-/** A cancellation ("Informacja o odwołaniu ...") — never a listing/result.
- *  crawl.js already filters these at discovery via the title; defensive here. */
 export function isCancellation(title) {
   return /odwo[łl]a/i.test(title || '');
 }
 
-// ---------------------------------------------------------------------------
-// Subject extraction — flat (address) vs land (parcel)
-// ---------------------------------------------------------------------------
 
 const PL_UP = 'A-ZĄĆĘŁŃÓŚŹŻ';
 const PL_LOW = 'a-ząćęłńóśźż';
 
-// Flat address, e.g. "Os. Konstytucji 3 Maja 20/17" / "przy ul. Kwiatowa 5/2".
-// The street name group is lazy so the trailing "<bldg>/<apt>" binds tightly;
-// it tolerates an embedded number ("3 Maja"). The "Os."/"ul." lead is dropped
-// by core/normalize.js parseAddress (STRIP_LEAD).
 const FLAT_SLASH_RE = new RegExp(
   `(?:Os\\.|Osiedle|ul\\.|ulicy|przy\\s+ul\\.?)\\s+([${PL_UP}][${PL_UP}${PL_LOW}0-9. \\t]*?)[ \\t]+(\\d+[A-Za-z]?)\\s*/\\s*(\\d+[A-Za-z]?)\\b`,
 );
-// Fallback: street+building with the apartment stated separately as
-// "lokal mieszkalny nr N".
 const FLAT_NOSLASH_RE = new RegExp(
   `(?:Os\\.|Osiedle|ul\\.|ulicy|przy\\s+ul\\.?)\\s+([${PL_UP}][${PL_UP}${PL_LOW}0-9. \\t]*?)[ \\t]+(\\d+[A-Za-z]?)\\b`,
 );
 const LOKAL_NR_RE = /lokal\w*\s+(?:mieszkaln\w+\s+)?nr\.?\s*(\d+[A-Za-z]?)/i;
 
-/**
- * @param {string} text @returns {{address_raw:string, address:object}|null}
- */
 function extractFlatAddress(text) {
   const slash = FLAT_SLASH_RE.exec(text);
   if (slash) {
@@ -192,9 +108,6 @@ function extractFlatAddress(text) {
   return null;
 }
 
-// Locative → nominative for this gmina's places. Map covers the observed
-// towns; ending rules cover the rest; unknown forms fall through as-is (obręb
-// is a best-effort disambiguator — build-land.js keys primarily on dzialka_nr).
 const TOWN_MAP = {
   jarocinie: 'Jarocin', witaszycach: 'Witaszyce', siedleminie: 'Siedlemin',
   potarzycy: 'Potarzyca', luszczanowie: 'Łuszczanów', wilkowyi: 'Wilkowyja',
@@ -219,8 +132,6 @@ const POLOZ_TOWN_RE = new RegExp(
   `po[łl]o[żz]on\\w*\\s+w\\s+([${PL_UP}][${PL_LOW}]+)`,
 );
 
-/** Town (nominative, best-effort) from an explicit "obręb <Name>" label, else
- *  the locative "położonej w <Town>" de-inflected. @returns {string|null} */
 function extractObreb(text) {
   const lbl = OBREB_LABEL_RE.exec(text);
   if (lbl) return lbl[1];
@@ -228,26 +139,17 @@ function extractObreb(text) {
   return m ? nominativeTown(m[1]) : null;
 }
 
-// First/primary parcel: "działka nr 592/42", "działki: a) 415/3", "działki
-// ewidencyjne nr: - 2322/2". Optional "a)" list-item prefix, optional
-// "ewidencyjn*", "nr"/"numer".
 const DZIALKA_RE = /dzia[łl][kc]\w*\s+(?:ewidencyjn\w*\s+)?(?:nr\.?|numer)?\s*:?\s*(?:[-–]\s*|[a-z]\)\s*)?(\d+(?:\/\d+)?)/i;
 
-/** @returns {{dzialka_nr:string|null, count:number}} */
 function extractDzialki(text) {
   const first = DZIALKA_RE.exec(text);
   if (!first) return { dzialka_nr: null, count: 0 };
-  // Count distinct parcel numbers mentioned (for the multi-parcel note).
   const all = new Set();
   for (const m of text.matchAll(/\b(\d{1,4}\/\d{1,4})\b/g)) all.add(m[1]);
   return { dzialka_nr: first[1], count: Math.max(all.size, 1) };
 }
 
-// ---------------------------------------------------------------------------
-// Area / price / date fields
-// ---------------------------------------------------------------------------
 
-/** @param {string} text @param {string} kind @returns {number|null} */
 function extractArea(text, kind) {
   if (kind === 'grunt') {
     const ha = /o\s+pow\w*\.?\s*([\d]+[.,]\d+|\d+)\s*ha\b/i.exec(text);
@@ -258,8 +160,6 @@ function extractArea(text, kind) {
     const m2 = /o\s+pow\w*\.?\s*([\d][\d.,]*)\s*m\s*[²2]/i.exec(text);
     return m2 ? parseArea(m2[1]) : null;
   }
-  // Flat/house/commercial: prefer the labelled "Powierzchnia lokalu X m²",
-  // else "powierzchni(a) użytkowa X m²", else first bare "X m²".
   const lokal = /powierzchni\w*\s+lokalu\s+([\d][\d.,]*)\s*m\s*[²2]/i.exec(text);
   if (lokal) return parseArea(lokal[1]);
   const uzyt = /powierzchni\w*\s+u[żz]ytkow\w*[^\d]{0,20}([\d][\d.,]*)\s*m\s*[²2]/i.exec(text);
@@ -268,14 +168,11 @@ function extractArea(text, kind) {
   return bare ? parseArea(bare[1]) : null;
 }
 
-/** Amount immediately before "zł" inside a text region. */
 function amountBeforeZl(region) {
   const m = /([\d][\d\s .,]*\d|\d)\s*z[łl]/i.exec(region);
   return m ? parsePLN(m[1]) : null;
 }
 
-/** "cena wywoławcza ... wynosiła: X zł" (results), "CENA WYWOŁAWCZA: X zł"
- *  (land announce), or a bare "Cena ... X zł brutto" (flat announce table). */
 function extractStartingPrice(text) {
   const t = toAscii(text);
   const idx = t.search(/cena\s+wywolawcza/);
@@ -287,8 +184,6 @@ function extractStartingPrice(text) {
   return brutto ? parsePLN(brutto[1]) : null;
 }
 
-/** "uzyskano cenę w wysokości X zł" / "cena osiągnięta w przetargu wynosi: X
- *  zł" — the hammer price when the auction sold. @returns {number|null} */
 function extractFinalPrice(text) {
   const t = toAscii(text);
   let idx = t.search(/uzyskano\s+cen\w*\s+w\s+wysokosci/);
@@ -298,18 +193,12 @@ function extractFinalPrice(text) {
   return amountBeforeZl(text.slice(idx, idx + 120));
 }
 
-/** Announcement auction date: "Przetarg ... odbędzie się [dnia] <date>" — the
- *  date can sit a line or two away (land template), so scan a wide window and
- *  take the first parseable date. @returns {string|null} */
 function extractAnnounceDate(text) {
   const idx = text.search(/odb[ęe]dzie\s+si[ęe]/i);
   if (idx < 0) return null;
   return parseDateText(text.slice(idx, idx + 220));
 }
 
-/** Result auction date: "w dniu <date>" in the body, else the title's "z dnia
- *  <date>". A window is sliced and handed to parseDateText, so a dotted
- *  numeric date ("20.03.2025") is captured whole. @returns {string|null} */
 function extractResultDate(text, title) {
   const bi = (text || '').search(/w\s+dniu\s/i);
   if (bi >= 0) {
@@ -321,22 +210,11 @@ function extractResultDate(text, title) {
   return null;
 }
 
-// Unsold markers (any → outcome unsold) + the reason.
 const UNSOLD_RE = /wynik\w*\s+negatywn|niewstawieni|nie\s+przyst[ąa]pi[łl]|brak\s+(?:oferent|uczestnik|os[óo]b\s+dopuszczon)|nie\s+wp[łl]ac|brak\s+wp[łl]at\s+wadium|nie\s+wy[łl]oniono|zako[ńn]czy[łl]\s+si[ęe]\s+wynikiem\s+negatywn/i;
 
-// ---------------------------------------------------------------------------
-// Top-level parsers
-// ---------------------------------------------------------------------------
 
-/**
- * Parse one announcement PDF's TEXT into a listing record. `title` is the
- * notice title from the year-index list (carries the clean flat address);
- * `sourceUrl` is the PDF's URL. @returns {object}
- */
 export function parseAnnouncement(text, title, sourceUrl) {
   const body = String(text || '');
-  // Neighbouring houses describe the surroundings, not the offered asset.
-  // Keep the shared classifier unchanged; this PDF template marks that context.
   const subject = body.split(/\bw\s+s[ąa]siedztwie\b/i)[0];
   const kind = classifyKind(subject || title || '');
   const round = roundFromText(title) ?? roundFromText(body);
@@ -355,8 +233,6 @@ export function parseAnnouncement(text, title, sourceUrl) {
       detail_url: sourceUrl, notes,
     };
   }
-  // Flat / house / commercial — address-keyed. Try the title first (cleanest),
-  // then the body's "Położenie" line.
   const found = extractFlatAddress(title || '') || extractFlatAddress(body);
   return {
     kind,
@@ -370,7 +246,6 @@ export function parseAnnouncement(text, title, sourceUrl) {
   };
 }
 
-/** Parse separately priced parcel groups from the layout table when present. */
 export function parseAnnouncementLots(text, title, sourceUrl) {
   const body = String(text || '');
   const header = /Lp\.\s+Numer\s+Pow\.\s+Klasy/.exec(body);
@@ -395,8 +270,6 @@ export function parseAnnouncementLots(text, title, sourceUrl) {
     const parcels = group[1].split(',').map(s => s.trim());
     if (!parcels.length || new Set(parcels).size !== parcels.length
       || parcels.some(p => !/^\d+\/\d+$/.test(p) || !areas.has(p) || covered.has(p))) return [];
-    // The explicit deposit groups disambiguate vertically centred table cells.
-    // Validate each stated 20% deposit against its corresponding table price.
     const deposit = /wadium\s+w\s+wysokości\s+20%\s+ceny\s+wywoławczej,\s*tj\.\s*([\d.,]+)\s*zł/.exec(group[2]);
     if (!deposit || !prices[index] || parsePLN(deposit[1]) * 5 !== prices[index]) return [];
     for (const parcel of parcels) covered.add(parcel);
@@ -409,13 +282,6 @@ export function parseAnnouncementLots(text, title, sourceUrl) {
   return covered.size === areas.size ? lots : [];
 }
 
-/**
- * Parse one "Informacja o wyniku przetargu" PDF's TEXT into result record(s)
- * — the achieved-price stream. Registry contract: (text, fallbackDate,
- * sourceUrl). Returns [] for a non-result / cancellation / empty input.
- * @param {string} text @param {string|null} fallbackDate @param {string} sourceUrl
- * @returns {Array<object>}
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const body = String(text || '');
   if (!body.trim()) return [];
@@ -427,7 +293,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!isResult) return [];
   if (isCancellation(body.slice(0, 400))) return [];
 
-  const title = ''; // result title carries no field the body lacks
+  const title = '';
   const kind = classifyKind(body);
   const round = roundFromText(body);
   const auction_date = extractResultDate(body, title) || fallbackDate || null;

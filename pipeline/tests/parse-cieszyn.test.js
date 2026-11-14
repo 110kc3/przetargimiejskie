@@ -1,25 +1,3 @@
-// Cieszyn parser tests. Fixtures from live bip.um.cieszyn.pl (2026-06-28):
-//
-//   ANN_WYSZA_BRAMA_I  -- id 40241, ul. Wyzsza Brama 11/6, I przetarg 26.11.2025
-//     cena wywolawcza 152 000,00 zl, area 27,54 m2
-//     https://bip.um.cieszyn.pl/przetarg-nieruchomosci/40241/...
-//
-//   ANN_WYSZA_BRAMA_II -- id 40896, ul. Wyzsza Brama 11/6, II przetarg 04.03.2026
-//     cena wywolawcza 76 000,00 zl, area 27,54 m2
-//     wynik link: /artykul/21/41397/... (expired 20.03.2026)
-//     https://bip.um.cieszyn.pl/przetarg-nieruchomosci/40896/...
-//
-//   ANN_GORNA -- id 39582, ul. Gorna 14/4 (BIP writes "przy ul. Gornej"),
-//     III przetarg 06.08.2025, cena 160 000,00 zl, area 40,95 m2
-//     https://bip.um.cieszyn.pl/przetarg-nieruchomosci/39582/...
-//
-//   RESULT_WYSZA_BRAMA -- synthetic in standard Logonet wynik format.
-//     Wyzsza Brama 11/6, II przetarg 04.03.2026, sold 77 000 zl.
-//
-// Join keys the first real refresh must confirm:
-//   ANN_WYSZA_BRAMA_I  -> address.key = 'wyzsza brama|11|6'  round null (bare I przetarg)
-//   ANN_WYSZA_BRAMA_II -> address.key = 'wyzsza brama|11|6'  round 2
-//   ANN_GORNA          -> address.key = 'gornej|14|4'         round 3
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -38,7 +16,6 @@ import {
   parseResultDoc,
 } from '../src/cities/cieszyn/parse.js';
 
-// ── FIXTURES (condensed from live pages, 2026-06-28) ─────────────────────────
 
 const ANN_WYSZA_BRAMA_I_BODY = 'Burmistrz Miasta Cieszyna oglasza ustny przetarg nieograniczony na sprzedaz lokalu mieszkalnego nr 6 polozonego na parterze w budynku nr 11 przy ul. Wyzsza Brama w Cieszynie o pow. uzytkowej 27,54 m2, z dwoma przynaleznymi pomieszczeniami gospodarczymi o lacznej pow. 3,71 m2. Cena wywolawcza nieruchomosci wynosi 152 000,00 zl. Przetarg odbedzie sie w dniu 26 listopada 2025 r. w sali nr 205 Urzedu Miejskiego w Cieszynie o godz. 11:00.';
 
@@ -46,12 +23,10 @@ const ANN_WYSZA_BRAMA_II_BODY = 'Burmistrz Miasta Cieszyna oglasza II ustny prze
 
 const ANN_GORNA_BODY = 'Burmistrz Miasta Cieszyna oglasza III ustny przetarg nieograniczony na sprzedaz lokalu mieszkalnego nr 4 polozonego na I pietrze w budynku nr 14 przy ul. Gornej w Cieszynie o pow. uzytkowej 40,95 m2, z pomieszczeniem gospodarczym - piwnica o pow. 6,51 m2. Na sprzedaz ww. nieruchomosci przeprowadzono dwa ustne przetargi nieograniczone. Cena wywolawcza nieruchomosci wynosi 160 000,00 zl. Przetarg odbedzie sie w dniu 6 sierpnia 2025 r. w sali nr 205 Urzedu Miejskiego w Cieszynie o godz. 13:00.';
 
-// Synthetic wynik text -- Logonet result format, Wyzsza Brama 11/6 II przetarg
 const RESULT_WYSZA_BRAMA = 'INFORMACJA o wyniku II ustnego przetargu nieograniczonego na sprzedaz lokalu mieszkalnego nr 6 polozonego na parterze w budynku nr 11 przy ul. Wyzsza Brama w Cieszynie. W dniu 4 marca 2026 r. zostal przeprowadzony w siedzibie Urzedu Miejskiego w Cieszynie II ustny przetarg nieograniczony na sprzedaz lokalu mieszkalnego nr 6 w budynku nr 11 przy ul. Wyzsza Brama w Cieszynie o pow. uzytkowej 27,54 m2. Cena wywolawcza nieruchomosci wynosi 76 000,00 zl. Najwyzsza cena osiagnieta w przetargu wyniosla 77 000,00 zl. Nabywca: Jan Kowalski.';
 
 const RESULT_WYSZA_BRAMA_UNSOLD = 'INFORMACJA o wyniku I ustnego przetargu nieograniczonego na sprzedaz lokalu mieszkalnego nr 6 w budynku nr 11 przy ul. Wyzsza Brama w Cieszynie. W dniu 26 listopada 2025 r. zostal przeprowadzony w siedzibie Urzedu Miejskiego w Cieszynie I ustny przetarg nieograniczony na sprzedaz lokalu mieszkalnego nr 6 w budynku nr 11 przy ul. Wyzsza Brama w Cieszynie o pow. uzytkowej 27,54 m2. Cena wywolawcza nieruchomosci wynosi 152 000,00 zl. Przetarg zakonczyl sie wynikiem negatywnym z uwagi na brak uczestnikow przetargu.';
 
-// Condensed index HTML from /przetargi-nieruchomosci/1/15
 const INDEX_HTML = `
 <div class="list general addon-bip">
   <div><table class="table table-borderless">
@@ -89,7 +64,6 @@ const INDEX_HTML = `
   </table></div>
 </div>`;
 
-// Minimal detail page HTML for parseDetailPage integration test
 const DETAIL_WYSZA_BRAMA_II_HTML = `<!DOCTYPE html><html><body>
 <table class="table table-borderless">
   <caption class="visuallyhidden">Szczegoly</caption>
@@ -112,7 +86,6 @@ const DETAIL_WYSZA_BRAMA_II_HTML = `<!DOCTYPE html><html><body>
 </div>
 </body></html>`;
 
-// ── roundFromText ─────────────────────────────────────────────────────────────
 
 test('roundFromText: Roman II before "przetarg" -> 2', () => {
   assert.equal(roundFromText('II ustny przetarg nieograniczony na sprzedaz lokalu mieszkalnego'), 2);
@@ -147,7 +120,6 @@ test('roundFromText: fixture ANN_GORNA -> 3', () => {
   assert.equal(roundFromText(ANN_GORNA_BODY), 3);
 });
 
-// ── auctionDateFromText ───────────────────────────────────────────────────────
 
 test('auctionDateFromText: "odbedzie sie w dniu 26 listopada 2025 r."', () => {
   assert.equal(auctionDateFromText(ANN_WYSZA_BRAMA_I_BODY), '2025-11-26');
@@ -170,7 +142,6 @@ test('auctionDateFromText: null when no date', () => {
   assert.equal(auctionDateFromText(null), null);
 });
 
-// ── resultDateFromText ────────────────────────────────────────────────────────
 
 test('resultDateFromText: "W dniu 4 marca 2026 r. zostal..."', () => {
   assert.equal(resultDateFromText(RESULT_WYSZA_BRAMA), '2026-03-04');
@@ -184,7 +155,6 @@ test('resultDateFromText: null when missing', () => {
   assert.equal(resultDateFromText('brak'), null);
 });
 
-// ── startingPriceFromText ─────────────────────────────────────────────────────
 
 test('startingPriceFromText: "Cena wywolawcza nieruchomosci wynosi 152 000,00 zl"', () => {
   assert.equal(startingPriceFromText(ANN_WYSZA_BRAMA_I_BODY), 152000);
@@ -206,7 +176,6 @@ test('startingPriceFromText: null when missing', () => {
   assert.equal(startingPriceFromText('brak ceny'), null);
 });
 
-// ── achievedPriceFromText ─────────────────────────────────────────────────────
 
 test('achievedPriceFromText: "Najwyzsza cena osiagnieta w przetargu wyniosla 77 000,00 zl"', () => {
   assert.equal(achievedPriceFromText(RESULT_WYSZA_BRAMA), 77000);
@@ -220,7 +189,6 @@ test('achievedPriceFromText: null in announcement', () => {
   assert.equal(achievedPriceFromText(ANN_WYSZA_BRAMA_II_BODY), null);
 });
 
-// ── unitAreaFromText ──────────────────────────────────────────────────────────
 
 test('unitAreaFromText: "o pow. uzytkowej 27,54 m2" (NOT the 3,71 appendage)', () => {
   assert.equal(unitAreaFromText(ANN_WYSZA_BRAMA_I_BODY), 27.54);
@@ -238,7 +206,6 @@ test('unitAreaFromText: null when missing', () => {
   assert.equal(unitAreaFromText('brak powierzchni'), null);
 });
 
-// ── addressFromBody ───────────────────────────────────────────────────────────
 
 test('addressFromBody: Wyzsza Brama 11/6 -- address_raw and join key', () => {
   const r = addressFromBody(ANN_WYSZA_BRAMA_I_BODY);
@@ -250,8 +217,6 @@ test('addressFromBody: Wyzsza Brama 11/6 -- address_raw and join key', () => {
 });
 
 test('addressFromBody: Gorna 14/4 -- BIP writes "przy ul. Gornej" (genitive), key = gornej|14|4', () => {
-  // The live BIP body says "przy ul. Gornej 14" (genitive case).
-  // The join key therefore is gornej|14|4, matching any result notice with the same phrasing.
   const r = addressFromBody(ANN_GORNA_BODY);
   assert.ok(r);
   assert.equal(r.address.building, '14');
@@ -269,7 +234,6 @@ test('addressFromBody: null for non-address text', () => {
   assert.equal(addressFromBody('brak adresu'), null);
 });
 
-// ── isResultNotice ────────────────────────────────────────────────────────────
 
 test('isResultNotice: correctly classifies result vs. announcement', () => {
   assert.equal(isResultNotice(RESULT_WYSZA_BRAMA), true);
@@ -281,7 +245,6 @@ test('isResultNotice: correctly classifies result vs. announcement', () => {
   assert.equal(isResultNotice(null), false);
 });
 
-// ── parseIndexPage ────────────────────────────────────────────────────────────
 
 test('parseIndexPage: extracts both flat rows with correct fields', () => {
   const items = parseIndexPage(INDEX_HTML);
@@ -311,7 +274,6 @@ test('parseIndexPage: empty HTML returns empty array', () => {
   assert.deepEqual(parseIndexPage('<html><body>nic</body></html>'), []);
 });
 
-// ── parseDetailPage ───────────────────────────────────────────────────────────
 
 test('parseDetailPage: Wyzsza Brama II -- full listing, wynik_url, area, price, date, round', () => {
   const result = parseDetailPage(
@@ -341,7 +303,6 @@ test('parseDetailPage: returns null for non-mieszkalny rodzaj', () => {
   assert.equal(parseDetailPage(nonFlatHtml, 'u'), null);
 });
 
-// ── parseResultDoc ────────────────────────────────────────────────────────────
 
 test('parseResultDoc: SOLD -- Wyzsza Brama II -- full record', () => {
   const SRC = 'https://bip.um.cieszyn.pl/artykul/21/41397/...';

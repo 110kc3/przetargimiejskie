@@ -1,11 +1,3 @@
-// Address normalizer — port of pipeline/src/normalize.js to a plain script
-// usable as a content-script module. MUST produce identical join keys.
-//
-// We re-implement here (instead of importing) because the pipeline runs under
-// Node and the extension runs in a browser content-script context — different
-// module systems, different builds, but the *logic* must stay byte-for-byte
-// aligned. Keep this in lockstep with pipeline/src/normalize.js.
-//
 // Exposes a single global: window.ZGM_NORMALIZE.parseAddress(raw).
 
 (function () {
@@ -17,9 +9,6 @@
       .replace(/[śš]/g, 's').replace(/[żź]/g, 'z');
 
   const STRIP_LEAD = /^\s*(?:ul\.?|al\.?|pl\.?|os\.?)\s+/i;
-  // We *don't* strip trailing "garaż nr N" (kept as apt info) nor "m. N"
-  // (mieszkanie N): that IS the apartment number — stripping it collapsed
-  // distinct flats into one bare-building key. It's converted to "/N" below.
   const TRAIL_NOISE = /\s*wraz\b.*/i;
   const ROMAN_OK = /^(I{1,3}|IV|V|VI{0,3}|IX|X)$/i;
 
@@ -40,8 +29,6 @@
     let s = raw.trim().replace(/\s+/g, ' ');
     s = s.replace(STRIP_LEAD, '');
     s = s.replace(TRAIL_NOISE, '').trim();
-    // Trailing "m. N" / "m N" (mieszkanie) → the standard "/N" apartment form:
-    // "Zwycięstwa 34 m. 9" → "Zwycięstwa 34/9".
     s = s.replace(/\s+m\.?\s*(\d+[A-Za-z]?)\s*$/i, '/$1');
 
     const garageMatch = /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)\s+(?:gara[żz](?:\s*nr\.?)?|g\.(?:\s*nr\.?)?|g\s+nr\.?)\s*(\d+)$/i.exec(s);
@@ -49,8 +36,6 @@
       const [, street, building, garageNo] = garageMatch;
       return buildAddress(street, building.toUpperCase(), `garaz-${garageNo}`, null);
     }
-    // Bare "<street> garaż nr <N>" (no building number — "rejon" garages).
-    // Synthesize building="0" to match parse-result.js for the same input.
     const rejonMatch = /^(.+?)\s+(?:gara[żz](?:\s*nr\.?)?|g\.(?:\s*nr\.?)?|g\s+nr\.?)\s*(\d+)$/i.exec(s);
     if (rejonMatch) {
       const [, street, garageNo] = rejonMatch;
@@ -58,7 +43,6 @@
     }
 
 
-    // A single published lot can name several units or building frontages.
     // Preserve the stated joint identity instead of putting numbers in street.
     const jointUnits = /^(.+?)\s+(\d+(?:-\d+)?[A-Za-z]?)\s*\/\s*(\d+[A-Za-z]?)\s*,\s*(\d+[A-Za-z]?)$/i.exec(s);
     if (jointUnits) {
@@ -98,14 +82,10 @@
     return buildAddress(street, building, apt, warning);
   }
 
-  // Also: extract a tentative address string from a property-detail page URL
-  // like "/zygmunta-starego-29-4-23-03-2026-r/" — collapse to "Zygmunta Starego 29/4".
   function addressFromSlug(pathname) {
     const m = /^\/?([a-z0-9-]+)-(\d{2})-(\d{2})-(\d{4})-r\/?$/i.exec(pathname);
     if (!m) return null;
     const slug = m[1];
-    // Split on the last "-<digits>-<digits>" — that's bldg-apt (e.g. "29-4")
-    // or "<digits>" alone (garages without apt: "kozielska-13-garaz-nr-1" — handled below)
     if (/-garaz-nr-/i.test(slug)) {
       const gm = /^(.+?)-(\d+[a-z]?)-garaz-nr-(\d+)$/i.exec(slug);
       if (!gm) return null;

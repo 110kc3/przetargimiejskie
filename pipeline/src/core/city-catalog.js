@@ -1,4 +1,3 @@
-// Compact discovery metadata; no auction histories are embedded in this file.
 export const OVERLAY_CITIES = new Set(['gliwice','katowice','bytom','rybnik','myslowice','swietochlowice','bielsko']);
 export function buildCityCatalog(manifest, index, { now = new Date(), landByCity = {} } = {}) {
   const enabled = new Map(index.cities.map(c => [c.id,c]));

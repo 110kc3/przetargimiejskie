@@ -1,7 +1,3 @@
-// Oława crawler — bip.um.olawa.pl
-//
-// Walks MADKOM eBIP JSON API for menu 258 (Zbywanie nieruchomości).
-// Downloads attachment PDFs and extracts text with pdfText().
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -19,7 +15,7 @@ const ORIGIN = 'https://bip.um.olawa.pl';
 const API = `${ORIGIN}/api`;
 const MENU_ID = 258;
 const PAGE_LIMIT = 50;
-const MAX_PAGES = 4; // 200 articles
+const MAX_PAGES = 4;
 
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';

@@ -1,5 +1,3 @@
-// Adapter entry point for Hajnówka (powiat hajnowski, Podlaskie)
-// BIP: https://bip.hajnowka.pl
 
 import config from './config.js';
 import { crawlActive, crawlResultDocs, parseResultDoc } from './crawl.js';

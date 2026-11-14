@@ -1,10 +1,3 @@
-// Reusable BIP Lubelskie platform engine.
-//
-// Handles municipalities in Lubelskie voivodeship using the regional bip.lubelskie.pl CMS,
-// which exposes a clean DataTables JSON API:
-//   - GET /ajax.php?action=list-ajax&id_menu=<menuId>&iDisplayStart=0&iDisplayLength=25
-//
-// Yields structured records in `aaData` arrays.
 
 import { getText } from './fetch.js';
 import { parseAddress } from './normalize.js';
@@ -90,23 +83,19 @@ export function parseBipLubelskieNotice(titleText, detailHtml = '', url = '', op
   const idMatch = url.match(/[?&]id=(\d+)/) || url.match(/\/(\d+)/);
   const sourceId = idMatch ? idMatch[1] : null;
 
-  // Date
   const dateMatch =
     text.match(/(?:odbędzie się w dniu|w dniu|termin przetargu|data(?:\s+przetargu)?|dnia)\s*[:\-]?\s*([0-9]{1,2}\s+[a-ząćęłńóśźż]+\s+20\d{2})/i) ||
     text.match(/(?:odbędzie się w dniu|w dniu|termin przetargu|data(?:\s+przetargu)?|dnia)\s*[:\-]?\s*([0-9]{1,2}\.[0-9]{2}\.20\d{2})/i);
   const auctionDate = dateMatch ? parsePlDate(dateMatch[1]) : null;
 
-  // Price
   const priceMatch =
     text.match(/(?:cena wywoławcza|cena)\s*(?:netto|brutto)?[:\-]?\s*([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i) ||
     text.match(/cena wywoławcza[^\d]{1,60}([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i);
   const price = priceMatch ? parsePrice(priceMatch[1]) : null;
 
-  // Parcel
   const parcelMatch = text.match(/\b(?:działk[aieę]|działce|dz\.|nr\s+działki)\s*(?:nr)?[:\s\-]{1,10}(\d+(?:\/\d+)?)/i);
   const parcel = parcelMatch ? parcelMatch[1] : null;
 
-  // Area
   const areaMatch = text.match(/pow(?:ierzchni|\.)[^\d]{1,25}([\d\s.]+(?:,\d{1,4})?)\s*(m2|m²|ha)/i);
   let area = null;
   if (areaMatch) {
@@ -118,7 +107,6 @@ export function parseBipLubelskieNotice(titleText, detailHtml = '', url = '', op
     }
   }
 
-  // Address
   const addrMatch = text.match(/(?:przy\s+ul\.?|ulicy|ul\.)\s+([A-ZĄĆĘŁŃÓŚŹŻ0-9][a-ząćęłńóśźż\s\d\/-]+?)(?:w\s+[A-ZĄĆĘŁŃÓŚŹŻ]|\.|,|KW|obręb)/i);
   const rawAddress = addrMatch ? `ul. ${addrMatch[1].trim()}` : cityLabel;
   const address = parseAddress(rawAddress, cityLabel);

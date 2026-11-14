@@ -1,7 +1,3 @@
-// Sochaczew crawler — bip.sochaczew.pl
-//
-// Walks /aktualnosci/ feed on 2ClickPortal BIP.
-// Downloads attachment PDFs and extracts text with pdfText() (falling back to ocrPdf()).
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -96,7 +92,6 @@ async function crawlAll() {
         continue;
       }
 
-      // Attachments
       const pdfMatches = artHtml.match(/href="([^"]*(?:files|zalaczniki)[^"]*\.pdf)"/gi) || [];
       const pdfUrls = [];
       for (const pm of pdfMatches) {

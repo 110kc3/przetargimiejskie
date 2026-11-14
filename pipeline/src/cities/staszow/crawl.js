@@ -1,7 +1,3 @@
-// Staszów crawler — www.bip.staszow.pl
-//
-// Walks Joomla categories for current and prior year (1293=2026, 1261=2025).
-// Follows PDF attachment links and extracts text via pdfText().
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -16,7 +12,7 @@ import {
 } from './parse.js';
 
 const ORIGIN = 'https://www.bip.staszow.pl';
-const YEAR_CAT_IDS = [1293, 1261]; // 2026, 2025
+const YEAR_CAT_IDS = [1293, 1261];
 
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
@@ -78,7 +74,6 @@ async function crawlAll() {
         continue;
       }
 
-      // PDFs
       const pdfMatches = artHtml.match(/href="([^"]*\/pliki\/[^"]*\.pdf)"/gi) || [];
       const pdfUrls = [];
       for (const pm of pdfMatches) {

@@ -1,6 +1,3 @@
-// Downloads a text-based PDF and extracts its text with `pdftotext -layout`,
-// caching the result so each PDF is fetched + extracted exactly once. Used for
-// cities whose result documents are text PDFs (no OCR needed) — e.g. Katowice.
 
 import { mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -14,23 +11,12 @@ import { urlCacheKey } from './hash.js';
 
 const CACHE_DIR = fileURLToPath(new URL('../../pdf-text-cache/', import.meta.url));
 
-/**
- * @param {string} pdfUrl
- * @param {{ userAgent?: string, insecureTLS?: boolean }} [opts]  optional
- *        browser-like UA + relaxed TLS for hosts that gate the bot UA or ship
- *        an incomplete cert chain (e.g. bip.miastozabrze.pl).
- * @returns {Promise<string>} extracted text (pdftotext -layout)
- */
 export async function pdfText(pdfUrl, opts = {}) {
   await mkdir(CACHE_DIR, { recursive: true });
   const cachePath = join(CACHE_DIR, urlCacheKey(pdfUrl) + '.txt');
   if (existsSync(cachePath)) return readFile(cachePath, 'utf8');
   console.error(`  pdf-text: ${pdfUrl}`);
   const bytes = await getBytes(pdfUrl, { userAgent: opts.userAgent, insecureTLS: opts.insecureTLS });
-  // Reject non-PDFs up front. Some hosts (e.g. Zabrze) attach a legacy Word
-  // .doc at an /attachment/<id> URL; feeding that to pdftotext spews "Couldn't
-  // find trailer dictionary / xref" errors and then fails. A clean magic-byte
-  // check throws a short, catchable error so the caller can route to catdoc.
   if (bytes.subarray(0, 5).toString('latin1') !== '%PDF-') {
     const magic = bytes.subarray(0, 4).toString('latin1').replace(/[^\x20-\x7e]/g, '.');
     throw new Error(`not a PDF (magic "${magic}")`);

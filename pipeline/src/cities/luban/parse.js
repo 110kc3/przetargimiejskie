@@ -1,6 +1,3 @@
-// Lubań parsers.
-// Full inline HTML announcements on luban.pl (/1333 hub).
-// Reuses core utilities (finn-bip, normalize, classify-kind).
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -14,12 +11,6 @@ import {
 
 export { htmlToText, parsePLN, priceFromText, areaFromText, auctionDateFromText };
 
-/**
- * Extract the article's main content body from full page HTML.
- * Cuts out outer chrome, navigation headers, and sidebar/footer widgets.
- * @param {string} html
- * @returns {string}
- */
 export function extractArticleBody(html) {
   if (!html) return '';
   const dStart = html.indexOf('<div class="description">');
@@ -28,13 +19,6 @@ export function extractArticleBody(html) {
   return dEnd !== -1 ? html.slice(dStart, dEnd) : html.slice(dStart);
 }
 
-/**
- * Check if the text represents an open municipal property sale auction.
- * Rejects rentals/leases, bezprzetargowe sales, pre-auction wykaz notices.
- * @param {string} title
- * @param {string} text
- * @returns {boolean}
- */
 export function isSaleAnnouncement(title, text) {
   const combined = `${title || ''} ${text || ''}`.toLowerCase();
   if (/bezprzetargow|najem|dzier[żz]aw|rezerwacj/i.test(combined)) return false;
@@ -43,13 +27,6 @@ export function isSaleAnnouncement(title, text) {
   return /przetarg/i.test(combined) && /sprzeda[żz]|zbyci/i.test(combined);
 }
 
-/**
- * Determine auction round from title or announcement body.
- * Tolerates spaced letters in Lubań's "o g ł a s z a ... przetarg".
- * @param {string} title
- * @param {string} text
- * @returns {number|null}
- */
 export function roundFromAnnouncement(title, text) {
   const t = title || '';
   if (/pierwsz/i.test(t) || /\bI\s+przetarg/i.test(t)) return 1;
@@ -77,18 +54,7 @@ export function roundFromAnnouncement(title, text) {
   return /przetarg/i.test(t) || /przetarg/i.test(text || '') ? 1 : null;
 }
 
-/**
- * Extract flat/building address from HTML and plain text.
- * Prioritizes the official wadium title instruction:
- *   "W tytule wpłaty wadium ... dopisać: „Przetarg lokal <Street> <Building>/<Apt>”"
- * and strong bullet tags, falling back to prose phrasing.
- * @param {string} html
- * @param {string} text
- * @returns {{address_raw:string, address:object}|null}
- */
 export function extractFlatAddress(html, text) {
-  // 1. Wadium title instruction pattern:
-  // e.g. "W tytule wpłaty wadium oprócz danych uczestnika przetargu należy dopisać: „Przetarg lokal Warszawska 3/2”"
   const wm = /(?:w\s+tytule\s+wp[łl]aty\s+wadium|tytu[łl]\s+wp[łl]aty)[^„"«»]*[„"«»]([^"”«»]+)[”"«»]/i.exec(text || '');
   if (wm) {
     let clean = wm[1]
@@ -101,8 +67,6 @@ export function extractFlatAddress(html, text) {
     if (addr && addr.building) return { address_raw: clean, address: addr };
   }
 
-  // 2. Strong bullet or section header in HTML:
-  // e.g. <li><strong> Warszawska 3/2 </strong></li> or <p><strong>Leśna 44D/5</strong></p>
   const liM = /<(?:li|p|span|h\d)[^>]*>\s*<strong>\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ0-9\.\- ]+?\s+\d+[A-Za-z]?\/\d+[A-Za-z]?)\s*<\/strong>/i.exec(html || '');
   if (liM) {
     let raw = liM[1].trim();
@@ -111,7 +75,6 @@ export function extractFlatAddress(html, text) {
     if (addr && addr.building) return { address_raw: raw, address: addr };
   }
 
-  // 3. Prose pattern: "lokalu mieszkalnego Nr 2 znajdującego się w budynku położonym w Lubaniu przy ul. Warszawskiej 3"
   const proseM = /lokalu\s+mieszkalnego\s+(?:o\s+numerze|numer|nr\.?)\s*(\d+[A-Za-z]?)[^.]*?przy\s+(?:ul\.|ulicy|al\.|alei|pl\.|placu)?\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)\s+(\d+[A-Za-z]?)(?=\s+wraz|\s+o\s+pow|[,.;]|$)/i.exec(text || '');
   if (proseM) {
     const apt = proseM[1];
@@ -123,7 +86,6 @@ export function extractFlatAddress(html, text) {
     if (addr && addr.building) return { address_raw: raw, address: addr };
   }
 
-  // 4. Fallback pattern: street + building with flat number elsewhere
   const altM = /przy\s+(?:ul\.|ulicy|al\.|alei|pl\.|placu)?\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)\s+(\d+[A-Za-z]?)\b/i.exec(text || '');
   const aptM = /lokal\w*\s+mieszkaln\w*\s+(?:o\s+numerze|numer|nr\.?)\s*(\d+[A-Za-z]?)/i.exec(text || '');
   if (altM && aptM) {
@@ -136,8 +98,6 @@ export function extractFlatAddress(html, text) {
     if (addr && addr.building) return { address_raw: raw, address: addr };
   }
 
-  // 5. Standalone building / house sale without apartment:
-  // e.g. "sprzedaż budynku mieszkalnego przy ul. Leśnej 43"
   const bldgM = /sprzeda[żz]\s+budynku(?:\s+mieszkalnego)?[^.]*?przy\s+(?:ul\.|ulicy)?\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)\s+(\d+[A-Za-z]?)/i.exec(text || '');
   if (bldgM) {
     const street = bldgM[1].trim();
@@ -150,14 +110,6 @@ export function extractFlatAddress(html, text) {
   return null;
 }
 
-/**
- * Resolve property asset kind for Lubań.
- * When the title is generic ("Burmistrz Miasta Lubań ogłasza pierwszy przetarg..."),
- * inspects the operative "na sprzedaż / na zbycie ..." sentence.
- * @param {string} title
- * @param {string} text
- * @returns {'mieszkalny'|'zabudowana'|'uzytkowy'|'garaz'|'grunt'|'unknown'}
- */
 export function resolveKind(title, text) {
   const k = classifyKind(title || '');
   if (k !== 'unknown') return k;
@@ -171,31 +123,19 @@ export function resolveKind(title, text) {
   return classifyKind(`${title || ''} ${(text || '').slice(0, 1000)}`);
 }
 
-/**
- * Parse a land auction announcement.
- * Extracts parcel number, obręb, plot area, street, price, date, round.
- * @param {string} title
- * @param {string} html
- * @param {string} url
- * @param {string|null} publishedDate
- * @returns {object|null}
- */
 export function parseLandAnnouncement(title, html, url, publishedDate = null) {
   const bodyHtml = extractArticleBody(html);
   const text = htmlToText(bodyHtml);
 
-  // Parcel numbers: match all parcels designated as "działka nr X" or "i nr Y"
   const parcels = [];
   for (const m of text.matchAll(/(?:dzia[łl][ek]{1,2}\w*\s+(?:oznaczon\w*\s+geodezyjnie\s+jako\s+)?(?:nr\.?|numer)?|i\s+nr)\s*(\d+(?:\/\d+)?)/gi)) {
     if (!parcels.includes(m[1])) parcels.push(m[1]);
   }
   const dzialka_nr = parcels.length ? parcels.join(', ') : null;
 
-  // Obręb: e.g. "Obręb II" or "Obręb III"
   const obrebM = /obr[ęe]b\w*\s+([I|V|X\d]+|[A-ZŻŹĆŁŚĄĘÓŃ][a-zżźćłśąęóń]+)/i.exec(text);
   const obreb = obrebM ? obrebM[1].trim() : null;
 
-  // Plot area: e.g. "o powierzchni 1 115 m 2" or "o powierzchni 718 m2"
   let area_m2 = null;
   const areaM = /o\s+powierzchni\s+([\d\s]+(?:,\d+)?)\s*m\s*[²2]/i.exec(text);
   if (areaM) {
@@ -204,7 +144,6 @@ export function parseLandAnnouncement(title, html, url, publishedDate = null) {
     if (Number.isFinite(n) && n > 0) area_m2 = n;
   }
 
-  // Street: e.g. "przy ulicy Na Skarpie" or "przy ulicy Zawidowskiej"
   let street = null;
   let address_raw = null;
   let address = null;
@@ -237,14 +176,6 @@ export function parseLandAnnouncement(title, html, url, publishedDate = null) {
   };
 }
 
-/**
- * Parse one Lubań announcement into a listing or land record.
- * @param {string} title
- * @param {string} html
- * @param {string} url
- * @param {string|null} publishedDate
- * @returns {object|null}
- */
 export function parseAnnouncement(title, html, url, publishedDate = null) {
   const bodyHtml = extractArticleBody(html);
   const text = htmlToText(bodyHtml);
@@ -273,11 +204,6 @@ export function parseAnnouncement(title, html, url, publishedDate = null) {
   };
 }
 
-/**
- * Result doc stub — Lubań publishes no separate concluded-price documents.
- * Negative round outcomes appear inline in subsequent announcements.
- * @returns {any[]}
- */
 export function parseResultDoc(_text, _date, _url) {
   return [];
 }

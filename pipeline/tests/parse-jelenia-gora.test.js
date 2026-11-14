@@ -1,15 +1,3 @@
-// Jelenia Góra parser tests. Fixtures are condensed-but-faithful copies of the
-// REAL `pdftotext -layout` output of live attachments (verified 2026-07-18):
-//   download/51538  flat ANNOUNCEMENT single-lot (82/2026, ul. Długa 14/2,
-//     IV przetarg, 195.000,00 zł, future date 03.09.2026);
-//   download/51354  flat ANNOUNCEMENT multi-lot, 3 flats (69/2026, Juszczaka
-//     4/6, Jana Sobieskiego 21/6, Łabska 6/3, CZWARTE/4th round);
-//   download/51539  land ANNOUNCEMENT single-lot (83/2026, ul. Gabrieli
-//     Zapolskiej, dz. 116/4, III przetarg, 490.000,00 zł);
-//   download/51528  RESULT sold (62/2026, lokal użytkowy nr U1, ul. 1 Maja
-//     46 of, V przetarg, wywoławcza 36.050 -> osiągnięta 36.420 zł);
-//   download/51496  RESULT unsold (48/2026, dz. 116/4, drugi przetarg,
-//     wywoławcza 490.000 zł, wynikiem negatywnym).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -32,7 +20,6 @@ import {
   parseResultDoc,
 } from '../src/cities/jelenia-gora/parse.js';
 
-// ---------------------------------------------------------------- unit helpers
 
 test('romanToInt: III, IV, V', () => {
   assert.equal(romanToInt('III'), 3);
@@ -134,7 +121,6 @@ test('unitAreaFromText: "ogólnej powierzchni" anchor, not a użytkowej sub-area
   );
 });
 
-// ---------------------------------------------------------------------- fixtures
 
 const FLAT_ANNOUNCEMENT_SINGLE = `
                             OGŁOSZENIE NR 82/2026
@@ -287,13 +273,12 @@ Przetarg zakończony został wynikiem negatywnym.
 OSOBA USTALONA JAKO NABYWCA NIERUCHOMOŚCI: brak.
 `;
 
-// ------------------------------------------------------------ announcement parse
 
 test('parseAnnouncement: single-lot flat — address key, area, price, round, future date', () => {
   const [rec] = parseAnnouncement(FLAT_ANNOUNCEMENT_SINGLE);
   assert.ok(rec, 'a record is returned');
   assert.equal(rec.kind, 'mieszkalny');
-  assert.equal(rec.address.key, 'dluga|14|2'); // NOT the header's Plac Niepodległości / Bankowa refs
+  assert.equal(rec.address.key, 'dluga|14|2');
   assert.equal(rec.area_m2, 39.6);
   assert.equal(rec.starting_price_pln, 195000);
   assert.equal(rec.round, 4);
@@ -309,7 +294,7 @@ test('parseAnnouncement: multi-lot batch — one record per flat, shared round +
   assert.equal(recs[0].starting_price_pln, 68000);
 
   assert.equal(recs[1].address.key, 'jana sobieskiego|21|6');
-  assert.equal(recs[1].area_m2, 37.42); // NOT the 31,94 użytkowej sub-area or 5,48 cellar
+  assert.equal(recs[1].area_m2, 37.42);
   assert.equal(recs[1].starting_price_pln, 70000);
 
   assert.equal(recs[2].address.key, 'labska|6|3');
@@ -329,20 +314,19 @@ test('parseAnnouncement: land — parcel, area, obręb, price, future date, roun
   assert.equal(rec.kind, 'grunt');
   assert.equal(rec.dzialka_nr, '116/4');
   assert.equal(rec.obreb, '0013, Sobieszów II');
-  assert.equal(rec.area_m2, 2095); // 0,2095 ha
+  assert.equal(rec.area_m2, 2095);
   assert.equal(rec.address_raw, 'ul. Gabrieli Zapolskiej');
   assert.equal(rec.starting_price_pln, 490000);
   assert.equal(rec.auction_date, '2026-10-07');
   assert.equal(rec.round, 3);
 });
 
-// ------------------------------------------------------------------ result parse
 
 test('parseResultDoc: sold commercial unit — "U1" unit rewritten digit-first, achieved price', () => {
   const [rec] = parseResultDoc(RESULT_SOLD_COMMERCIAL, null, 'https://bip.jeleniagora.pl/attachments/download/51528');
   assert.ok(rec);
   assert.equal(rec.kind, 'uzytkowy');
-  assert.equal(rec.address.key, '1 maja|46|1U'); // "of" (oficyna) stripped, "U1" -> "1U"
+  assert.equal(rec.address.key, '1 maja|46|1U');
   assert.equal(rec.area_m2, 33.81);
   assert.equal(rec.round, 5);
   assert.equal(rec.starting_price_pln, 36050);

@@ -1,23 +1,4 @@
-// Pajęczno parser tests. Fixtures are condensed-but-faithful copies of the
-// REAL HTML fetched live from www.pajeczno.pl on 2026-07-10 (verified with
-// curl from this Pi's Polish residential IP) — the load-bearing quirky
-// sentences (glued words, inconsistent price-format spacing, the garbled
 // area-unit character) are preserved byte-for-byte from the source, with only
-// non-parsed legal boilerplate paragraphs trimmed for fixture size. The
-// result-notice fixture is the REAL tesseract -l pol OCR output (cached at
-// pipeline/ocr-cache/Informacja_o_wyniku_przetargu_przeprowadzonego_w_dniu_12_01_2022.pdf.*.txt)
-// of the one live "Informacja o wyniku przetargu" PDF found on the board.
-//
-//   n,410660  ul. Rekreacyjnej 7/20  — 30,00 m²,  220 000,00 zł netto (glued "SIĘDNIA", no-space price)
-//   n,410661  ul. Rekreacyjnej 3/10  — 25,80 m²,  189 000,00 zł netto (spaced "SIĘ DNIA", apostrophe-before-"wynoszącej")
-//   n,410662  ul. Małej 1/18         — 32,80 m²,  228 000,00 zł netto (glued "NETTONIERUCHOMOŚCI", "zł(słownie")
-//   n,395483  Działka 1092 obręb Niwiska Dolne — 0,2500 ha, 40 000,00 zł (clean text, lowercase "odbędzie się dnia")
-//   n,400452  wykaz (31-03-2026)     — no per-flat HTML data (scanned PDF only) → must be skipped
-//   n,354725  "Informacja o wyniku przetargu" (14-01-2022) — INLINE BODY EMPTY;
-//             real text lives only in the attached scanned PDF (confirmed via
-//             pdftotext: 0 fonts, 1 embedded 200dpi JPEG) — OCR'd multi-parcel
-//             land result: działka 894 SOLD, 591 UNSOLD (nikt nie wpłacił
-//             wadium), 533/3 SOLD.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -41,9 +22,6 @@ import {
   parseResultDoc,
 } from '../src/cities/pajeczno/parse.js';
 
-// ---------------------------------------------------------------------------
-// unit funcs
-// ---------------------------------------------------------------------------
 
 test('parsePLN: glued (no separator), spaced-thousands, dot-thousands (OCR)', () => {
   assert.equal(parsePLN('220000,00'), 220000);
@@ -136,9 +114,6 @@ test('isResultTitle', () => {
   assert.equal(isResultTitle('Pierwszy przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 20'), false);
 });
 
-// ---------------------------------------------------------------------------
-// parseBoardPage — condensed real board fixture (2 pages, 2026-07-10)
-// ---------------------------------------------------------------------------
 
 const REKREACYJNA7_URL =
   'https://www.pajeczno.pl/informator/ogloszenia-o-sprzedazy-nieruchomosci/n,410660,pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-20-polozonego-w-pajecznie-przy-ul-rekreacyjnej-7-wraz-z-udzialem-w-czesciach-wspolnych-budynku-i-wspolwlasnosci-gruntu.html';
@@ -241,12 +216,7 @@ test('parseBoardPage: empty/no-match HTML -> []', () => {
   assert.deepEqual(parseBoardPage('<html><body>nothing</body></html>'), []);
 });
 
-// ---------------------------------------------------------------------------
-// parseDetailPage — flat fixtures (condensed real HTML, 2026-07-10)
-// ---------------------------------------------------------------------------
 
-// n,410660 — ul. Rekreacyjnej 7/20. Load-bearing quirk: "SIĘDNIA" (glued, no
-// space before "DNIA") and "220000,00 zł" (no thousands separator at all).
 const REKREACYJNA7_HTML = `
 <article class="news mb-4">
     <h2 class="h5 mb-3">Pierwszy przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 20 położonego w
@@ -303,10 +273,6 @@ test('parseDetailPage (Rekreacyjnej 7/20): area/price/date survive the glued-wor
   assert.equal(r.detail_url, REKREACYJNA7_URL);
 });
 
-// n,410661 — ul. Rekreacyjnej 3/10. Load-bearing quirk: normally-spaced "SIĘ
-// DNIA" and "189 000,00 zł" (space-thousands), plus the area apostrophe
-// glitch appearing BEFORE "wynoszącej" this time ("ołącznej powierzchni
-// użytkowej 'wynoszącej 25,80 m²") rather than after the number.
 const REKREACYJNA3_HTML = `
 <article class="news mb-4">
     <h2 class="h5 mb-3">Pierwszy przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 10 położonego w
@@ -343,8 +309,6 @@ test('parseDetailPage (Rekreacyjnej 3/10): price/date with normal spacing', () =
   assert.equal(r.auction_date, '2026-06-17');
 });
 
-// n,410662 — ul. Małej 1/18. Load-bearing quirk: "NETTONIERUCHOMOŚCI" (glued)
-// and "228 000,00 zł(słownie" (no space before the parenthesis).
 const MALA1_HTML = `
 <article class="news mb-4">
     <h2 class="h5 mb-3">Pierwszy przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 18 położonego w
@@ -377,9 +341,6 @@ test('parseDetailPage (Małej 1/18): survives glued "NETTONIERUCHOMOŚCI" + "zł
   assert.equal(r.published_date, '2026-05-15');
 });
 
-// ---------------------------------------------------------------------------
-// parseDetailPage — land fixture (n,395483 Działka 1092 obręb Niwiska Dolne)
-// ---------------------------------------------------------------------------
 
 const LAND_HTML = `
 <article class="news mb-4">
@@ -414,9 +375,6 @@ test('parseDetailPage (Działka 1092): kind grunt with parcel + obręb + ha->m2 
   assert.equal(r.published_date, '2026-01-30');
 });
 
-// ---------------------------------------------------------------------------
-// parseDetailPage — skip cases (wykaz / rokowania / bezprzetargowa / null)
-// ---------------------------------------------------------------------------
 
 const WYKAZ_HTML = `
 <article class="news mb-4">
@@ -453,10 +411,6 @@ test('parseDetailPage: null/empty html -> null', () => {
   assert.equal(parseDetailPage('', 'x', null), null);
 });
 
-// ---------------------------------------------------------------------------
-// Result notice — inline body is EMPTY, text lives only in the attached PDF
-// (n,354725, confirmed live 2026-07-10 — see module header)
-// ---------------------------------------------------------------------------
 
 const RESULT_NOTICE_URL =
   'https://www.pajeczno.pl/informator/ogloszenia-o-sprzedazy-nieruchomosci/n,354725,informacja-o-wyniku-przetargu.html';
@@ -503,10 +457,6 @@ test('result notice: parseDetailPage returns null (routed separately by crawl.js
   assert.equal(parseDetailPage(RESULT_NOTICE_HTML, RESULT_NOTICE_URL, null), null);
 });
 
-// ---------------------------------------------------------------------------
-// parseResultDoc — REAL tesseract -l pol OCR text of the attached PDF above.
-// Multi-parcel land result: działka 894 SOLD, 591 UNSOLD, 533/3 SOLD.
-// ---------------------------------------------------------------------------
 
 const RESULT_OCR_TEXT = `URZĄD MIEJSKI
 W PAJĘCZNIE
@@ -590,12 +540,6 @@ test('parseResultDoc (real OCR): działka 533/3 SOLD 6 160 -> 15 070', () => {
   assert.equal(r.outcome, 'sold');
 });
 
-// ---------------------------------------------------------------------------
-// parseResultDoc — single-property branch: flat template (UNVERIFIED against
-// a live doc — no flat result has posted on the board as of 2026-07-10; this
-// exercises the same confirmed vocabulary applied to the flat/address shape
-// already verified live for announcements — see parse.js header)
-// ---------------------------------------------------------------------------
 
 const FLAT_RESULT_SOLD_TEXT =
   'INFORMACJA O WYNIKU PRZETARGU\n' +
@@ -631,9 +575,6 @@ test('parseResultDoc (flat template, unsold): outcome unsold, no final price', (
   assert.equal(r.outcome, 'unsold');
 });
 
-// ---------------------------------------------------------------------------
-// parseResultDoc — gates
-// ---------------------------------------------------------------------------
 
 test('parseResultDoc: an ordinary announcement (not a result notice) -> []', () => {
   assert.deepEqual(

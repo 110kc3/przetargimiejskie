@@ -1,25 +1,3 @@
-// Golub-Dobrzyń crawler — dual-publisher bip.net 7.32 (extranet.pl), consumed as
-// server HTML (powiat) + born-digital PDF (miasto). See config.js.
-//
-//   POWIAT (bip.golub-dobrzyn.com.pl): the general board 824 (Informacje i
-//     ogłoszenia) is paginated (?news_page=N) and mixes everything — road
-//     obwieszczenia, job vacancies, MOVABLE-property tenders, land + FLAT
-//     auctions. Each item's "Czytaj więcej" link is `redir,<id>` (302 →
-//     `<id>,<slug>`) and its aria-label carries the full title, so titles are
-//     PRE-FILTERED to property auctions before any detail fetch. Each detail
-//     page's prose is INLINE HTML in `id="PageContent"` (up to the metryka
-//     footer). Routed by CONTENT: result → crawlResultDocs, sale → crawlActive.
-//
-//   MIASTO (bip.golub-dobrzyn.pl): notices are born-digital PDF attachments
-//     (`plik,<id>,…pdf`) shown inline on the "Sprzedaż nieruchomości" board (760)
-//     + the two most recent "Ogłoszenia Burmistrza" year boards. PDFs whose file
-//     name marks a property auction are extracted via pdfText (OCR fallback) and
-//     routed through the SAME parsers. Bounded best-effort (see MAX_* budget) —
-//     deep miasto menu-tree history is a documented v1 limitation; the powiat
-//     feed is the primary, fully-verified achieved-price stream.
-//
-// source:'html' ⇒ result refs already carry `.text` (the built blob), which
-// refresh.js hands straight to parseResultDoc.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -41,19 +19,14 @@ const POWIAT_BOARD = '824,informacje-i-ogloszenia';
 const MIASTO_ORIGIN = 'https://bip.golub-dobrzyn.pl';
 const MIASTO_SALE_BOARD = '760,sprzedaz-nieruchomosci';
 
-// A browser UA — the safe default for municipal WAFs / CI egress (harmless if
-// unneeded; both hosts answered a plain fetch fine live).
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
-// Bounds so a broken/looping board can never blow the 25-min CI job (ADAPTER-
-// GUIDE §5.1). Live volume is low (7 board pages, ~50 property docs total).
 const MAX_POWIAT_PAGES = Number(process.env.GD_MAX_PAGES) || 12;
 const MAX_MIASTO_YEARS = 2;
 const MAX_DOCS = Number(process.env.GD_MAX_DOCS) || 220;
 const DEADLINE_MS = Number(process.env.GD_BUDGET_MS) || 12 * 60 * 1000;
 
-// Titles worth a detail fetch (property auctions) vs obvious non-property noise.
 const KEEP_TITLE = /przetarg|sprzeda[żz]|nieruchomo|lokal|dzia[łl]k|wynik/i;
 const SKIP_TITLE = /ruchom|samoch|ci[ąa]gnik|nab[oó]r|obwieszcz|zawiadom|deklaracj|petycj|bud[żz]et|zam[oó]wien|zapytani|konkurs|koncesj/i;
 const keepPowiatTitle = (t) => KEEP_TITLE.test(t) && !SKIP_TITLE.test(t);
@@ -73,7 +46,6 @@ async function fetchHtml(url) {
   }
 }
 
-/** {id, title} refs from a board page's "Czytaj więcej: <title>" links. */
 export function parseBoardRefs(html) {
   const out = [];
   const seen = new Set();
@@ -91,9 +63,6 @@ export function parseBoardRefs(html) {
 const CONTENT_START = 'id="PageContent"';
 const CONTENT_END_MARKERS = ['metryka_przycisk_wrapper', 'id="wstecz_link'];
 
-/** Plain-text BODY + metryka "Data publikacji" (fallback date) from a bip.net
- *  detail page. Cuts at the metryka footer so page chrome never leaks into BODY;
- *  backs the cut up to a clean tag boundary when the marker lands mid-attribute. */
 export function extractDoc(html) {
   const i = html.indexOf(CONTENT_START);
   if (i < 0) return { body: '', publishDate: null };
@@ -137,7 +106,6 @@ function makeBudget() {
   };
 }
 
-/** Route one built blob into the right stream. */
 function routeDoc(blob, url, fallbackDate, buckets) {
   if (isResultDoc(blob)) {
     buckets.resultRefs.push({
@@ -154,7 +122,6 @@ function routeDoc(blob, url, fallbackDate, buckets) {
   }
 }
 
-// --------------------------------------------------------------------- powiat
 
 async function crawlPowiat(buckets, budget) {
   const refs = [];
@@ -174,8 +141,6 @@ async function crawlPowiat(buckets, budget) {
       refs.push(ref);
       added++;
     }
-    // Board pages always list SOME "Czytaj więcej" items; a page that yields no
-    // new ids at all means we've walked off the end — stop paginating.
     if (parseBoardRefs(html).length === 0) break;
     if (added === 0 && page > 1) { /* keep going a little — mixed board */ }
   }
@@ -194,10 +159,7 @@ async function crawlPowiat(buckets, budget) {
   }
 }
 
-// ---------------------------------------------------------------------- miasto
 
-/** PDF file names worth extracting: a property (real-estate) auction, not the
- *  bidders list / a movable-property / lease / tenant-bezprzetargowa notice. */
 function keepMiastoPdf(name) {
   const n = String(name || '').toLowerCase();
   if (!/przetarg/.test(n)) return false;
@@ -269,7 +231,6 @@ async function crawlMiasto(buckets, budget) {
   console.error(`  golub-dobrzyn(miasto): ${miastoDocs} property PDF(s) processed`);
 }
 
-// ------------------------------------------------------------------ entry points
 
 let crawlPromise = null;
 
@@ -287,13 +248,11 @@ async function crawlAll() {
   return buckets;
 }
 
-/** Concluded records (achieved-price stream). source:'html' ⇒ refs carry `.text`. */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resultRefs;
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, land } = await crawlPromise;

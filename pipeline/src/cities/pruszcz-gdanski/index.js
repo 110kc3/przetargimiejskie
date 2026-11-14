@@ -1,5 +1,3 @@
-// Adapter entry point for Pruszcz Gdański (powiat gdański, Pomorskie)
-// BIP: https://bip.pruszcz-gdanski.pl
 
 import config from './config.js';
 import { crawlActive, crawlResultDocs, parseResultDoc } from './crawl.js';

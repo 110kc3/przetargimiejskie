@@ -1,6 +1,3 @@
-// Crawler for Legionowo (bip.legionowo.pl)
-//
-// Fetches articles from the MADKOM eBIP REST API.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -53,7 +50,6 @@ export async function crawlActive() {
       continue;
     }
 
-    // Fetch full article detail
     const detail = await fetchJson(`${API_BASE}/articles/${item.id}`);
     const fullHtml = detail && detail.content ? detail.content : '';
 

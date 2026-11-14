@@ -1,9 +1,3 @@
-// Polish locative ("w …") city names, shared by the SEO page generator and the
-// B2G one-pager generator so the two can't drift apart.
-//
-// Fallback is a nominative apposition ("— <Label>"), which is grammatically safe
-// for any unmapped city — a new city is never mis-declined, it just reads a
-// little stiffer until someone adds it here.
 
 export const CITY_LOC = {
   gliwice: 'w Gliwicach', katowice: 'w Katowicach', bytom: 'w Bytomiu', zabrze: 'w Zabrzu',

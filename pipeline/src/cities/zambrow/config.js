@@ -1,7 +1,3 @@
-// Configuration for Zambrów adapter (bip.zambrow.pl)
-//
-// Gmina Miasto Zambrów (powiat zambrowski, podlaskie)
-// TERC: 2014011
 
 export const CONFIG = {
   id: 'zambrow',

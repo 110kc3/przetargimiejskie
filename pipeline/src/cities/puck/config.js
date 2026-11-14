@@ -1,5 +1,3 @@
-// City configuration for Puck (powiat pucki, Pomorskie)
-// BIP: https://bip.miastopuck.pl
 
 export default {
   id: 'puck',

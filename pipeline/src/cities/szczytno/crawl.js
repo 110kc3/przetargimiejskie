@@ -1,11 +1,3 @@
-// Szczytno crawler — city BIP bip.um.szczytno.pl (Bootstrap + DataTables vendor CMS).
-//
-// Boards crawled:
-//   - Active announcements:  https://bip.um.szczytno.pl/artykul/ogloszenia-o-przetargach
-//   - Wykaz designations:    https://bip.um.szczytno.pl/artykul/wykaz-nieruchomosci-2
-//   - Results stream:        https://bip.um.szczytno.pl/artykul/informacja-o-wynikach-przetargow
-//
-// Host returns 403 to default bot UA; all requests pass BROWSER_UA via FETCH_OPTS.
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -31,12 +23,6 @@ const BROWSER_UA =
 
 const FETCH_OPTS = { userAgent: BROWSER_UA };
 
-/**
- * Fetch detail HTML and any attached .doc/.docx/.pdf text.
- * @param {string} url
- * @param {string} title
- * @returns {Promise<string>}
- */
 async function fetchFullArticleText(url, title = '') {
   let html = '';
   try {
@@ -67,10 +53,6 @@ async function fetchFullArticleText(url, title = '') {
   return `${title}\n${tresc}\n${attText}`.trim();
 }
 
-/**
- * Crawl active auction announcements and pre-auction wykaz designations.
- * @returns {Promise<{ listings: Array, wykaz: Array, land: Array, valid_empty: boolean, valid_empty_land: boolean }>}
- */
 export async function crawlActive() {
   const listings = [];
   const land = [];
@@ -79,7 +61,6 @@ export async function crawlActive() {
   let announcementsChecked = false;
   let wykazChecked = false;
 
-  // 1. Announcements board
   try {
     const annHtml = await getText(BOARD_ANNOUNCEMENTS, FETCH_OPTS);
     const annItems = parseBoardTable(annHtml, ORIGIN);
@@ -102,7 +83,6 @@ export async function crawlActive() {
     console.error(`  szczytno crawlActive announcements failed: ${err.message}`);
   }
 
-  // 2. Wykaz board (only properties: flats, commercial, buildings with address)
   try {
     const wykazHtml = await getText(BOARD_WYKAZ, FETCH_OPTS);
     const wykazItems = parseBoardTable(wykazHtml, ORIGIN);
@@ -110,7 +90,6 @@ export async function crawlActive() {
 
     for (const item of wykazItems) {
       if (isSkippableTitle(item.title) || isBezprzetargowyTitle(item.title)) continue;
-      // Skip pure land parcels from wykaz (land is not address-keyed)
       if (!/lokal|mieszka|zabudow/i.test(item.title)) continue;
 
       const fullText = await fetchFullArticleText(item.url, item.title);
@@ -139,10 +118,6 @@ export async function crawlActive() {
   };
 }
 
-/**
- * Crawl concluded auction result notices (achieved-price stream).
- * @returns {Promise<Array<{ text: string, pdf_url: string, auction_date: string|null }>>}
- */
 export async function crawlResultDocs() {
   const resultRefs = [];
 

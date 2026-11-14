@@ -1,19 +1,3 @@
-// Malbork crawler.
-//
-// Source: bip.malbork.pl (Madkom SIP platform, React SPA backed by plain JSON HTTP API).
-//
-// API endpoints used:
-//   GET /api/menu/<menuId>/articles?limit=N&offset=K[&archived=true]
-//     -> { total, articles: [ { id, link, columnFields, aliasFields } ] }
-//   GET /api/articles/<id>
-//     -> { id, title, attachments: [ { id, name, extension, link } ] }
-//   GET /api/files/<attId>
-//     -> PDF bytes (born-digital)
-//
-// Menus:
-//   - ANNOUNCEMENTS: menu 48 "Nieruchomości" (under 258 "Przetargi otwarte")
-//   - RESULTS (rozstrzygnięte): menu 180 "Nieruchomości" (under 17 "Przetargi rozstrzygnięte")
-//   - RESULTS (nierozstrzygnięte): menu 203 "Nieruchomości" (under 212 "Przetargi nierozstrzygnięte")
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -29,8 +13,8 @@ import {
 const ORIGIN = 'https://bip.malbork.pl';
 const API = `${ORIGIN}/api`;
 
-const ANNOUNCE_MENU = 48; // "Nieruchomości" (under 258 "Przetargi otwarte")
-const RESULT_MENUS = [180, 203]; // 180 = rozstrzygnięte, 203 = nierozstrzygnięte
+const ANNOUNCE_MENU = 48;
+const RESULT_MENUS = [180, 203];
 
 const LIST_COUNT = 100;
 const MAX_LIST_PAGES = 10;
@@ -65,7 +49,6 @@ function itemPublishDate(item) {
   return cf?.value ? cf.value.trim() : null;
 }
 
-/** Walk one board (bounded), collecting { id, link, title, publishDate }. */
 async function fetchBoardItems(menuId, archived) {
   const items = [];
   let complete = true;
@@ -101,7 +84,6 @@ async function fetchBoardItems(menuId, archived) {
   return items;
 }
 
-/** Fetch one article's attachments -> array of { id, name, extension } or null on error. */
 async function fetchAttachments(articleId) {
   let json;
   try {
@@ -115,10 +97,6 @@ async function fetchAttachments(articleId) {
     .map((a) => ({ id: a.id, name: a.name || '' }));
 }
 
-/**
- * Crawl active announcements board for flat listings.
- * @returns {Promise<{ listings: object[], wykaz: object[], land: object[], valid_empty: boolean, valid_empty_land: boolean }>}
- */
 export async function crawlActive() {
   const listings = [];
   const boardItems = await fetchBoardItems(ANNOUNCE_MENU, false);
@@ -132,7 +110,6 @@ export async function crawlActive() {
     const atts = await fetchAttachments(item.id);
     if (!atts?.length) continue;
 
-    // Pick PDF attachments relating to flats or general property auctions
     const flatAtts = atts.filter((a) => isFlat(a.name) || !isSkippable(a.name));
     for (const att of flatAtts) {
       const pdf_url = fileUrl(att.id);
@@ -151,7 +128,6 @@ export async function crawlActive() {
     }
   }
 
-  // Keep genuinely upcoming auctions as active
   const today = new Date().toISOString().slice(0, 10);
   const active = listings.filter((l) => !l.auction_date || l.auction_date >= today);
 
@@ -168,10 +144,6 @@ export async function crawlActive() {
   };
 }
 
-/**
- * Crawl result notices from settled and unsettled property boards.
- * Returns array of doc refs: { text, pdf_url, auction_date, detail_url }.
- */
 export async function crawlResultDocs() {
   const knownUrls = await loadKnownSourceUrls('malbork');
   const resultRefs = [];
@@ -181,7 +153,6 @@ export async function crawlResultDocs() {
   let skippedKnown = 0;
 
   for (const menuId of RESULT_MENUS) {
-    // Both current tab and archived tab contain result notices
     for (const isArchived of [false, true]) {
       const boardItems = await fetchBoardItems(menuId, isArchived);
       console.error(
@@ -208,7 +179,6 @@ export async function crawlResultDocs() {
         const atts = await fetchAttachments(item.id);
         if (!atts?.length) continue;
 
-        // Prefer result notice attachment
         const pdf =
           atts.find((a) => /wynik|rozstrzyg|protok/i.test(a.name)) ||
           atts.find((a) => isFlat(a.name)) ||
@@ -218,7 +188,7 @@ export async function crawlResultDocs() {
         const pdf_url = fileUrl(pdf.id);
         if (knownUrls.has(pdf_url)) {
           skippedKnown++;
-          continue; // Incremental skip: already committed
+          continue;
         }
 
         let text;
@@ -229,7 +199,7 @@ export async function crawlResultDocs() {
           continue;
         }
 
-        if (!isFlat(text) && !isFlat(pdf.name)) continue; // Land / non-residential — skip
+        if (!isFlat(text) && !isFlat(pdf.name)) continue;
 
         resultRefs.push({
           text,

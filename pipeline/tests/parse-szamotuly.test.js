@@ -1,12 +1,3 @@
-// Szamotuły parser unit tests.
-// Tests groundtruthed against real municipal auction documents fetched from bip.szamotuly.pl:
-//   - ul. Kolarska 9/25 (I przetarg announcement art. 38186 + result notices art. 38698, 40170)
-//   - Rynek 6 lokal użytkowy (I przetarg announcement art. 39685 + sold result art. 39816)
-//   - ul. Wroniecka 43 nieruchomość zabudowana (I przetarg art. 40048 + unsold result art. 40171)
-//   - Przysieczyn 52 nieruchomość zabudowana (II przetarg art. 40047 + unsold result art. 40156)
-//   - Mutowo działka 87/17 (III przetarg announcement art. 40145)
-//   - Szamotuły działka 1819/2 (I przetarg sold result art. 40249)
-//   - ul. Skrajna działki (multi-plot result art. 40214)
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -44,7 +35,6 @@ const FIXTURES_PATH = fileURLToPath(
 );
 const fixtures = JSON.parse(readFileSync(FIXTURES_PATH, 'utf8'));
 
-// ------------------------------------------------------------- parsing helpers
 
 test('decodeHtml: unescapes numeric decimal, hex, and named entities', () => {
   assert.equal(
@@ -116,7 +106,6 @@ test('extractKW: extracts land register numbers', () => {
   assert.equal(extractKW('brak kw'), null);
 });
 
-// ----------------------------------------------------------------- title routing
 
 test('isSkippableArticle: filters out rentals, cancellations, and lists of bidders', () => {
   assert.equal(isSkippableArticle('Dzierżawa nieruchomości gruntowej', '', ''), true);
@@ -125,7 +114,6 @@ test('isSkippableArticle: filters out rentals, cancellations, and lists of bidde
   assert.equal(isSkippableArticle('Przetarg-lista', 'Lista osób zakwalifikowanych', ''), true);
   assert.equal(isSkippableArticle('Sprostowanie ogłoszenia', '', ''), true);
 
-  // Real announcements and results are NOT skippable
   assert.equal(isSkippableArticle('Kolarska', 'Burmistrz ogłasza I przetarg na lokal', 'kolarska.html'), false);
   assert.equal(isSkippableArticle('Informacja', 'INFORMACJA o wyniku I przetargu', 'informacja.html'), false);
   assert.equal(isSkippableArticle('Przetarg - Mutowo', 'Burmistrz ogłasza III przetarg', 'przetarg-mutowo.html'), false);
@@ -148,7 +136,6 @@ test('isAnnouncementArticle: identifies auction announcements', () => {
   assert.equal(isAnnouncementArticle('Informacja', 'INFORMACJA o wyniku I przetargu', 'informacja.html'), false);
 });
 
-// ------------------------------------------------------------- fixture groundtruth
 
 test('fixture 38186: flat Kolarska 9/25 announcement (round 1)', () => {
   const f = fixtures['38186'];
@@ -403,18 +390,15 @@ test('fixture 40214: land Skrajna multi-plot result (table parsed, 6 plots)', ()
   assert.ok(byPlot['1138/12']);
   assert.ok(byPlot['1139/8']);
 
-  // Check sold plots
   assert.equal(byPlot['1138/8'].outcome, 'sold');
   assert.equal(byPlot['1138/8'].final_price_pln, 140761);
   assert.equal(byPlot['1138/12'].outcome, 'sold');
   assert.equal(byPlot['1138/12'].final_price_pln, 140761);
 
-  // Check unsold plots
   assert.equal(byPlot['1138/4'].outcome, 'unsold');
   assert.equal(byPlot['1138/6'].outcome, 'unsold');
 });
 
-// ------------------------------------------------------------- adapter contract
 
 test('szamotuly adapter config matches specification', () => {
   assert.equal(config.id, 'szamotuly');

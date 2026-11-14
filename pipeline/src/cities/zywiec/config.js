@@ -1,5 +1,3 @@
-// City configuration for Żywiec (powiat żywiecki, Śląskie)
-// BIP: https://www.bip.zywiec.pl
 
 export default {
   id: 'zywiec',

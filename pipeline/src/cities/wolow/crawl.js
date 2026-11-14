@@ -1,54 +1,3 @@
-// Wołów crawler — `wolow.pl` (SkyCMS / netkoncept.com city portal).
-//
-// DISCOVERY. wolow.pl has no stable, walkable "przetargi na sprzedaż
-// nieruchomości" category board — the URL the spike recorded (`/115/`) 404s
-// live, and a 3-segment article URL that still carries an `/idcat/` segment
-// 301-redirects to the bare 2-segment canonical form, i.e. skyCMS treats the
-// category id as decorative, not a stable listing key. What IS stable: the
-// site's own `/sitemap.xml` -> one `.gz` sitemap covering every article on
-// the whole portal (~3,940 URLs, confirmed live). This crawler fetches that
-// once per run and filters it, rather than trying to paginate a moving
-// category page.
-//
-// CANDIDATE FILTER (two buckets, see discoverCandidateUrls):
-//   - "flat-tagged" (URL slug contains "lokal") — small (≈30 URLs across the
-//     site's ~5.5-year history), fetched IN FULL every run.
-//   - everything else matching an "[I-V] ustn* przetarg*" announcement — this
-//     is land- and house-dominated (≈600 URLs) and is BOUNDED to the most
-//     recent MAX_OTHER_ANNOUNCE by numeric article id (skyCMS ids are
-//     assigned sequentially at publish time, confirmed live: id 466 ≈ Jan
-//     2021, id 3993 ≈ Jul 2026).
-//   IMPORTANT: a URL slug is NOT trusted for KIND — confirmed live that a
-//   genuine flat (wolow.pl/3909, "ul. Komuny Paryskiej 41", 39,47 m²,
-//   "Lokal mieszkalny nr 1" in the BODY) has a slug with no "lokal" in it at
-//   all (same gotcha ADAPTER-GUIDE documents for Olesno's round-I titles) —
-//   the slug filter only decides which bucket gets an unbounded vs bounded
-//   fetch; parse.js's classifyKind(BODY) is what actually decides kind, so a
-//   flat hiding in the bounded "other" bucket is still classified correctly
-//   as long as its id falls inside the recency window.
-//   Land/house WYKAZ (no "lokal" in slug) is deliberately NOT crawled at all
-//   (≈1,400+ URLs spanning 15+ years of small-parcel/easement history — far
-//   outside this Low-Medium-effort build's budget; wykaz is a pre-auction
-//   designation, lowest-value stream, and every land parcel that actually
-//   reaches auction still shows up via the announcement bucket regardless).
-//   Excluded outright (lease/rent/cancelled/invalidated/negotiated-sale —
-//   never a flat-auction outcome): dzierżawa, najem, odwołan(ie/y),
-//   unieważnien, rokowania.
-//
-// THE ACHIEVED-PRICE STREAM — WHY IT'S UNSOLD-ONLY. See parse.js's header for
-// the full trail (bip.wolow.pl is a client-rendered SPA — out of reach
-// without core/render.js; the county's bip.powiatwolowski.pl "wylicytowano"
-// figure the spike quoted is a DIFFERENT JST, correctly out of scope). This
-// crawler's only source of a CONFIRMED outcome is: round K's own announcement
-// existing alongside a round K+1 announcement for the SAME subject (address
-// key for flats/houses/commercial, dzialka_nr+obreb for land) PROVES round K
-// did not sell (ADAPTER-GUIDE §5.5: "≥II signals a property that keeps
-// failing to sell"). crawlResultDocs() finds those confirmed-superseded
-// rounds and forwards round K's OWN real text (not a synthetic summary) so
-// parseResultDoc extracts round K's real address/area/price/date — just
-// never a hammer price, since none is ever published here.
-//
-// One request per second (enforced by getText's throttle in core/fetch.js).
 
 import { pathToFileURL } from 'node:url';
 import { gunzipSync } from 'node:zlib';
@@ -58,14 +7,10 @@ import { parseAnnouncement, parseWykaz } from './parse.js';
 const HOST = 'https://wolow.pl';
 const SITEMAP_URL = `${HOST}/sitemap.xml`;
 
-// Recency caps for the unbounded "everything else" bucket — see header. At
-// ~110 land/house announcements/year and ~1 req/s, 220 is ≈2 years of
-// lookback and well under a 20-25 min CI budget even added to the flat
-// bucket + a second (memoized, so effectively free) crawlResultDocs pass.
 const MAX_OTHER_ANNOUNCE = 220;
 
 const EXCLUDE_RE = /dzierzaw|najem|odwolan|uniewazni|rokowa/;
-const ANNOUNCE_RE = /ustn/; // paired with a separate "przetarg" test — see isAnnounceSlug
+const ANNOUNCE_RE = /ustn/;
 const WYKAZ_RE = /wykaz-nieruchomosci-przeznaczonych-do-(sprzedazy|zbycia)/;
 const LOKAL_RE = /\blokal/;
 
@@ -77,21 +22,10 @@ function toAsciiSlug(url) {
     .replace(/ś/g, 's').replace(/ź/g, 'z').replace(/ż/g, 'z');
 }
 
-// "ustn*" + "przetarg*" as two SEPARATE tests (not one adjacent-phrase regex)
-// because the source declines both words independently across the corpus —
-// "ustny przetarg" (subject case) vs "ustnym przetargu" (object case, e.g.
-// "ogłoszenie o I ustnym przetargu...") — confirmed live losing 2 of 6 real
-// flat-announcement URLs to a stricter adjacent-phrase match during this
-// build's own discovery-script iteration.
 function isAnnounceSlug(asciiSlug) {
   return ANNOUNCE_RE.test(asciiSlug) && /przetarg/.test(asciiSlug);
 }
 
-/**
- * Fetch the site's one `.gz` sitemap and return every `{id, url}` article
- * link on the whole portal, in sitemap order.
- * @returns {Promise<Array<{id:number, url:string}>>}
- */
 async function fetchSitemapUrls() {
   const xml = await getText(SITEMAP_URL);
   const gzM = /<loc>([^<]+\.gz)<\/loc>/i.exec(xml);
@@ -109,10 +43,6 @@ async function fetchSitemapUrls() {
   return out;
 }
 
-/**
- * Discover + bucket candidate URLs from the sitemap.
- * @returns {Promise<Array<{id:number, url:string, isWykaz:boolean}>>}
- */
 async function discoverCandidateUrls() {
   const all = await fetchSitemapUrls();
   const flat = [];
@@ -142,17 +72,9 @@ async function discoverCandidateUrls() {
   return [...flat, ...flatWykaz, ...bounded];
 }
 
-// ---------------------------------------------------------------------------
-// Shared fetch-and-parse pass (memoized per process run so crawlActive() and
-// crawlResultDocs() — both called once per refresh.js run — never double-fetch
-// the same candidate set).
-// ---------------------------------------------------------------------------
 
 let _cache = null;
 
-/**
- * @returns {Promise<Array<{type:'announce'|'wykaz', url:string, html:string} & object>>}
- */
 async function discoverAll() {
   if (_cache) return _cache;
   const candidates = await discoverCandidateUrls();
@@ -190,7 +112,6 @@ async function discoverAll() {
   return records;
 }
 
-/** Stable per-run grouping key: address for address-kinds, parcel for land. */
 function subjectKey(r) {
   if (r.kind === 'grunt') {
     if (!r.dzialka_nr) return null;
@@ -199,13 +120,7 @@ function subjectKey(r) {
   return r.address ? r.address.key : null;
 }
 
-// ---------------------------------------------------------------------------
-// crawlActive()
-// ---------------------------------------------------------------------------
 
-/**
- * @returns {Promise<{ listings: Array<object>, wykaz: Array<object>, land: [] }>}
- */
 export async function crawlActive() {
   const todayIso = new Date().toISOString().slice(0, 10);
   const records = await discoverAll();
@@ -228,7 +143,7 @@ export async function crawlActive() {
       });
       continue;
     }
-    if (!r.auction_date || r.auction_date < todayIso) continue; // only genuinely upcoming
+    if (!r.auction_date || r.auction_date < todayIso) continue;
     listings.push({
       kind: r.kind,
       address_raw: r.address_raw,
@@ -247,19 +162,7 @@ export async function crawlActive() {
   return { listings, wykaz: wykazOut, land: [] };
 }
 
-// ---------------------------------------------------------------------------
-// crawlResultDocs()
-// ---------------------------------------------------------------------------
 
-/**
- * Refs are CONFIRMED-superseded rounds only (see file header): round K's own
- * fetched html, forwarded because round K+1 for the same subject also exists.
- * Contract: {text, pdf_url, auction_date} — refresh.js reads `ref.pdf_url`
- * (passed to parseResultDoc as sourceUrl) and `ref.auction_date` (fallbackDate);
- * `ref.text` is what source==='html' cities have refresh.js hand straight to
- * parseResultDoc.
- * @returns {Promise<Array<{text:string, pdf_url:string, auction_date:string|null}>>}
- */
 export async function crawlResultDocs() {
   const records = await discoverAll();
 
@@ -274,8 +177,6 @@ export async function crawlResultDocs() {
 
   const refs = [];
   for (const group of groups.values()) {
-    // Dedupe same-round republishes (confirmed live: wolow.pl/3537 + /3538,
-    // identical round-I duplicates) before doing round-order arithmetic.
     const byRound = new Map();
     for (const r of group) {
       if (!byRound.has(r.round)) byRound.set(r.round, r);
@@ -290,9 +191,6 @@ export async function crawlResultDocs() {
   return refs;
 }
 
-// ---------------------------------------------------------------------------
-// CLI harness (manual testing: node crawl.js [active|results])
-// ---------------------------------------------------------------------------
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const mode = process.argv[2] ?? 'active';
   if (mode === 'results') {

@@ -58,7 +58,6 @@ for (const city of master.cities) {
   const spikeRelPath = `spikes/${city.voivodeship}/${city.id}/${city.id}.md`;
   const spikeAbsPath = join(ROOT, spikeRelPath);
 
-  // Update city ledger entry
   city.status = 'no-build';
   city.path = spikeRelPath;
   city.pipeline_id = null;
@@ -88,7 +87,6 @@ for (const city of master.cities) {
     source_host: host,
   };
 
-  // Generate markdown spike file if not exists
   if (!existsSync(spikeAbsPath)) {
     mkdirSync(dirname(spikeAbsPath), { recursive: true });
     const wojName = WOJ[city.voivodeship] || city.voivodeship;
@@ -129,7 +127,6 @@ Audited during the all-Poland municipal census and verified against public BIP r
   reconciledCount++;
 }
 
-// Write master-cities.json atomically
 const jsonStr = JSON.stringify(master, null, 2) + '\n';
 if (jsonStr.includes('\0')) {
   throw new Error('Fatal: null byte detected in output string');

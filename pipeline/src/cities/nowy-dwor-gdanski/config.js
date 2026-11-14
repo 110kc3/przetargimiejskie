@@ -1,5 +1,3 @@
-// City configuration for Nowy Dwór Gdański (powiat nowodworski, Pomorskie)
-// BIP: https://bip.miastonowydwor.pl
 
 export default {
   id: 'nowy-dwor-gdanski',

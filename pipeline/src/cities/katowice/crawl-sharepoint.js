@@ -1,28 +1,3 @@
-// Katowice — deeper history route via the city portal's SharePoint REST API.
-//
-// `bip.katowice.eu`'s live board only carries the last ~12 months of auctions.
-// The real archive is on the city portal `katowice.eu`, in two SharePoint
-// lists. The page (`AllItems.aspx`) is client-rendered, but the underlying
-// REST endpoint `/_api/web/lists(guid'…')/items` is publicly readable, no
-// auth, server-side JSON — see SPIKE-WAVE1.md "Appendix — katowice.eu
-// SharePoint lists (May 2026, resolved)".
-//
-// Lists used here:
-//   - Przetargi na zbycie nieruchomości (announcements)
-//       GUID 45A01FD4-EF73-4E52-8294-C31CE3CEB738
-//       body in Treść field; no PDF — full announcement inline
-//   - Wykazy dotyczące wyników przetargów i inne ogłoszenia (results)
-//       GUID 272ABCA8-EAFD-4D6A-AFFA-D418AB3630B2
-//       body is a short summary + an <a href> to a "Wyniki…pdf" attachment
-//
-// Reality check (May 2026): the Treść body of older result wykazy contains
-// hrefs to PDFs that no longer exist on katowice.eu (HTTP 404). Roughly 26 of
-// ~292 referenced PDFs actually resolve. The survivors include the *yearly
-// summary* PDFs ("Informacja w sprawie zbywania nieruchomości … za rok YYYY")
-// which carry every auction's address + start price + achieved price for
-// that year — i.e. the very dataset we wanted. We filter the dead hrefs out
-// with a cheap HEAD probe before handing refs to the downstream parser, so
-// refresh.js doesn't waste 5 minutes per cron run fetching 404s.
 
 import { politeGet } from '../../core/fetch.js';
 import { parseAnnouncements, parseLandAnnouncement } from './parse.js';
@@ -50,9 +25,6 @@ const PROBE_CONCURRENCY = 5;
 const UA =
   'przetargimiejskie-bot/0.1 (+https://github.com/110kc3/przetargimiejskie)';
 
-// Hard ceiling on paging, purely defensive — a buggy/looping __next chain
-// must not turn the cron run into an infinite crawl. 10 pages × 2000 rows is
-// far beyond either list's realistic growth.
 const MAX_PAGES = 10;
 
 async function fetchListItems(guid) {
@@ -72,8 +44,6 @@ async function fetchListItems(guid) {
       throw new Error(`unexpected SharePoint payload for list ${guid}`);
     }
     all.push(...items);
-    // Follow server-driven paging once the list outgrows $top — items past the
-    // first page used to be silently dropped (logged but never fetched).
     url = json?.d?.__next || null;
     if (url) {
       console.error(
@@ -107,12 +77,6 @@ function extractResultPdfUrl(body) {
   }
 }
 
-// The SharePoint "Wykazy … wyników przetargów i inne ogłoszenia" list mixes
-// auction-result PDFs with unrelated documents that have no auction records:
-// rent-rate tables ("stawki czynszu …"), a literal test file ("plik testowy"),
-// and a pre-2020 multi-year summary ("… za rok 2005-2011"). The parser returns
-// 0 records from these (→ "WARN null" noise). Skip them up front. Matched on the
-// decoded URL + title so URL-encoding (%20 etc.) doesn't hide the keywords.
 const NON_AUCTION_DOC =
   /stawki\s+czynszu|plik\s+testowy|2005-2011|cennik|regulamin/i;
 
@@ -177,20 +141,9 @@ async function filterReachable(refs) {
   return out;
 }
 
-// Not every item on the announcements list is actually an auction-to-bid-on.
-// SharePoint also carries procedural notices (qualified-participants lists,
-// cancellation announcements, sale-price recalculations) — those have titles
-// like "Lista osób zakwalifikowanych" or "Ogłoszenie o odwołaniu przetargów".
-// Without a filter, parseAnnouncement returns a listing object whose body
-// regexes all fall through to null, and the user sees a row with empty
-// Date / Ask / Ask/m² cells. Reject them by title shape.
 const NON_AUCTION_TITLE_RE =
   /^\s*(?:Lista\s+os[óo]b|Og[lł]oszenie\s+o\s+odwo[lł]a|Informacja\s+o\s+wynik|Wykaz\s+nieruchomo|Zmiana\s+ceny)/i;
 
-// Conversely, valid auction-announcement titles always carry some form of
-// "[Drugi/Trzeci/…] [P]przetarg ustny … na sprzedaż" or open with "Przetarg
-// ustny". Matching this positively as well makes the filter robust against
-// the long tail of one-off SharePoint notices nobody anticipated.
 const AUCTION_TITLE_RE =
   /(?:^|\s)(?:Drugi|Trzeci|Czwarty|Pi[ąa]ty)?\s*[Pp]rzetarg\w*\s+ustn\w+\s+(?:nie)?ograniczon\w+\s+na\s+sprzeda[żz]/i;
 
@@ -221,7 +174,6 @@ export async function crawlSharePointAnnouncements() {
         const lr = parseLandAnnouncement(body, title, docUrl);
         if (lr) land.push(lr);
       } else {
-        // Multi-unit announcements ("… N lokali …") emit one listing per unit.
         for (const listing of parseAnnouncements(body, title, docUrl)) {
           listings.push(listing);
         }

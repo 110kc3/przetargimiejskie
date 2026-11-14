@@ -1,14 +1,3 @@
-// Kłobuck parse tests — groundtruthed against REAL notices captured live from
-// gminaklobuck.pl on 2026-07-13. Each REAL.<k>.body below is the verbatim stripped
-// <div class="content mb-5"> text the crawler feeds the parsers; announcements are
-// re-wrapped in that div so parseAnnouncement(html) runs its true extraction path.
-// Zero-bloat: exact-output asserts; the runner is silenced to failures only.
-//
-// Coverage: flat announcements (round III + II, ul. Rómmla — the "Nr"-in-street
-// trap), a developed-land announcement (zabudowana → address-keyed), a SOLD flat
-// result (buyer name past the "Nabywcą" diacritic), a NEGATIVE land result, a
-// cancellation (dropped by slug), plus slug routing, Word/SVG body-cleaning and
-// the numeric helpers.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -18,7 +7,6 @@ import {
   roundFromText, parsePLN, parseArea,
 } from '../src/cities/klobuck/parse.js';
 
-// Verbatim real captures (body = the stripped notice text the crawler produces).
 const REAL = {
   "flatAnn106": {
     "url": "https://gminaklobuck.pl/ogloszenie/burmistrz-klobucka-oglasza-trzeci-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-stanowiacego-wlasnosc-gminy-klobuck-106",
@@ -46,17 +34,13 @@ const REAL = {
   }
 };
 
-// parseAnnouncement wants full page HTML; wrap the real body in the notice's own
-// content div so extractBodyText returns it verbatim (the live <h1> is a useless
-// generic "Ogłoszenie", so routing/round/kind already come from the body).
 const wrap = (k) => `<div class="content mb-5">${REAL[k].body}</div>`;
-// The real URL slug is the routing surface (see crawl.js).
 const slug = (k) => REAL[k].url.replace(/^.*\/ogloszenie\//, '').replace(/-\d+$/, '').replace(/-/g, ' ');
 
 test('flatAnn106: round-III flat announcement — "Rómmla Nr 4" street trap', () => {
   const r = parseAnnouncement(wrap('flatAnn106'), REAL.flatAnn106.url);
   assert.equal(r.kind, 'mieszkalny');
-  assert.equal(r.address_raw, 'Rómmla 4/42');        // NOT "Rómmla Nr 4/42"
+  assert.equal(r.address_raw, 'Rómmla 4/42');
   assert.equal(r.address.key, 'rommla|4|42');
   assert.equal(r.area_m2, 45.64);
   assert.equal(r.starting_price_pln, 220000);
@@ -106,7 +90,7 @@ test('res180: NEGATIVE land result (space-thousands price, ha→m²)', () => {
   assert.equal(r.kind, 'grunt');
   assert.equal(r.dzialka_nr, '5500/21');
   assert.equal(r.obreb, 'Kłobuck');
-  assert.equal(r.area_m2, 1525);                     // 0,1525 ha × 10000
+  assert.equal(r.area_m2, 1525);
   assert.equal(r.round, 1);
   assert.equal(r.starting_price_pln, 170000);
   assert.equal(r.final_price_pln, null);
@@ -117,7 +101,7 @@ test('slug routing: announce / result / lease / cancel are separated', () => {
   assert.ok(isAnnouncementTitle(slug('flatAnn106')) && !isResultTitle(slug('flatAnn106')));
   assert.ok(isAnnouncementTitle(slug('landAnn124')));
   assert.ok(isResultTitle(slug('res110')) && isResultTitle(slug('res180')));
-  assert.ok(!isAnnouncementTitle(slug('res110')));    // a result is not an announcement
+  assert.ok(!isAnnouncementTitle(slug('res110')));
   assert.ok(isCancelled(slug('cancel32')) && !isResultTitle(slug('cancel32')));
   assert.ok(isLeaseTitle('informacja o wywieszeniu wykazow nieruchomosci przeznaczonych do oddania w najem lub dzierzawe'));
 });
@@ -132,8 +116,8 @@ test('extractBodyText strips Word-XML + SVG nav pollution', () => {
 });
 
 test('helpers: parsePLN / parseArea / round / date', () => {
-  assert.equal(parsePLN('220.000,00'), 220000);      // dot thousands (flats)
-  assert.equal(parsePLN('170 000,00'), 170000);      // space thousands (land/results)
+  assert.equal(parsePLN('220.000,00'), 220000);
+  assert.equal(parsePLN('170 000,00'), 170000);
   assert.equal(parsePLN('222.200,00'), 222200);
   assert.equal(parseArea('45,64'), 45.64);
   assert.equal(parseArea('0,1525'), 0.1525);

@@ -1,7 +1,3 @@
-// Configuration for Wadowice adapter (bip.malopolska.pl/umwadowice)
-//
-// Gmina Wadowice (powiat wadowicki, małopolskie)
-// TERC: 1218094
 
 export const CONFIG = {
   id: 'wadowice',

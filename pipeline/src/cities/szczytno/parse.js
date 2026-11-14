@@ -1,22 +1,7 @@
-// Parsers for Szczytno municipal auction notices (announcements, wykaz, results).
-// Pure text/HTML extraction, no network calls here.
-//
-// Groundtruthed against real BIP bip.um.szczytno.pl fixtures:
-//   - Flat announcement (.doc): Żeromskiego 3/4 (I przetarg ustny nieograniczony)
-//   - Flat announcement (.pdf): Polska 20 m. 17 (I przetarg ustny nieograniczony)
-//   - Building announcement (.doc): Pasymska 40 (III przetarg ustny nieograniczony)
-//   - Land multi-parcel announcement (.doc): Norwida dz. 516/4 & 516/5 (II przetarg)
-//   - Flat wykaz (.doc): Dąbrowskiego 4/4a (wykaz nieruchomości lokalowej)
-//   - Flat result (inline HTML): Odrodzenia 36 (sold, 454.500 zł)
-//   - Building result (inline HTML): Poznańska 20A (sold, 75.530 zł)
-//   - Building result (inline HTML): Pasymska 40 (sold, 575.700 zł)
-//   - Land result (inline HTML): Norwida dz. 516/4 (sold, 94.600 zł)
-//   - Land result (inline HTML): Wołyńska dz. 68/3 (unsold, brak zainteresowania)
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
-// ------------------------------------------------------------------ month mapping
 
 const PL_MONTHS = {
   stycznia: 1, lutego: 2, marca: 3, kwietnia: 4, maja: 5, czerwca: 6,
@@ -24,7 +9,6 @@ const PL_MONTHS = {
   października: 10, pazdziernika: 10, listopada: 11, grudnia: 12,
 };
 
-// ------------------------------------------------------------------ text / HTML utils
 
 export function decodeEntities(s) {
   return (s || '')
@@ -48,26 +32,22 @@ export function stripHtml(html) {
   return decodeEntities(withBreaks).replace(/[ \t]+/g, ' ').replace(/\n[ \t]*\n+/g, '\n').trim();
 }
 
-/** Extract text inside <div id="tresc"> container */
 export function extractTresc(html) {
   if (!html) return '';
   const m = html.match(/<div[^>]*id="tresc"[^>]*>([\s\S]*?)<\/div>/i);
   return m ? stripHtml(m[1]) : '';
 }
 
-/** Extract article title from <h1> */
 export function extractTitle(html) {
   if (!html) return '';
   const m = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   return m ? stripHtml(m[1]) : '';
 }
 
-/** Extract attachment URLs from download tables or tresc links */
 export function extractAttachmentUrls(html, origin = 'https://bip.um.szczytno.pl') {
   if (!html) return [];
   const urls = [];
 
-  // 1. "Załączniki do pobrania" section
   const zalMatch = html.match(/Załączniki do pobrania[\s\S]*?<\/table>/i);
   if (zalMatch) {
     const tableHtml = zalMatch[0];
@@ -80,7 +60,6 @@ export function extractAttachmentUrls(html, origin = 'https://bip.um.szczytno.pl
     }
   }
 
-  // 2. Links within tresc
   const trescMatch = html.match(/<div[^>]*id="tresc"[^>]*>([\s\S]*?)<\/div>/i);
   if (trescMatch) {
     const aMatches = [...trescMatch[1].matchAll(/href="([^"]+)"/gi)];
@@ -95,10 +74,6 @@ export function extractAttachmentUrls(html, origin = 'https://bip.um.szczytno.pl
   return [...new Set(urls)];
 }
 
-/**
- * Parse rows of the server-rendered <table class="table ... lista_artykuly"> table.
- * Returns array of { url, title, date }.
- */
 export function parseBoardTable(html, origin = 'https://bip.um.szczytno.pl') {
   if (!html) return [];
   const tableMatch = html.match(/<table[^>]*lista_artykuly[^>]*>([\s\S]*?)<\/table>/i);
@@ -106,7 +81,6 @@ export function parseBoardTable(html, origin = 'https://bip.um.szczytno.pl') {
   const rows = tableMatch[1].match(/<tr[\s\S]*?<\/tr>/gi) || [];
   const items = [];
   for (const r of rows.slice(1)) {
-    // Note: The CMS template renders unclosed <a href="...">...</td>
     const linkMatch = r.match(/<a\s+href="([^"]+)">([\s\S]*?)(?:<\/a>|<\/td>)/i);
     const tds = [...r.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map((m) => m[1].trim());
     if (linkMatch) {
@@ -124,7 +98,6 @@ export function parseBoardTable(html, origin = 'https://bip.um.szczytno.pl') {
   return items;
 }
 
-// ------------------------------------------------------------------ number utils
 
 export function parsePLN(s) {
   if (!s) return null;
@@ -142,7 +115,6 @@ export function parseAreaNum(s) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// ------------------------------------------------------------------ classifiers
 
 export function isSkippableTitle(title) {
   const t = (title || '').toLowerCase();
@@ -170,7 +142,6 @@ export function roundFromText(text) {
 export function auctionDateFromText(text) {
   if (!text) return null;
 
-  // 1. Prioritize explicit auction event date: "przetarg zostanie przeprowadzony w dniu...", "przetarg odbędzie się w dniu...", or "w dniu ... odbył się przetarg"
   const mEvent = text.match(/(?:przetarg\s+(?:zostanie\s+przeprowadzony|odb[eę]dzie\s+si[eę])\s+w\s+dniu|(?:w\s+dniu|dnia)\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})[^\n.]+?odby[łl]\s+si[eę])/i);
   if (mEvent) {
     const sub = text.slice(mEvent.index);
@@ -185,7 +156,6 @@ export function auctionDateFromText(text) {
     }
   }
 
-  // 2. Generic "w dniu DD miesiąc YYYY" (ignoring header issuance date e.g. "Szczytno, dnia ...")
   const cleaned = text.replace(/Szczytno[,\s]+dn(?:ia|\.)?\s*\d{1,2}\s+[a-ząćęłńóśźż]+\s*\d{4}/gi, '');
   const m = cleaned.match(/(?:w\s+dniu|dnia)\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i);
   if (m) {
@@ -219,9 +189,7 @@ export function resolveKind(text) {
   return classifyKind(text);
 }
 
-// ------------------------------------------------------------------ field extractors
 
-/** Strip town hall / auction venue boilerplate so City Hall address never becomes property address */
 export function cleanTextForAddress(text) {
   if (!text) return '';
   return text
@@ -233,8 +201,6 @@ export function extractAddress(text) {
   if (!text) return null;
   const cleaned = cleanTextForAddress(text);
 
-  // 1. Direct address with number: "przy ul. X 12/3" or "ul. X 20 A"
-  // Note: single letter suffixes separated by space exclude 'w' / 'i' (prepositions/conjunctions e.g. "w Szczytnie")
   const m1 = cleaned.match(
     /(?:przy\s+)?(?:ul\.|ulicy)\s*([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ.\s-]+?)\s+(\d+[A-Za-z]?(?:\s+[A-HJ-VXYZ])?(?:\s*[\/m.]\s*\d+[A-Za-z]?)?)(?=[,\s\n\(\.]|$)/i,
   );
@@ -255,7 +221,6 @@ export function extractAddress(text) {
     }
   }
 
-  // 2. Street without building number, but building number specified later ("oznaczonym numerem 20A")
   const streetM = cleaned.match(
     /(?:przy\s+)?(?:ul\.|ulicy)\s*([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ.\s-]+?)(?=,|\s+w\s+Szczytnie|\s+m\.\s*Szczytno|\s+działk|\s+\(znak|\n|$)/i,
   );
@@ -329,14 +294,7 @@ export function isPositiveOutcome(text) {
   );
 }
 
-// ------------------------------------------------------------------ entry points
 
-/**
- * Parse an announcement document/page into active listing(s) or land record(s).
- * @param {string} fullText
- * @param {string} detailUrl
- * @returns {Array<object>}
- */
 export function parseAnnouncement(fullText, detailUrl) {
   if (!fullText) return [];
   const kind = resolveKind(fullText);
@@ -346,7 +304,6 @@ export function parseAnnouncement(fullText, detailUrl) {
   const addrInfo = extractAddress(fullText);
 
   if (kind === 'grunt') {
-    // Check if table contains multiple parcels (e.g. Norwida 516/4 and 516/5)
     const rowRegex = /(?:^|\n)\s*(\d+)\s*\t\s*(\d+(?:\/\d+)?)\s*[\t\n]\s*Obr[ęe]b\s*[\t\n]?\s*(\d+)\s*[\t\n]\s*(\d+)\s*m2/gi;
     const tableMatches = [...fullText.matchAll(rowRegex)];
     if (tableMatches.length > 1) {
@@ -409,16 +366,9 @@ export function parseAnnouncement(fullText, detailUrl) {
   ];
 }
 
-/**
- * Parse a wykaz document into pre-announcement record.
- * @param {string} fullText
- * @param {string} detailUrl
- * @returns {object|null}
- */
 export function parseWykaz(fullText, detailUrl) {
   if (!fullText) return null;
   const kind = resolveKind(fullText);
-  // Land is not in-scope for address-keyed wykaz[]
   if (kind === 'grunt') return null;
 
   const addrInfo = extractAddress(fullText);
@@ -437,13 +387,6 @@ export function parseWykaz(fullText, detailUrl) {
   };
 }
 
-/**
- * Parse one CONCLUDED result notice into a 0- or 1-element array (adapter contract).
- * @param {string} text
- * @param {string|null} fallbackDate
- * @param {string} sourceUrl
- * @returns {Array<object>}
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!text) return [];
   const kind = resolveKind(text);

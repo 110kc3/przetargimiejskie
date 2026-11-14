@@ -1,5 +1,3 @@
-// Starachowice parsers.
-// Handles both active announcements and concluded auction results from starachowice.eu.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -149,7 +147,6 @@ export function cleanStreetGenitive(street) {
 export function extractFlatAddress(text, title = '') {
   const combined = `${title}\n${text}`;
 
-  // 1) lokal mieszkalny nr <apt> ... ul. <street> <bld>
   let m = /lokal\w*\s+mieszkaln\w*\s+nr\s+([0-9a-zA-Z]+)[\s\S]{0,120}?(?:przy\s+ul\.?|\bul\.?)\s*([A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż\s\-]+?)\s+(\d+[a-zA-Z]?)(?:[,\s]|$)/i.exec(combined);
   if (m && !/budynku/i.test(m[2])) {
     const street = cleanStreetGenitive(m[2].trim());
@@ -158,7 +155,6 @@ export function extractFlatAddress(text, title = '') {
     if (parsed) return { address_raw: raw, address: parsed };
   }
 
-  // 2) lokal ... nr <apt> ... budynku ... nr <bld> przy ul. <street>
   m = /lokal\w*\s+mieszkaln\w*\s+nr\s+([0-9a-zA-Z]+)[\s\S]{0,150}?budynku\s+(?:mieszkalnym\s+)?(?:wielorodzinnym\s+)?nr\s+(\d+[a-zA-Z]?)\s+przy\s+ul\.?\s*([A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż\s\-]+?)(?:[,\s]|$)/i.exec(combined);
   if (m) {
     const street = cleanStreetGenitive(m[3].trim());
@@ -167,7 +163,6 @@ export function extractFlatAddress(text, title = '') {
     if (parsed) return { address_raw: raw, address: parsed };
   }
 
-  // 3) PDF table: ul. <street> <bld> \n lokal mieszkalny nr <apt>
   m = /ul\.?\s*([A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż\s\-]+?)\s+(\d+[a-zA-Z]?)\s*[\n\r]+\s*lokal\w*\s+mieszkaln\w*\s+nr\s+([0-9a-zA-Z]+)/i.exec(combined);
   if (m) {
     const street = cleanStreetGenitive(m[1].trim());
@@ -176,7 +171,6 @@ export function extractFlatAddress(text, title = '') {
     if (parsed) return { address_raw: raw, address: parsed };
   }
 
-  // 4) ul. <street> <bld> ... lokal mieszkalny nr <apt>
   m = /ul\.?\s*([A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż\s\-]+?)\s+(\d+[a-zA-Z]?)[,\s]+(?:mieszczącego się w budynku[\s\S]{0,60}?)?lokal\w*\s+mieszkaln\w*\s+nr\s+([0-9a-zA-Z]+)/i.exec(combined);
   if (m) {
     const street = cleanStreetGenitive(m[1].trim());
@@ -191,7 +185,6 @@ export function extractFlatAddress(text, title = '') {
 export function extractLandAddress(text, title = '') {
   const combined = `${title}\n${text}`;
 
-  // 1) Look for "położon... przy ul. <street> [bld]"
   let m = /po[łl]o[żz]on\w*[\s\S]{0,60}?(?:przy\s+ul\.?|\bul\.?)\s*([A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż\t \-]+?)(?:\s+(\d+[a-zA-Z]?))?(?=[,\.\n\r]|\s+w\s+Starachowicach|\s+oznaczon|\s+stanowi|\s+obr[ęe]b|\s+dla|\s+jako\s+dzia[łl]k|$)/i.exec(combined);
   if (m && !/dzia[łl]k|obr[ęe]b|budynku|siedzib/i.test(m[1])) {
     const street = cleanStreetGenitive(m[1].trim());
@@ -203,7 +196,6 @@ export function extractLandAddress(text, title = '') {
     }
   }
 
-  // 2) Look in title: "przy ul. <street> [bld]"
   m = /(?:przy\s+ul\.?|\bul\.?)\s*([A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż\t \-]+?)(?:\s+(\d+[a-zA-Z]?))?(?=[,\.\n\r]|\s+w\s+Starachowicach|\s+oznaczon|\s+stanowi|\s+obr[ęe]b|\s+dla|\s+jako\s+dzia[łl]k|$)/i.exec(title || '');
   if (m && !/dzia[łl]k|obr[ęe]b|budynku/i.test(m[1])) {
     const street = cleanStreetGenitive(m[1].trim());
@@ -215,7 +207,6 @@ export function extractLandAddress(text, title = '') {
     }
   }
 
-  // 3) General fallback in text (excluding Radomska 45)
   m = /(?:przy\s+ul\.?|\bul\.?)\s*([A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż\t \-]+?)(?:\s+(\d+[a-zA-Z]?))?(?=[,\.\n\r]|\s+w\s+Starachowicach|\s+oznaczon|\s+stanowi|\s+obr[ęe]b|\s+dla|\s+jako\s+dzia[łl]k|$)/i.exec(combined);
   if (m && !/dzia[łl]k|obr[ęe]b|budynku/i.test(m[1])) {
     const street = cleanStreetGenitive(m[1].trim());

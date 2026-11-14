@@ -1,11 +1,3 @@
-// Opole crawler — bip.um.opole.pl (SISCO). The board LIST is SPA-rendered, so we
-// walk the year→month index pages (/przetargi,9_<year>-<month>) and harvest the
-// SSR article ids (/przetargi,9_<year>-<month>_<id>), then fetch + parse each
-// server-rendered article. Announcement-only (no result stream).
-//
-// NOTE (confirm on first CI refresh): if the month index pages are themselves
-// SPA-rendered to the fetcher, this harvest yields nothing — the first run will
-// reveal it and the SISCO AJAX list endpoint (or id-probing) can be wired in.
 
 import { getText } from '../../core/fetch.js';
 import { parseAnnouncement } from './parse.js';

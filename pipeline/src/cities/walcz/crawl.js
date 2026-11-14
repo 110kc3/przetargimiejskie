@@ -1,15 +1,3 @@
-// Wałcz crawler — bip.walcz.pl (Joomla / GovArticle BIP template).
-//
-// Boards:
-//   ANNOUNCEMENTS (Przetargi aktualne):
-//     https://bip.walcz.pl/nieruchomosci/przetargi-na-sprzedaz-dzierzawe-nieruchomosci/przetargi-aktualne
-//   RESULTS (Przetargi zakończone):
-//     https://bip.walcz.pl/nieruchomosci/przetargi-na-sprzedaz-dzierzawe-nieruchomosci/przetargi-zakonczone
-//   WYKAZ (Wykaz nieruchomości przeznaczonych do sprzedaży):
-//     https://bip.walcz.pl/nieruchomosci/wykaz-nieruchomosci-przeznaczonych-do-sprzedazy
-//
-// Fetches use `insecureTLS: true` with a browser User-Agent because bip.walcz.pl
-// omits its intermediate CA (Certum DV TLS G2) on the wire.
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -59,7 +47,6 @@ export async function crawlActive() {
   const land = [];
   const wykaz = [];
 
-  // 1. Crawl announcements board
   let activeHtml = '';
   try {
     activeHtml = await getText(`${ACTIVE_BOARD_URL}?limit=100`, FETCH_OPTS);
@@ -102,13 +89,11 @@ export async function crawlActive() {
     }
   }
 
-  // 2. Crawl wykaz board
   try {
     const wykazHtml = await getText(`${WYKAZ_BOARD_URL}?limit=100`, FETCH_OPTS);
     const wykazArticles = parseBoardArticles(wykazHtml, ORIGIN);
     for (const wItem of wykazArticles) {
       const kind = classifyKind(wItem.title);
-      // Skip out-of-scope bezprzetargowe land plots
       if (kind === 'grunt' || /bezprzetargow/iu.test(wItem.title)) continue;
 
       let wDetailHtml = '';

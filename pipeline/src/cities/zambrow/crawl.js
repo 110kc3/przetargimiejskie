@@ -1,6 +1,3 @@
-// Zambrów crawler (bip.zambrow.pl)
-//
-// Scrapes table from /artykul/ogloszenia and processes announcement/result articles.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

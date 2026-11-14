@@ -1,22 +1,3 @@
-// Rybnik city-BIP crawler — "Ogłoszenia o przetargach" register (Page=339).
-//
-//   LIST:   https://bip.um.rybnik.eu/Default.aspx?Page=339
-//   DETAIL: https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=<N>
-//   RTF:    https://bip.um.rybnik.eu/Download.ashx?id=<M>
-//
-// The city (Urząd Miasta Rybnika) publishes BOTH municipal land AND ZGM's flat
-// auctions on this one page (the standalone ZGM BIP page — crawl.js — is dead).
-// Real column order in the list table (observed June 2026):
-//   [publish_date, title, auction_date, "Sprzedaż", Pokaż-link]
-//
-// We: 1. fetch the list page -> parse rows.
-//     2. fetch each detail page -> extract the RTF URL, download + rtfText().
-//     3. classify each on TITLE + BODY (the title alone is 'unknown' for flats):
-//          - 'grunt'      -> parseLandRtf  -> `land`     (parcel-keyed)
-//          - 'mieszkalny' -> parseFlatRtf  -> `listings` (address-keyed)
-//        result-notice rows ("Informacja o wyniku …") and anything else skip.
-//
-// Whole crawl is try/catch: unreachable host -> returns empty (pipeline safe).
 
 import { getText } from '../../core/fetch.js';
 import { rtfText } from '../../core/rtf-text.js';
@@ -35,7 +16,6 @@ const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
 
-// Month names for spelled-out dates in RTF auction conditions.
 const PL_MONTHS = {
   stycznia: 1, lutego: 2, marca: 3, kwietnia: 4, maja: 5, czerwca: 6,
   lipca: 7, sierpnia: 8, wrzesnia: 9, pazdziernika: 10, listopada: 11, grudnia: 12,
@@ -57,11 +37,6 @@ function absUrl(href) {
   return `${ORIGIN}/${clean.replace(/^\//, '')}`;
 }
 
-/**
- * Parse the list page table into rows: { title, listDate, detailId }.
- * Column order: [publish_date, title, auction_date, category, Pokaż-link].
- * Deduplicates by detailId (history-log section re-emits the same Ids).
- */
 export function parseListPage(html) {
   const rows = [];
   const seen = new Set();
@@ -91,15 +66,11 @@ export function parseListPage(html) {
   return rows;
 }
 
-/**
- * Extract the RTF Download.ashx URL from a detail page.
- */
 export function parseDetailPage(html) {
   const m = /href=["']?(Download\.ashx\?id=\d+)["']?/i.exec(html || '');
   return m ? absUrl(m[1]) : null;
 }
 
-// --- RTF body parsers (land) ---
 
 function parsePLN(s) {
   if (!s) return null;
@@ -109,7 +80,6 @@ function parsePLN(s) {
 }
 
 export function landPriceFromText(text) {
-  // "Cena wywolawcza : 208600 zlotych" -- RTF may split wywoławcza as "wywol awcza"
   const m = /cena\s+wywo[lł]\s*awcza\s*:?\s*([\d][\d\s.,]*)\s*z[lł]/i.exec(text || '');
   return m ? parsePLN(m[1]) : null;
 }
@@ -124,7 +94,6 @@ export function landAreaFromText(text) {
 
 export function parcelFromText(text) {
   if (!text) return null;
-  // dzia[lł]\w* matches all inflected forms: dzialki, dzialek, dzialka...
   const m = /dzia[lł]\w*\s+nr\s+([\d/,\s]+(?:i\s+[\d/,\s]+)*)/i.exec(text);
   if (!m) return null;
   const raw = m[1].split('(')[0];
@@ -146,13 +115,6 @@ export function streetFromText(text) {
   return m ? m[1].trim() : null;
 }
 
-// A re-listed (round >= 2) announcement carries the mandatory history clause
-// "Przetarg przeprowadzony w dniu <D> r. zakończony został wynikiem negatywnym",
-// whose date is the FAILED earlier round, not this auction. A first-match scan
-// grabbed it and stamped round-2 plots with the past round-1 date (→ wrongly
-// 'archived'). Skip any "w dniu <date>" that sits in such a clause — the
-// operative "Przetarg rozpocznie się w dniu <D>" then wins. Mirrors the same
-// history-clause guard in parse.js roundFromText.
 const HISTORY_DATE_BEFORE = /(?:przeprowadzon\w*|odby[łl]\w*|zako[ńn]czon\w*)\s+(?:[\wąćęłńóśźż]+\s+){0,3}?$/i;
 const HISTORY_DATE_AFTER = /^\s*r?\.?\s*(?:[\wąćęłńóśźż]+\s+){0,6}?(?:zako[ńn]czy|negatywn|odby[łl])/i;
 
@@ -165,8 +127,6 @@ function isHistoryDateMatch(text, matchIndex, matchStr) {
 
 export function landAuctionDateFromText(text) {
   if (!text) return null;
-  // Numeric dd.mm.yyyy — scan all, skip history-clause dates, take the first
-  // operative one (fall back to the first match if every hit is a history date).
   const numRe = /w\s+dniu\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/gi;
   let fallbackNum = null;
   let nm;
@@ -176,7 +136,6 @@ export function landAuctionDateFromText(text) {
     if (!isHistoryDateMatch(text, nm.index, nm[0])) return iso;
   }
   if (fallbackNum) return fallbackNum;
-  // Spelled-out month — same operative-vs-history scan.
   const wordRe = /w\s+dniu\s+(\d{1,2})\s+([a-zÀ-ž]+)\s+(\d{4})/gi;
   let fallbackWord = null;
   let wm;
@@ -192,7 +151,6 @@ export function landAuctionDateFromText(text) {
 
 export function landRoundFromText(text) {
   if (!text) return null;
-  // Normalise accented chars for simpler regex matching
   const t = text.toLowerCase()
     .replace(/[ą]/g, 'a').replace(/[ę]/g, 'e').replace(/[ó]/g, 'o')
     .replace(/[ś]/g, 's').replace(/[źż]/g, 'z').replace(/[ń]/g, 'n')
@@ -233,44 +191,24 @@ export function parseLandRtf(title, text, detailUrl, rtfUrl) {
   };
 }
 
-// --- Flat (lokal mieszkalny) path on Page=339 ---
-//
-// The city BIP runs ZGM's flat auctions on this SAME page (the standalone ZGM
-// BIP page is dead — see crawl.js). Their list titles carry the address inline,
-// e.g. "Przetarg 9.06.2026 ul. Zgrzebnioka 7b/6" / "Przetarg 9 czerwca br. ul.
-// św. Józefa 18/47"; the RTF body says "lokal mieszkalny" + price/area/date. The
-// title alone classifies as 'unknown' (no kind keyword), so the body is what
-// marks it a flat — classify on title + body, never title alone.
 
-/** Strip a "Przetarg <date>"-style prefix and pull "<street> <bldg>/<apt>" out
- *  of a city-BIP flat list title; reuses the shared address normaliser.
- *  "Przetarg 9.06.2026 ul. Cierpioła 6 a/3" → address{ key: 'cierpiola|6A|3' }.
- *  Returns null when no street/number can be found (e.g. a land title). */
 export function addressFromTitle(title) {
   if (!title) return null;
   const m = /\bul\.?\s+([\s\S]+)$/i.exec(title);
   if (!m) return null;
   let s = m[1]
     .replace(/\s+/g, ' ')
-    .replace(/\s*\br\.\s*$/i, '') // trailing " r."
+    .replace(/\s*\br\.\s*$/i, '')
     .trim();
-  // Collapse a space between building number and its letter: "6 a/3" → "6a/3",
-  // "5 b/2" → "5b/2", "28 a/17" → "28a/17" (BIP titles are typed by hand).
   s = s.replace(/(\d)\s+([A-Za-z])(?=\s*[\/\\]|\s*$)/g, '$1$2');
   const address = parseAddress(s);
   return address ? { address_raw: s, address } : null;
 }
 
-/** Assemble a flat property record from a Page=339 flat announcement. The
- *  address comes from the list title (fallback: the RTF body's "przy ul. …");
- *  price/area/date/round come from the RTF, via parse.js's flat parsers. */
 export function parseFlatRtf(title, text, detailUrl, rtfUrl) {
   const addr =
     addressFromTitle(title) ||
     (() => {
-      // Body fallback: "… przy ul. św. Józefa 18/47 ." → address.
-      // Street names carry internal periods ("św.", "gen."), so anchor on the
-      // building/apartment number rather than stopping at the first '.'.
       const bm = /przy\s+ul\.?\s+([A-Za-z\u00C0-\u017E.\s]+?\s+\d+[A-Za-z]?(?:\s*[\/\\]\s*[0-9A-Za-z]+)?)/i.exec(text || '');
       if (!bm) return null;
       const s = bm[1].replace(/\s+/g, ' ').replace(/(\d)\s+([A-Za-z])(?=\s*[\/\\]|\s*$)/g, '$1$2').trim();
@@ -292,13 +230,6 @@ export function parseFlatRtf(title, text, detailUrl, rtfUrl) {
   };
 }
 
-/**
- * Crawl Page=339 once and route each row by what it is. Land plots ('grunt')
- * go through parseLandRtf into `land`; residential flats (body = "lokal
- * mieszkalny") go through parseFlatRtf into `listings`. Result-notice rows
- * ("Informacja o wyniku przetargu …") and anything unclassifiable are skipped.
- * @returns {Promise<{ land: object[], listings: object[] }>}
- */
 export async function crawlLand() {
   let listHtml;
   try {
@@ -313,8 +244,6 @@ export async function crawlLand() {
   const land = [];
   const listings = [];
   for (const row of rows) {
-    // Skip result/info notices — these are achieved-price summaries, not
-    // open-auction announcements, and there is no results stream wired.
     if (/informacja\s+o\s+(?:wyniku|przetargu)|wykaz\s+nieruchomo/i.test(row.title)) continue;
 
     const detailUrl = `${ORIGIN}/Default.aspx?Page=339&Id=${row.detailId}`;
@@ -338,8 +267,6 @@ export async function crawlLand() {
       continue;
     }
 
-    // Classify on title + body (the title alone is usually 'unknown' for flats;
-    // the body always carries "lokal mieszkalny" / "nieruchomość gruntowa").
     const kind = classifyKind(`${row.title}\n${text}`);
     try {
       if (kind === 'mieszkalny') {

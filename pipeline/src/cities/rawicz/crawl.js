@@ -1,6 +1,3 @@
-// Rawicz crawler (bip.rawicz.pl)
-//
-// Scrapes Logonet board 786.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

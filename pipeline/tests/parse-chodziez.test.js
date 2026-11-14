@@ -1,36 +1,3 @@
-// Chodzież parser tests. The three ANNOUNCEMENT fixtures below are
-// condensed-but-faithful copies of REAL detail-page HTML fetched live from
-// bip.chodziez.pl (verified 2026-07-10) — section headings/paragraphs not
-// load-bearing for parsing (legal boilerplate on miejscowy plan, obciążenia,
-// skutki uchylenia, informacje dodatkowe) are trimmed, but every sentence kept
-// is verbatim from the live page, including its quirks:
-//
-//   MICKIEWICZA  ul. Adama Mickiewicza 4/3 + 4/6 — TWO flats in one notice,
-//                ONE shared cena wywoławcza (340.000,00 zł), III przetarg,
-//                the h1 itself has the real "ul.Adama" (no-space) typo.
-//   DASZYNSKI    ul. Ignacego Daszyńskiego 12/8 — single flat, I przetarg,
-//                49.000,00 zł.
-//   KWIATOWA     działka nr 917/1 (land) — I przetarg, 10.500,00 zł brutto;
-//                the source text itself says "5 SIERPNIA 2025 R." even though
-//                this notice lives on the 2026 board (a real apparent typo in
-//                the source, not a fixture error — parseDateText parses
-//                exactly what the document states, so this is asserted as
-//                2025-08-05, not "corrected" to 2026).
-//
-// The RESULT-doc fixtures (SOLD/UNSOLD) are NOT live data: wyniki-przetargow
-// boards were confirmed EMPTY for 2022-2026 on 2026-07-10 (the statutory
-// ~7-day posting window had already elapsed for both live 2026 rounds — see
-// the spike + parse.js file header). They are constructed against the
-// standard Polish municipal result-notice template, reusing this city's own
-// confirmed announcement vocabulary ("Cena wywoławcza w <round> przetargu
-// wynosi") plus the nationwide result vocabulary ("cena osiągnięta",
-// "wynikiem negatywnym") seen across other cities' real fixtures.
-// parseResultDoc is UNVERIFIED against a real chodziez result page — validate
-// on first live CI refresh that catches one inside its window.
-//
-// The board-page fixture (BOARD_HTML) and the seven Wykazy titles are also
-// real, copied verbatim from the live ogloszenia-o-przetargach.html /
-// wykazy.html boards fetched 2026-07-10.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -56,7 +23,6 @@ import {
   parseResultDoc,
 } from '../src/cities/chodziez/parse.js';
 
-// --------------------------------------------------------------- real fixtures
 
 const MICKIEWICZA_MULTI = `
 <h1>Ogłoszenie III przetargu ustnego nieograniczonego na sprzedaż lokali mieszkalnych położonych w Chodzieży przy ul.Adama Mickiewicza 4/3 oraz 4/6</h1>
@@ -103,10 +69,6 @@ const KWIATOWA_LAND = `
 <p class="justifyfull">Uczestnik przetargu zobowiązany jest do wniesienia wadium w pieniądzu w wysokości 1.800 zł.</p>
 `;
 
-// Real board HTML (condensed): the live 2026 ogloszenia-o-przetargach.html
-// <ul class="listastronul"> list, verbatim hrefs/titles (including the
-// diacritic "nieruchomościami" path segment and the raw, non-percent-encoded
-// href for the Mickiewicza notice with its embedded "4/3 oraz 4/6" slashes).
 const BOARD_HTML = `
 <div class="text-wrapper">
 <h1>Ogłoszenia o przetargach</h1>
@@ -117,9 +79,6 @@ const BOARD_HTML = `
 </div>
 `;
 
-// The seven real Wykazy-board titles (2026, fetched 2026-07-10) — every one
-// is a bezprzetargowa tenant sale, a dzierżawa lease, or a użyczenie
-// loan-for-use; NONE is a genuine pre-auction sale-track designation.
 const REAL_WYKAZ_TITLES = [
   'Wykaz lokalu mieszkalnego nr 5 przeznaczonego do sprzedaży w drodze bezprzetargowej, stanowiącego własność Gminy Miejskiej w Chodzieży, położonego w Chodzieży przy ul. Adama Mickiewicza 6',
   'Wykaz lokalu mieszkalnego nr 1 przeznaczonego do sprzedaży w drodze bezprzetargowej, stanowiącego własność Gminy Miejskiej w Chodzieży, położonego w Chodzieży przy ul. Marii Konopnickiej 10',
@@ -130,10 +89,6 @@ const REAL_WYKAZ_TITLES = [
   'Wykaz części działki nr 2296/1, położonej w Chodzieży przy ul. Jagiellońskiej, przeznaczonej do oddania w użyczenie',
 ];
 
-// RESULT-doc fixtures — constructed template text, NOT live data (see file
-// header). Vocabulary matches this city's own confirmed announcement style
-// ("Cena wywoławcza w <round> przetargu wynosi") plus the standard nationwide
-// result phrasing ("cena osiągnięta", "wynikiem negatywnym").
 const RESULT_SOLD =
   'Burmistrz Miasta Chodzieży informuje, że w dniu 5 sierpnia 2026 r. odbył się I przetarg ustny ' +
   'nieograniczony na sprzedaż lokalu mieszkalnego nr 8, położonego w Chodzieży przy ul. Ignacego ' +
@@ -146,7 +101,6 @@ const RESULT_UNSOLD_LAND =
   'wywoławcza w I przetargu wynosi 10.500,00 zł. Nikt nie przystąpił do przetargu. Przetarg zakończył ' +
   'się wynikiem negatywnym.';
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: dot-thousands + comma-decimal (Chodzież convention)', () => {
   assert.equal(parsePLN('340.000,00'), 340000);
@@ -174,7 +128,6 @@ test('roundFromText: announcement "ogłasza <ROMAN> przetarg" anchor', () => {
   assert.equal(roundFromText(stripTags(MICKIEWICZA_MULTI)), 3);
   assert.equal(roundFromText(stripTags(DASZYNSKI_SINGLE)), 1);
   assert.equal(roundFromText(stripTags(KWIATOWA_LAND)), 1);
-  // Lower-case Polish "i" (the conjunction "and") must never false-match.
   assert.equal(roundFromText('kuchnia i łazienka, brak ogłoszenia tutaj'), null);
 });
 
@@ -186,8 +139,6 @@ test('roundFromText: body-anchored fallback for RESULT-style "odbył się" phras
 test('auctionDateFromText: all-caps "PRZETARG ODBĘDZIE SIĘ W DNIU …"', () => {
   assert.equal(auctionDateFromText(stripTags(MICKIEWICZA_MULTI)), '2026-08-05');
   assert.equal(auctionDateFromText(stripTags(DASZYNSKI_SINGLE)), '2026-08-05');
-  // Real apparent source typo: this notice lives on the 2026 board but its
-  // own text says "2025" — parsed as-written, not corrected.
   assert.equal(auctionDateFromText(stripTags(KWIATOWA_LAND)), '2025-08-05');
 });
 
@@ -200,7 +151,6 @@ test('startingPriceFromText: "Cena wywoławcza w <round> przetargu wynosi …"',
 test('baseStreetAddress: finds the property street, skips the office (Paderewskiego)', () => {
   assert.deepEqual(baseStreetAddress(stripTags(MICKIEWICZA_MULTI)), { street: 'Adama Mickiewicza', building: '4' });
   assert.deepEqual(baseStreetAddress(stripTags(DASZYNSKI_SINGLE)), { street: 'Ignacego Daszyńskiego', building: '12' });
-  // Land text has no "ul. <name> <number>" shape (no building number) — null.
   assert.equal(baseStreetAddress(stripTags(KWIATOWA_LAND)), null);
 });
 
@@ -223,10 +173,9 @@ test('land helpers: parcelFromText, obrebFromText, landStreetFromText, plotAreaF
   assert.equal(parcelFromText(t), '917/1');
   assert.equal(obrebFromText(t), 'Chodzież');
   assert.equal(landStreetFromText(t), 'Kwiatowej');
-  assert.equal(plotAreaFromText(t), 37); // 0,0037 ha -> 37 m2
+  assert.equal(plotAreaFromText(t), 37);
 });
 
-// ----------------------------------------------------------- parseAnnouncementPage
 
 test('parseAnnouncementPage: Mickiewicza — 2 flats, 1 shared price/round/date', () => {
   const recs = parseAnnouncementPage(MICKIEWICZA_MULTI, 'https://bip.chodziez.pl/x/mickiewicza');
@@ -274,7 +223,6 @@ test('parseAnnouncementPage: empty/unparseable input -> []', () => {
   assert.deepEqual(parseAnnouncementPage('<p>losowa strona bez tresci przetargowej</p>', 'x'), []);
 });
 
-// ----------------------------------------------------------------- board + wykaz
 
 test('parseBoardPage: extracts the 3 real 2026 announcement links (diacritic path resolved)', () => {
   const links = parseBoardPage(BOARD_HTML, 'https://bip.chodziez.pl/chodziezm/');
@@ -301,8 +249,6 @@ test('isWykazSaleTitle: a genuine (constructed) pre-auction sale wykaz -> true',
   );
 });
 
-// ------------------------------------------------------------- parseResultDoc
-// Constructed template fixtures — see file header. NOT live data.
 
 test('parseResultDoc: SOLD flat result', () => {
   const [r] = parseResultDoc(RESULT_SOLD, null, 'https://bip.chodziez.pl/x/wynik-daszynski');

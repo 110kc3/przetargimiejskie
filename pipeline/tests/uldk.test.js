@@ -9,7 +9,7 @@ test('pickTerytId: single result line', () => {
 test('pickTerytId: filters ambiguous results to the expected gmina', () => {
   const resp = '6\n061103_2.0009.1\n246101_1.0032.290/96\n140203_5.0010.1';
   assert.equal(pickTerytId(resp, '246101_1'), '246101_1.0032.290/96');
-  assert.equal(pickTerytId(resp, '999999_9'), null); // none in gmina → null, never guess
+  assert.equal(pickTerytId(resp, '999999_9'), null);
 });
 
 test('pickTerytId: ambiguous (multi) with no gmina filter → null', () => {
@@ -22,9 +22,6 @@ test('pickTerytId: empty / status-only → null', () => {
 });
 
 test('resolveTerytId: construct+verify by id when the obręb carries a number', async () => {
-  // The placeholder-name case: obręb "11 Sosnowiec" — "Sosnowiec" is no real
-  // obręb name, so the name search can never match. Strategy 1 builds the full
-  // id from the zero-padded code (0011) + gmina + parcel and verifies it.
   let url = null;
   const fakeFetch = async (u) => { url = u; return { ok: true, text: async () => '1\n247501_1.0011.3278' }; };
   const id = await resolveTerytId({ obreb: '11 Sosnowiec', parcel: '3278', terytGmina: '247501_1' }, { fetchImpl: fakeFetch });
@@ -34,8 +31,6 @@ test('resolveTerytId: construct+verify by id when the obręb carries a number', 
 });
 
 test('resolveTerytId: falls back to the obręb NAME search when the id misses', async () => {
-  // Strategy 1 (GetParcelById) returns no match → Strategy 2 searches by name,
-  // stripping the leading obręb number. Verifies the name path still works.
   let nameUrl = null;
   const fakeFetch = async (u) => {
     if (/GetParcelById\b/.test(u) && !/IdOrNr/.test(u)) return { ok: true, text: async () => '-1 brak wyników' };

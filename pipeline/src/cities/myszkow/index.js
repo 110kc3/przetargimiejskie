@@ -1,5 +1,3 @@
-// Adapter entry point for Myszków (powiat myszkowski, Śląskie)
-// BIP: https://bip.miastomyszkow.pl
 
 import config from './config.js';
 import { crawlActive, crawlResultDocs, parseResultDoc } from './crawl.js';

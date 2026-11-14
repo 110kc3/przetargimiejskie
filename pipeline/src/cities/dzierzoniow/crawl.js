@@ -1,34 +1,3 @@
-// Dzierżoniów crawler.
-//
-// *** Madkom SIP BIP — React SPA over a plain JSON HTTP API (no browser) ***
-// bip.um.dzierzoniow.pl renders a bare CRA `<div id="root">` shell to a plain
-// GET, but is backed by a plain JSON HTTP API (reverse-engineered from the
-// compiled bundle, live-verified 2026-07-21):
-//   GET /api/menu/<menuId>/articles?limit=N&offset=K&archived=true
-//     -> { total, articles:[{ id, link:"a,<id>,<slug>.html",
-//          aliasFields:[{alias:"title",value}], columnFields:[{fieldId:56,
-//          value:"<publish datetime>"}, …] }] }
-//   GET /api/articles/<articleId>
-//     -> { id, title, content(HTML), attachments:[{ id, name, extension,
-//          size, link:"e,pobierz,get.html?id=<id>" }], … }
-//   GET /api/files/<attachmentId>   -> raw file bytes (born-digital PDF)
-//
-// TWO boards feed the two streams (menu hierarchy 12 › 1639 "Nieruchomości -
-// przetargi"):
-//   * ANNOUNCEMENTS: menu 1838 "Lokale mieszkalne" — each item is ONE flat's
-//     detail article carrying an "Ogłoszenie …" PDF (price/date/round). This
-//     is the clean, flats-only board (the sibling menu 48 "Ogłoszenia o
-//     przetargach" mixes flats/land/commercial and only links here). Only
-//     future-dated auctions are returned as active listings; the board keeps
-//     a flat visible for a while after its auction, so past ones are dropped.
-//   * RESULTS: menu 63 "Wyniki przetargów" — its "actual" tab is empty; every
-//     result lives in the ARCHIVED tab (`archived=true`). Each article is one
-//     auction DAY's "Informacja o rozstrzygnięciu przetargów" PDF (a numbered
-//     list of ALL properties auctioned that day). parse.js splits it and keeps
-//     only the lokale mieszkalne.
-//
-// TLS chain is COMPLETE (no insecureTLS); the plain bot UA is served fine. A
-// browser UA is passed anyway as the standard municipal-WAF-safe default.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -44,21 +13,14 @@ import {
 const ORIGIN = 'https://bip.um.dzierzoniow.pl';
 const API = `${ORIGIN}/api`;
 
-const ANNOUNCE_MENU = 1838; // "Lokale mieszkalne"
-const RESULT_MENU = 63;     // "Wyniki przetargów" (archived tab)
+const ANNOUNCE_MENU = 1838;
+const RESULT_MENU = 63;
 
 const LIST_COUNT = 100;
-const MAX_LIST_PAGES = 12; // 304 archived results / 100 = 4 pages; generous guard
+const MAX_LIST_PAGES = 12;
 
-// Only fetch result PDFs for auctions in/after this year — matches refresh.js's
-// pipeline floor (2020), so older ones (the archive reaches back to 2013) are
-// skipped rather than fetched-then-floored. Env-overridable for a full backfill.
 const RESULT_MIN_YEAR = Number(process.env.DZIERZONIOW_RESULT_MIN_YEAR) || 2020;
 
-// Detail-fetch budget: one throttled article-JSON request + one PDF per result
-// day. ~130 result days are 2020+, comfortably inside this; bounded per
-// ADAPTER-GUIDE §5 (newest-first, remainder backfills next run) so archive
-// growth can never time a CI job out.
 const MAX_RESULT_DETAILS = Number(process.env.DZIERZONIOW_MAX_DETAILS) || 200;
 const CRAWL_BUDGET_MS = Number(process.env.DZIERZONIOW_CRAWL_BUDGET_MS) || 12 * 60 * 1000;
 
@@ -82,7 +44,6 @@ function itemTitle(item) {
   return cf?.value || '';
 }
 
-/** Walk one board (bounded), newest-first, collecting {id, link, title}. */
 async function fetchBoardItems(menuId, archived) {
   const items = [];
   let complete = true;
@@ -108,7 +69,6 @@ async function fetchBoardItems(menuId, archived) {
   return items;
 }
 
-/** Fetch one article's attachments -> [{ id, name, extension }] or null on error. */
 async function fetchAttachments(articleId) {
   let json;
   try {
@@ -125,11 +85,10 @@ async function fetchAttachments(articleId) {
 let crawlPromise = null;
 
 async function crawlAll() {
-  const listings = [];    // active future flat announcements
-  const resultRefs = [];  // { text, pdf_url, auction_date }
+  const listings = [];
+  const resultRefs = [];
   let allParsed = true;
 
-  // ---- ANNOUNCEMENTS (menu 1838, current) --------------------------------
   const boardItems = await fetchBoardItems(ANNOUNCE_MENU, false);
   const annComplete = Boolean(boardItems.complete);
   const annItems = boardItems.filter((i) => isFlat(i.title));
@@ -140,7 +99,7 @@ async function crawlAll() {
       allParsed = false;
       continue;
     }
-    if (!atts.length) continue; // pre-auction (wykaz) stage — no ogłoszenie PDF yet
+    if (!atts.length) continue;
     const og = atts.find((a) => /og[łl]oszeni/i.test(a.name)) || atts[0];
     let body;
     try {
@@ -158,7 +117,6 @@ async function crawlAll() {
     }
   }
 
-  // ---- RESULTS (menu 63, archived) ---------------------------------------
   const knownUrls = await loadKnownSourceUrls('dzierzoniow');
   const resItems = await fetchBoardItems(RESULT_MENU, true);
   console.error(`  dzierzoniow: ${resItems.length} result article(s) on the board`);
@@ -180,7 +138,7 @@ async function crawlAll() {
     const pdf = atts.find((a) => /rozstrzyg|wynik/i.test(a.name)) || atts[0];
     if (!pdf) continue;
     const pdf_url = fileUrl(pdf.id);
-    if (knownUrls.has(pdf_url)) continue; // already committed (incremental skip)
+    if (knownUrls.has(pdf_url)) continue;
 
     let text;
     try {
@@ -189,14 +147,11 @@ async function crawlAll() {
       console.error(`  dzierzoniow: result pdf ${pdf.id} failed: ${err.message}`);
       continue;
     }
-    if (!isFlat(text)) continue; // all-land / all-commercial day — no flat records
+    if (!isFlat(text)) continue;
     resultRefs.push({ text, pdf_url, auction_date });
   }
   console.error(`  dzierzoniow: skipped ${skippedOld} result day(s) older than ${RESULT_MIN_YEAR}`);
 
-  // Keep only genuinely upcoming announcements as active (the board keeps a
-  // flat listed past its auction date; its concluded outcome lives in the
-  // results stream). Same idiom as glogow/kamienna-gora.
   const today = new Date().toISOString().slice(0, 10);
   const active = listings.filter((l) => l.auction_date && l.auction_date >= today);
   console.error(
@@ -211,13 +166,11 @@ async function crawlAll() {
   };
 }
 
-/** Concluded records (achieved-price stream). source:'html' ⇒ refs carry `.text`. */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resultRefs;
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[], valid_empty: boolean, valid_empty_land: boolean }>} */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, valid_empty, valid_empty_land } = await crawlPromise;

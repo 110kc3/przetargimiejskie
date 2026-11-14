@@ -1,7 +1,3 @@
-// Configuration for Myślenice adapter (bip.malopolska.pl/umigmyslenice)
-//
-// Gmina Myślenice (powiat myślenicki, małopolskie)
-// TERC: 1209034
 
 export const CONFIG = {
   id: 'myslenice',

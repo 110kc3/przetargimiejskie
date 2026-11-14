@@ -1,5 +1,3 @@
-// Read an owner-supplied, private register of actually received voluntary e-mails.
-// Never infer signups or people from page views, requests or mailto clicks.
 import{readFileSync}from'node:fs';import{pathToFileURL}from'node:url';
 export function validationGate(entries,start){
  const begin=Date.parse(start),end=begin+30*864e5;if(!Number.isFinite(begin))throw Error('A real deployment/start date is required');

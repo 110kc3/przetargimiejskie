@@ -1,7 +1,3 @@
-// Brzesko parser — www.brzesko.pl
-//
-// Extracts structured listing, land, and result records from WebImpuls CMS articles
-// at https://www.brzesko.pl/blog/5,ogloszenia-nieruchomosci.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -183,7 +179,6 @@ export function parseAnnouncementNotice(article) {
   const address = extractAddress(fullText);
   const parcels = extractParcels(fullText);
 
-  // If flat/commercial
   if (kind === 'mieszkalny' || kind === 'uzytkowy') {
     const flatAreaMatch = fullText.match(/powierzchni(?:a)?\s+(?:użytkowa\s+)?(?:lokalu\s*)?[:\s]+(\d+(?:[.,]\d+)?)\s*(?:m2|m²)/i);
     const area_m2 = flatAreaMatch ? parseArea(flatAreaMatch[1]) : null;
@@ -205,7 +200,6 @@ export function parseAnnouncementNotice(article) {
     };
   }
 
-  // If land (grunt)
   if (kind === 'grunt' || parcels.length > 0) {
     const landAreaMatch = fullText.match(/powierzchnia\s+(?:działki\s+)?\[?ha\]?[:\s]*(\d+(?:[.,]\d+)?)/i);
     const area_m2 = landAreaMatch ? parseArea(`${landAreaMatch[1]} ha`) : null;

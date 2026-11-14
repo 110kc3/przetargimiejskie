@@ -1,19 +1,3 @@
-// Sztum crawler — crawls the city BIP's single mixed board (bip.sztum.pl/1186.html).
-//
-// DISCOVERY:
-//   Board: https://bip.sztum.pl/1186.html (server-rendered HTML)
-//   Attachments: 1186.html?file=NNNNN (born-digital text PDFs)
-//
-// FORMAT & TLS:
-//   Notice PDFs are born-digital text (pdfText).
-//   bip.sztum.pl serves an incomplete certificate chain (Certum DV TLS G2 R39 CA);
-//   the crawler transparently provides the audited intermediate CA certificate.
-//
-// ARCHITECTURE:
-//   One memoised crawl serves both crawlResultDocs() and crawlActive().
-//   Results (INFORMACJA o wyniku...) feed crawlResultDocs().
-//   Sale announcements feed crawlActive() (listings for flats/buildings, land for plots).
-//   Known result URLs are skipped via loadKnownSourceUrls (safe for concluded results).
 
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { readFileSync, existsSync } from 'node:fs';
@@ -50,7 +34,6 @@ const BROWSER_UA =
 const CACHE_DIR = fileURLToPath(new URL('../../../pdf-text-cache/', import.meta.url));
 const CERT_PATH = fileURLToPath(new URL('../../core/certificates/certum-dv-tls-g2-r39-ca.pem', import.meta.url));
 
-// Rate limit: 1 request / second when hitting the network
 const MIN_INTERVAL_MS = Number(process.env.FETCH_MIN_INTERVAL_MS) || 1000;
 let lastFetchAt = 0;
 
@@ -159,11 +142,6 @@ export async function fetchPdfText(url) {
   return text;
 }
 
-/**
- * Parse all attachment links from the single mixed board HTML.
- * @param {string} html
- * @returns {Array<{fileId:string, url:string, title:string, published_date:string|null, type:'result'|'announcement'|'wykaz'}>}
- */
 export function parseBoard(html) {
   const items = [];
   const seen = new Set();
@@ -204,8 +182,6 @@ export function parseBoard(html) {
   return items;
 }
 
-// Stale cutoff: announcements published more than 180 days ago that lack a future
-// date are treated as concluded rather than active.
 const STALE_CUTOFF = new Date(Date.now() - 180 * 864e5).toISOString().slice(0, 10);
 const TODAY = new Date().toISOString().slice(0, 10);
 
@@ -235,7 +211,6 @@ async function crawlAll() {
   const annItems = allItems.filter((it) => it.type === 'announcement');
   const wykazItems = allItems.filter((it) => it.type === 'wykaz');
 
-  // 1. Results stream
   const resultRefs = [];
   for (const it of resultItems) {
     if (knownUrls.has(it.url)) continue;
@@ -252,11 +227,9 @@ async function crawlAll() {
     }
   }
 
-  // 2. Active announcements stream
   const listings = [];
   const land = [];
 
-  // Sort candidate announcements newest first, bounded by publish date
   const candidateAnns = annItems
     .filter((it) => !it.published_date || it.published_date >= STALE_CUTOFF)
     .sort((a, b) => Number(b.fileId) - Number(a.fileId));
@@ -277,7 +250,6 @@ async function crawlAll() {
         source_url: it.url,
       };
 
-      // Keep active if auction date is today or in future, or recent undated
       const isUpcoming = rec.auction_date ? rec.auction_date >= TODAY : true;
       if (!isUpcoming) continue;
 
@@ -291,7 +263,6 @@ async function crawlAll() {
     }
   }
 
-  // 3. Wykaz stream
   const wykaz = [];
   const candidateWykazy = wykazItems
     .filter((it) => !it.published_date || it.published_date >= STALE_CUTOFF)

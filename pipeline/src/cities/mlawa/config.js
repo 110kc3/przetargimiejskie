@@ -1,7 +1,3 @@
-// Configuration for Mława adapter (bip.mlawa.pl)
-//
-// Gmina Miejska Mława (powiat mławski, mazowieckie)
-// TERC: 1413011
 
 export const CONFIG = {
   id: 'mlawa',

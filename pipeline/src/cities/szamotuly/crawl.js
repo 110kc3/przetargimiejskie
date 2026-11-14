@@ -1,11 +1,3 @@
-// Szamotuły crawler — bip.szamotuly.pl
-//
-// Crawls board 1247 ("Przetargi") via the eBIP JSON API.
-// Carries both active announcements and concluded auction results.
-//
-// Endpoint pattern:
-//   List:   GET /api/menu/1247/articles?limit=120&offset=0&archived=1
-//   Detail: GET /api/articles/{id}  ->  { content, attachments, isArchived, ... }
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -48,9 +40,6 @@ function getArticlePubDate(a) {
   return null;
 }
 
-/**
- * Run async mapper with bounded concurrency.
- */
 async function mapConcurrent(items, concurrency, fn) {
   const results = new Array(items.length);
   let nextIdx = 0;
@@ -65,7 +54,6 @@ async function mapConcurrent(items, concurrency, fn) {
   return results;
 }
 
-// Single memoised pass over the board
 let crawlPromise = null;
 
 async function crawlAll() {
@@ -79,7 +67,6 @@ async function crawlAll() {
     () => new Set(),
   );
 
-  // 1. Discover article refs from board list
   const candidates = [];
   let offset = 0;
 
@@ -153,7 +140,6 @@ async function crawlAll() {
     `  szamotuly: board 1247 returned ${candidates.length} candidate article(s) to fetch`,
   );
 
-  // 2. Fetch candidate article details with concurrency
   const fetchedArticles = await mapConcurrent(
     candidates,
     CONCURRENCY,
@@ -172,7 +158,6 @@ async function crawlAll() {
     },
   );
 
-  // 3. Process each fetched article
   for (const item of fetchedArticles) {
     if (!item?.article) continue;
     const { article, detailUrl, published_date } = item;
@@ -218,13 +203,11 @@ async function crawlAll() {
   };
 }
 
-/** Achieved-price result documents found on the board. */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resultRefs;
 }
 
-/** Active property listings, land plots, and pre-announcement wykaz. */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, wykaz, land, valid_empty, valid_empty_land } = await crawlPromise;

@@ -1,12 +1,3 @@
-// Reusable MADKOM eBIP platform engine.
-//
-// Handles municipalities running MADKOM eBIP (Małopolska, Wielkopolska, Dolnośląskie, etc.)
-// which expose a clean JSON REST API:
-//   - GET /api/contexts/<context>/articles?s=<query>&limit=<N>&offset=<M>
-//   - GET /api/menu/<menuId>/articles?limit=<N>&offset=<M>
-//   - GET /api/articles/<id>
-//
-// Yields announcements and result notices with structured metadata and attachments.
 
 import { getText } from './fetch.js';
 import { parseAddress } from './normalize.js';
@@ -90,27 +81,22 @@ export function parseMadkomAnnouncement(article, fullHtml = '', options = {}) {
   const cityLabel = options.label || 'Gmina';
   const cityId = options.id || 'madkom';
 
-  // Date
   const dateMatch =
     text.match(/(?:odbędzie się w dniu|w dniu|termin przetargu|data(?:\s+przetargu)?|dnia)\s*[:\-]?\s*([0-9]{1,2}\s+[a-ząćęłńóśźż]+\s+20\d{2})/i) ||
     text.match(/(?:odbędzie się w dniu|w dniu|termin przetargu|data(?:\s+przetargu)?|dnia)\s*[:\-]?\s*([0-9]{1,2}\.[0-9]{2}\.20\d{2})/i);
   const auctionDate = dateMatch ? parsePlDate(dateMatch[1]) : parsePlDate(article.date);
 
-  // Price
   const priceMatch =
     text.match(/(?:cena wywoławcza|cena)\s*(?:netto|brutto)?\s*(?:w\s*zł)?[:\-]?\s*(?:wynosi\s*)?([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i) ||
     text.match(/cena wywoławcza[^\d]{1,60}([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i);
   const price = priceMatch ? parsePrice(priceMatch[1]) : null;
 
-  // Deposit
   const depositMatch = text.match(/(?:wadium|wysokość wadium)[^\d]{1,40}([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i);
   const deposit = depositMatch ? parsePrice(depositMatch[1]) : null;
 
-  // Parcel
   const parcelMatch = text.match(/\b(?:działk[aieę]|działce|dz\.|nr\s+działki)\s*(?:nr)?[:\s\-]{1,10}(\d+(?:\/\d+)?)/i);
   const parcel = parcelMatch ? parcelMatch[1] : null;
 
-  // Area
   const areaMatch =
     text.match(/pow(?:ierzchni|\.)[^\d]{1,25}([\d\s.]+(?:,\d{1,4})?)\s*(m2|m²|ha)/i) ||
     text.match(/pow(?:ierzchnia|\.)\s*(?:w\s*)?(m2|m²|m\s*2|ha)[:\s\-]{1,10}([\d\s.]+(?:,\d{1,4})?)/i);
@@ -125,12 +111,10 @@ export function parseMadkomAnnouncement(article, fullHtml = '', options = {}) {
     }
   }
 
-  // Address
   const addrMatch = text.match(/(?:przy\s+ul\.?|ulicy|ul\.|w\s+miejscowości)\s+([A-ZĄĆĘŁŃÓŚŹŻ0-9][a-ząćęłńóśźż\s\d\/-]+?)(?:w\s+[A-ZĄĆĘŁŃÓŚŹŻ]|\.|,|KW|przeznaczon)/i);
   const rawAddress = addrMatch ? `ul. ${addrMatch[1].trim()}` : cityLabel;
   const address = parseAddress(rawAddress, cityLabel);
 
-  // KW
   const kwMatch = text.match(/\b([A-Z0-9]{4}\/\d{8}\/\d)\b/i) || text.match(/KW[-:\s]+([A-Z0-9\/]+)/i);
   const landRegistry = kwMatch ? kwMatch[1].toUpperCase() : null;
 

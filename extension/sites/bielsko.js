@@ -1,23 +1,9 @@
-// Bielsko-Biała site adapter — bielsko-biala.pl Giełda Nieruchomości (Drupal).
-//
-// Each sale offer is a node at /nieruchomosc/<slug> whose "Najważniejsze
-// informacje" block is a labelled key-value list incl. "Adres: ul. <street>
-// <bldg>/<apt>" and "Rodzaj nieruchomości: lokal mieszkalny". We badge the node
-// (detail) pages: read the visible text, confirm it's a flat, then pull the
-// Adres value with the same field()-boundary logic the pipeline uses
-// (cities/bielsko/parse.js) so badges join the same property keys. The giełda
-// index cards don't reliably carry the labelled Adres block, so the index page
-// itself is left undecorated — detail pages only. If a label/value renders
-// without a colon, the optional-colon match still finds it; on any miss nothing
-// is injected (graceful).
 
 (function () {
   if (!window.ZGM_SITES) return;
 
   const NODE_PATH = /\/nieruchomosc\/[^/]+/i;
 
-  // Mirror cities/bielsko/parse.js LABELS (longest → shortest so a prefix label
-  // doesn't end the value early) + field().
   const LABELS = [
     'Data przetargu / rokowań', 'Data przetargu', 'Rodzaj nieruchomości',
     'Forma przetargu', 'Status oferty', 'Wysokość wadium',

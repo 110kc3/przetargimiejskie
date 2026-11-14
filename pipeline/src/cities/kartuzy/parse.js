@@ -1,6 +1,3 @@
-// Parser for Kartuzy auction notices and results (bip.kartuzy.pl)
-//
-// Handles MADKOM eBIP articles and PDF documents.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';

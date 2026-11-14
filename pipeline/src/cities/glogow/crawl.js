@@ -1,44 +1,3 @@
-// Głogów crawler.
-//
-// *** PLATFORM MIGRATION (read config.js's header first) ***
-// The BUILD spike profiled glogow.bip.info.pl as server-rendered HTML with a
-// JS-gated listing index but JS-free document/PDF pages. Re-verified LIVE
-// 2026-07-19: the whole host now serves a bare Angular `<app-root>` shell
-// (`last-modified: 2026-07-10`) for every path — index AND document pages
-// alike. This is the SAME class of migration Złotoryja hit, except it
-// rolled out on the SAME domain here (no host move).
-//
-// Reverse-engineered API shape (live-verified 2026-07-19, via the compiled
-// bundle's favicon hint `/api/fo/favicon.ico` + direct probing):
-//   GET /api/fo/articles?page=P&count=N&path=<page-path>&category=<id>
-//     -> { meta:{pages,amount}, data:[{ id, attributes:{ slug, title,
-//          publishedFrom, symbol, category:{...} } }] }         (list view)
-//   GET /api/fo/articles/<slug>
-//     -> { data:{ attributes:{ title, content (HTML teaser only — NOT the
-//          operative legal text), attachments:[{id, attributes:{
-//          originalName, extension, size, content }}], fullUrl, ... } } }
-//   GET /api/fo/files/<attachmentId>/download
-//     -> raw PDF bytes (born-digital; `pdftotext` extracts cleanly)
-//
-// The legacy idmp taxonomy survives as the category id: idmp=27 ==
-// "przedmiotowe27d" (title "Sprzedaż nieruchomości gminnych", path
-// "/sprzedaz-nieruchomosci-gminnych-2") — ONE board carrying BOTH streams
-// (unlike Zgorzelec/Lubliniec's two-board split), title-routed via parse.js's
-// isAnnouncement/isResultDoc; "LISTA OSÓB ZAKWALIFIKOWANYCH …" (qualified-
-// bidders list) also shares it and is skipped before ever fetching an
-// article. Live-verified volume at build time: 161 board items (6 pages),
-// spanning 2022-12-21 to 2026-07-14.
-//
-// The article JSON's own `attachments[].attributes.content` field is
-// UNRELIABLE — live-verified EMPTY for some documents (e.g. the Wały
-// Bolesława Chrobrego 6 multi-lot announcement's attachment) and only a
-// partial excerpt for others — so this adapter NEVER reads it. Every
-// attachment PDF is downloaded and text-extracted directly via core's
-// pdfText() (content-addressed cache, so repeat runs are instant).
-//
-// TLS: this host ships an INCOMPLETE certificate chain (missing intermediate
-// CA — same class of issue as bip.zlotoryja.pl / bip.miastozabrze.pl); Node
-// needs `insecureTLS: true`. Data is public/read-only.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -61,36 +20,18 @@ const API_ARTICLES = `${API_BASE}/articles`;
 const OFFICIAL_ORIGIN = 'https://www.glogow.pl';
 const OFFICIAL_LIST = `${OFFICIAL_ORIGIN}/urzad/index.php/ogloszenia`;
 
-const CATEGORY = 'przedmiotowe27d'; // legacy idmp=27 "Sprzedaż nieruchomości gminnych"
+const CATEGORY = 'przedmiotowe27d';
 const LIST_PATH = '/sprzedaz-nieruchomosci-gminnych-2';
 const COUNT = 30;
 
-// Board-list pagination cap. Live-verified 161 items / 6 pages (2026-07-19),
-// growing at roughly a few dozen/year; the walk self-stops the moment a page
-// yields zero items or `meta.pages` is reached, so this generous cap only
-// matters as a runaway guard.
 const MAX_LIST_PAGES = 30;
 
-// The city portal mixes four posts per page across all departments. Twelve
-// pages cover the newest 48 posts (normally several months) and are sufficient
-// to keep current auctions/results fresh while the archival BIP API is down.
 // Older history remains protected by the normal merge/preserve path.
 const MAX_OFFICIAL_FALLBACK_PAGES = 12;
 
-// Detail-fetch (article JSON + attachment PDF) budget — the expensive part:
-// one throttled request per article PLUS one per attachment PDF. Live volume
-// at build time is ~155 real candidates after skipping qualified-bidder-list
-// notices, comfortably inside this budget on a first full-history run;
-// bounded anyway per ADAPTER-GUIDE §5 so growth can never make a CI job time
-// out (remainder backfills the next run, newest-first since the board is
-// newest-first).
 const CRAWL_BUDGET_MS = Number(process.env.GLOGOW_CRAWL_BUDGET_MS) || 10 * 60 * 1000;
 const MAX_DETAILS = Number(process.env.GLOGOW_MAX_DETAILS) || 220;
 
-// A browser UA — bip.info.pl serves the bot UA too, but a browser UA is the
-// safe default for municipal WAFs (harmless if unneeded, matches the rest of
-// this repo's bip.info.pl adapters). `insecureTLS` works around the host's
-// incomplete cert chain (see header).
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { insecureTLS: true, userAgent: UA };
@@ -111,14 +52,6 @@ function pdfDownloadUrl(attachmentId) {
   return `${API_BASE}/files/${attachmentId}/download`;
 }
 
-/**
- * Extract sale-auction/result PDF candidates from one page of the independent
- * official city announcements portal. The portal republishes the same signed
- * legal PDFs as the BIP but lives on a different host. This parser deliberately
- * returns only candidates whose card text passes the existing Głogów gates.
- *
- * @returns {Array<{title:string,publishedFrom:string|null,pdfUrls:string[],role:'announcement'|'result'}>}
- */
 export function parseOfficialFallbackPage(html) {
   const out = [];
   for (const match of String(html || '').matchAll(/<article\b[^>]*>([\s\S]*?)<\/article>/gi)) {
@@ -144,9 +77,6 @@ export function parseOfficialFallbackPage(html) {
   return out;
 }
 
-/** Walk the board's list endpoint (bounded), newest-first, collecting every
- *  item's {slug, title, publishedFrom}. Stops at MAX_LIST_PAGES, or as soon
- *  as a page returns no items, or once `meta.pages` is reached. */
 async function fetchBoardItems() {
   const items = [];
   for (let page = 1; page <= MAX_LIST_PAGES; page++) {
@@ -171,8 +101,6 @@ async function fetchBoardItems() {
   return items;
 }
 
-/** Fetch one article's full JSON -> { title, fullUrl, attachments:[{id,name}] }
- *  or null. */
 async function fetchArticleMeta(slug) {
   let json;
   try {
@@ -194,9 +122,6 @@ async function fetchArticleMeta(slug) {
   };
 }
 
-/** Fetch + extract ONE attachment's PDF text (born-digital — pdftotext, no
- *  OCR needed; content-addressed cache via core's pdfText()). Never trusts
- *  the API's own precomputed `content` field (see header). */
 async function fetchAttachmentText(attachmentId) {
   try {
     return await pdfText(pdfDownloadUrl(attachmentId), FETCH_OPTS);
@@ -206,11 +131,6 @@ async function fetchAttachmentText(attachmentId) {
   }
 }
 
-/**
- * Bounded current-window fallback for an unavailable archival BIP API. The
- * official portal is not used when the primary works: it is intentionally a
- * continuity source, not a second full-history crawl.
- */
 async function crawlOfficialFallback({ listings, land, resultRefs, knownUrls }) {
   let candidates = 0;
   let fetchedPages = 0;
@@ -262,16 +182,10 @@ async function crawlOfficialFallback({ listings, land, resultRefs, knownUrls }) 
 let crawlPromise = null;
 
 async function crawlAll() {
-  const listings = []; // address-keyed announcement records (flats/units/garages/houses)
-  const land = [];     // kind:'grunt' announcement records -> land.json
-  // Result refs use the `pdf_url` field name — that is what refresh.js reads
-  // (`city.parseResultDoc(text, ref.auction_date, ref.pdf_url)`), so naming it
-  // anything else silently hands parseResultDoc an undefined sourceUrl.
-  const resultRefs = []; // { text, pdf_url, auction_date }
+  const listings = [];
+  const land = [];
+  const resultRefs = [];
 
-  // Politeness: skip re-downloading a RESULT PDF whose URL is already in a
-  // committed properties.json (never applied to announcements — an active
-  // listing must always be re-checked). Empty on the first run.
   const knownUrls = await loadKnownSourceUrls('glogow');
 
   const boardItems = await fetchBoardItems();
@@ -289,7 +203,7 @@ async function crawlAll() {
   for (const item of boardItems) {
     if (isQualifiedBiddersList(buildRecordText({ title: item.title }))) {
       skippedQualifiedList++;
-      continue; // procedural notice, not ann/result — never worth an article fetch
+      continue;
     }
 
     if (processed >= MAX_DETAILS || Date.now() > deadline) {
@@ -303,15 +217,12 @@ async function crawlAll() {
     const meta = await fetchArticleMeta(item.slug);
     if (!meta || !meta.attachments.length) continue;
 
-    // The list title alone tells us the STREAM before we even look at a PDF
-    // ("INFORMACJA(E) o wyniku(ach) …" vs "… ogłasza …"); used only to gate
-    // the known-urls skip below, never to extract structured fields.
     const looksLikeResult = /informacj\w*\s+o\s+wynik/i.test(item.title);
     const sourceUrl = meta.fullUrl || articleUrl(item.slug);
 
     for (const att of meta.attachments) {
       const pdfUrl = pdfDownloadUrl(att.id);
-      if (looksLikeResult && knownUrls.has(pdfUrl)) continue; // already committed
+      if (looksLikeResult && knownUrls.has(pdfUrl)) continue;
 
       const body = await fetchAttachmentText(att.id);
       if (!body) continue;
@@ -336,10 +247,6 @@ async function crawlAll() {
   }
   console.error(`  glogow: skipped ${skippedQualifiedList} qualified-bidders-list notice(s)`);
 
-  // Announcements accumulate the board's FULL history (like results); keep
-  // only genuinely upcoming ones as "active" — a past round's announcement
-  // (superseded by a later round or a result notice) is not a current
-  // listing. Same idiom as kamienna-gora/jarocin/kwidzyn/strzelce-opolskie.
   const todayIso = new Date().toISOString().slice(0, 10);
   const activeListings = listings.filter((l) => l.auction_date && l.auction_date >= todayIso);
   const activeLand = land.filter((l) => l.auction_date && l.auction_date >= todayIso);
@@ -351,13 +258,11 @@ async function crawlAll() {
   return { listings: activeListings, land: activeLand, resultRefs, landComplete };
 }
 
-/** Concluded records (achieved-price stream). source:'html' ⇒ refs carry `.text`. */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resultRefs;
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[], land_complete: boolean }>} */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, land, landComplete } = await crawlPromise;

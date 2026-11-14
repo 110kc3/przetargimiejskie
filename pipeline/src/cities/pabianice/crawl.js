@@ -1,24 +1,3 @@
-// Pabianice crawler — Logonet BIP 2.9.0, server-rendered HTML.
-//
-// BOARD:  https://bip.um.pabianice.pl/przetargi-nieruchomosci/{page}/{perPage}
-//   page 1 = newest, 48 pages total (10 items/page by default).
-//   Each item is a <table> block with rows: Adres nieruchomości | Przetarg na |
-//   Typ przetargu | Rodzaj nieruchomości | Cena wywoławcza | Data przetargu.
-//   All metadata needed for the active listing is INLINE — no PDF fetch required
-//   for crawlActive(). Filter: Typ = "ustny nieograniczony" AND Rodzaj = "lokal
-//   mieszkalny".
-//
-// DETAIL: https://bip.um.pabianice.pl/przetarg-nieruchomosci/{id}/{slug}
-//   Carries the same structured table plus attachment links. Result PDF is the
-//   attachment labelled "Rozstrzygnięcie przetargu".
-//
-// RESULTS: crawlResultDocs() paginates the same board, fetches each listing's
-//   detail page, plucks the "Rozstrzygnięcie przetargu" PDF URL, extracts text,
-//   and returns refs. source:'html' => refs carry `.text` so refresh.js passes
-//   text directly to parseResultDoc without another fetch.
-//
-// MAX_PAGES: routine CI cap (~60 most-recent listings).
-// Full backfill: set env PABIANICE_MAX_PAGES=48.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -30,7 +9,6 @@ const LIST_BASE = `${ORIGIN}/przetargi-nieruchomosci`;
 const PER_PAGE = 10;
 const MAX_PAGES = Number(process.env.PABIANICE_MAX_PAGES) || 6;
 
-// ---- HTML text utilities ---------------------------------------------------
 
 function stripTags(s) {
   return (s || '')
@@ -43,7 +21,6 @@ function stripTags(s) {
     .trim();
 }
 
-// "53.000 zl" / "820.000 zl" -> integer PLN (dot = thousands separator in BIP list).
 function parsePLN(raw) {
   if (!raw) return null;
   const digits = String(raw).replace(/\./g, '').replace(/[^\d]/g, '');
@@ -51,44 +28,29 @@ function parsePLN(raw) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// "14.05.2026 godz. 09:40" -> "2026-05-14" ISO. Returns null on failure.
 function parseAuctionDate(raw) {
   if (!raw) return null;
   const m = /(\d{2})\.(\d{2})\.(\d{4})/.exec(raw);
   return m ? `${m[3]}-${m[2]}-${m[1]}` : null;
 }
 
-// ---- Address parsing from BIP title ----------------------------------------
-//
-// BIP list/detail address text:
-//   "lokal mieszkalny nr 7 przy ul. Pomorskiej 20"
-//   "lokal mieszkalny nr 6 przy ul. Boleslawa Nawrockiego 4A"
-//   "lokal mieszkalny nr 64/65 przy ul. Wyszynskiego 3"
-//   "lokal mieszkalny nr 9/10 przy ul. Pomorskiej 20"
-//
-// Compound units (merged flats) like "nr 64/65" key on the first number as apt
-// because parseAddress cannot handle triple-slash ("ul. X 3/64/65").
 
 export function parseAddressFromBipTitle(raw) {
   if (!raw) return null;
   const s = raw.trim();
 
-  // Unit number: "nr 7" / "nr 64/65" / "nr 9/10"
   const unitRawM = /\bnr\s+(\d+(?:\/\d+)?[A-Za-z]?)/i.exec(s);
   let unitNo = null;
   if (unitRawM) {
     const raw2 = unitRawM[1];
-    // Compound units like "64/65": use only the first number as apt key.
     const compound = /^(\d+)\/(\d+)$/.exec(raw2);
     unitNo = compound ? compound[1] : raw2;
   }
 
-  // Street + building after "przy ul." / "przy al." / "przy os."
   const streetM = /przy\s+(?:ul|al|os|pl)\.?\s+(.+)/i.exec(s);
   if (!streetM) return null;
 
   const streetPart = streetM[1].trim();
-  // Building number = last numeric token (possibly with letter suffix).
   const bldgM = /^(.+?)\s+(\d+[A-Za-z]?)\s*$/.exec(streetPart);
   if (!bldgM) return null;
 
@@ -102,10 +64,6 @@ export function parseAddressFromBipTitle(raw) {
   return parseAddress(normalized);
 }
 
-// ---- List-page parser ------------------------------------------------------
-//
-// Each entry on the board is a <table> block with labelled rows.
-// Verified against live HTML 2026-06-27.
 
 export function parseListPage(html) {
   const out = [];
@@ -114,7 +72,6 @@ export function parseListPage(html) {
   while ((m = tableRe.exec(html)) !== null) {
     const tbl = m[0];
 
-    // Build label->value map from rows.
     const rows = {};
     const rowRe = /<tr[^>]*>([\s\S]*?)<\/tr>/gi;
     let r;
@@ -130,15 +87,11 @@ export function parseListPage(html) {
       }
     }
 
-    // Filter: must be lokal mieszkalny + przetarg ustny nieograniczony.
     const typ = (rows['Typ przetargu'] || '').toLowerCase();
     const rodzaj = (rows['Rodzaj nieruchomosci'] || rows['Rodzaj nieruchomości'] || '').toLowerCase();
     if (!typ.includes('ustny nieograniczony')) continue;
     if (rodzaj !== 'lokal mieszkalny') continue;
 
-    // Extract the detail URL from the "Adres nieruchomości" cell raw HTML.
-    // Live Logonet markup renders the label as <th scope="row"> (not <td>),
-    // so accept either closing tag before the value cell.
     const adresCellM = /Adres\s+nieruchomo[śs]ci\s*<\/t[dh]>\s*<td[^>]*>([\s\S]*?)<\/td>/i.exec(tbl);
     if (!adresCellM) continue;
     const adresCellHtml = adresCellM[1];
@@ -162,7 +115,6 @@ export function parseListPage(html) {
   return out;
 }
 
-// ---- Detail-page parser (for result PDF URL) --------------------------------
 
 export function resultPdfUrlFromDetail(html) {
   const re = /href="([^"]*\/attachments\/download\/\d+)[^"]*"[^>]*>([\s\S]*?)<\/a>/gi;
@@ -178,7 +130,6 @@ export function resultPdfUrlFromDetail(html) {
   return null;
 }
 
-// ---- Shared detail-page cache ----------------------------------------------
 
 const _detailHtmlCache = new Map();
 
@@ -194,7 +145,6 @@ async function fetchDetailHtml(id, url) {
   return html;
 }
 
-// ---- Active listings crawl -------------------------------------------------
 
 export async function crawlActive() {
   const listings = [];
@@ -246,7 +196,6 @@ export async function crawlActive() {
   return { listings, wykaz: [], land: [] };
 }
 
-// ---- Result-docs crawl -----------------------------------------------------
 
 export async function crawlResultDocs() {
   const refs = [];

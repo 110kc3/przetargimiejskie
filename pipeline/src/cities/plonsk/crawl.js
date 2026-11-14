@@ -1,12 +1,3 @@
-// Płońsk crawler — fetches municipal property tenders from BIP Urząd Miejski w Płońsku.
-// Parent node: https://umplonsk.bip.org.pl/id/1999 (Przetargi)
-//
-// Per-year boards:
-//   2026: /id/2602, 2025: /id/2482, 2024: /id/2407,
-//   2023: /id/2234, 2022: /id/2131, 2021: /id/2000
-//
-// Announcements and result notices are interleaved on the per-year boards as file attachments.
-// Attachment file types are mixed: .docx and .pdf (both born-digital and scanned).
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -24,7 +15,6 @@ import {
 const ORIGIN = 'https://umplonsk.bip.org.pl';
 const PARENT_URL = `${ORIGIN}/id/1999`;
 
-// Known historical year boards (fallback if parent node parsing changes)
 const KNOWN_YEAR_IDS = [2602, 2482, 2407, 2234, 2131, 2000];
 
 const BROWSER_UA =
@@ -33,7 +23,6 @@ const FETCH_OPTS = { userAgent: BROWSER_UA };
 
 let crawlPromise = null;
 
-/** Helper to extract text from a .docx or .pdf attachment */
 async function fetchAttachmentText(url) {
   if (url.endsWith('.docx') || url.endsWith('.doc')) {
     return await docText(url);
@@ -48,7 +37,6 @@ async function fetchAttachmentText(url) {
   return '';
 }
 
-/** Discovers year board IDs under parent node /id/1999. */
 export async function discoverYearBoards() {
   const ids = new Set(KNOWN_YEAR_IDS);
   try {
@@ -67,11 +55,9 @@ export async function discoverYearBoards() {
   } catch (err) {
     console.error(`  plonsk: parent board discovery warning: ${err.message}`);
   }
-  // Return in descending order (newest years first)
   return [...ids].sort((a, b) => b - a);
 }
 
-/** Parses attachment items from a year board's HTML. */
 export function itemsFromBoardHtml(html, boardUrl) {
   const start = html.indexOf('class="attachments');
   if (start === -1) return [];
@@ -89,7 +75,6 @@ export function itemsFromBoardHtml(html, boardUrl) {
 
     const rawHref = hrefM[1];
     if (!rawHref.includes('/pliki/')) continue;
-    // Strip query strings (?20261021232144) for canonical document URL
     const cleanPath = rawHref.split('?')[0];
     const fullUrl = cleanPath.startsWith('http') ? cleanPath : ORIGIN + cleanPath;
 
@@ -108,10 +93,6 @@ export function itemsFromBoardHtml(html, boardUrl) {
   return items;
 }
 
-/**
- * Single memoized crawl across all Płońsk year boards.
- * Fetches attachments, classifies flat vs land vs result, extracts data.
- */
 export async function crawlAll() {
   const yearIds = await discoverYearBoards();
   const listings = [];
@@ -137,7 +118,6 @@ export async function crawlAll() {
       if (seenUrls.has(item.url)) continue;
       seenUrls.add(item.url);
 
-      // Skip qualification lists ("Lista osób zakwalifikowanych")
       if (/lista\s+os[oó]b\s+zakwalifikowanych/i.test(item.title)) {
         continue;
       }
@@ -186,7 +166,6 @@ export async function crawlAll() {
   };
 }
 
-/** Active flat & building listings + land plots. */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, land, validEmpty, validEmptyLand } = await crawlPromise;
@@ -199,7 +178,6 @@ export async function crawlActive() {
   };
 }
 
-/** Result document references for the achieved-price stream. */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resultRefs;

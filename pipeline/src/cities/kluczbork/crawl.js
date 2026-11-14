@@ -1,13 +1,3 @@
-// Kluczbork crawler — bip.net v7.33 (Extranet) server HTML + born-digital PDF.
-//
-// Boards:
-// - Announcements (452): https://www.bip.kluczbork.eu/452,przetargi-na-sprzedaz-i-dzierzawe-nieruchomosci
-// - Results (690):       https://www.bip.kluczbork.eu/690,informacje-o-wynikach-przetargow
-//
-// Sub-pages: redir,452?tresc=NNNNN / redir,690?tresc=NNNNN
-// PDF attachments: plik,NNNNN,slug.pdf
-//
-// source: 'html' ⇒ result refs carry `.text` (extracted via pdfText).
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -29,11 +19,8 @@ const RESULTS_BOARD_URL = `${ORIGIN}/690,informacje-o-wynikach-przetargow`;
 
 const MIN_HISTORY_YEAR = 2020;
 const CURRENT_YEAR = new Date().getFullYear();
-const ANNOUNCE_MIN_YEAR = CURRENT_YEAR - 2; // Crawl active/recent announcements (2024-2026)
+const ANNOUNCE_MIN_YEAR = CURRENT_YEAR - 2;
 
-/**
- * Extract article links from a board page: Array<{ tresc, title, url }>
- */
 export function parseBoardArticles(html, boardId) {
   const articles = [];
   const re = new RegExp(String.raw`<a[^>]*href="([^"]*redir,${boardId}\?tresc=(\d+))"[^>]*>([\s\S]*?)<\/a>`, 'gi');
@@ -50,17 +37,11 @@ export function parseBoardArticles(html, boardId) {
   return articles;
 }
 
-/**
- * Extract publication date from article HTML metryka.
- */
 export function extractPublishDate(html) {
   const m = /data_publikacji[\s\S]*?<span class="system_metryka_wartosc">(\d{4}-\d{2}-\d{2})/i.exec(html);
   return m ? m[1] : null;
 }
 
-/**
- * Extract PDF attachment links from article HTML: Array<{ href, url, name }>
- */
 export function parseArticlePdfLinks(html) {
   const pdfs = [];
   const re = /<a[^>]*href="([^"]*plik,(\d+),([^"]+\.pdf))"[^>]*>([\s\S]*?)<\/a>/gi;
@@ -78,22 +59,14 @@ export function parseArticlePdfLinks(html) {
   return pdfs;
 }
 
-/**
- * Select the main announcement PDF (skips auxiliary forms, regulations, maps).
- */
 export function selectAnnouncementPdf(pdfs) {
-  // Ignore auxiliary boilerplate files
   const filtered = pdfs.filter(
     (p) => !/oswiadczenie|o[śs]wiadczenie|regulamin|mapka|wypis|wipis|zalacznik|za[łl][ąa]cznik/i.test(p.filename),
   );
-  // Match announcement PDF
   const main = filtered.find((p) => /ogloszen|og[łl]oszen|przetarg/i.test(p.filename));
   return main || filtered[0] || null;
 }
 
-/**
- * Select the main result PDF.
- */
 export function selectResultPdf(pdfs) {
   const main = pdfs.find((p) => /wynik|informacja-o-wyniku|gnp-6840/i.test(p.filename));
   return main || pdfs[0] || null;
@@ -109,7 +82,6 @@ async function crawlAll() {
   let boardAnnReached = false;
   let boardResReached = false;
 
-  // 1. Crawl announcements board (452)
   console.error('  kluczbork: fetching announcement board ...');
   const annBoardHtml = await getText(ANNOUNCE_BOARD_URL);
   if (annBoardHtml) {
@@ -159,7 +131,6 @@ async function crawlAll() {
     }
   }
 
-  // 2. Crawl results board (690)
   console.error('  kluczbork: fetching results board ...');
   const resBoardHtml = await getText(RESULTS_BOARD_URL);
   if (resBoardHtml) {
@@ -226,14 +197,12 @@ async function crawlAll() {
   };
 }
 
-/** Concluded records (achieved-price stream). */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   const { resultRefs } = await crawlPromise;
   return resultRefs;
 }
 
-/** Active listings + wykaz stream. */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, wykaz, land, valid_empty, valid_empty_land } = await crawlPromise;

@@ -1,7 +1,3 @@
-// Configuration for Wysokie Mazowieckie adapter (bip-umwysokiemaz.podlaskie.eu)
-//
-// Gmina Miejska Wysokie Mazowieckie (powiat wysokomazowiecki, podlaskie)
-// TERC: 2013011
 
 export const CONFIG = {
   id: 'wysokie-mazowieckie',

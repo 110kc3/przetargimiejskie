@@ -1,4 +1,3 @@
-// Parser for Olecko auction notices and results (bip.olecko.pl).
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -80,23 +79,19 @@ export function parseAnnouncementHtml(html, url = '') {
   const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || html.match(/<title>([\s\S]*?)<\/title>/i);
   const title = titleMatch ? cleanText(titleMatch[1]) : '';
 
-  // Date
   const dateMatch =
     text.match(/(?:odbędzie się w dniu|w dniu|termin przetargu)\s+([0-9]{1,2}\s+[a-ząćęłńóśźż]+\s+20\d{2})/i) ||
     text.match(/(?:odbędzie się w dniu|w dniu|termin przetargu)\s+([0-9]{1,2}\.[0-9]{2}\.20\d{2})/i);
   const auctionDate = dateMatch ? parsePlDate(dateMatch[1]) : null;
 
-  // Price
   const priceMatch =
     text.match(/(?:cena wywoławcza|cena)\s*(?:netto|brutto)?[:\-]?\s*([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i) ||
     text.match(/cena wywoławcza[^\d]{1,60}([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i);
   const price = priceMatch ? parsePrice(priceMatch[1]) : null;
 
-  // Parcel
   const parcelMatch = text.match(/\b(?:działk[aieę]|działce|dz\.|nr\s+geod\.|nr\s+działki)\s*(?:nr)?[:\s\-]{1,10}(\d+(?:\/\d+)?)/i);
   const parcel = parcelMatch ? parcelMatch[1] : null;
 
-  // Area
   const areaMatch = text.match(/pow(?:ierzchni|\.)[^\d]{1,25}([\d\s.]+(?:,\d{1,4})?)\s*(m2|m²|ha)/i);
   let area = null;
   if (areaMatch) {
@@ -108,12 +103,10 @@ export function parseAnnouncementHtml(html, url = '') {
     }
   }
 
-  // Address
   const addrMatch = text.match(/(?:przy\s+ul\.?|ulicy|ul\.)\s+([A-ZĄĆĘŁŃÓŚŹŻ0-9][a-ząćęłńóśźż\s\d\/-]+?)(?:w\s+Olecku|\.|,|KW|obręb)/i);
   const rawAddress = addrMatch ? `ul. ${addrMatch[1].trim()}` : (title.includes('Olecku') ? title : 'Olecko');
   const address = parseAddress(rawAddress, 'Olecko');
 
-  // KW
   const kwMatch = text.match(/\b(OL1C\/\d{8}\/\d|[A-Z0-9]{4}\/\d{8}\/\d)\b/i) || text.match(/KW[-:\s]+([A-Z0-9\/]+)/i);
   const landRegistry = kwMatch ? kwMatch[1].toUpperCase() : null;
 

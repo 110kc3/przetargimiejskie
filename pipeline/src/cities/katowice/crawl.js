@@ -1,9 +1,3 @@
-// Crawls the Katowice city BIP "Tablica ogłoszeń" board. Two document streams:
-//   - sale-auction announcements -> active listings (parseAnnouncement)
-//   - "wyniki przetargów" result PDFs -> sold records (parseResultPdf)
-// The board list page and the document pages are both plain HTML — see
-// SPIKE-WAVE1.md. The board is paginated; we walk pages adaptively until two
-// consecutive pages yield no new auction-relevant docs.
 
 import { getText } from '../../core/fetch.js';
 import { parseAnnouncements, parseLandAnnouncement } from './parse.js';
@@ -14,8 +8,8 @@ const BOARD =
 const ORIGIN = 'https://bip.katowice.eu';
 const DOC = (idr) =>
   `${ORIGIN}/ogloszenia/tablicaogloszen/dokument.aspx?idr=${idr}&menu=679`;
-const MAX_PAGES = 25;             // hard cap (the board is ~13–15 pages today)
-const STOP_AFTER_EMPTY_PAGES = 5; // stop after this many consecutive auction-empty pages
+const MAX_PAGES = 25;
+const STOP_AFTER_EMPTY_PAGES = 5;
 
 const LINK_RE =
   /<a\b[^>]*\bhref="[^"]*dokument\.aspx\?idr=(\d+)[^"]*"[^>]*>([\s\S]*?)<\/a>/gi;
@@ -30,7 +24,6 @@ const isResult = (t) =>
 
 let _board = null;
 
-// Crawl the board once per run; classify each auction-relevant document.
 async function crawlBoard() {
   if (_board) return _board;
   const docs = [];
@@ -76,7 +69,6 @@ async function crawlBoard() {
   return docs;
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
 export async function crawlActive() {
   const docs = (await crawlBoard()).filter((d) => d.kind === 'announcement');
   console.error(`  katowice: ${docs.length} sale-announcement document(s)`);
@@ -96,8 +88,6 @@ export async function crawlActive() {
         const lr = parseLandAnnouncement(html, d.title, d.doc_url);
         if (lr) land.push(lr);
       } else {
-        // One announcement may carry several units ("… 4 lokali mieszkalnych
-        // (ul. A, ul. B, …)", idr=152360) → one listing per unit.
         for (const listing of parseAnnouncements(html, d.title, d.doc_url)) {
           listings.push(listing);
         }
@@ -110,7 +100,6 @@ export async function crawlActive() {
   return { listings, wykaz: [], land };
 }
 
-/** @returns {Promise<Array<{ pdf_url: string, auction_date: string|null }>>} */
 export async function crawlResultDocs() {
   const docs = (await crawlBoard()).filter((d) => d.kind === 'result');
   const refs = [];

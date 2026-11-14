@@ -1,16 +1,3 @@
-// Sztum parsers — extracts municipal auctions, rokowań, and results.
-//
-// Document patterns on bip.sztum.pl (single mixed board 1186.html):
-//   - Announcements: "OGŁOSZENIE O ... PRZETARGU / ROKOWANIACH NA SPRZEDAŻ"
-//     Structured 2-column or labelled notice with address, usable area,
-//     starting price (cena wywoławcza), auction date and round.
-//   - Results: "INFORMACJA o wyniku ... przetargu / rokowań"
-//     Carries exact auction date ("1. W dniu DD miesiąc YYYY r. ..."),
-//     address/parcel ("2. Przedmiotem przetargu był..."), starting price,
-//     achieved price ("Najwyższa cena osiągnięta...: [price] zł" or negative
-//     marker "do przetargu nie przystąpił żaden oferent" / "-"), round.
-//   - Wykazy: "WYKAZ NIERUCHOMOŚCI PRZEZNACZONYCH DO SPRZEDAŻY"
-//     Pre-auction designation carrying address, area, estimated value.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -85,11 +72,8 @@ export function roundFromText(text) {
 
 export function isSkippableTitle(t) {
   if (!t) return true;
-  // auxiliary forms, declarations, GDPR, attachments
   if (/zgłoszenie|oświadczenie|rodo|formularz|mapa|klauzula|załącznik\s+\d/i.test(t)) return true;
-  // noise: waste, waters, grants, social services, election, hunting
   if (/odpad|śmieci|wody\s+polskie|konsultacj|stypend|dotacj|zezwolen|planu\s+deinstytucjonalizacji|petycj|wyborcz|łowieck/i.test(t)) return true;
-  // pure lease/rent without sale
   if (/dzierżaw|najm|użyczen/i.test(t) && !/sprzeda/i.test(t)) return true;
   return false;
 }
@@ -124,28 +108,24 @@ function normalizeStreetCase(street) {
 export function addressRawFromText(text, fallbackTitle = '') {
   const combined = (text ? text.slice(0, 3000) : '') + '\n' + (fallbackTitle || '');
 
-  // 1. "ul. Street Bldg/Apt" (e.g. "ul. Nowowiejskiego 18/1A", "ul. Jagiełły 6/6")
   const slashMatch = /(?:ul\.|ulicy|przy\s+ulicy|przy\s+ul\.)\s+([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ]+(?:\s+[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ]+)?)\s+(\d+[A-Za-z]?)\s*\/\s*(\d+[A-Za-z]?)/i.exec(combined);
   if (slashMatch) {
     const street = normalizeStreetCase(slashMatch[1].trim());
     return `ul. ${street} ${slashMatch[2]}/${slashMatch[3]}`;
   }
 
-  // 2. "lokal mieszkalny nr <apt> ... budynku nr <bldg> przy ul. <street>"
   const bldgFirstM = /lokal\w*\s+mieszkaln\w*\s+(?:nr\s+)?(\d+[A-Za-z]?)[^.\n]*?budynk\w*\s+(?:nr\s+)?(\d+[A-Za-z]?)[^.\n]*?(?:przy\s+)?(?:ul\.|ulicy)\s+([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ]+(?:\s+[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ]+)?)/i.exec(combined);
   if (bldgFirstM) {
     const street = normalizeStreetCase(bldgFirstM[3].trim());
     return `ul. ${street} ${bldgFirstM[2]}/${bldgFirstM[1]}`;
   }
 
-  // 3. "lokal mieszkalny nr <apt> ... przy ul. <street> <bldg>"
   const streetFirstM = /lokal\w*\s+mieszkaln\w*\s+(?:nr\s+)?(\d+[A-Za-z]?)[^.\n]*?(?:przy\s+)?(?:ul\.|ulicy)\s+([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ]+(?:\s+[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ]+)?)\s+(\d+[A-Za-z]?)/i.exec(combined);
   if (streetFirstM) {
     const street = normalizeStreetCase(streetFirstM[2].trim());
     return `ul. ${street} ${streetFirstM[3]}/${streetFirstM[1]}`;
   }
 
-  // 4. Fallback for building without apt: "ul. Street Bldg"
   const bldgMatch = /(?:ul\.|ulicy|przy\s+ulicy|przy\s+ul\.)\s+([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ]+(?:\s+[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ]+)?)\s+(\d+[A-Za-z]?)(?:[,\s.]|$)/i.exec(combined);
   if (bldgMatch) {
     const street = normalizeStreetCase(bldgMatch[1].trim());

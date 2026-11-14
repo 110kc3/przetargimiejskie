@@ -1,17 +1,3 @@
-// Kościerzyna crawler.
-//
-// Source: bip.koscierzyna.gda.pl — INTERmedi@ CMS-BIP server-rendered HTML.
-//
-// Boards:
-//   Announcements and results are categorized by year under "Ogłoszenia o przetargach i aukcjach" (cid=206):
-//     https://bip.koscierzyna.gda.pl/?bip=1&bsc=N&cid={cid}&pg={page}
-//   Known year category IDs:
-//     2026: 557, 2025: 501, 2024: 454, 2023: 437, 2022: 424, 2021: 360, 2020: 209, 2019: 208.
-//
-// Document layer:
-//   Notice details reside in attached born-digital text PDFs (pdfText).
-//   Results ("Wyniki przetargu") are attached to the same announcement article after the auction;
-//   some are born-digital text PDFs, while older or scanned notices require OCR fallback via ocrPdf.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -84,7 +70,6 @@ export async function extractAttachmentText(url) {
       return '';
     }
   }
-  // Try native text first, fall back to OCR
   try {
     const text = await pdfText(url);
     if (text && text.trim().length > 30) return text;
@@ -108,7 +93,6 @@ async function doCrawlActive() {
 
   const allYears = await discoverYearCids(ORIGIN);
   const currentYear = new Date().getFullYear();
-  // Active listings exist in current year and previous year boards
   const activeYears = allYears.filter((y) => y.year >= currentYear - 1);
 
   for (const { year, cid } of activeYears) {

@@ -1,8 +1,3 @@
-// Chrzanów parser test — MULTI-PROPERTY land TABLE. Fixture is a condensed-but-
-// faithful copy of the REAL notice (verified 2026-06-26): obręb Pogorzyce, ul.
-// Borowcowej, dz. 49/283 (0,0912 ha) = 205 000 zł and dz. 49/284 (0,0972 ha) =
-// 217 000 zł, przetarg 19.11.2025. The shared road działka 49/286 (udział, no
-// cena) is correctly skipped.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -62,8 +57,6 @@ test('empty boards and API failures do not masquerade as a successful empty craw
 });
 
 test('October source table preserves one combined price and area for all three parcels', () => {
-  // Rendered official article 2950984, fetched 2026-10-19. The whole lot has
-  // three constituent areas plus a displayed total; the price is not per parcel.
   const rows = parseAnnouncement('', currentNotice(), 'https://bip.malopolska.pl/umchrzanow,a,2950984');
   assert.equal(rows.length, 1);
   assert.equal(rows[0].kind, 'grunt');
@@ -100,7 +93,7 @@ test('helpers', () => {
   assert.equal(isSaleAnnouncement(BODY), true);
   assert.equal(obrebFromText(BODY), 'Pogorzyce');
   assert.equal(streetFromText(BODY), 'Borowcowej');
-  assert.equal(parseRows(BODY).length, 2); // shared road działka (no cena) skipped
+  assert.equal(parseRows(BODY).length, 2);
 });
 
 test('parseAnnouncement: 2 priced land rows', () => {
@@ -109,7 +102,7 @@ test('parseAnnouncement: 2 priced land rows', () => {
   assert.equal(recs[0].kind, 'grunt');
   assert.equal(recs[0].dzialka_nr, '49/283');
   assert.equal(recs[0].obreb, 'Pogorzyce');
-  assert.equal(recs[0].area_m2, 912); // 0,0912 ha
+  assert.equal(recs[0].area_m2, 912);
   assert.equal(recs[0].address_raw, 'ul. Borowcowej');
   assert.equal(recs[0].starting_price_pln, 205000);
   assert.equal(recs[0].auction_date, '2025-11-19');

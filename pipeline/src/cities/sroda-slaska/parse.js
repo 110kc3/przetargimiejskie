@@ -1,4 +1,3 @@
-// Środa Śląska parsers — bip.srodaslaska.pl (e-bip.eu platform).
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';

@@ -1,6 +1,3 @@
-// Olecko crawler (bip.olecko.pl)
-//
-// Scrapes /1539/sprzedaz-nieruchomosci.html.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

@@ -1,20 +1,3 @@
-// Wałbrzych parser tests.
-//
-// Fixtures are faithful copies of the REAL `pdftotext -layout` output of live
-// result-notice PDFs and the real board HTML, verified 2026-06-27:
-//
-//   Result PDF 1 — /attachments/download/50920 (22.01.2025, 6 lots)
-//     Flats: ul. Mickiewicza 6/9, ul. Proletariacka 17/7, Rynek 13/10,
-//            ul. Daszyńskiego 27/4 (unsold), ul. Brzechwy 11/9A (unsold),
-//            ul. Słowicza 19/3
-//   Result PDF 2 — /attachments/download/50807 (08.01.2025, 7 lots)
-//     No residential flats — land parcels and one building only.
-//
-//   Board HTML — /przetargi-nieruchomosci/1/25 (live, 2026-06-27)
-//     Parsed to extract "lokal mieszkalny" cards only.
-//
-// Ground-truth values verified directly from the PDF text (see raw extraction
-// in walbrzych.md spike notes).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -46,22 +29,7 @@ test('normalizeBoardAddress: strips venue prose and aligns the Andersa spelling'
   );
 });
 
-// ── Real PDF fixture: 22.01.2025, 6 lots ────────────────────────────────────
-//
-// Source: pdftotext -layout result_22jan2025.pdf - (downloaded 2026-06-27)
-// PDF: https://bip.um.walbrzych.pl/attachments/download/50920
-//
-// The fixture below is a condensed but positionally faithful copy.
 // Column positions preserved (spaces count). Critical columns:
-//   Lp.         ~col 1
-//   Rodzaj      ~col 43
-//   Oznaczenie  ~col 57
-//   CenaWy      ~col 121
-//   CenaOs      ~col 142
-//   Nabywca     ~col 175
-//
-// Key: flats have "NN/NN" apartment in the first address token.
-// Non-flats (if any were here) would have address without "/" in final segment.
 
 const RESULT_22JAN = `                                              Informacja o wynikach przetargów przeprowadzonych w dniu 22.01.2025 r.
                                                          w siedzibie Urzędu Miejskiego przy ul. Kopernika 2
@@ -137,7 +105,6 @@ Informacja była wywieszona na tablicy ogłoszeń od 29.01.2025 r. do dnia 05.02
 Sporządziła: M. Bednarska                                                                                                                           Kacper Nogajczyk
 `;
 
-// ── isResultNotice ───────────────────────────────────────────────────────────
 
 test('isResultNotice: recognises a Wałbrzych result PDF', () => {
   assert.equal(isResultNotice(RESULT_22JAN), true);
@@ -153,7 +120,6 @@ test('isResultNotice: rejects non-result text', () => {
   assert.equal(isResultNotice(null), false);
 });
 
-// ── auctionDateFromTitle ─────────────────────────────────────────────────────
 
 test('auctionDateFromTitle: extracts DD.MM.YYYY from title line', () => {
   assert.equal(auctionDateFromTitle(RESULT_22JAN), '2025-01-22');
@@ -165,7 +131,6 @@ test('auctionDateFromTitle: null on missing date', () => {
   assert.equal(auctionDateFromTitle(null), null);
 });
 
-// ── roundFromCell ────────────────────────────────────────────────────────────
 
 test('roundFromCell: Roman numeral prefix', () => {
   assert.equal(roundFromCell('I przetarg'), 1);
@@ -180,7 +145,6 @@ test('roundFromCell: null on empty/missing', () => {
   assert.equal(roundFromCell('rokowania'), null);
 });
 
-// ── isFlatAddressLine ────────────────────────────────────────────────────────
 
 test('isFlatAddressLine: accepts flat addresses (with apt /N suffix)', () => {
   assert.equal(isFlatAddressLine('ul. Mickiewicza 6/9'), true,   'ul. Mickiewicza 6/9');
@@ -202,7 +166,6 @@ test('isFlatAddressLine: rejects non-flat addresses', () => {
   assert.equal(isFlatAddressLine(null), false);
 });
 
-// ── normaliseAddressLine ─────────────────────────────────────────────────────
 
 test('normaliseAddressLine: leaves ul.-prefixed addresses unchanged', () => {
   assert.equal(normaliseAddressLine('ul. Mickiewicza 6/9'), 'ul. Mickiewicza 6/9');
@@ -219,7 +182,6 @@ test('normaliseAddressLine: adds ul. prefix to bare street names', () => {
   assert.equal(normaliseAddressLine('Plac Wolności 1/3'), 'ul. Plac Wolności 1/3');
 });
 
-// ── parseResultDoc (full integration, real fixtures) ────────────────────────
 
 test('parseResultDoc: guard — non-result text returns empty', () => {
   assert.deepEqual(
@@ -270,8 +232,6 @@ test('parseResultDoc: 22.01.2025 — Lp.3 Rynek 13/10 sold (113 000 zł with bon
   assert.equal(rynek.address.key, 'rynek|13|10');
   assert.equal(rynek.starting_price_pln, 43000);
   assert.equal(rynek.outcome, 'sold');
-  // The achieved price of 113 000 may or may not parse cleanly due to the
-  // "(bonifikata zabytkowa 50%)" note in the cell — accept both
   assert.ok(rynek.final_price_pln === 113000 || rynek.final_price_pln === null,
     `Rynek final_price_pln should be 113000 or null (with bonifikata note), got ${rynek.final_price_pln}`);
 });
@@ -305,13 +265,6 @@ test('parseResultDoc: 22.01.2025 — Lp.6 ul. Słowicza 19/3 sold for 82 000 zł
   assert.equal(slow.outcome, 'sold');
 });
 
-// ── Real PDF fixture: 08.01.2025 — 7 lots, NO flats ────────────────────────
-//
-// Source: pdftotext -layout result_08jan2025.pdf - (downloaded 2026-06-27)
-// PDF: https://bip.um.walbrzych.pl/attachments/download/50807
-//
-// All 7 lots are land parcels or a building — NONE are residential flats.
-// parseResultDoc() must return an EMPTY array for this PDF.
 
 const RESULT_08JAN = `                                 Informacja o wynikach przetargów i rokowań przeprowadzonych w dniu 08.01.2025 r.
                                                  w siedzibie Urzędu Miejskiego przy ul. Kopernika 2
@@ -374,9 +327,6 @@ test('parseResultDoc: 08.01.2025 — auction date from title', () => {
 });
 
 test('parseResultDoc: shifted table columns keep complete starting and achieved prices', () => {
-  // Faithful row excerpts from live result PDFs 55702 (2026-02-25) and 53761
-  // (2025-09-17). Their price columns start around character 96 rather than
-  // the historical 113, which previously truncated the values to 600/500/800.
   const shifted = `
                                        Informacja o wynikach przetargów przeprowadzonych w dniu 25.02.2026 r.
 \f                                               ul. Wrocławska 132/14
@@ -403,8 +353,6 @@ test('parseResultDoc: shifted table columns keep complete starting and achieved 
 });
 
 test('parseResultDoc: prices wrapped below the Lp. marker stay with their address', () => {
-  // Faithful excerpts from live PDFs 52917 and 56315. These templates put the
-  // row number/cadastral field on one line and the round/prices on the next.
   const wrapped = `
     Informacja o wynikach przetargów przeprowadzonych w dniu 15.04.2026 r.
                                         Andersa 113/2
@@ -444,7 +392,6 @@ test('parseResultDoc: rejects same-line legacy rows rather than pairing them wit
 test('parseResultDoc: fallbackDate used when no date in title', () => {
   const noDate = RESULT_22JAN.replace(/w dniu 22\.01\.2025 r\./, 'w dniu (data)');
   const recs = parseResultDoc(noDate, '2025-01-22', 'https://example.com/test');
-  // Must not throw; if records parsed, they should use the fallback date
   assert.ok(recs.length >= 0);
   if (recs.length > 0) {
     assert.ok(recs[0].auction_date === '2025-01-22' || recs[0].auction_date === null);
@@ -502,12 +449,8 @@ test('parseResultDoc: multi-property prose notice ignores the city-hall address'
   assert.equal(recs[0].outcome, 'sold');
 });
 
-// ── crawl helpers ────────────────────────────────────────────────────────────
 
-// parseBoardPage — minimal structural test (no network)
 test('parseBoardPage: filters for lokal mieszkalny only', () => {
-  // Minimal synthetic HTML with two cards (flat + land), mirroring the live
-  // Logonet markup: <table> card blocks, <th scope="row"> labels, absolute hrefs.
   const html = `
     <table class="table table-borderless">
       <tr><th scope="row">Adres nieruchomości</th><td class="normal"><a href="https://bip.um.walbrzych.pl/przetarg-nieruchomosci/12345/przy-ul-testowej">ul. Testowa 3/2</a></td></tr>
@@ -527,9 +470,6 @@ test('parseBoardPage: filters for lokal mieszkalny only', () => {
   assert.equal(cards[0].kind, 'mieszkalny');
   assert.equal(cards[0].starting_price_pln, 80000);
   assert.equal(cards[0].auction_date, '2026-06-10');
-  // Regression: the card MUST carry a parsed `address` (the key buildCityData
-  // needs) and expose it as `detail_url` — without these every card was
-  // silently dropped in the build (0 unique_properties despite N active cards).
   assert.equal(cards[0].address.key, 'testowa|3|2');
 });
 
@@ -550,7 +490,6 @@ test('parseBoardPage: cadastral suffix cannot replace the flat address', () => {
   assert.equal(card.address.key, 'kosynierow|3A|1');
 });
 
-// parseMonthUrls
 test('parseMonthUrls: extracts month page links from year-index sidebar', () => {
   const html = `
     <a href="/artykuly/3129/styczen">styczeń</a>
@@ -562,7 +501,6 @@ test('parseMonthUrls: extracts month page links from year-index sidebar', () => 
   assert.ok(urls.some((u) => u.endsWith('/styczen')));
   assert.ok(urls.some((u) => u.endsWith('/luty')));
   assert.ok(urls.some((u) => u.endsWith('/marzec')));
-  // Non-month link must NOT be included
   assert.ok(!urls.some((u) => u.endsWith('/urzad-miejski')));
 });
 
@@ -574,7 +512,6 @@ test('parseMonthUrls: deduplicates repeated links', () => {
   assert.equal(urls.length, 1);
 });
 
-// parseArticleUrls
 test('parseArticleUrls: extracts article URLs from month page', () => {
   const html = `
     <h2><a href="/artykul/3129/46568/informacja-o-wynikach-przetargow-22-01-2025">art 1</a></h2>
@@ -586,7 +523,6 @@ test('parseArticleUrls: extracts article URLs from month page', () => {
   assert.ok(urls.some((u) => u.includes('46488')));
 });
 
-// parsePdfUrl
 test('parsePdfUrl: extracts PDF download link from article page', () => {
   const html = `
     <a href="/attachments/download/50920" title="Plik do pobrania">22.01.2025 wynik przetargu</a> pdf, 115 kB`;

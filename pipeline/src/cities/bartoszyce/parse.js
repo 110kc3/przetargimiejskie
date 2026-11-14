@@ -1,21 +1,7 @@
-// Bartoszyce parsers — announcement PDFs + result ("informacja o wyniku przetargu") PDFs.
-// Both are published on the city BIP (bip.bartoszyce.pl/160/).
-//
-// Groundtruthed against real municipal documents:
-//   Flats:
-//     - ul. Generała Bema 57/2 (I przetarg, 2026-04-16, 49.80 m2, sold 96 000 -> 96 960 zł, buyer Michał Andruszkiewicz)
-//     - ul. Warszawska 14/3 (II przetarg, 2024-07-04, 42.06 m2, cena 120 000 zł)
-//     - ul. Słowackiego 28/50 (I przetarg, 2025-06-12, 36.06 m2, cena 120 000 zł)
-//     - ul. Konopnickiej 6/4A (I przetarg, 2023-09-07, 39.40 m2, cena 99 000 zł)
-//   Land:
-//     - ul. Rotmistrza Witolda Pileckiego (dz. 454..458, round II unsold, round III active 2026-11-25)
-//     - ul. Gdańska (dz. 431 i 432, round I, 2026-10-01, sold 363 000 -> 366 630 zł, buyers Arkadiusz i Izabela Gołombiewscy)
-//     - ul. Topolowa i Poprzeczna (dz. 409 sold 74 000 -> 80 000 zł, dz. 410 sold 73 000 -> 74 000 zł, 2026-03-05)
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
-// ── folding / numbers ────────────────────────────────────────────────────────
 
 function foldPl(s) {
   return (s || '')
@@ -24,12 +10,6 @@ function foldPl(s) {
     .replace(/ń/g, 'n').replace(/ó/g, 'o').replace(/ś/g, 's').replace(/[żź]/g, 'z');
 }
 
-/**
- * "96.000,00 zł" / "96 960,00 zł." / "120.000,00" -> integer PLN.
- * Handles space/NBSP/dot as thousands separator and comma as decimal separator.
- * @param {string} s
- * @returns {number|null}
- */
 export function parsePLN(s) {
   if (!s) return null;
   const cleaned = String(s)
@@ -41,11 +21,6 @@ export function parsePLN(s) {
   return Number.isFinite(n) && n > 0 ? Math.round(n) : null;
 }
 
-/**
- * "0,1629 ha" / "0.7183" -> float ha.
- * @param {string} s
- * @returns {number|null}
- */
 export function parseHa(s) {
   if (!s) return null;
   const cleaned = String(s).replace(/ha/gi, '').trim().replace(',', '.');
@@ -53,17 +28,11 @@ export function parseHa(s) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/** Hectares string -> integer m2. */
 export function haToM2(s) {
   const ha = parseHa(s);
   return ha != null ? Math.round(ha * 10000) : null;
 }
 
-/**
- * "49,80 m2" / "42,06" -> float m2.
- * @param {string} s
- * @returns {number|null}
- */
 export function parseAreaM2(s) {
   if (s == null) return null;
   const cleaned = String(s).replace(/m2|m²/gi, '').trim().replace(',', '.');
@@ -80,7 +49,6 @@ export function monthNum(word) {
   return PL_MONTHS[foldPl(word)] || null;
 }
 
-// ── round ────────────────────────────────────────────────────────────────────
 
 const ROMAN_VALUES = { I: 1, V: 5, X: 10 };
 function romanToRound(s) {
@@ -117,9 +85,7 @@ export function announceRoundFromText(text) {
   return /^[IVXivx]+$/.test(token) ? romanToRound(token) : wordToRound(token);
 }
 
-// ── dates ────────────────────────────────────────────────────────────────────
 
-// "Przetarg odbędzie się dnia 16 kwietnia 2026 r." / "dnia 12.06.2025 r."
 const ANNOUNCE_DATE_RE =
   /przetarg\s+odb[ęe]dzie\s+si[ęe]\s+(?:dnia|w\s+dniu)\s+(\d{1,2}\.\d{1,2}\.\d{4}|\d{1,2}\s+[a-ząćęłńóśźż]+\s+\d{4})/i;
 
@@ -139,7 +105,6 @@ export function announceDateFromText(text) {
   return null;
 }
 
-// "przeprowadzonego w dniu 16 kwietnia 2026 r." / "w dniu 1 października 2026 r."
 const RESULT_DATE_RE =
   /(?:przeprowadzonego\s+)?w\s+dniu\s+(\d{1,2}\.\d{1,2}\.\d{4}|\d{1,2}\s+[a-ząćęłńóśźż]+\s+\d{4})\s*r/i;
 
@@ -159,29 +124,23 @@ export function resultDateFromText(text) {
   return null;
 }
 
-// ── gates ────────────────────────────────────────────────────────────────────
 
-/** Excludes leases / rentals (dzierżawa, ogródki gastronomiczne, najem stoisk). */
 export function isLease(text) {
   return /dzier[żz]aw|najem\s+lokalu|\bogrodk[óo]w\s+gastronomiczn/i.test(text || '');
 }
 
-/** Check if document is a result notice. */
 export function isResultNotice(text) {
   return /informacj[a-ząćęłńóśźż]*\s+o\s+wynik/i.test(text || '');
 }
 
-/** Check if document is an auction announcement. */
 export function isAnnouncementNotice(text) {
   return /og[łl]oszenie\s+o\s+przetargu|og[łl]asza\s+.*przetarg/i.test(text || '');
 }
 
-/** Check if result row / doc is an unsold outcome. */
 export function isNegativeOutcome(text) {
   return /nie\s+zosta[łl]a\s+zbyta|brak\s+nabywcy|wynikiem\s+negatywnym|brak\s+wp[łl]aty\s+wadium/i.test(text || '');
 }
 
-// ── announcement flat address ────────────────────────────────────────────────
 
 export function announceFlatAddressRaw(text) {
   const t = text || '';
@@ -214,14 +173,7 @@ export function startingPriceFromText(text) {
   return m ? parsePLN(m[1]) : null;
 }
 
-// ── announcement parser ──────────────────────────────────────────────────────
 
-/**
- * Parse one announcement PDF text into listing or land records.
- * @param {string} text
- * @param {{ pdfUrl?: string, detailUrl?: string, fallbackAuctionDate?: string|null }} [ctx]
- * @returns {Array<object>}
- */
 export function parseAnnouncement(text, ctx = {}) {
   if (!text) return [];
   if (isLease(text)) return [];
@@ -251,11 +203,9 @@ export function parseAnnouncement(text, ctx = {}) {
     }];
   }
 
-  // Land / plots
   const isLand = /dzia[łl]k|grunt|niezabudowan/i.test(text);
   if (!isLand) return [];
 
-  // Check multi-parcel land table (e.g. Pileckiego: 5 parcels)
   const tablePartM = text.match(/I\.\s+Oznaczenie[\s\S]*?(?=II\.|\n[A-Z]{2,}\.|$)/i);
   if (tablePartM) {
     const tablePart = tablePartM[0];
@@ -266,7 +216,6 @@ export function parseAnnouncement(text, ctx = {}) {
         const dzialka_nr = r[2].trim();
         const ha = r[3].trim();
         let street = r[5].trim();
-        // If street was cut like "ul. Rotmistrza Witolda", expand from full doc if known
         if (/Rotmistrza\s+Witolda/i.test(street) && !/Pileckiego/i.test(street)) {
           street = 'ul. Rotmistrza Witolda Pileckiego';
         }
@@ -287,7 +236,6 @@ export function parseAnnouncement(text, ctx = {}) {
     }
   }
 
-  // Single plot or two-parcel plot (e.g. Gdańska 431 i 432)
   const singleDzM = text.match(/dzia[łl]k\w*\s+Nr\s*([0-9a-zA-Z\s\/i]+?)(?=\s+(?:o\s+)?pow|\s+ul|\s+KW|\s*,|\n)/i);
   const singleHaM = text.match(/(\d+[.,]\d+)\s*ha/i);
   const singleStreetM = text.match(/przy\s+(ul\.?\s+[A-ZĄĆĘŁŃÓŚŹŻ][^\n,]+?)(?:\s+w\s+Bartoszycach|\s*,|\s+KW|\n)/i) ||
@@ -314,23 +262,13 @@ export function parseAnnouncement(text, ctx = {}) {
   return [];
 }
 
-// ── result parser ────────────────────────────────────────────────────────────
 
-/**
- * Parse one "informacja o wyniku przetargu" PDF text into concluded auction records.
- * @param {string} text
- * @param {string|null} [fallbackDate]
- * @param {string|null} [sourceUrl]
- * @returns {Array<object>}
- */
 export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
   if (!text || !isResultNotice(text)) return [];
   if (isLease(text)) return [];
 
   const auction_date = resultDateFromText(text) || fallbackDate || null;
 
-  // Find column headers in table:
-  // "Lp.   Oznaczenie nieruchomości wg     Liczba osób dopuszczonych i    Cena wywoławcza      Najwyższa cena      Imię i nazwisko osoby"
   const lines = text.split('\n');
   const headerLineIdx = lines.findIndex((l) => l.includes('Oznaczenie'));
   if (headerLineIdx === -1) return [];
@@ -367,7 +305,6 @@ export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
       };
     }
     if (curRow) {
-      // Find boundary before "Osoby dopuszczone" in this line if present
       const osobyIdx = line.search(/Osoby\s+dopuszczone|Osoby\s+nie\s+dopuszczone/i);
       const col1End = osobyIdx > -1 ? osobyIdx : cLiczba;
 
@@ -386,7 +323,6 @@ export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
 
   const records = [];
 
-  // Extract header street / location as fallback
   const hdrStreetM = text.match(/(?:po[łl]o[żz]on\w*\s+)?(?:w\s+budynku\s+)?przy\s+(ul\.?\s+[A-ZĄĆĘŁŃÓŚŹŻ][^\n,]+?)(?:\s+w\s+Bartoszycach|\s*,|\n)/i);
   const fallbackStreet = hdrStreetM ? hdrStreetM[1].trim() : null;
 
@@ -405,7 +341,6 @@ export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
     const isFlat = /lokal\s+mieszkaln/i.test(oznaczenie) || /lokal\s+mieszkaln/i.test(text.slice(0, headerLineIdx));
 
     if (isFlat) {
-      // Flat address
       let addrRaw = null;
       const addrM = oznaczenie.match(/(?:przy\s+)?(ul\.?\s+[A-ZĄĆĘŁŃÓŚŹŻ][^\n,]+?\s+\d+[A-Za-z]?(?:\/\d+[A-Za-z]?)?)/i);
       if (addrM) {
@@ -436,13 +371,11 @@ export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
         notes: [],
       });
     } else {
-      // Land
       const dzM = oznaczenie.match(/dzia[łl]k\w*\s+nr\.?\s*([0-9a-zA-Z\s\/i]+?)(?=\s+(?:o\s+)?pow|\s+ul|\s+KW|\s*,|\n|$)/i);
       const haM = oznaczenie.match(/(\d+[.,]\d+)\s*ha/i);
       const streetM = oznaczenie.match(/(ul\.?\s+[A-ZĄĆĘŁŃÓŚŹŻ][^\n,]+?)(?=\s+KW|\s+pow|\s+Osoby|\s+\d|\n|$)/i);
 
       let street = streetM ? streetM[1].trim() : fallbackStreet || 'Bartoszyce';
-      // Normalize wrapped street name
       if (/Rotmistrza\s+Witolda/i.test(street) && !/Pileckiego/i.test(street)) {
         street = 'ul. Rotmistrza Witolda Pileckiego';
       }

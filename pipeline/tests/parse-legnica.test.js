@@ -1,15 +1,3 @@
-// Legnica parser tests — groundtruthed against REAL fixtures (2026-06-27).
-//
-// Fixtures captured from:
-//   Board:       https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale
-//   Announcement detail: /38606,Ogloszenie-o-przetargu-na-lokal-przy-ul-Anielewicza-3-b.html
-//   Announcement .docx: https://um.bip.legnica.eu/download/107/64946/20260616przetarganiel.docx
-//   Result notice:  /37987,Wynik-przetargu-ul-Nowy-Swiat-2.html
-//   Result .doc:    https://um.bip.legnica.eu/download/107/63566/INFORMACJA.doc
-//
-// The .docx content was extracted via `unzip -p … word/document.xml` + XML stripping.
-// The .doc (OLE) was extracted via `libreoffice --convert-to txt`.
-// All field values are verified against the actual documents — not inferred.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -24,14 +12,6 @@ import {
   areaFromText,
 } from '../src/cities/legnica/parse.js';
 
-// ── Board page parser ────────────────────────────────────────────────────────
-//
-// Condensed but structurally faithful copy of the real BIP-E.PL board HTML
-// (page 0, 2026-06-27). Three types of row present:
-//   • "lokal mieszkalny nr 8" at ul. Anielewicza 3b — W toku (residential flat)
-//   • "lokal użytkowy nr 1 b" at ul. Wrocławska 45  — W toku (commercial)
-//   • "lokal mieszkalny nr 6" at ul. Nowy Świat 2   — Rozstrzygniety (result)
-//   • "budynki dawnego Teatru…" at ul. Kartuska     — W toku  (building — skip)
 
 const BOARD_HTML = `
 <ul class="">
@@ -105,12 +85,6 @@ test('parseBoardPage: empty HTML returns empty array', () => {
   assert.deepEqual(parseBoardPage('<html><body>nic</body></html>'), []);
 });
 
-// ── attachmentUrlFromDetail ───────────────────────────────────────────────────
-//
-// Real detail page HTML contains:
-//   <a href="/download/107/64946/20260616przetarganiel.docx">pełny tekst ogłoszenia …</a>
-// Result notice has:
-//   <a href="/download/107/63566/INFORMACJA.doc">Wynik przetargu …</a>
 
 test('attachmentUrlFromDetail: extracts .docx href from announcement page', () => {
   const html = `<a href="/download/107/64946/20260616przetarganiel.docx">
@@ -135,15 +109,6 @@ test('attachmentUrlFromDetail: returns null when no attachment link', () => {
   assert.equal(attachmentUrlFromDetail(''), null);
 });
 
-// ── Announcement .docx parser ─────────────────────────────────────────────────
-//
-// Fixture: REAL .docx content from ul. Anielewicza 3b/8, extracted 2026-06-27.
-// Source: https://um.bip.legnica.eu/download/107/64946/20260616przetarganiel.docx
-// Ground truth (verified from the document):
-//   area_m2 = 46.10   (from "Powierzchnia  46,10 m² i 1,96 m²")
-//   starting_price_pln = 170000  (from "Cena lokalu  170 000,00 zł, w tym grunt: 5 400,00 zł")
-//   auction_date = '2026-07-20'  (from "Przetarg odbędzie się 20.07. 2026 r.")
-//   round = 7  (Pierwszy…szósty in history → 7th round)
 
 const ANN_ANIELEWICZA = `Ogłoszenie o przetargu ustnym nieograniczonym
 Prezydent Miasta Legnicy ogłasza, że 20.07. 2026 r. odbędzie się przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 8, położonego w Legnicy przy ul.  Anielewicza 3 b.
@@ -193,7 +158,6 @@ test('parseAnnouncement: round — 7 (sixth in history → current is 7th)', () 
   assert.equal(f.round, 7);
 });
 
-// Additional first-round fixture (no history clause → round 1)
 const ANN_FIRST_ROUND = `Prezydent Miasta Legnicy ogłasza, że 16.07.2026 r. odbędzie się przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 7, położonego w Legnicy przy ul. Piastowskiej 10.
 Powierzchnia
 55,30 m²
@@ -209,7 +173,6 @@ test('parseAnnouncement: first round — no history clause → round 1', () => {
   assert.equal(f.area_m2, 55.3);
 });
 
-// Parser helpers: empty/null safety
 test('parser helpers: null/empty inputs return null without throwing', () => {
   assert.equal(roundFromText(''), null);
   assert.equal(roundFromText(null), null);
@@ -226,25 +189,14 @@ test('priceFromText: handles space-thousands "170 000,00 zł"', () => {
 });
 
 test('priceFromText: handles dot-thousands "151.500,00 zł" (result style)', () => {
-  // From result doc context
   assert.equal(priceFromText('Cena wywoławcza 150 000,00 zł'), 150000);
 });
 
 test('areaFromText: ignores parcel area (m2 after dz./grunt)', () => {
   const text = 'Dz. nr 1294/1 o pow. 194 m2, obręb Fabryczna\nPowierzchnia\n46,10 m² i 1,96 m²';
-  assert.equal(areaFromText(text), 46.1); // NOT 194 (parcel)
+  assert.equal(areaFromText(text), 46.1);
 });
 
-// ── Result doc parser ─────────────────────────────────────────────────────────
-//
-// Fixture: REAL result from /download/107/63566/INFORMACJA.doc (OLE .doc),
-// converted via `libreoffice --convert-to txt`. Ground truth (verified 2026-06-27):
-//   address:            'ul. Nowy Świat 2/6'
-//   area_m2:            48.78
-//   starting_price_pln: 150000
-//   final_price_pln:    151500
-//   outcome:            'sold'
-//   auction_date:       '2026-03-16' (from "16 marca 2026 r. odbył się")
 
 const RESULT_NOWY_SWIAT = `
 
@@ -331,17 +283,14 @@ test('parseResultDoc: Nowy Świat 2/6 — kind mieszkalny', () => {
 });
 
 test('parseResultDoc: fallbackDate used when body has no date', () => {
-  // Strip the date sentence from the fixture
   const noDate = RESULT_NOWY_SWIAT.replace(/16 marca 2026 r\. odby[łl] si[ęe]/i, 'odbył się');
   const recs = parseResultDoc(noDate, '2026-03-16', 'https://example.com');
-  // Either picked up from fallback or null — either way must not throw
   assert.ok(recs.length >= 0);
   if (recs.length > 0) {
     assert.ok(recs[0].auction_date === '2026-03-16' || recs[0].auction_date === null);
   }
 });
 
-// Negative outcome: no buyer, no final price
 const RESULT_NEGATIVE = `INFORMACJA
 dotycząca rozstrzygnięcia przetargu
 Prezydent Miasta Legnicy informuje, że 5 maja 2026 r. odbył się przetarg na sprzedaż lokalu mieszkalnego.

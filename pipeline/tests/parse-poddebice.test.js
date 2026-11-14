@@ -1,59 +1,3 @@
-// Poddębice parser tests. Every fixture below is a faithful copy of REAL
-// strings fetched live from bip.poddebice.pl on 2026-07-10 (board id=102,
-// devcomm "bipv45"): titles are copied verbatim from the DataTables JSON list
-// endpoint (&akcja=pobierz_dokumenty_ajax), and PDF bodies are the ACTUAL
-// `pdftotext -layout` output of the real attachment (some trimmed to the
-// contiguous lines the parsers actually read — verified byte-for-byte
-// identical extraction results against the untrimmed document before
-// trimming; see parse.js's file header for the full fixture catalogue).
-//
-//   p2=10065722  ul. Przejazd 18/28 — FLAT, PENDING, przetarg 7 lipca 2026,
-//                cena 285.000 zł (wadium 28.500 zł), pow. 43,54 m2. No round
-//                stated (this board never spells out round 1).
-//   p2=10066232  Poddębice obr. 1, dz. 122/2 — LAND ("gruntowej
-//                zabudowanej" — has an old outbuilding, still no street
-//                address), PENDING, przetarg 22 lipca 2026, cena 20.000 zł
-//                (wadium 2.000 zł, INLINE "t.j." phrasing — no bullet list),
-//                pow. 54 m2.
-//   p2=10056362  obręb Dzierzązna — LAND, 4-item multi-parcel notice
-//                (182/3, 182/5, a 183/4+182/4 combo, 311), one wadium BULLET
-//                each ("- dla działki nr … - N zł"), przetarg 3 listopada
-//                2025.
-//   p2=10064614  Poddębice obr. 6, dz. 5/5+5/6+5/7+5/8 — LAND, one 4-parcel
-//                COMBO item, cena 5.120.000 zł (wadium 512.000 zł) via a 3rd
-//                wadium phrasing: "t.j. dla działek Nr …, Nr … - N zł" (no
-//                bullet, but names every parcel), przetarg 12 sierpnia 2026.
-//   p2=10063641  obręb 11 + obręb Antonina (one notice, TWO obręby) — LAND,
-//                2 items (dz. 84/8 obręb 11, dz. 112/2 obręb Antonina) via a
-//                4th wadium phrasing with a "1.600,-zł" dash-grosze amount
-//                and no leading "- " separator before the number, przetarg
-//                26 maja 2026.
-//   p2=10014817  "... o przetargu ustnym nieograniczonym dot. oddanie w
-//                najem lokalu użytkowego - garażu ..." — LEASE (2022),
-//                real title only (never reaches PDF parsing — the lease
-//                gate fires on the title alone).
-//   p2=10062730  "... w sprawie ustalenia wykazu i ogłoszenia do sprzedaży
-//                w formie przetargu ustnego nieograniczonego nieruchomości
-//                lokalowych ..." — WYKAZ PRE-ANNOUNCEMENT (no committed
-//                date/price of its own yet), title only — excluded by
-//                isAuctionSaleTitle, never reaches crawlActive's PDF fetch.
-//   p2=10064020  "... wykazu nieruchomości lokalowych ... w trybie
-//                bezprzetargowym na rzecz dotychczasowych najemców ..." —
-//                tenant buy-out designation (never an auction), title only.
-//
-// GENUINE PARSER BUG found + fixed while groundtruthing this adapter: the
-// shared core/classify-kind.js FLAT_RE requires "lokal" and "mieszkalny"
-// adjacent ("lokal mieszkalny"), but every real Poddębice flat title reads
-// "... na sprzedaż nieruchomości LOKALOWEJ ... w budynku MIESZKALNYM
-// wielorodzinnym ..." — the words describe different nouns and are never
-// adjacent, so classifyKind(title) alone returns 'grunt'/'unknown' for every
-// real flat here (verified: a first crawlActive() run against live data
-// found "0 flat listing(s), 27 land record(s)" — Przejazd 18 had been
-// silently mis-routed into the land stream). Fixed in parse.js's
-// kindFromTitle() by checking Poddębice's own "nieruchomości
-// lokalowej/lokalowych" phrasing before falling back to classifyKind() —
-// core/ is shared and was NOT modified. See the roundtripFlat vs
-// classifyKind regression test below.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -75,7 +19,6 @@ import {
 import { parseListJson, pdfUrlFromDetail } from '../src/cities/poddebice/crawl.js';
 import { classifyKind } from '../src/core/classify-kind.js';
 
-// --------------------------------------------------------------- real titles
 
 const PRZEJAZD_18_TITLE =
   'Ogłoszenie Burmistrza Poddębic  z dnia 29 maja 2026 roku w sprawie przeprowadzenia przetargu ustnego nieograniczonego na sprzedaż nieruchomości lokalowej usytuowanej w budynku mieszkalnym wielorodzinnym w Poddębicach przy ulicy Przejazd 18 wraz ze sprzedażą ułamkowych części gruntu pod budynkiem';
@@ -110,10 +53,7 @@ const BEZPRZETARGOWO_TITLE =
 const CANCELLED_TITLE =
   'Informacja Burmistrza  Poddębic z dnia 15 maja 2020 roku w sprawie odwołania przetargu ustnego nieograniczonego ogłoszonego na dzień 19 maja 2020 roku na godzinę 10.00 dotyczącego sprzedaży nieruchomości lokalowej Nr 32 położonej w budynku mieszkalnym wielorodzinnym przy ul. Targowej 16/18 w Poddębicach.';
 
-// --------------------------------------------------------- real PDF bodies
-// (pdftotext -layout output, byte-faithful to the fetched attachment)
 
-// p2=10065722, upload/pliki/OGLOSZENIE_o_przetargu_na_lokale.pdf (full text)
 const PRZEJAZD_18_PDF = `                                                        OGŁOSZENIE BURMISTRZA PODDĘBIC
                                                                           z dnia 29 maja 2026 roku
 
@@ -154,11 +94,6 @@ z dnia 21 sierpnia 1997 roku o gospodarce nieruchomościami (tj. Dz. U. z 2026 r
                                                                                                                    Burmistrz Poddębic
                                                                                                                    (-) Piotr Sęczkowski`;
 
-// p2=10066232, upload/pliki/33O___G___L___O___S___Z___E___N__I__E.pdf
-// (trimmed: the ~28-line MPZP/zoning-history prose in the "Opis
-// nieruchomości"/"Przeznaczenie w planie" columns is cut — verified live
-// that no parser reads it; the table row, date and wadium clause below are
-// otherwise byte-faithful and contiguous in the source)
 const ZABUDOWANA_122_2_PDF = `                                                         O G Ł O S Z E N I E
                                                Burmistrza Poddębic z dnia 15 czerwca 2026 roku
         w sprawie ogłoszenia i przeprowadzenia przetargu ustnego ograniczonego na sprzedaż nieruchomości gruntowej zabudowanej
@@ -186,11 +121,6 @@ Lp.   Położenie    Numer     Pow.      Nr Kw              Opis                
                                                                                                                 Burmistrz Poddębic
                                                                                                                 (-) Piotr Sęczkowski`;
 
-// p2=10056362, upload/pliki/22O___G___L___O___S___Z___E___N__I__E.pdf
-// (trimmed to the date + wadium-bullet section — verified live that this
-// excerpt alone produces identical extractItems()/auctionDateFromText()
-// results as the full 2-page document, which also carries a lengthy
-// per-parcel "Opis nieruchomości" table no parser reads)
 const DZIERZAZNA_PDF_EXCERPT = `          Przetarg odbędzie się w dniu 3 listopada 2025 roku /poniedziałek/ o godz. 1000 w siedzibie Urzędu Miejskiego
      w Poddębicach ul. Łódzka 17/21 /Sala Konferencyjna Nr 201, II piętro/.
 
@@ -200,14 +130,12 @@ const DZIERZAZNA_PDF_EXCERPT = `          Przetarg odbędzie się w dniu 3 listo
      - dla działki nr 183/4 i nr 182/4 - 4.760,00 zł (słownie: cztery tysiące siedemset sześćdziesiąt złotych);
      - dla działki nr 311 - 8.290,00 zł (słownie: osiem tysięcy dwieście dziewięćdziesiąt złotych);`;
 
-// p2=10064614, upload/pliki/Ogloszenie_uwagi_-_ek.pdf (trimmed the same way)
 const OBREB6_PDF_EXCERPT = `Przetarg odbędzie się w dniu 12 sierpnia 2026 roku /środa/ o godz. 1100 w siedzibie Urzędu Miejskiego w Poddębicach
 ul. Łódzka 17/21 /Pokój Nr 116 I piętro/.
 W przetargu mogą brać udział osoby, które:
     • wpłacą gotówką wadium w wysokości 10% ceny wywoławczej nieruchomości t.j. dla działek Nr 5/5, Nr 5/6, Nr 5/7, Nr 5/8 m.
         Poddębice obręb Nr 6 - 512.000,00 zł (słownie: pięćset dwanaście tysięcy złotych) na rachunek Urzędu Miejskiego w Poddębicach`;
 
-// p2=10063641, upload/pliki/31O___G___L___O___S___Z___E___N__I__E.pdf (trimmed)
 const ANTONINA_PDF_EXCERPT = `     Przetarg odbędzie się w dniu 26 maja 2026 roku /wtorek/ o godz. 1000 w siedzibie Urzędu Miejskiego w Poddębicach ul.
 Łódzka 17/21 /Pokój Nr 101, I piętro/.
       W przetargu na działkę 84/8 obręb 11 m. Poddębice mogą brać udział właściciele nieruchomości sąsiednich położonych w Poddębicach w obrębie
@@ -220,7 +148,6 @@ nieruchomości. t.j.
       - dla działki nr 112/2 obręb Antonina 1.000,-zł (słownie: jeden tysiąc złotych);
       na rachunek Urzędu Miejskiego w Poddębicach Bank Spółdzielczy w Poddębicach Nr 87 9263 0000 0000 0013 2000 0005 lub wniosą`;
 
-// ------------------------------------------------------------------ unit funcs
 
 test('parsePLN: dot-thousands, grosze tail, dashless integer', () => {
   assert.equal(parsePLN('285.000,00'), 285000);
@@ -250,7 +177,7 @@ test('roundFromTitle: unstated (round 1 is never spelled out) vs II / III', () =
 test('obrebFromTitle: numeric "nr 1" vs named "Dzierzązna"', () => {
   assert.equal(obrebFromTitle(ZABUDOWANA_122_2_TITLE), '1');
   assert.equal(obrebFromTitle(DZIERZAZNA_NOROUND_TITLE), 'Dzierzązna');
-  assert.equal(obrebFromTitle(PRZEJAZD_18_TITLE), null); // flat title has no obręb clause
+  assert.equal(obrebFromTitle(PRZEJAZD_18_TITLE), null);
 });
 
 test('streetFromTitle: "przy ulicy Przejazd 18" title fallback', () => {
@@ -265,10 +192,10 @@ test('isAuctionSaleTitle: scheduled sale auctions (flat + land) pass, wykaz/bezp
   assert.equal(isAuctionSaleTitle(DZIERZAZNA_NOROUND_TITLE), true);
   assert.equal(isAuctionSaleTitle(OBREB6_TITLE), true);
   assert.equal(isAuctionSaleTitle(ANTONINA_TITLE), true);
-  assert.equal(isAuctionSaleTitle(WYKAZ_PRECURSOR_TITLE), false); // no committed date/price yet
-  assert.equal(isAuctionSaleTitle(BEZPRZETARGOWO_TITLE), false); // never an auction
+  assert.equal(isAuctionSaleTitle(WYKAZ_PRECURSOR_TITLE), false);
+  assert.equal(isAuctionSaleTitle(BEZPRZETARGOWO_TITLE), false);
   assert.equal(isAuctionSaleTitle(CANCELLED_TITLE), false);
-  assert.equal(isAuctionSaleTitle(LEASE_TITLE), false); // no "sprzedaż"
+  assert.equal(isAuctionSaleTitle(LEASE_TITLE), false);
 });
 
 test('isLeaseTitle: the real 2022 garage-lease title, vs a real sale title', () => {
@@ -277,16 +204,10 @@ test('isLeaseTitle: the real 2022 garage-lease title, vs a real sale title', () 
 });
 
 test('kindFromTitle: REGRESSION for the classifyKind adjacency bug — every real flat title', () => {
-  // The bug: classifyKind() alone (the shared, un-editable core util) does
-  // NOT resolve these to 'mieszkalny' because "lokalowej"/"mieszkalnym"
-  // describe different nouns and are never adjacent in Poddębice's phrasing.
   assert.notEqual(classifyKind(PRZEJAZD_18_TITLE), 'mieszkalny');
   assert.notEqual(classifyKind(POLUDNIOWA_II_TITLE), 'mieszkalny');
-  // kindFromTitle() fixes it at the adapter level:
   assert.equal(kindFromTitle(PRZEJAZD_18_TITLE), 'mieszkalny');
   assert.equal(kindFromTitle(POLUDNIOWA_II_TITLE), 'mieszkalny');
-  // Land titles (incl. one classifyKind can't resolve at all -> 'unknown')
-  // still correctly route to 'grunt':
   assert.equal(classifyKind(OBREB6_TITLE), 'unknown');
   assert.equal(kindFromTitle(OBREB6_TITLE), 'grunt');
   assert.equal(kindFromTitle(ZABUDOWANA_122_2_TITLE), 'grunt');
@@ -340,7 +261,6 @@ test('areaTokens: flat usable area sits before the udział fraction, land area i
   assert.deepEqual(areaTokens(ZABUDOWANA_122_2_PDF, false), [54]);
 });
 
-// ------------------------------------------------------------- active listings
 
 test('parseAnnouncementPdf: PENDING flat (real fixture, Przejazd 18/28)', () => {
   const [rec] = parseAnnouncementPdf(PRZEJAZD_18_PDF, PRZEJAZD_18_TITLE, '2026-05-29', 'https://bip.poddebice.pl/upload/pliki/OGLOSZENIE_o_przetargu_na_lokale.pdf');
@@ -350,7 +270,7 @@ test('parseAnnouncementPdf: PENDING flat (real fixture, Przejazd 18/28)', () => 
   assert.equal(rec.address.building, '18');
   assert.equal(rec.address.apt, '28');
   assert.equal(rec.area_m2, 43.54);
-  assert.equal(rec.starting_price_pln, 285000); // wadium 28.500 x 10, cross-checked against the table's own 285.000,00 zł cell
+  assert.equal(rec.starting_price_pln, 285000);
   assert.equal(rec.auction_date, '2026-07-07');
   assert.equal(rec.round, null);
 });
@@ -362,7 +282,7 @@ test('parseAnnouncementPdf: PENDING land, single parcel (real fixture, obr. 1 dz
   assert.equal(rec.obreb, '1');
   assert.equal(rec.address_raw, 'Poddębice, obręb 1');
   assert.equal(rec.area_m2, 54);
-  assert.equal(rec.starting_price_pln, 20000); // wadium 2.000 x 10, cross-checked against the table's own 20.000,00 zł cell
+  assert.equal(rec.starting_price_pln, 20000);
   assert.equal(rec.auction_date, '2026-07-22');
   assert.equal(rec.round, null);
 });
@@ -373,10 +293,7 @@ test('parseAnnouncementPdf: PENDING land, 4-parcel notice splits into 4 records 
   assert.deepEqual(recs.map((r) => r.kind), ['grunt', 'grunt', 'grunt', 'grunt']);
   assert.deepEqual(recs.map((r) => r.dzialka_nr), ['182/3', '182/5', '183/4, 182/4', '311']);
   assert.deepEqual(recs.map((r) => r.obreb), ['Dzierzązna', 'Dzierzązna', 'Dzierzązna', 'Dzierzązna']);
-  // cross-checked against the table's own cena cells (44.600 / 45.500 / 47.600 / 82.900 zł)
   assert.deepEqual(recs.map((r) => r.starting_price_pln), [44600, 45500, 47600, 82900]);
-  // multi-item land notices leave area_m2 null rather than risk a
-  // mis-associated value — see parse.js's areaTokens() header comment.
   assert.deepEqual(recs.map((r) => r.area_m2), [null, null, null, null]);
   assert.deepEqual(recs.map((r) => r.auction_date), ['2025-11-03', '2025-11-03', '2025-11-03', '2025-11-03']);
 });
@@ -386,7 +303,7 @@ test('parseAnnouncementPdf: PENDING land, 4-parcel COMBO sold as one item (obr. 
   assert.equal(rec.kind, 'grunt');
   assert.equal(rec.dzialka_nr, '5/5, 5/6, 5/7, 5/8');
   assert.equal(rec.obreb, '6');
-  assert.equal(rec.starting_price_pln, 5120000); // wadium 512.000 x 10, cross-checked against the source's 5.120.000,00 zł cena
+  assert.equal(rec.starting_price_pln, 5120000);
   assert.equal(rec.auction_date, '2026-08-12');
 });
 
@@ -396,11 +313,11 @@ test('parseAnnouncementPdf: PENDING land, multi-obręb notice splits by obręb (
   assert.equal(recs[0].dzialka_nr, '84/8');
   assert.equal(recs[0].obreb, '11');
   assert.equal(recs[0].address_raw, 'Poddębice, obręb 11');
-  assert.equal(recs[0].starting_price_pln, 16000); // wadium 1.600 x 10, cross-checked against the table's own 16.000,00 zł cell
+  assert.equal(recs[0].starting_price_pln, 16000);
   assert.equal(recs[1].dzialka_nr, '112/2');
   assert.equal(recs[1].obreb, 'Antonina');
   assert.equal(recs[1].address_raw, 'Antonina');
-  assert.equal(recs[1].starting_price_pln, 10000); // wadium 1.000 x 10, cross-checked against the table's own 10.000,00 zł cell
+  assert.equal(recs[1].starting_price_pln, 10000);
   assert.deepEqual(recs.map((r) => r.auction_date), ['2026-05-26', '2026-05-26']);
 });
 
@@ -409,30 +326,19 @@ test('parseAnnouncementPdf: LEASE (real 2022 garage-lease title) never reaches a
 });
 
 test('parseAnnouncementPdf: wykaz pre-announcement / bezprzetargowo titles are excluded upstream by isAuctionSaleTitle', () => {
-  // crawl.js's candidate filter (isAuctionSaleTitle && !isLeaseTitle) skips
-  // these before a PDF is ever fetched for them — asserted directly here
-  // against the real fixture titles, mirroring naklo-nad-notecia's isLease
-  // gate test.
   assert.equal(isAuctionSaleTitle(WYKAZ_PRECURSOR_TITLE), false);
   assert.equal(isAuctionSaleTitle(BEZPRZETARGOWO_TITLE), false);
 });
 
-// ----------------------------------------------------------------- result docs
 
 test('parseResultDoc: no live result notice exists for this city — returns [] for unrelated text', () => {
   assert.deepEqual(parseResultDoc('', null, 'x'), []);
   assert.deepEqual(parseResultDoc('Zaproszenie do złożenia oferty cenowej.', null, 'x'), []);
-  // Even Poddębice's own announcement PDFs (which name "Burmistrz Poddębic"
-  // but never state a result) shouldn't fabricate a record: no price/outcome
-  // signal at all beyond the guard phrase.
   assert.deepEqual(parseResultDoc('Burmistrz Poddębic ogłasza przetarg.', null, 'x'), []);
 });
 
-// ----------------------------------------------------------- board JSON + HTML
 
 test('parseListJson: extracts title/date/p2 from the real DataTables aaData shape', () => {
-  // Real rows captured live 2026-07-10 (poddebice-list.json), row indices
-  // per the spike: [2]=title, [5]=date, [9]=p2.
   const json = JSON.stringify({
     sEcho: '1',
     iTotalRecords: 279,
@@ -452,12 +358,6 @@ test('parseListJson: extracts title/date/p2 from the real DataTables aaData shap
   });
   const entries = parseListJson(json);
   assert.equal(entries.length, 2);
-  // parseListJson collapses the source's inconsistent double/triple spacing
-  // (a PDF-generated-title artifact, e.g. "Poddębic  z dnia") to single
-  // spaces — the other real-title constants in this file are asserted
-  // against verbatim elsewhere (they only feed regexes, which already treat
-  // \s+ as one gap), so only this specific parseListJson output check needs
-  // the normalized form.
   assert.equal(entries[0].title, PRZEJAZD_18_TITLE.replace(/\s+/g, ' '));
   assert.equal(entries[0].date, '2026-05-29');
   assert.equal(entries[0].p2, '10065722');
@@ -471,8 +371,6 @@ test('parseListJson: malformed JSON / missing aaData -> []', () => {
 });
 
 test('pdfUrlFromDetail: extracts + resolves the real relative "upload/pliki/*.pdf" link', () => {
-  // Real snippet captured live from the Przejazd 18 detail page
-  // (index.php?id=102&p1=szczegoly&p2=10065722).
   const html =
     '<div class="info-value"><div class="element-content-link">' +
     '<a onclick="zapisz_pobranie(10077912)" href="upload/pliki/OGLOSZENIE_o_przetargu_na_lokale.pdf">' +

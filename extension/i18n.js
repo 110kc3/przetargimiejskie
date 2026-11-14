@@ -1,22 +1,10 @@
-// Lightweight i18n for the extension. Two languages, one toggle. PL is the
-// default since the source data is Polish municipal records.
-//
-// API exposed on window.ZGM_I18N:
-//   t(key, vars?)        format a translated string with ${name} substitution
-//   getLang()            'pl' | 'en'
-//   setLang(lang)        persist + broadcast (returns Promise)
-//   onChange(fn)         fn(lang) when the lang storage key changes
-//
-// Translations are flat key→string maps. Keys missing in PL fall back to EN.
 
 (function () {
   const STORAGE_KEY = 'lang';
   const DEFAULT_LANG = 'pl';
 
-  /** @type {Record<string, Record<string, string>>} */
   const STRINGS = {
     en: {
-      // popup
       'popup.title': 'przetargimiejskie — auction history',
       'popup.currently_active': 'Currently active',
       'popup.refresh': 'Refresh data',
@@ -86,7 +74,6 @@
       'theme.toggle.to_dark': 'Switch to dark mode',
       'theme.toggle.to_light': 'Switch to light mode',
 
-      // badges on listing index pages
       'badge.first': 'no prior auctions',
       'badge.no_archive': 'no archive data',
       'badge.prev_unsold':
@@ -96,7 +83,6 @@
       'badge.prev_archived': 'prev ${n}× (result not published)',
       'chip.round': 'auction ${r}',
 
-      // tooltip/table headers
       'col.date': 'date',
       'col.round': 'round',
       'col.start_price': 'start price',
@@ -113,25 +99,19 @@
       'col.src': 'source',
       'link.verify': 'verify ↗',
 
-      // outcomes
       'outcome.sold': 'sold',
       'outcome.unsold': 'unsold',
       'outcome.archived': 'past (result not published)',
       'outcome.no_winner': 'no winner',
       'outcome.sold_for': 'sold ${price}',
 
-      // unsold reason enum
       'reason.no_deposits': 'no bidders registered',
       'reason.bidder_withdrew': 'bidder withdrew',
       'reason.bidder_noshow': 'bidder no-show',
       'reason.unknown': 'reason unknown',
 
-      // kind enum
       'kind.mieszkalny': 'residential',
       'kind.zabudowana': 'house',
-      // Alias: some sources tag a built-up land parcel as bare "zabudowa"
-      // (no -na) or the genitive "zabudowy". Same bucket as zabudowana so the
-      // TYP column reads cleanly.
       'kind.zabudowa': 'house',
       'kind.zabudowy': 'house',
       'kind.grunt': 'land',
@@ -139,7 +119,6 @@
       'kind.garaz': 'garage',
       'kind.unknown': 'unknown',
 
-      // city labels (popup chip)
       'city.gliwice': 'Gliwice',
       'city.katowice': 'Katowice',
       'city.bytom': 'Bytom',
@@ -157,14 +136,12 @@
       'city.opole': 'Opole',
       'city.oswiecim': 'Oświęcim',
       'city.chrzanow': 'Chrzanów',
-      // voivodeship (województwo) labels + filter
       'woj.slaskie': 'Silesian (Śląskie)',
       'woj.malopolskie': 'Lesser Poland (Małopolskie)',
       'woj.opolskie': 'Opole (Opolskie)',
       'popup.filter.woj': 'Voivodeship',
       'archive.filter.woj': 'Voivodeship',
 
-      // detail-page panel
       'panel.title': 'Auction history — ${addr}',
       'panel.none':
         'No prior listings found for this property in the archive (since 2024-02).',
@@ -178,7 +155,6 @@
     },
 
     pl: {
-      // popup
       'popup.title': 'przetargimiejskie — historia aukcji',
       'popup.currently_active': 'Aktualne aukcje',
       'popup.refresh': 'Odśwież dane',
@@ -248,7 +224,6 @@
       'theme.toggle.to_dark': 'Przełącz na ciemny motyw',
       'theme.toggle.to_light': 'Przełącz na jasny motyw',
 
-      // badges
       'badge.first': 'brak wcześniejszych aukcji',
       'badge.no_archive': 'brak danych archiwalnych',
       'badge.prev_unsold':
@@ -258,7 +233,6 @@
       'badge.prev_archived': 'poprzednio ${n}× (brak opublikowanego wyniku)',
       'chip.round': '${r}. przetarg',
 
-      // tooltip/table headers
       'col.date': 'data',
       'col.round': 'runda',
       'col.start_price': 'cena wywoławcza',
@@ -275,25 +249,19 @@
       'col.src': 'źródło',
       'link.verify': 'sprawdź ↗',
 
-      // outcomes
       'outcome.sold': 'sprzedane',
       'outcome.unsold': 'bez sprzedaży',
       'outcome.archived': 'zakończone (brak wyniku)',
       'outcome.no_winner': 'brak nabywcy',
       'outcome.sold_for': 'sprzedane za ${price}',
 
-      // unsold reasons
       'reason.no_deposits': 'brak ofert',
       'reason.bidder_withdrew': 'uczestnik wycofał się',
       'reason.bidder_noshow': 'uczestnik nie stawił się',
       'reason.unknown': 'powód nieznany',
 
-      // kind enum
       'kind.mieszkalny': 'mieszkalny',
       'kind.zabudowana': 'dom',
-      // Alias dla rekordów oznaczonych jako "zabudowa" (bez -na) lub w dopełniaczu
-      // "zabudowy" — to samo co zabudowana, żeby kolumna TYP nie pokazywała
-      // surowego klucza "kind.…".
       'kind.zabudowa': 'dom',
       'kind.zabudowy': 'dom',
       'kind.grunt': 'działka',
@@ -301,7 +269,6 @@
       'kind.garaz': 'garaż',
       'kind.unknown': 'nieznany',
 
-      // city labels (popup chip)
       'city.gliwice': 'Gliwice',
       'city.katowice': 'Katowice',
       'city.bytom': 'Bytom',
@@ -319,14 +286,12 @@
       'city.opole': 'Opole',
       'city.oswiecim': 'Oświęcim',
       'city.chrzanow': 'Chrzanów',
-      // voivodeship (województwo) labels + filter
       'woj.slaskie': 'Śląskie',
       'woj.malopolskie': 'Małopolskie',
       'woj.opolskie': 'Opolskie',
       'popup.filter.woj': 'Województwo',
       'archive.filter.woj': 'Województwo',
 
-      // detail-page panel
       'panel.title': 'Historia aukcji — ${addr}',
       'panel.none':
         'Brak wcześniejszych aukcji tej nieruchomości w archiwum (od lutego 2024).',
@@ -354,9 +319,6 @@
     const en = STRINGS.en[key];
     const tr = STRINGS[_lang]?.[key];
     const template = tr != null ? tr : en;
-    // vars.default = fallback for unknown enum values (e.g. a new
-    // unsold_reason the strings don't cover yet) — show the raw value
-    // instead of the literal "reason.xyz" key.
     if (template == null) {
       return vars && vars.default != null ? String(vars.default) : key;
     }
@@ -383,8 +345,6 @@
     return () => listeners.delete(fn);
   }
 
-  // Initial load. Resolves once chrome.storage has been read. Other scripts
-  // should `await window.ZGM_I18N.ready` before reading t() if it matters.
   const ready = (async () => {
     try {
       const v = await chrome.storage.local.get(STORAGE_KEY);
@@ -394,7 +354,6 @@
     } catch {}
   })();
 
-  // Sync across windows / tabs.
   try {
     chrome.storage.onChanged.addListener((changes, area) => {
       if (area !== 'local' || !changes[STORAGE_KEY]) return;
@@ -408,10 +367,6 @@
     });
   } catch {}
 
-  // City → voivodeship (województwo). Mirrors pipeline/src/cities/<city>/config.js
-  // `voivodeship` (also emitted into data/index.json). Keep in sync when adding a
-  // city: the site reads it from index.json; the extension uses this static copy
-  // (popup + archive don't fetch index.json).
   const WOJ = {
     gliwice: 'slaskie', katowice: 'slaskie', bytom: 'slaskie', zabrze: 'slaskie',
     sosnowiec: 'slaskie', rybnik: 'slaskie', bielsko: 'slaskie', myslowice: 'slaskie',

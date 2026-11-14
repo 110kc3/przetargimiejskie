@@ -1,13 +1,3 @@
-// Toruń parser tests — groundtruthed against REAL fixtures (2026-06-27).
-//
-// Fixtures sourced from:
-//   XML feed:  https://bip.torun.pl/przetargi-nieruchomosci/xml/1/100
-//   Detail:    https://bip.torun.pl/przetarg-nieruchomosci/61786/ul-mostowa-10-m-2-lokal-sprzedany
-//   DOCX 59378 (19.05.2026): Mostowa 10 m.2 SOLD 194,930 zl; Slusarska 5 nr 5A unsold
-//   DOCX 58022 (17.03.2026): Mostowa 10 unsold; Slusarska 5 nr 5A unsold; Mickiewicza 110 unsold
-//   DOCX 55913 (06.11.2025): Wielkie Garbary 5 Nr 21A SOLD 138,000 zl
-//
-// All field values verified against the actual downloaded documents, not inferred.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -28,7 +18,6 @@ import {
   resultDocAttachments,
 } from '../src/cities/torun/crawl.js';
 
-// -- parseDateField -----------------------------------------------------------
 
 test('parseDateField: clean date string', () => {
   assert.equal(parseDateField('08.09.2026 godz. 10:00'), '2026-09-08');
@@ -51,7 +40,6 @@ test('parseDateField: null/empty returns null', () => {
   assert.equal(parseDateField('brak daty'), null);
 });
 
-// -- parsePriceField ----------------------------------------------------------
 
 test('parsePriceField: standard format with wadium semicolon', () => {
   assert.equal(parsePriceField('140.000,00 zł; wadium 14.000,00 zł'), 140000);
@@ -81,21 +69,11 @@ test('parsePriceField: null/empty returns null', () => {
   assert.equal(parsePriceField(null), null);
 });
 
-// Regression: Poznańska 81 m. 7 (34.3 m², auction 2025-11-25).
-// The BIP XML field used "90.000,-zł" (dash-decimal shorthand) for the cena
-// wywoławcza while the wadium used the standard "9.000,00 zł" form.
-// The old regex /([\d][\d .,]*)[\s]*z[łl]/ stopped at the "-" in ",-zł",
-// so only the wadium (9 000 zł) was matched and stored as starting_price_pln,
-// yielding 9 000 / 34.3 = 262 zł/m² — flagged as [insane-m2] by sanity-check.
-// Fix: priceRe now allows optional ",-" before "zł" so the cena wywoławcza
-// is captured too; with 2 matches + "wadium" present, hits[0] = 90 000 is returned.
 test('parsePriceField: dash-decimal cena wywoławcza — Poznańska 81/7 regression', () => {
-  // The actual format that caused 9000 to be stored instead of 90000.
   assert.equal(parsePriceField('90.000,-zł; wadium 9.000,00 zł'), 90000);
 });
 
 test('parsePriceField: dash-decimal both cena and wadium', () => {
-  // Both use ",-zł" format — should still return the first (cena wywoławcza).
   assert.equal(parsePriceField('90.000,-zł; wadium 9.000,-zł'), 90000);
 });
 
@@ -103,7 +81,6 @@ test('parsePriceField: dash-decimal with space before zł', () => {
   assert.equal(parsePriceField('90.000,- zł; wadium 9.000,- zł'), 90000);
 });
 
-// -- roundFromText ------------------------------------------------------------
 
 test('roundFromText: bare przetarg returns 1', () => {
   assert.equal(roundFromText('przetarg ustny nieograniczony'), 1);
@@ -127,7 +104,6 @@ test('roundFromText: null/empty text returns null', () => {
   assert.equal(roundFromText(null), null);
 });
 
-// -- isResolved ---------------------------------------------------------------
 
 test('isResolved: "lokal sprzedany" suffix returns true', () => {
   assert.equal(isResolved('ul. Mostowa 10 m. 2 - lokal sprzedany'), true);
@@ -142,15 +118,6 @@ test('isResolved: active listing returns false', () => {
   assert.equal(isResolved(''), false);
 });
 
-// -- parseXmlFeed -------------------------------------------------------------
-//
-// Condensed but structurally faithful excerpt of the real XML export
-// (captured 2026-06-27). Contains:
-//   - Slusarska 5 m. 5a     -- active flat (Lokal mieszkalny)
-//   - Mickiewicza 93 m. 13A -- active flat (Lokal mieszkalny)
-//   - Mostowa 10 m. 2       -- resolved flat (Lokal mieszkalny, "lokal sprzedany")
-//   - Szubinska 13A         -- land (Nieruchomość niezabudowana)
-//   - Grudziadzka 165 B     -- land (skip from flat stream)
 
 const XML_FIXTURE = `<?phpxml version="1.0" encoding="UTF-8"?><bip.torun.pl>
     <przetargi-nieruchomosci>
@@ -258,10 +225,6 @@ test('parseXmlFeed: empty string returns empty array', () => {
   assert.deepEqual(parseXmlFeed(null), []);
 });
 
-// -- attachmentsFromDetailHtml ------------------------------------------------
-//
-// Condensed real HTML from the Mostowa 10 m.2 detail page (bip.torun.pl).
-// The page has 4 PDF attachments and 2 DOCX result-notice attachments.
 
 const DETAIL_HTML_FIXTURE = `
 <div class="attachments">
@@ -323,10 +286,6 @@ test('resultDocAttachments: returns empty when no result docs present', () => {
   assert.equal(resultDocAttachments(atts).length, 0);
 });
 
-// -- parseResultDoc DOCX 59378 (19 maja 2026r.) ------------------------------
-//
-// Real DOCX text captured via unzip -p word/document.xml + XML stripping.
-// Two rows: Slusarska 5 Nr 5A (unsold), Mostowa 10 Nr 2 (SOLD 194,930 zl).
 
 const DOCX_59378_TEXT = `INFORMACJA O WYNIKACH  USTNYCH PRZETARGOW NIEOGRANICZONYCH
 przeprowadzonych w  dniu 19 maja 2026r. w siedzibie Wydzialu Gospodarki Nieruchomosciami, mieszczacej sie przy ul. Grudziadzkiej 126 B
@@ -378,10 +337,6 @@ test('parseResultDoc DOCX-59378: Slusarska 5 Nr 5A -- unsold (cena wylicytowana 
   assert.equal(slusarska.address.apt, '5A');
 });
 
-// -- parseResultDoc DOCX 55913 (6 listopada 2025r.) --------------------------
-//
-// Different title: "INFORMACJA O WYNIKU KOLEJNEGO PRZETARGU..."
-// One row: Wielkie Garbary 5 Nr 21A -- SOLD 138,000 zl.
 
 const DOCX_55913_TEXT = `INFORMACJA O WYNIKU KOLEJNEGO PRZETARGU NIEOGRANICZONEGO
 przeprowadzonego w  dniu 6 listopada 2025r. w siedzibie Wydzialu Gospodarki Nieruchomosciami, mieszczacej sie przy ul. Grudziadzkiej 126 B
@@ -406,9 +361,6 @@ test('parseResultDoc DOCX-55913: Wielkie Garbary 5 Nr 21A -- SOLD 138000 zl', ()
   assert.equal(r.address.apt, '21A');
 });
 
-// -- parseResultDoc DOCX 58022 (17 marca 2026r.) -----------------------------
-//
-// Three rows, all unsold: Mickiewicza 110, Slusarska 5 Nr 5A, Mostowa 10 Nr 2.
 
 const DOCX_58022_TEXT = `INFORMACJA O WYNIKACH  USTNYCH PRZETARGOW NIEOGRANICZONYCH
 przeprowadzonych w  dniu 17 marca 2026r. w siedzibie Wydzialu Gospodarki Nieruchomosciami, mieszczacej sie przy ul. Grudziadzkiej 126 B
@@ -449,19 +401,7 @@ test('parseResultDoc: non-result-notice text returns empty array', () => {
   assert.deepEqual(parseResultDoc(null, null, 'https://x'), []);
 });
 
-// -- areaFromDetailHtml -------------------------------------------------------
-//
-// Groundtruthed against the live bip.torun.pl detail pages (2026-06-28).
-//
-// ROOT CAUSE FIX: Mickiewicza 93 m. 13A (apt 13A, area 50.30 m2) was
-// previously missing area_m2 because the BIP XML feed does not include the
-// floor area -- it lives only in the detail page body text. crawlDetailAreas()
-// now fetches each active flat's detail page and calls areaFromDetailHtml()
-// to extract the area, returning a Map<propertyKey, area> consumed by
-// buildCityData's detailAreas parameter.
 
-// Condensed real HTML from Mickiewicza 93 m. 13A detail page (2026-06-28).
-// Critical text: "lacznej powierzchni uzytkowej 50,30 m2"
 const DETAIL_HTML_MICKIEWICZA_13A = [
   '<div class="article-body">',
   '  <p><span>Przedmiotem przetargu jest sprzedaz lokalu mieszkalnego nr 13A wraz z pomieszczeniem',
@@ -473,9 +413,6 @@ const DETAIL_HTML_MICKIEWICZA_13A = [
   '</div>',
 ].join('\n');
 
-// Condensed real HTML from Slusarska 5 m. 5A detail page.
-// Format: "o powierzchni uzytkowej 23,87 m2" (without "lacznej").
-// Second area value (piwnica 7,44 m2) must be ignored -- first match wins.
 const DETAIL_HTML_SLUSARSKA_5A = [
   '<div class="article-body">',
   '  <p><span>Przedmiotem przetargu jest sprzedaz lokalu mieszkalnego nr 5A o powierzchni uzytkowej 23,87 m2',
@@ -484,8 +421,6 @@ const DETAIL_HTML_SLUSARSKA_5A = [
   '</div>',
 ].join('\n');
 
-// Condensed real HTML from Slusarska 5 m. 8 detail page.
-// Format: "o powierzchni 61,08 m2" (bare "powierzchni", no "uzytkowej").
 const DETAIL_HTML_SLUSARSKA_8 = [
   '<div class="article-body">',
   '  <p><span>Przedmiotem przetargu jest sprzedaz lokalu mieszkalnego nr 8 o powierzchni 61,08 m2, stanowiacego wlasnosc Gminy Miasta Torun.</span></p>',

@@ -41,7 +41,6 @@ export function parseDateText(str, fallbackYear = null) {
   if (!str) return null;
   const s = String(str).trim();
 
-  // "18.10.2022" or "18-10-2022" or "18/10/2022"
   const numM = /^(\d{1,2})[./-](\d{1,2})[./-](\d{4})$/.exec(s);
   if (numM) {
     const d = numM[1].padStart(2, '0');
@@ -49,13 +48,11 @@ export function parseDateText(str, fallbackYear = null) {
     return `${numM[3]}-${m}-${d}`;
   }
 
-  // "18.10." with fallbackYear
   const dotTwoM = /^(\d{1,2})\.(\d{2})\.?$/.exec(s);
   if (dotTwoM && fallbackYear) {
     return `${fallbackYear}-${dotTwoM[2]}-${dotTwoM[1].padStart(2, '0')}`;
   }
 
-  // "3 czerwca 2025" or "26 października"
   const textM = /^(\d{1,2})\s+([a-ząćęłńóśźż]+)(?:\s+(\d{4}))?/i.exec(s);
   if (textM) {
     const day = textM[1].padStart(2, '0');
@@ -138,7 +135,6 @@ export function extractAddress(lotText) {
     if (slashAptM) apt = slashAptM[1];
   }
 
-  // Look for street and building number, skipping City Hall (Konopnickiej 14)
   const streetRe = /(?:przy\s+)?(?:ul\.|ulicy|al\.|Plac\w*)\s*([a-z.\s]*\p{Lu}[\p{L}.''’-]*(?:\s+[\p{L}.''’-]+){0,3}?)\s+(?:nr\.?\s*)?(\d{1,4}[A-Za-z]?)(?:\/(\d+[A-Za-z]?))?\b/giu;
   let sm;
   let chosenStreet = null;
@@ -160,7 +156,6 @@ export function extractAddress(lotText) {
     return { raw: full, parsed: parseAddress(full), parcel: null };
   }
 
-  // If no street address, try parcel number for land
   const plotM = /dzia[łl]k\w*\s+(?:nr\s+)?(\d+(?:\/\d+)?)/i.exec(lotText);
   if (plotM) {
     const full = `Łęczyca, dz. ${plotM[1]}`;
@@ -190,13 +185,9 @@ export function splitLots(html) {
     .replace(/<[^>]+>/g, ' ');
 
   const splitPatterns = [
-    // 1. Time-stamped lots: "09.00 – lokal...", "9.40 – trzeci przetarg...", "12.45 – nieruchomość..."
     /(?:^|\n)\s*\d{1,2}[.:]\d{2}\s*[\-–—]\s*(?:(?:\p{L}+|[I|V|X]+)\s+przetarg\s+na\s+sprzedaż\s+)?(?:lokal|nieruchomo|działk)/giu,
-    // 2. Heading lots: "LOKAL MIESZKALNY – UL...", "KAMIENICA- UL..."
     /(?:^|\n)\s*(?:LOKAL\s+(?:MIESZKALNY|UŻYTKOWY)|KAMIENICA)\s*[\-–—]\s*UL/giu,
-    // 3. Repeating land auction paragraphs: "przetarg na sprzedaż nieruchomości gruntowej..."
     /(?:^|\n)\s*(?:\d{1,2}\s+[a-ząćęłńóśźż]+\s+\d{4}\s+roku\s+)?przetarg\s+na\s+sprzedaż\s+nieruchomości\s+gruntowej/giu,
-    // 4. Numbered lots: "1. Lokal...", "I. Nieruchomość..."
     /(?:^|\n)\s*(?:[IVX]+|[0-9]{1,2})[.)]\s+(?:Lokal|Nieruchomo|Działk|Garaż)/giu,
   ];
 
@@ -226,7 +217,6 @@ export function splitLots(html) {
 export function parseLot(lotText, meta = {}, preambleDate = null, preambleRound = null) {
   if (!lotText || lotText.trim().length < 30) return null;
 
-  // Filter rentals and cancellations
   if (isRental(lotText) || isCancellation(lotText)) return null;
 
   const kind = resolveKind(lotText);

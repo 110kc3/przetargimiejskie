@@ -1,6 +1,3 @@
-// Crawler for Działdowo (bip.dzialdowo.eu)
-//
-// Scrapes BIPLO tablica ogłoszeń and digital text PDFs from /attachments/download/<id>.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

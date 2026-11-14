@@ -1,7 +1,3 @@
-// Ożarów Mazowiecki parsers.
-// Announcements are published on WordPress (ozarow-mazowiecki.pl) with attached
-// born-digital PDFs ("Załącznik nr 1 - Ogłoszenie o przetargu").
-// The announcement PDF carries core numeric fields (cena wywoławcza, wadium, termin przetargu).
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -16,7 +12,7 @@ import {
 
 export { htmlToText };
 
-const OFFICE_STREET_RE = /kolejowa|konotopsk/i; // Urząd: Kolejowa 2, sala: Konotopskiej 4
+const OFFICE_STREET_RE = /kolejowa|konotopsk/i;
 
 const PL_MONTHS = {
   stycznia: 1, lutego: 2, marca: 3, kwietnia: 4, maja: 5, czerwca: 6,
@@ -57,7 +53,6 @@ export function parseIndexPage(html) {
     }
   }
 
-  // Fallback for direct post links on category pages
   const linkMatches = (scope || '').matchAll(/href="(https?:\/\/ozarow-mazowiecki\.pl\/\d{4}\/\d{2}\/\d{2}\/[^"]+)"/gi);
   for (const lm of linkMatches) {
     let url = lm[1].replace(/\/+$/, '');
@@ -185,7 +180,6 @@ export function parseAnnouncement(postHtml, pdfText, url) {
   const auction_date = auctionDateFromOzarow(postHtml, pdfText);
   const wadium_deadline = wadiumDeadlineFromText(pdfText);
 
-  // 1. Check for multi-unit residential notice
   const multiMatch = [
     ...(pdfText || '').matchAll(
       /(?:^|\n)\s*([a-z]\))\s*(?:lokal\s+)?(?:nr|numer)\s*(\d+[A-Za-z]?)\s+(?:w\s+budynku\s+)?przy\s+(?:ul\.|ulicy)?\s*([^\n,]+?)\s+o\s+pow(?:ierzch\w*)?\.?\s*([\d.,]+)\s*m[²2]/gi,
@@ -220,7 +214,6 @@ export function parseAnnouncement(postHtml, pdfText, url) {
     if (results.length > 0) return results;
   }
 
-  // 2. Check for land plot (grunt) or unaddressed parcel
   const kind = classifyKind(text);
   const isLand = kind === 'grunt' || (/dzia[łl]k/i.test(text) && !/lokal/i.test(text));
 
@@ -246,7 +239,6 @@ export function parseAnnouncement(postHtml, pdfText, url) {
     ];
   }
 
-  // 3. Single-unit residential / property
   const streetM =
     /(?:przy|w\s+budynku\s+przy)\s+ul(?:icy)?\.?\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.\- ]+?)\s+(\d+[A-Za-z]?)/i.exec(
       pdfText || '',
@@ -290,7 +282,6 @@ export function parseAnnouncement(postHtml, pdfText, url) {
     }
   }
 
-  // If no street address could be parsed, check if it's a parcel-only auction (e.g. dz. 156)
   const dzialka_nr = parcelFromOzarowText(pdfText) || parcelFromOzarowText(text);
   if (dzialka_nr) {
     const obreb = obrebFromOzarowText(pdfText) || obrebFromOzarowText(text);

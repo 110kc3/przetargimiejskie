@@ -1,14 +1,3 @@
-// Prudnik crawler — bip.prudnik.pl, Joomla BIP (server-rendered HTML).
-//
-// Target board:
-//   GET /gospodarka-przestrzenna/przetargi-na-zbycie-nieruchomosci-i-lokali(?start=N)
-//   Articles: /gospodarka-przestrzenna/przetargi-na-zbycie-nieruchomosci-i-lokali/<id>-<slug>
-//   Attachments: /images/.../*.pdf (born-digital text-extractable PDFs)
-//
-// One memoised pass serves both streams:
-//   - crawlActive()     → { listings, wykaz: [], land: [] } — active and past flat auctions.
-//   - crawlResultDocs() → result refs ({ text, pdf_url, detail_url, auction_date }) —
-//     the achieved-price stream; source:'html' means each ref carries `.text`.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -27,12 +16,6 @@ const BOARD_BASE =
 const absUrl = (p) =>
   /^https?:/i.test(p) ? p : `${ORIGIN}${p.startsWith('/') ? '' : '/'}${p}`;
 
-/**
- * Extract articles from board HTML table.
- * Pattern: <a href="(/gospodarka-przestrzenna/przetargi-na-zbycie-nieruchomosci-i-lokali/(\d+-[^"]+))">
- * @param {string} html
- * @returns {Array<{id: string, slug: string, href: string, title: string}>}
- */
 export function parseArticleList(html) {
   const out = [];
   const seen = new Set();
@@ -51,11 +34,6 @@ export function parseArticleList(html) {
   return out;
 }
 
-/**
- * Extract PDF attachment links from an article's HTML body.
- * @param {string} html
- * @returns {Array<{url: string, label: string}>}
- */
 export function parsePdfAttachments(html) {
   const out = [];
   const seen = new Set();
@@ -72,12 +50,6 @@ export function parsePdfAttachments(html) {
   return out;
 }
 
-/**
- * Classify attachment role based on URL and label.
- * @param {string} url
- * @param {string} label
- * @returns {'result'|'announcement'|'skip'|'unknown'}
- */
 export function classifyAttachment(url, label = '') {
   const combined = `${url} ${label}`;
   if (
@@ -151,7 +123,6 @@ async function crawlAll() {
         try {
           text = await pdfText(att.url);
         } catch (err) {
-          // 404s and invalid PDFs are safely caught
           console.error(
             `  prudnik: PDF extract failed ${att.url}: ${err.message}`,
           );
@@ -178,7 +149,6 @@ async function crawlAll() {
       }
     }
 
-    // Stop when there is no next page link or fewer articles than page step
     if (!/title="Nast[eę]pny"/i.test(html) || articles.length < PAGE_STEP) {
       break;
     }
@@ -190,13 +160,11 @@ async function crawlAll() {
   return { listings, resultRefs };
 }
 
-/** Result notices (achieved prices) found on the board. */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resultRefs;
 }
 
-/** Active + historical flat auctions. */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings } = await crawlPromise;

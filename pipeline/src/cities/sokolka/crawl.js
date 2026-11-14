@@ -1,6 +1,3 @@
-// Crawler for Sokółka (bip-umsokolka.podlaskie.eu)
-//
-// Scrapes Podlaskie platform property notice pages and PDF attachments.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

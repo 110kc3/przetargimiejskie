@@ -20,7 +20,6 @@ const unresearched = master.cities.filter(c => c.status === 'unresearched');
 
 console.log(`Total unresearched cities: ${unresearched.length}`);
 
-// Generate host candidate patterns for each city
 function getCandidates(c) {
   const clean = c.id.replace(/-/g, '');
   const base = c.id.replace(/-\d+$/, '').replace(/-/g, '');
@@ -75,7 +74,6 @@ async function probeOne(city) {
           return { city: city.id, host: cand, title: (html.match(/<title>([^<]+)<\/title>/i) || [])[1] || '', htmlSnippet: html.slice(0, 1000) };
         }
       } catch (e) {
-        // try http
         try {
           const html = await getText(`http://${cand}`, { userAgent: BROWSER_UA, timeoutMs: 1500, retries: 0 });
           if (html && html.length > 200) {
@@ -88,7 +86,6 @@ async function probeOne(city) {
   return { city: city.id, host: null };
 }
 
-// Run in parallel with concurrency pool
 async function probeAll(cities, concurrency = 25) {
   const results = [];
   let idx = 0;
@@ -115,7 +112,6 @@ console.log(`Completed in ${((Date.now() - start) / 1000).toFixed(1)}s`);
 const found = res.filter(r => r.host);
 console.log(`Discovered ${found.length} active BIP hosts out of ${sample.length}`);
 
-// Classify discovered hosts
 const platformCounts = {};
 const otherSamples = [];
 for (const item of found) {

@@ -1,15 +1,3 @@
-// Rybnik parsers.
-//
-// ZGM Rybnik publishes each flat auction as an "OGŁOSZENIE <address> [rtf]" link
-// on the "Ogłoszenie o przetargach" page. The address comes from the link label
-// (e.g. "OGŁOSZENIE A. Zgrzebnioka 7b_6" → "A. Zgrzebnioka 7b/6"); price / area /
-// auction date / round come from the RTF body (decoded by core/rtf-text.js).
-//
-// Confirmed phrasings (June 2026), parsed below:
-//   "Cena wywoławcza lokalu mieszkalnego: 180 000,00 zł"
-//   "o powierzchni użytkowej 35,00 m²"
-//   "Przetarg odbędzie się w dniu 09.06.2026 r."
-//   "Pierwszy publiczny ustny nieograniczony przetarg na sprzedaż …"
 
 import { parseAddress } from '../../core/normalize.js';
 
@@ -19,24 +7,14 @@ const PL_MONTHS = {
   pazdziernika: 10, listopada: 11, grudnia: 12,
 };
 
-/** "OGŁOSZENIE A. Zgrzebnioka 7b_6" → { address_raw, address } or null. */
 export function addressFromLabel(label) {
   if (!label) return null;
   let s = label.replace(/^\s*OG[ŁL]OSZENIE\s+/i, '').replace(/\s+/g, ' ').trim();
-  // ZGM labels join building & apartment with an underscore: "…7b_6" → "…7b/6".
   s = s.replace(/_(?=[0-9])/g, '/');
   const address = parseAddress(s);
   return address ? { address_raw: s, address } : null;
 }
 
-/** "Pierwszy/Drugi/Trzeci … przetarg" → round; bare → 1.
- *
- * The ordinal must QUALIFY a "przetarg" (within a few words before it), and
- * matches followed by a past-tense verb are skipped — re-listed announcements
- * always carry the mandatory history clause "Pierwszy przetarg odbył się …
- * zakończył się wynikiem negatywnym", which used to win over the operative
- * "Drugi … przetarg" and mark every re-listed auction as round 1.
- * `pierwsz(?!e[ńn])` keeps "pierwszeństwo" (right of first refusal) out. */
 const ORDINAL_PRZETARG_RE =
   /\b(pierwsz(?!e[ńn])|drug|trzeci|czwart|pi[ąa]t)[\wąćęłńóśźż]*\s+(?:[\wąćęłńóśźż]+\s+){0,4}?przetarg[\wąćęłńóśźż]*(?=([\s\S]{0,40}))/g;
 const ORDINALS = { pierwsz: 1, drug: 2, trzeci: 3, czwart: 4, 'piąt': 5, piat: 5 };
@@ -46,14 +24,13 @@ export function roundFromText(text) {
   ORDINAL_PRZETARG_RE.lastIndex = 0;
   let m;
   while ((m = ORDINAL_PRZETARG_RE.exec(t)) !== null) {
-    if (/\b(?:odby[łl]|zako[ńn]czy[łl])/.test(m[2])) continue; // history clause
+    if (/\b(?:odby[łl]|zako[ńn]czy[łl])/.test(m[2])) continue;
     return ORDINALS[m[1]] ?? null;
   }
   if (/\bprzetarg/.test(t)) return 1;
   return null;
 }
 
-/** "odbędzie się w dniu 09.06.2026 r." (or spelled month) → ISO. */
 export function auctionDateFromText(text) {
   if (!text) return null;
   const num = /odb[ęe]dzie\s+si[ęe]\s+w\s+dniu\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(text)
@@ -79,13 +56,11 @@ function parseArea(s) {
   return Number.isFinite(n) ? n : null;
 }
 
-/** "Cena wywoławcza … 180 000,00 zł" → 180000. */
 export function priceFromText(text) {
   const m = /cena\s+wywo[łl]awcza[^0-9]{0,80}?([\d][\d  .]*(?:,\d{2})?)\s*z[łl]/i.exec(text || '');
   return m ? parsePLN(m[1]) : null;
 }
 
-/** "powierzchni użytkowej 35,00 m²" → 35 (plot in ha / cellar excluded). */
 export function areaFromText(text) {
   if (!text) return null;
   const plausible = (v) => v != null && v >= 8 && v <= 300;
@@ -94,7 +69,6 @@ export function areaFromText(text) {
     const v = parseArea(lab[1]);
     if (plausible(v)) return v;
   }
-  // fallback: a bare "<num> m²" that isn't the plot ("powierzchni … ha" / działka)
   const M2 = /([\d][\d.,]*)\s*m\s*[²2](?!\d)/gi;
   let m;
   const cands = [];
@@ -107,11 +81,6 @@ export function areaFromText(text) {
   return cands.length ? Math.max(...cands) : null;
 }
 
-/**
- * @param {string} label  the "OGŁOSZENIE …" link text
- * @param {string} text   the RTF announcement decoded to plain text
- * @returns {null | {kind, address_raw, address, area_m2, starting_price_pln, round, auction_date}}
- */
 export function parseAnnouncement(label, text) {
   const addr = addressFromLabel(label);
   if (!addr) return null;
@@ -126,8 +95,6 @@ export function parseAnnouncement(label, text) {
   };
 }
 
-// Contract stub — ZGM Rybnik publishes no machine-readable achieved-price stream
-// wired here; crawlResultDocs() returns [], so this is never invoked.
 export function parseResultDoc(_text, _date, _url) {
   return [];
 }

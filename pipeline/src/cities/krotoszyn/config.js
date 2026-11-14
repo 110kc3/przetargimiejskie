@@ -1,7 +1,3 @@
-// Configuration for Krotoszyn adapter (bip.um.krotoszyn.pl)
-//
-// Gmina Krotoszyn (powiat krotoszyński, wielkopolskie)
-// TERC: 3012044
 
 export const CONFIG = {
   id: 'krotoszyn',

@@ -34,7 +34,6 @@ export async function crawl() {
       try {
         const detailHtml = await getText(detailUrl, FETCH_OPTS);
 
-        // Find PDF / attachment links
         const pdfMatches = [...detailHtml.matchAll(/href="([^"]*(?:\/pliki\/umgostynin\/[^"]*|\.pdf))"/gi)].map(m => m[1]);
         const uniquePdfs = [...new Set(pdfMatches)];
 
@@ -63,7 +62,6 @@ export async function crawl() {
                           detailHtml.match(/<div id="content"[\s\S]*?<\/div>/i);
         const contentText = mainMatch ? mainMatch[0].replace(/<[^>]+>/g, ' ') : '';
 
-        // Date from detail page
         const dateMatch = detailHtml.match(/(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i);
         const dateStr = dateMatch ? `${dateMatch[3]}-${dateMatch[2]}-${dateMatch[1]}` : null;
 

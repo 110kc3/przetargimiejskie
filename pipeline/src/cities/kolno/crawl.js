@@ -1,16 +1,3 @@
-// Kolno crawler — bip-umkolno.podlaskie.eu SmartSite BIP boards.
-//
-// Boards crawled:
-//   ANNOUNCEMENTS: /616c955210c658b/ ("Przetargi i zamówienia publiczne")
-//   PROPERTY / WYKAZ: /4634573d2ce9367/ ("Obrót nieruchomości i dzierżawy")
-//
-// Both boards organize publications into year directories (rok-2026, rok-2025, ...).
-// We walk directories from 2021 to current year.
-//
-// Flat announcements -> crawlActive() listings
-// Wykaz announcements -> crawlActive() wykaz
-// Unbuilt parcel announcements -> crawlActive() land
-// Result notices ("INFORMACJA O WYNIKU PRZETARGU", attached as .docx/.doc/.pdf) -> crawlResultDocs() refs
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -33,7 +20,6 @@ const ORIGIN = 'https://bip-umkolno.podlaskie.eu';
 const ANNOUNCEMENT_BASE = `${ORIGIN}/616c955210c658b/`;
 const PROPERTY_BASE = `${ORIGIN}/4634573d2ce9367/`;
 
-// Memoised crawl for the entire refresh cycle.
 let crawlPromise = null;
 
 async function crawlAll() {
@@ -79,7 +65,6 @@ async function crawlAll() {
 
         const atts = extractAttachments(dHtml, ORIGIN);
 
-        // 1. Collect result notice attachments
         for (const a of atts) {
           if (isResultAttachment(a.name || a.url)) {
             if (seenResultUrls.has(a.url)) continue;
@@ -104,7 +89,6 @@ async function crawlAll() {
           }
         }
 
-        // 2. Extract announcement / wykaz body
         let docxText = '';
         const mainDoc = atts.find((a) => !isResultAttachment(a.name || a.url) && /\.(?:docx?|pdf)$/i.test(a.url));
         if (mainDoc && /\.docx?$/i.test(mainDoc.url)) {
@@ -117,7 +101,6 @@ async function crawlAll() {
         const bodyText = stripHtml(dHtml);
         const combined = bodyText + '\n' + docxText;
 
-        // Classify publication
         if (/wykaz/i.test(art.title) || (base === PROPERTY_BASE && /wykaz/i.test(combined))) {
           const wItems = parseWykazDetail(combined, art.url, art.title);
           wykaz.push(...wItems);
@@ -161,7 +144,6 @@ async function crawlAll() {
   };
 }
 
-/** Crawl active/announced listings, wykaz, and land */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const res = await crawlPromise;
@@ -174,7 +156,6 @@ export async function crawlActive() {
   };
 }
 
-/** Crawl result document references */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   const res = await crawlPromise;

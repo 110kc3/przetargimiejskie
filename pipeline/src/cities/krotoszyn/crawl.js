@@ -1,6 +1,3 @@
-// Crawler for Krotoszyn (bip.um.krotoszyn.pl)
-//
-// Fetches articles from MADKOM eBIP REST API.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

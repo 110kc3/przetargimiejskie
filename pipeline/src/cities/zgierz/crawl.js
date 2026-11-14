@@ -1,12 +1,3 @@
-// Zgierz crawler.
-//
-// Source: zgierz.bip.net.pl — Nefeni Sp. z o.o. server-rendered HTML BIP (Next.js).
-//
-// Boards:
-//   Flats & premises: https://zgierz.bip.net.pl/kategorie/121-sprzedaz-lokali-
-//   Land parcels:     https://zgierz.bip.net.pl/kategorie/120-sprzedaz-gruntow
-//
-// Attachments are hosted on zgierz-api.bip.net.pl/api/attachments/<id>.
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -31,9 +22,6 @@ export function buildCategoryUrl(catSlug, page = 0, size = 100) {
   return `${ORIGIN}/kategorie/${catSlug}?size=${size}&page=${page}&lang=PL`;
 }
 
-/**
- * Harvest all article entries from a paginated category board.
- */
 export async function harvestCategoryEntries(catSlug, catId) {
   const entries = [];
   const seen = new Set();
@@ -68,10 +56,6 @@ export async function harvestCategoryEntries(catSlug, catId) {
   return { entries, verified };
 }
 
-/**
- * Extract text from an attachment URL, trying born-digital pdfText first,
- * then falling back to ocrPdf for scanned notices.
- */
 export async function extractAttachmentText(url) {
   if (!url) return '';
   let text = '';
@@ -92,9 +76,6 @@ export async function extractAttachmentText(url) {
   return text || '';
 }
 
-/**
- * Crawl active flat listings and land auctions.
- */
 export async function crawlActive() {
   const { entries: flatEntries, verified: verifiedFlats } = await harvestCategoryEntries(FLATS_SLUG, FLATS_CAT);
   const { entries: landEntries, verified: verifiedLand } = await harvestCategoryEntries(LAND_SLUG, LAND_CAT);
@@ -104,7 +85,6 @@ export async function crawlActive() {
   const wykaz = [];
   const land = [];
 
-  // Crawl flats
   for (const entry of flatEntries) {
     let detailHtml = '';
     try {
@@ -118,19 +98,15 @@ export async function crawlActive() {
     const title = detail.title || entry.title;
     const publishedDate = detail.publishedDate || entry.published_date;
 
-    // Skip commercial lease / rental notices
     if (/dzier[żz]aw|najem/i.test(title) && !/sprzeda[żz]/i.test(title)) {
       continue;
     }
 
-    // If result attachments exist or title specifies "wynik", it is a concluded auction
-    // (handled by crawlResultDocs)
     const hasResults = detail.attachments.some((a) => /wynik|inform/i.test(a.name));
     if (hasResults || /wynik/i.test(title)) {
       continue;
     }
 
-    // Find the announcement PDF
     const annPdf = detail.attachments.find((a) => !/wynik|inform/i.test(a.name) && /\.pdf(?:$|\?)/i.test(a.url)) ||
       detail.attachments[0];
     if (!annPdf) continue;
@@ -147,7 +123,6 @@ export async function crawlActive() {
     }
   }
 
-  // Crawl land
   for (const entry of landEntries) {
     let detailHtml = '';
     try {
@@ -196,9 +171,6 @@ export async function crawlActive() {
   };
 }
 
-/**
- * Crawl result documents from resolved articles in both categories.
- */
 export async function crawlResultDocs() {
   const resultCats = [
     { slug: FLATS_SLUG, id: FLATS_CAT },
@@ -234,7 +206,6 @@ export async function crawlResultDocs() {
     const publishedDate = detail.publishedDate || entry.published_date;
 
     for (const att of detail.attachments) {
-      // Must be a result document
       if (!/wynik|inform/i.test(att.name) && !/wynik|inform/i.test(att.url)) {
         continue;
       }

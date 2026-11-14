@@ -1,6 +1,3 @@
-// Kołobrzeg parser tests.
-// Real fixtures from bip.um.kolobrzeg.pl (Prezydent Miasta Kołobrzeg).
-// Uses Node.js built-in test runner.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -37,9 +34,7 @@ function loadCacheFile(dir, filename, fallbackContent) {
   return fallbackContent;
 }
 
-// ---- Fixtures -------------------------------------------------------------
 
-// RESULT 1: Pomorska 4/4 (SOLD for 505 000 zł, starting 500 000 zł, buyer Pan Rafał Wojtasik)
 const RES_POMORSKA_4_4 = loadCacheFile(
   OCR_CACHE,
   '124831.eefcb0bf.txt',
@@ -58,7 +53,6 @@ Liczba osób dopuszczonych: 1
 Nabywca: Pan Rafał Wojtasik`
 );
 
-// RESULT 2: Zygmuntowskiej 3/7 (UNSOLD, 320 000 zł, brak ofert)
 const RES_ZYGMUNTOWSKIEJ_3_7 = loadCacheFile(
   OCR_CACHE,
   '124076.dfa61dd1.txt',
@@ -75,7 +69,6 @@ Cena wywoławcza: 320.000,- zł
 Nabywca: Brak ofert`
 );
 
-// RESULT 3: Unii Lubelskiej 45/7 (UNSOLD, round 4, 500 000 zł)
 const RES_UNII_LUBELSKIEJ_45_7 = loadCacheFile(
   OCR_CACHE,
   '127683.8b6a0a5b.txt',
@@ -91,7 +84,6 @@ Cena wywoławcza lokalu: 500.000,00 zł
 Nabywca: Brak ofert`
 );
 
-// ANNOUNCEMENT 1: Strzelecka 3/3 (V przetarg, 119.36 m², 750 000 zł, 2026-12-02)
 const ANN_STRZELECKA_3_3 = loadCacheFile(
   DOC_CACHE,
   '127872.d3883682.txt',
@@ -104,7 +96,6 @@ Wadium: 75.000,00 zł
 Przetarg odbędzie się w dniu  2 grudnia 2026 r. o godzinie 10.00`
 );
 
-// ANNOUNCEMENT 2: Spacerowa 39/6 (I przetarg, 29.2 m², 500 000 zł, 2026-11-18)
 const ANN_SPACEROWA_39_6 = loadCacheFile(
   DOC_CACHE,
   '127816.ebe939fe.txt',
@@ -117,7 +108,6 @@ Wadium: 50.000,00 zł
 Przetarg odbędzie się w dniu  18 listopada 2026 r. o godzinie 10.00`
 );
 
-// ANNOUNCEMENT 3: Perłowa 815/18 (Land plot, 127893.9908e1f3.txt)
 const ANN_PERLOWA_LAND = loadCacheFile(
   DOC_CACHE,
   '127893.9908e1f3.txt',
@@ -125,7 +115,6 @@ const ANN_PERLOWA_LAND = loadCacheFile(
 Prezydent Miasta Kołobrzeg zaprasza do przetargu na sprzedaż działki nr 815/18 położonej w obrębie 9 przy ul. Perłowej w Kołobrzegu`
 );
 
-// WYKAZ: Spacerowa 39/6 (Pre-auction designation, 127409.892dab2b.txt)
 const WYKAZ_SPACEROWA = loadCacheFile(
   DOC_CACHE,
   '127409.892dab2b.txt',
@@ -135,7 +124,6 @@ Prezydent Miasta Kołobrzeg podaje do publicznej wiadomości wykaz nieruchomośc
 sprzedaż lokalu mieszkalnego nr 6 położonego w budynku przy ul. Spacerowej 39 w Kołobrzegu`
 );
 
-// ---- Tests ----------------------------------------------------------------
 
 test('utility functions: parsePLN, parseNum, parsePolishDate', () => {
   assert.equal(parsePLN('750.000,00 zł'), 750000);

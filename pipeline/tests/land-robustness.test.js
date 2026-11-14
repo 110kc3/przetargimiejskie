@@ -1,5 +1,3 @@
-// Robustness: a failure on individual LAND plots (bad record, broken land crawl,
-// or a city erroring) must NOT abort the city's refresh or the whole pipeline.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { buildLand } from '../src/core/build-land.js';
@@ -9,7 +7,7 @@ test('buildLand: null / empty / unkeyable input never throws', () => {
   assert.deepEqual(buildLand(null, 'x'), { plots: [] });
   assert.deepEqual(buildLand([], 'x'), { plots: [] });
   const { plots } = buildLand([{}, { foo: 1 }, { dzialka_nr: '', obreb: '' }], 'x');
-  assert.equal(plots.length, 0); // nothing keyable, but no throw
+  assert.equal(plots.length, 0);
 });
 
 test('buildLand: a malformed plot among good ones — good ones still build', () => {
@@ -29,7 +27,6 @@ test('buildLand: a malformed plot among good ones — good ones still build', ()
 });
 
 test('adapter isolation: a THROWING land crawl leaves the flats stream intact', async () => {
-  // mirrors zabrze/gliwice/rybnik index.js crawlActive (flats + try/catch(crawlLand))
   const crawlActiveFlats = async () => ({ listings: [{ kind: 'mieszkalny' }], wykaz: [] });
   const crawlLand = async () => { throw new Error('land source down'); };
   async function crawlActive() {
@@ -44,7 +41,6 @@ test('adapter isolation: a THROWING land crawl leaves the flats stream intact', 
 });
 
 test('refresh isolation: one city throwing (e.g. its land crawl) does not stop the others', async () => {
-  // mirrors refresh.js main(): per-city try/catch keeps last-published + continues
   const cities = [
     { id: 'a', refresh: async () => 'a:ok' },
     { id: 'b', refresh: async () => { throw new Error('b land board 5xx'); } },

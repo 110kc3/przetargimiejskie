@@ -1,16 +1,3 @@
-// Świętochłowice parser tests. The field extractors are the shared finn-bip
-// parsers (covered by parse-myslowice.test.js); here we test the
-// Świętochłowice-specific Liferay index parsing — link harvesting, the
-// announcement/notice filter, address-from-title — plus price/area/date over a
-// fixture reproducing the catdoc text of a real .doc announcement. Fixtures match
-// the live BIP (June 2026, rendered-DOM spike + parser dry-run): the filter kept
-// 21 real announcements and dropped 30 notices across 5 archive pages with no
-// unkeyable entries.
-//
-// Land tests (HL-27): sibling boards /bipkod/003/010/003 (houses + land) and
-// /bipkod/42668516 (commercial + garages) are now crawled. isAuctionAnnouncement
-// is the generic filter for these boards; classifyKind routes grunt → land[].
-// parseLandAnnouncement (from finn-bip.js) is used for body parsing.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -33,11 +20,9 @@ import {
 const ORIGIN = 'https://www.bip.swietochlowice.pl';
 
 test('isFlatAnnouncement keeps auction announcements, drops notices/annexes', () => {
-  // real announcement titles (kept)
   assert.equal(isFlatAnnouncement('I przetarg ustny nieograniczony na sprzedaż wolnego lokalu mieszkalnego przy ul. Powstańców Śl. 8/20'), true);
   assert.equal(isFlatAnnouncement('Ogłoszenie ws III przetargu na sprzedaż lokalu mieszkalnego przy ul. Katowickiej 45a/7'), true);
   assert.equal(isFlatAnnouncement('Ogłoszenie ws II przetargu na sprzedaż spółdzielczego własnościowego prawa do lokalu mieszkalnego przy ul. Polaka 7/6'), true);
-  // notices / intents / annex (dropped)
   assert.equal(isFlatAnnouncement('Informacja o wyniku z III przetargu na sprzedaż lokalu mieszkalnego przy ul. Polaka 7/6'), false);
   assert.equal(isFlatAnnouncement('Informacja o odwołaniu III przetargu ws sprzedaży lokalu mieszkalnego przy ul. Wiśniowej 15a/5'), false);
   assert.equal(isFlatAnnouncement('Zamiar sprzedaży w drodze przetargu lokalu mieszkalnego przy ul. Katowickiej 20/6'), false);
@@ -54,7 +39,6 @@ test('parseDocLinks harvests (title,url) pairs for /res/serwisy/pliki/ links', (
   assert.equal(links.length, 2);
   assert.equal(links[0].url, ORIGIN + '/res/serwisy/pliki/43606181');
   assert.match(links[0].title, /^I przetarg ustny/);
-  // the announcement passes the flat filter; the KW annex doesn't
   assert.deepEqual(
     links.filter((l) => isFlatAnnouncement(l.title)).map((l) => l.url),
     [ORIGIN + '/res/serwisy/pliki/43606181'],
@@ -73,7 +57,6 @@ test('roundFromTitle reads the round from "ws III przetargu" / "I przetarg"', ()
   assert.equal(roundFromTitle('Ogłoszenie ws III przetargu na sprzedaż lokalu mieszkalnego'), 3);
 });
 
-// catdoc-style plain text of a real .doc announcement body (price/area/date).
 const DOC_TEXT =
   'Prezydent Miasta Świętochłowice ogłasza I publiczny przetarg ustny nieograniczony ' +
   'na sprzedaż wolnego lokalu mieszkalnego nr 20 położonego w budynku przy ul. Powstańców Śląskich 8. ' +
@@ -83,14 +66,10 @@ const DOC_TEXT =
 
 test('doc-body extractors: price / area / date', () => {
   assert.equal(priceFromText(DOC_TEXT), 95000);
-  assert.equal(areaFromText(DOC_TEXT), 38.6); // flat area, not the 512 m² plot
+  assert.equal(areaFromText(DOC_TEXT), 38.6);
   assert.equal(auctionDateFromText(DOC_TEXT), '2026-06-18');
 });
 
-// The REAL Świętochłowice operative sentence uses the ACCUSATIVE label
-// ("Cenę wywoławczą … ustala się na kwotę …") — across all 106 cached .docs
-// the nominative-only regex matched 0 of them (June 2026 fix). Sample below
-// condensed from the live "Powstańców Śląskich 8/20" announcement.
 test('priceFromText: declined "Cenę wywoławczą … na kwotę" (Świętochłowice .docs)', () => {
   assert.equal(
     priceFromText('Cenę wywoławczą do pierwszego przetargu ustala się na kwotę 195 000,00 zł.'),
@@ -100,7 +79,6 @@ test('priceFromText: declined "Cenę wywoławczą … na kwotę" (Świętochłow
     priceFromText('Cenę wywoławczą sprzedaży nieruchomości lokalowej ustala się na kwotę 141 000,00 zł.'),
     141000,
   );
-  // Boilerplate "1% ceny wywoławczej, z zaokrągleniem …" must not produce a price.
   assert.equal(
     priceFromText('postąpienie nie może wynosić mniej niż 1% ceny wywoławczej, z zaokrągleniem w górę do pełnych dziesiątek złotych'),
     null,
@@ -114,9 +92,6 @@ test('auctionDateFromText: nominative month typo "17 styczeń 2024"', () => {
   );
 });
 
-// -------------- result notices ("Informacja o wyniku …" PDFs) --------------
-// Real archive titles (June 2026). The body fixture is synthetic in the
-// standard vocabulary — validate against real PDFs on the first CI run.
 
 test('isFlatResultNotice keeps flat results, drops cancellations/announcements', () => {
   assert.equal(isFlatResultNotice('Informacja o wyniku z III przetargu na sprzedaż spółdzielczego własnościowego prawa do lokalu mieszkalnego przy ul. Polaka 7/6 w Świętochłowicach.'), true);
@@ -153,7 +128,6 @@ test('parseResultDoc: negative result / undeterminable body', () => {
   assert.deepEqual(parseResultDoc(RES_TITLE + '\ntresc bez wyniku', null, 'u'), []);
 });
 
-// ---- Sibling board: isAuctionAnnouncement + land (HL-27) ----
 
 test('isAuctionAnnouncement: keeps przetarg/sprzedaz, drops notices/intents/wykaz', () => {
   assert.equal(isAuctionAnnouncement('I przetarg na sprzedaz niezabudowanej ul. Bytomska'), true);
@@ -206,14 +180,6 @@ test('isFlatAnnouncement: no regression (HL-27)', () => {
   assert.equal(isFlatAnnouncement(LAND_TITLE_SW), false);
 });
 
-// ---- Terse land title → unknown-by-title → body re-classify (coverage fix) ----
-// The city titles most land sales tersely ("…na sprzedaż nieruchomości – ul. X"),
-// with no niezabudowanej/działka word. classifyKind(title) → 'unknown', and the
-// sibling-board loop previously had no branch for 'unknown', so the auction was
-// dropped and land.json stayed empty despite live land (e.g. ul. Lotnicza
-// 11,98 ha). crawl.js now fetches the body and re-classifies on title + body,
-// then routes resolved grunt → parseLandAnnouncement. These tests cover that
-// title-only-vs-title+body decision and the land body parse.
 
 const TERSE_LAND_TITLE_SW =
   'I przetarg ustny nieograniczony na sprzedaż nieruchomości – ul. Lotnicza';
@@ -226,12 +192,8 @@ const TERSE_LAND_BODY_SW =
 const TERSE_LAND_URL_SW = 'https://www.bip.swietochlowice.pl/res/serwisy/pliki/44009999';
 
 test('terse land: title alone is unknown, title+body resolves grunt', () => {
-  // The auction gate still passes (przetarg + sprzedaż, not a notice/intent).
   assert.equal(isAuctionAnnouncement(TERSE_LAND_TITLE_SW), true);
-  // Title alone can't classify the kind …
   assert.equal(classifyKind(TERSE_LAND_TITLE_SW), 'unknown');
-  // … but the body carries "niezabudowanej"/"działka", so title+body → grunt
-  // (this is exactly the re-classify crawl.js performs before routing).
   assert.equal(classifyKind(`${TERSE_LAND_TITLE_SW} ${TERSE_LAND_BODY_SW}`), 'grunt');
 });
 
@@ -240,7 +202,7 @@ test('terse land: parseLandAnnouncement extracts parcel/area(ha)/price/date', ()
   assert.ok(r, 'terse land must produce a keyable land record');
   assert.equal(r.kind, 'grunt');
   assert.equal(r.dzialka_nr, '1234/56');
-  assert.equal(r.area_m2, 119800); // 11,98 ha → 119800 m²
+  assert.equal(r.area_m2, 119800);
   assert.equal(r.starting_price_pln, 3200000);
   assert.equal(r.auction_date, '2026-09-15');
   assert.equal(r.round, 1);

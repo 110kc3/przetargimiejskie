@@ -1,7 +1,3 @@
-// Szamotuły parser — bip.szamotuly.pl
-//
-// Extracts structured listing, land, and result records from eBIP JSON article payloads
-// where notice bodies arrive as inline HTML in `content`.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -23,11 +19,6 @@ const PL_MONTHS = {
   grudnia: 12,
 };
 
-/**
- * Decode numeric and named HTML entities emitted by the eBIP CMS.
- * @param {string} html
- * @returns {string}
- */
 export function decodeHtml(html) {
   if (!html) return '';
   return html
@@ -53,11 +44,6 @@ export function decodeHtml(html) {
     .replace(/&amp;/g, '&');
 }
 
-/**
- * Convert HTML body into clean text lines with entities decoded.
- * @param {string} html
- * @returns {string}
- */
 export function htmlToText(html) {
   if (!html) return '';
   const decoded = decodeHtml(html);
@@ -76,11 +62,6 @@ export function htmlToText(html) {
     .join('\n');
 }
 
-/**
- * Parse currency string to integer PLN.
- * @param {string|number} s
- * @returns {number|null}
- */
 export function parsePLN(s) {
   if (!s) return null;
   let cleaned = String(s).trim();
@@ -92,22 +73,12 @@ export function parsePLN(s) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/**
- * Parse area string to float m2.
- * @param {string|number} s
- * @returns {number|null}
- */
 export function parseArea(s) {
   if (!s) return null;
   const n = parseFloat(String(s).trim().replace(/\s/g, '').replace(',', '.'));
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/**
- * Parse Polish date to ISO YYYY-MM-DD.
- * @param {string} str
- * @returns {string|null}
- */
 export function parseDatePL(str) {
   if (!str) return null;
   const m1 = /(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(str);
@@ -122,11 +93,6 @@ export function parseDatePL(str) {
   return null;
 }
 
-/**
- * Extract auction date from notice text.
- * @param {string} text
- * @returns {string|null}
- */
 export function auctionDateFromText(text) {
   const t = text || '';
   const mAnn =
@@ -148,11 +114,6 @@ export function auctionDateFromText(text) {
   return null;
 }
 
-/**
- * Extract auction round number (1, 2, 3...) from text.
- * @param {string} text
- * @returns {number|null}
- */
 export function roundFromText(text) {
   const t = text || '';
   const mOrd =
@@ -180,11 +141,6 @@ export function roundFromText(text) {
   return 1;
 }
 
-/**
- * Extract wadium payment deadline from notice text.
- * @param {string} text
- * @returns {string|null}
- */
 export function extractWadiumDeadline(text) {
   const m =
     /w\s+terminie\s+do\s*(?:dnia)?\s*(\d{1,2}\s+[a-ząćęłńóśźż]+\s+\d{4}|\d{1,2}\.\d{1,2}\.\d{4})/i.exec(
@@ -194,19 +150,11 @@ export function extractWadiumDeadline(text) {
   return null;
 }
 
-/**
- * Extract land register (KW) number.
- * @param {string} text
- * @returns {string|null}
- */
 export function extractKW(text) {
   const m = /\b(PO1[A-Z]\/\d{8}\/\d)\b/i.exec(text || '');
   return m ? m[1].toUpperCase() : null;
 }
 
-/**
- * Convert locative village names to nominative.
- */
 function normalizeVillageName(loc) {
   if (!loc) return loc;
   const map = {
@@ -225,17 +173,9 @@ function normalizeVillageName(loc) {
   return map[key] || loc;
 }
 
-/**
- * Extract address_raw and parseAddress from notice text.
- * @param {string} text
- * @param {string} [title]
- * @returns {{ address_raw: string, address: object|null }}
- */
 export function extractAddress(text, title = '') {
   const combined = `${title}\n${text}`;
 
-  // 1. Street with building and optional apartment number
-  // Ignore Dworcowa (seat of Urząd Miasta)
   const mStreetWithNo =
     /przy\s+ul(?:icy|\.)\s+((?!Dworcow)[A-Za-ząćęłńóśźż\s\-]+?\s+\d+[a-zA-Z]?(?:\/\d+[a-zA-Z]?)?)(?:\s+o\s+powierzchni|\.|\s+stanowi|\s*,)/i.exec(
       combined,
@@ -247,7 +187,6 @@ export function extractAddress(text, title = '') {
     return { address_raw, address };
   }
 
-  // 2. Village with house number: "w Przysieczynie 52"
   const mVillageWithNo =
     /położon\w+\s+w\s+([A-Za-ząćęłńóśźż]+)\s+(\d+[a-zA-Z]?)(?:\s+stanowi|\.|\s+o\s+powierzchni|\s*,)/i.exec(
       combined,
@@ -259,7 +198,6 @@ export function extractAddress(text, title = '') {
     return { address_raw, address };
   }
 
-  // 3. Street without building number (land / general street)
   const mStreet =
     /przy\s+ul(?:icy|\.)\s+((?!Dworcow)[A-Za-ząćęłńóśźż\s\-]+?)(?:\s+stanowi|\.|\s*,|\s+o\s+powierzchni|\s+oznaczon)/i.exec(
       combined,
@@ -271,7 +209,6 @@ export function extractAddress(text, title = '') {
     return { address_raw, address };
   }
 
-  // 4. Village name: "w Mutowie", "w Koźlu", etc.
   const mVillage =
     /położon\w+\s+w\s+([A-Za-ząćęłńóśźż]+)(?:\s*,|\s+stanowi|\.|\s+oznaczon)/i.exec(
       combined,
@@ -281,7 +218,6 @@ export function extractAddress(text, title = '') {
     return { address_raw, address: null };
   }
 
-  // Fallback to title keywords if available
   const mTitleVillage =
     /\b(Mutowo|Koźle|Kozle|Piotrkówko|Piotrkowko|Otorowo|Przyborowo|Lipnica|Przysieczyn)\b/i.exec(
       title,
@@ -294,11 +230,6 @@ export function extractAddress(text, title = '') {
   return { address_raw: null, address: null };
 }
 
-/**
- * Extract usable floor area for flats / commercial units / houses.
- * @param {string} text
- * @returns {number|null}
- */
 export function extractUnitArea(text) {
   const t = text || '';
   const m1 = /powierzchni\s+u[żz]ytkowej\s+([\d.,]+)\s*m/i.exec(t);
@@ -313,11 +244,6 @@ export function extractUnitArea(text) {
   return null;
 }
 
-/**
- * Extract starting price from notice text.
- * @param {string} text
- * @returns {number|null}
- */
 export function extractStartingPrice(text) {
   const t = text || '';
   const m =
@@ -328,11 +254,6 @@ export function extractStartingPrice(text) {
   return null;
 }
 
-/**
- * Extract wadium amount from notice text.
- * @param {string} text
- * @returns {number|null}
- */
 export function extractWadium(text) {
   const t = text || '';
   const m = /wadium\s+wynosi\s*[-:–]?\s*([\d\s.,]+)\s*z[łl]/i.exec(t);
@@ -340,11 +261,6 @@ export function extractWadium(text) {
   return null;
 }
 
-/**
- * Extract outcome, final price, and unsold reason for result notices.
- * @param {string} text
- * @returns {{ outcome: 'sold'|'unsold', final_price_pln: number|null, unsold_reason: string|null }}
- */
 export function extractOutcome(text) {
   const t = text || '';
   const mAchieved =
@@ -379,11 +295,6 @@ export function extractOutcome(text) {
   };
 }
 
-/**
- * Extract land parcel rows from HTML tables.
- * @param {string} html
- * @returns {Array<{ dzialka_nr: string, area_m2: number|null, kw: string|null, starting_price_pln: number|null, wadium_pln: number|null }>}
- */
 export function parseTables(html) {
   const decoded = decodeHtml(html);
   const tables = [];
@@ -429,13 +340,6 @@ export function parseTables(html) {
   return tables;
 }
 
-/**
- * Filter out rentals, cancellations, list of qualified bidders, etc.
- * @param {string} title
- * @param {string} lead
- * @param {string} slug
- * @returns {boolean}
- */
 export function isSkippableArticle(title = '', lead = '', slug = '') {
   const combined = `${title} ${lead} ${slug}`.toLowerCase();
   if (/\bnajem\b|najmu|dzier[żz]aw|wynajem|ogródk|ogrodk|użyczeni/i.test(combined)) return true;
@@ -446,14 +350,6 @@ export function isSkippableArticle(title = '', lead = '', slug = '') {
   return false;
 }
 
-/**
- * True if article is an achieved-price result notice ("Informacja o wyniku...").
- * @param {string} title
- * @param {string} lead
- * @param {string} slug
- * @param {string} [body]
- * @returns {boolean}
- */
 export function isResultArticle(title = '', lead = '', slug = '', body = '') {
   const combined = `${title} ${lead} ${slug} ${body}`.toLowerCase();
   if (/informacj\w*\s+o\s+wynik|o\s+wyniku\s+\w*\s*przetargu|protok[óo][łl]\s+z\s+\w*\s*przetargu|wynik\s+przetargu/i.test(combined)) {
@@ -466,14 +362,6 @@ export function isResultArticle(title = '', lead = '', slug = '', body = '') {
   return false;
 }
 
-/**
- * True if article is an auction announcement ("Burmistrz ... ogłasza przetarg...").
- * @param {string} title
- * @param {string} lead
- * @param {string} slug
- * @param {string} [body]
- * @returns {boolean}
- */
 export function isAnnouncementArticle(title = '', lead = '', slug = '', body = '') {
   if (isResultArticle(title, lead, slug, body)) return false;
   if (isSkippableArticle(title, lead, slug)) return false;
@@ -481,11 +369,6 @@ export function isAnnouncementArticle(title = '', lead = '', slug = '', body = '
   return /przetarg|og[łl]oszen/i.test(combined) && /zbyci|sprzeda|nieruchomo/i.test(combined);
 }
 
-/**
- * Parse an announcement article JSON payload into 1 or more listing/land records.
- * @param {object} article
- * @returns {Array<object>}
- */
 export function parseAnnouncement(article) {
   const title = (article?.title || article?.aliasFields?.find((x) => x.alias === 'title')?.value || '').trim();
   const html = article?.content || '';
@@ -519,7 +402,6 @@ export function parseAnnouncement(article) {
       }));
     }
 
-    // Bare text land plot
     const mPlot = /dzia[łl]k\w*\s+(?:nr|numer|ewidencyjn\w*)?\s*([0-9\/\, ]+)/i.exec(text);
     const dzialka_nr = mPlot ? mPlot[1].trim() : null;
     const area_m2 = extractUnitArea(text) || parseArea((/o\s+powierzchni\s*([\d\s.,]+)\s*m/i.exec(text) || [])[1]);
@@ -542,7 +424,6 @@ export function parseAnnouncement(article) {
     ];
   }
 
-  // Flats, commercial units, houses
   const { address_raw, address } = extractAddress(text, title);
   if (!address_raw) return [];
 
@@ -567,14 +448,6 @@ export function parseAnnouncement(article) {
   ];
 }
 
-/**
- * Parse a result document / notice into an array of concluded auction records.
- * Standard interface expected by refresh.js: (text, fallbackDate, sourceUrl).
- * @param {string} textOrHtml
- * @param {string|null} fallbackDate
- * @param {string} sourceUrl
- * @returns {Array<object>}
- */
 export function parseResultDoc(textOrHtml, fallbackDate, sourceUrl) {
   const text = textOrHtml && textOrHtml.includes('<') ? htmlToText(textOrHtml) : textOrHtml || '';
   if (!isResultArticle('', '', '', text)) return [];
@@ -595,7 +468,6 @@ export function parseResultDoc(textOrHtml, fallbackDate, sourceUrl) {
 
     if (tablePlots.length > 0) {
       return tablePlots.map((plot) => {
-        // In multi-plot notices, check if this specific plot was sold
         const escapedPlot = plot.dzialka_nr.replace('/', '\\/').trim();
         const plotRegex = new RegExp(
           `dzia[łl]ka\\s+numer\\s*${escapedPlot}[\\s\\S]{0,450}?cena\\s+osi[ąa]gni[ęe]ta(?:\\s+w\\s+przetargu)?\\s*[-:–]?\\s*([\\d\\s.,]+)\\s*z[łl]`,
@@ -646,7 +518,6 @@ export function parseResultDoc(textOrHtml, fallbackDate, sourceUrl) {
     ];
   }
 
-  // Address-keyed properties (flats, commercial units, houses)
   const { address_raw, address } = extractAddress(text);
   if (!address_raw) return [];
 

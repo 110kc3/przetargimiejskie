@@ -1,7 +1,3 @@
-// Configuration for Świecie adapter (bip.swiecie.eu)
-//
-// Gmina Świecie (powiat świecki, kujawsko-pomorskie)
-// TERC: 0414094
 
 export const CONFIG = {
   id: 'swiecie',

@@ -1,17 +1,3 @@
-// Otwock crawler.
-//
-// Source: bip.otwock.pl — INTERmedi@ CMS-BIP 3.0 server-rendered HTML.
-//
-// Boards:
-//   ANNOUNCEMENTS (menu 1018 "Przetargi"):
-//     https://bip.otwock.pl/?bip=1&cid=1018&pg={page}
-//   RESULTS (menu 1039 "Ogłoszenia o wyniku postępowania"):
-//     https://bip.otwock.pl/?bip=1&cid=1039&pg={page}
-//
-// Document layer:
-//   Notice details (address, area, starting price, date, outcome) reside in
-//   attached scanned PDFs (200 dpi JPEG full-page scans).
-//   Extract via pdfText, falling back to ocrPdf.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -49,7 +35,6 @@ export async function extractAttachmentText(url) {
       return '';
     }
   }
-  // PDF: try native text first, fall back to OCR
   try {
     const text = await pdfText(url);
     if (text && text.trim().length > 30) return text;

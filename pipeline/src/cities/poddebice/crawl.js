@@ -1,41 +1,3 @@
-// Poddębice crawler — bip.poddebice.pl, devcomm "bipv45" CMS.
-//
-// One board ("Ogłoszenia Burmistrza Poddębic", id=102) carries every property
-// auction, wykaz pre-announcement, and MPZP-planning notice mixed together
-// (~279 docs as of 2026-07-10). Its list is a DataTables-JSON AJAX endpoint
-// that returns EVERY row in a single call — no pagination needed. Confirmed
-// live 2026-07-10: valid TLS chain (insecureTLS not needed), no bot-block
-// (plain bot UA works for the JSON list, detail HTML, and PDF attachments
-// alike).
-//
-// JSON row shape (aaData[i]), 0-indexed:
-//   [0]=?, [1]=autor, [2]=TITLE, [3]=znak(usually empty), [4]=autor(dup),
-//   [5]=DATE "YYYY-MM-DD", [6]=docId, [7..8]=?, [9]=p2 (the id the detail
-//   page URL needs), [10]=menuId(=102), [11..16]=?
-// See spikes/lodzkie/powiat-poddebicki/poddebice.md for the endpoint spike.
-//
-// DETAIL: index.php?id=102&p1=szczegoly&p2=<row[9]> — server-rendered HTML
-// shell; the only real content is a relative "upload/pliki/<name>.pdf" link
-// (the announcement's terms — address/area/price/date — live ONLY in that
-// PDF; the detail page repeats just the title + creation date, both of which
-// the JSON row already gave us for free).
-//
-// crawlActive(): filters the list to titles that are a scheduled AUCTION-SALE
-//   announcement (isAuctionSaleTitle, see parse.js) within a 2-calendar-year
-//   window (this board's realistically-still-open auctions are always this
-//   recent — see withinActiveWindow; anything older would just resolve to
-//   'archived' downstream anyway, the window exists purely to bound the
-//   number of detail+PDF fetches on a 279-doc mixed board). For each
-//   candidate: fetch the detail HTML for the PDF link, pdfText() it, hand the
-//   text + title to parse.js's parseAnnouncementPdf(). Routes each resulting
-//   record by kind: 'mieszkalny' -> listings (flats), 'grunt' -> land.
-// crawlResultDocs(): NO achieved-price stream exists on this board — zero
-//   "informacja o wyniku przetargu" / "rozstrzygnięcie" notices across all
-//   279 entries (confirmed live 2026-07-10; see config.js). Scans
-//   defensively (title-only, cheap) in case one is ever published, but
-//   returns [] today. `source: 'pdf-text'` in config.js means refresh.js
-//   calls pdfText() on any refs this ever returns — crawl.js does not
-//   self-extract result text.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -46,10 +8,6 @@ const ORIGIN = 'https://bip.poddebice.pl';
 const BOARD_ID = '102';
 const LIST_URL = `${ORIGIN}/index.php?id=${BOARD_ID}&akcja=pobierz_dokumenty_ajax&chwila=1`;
 
-// Hard cap so a mis-filtered board can never balloon into hundreds of
-// detail+PDF fetches in one CI run. Real live volume within the 2-year
-// window is ~10 candidates (2026-07-10) — this is a circuit breaker, not a
-// tuning knob.
 const MAX_CANDIDATES = 60;
 
 export function detailUrl(p2) {
@@ -60,11 +18,6 @@ function currentYear() {
   return new Date().getFullYear();
 }
 
-/**
- * Parse the DataTables JSON list response into board entries.
- * @param {string} jsonText
- * @returns {Array<{title: string, date: string|null, p2: string}>}
- */
 export function parseListJson(jsonText) {
   if (!jsonText) return [];
   let data;
@@ -89,12 +42,6 @@ export function parseListJson(jsonText) {
   return out;
 }
 
-/**
- * Extract the relative "upload/pliki/*.pdf" attachment link from a detail
- * page and resolve it to an absolute URL.
- * @param {string} html
- * @returns {string|null}
- */
 export function pdfUrlFromDetail(html) {
   if (!html) return null;
   const m = /href="(upload\/pliki\/[^"]+\.pdf)"/i.exec(html);
@@ -106,11 +53,6 @@ export function pdfUrlFromDetail(html) {
   }
 }
 
-// This board's realistically-still-open auctions are always within the
-// current + previous calendar year (mirrors gizycko/tczew's year window) —
-// bounds the candidate count on a 279-doc mixed board without meaningfully
-// affecting which real auctions get crawled; an item aged past this window
-// that somehow still mattered would just resolve to 'archived' downstream.
 function withinActiveWindow(dateStr) {
   if (!dateStr) return false;
   const year = Number(dateStr.slice(0, 4));
@@ -173,12 +115,6 @@ export async function crawlActive() {
   return { listings, wykaz: [], land };
 }
 
-/**
- * No achieved-price stream exists on this board (see file header + config.js)
- * — this scans defensively for a future "wynik"/"rozstrzygnięcie" title but
- * is expected to return [] indefinitely.
- * @returns {Promise<Array<{pdf_url: string, auction_date: string|null}>>}
- */
 export async function crawlResultDocs() {
   const entries = await fetchListEntries();
   const resultEntries = entries.filter((e) => /wynik|rozstrzygni[eę]/i.test(e.title));
@@ -201,8 +137,6 @@ export async function crawlResultDocs() {
   return refs;
 }
 
-// CLI smoke test: `node src/cities/poddebice/crawl.js` — prints counts + one
-// sample record from each stream.
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings, land } = await crawlActive();
   const results = await crawlResultDocs();

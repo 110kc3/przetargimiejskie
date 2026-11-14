@@ -1,5 +1,3 @@
-// Adapter entry point for Krasnystaw (powiat krasnostawski, Lubelskie)
-// BIP: https://umkrasnystaw.bip.lubelskie.pl
 
 import config from './config.js';
 import { crawlActive, crawlResultDocs, parseResultDoc } from './crawl.js';

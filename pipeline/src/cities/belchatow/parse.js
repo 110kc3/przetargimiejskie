@@ -1,39 +1,6 @@
-// Bełchatów parsers.
-//
-// parseAnnouncementPost(post) — extract a flat-sale listing from a belchatow.pl
-//   WordPress post. `post` = { title, content (rendered HTML), date (ISO), link }.
-//   The parseable posts are the "Aktualności" prose write-ups (category 215)
-//   that accompany each municipal flat auction. Groundtruthed against two live
-//   posts (fetched 2026-07-05):
-//
-//     "Miasto wystawia mieszkanie na sprzedaż. Sprawdź ofertę" (2026-05-27)
-//       os. Dolnośląskim, bloku nr 306 · 52,83 mkw · 276 724,00 zł · 30 czerwca
-//     "Miasto wystawiło na sprzedaż mieszkanie" (2025-06-12)
-//       os. Dolnośląskim 225 · 36,72 mkw · 192 340,00 zł · 4 lipca
-//
-//   Fields: address (parseAddress on "os. <estate> <building>"), area_m2
-//   ("X,XX mkw"), starting_price_pln ("… X XXX,00 zł" — the exact cena
-//   wywoławcza, not the rounded "277 tys." teaser), auction_date ("Przetarg
-//   odbędzie się DD <miesiąc>" + year from the post date), round (I unless the
-//   text says drugi/II/… przetarg — NB "drugim piętrze" = 2nd FLOOR, not round).
-//
-// isFlatSaleAnnouncement(title, bodyText) — predicate used by crawl.js to keep
-//   flat-sale announcements and drop the noise the WordPress search returns
-//   (wykup komunalny z bonifikatą, najem/dzierżawa lokali użytkowych, działki,
-//   SIM/BTBS, charity auctions). Requires the "cena wywoławcza" phrase.
-//
-// parseResultDoc(text, fallbackDate, sourceUrl) — registry contract. Parses a
-//   "Informacja o wyniku ustnego przetargu … na sprzedaż lokalu mieszkalnego"
-//   post/PDF into a result record. Bełchatów does NOT currently publish flat
-//   result notices on belchatow.pl (they live on belchatow.bip.gov.pl only), so
-//   this is groundtruthed against the standard Polish result template rather
-//   than a live Bełchatów result. VALIDATE on the first live result.
 
 import { parseAddress } from '../../core/normalize.js';
 
-// ---------------------------------------------------------------------------
-// Shared helpers
-// ---------------------------------------------------------------------------
 
 export function stripTags(s) {
   return (s || '')
@@ -49,9 +16,6 @@ export function stripTags(s) {
     .trim();
 }
 
-// "276 724,00 zł" / "192 340,00" / "97000" → integer PLN, or null.
-// Polish monetary formatting: space (or &nbsp;) thousands separator, comma
-// decimal. Strip whitespace, drop the trailing ",NN"/".NN" fraction, then parse.
 export function parsePLN(s) {
   if (!s) return null;
   let cleaned = String(s).replace(/[\s  ]/g, '');
@@ -63,7 +27,6 @@ export function parsePLN(s) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// "52,83" / "36.72" → float m², or null.
 export function parseArea(s) {
   if (!s) return null;
   const cleaned = String(s).replace(/[\s ]/g, '').replace(',', '.');
@@ -75,13 +38,10 @@ function iso(y, m, d) {
   return `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
 }
 
-// Polish month-name → number. Genitive forms (as they appear in "30 czerwca"),
-// both diacritic and ASCII-stripped.
 const PL_MONTHS = {
   stycznia: 1, lutego: 2, marca: 3, kwietnia: 4, maja: 5, czerwca: 6,
   lipca: 7, sierpnia: 8, września: 9, wrzesnia: 9, października: 10,
   pazdziernika: 10, listopada: 11, grudnia: 12,
-  // nominative (defensive)
   styczeń: 1, styczen: 1, luty: 2, marzec: 3, kwiecień: 4, kwiecien: 4, maj: 5,
   czerwiec: 6, lipiec: 7, sierpień: 8, sierpien: 8, wrzesień: 9, wrzesien: 9,
   październik: 10, pazdziernik: 10, listopad: 11, grudzień: 12, grudzien: 12,
@@ -91,9 +51,6 @@ function plMonthNum(word) {
   return PL_MONTHS[(word || '').toLowerCase()] ?? null;
 }
 
-// Parse Polish date texts:
-//   "30 czerwca 2026" / "30 czerwca 2026 r." → "2026-06-30"
-//   "04.07.2025" / "4.07.2025" → "2025-07-04"
 export function parseDateText(s) {
   if (!s) return null;
   const num = /(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})/.exec(s);
@@ -106,9 +63,6 @@ export function parseDateText(s) {
   return null;
 }
 
-// Round from prose. "II ustny przetarg" / "drugi przetarg" → 2, etc.
-// IMPORTANT: only counts when the ordinal sits next to "przetarg" — "na drugim
-// piętrze" (2nd floor) must NOT be read as round 2.
 const ORDINAL_WORDS = {
   pierwsz: 1, drugi: 2, drugim: 2, trzeci: 3, trzecim: 3, czwart: 4, piat: 5, piąt: 5,
 };
@@ -117,10 +71,8 @@ const ROMAN_MAP = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6 };
 export function roundFromText(text) {
   if (!text) return 1;
   const t = String(text);
-  // Roman numeral immediately before "ustny przetarg" / "przetarg"
   const roman = /\b(VI|IV|V|III|II|I)\s+(?:ustny\s+)?przetarg/i.exec(t);
   if (roman) return ROMAN_MAP[roman[1].toUpperCase()] ?? 1;
-  // Ordinal word adjacent to "ustny przetarg" / "przetarg"
   const word = /\b(pierwsz\w*|drugi\w*|trzeci\w*|czwart\w*|pi[ąa]t\w*)\s+(?:ustny\w*\s+)?przetarg/i.exec(t);
   if (word) {
     const key = word[1].toLowerCase();
@@ -131,45 +83,23 @@ export function roundFromText(text) {
   return 1;
 }
 
-// ---------------------------------------------------------------------------
-// Announcement (listing) parser — belchatow.pl news prose post
-// ---------------------------------------------------------------------------
 
-// Predicate: is this WordPress post a municipal FLAT-SALE auction announcement?
-// The site's search returns a lot of adjacent noise; keep only genuine open-
-// market flat auctions (they always quote a "cena wywoławcza").
 export function isFlatSaleAnnouncement(title, bodyText) {
   const t = `${title || ''} ${bodyText || ''}`.toLowerCase();
-  // Must concern a dwelling (mieszkanie / lokal mieszkalny) — \b guards against
-  // "mieszkańców" (residents).
   if (!/(lokal\w*\s+mieszkaln|\bmieszkani[ea]\b|\bmieszkanie\b)/.test(t)) return false;
-  // Must be a sale / auction.
   if (!/(sprzeda|zbyci|wystawi|licytacj|przetarg)/.test(t)) return false;
-  // Must quote an opening price (distinguishes real auctions from teasers).
   if (!/cena\s+wywo[łl]awcz/.test(t)) return false;
-  // Drop the neighbouring noise: tenant buy-outs with bonifikata, leases,
-  // land, commercial premises, SIM/BTBS social housing, charity auctions.
   if (/(najem|wynajmij|wynaj[ei]|dzier[żz]aw|dzia[łl]k|lokal\w*\s+u[żz]ytkow|gastronomi|bonifikat|wykup|komunaln|\bbtbs\b|\bsim\b|posag|na\s+wydzier)/.test(t)) {
     return false;
   }
   return true;
 }
 
-// Extract "os. <estate> <building>" from the prose.
-// 2025: "znajduje się na os. Dolnośląskim 225, ..."      → estate+number
-// 2026: "znajduje się na os. Dolnośląskim w bloku nr 306" → "bloku nr N"
 function addressFromBody(text) {
-  // Estate name after "os." / "osiedlu" / "osiedle" (first mention).
   const estM = /\bos(?:iedl\w*|\.)?\s+([A-ZŁŚŻŹĆŃÓĄĘ][a-ząćęłńóśźż]+)/.exec(text);
   if (!estM) return null;
   let estate = estM[1].trim();
 
-  // Building number. Two shapes seen in the prose:
-  //   "os. Dolnośląskim w bloku nr 306"  → "bloku nr N"
-  //   "os. Dolnośląskim 225, ..."        → number directly after the estate.
-  // NB the estate is often mentioned twice ("na os. Dolnośląskim w świetnej
-  // lokalizacji ..." then again with the number), so anchor on the mention
-  // that is actually followed by a number rather than the first occurrence.
   let building = null;
   const blokM = /blok(?:u|iem)?\s+nr\s+(\d+[A-Za-z]?)/i.exec(text);
   if (blokM) {
@@ -187,9 +117,6 @@ function addressFromBody(text) {
   return address ? { address, address_raw: `os. ${estate} ${building}` } : null;
 }
 
-// Resolve the auction year: the prose gives only "DD <miesiąc>" with no year.
-// Use the post's publication year; if the auction month is earlier than the
-// publication month, the auction rolls into the next year.
 function resolveAuctionDate(day, monthNum, postDateIso) {
   let year = new Date().getFullYear();
   const pm = /^(\d{4})-(\d{2})/.exec(postDateIso || '');
@@ -201,11 +128,6 @@ function resolveAuctionDate(day, monthNum, postDateIso) {
   return iso(year, monthNum, day);
 }
 
-/**
- * Parse one flat-sale announcement post.
- * @param {{title:string, content:string, date:string, link:string}} post
- * @returns {object|null} listing record, or null if not a parseable flat sale.
- */
 export function parseAnnouncementPost(post) {
   if (!post) return null;
   const title = stripTags(post.title || '');
@@ -215,16 +137,12 @@ export function parseAnnouncementPost(post) {
   const addr = addressFromBody(body);
   if (!addr) return null;
 
-  // Area: the precise "X,XX mkw" (ignore rounded "prawie 53 mkw" integers).
   const areaM = /(\d+,\d+)\s*mkw|(\d+,\d+)\s*m(?:²|2|\s|\.|<|$)/i.exec(body);
   const area_m2 = areaM ? parseArea(areaM[1] || areaM[2]) : null;
 
-  // Starting price: the exact "X XXX,00 zł" cena wywoławcza (grouped thousands
-  // with a ,00 fraction) — never the "277 tys. zł" teaser.
   const priceM = /(\d{1,3}(?:[\s  .]\d{3})+,\d{2})\s*z[łl]/.exec(body);
   const starting_price_pln = priceM ? parsePLN(priceM[1]) : null;
 
-  // Auction date: "Przetarg odbędzie się 30 czerwca …" + year from post date.
   let auction_date = null;
   const dM = /Przetarg\s+odb[eę]dzie\s+si[eę]\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)/i.exec(body);
   if (dM) {
@@ -234,7 +152,6 @@ export function parseAnnouncementPost(post) {
 
   const round = roundFromText(`${title} ${body}`);
 
-  // BIP deep link (full legal announcement) if present in the body.
   const bipM = /https?:\/\/[^"'\s]*bip\.gov\.pl\/[^"'\s]+/i.exec(post.content || '');
 
   return {
@@ -253,24 +170,6 @@ export function parseAnnouncementPost(post) {
   };
 }
 
-// ---------------------------------------------------------------------------
-// Result parser (registry contract: parseResultDoc)
-// ---------------------------------------------------------------------------
-//
-// Standard Polish "Informacja o wyniku ustnego przetargu nieograniczonego na
-// sprzedaż lokalu mieszkalnego" template:
-//
-//   Prezydent Miasta Bełchatowa informuje, że w dniu <date> odbył się
-//   <N> ustny przetarg nieograniczony na sprzedaż lokalu mieszkalnego nr <apt>
-//   położonego … na os. <estate> <bldg> …
-//   Cena wywoławcza: <price> zł
-//   Cena osiągnięta (najwyższa oferta): <final> zł     ← achieved price (sold)
-//   Nabywca: <winner>
-//   — or —
-//   Przetarg zakończył się wynikiem negatywnym.
-//
-// NB: not yet validated against a live Bełchatów result (none published on
-// belchatow.pl to date). Groundtruthed against the standard template.
 
 function priceFromResultText(text, labelPattern) {
   const re = new RegExp(labelPattern + '[^\\d]{0,30}(\\d[\\d\\u00a0\\u202f .]*,\\d{2}|\\d[\\d\\u00a0\\u202f .]*\\d)\\s*z[łl]', 'i');
@@ -287,13 +186,6 @@ function addressFromResultText(text) {
   return parseAddress(apt ? `${base}/${apt}` : base);
 }
 
-/**
- * Parse a flat "Informacja o wyniku przetargu" post/PDF text.
- * @param {string} text
- * @param {string|null} fallbackDate  ISO date (post/publish date)
- * @param {string} sourceUrl
- * @returns {Array<object>}
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!text || !String(text).trim()) return [];
   const t = String(text);
@@ -304,7 +196,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     /wynik(?:iem)?\s+negatywn/i.test(t);
   if (!isResultNotice) return [];
 
-  // Flats only — exclude land / commercial result notices.
   if (/niezabudowan\w*\s+dzia[łl]k|sprzeda[żz]\s+dzia[łl]k|lokal\w*\s+u[żz]ytkow|dzier[żz]aw/i.test(t)) return [];
   if (!/lokal\w*\s+mieszkaln|mieszkani/i.test(t)) return [];
 
@@ -333,14 +224,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     ? (/wadium/i.test(t) ? 'brak wpłaty wadium' : 'wynik negatywny')
     : null;
 
-  // belchatow.pl publishes "informacja o wyniku" notices as STUBS: the post
-  // carries the property description (address/area/date) but the achieved price
-  // and sold/unsold outcome live in an attachment behind the
-  // belchatow.bip.gov.pl "Pobierz" link (not fetched here — see TODO §2 result
-  // stream). Without any outcome signal (an achieved price or an explicit
-  // negative result) there is no result to report, so skip the stub rather than
-  // emit a misleading price-less "open" record for an auction that has already
-  // concluded. A future BIP-attachment fetch would let these yield real results.
   if (!unsold && final_price_pln == null) return [];
 
   return [{

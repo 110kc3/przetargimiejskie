@@ -1,18 +1,3 @@
-// Grodzisk Mazowiecki crawler.
-//
-// crawlActive():
-//   Fetches announcements & wykazy from https://nieruchomosci.grodzisk.pl/
-//   via WP REST API (with HTML category pagination fallback).
-//   Resolves attached announcement PDFs directly from WordPress or via the
-//   corresponding BIP auction menu / article.
-//   Returns { listings, wykaz, land, valid_empty: false, valid_empty_land: false }.
-//
-// crawlResultDocs():
-//   Fetches achieved-price result notices ("Informacja o wyniku przetargu")
-//   from BIP Grodzisk Mazowiecki (bip.grodzisk.pl) via its Logonet REST API:
-//   /api/menu/<wgn_id> -> /api/menu/<auction_id>/articles -> /api/articles/<id>.
-//   Extracts text from born-digital (or scanned) result PDFs.
-//   Returns array of result refs { text, pdf_url, detail_url, auction_date }.
 
 import { getText } from '../../core/fetch.js';
 import { loadKnownSourceUrls } from '../../core/known-urls.js';
@@ -23,20 +8,17 @@ import { parseAnnouncement, isWykaz, roundFromText } from './parse.js';
 const WP_ORIGIN = 'https://nieruchomosci.grodzisk.pl';
 const BIP_ORIGIN = 'https://bip.grodzisk.pl';
 
-// BIP WGN year menus to inspect for results and announcements
-const WGN_YEAR_MENUS = [5545, 5188]; // 2026, 2025
+const WGN_YEAR_MENUS = [5545, 5188];
 
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
 
-/** Fetch JSON from an endpoint with timeout and browser UA */
 async function fetchJson(url) {
   const text = await getText(url, FETCH_OPTS);
   return JSON.parse(text);
 }
 
-/** Extract text from a PDF URL, falling back to OCR if pdftotext yields empty/garbage */
 async function extractPdfText(url) {
   try {
     let t = await pdfText(url);
@@ -50,14 +32,10 @@ async function extractPdfText(url) {
   }
 }
 
-// ---------------------------------------------------------------------------
-// crawlActive
-// ---------------------------------------------------------------------------
 
 let activePromise = null;
 
 async function harvestWpPosts() {
-  // 1. Try WP REST API first (fast and complete)
   try {
     const apiUrl = `${WP_ORIGIN}/wp-json/wp/v2/posts?per_page=100`;
     const data = await fetchJson(apiUrl);
@@ -74,7 +52,6 @@ async function harvestWpPosts() {
     console.error(`  grodzisk-mazowiecki: WP REST API failed (${err.message}), falling back to HTML`);
   }
 
-  // 2. HTML category fallback
   const posts = [];
   const seenUrls = new Set();
   const categories = [
@@ -94,7 +71,7 @@ async function harvestWpPosts() {
       try {
         html = await getText(catUrl, FETCH_OPTS);
       } catch (err) {
-        break; // 404 or end of pages
+        break;
       }
 
       const articleRe = /<article[^>]*>([\s\S]*?)<\/article>/gi;
@@ -121,17 +98,14 @@ async function harvestWpPosts() {
   return posts;
 }
 
-/** Resolve the announcement PDF URL for a post */
 async function resolveAnnouncementPdf(post, auctionMenus = []) {
   const content = post.content || '';
 
-  // 1. Direct PDF attachment in post content
   const directPdfM = /href="([^"]+\/wp-content\/uploads\/[^"]+\.pdf)"/i.exec(content);
   if (directPdfM) {
     return directPdfM[1];
   }
 
-  // 2. BIP article link: /a,<id>,...
   const bipArtM = /bip\.grodzisk\.pl\/a,(\d+)/i.exec(content);
   if (bipArtM) {
     try {
@@ -145,7 +119,6 @@ async function resolveAnnouncementPdf(post, auctionMenus = []) {
     }
   }
 
-  // 3. BIP menu link: /m,<id>,...
   const bipMenuM = /bip\.grodzisk\.pl\/m,(\d+)/i.exec(content);
   if (bipMenuM) {
     try {
@@ -161,7 +134,6 @@ async function resolveAnnouncementPdf(post, auctionMenus = []) {
     }
   }
 
-  // 4. Fallback: match by WGN case reference against BIP auction submenus
   if (Array.isArray(auctionMenus) && auctionMenus.length > 0) {
     const caseM = /WGN[.\s\d]+/i.exec(`${post.title} ${content}`);
     if (caseM) {
@@ -193,7 +165,6 @@ async function resolveAnnouncementPdf(post, auctionMenus = []) {
 
 export async function crawlActive() {
   activePromise ??= (async () => {
-    // Collect BIP auction submenus for fallback resolution
     const auctionMenus = [];
     for (const mid of WGN_YEAR_MENUS) {
       try {
@@ -260,9 +231,6 @@ export async function crawlActive() {
   return activePromise;
 }
 
-// ---------------------------------------------------------------------------
-// crawlResultDocs
-// ---------------------------------------------------------------------------
 
 let resultsPromise = null;
 
@@ -281,7 +249,6 @@ export async function crawlResultDocs() {
         continue;
       }
 
-      // Find node matching mid
       function findNode(arr, id) {
         if (!Array.isArray(arr)) return null;
         for (const item of arr) {
@@ -299,7 +266,6 @@ export async function crawlResultDocs() {
 
       for (const auctionNode of wgnNode.children) {
         const name = auctionNode.name || '';
-        // Skip non-real-estate auctions (cars, fire equipment)
         if (/samoch[oó]d|wozu|stra[żz]|ruchom|pojazd/i.test(name)) continue;
 
         let aData;
@@ -323,7 +289,6 @@ export async function crawlResultDocs() {
 
           const pdfAtt = (artDetails.attachments || []).find((a) => a.extension === 'pdf');
           if (!pdfAtt) {
-            // If result has inline content instead of PDF
             if (artDetails.content) {
               const detailUrl = `${BIP_ORIGIN}/${link}`;
               if (!known.has(detailUrl)) {

@@ -114,8 +114,6 @@ export function romanOrNumber(value) {
 }
 
 export function roundFromText(value = '') {
-  // Horizontal whitespace only: numbered PDF sections such as "3.\n\nPrzetarg"
-  // are not auction rounds.
   const match = /\b(\d+|I{1,3}|IV|V|VI{0,3}|IX|X)[ \t]*(?:[.-]?[ \t]*)?(?:przetarg|aukcj)/i.exec(value);
   return match ? romanOrNumber(match[1]) : null;
 }
@@ -129,9 +127,6 @@ export function auctionMode(value = '') {
 }
 
 export function todayWarsaw() {
-  // Do not rely on en-CA rendering as YYYY-MM-DD: small-ICU Node builds can
-  // silently fall back to en-US and return MM/DD/YYYY. Time-zone conversion is
-  // still reliable, so assemble the numeric parts explicitly.
   const parts = new Intl.DateTimeFormat('en-US', {
     timeZone: 'Europe/Warsaw', year: 'numeric', month: '2-digit', day: '2-digit',
   }).formatToParts(new Date());
@@ -147,7 +142,6 @@ export function ageProviderListing(listing, today = todayWarsaw()) {
     : listing;
 }
 
-/** Fresh rows win; rows missing from today's source remain as durable history. */
 export function mergeProviderListings(previous = [], fresh = [], today = todayWarsaw()) {
   const merged = new Map();
   for (const row of previous) if (row?.event_key) merged.set(row.event_key, ageProviderListing(row, today));
@@ -155,8 +149,6 @@ export function mergeProviderListings(previous = [], fresh = [], today = todayWa
     if (!row?.event_key) continue;
     const prior = merged.get(row.event_key) || {};
     const next = { ...prior, ...row };
-    // Detail/OCR enrichment is expensive and some source indexes omit it on a
-    // later day. A missing value must not erase a previously verified value.
     for (const key of ['area_m2', 'land_area_m2']) {
       if (next[key] == null && prior[key] > 0) next[key] = prior[key];
     }

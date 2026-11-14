@@ -1,6 +1,3 @@
-// Parser for Pruszków auction notices and results (bip.um.pruszkow.pl)
-//
-// Parses BIPLO CMS articles and attached PDF documents.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -74,28 +71,23 @@ export function parseAnnouncement(item, docText = '') {
   const text = cleanText(`${item.title || ''} ${docText}`);
   const title = (item.title || '').trim();
 
-  // Date
   const dateMatch =
     text.match(/(?:odbędzie się w dniu|w dniu|termin przetargu)\s+([0-9]{1,2}[.\s/-][0-9a-ząćęłńóśźż]{2,}[.\s/-]20\d{2})/i) ||
     text.match(/(?:odbędzie się w dniu|w dniu|termin przetargu)\s+([^\n]+?(?:20\d{2}))/i);
   const auctionDate = dateMatch ? parsePlDate(dateMatch[1]) : parsePlDate(item.date);
 
-  // Price
   const priceMatch =
     text.match(/(?:cena wywoławcza|cena)\s*(?:netto|brutto)?\s*[:\-]?\s*([\d\s]+(?:,\d{2})?\s*(?:z[łl]|PLN))/i) ||
     text.match(/(?:cena wywoławcza|cena)\s*(?:w\s*zł)?[\s\S]{1,100}?\b([\d]{1,3}(?:\s+\d{3})+(?:,\d{2})?)\s*(?:z[łl]|brutto|netto)/i);
   const price = priceMatch ? parsePrice(priceMatch[1].includes('zł') ? priceMatch[1] : `${priceMatch[1]} zł`) : null;
 
-  // Deposit
   const depositMatch = text.match(/wadium[^\d]{1,40}([\d\s]+(?:,\d{2})?\s*(?:z[łl]|PLN))/i);
   const deposit = depositMatch ? parsePrice(depositMatch[1]) : null;
 
-  // Parcel
   const parcelMatch = text.match(/\bdz(?:\.|iałk[aieę])\s*(?:nr\s*)?(\d+(?:\/\d+)?)/i) ||
     text.match(/Pruszków\s+(\d+(?:\/\d+)?)\s+obr/i);
   const parcel = parcelMatch ? parcelMatch[1] : null;
 
-  // Area
   const areaMatch =
     text.match(/powierzchni[^\d]{1,15}([\d\s]+(?:,\d{1,4})?)\s*(m2|m²|ha)/i) ||
     text.match(/(?:KW[-:\s]+[A-Z0-9\/]+|obr(?:\.|ęb)\s*\d+)\s+(\d{2,6})\s+[\d\s]+/i) ||
@@ -110,12 +102,10 @@ export function parseAnnouncement(item, docText = '') {
     }
   }
 
-  // Address
   const addrMatch = text.match(/(?:przy\s+ul\.?|ulicy|ul\.)\s+([A-ZĄĆĘŁŃÓŚŹŻ0-9][a-ząćęłńóśźż\s\d\/-]+?)(?:w\s+obrębie|obr\.|\.|,|KW)/i);
   const rawAddress = addrMatch ? `ul. ${addrMatch[1].trim()}` : 'Pruszków';
   const address = parseAddress(rawAddress, 'Pruszków');
 
-  // KW
   const kwMatch = text.match(/\b(WA1P\/\d{8}\/\d)\b/i) || text.match(/KW[-:\s]+([A-Z0-9\/]+)/i);
   const landRegistry = kwMatch ? kwMatch[1].toUpperCase() : null;
 

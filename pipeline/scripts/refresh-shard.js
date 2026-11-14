@@ -1,8 +1,5 @@
 #!/usr/bin/env node
 
-// Run a bounded list of cities sequentially, each in its own detached Git
-// worktree. Isolation prevents a failed city's data/cache writes from leaking
-// into another city's artifact while one process failure cannot stop the shard.
 
 import { spawn, execFileSync } from 'node:child_process';
 import {

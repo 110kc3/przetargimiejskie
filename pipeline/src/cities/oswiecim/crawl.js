@@ -1,19 +1,3 @@
-// Oświęcim crawler — REKORD SI BIP (bip.oswiecim.um.gov.pl), server-rendered list
-// /5987 (Nieruchomości). Each /5987/dokument/<id> is a sale (symbol MK.6840) whose
-// text is either inline HTML (older notices) or an attachment PDF (modern ones,
-// often SCANNED → OCR). We parse the dokument HTML first; if it yields nothing,
-// we extract the attachment PDF text (pdftotext → OCR fallback). Multi-property,
-// so one dokument can yield several listings.
-//
-// Result notices ("Informacja o wyniku przetargu …") live on the SAME board as
-// announcements — the crawl collects them in the one pass, OCRs each attachment
-// (content-addressed cache makes that one-time), and parse.js parseResultDoc
-// extracts the achieved price / outcome. Attachments already present in
-// committed data (known source URLs) are skipped without re-fetching.
-//
-// OCR quality LIVE-VERIFIED 2026-07-07 (tesseract 5.3+pol is excellent);
-// pagination depth is capped (active + recent) — raise MAX_PAGES for a deeper
-// archive backfill.
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -57,13 +41,10 @@ async function crawlAll() {
   const seen = new Set();
   const ids = [];
   for (let p = 1; p <= MAX_PAGES; p++) {
-    // REKORD pagination is 1-indexed (strona/0 → 404). The first page is strona/1.
     const url = `${ORIGIN}${BOARD}/strona/${p}`;
     let html;
     try { html = await getText(url); } catch (err) { break; }
     let added = 0;
-    // REKORD now emits RELATIVE hrefs ("5987/dokument/123", no leading slash);
-    // tolerate both forms with an optional slash so a CMS revert can't re-break it.
     for (const m of html.matchAll(/\/?5987\/dokument\/(\d+)/g)) { if (!seen.has(m[1])) { seen.add(m[1]); ids.push(m[1]); added++; } }
     if (added === 0 && p > 0) break;
   }
@@ -79,9 +60,6 @@ async function crawlAll() {
       inScopeCandidates++;
     }
 
-    // Result notices share the board with announcements — route them to the
-    // result stream (parse.js parseResultDoc filters flats / extracts price).
-    // Concluded results already in committed data are skipped pre-OCR.
     if (isResult) {
       const att = /\/?api\/download\/file\?id=(\d+)/.exec(html);
       if (!att) continue;
@@ -96,7 +74,7 @@ async function crawlAll() {
 
     let recs = parseAnnouncement('', html, url);
     if (recs.length === 0) {
-      const att = /\/?api\/download\/file\?id=(\d+)/.exec(html); // relative or absolute href
+      const att = /\/?api\/download\/file\?id=(\d+)/.exec(html);
       if (att) {
         const text = await attachmentText(`${ORIGIN}/api/download/file?id=${att[1]}`);
         if (text) recs = parseAnnouncement('', text, url);

@@ -1,16 +1,3 @@
-// Nidzica crawler — bip.nidzica.pl (SystemDoBIP / E-LINE platform).
-//
-// Surfaces:
-//   - Structured tender module (primary): https://bip.nidzica.pl/przetargi/257/status/
-//       * Current/active (Ogłoszone):     .../przetargi/257/status/0/
-//       * Concluded (Rozstrzygnięte):     .../przetargi/257/status/1/
-//       * Cancelled (Unieważnione):       .../przetargi/257/status/2/
-//   - Dated article board:                https://bip.nidzica.pl/258/Ogloszenia_o_przetargach/
-//       * Archive:                        https://bip.nidzica.pl/258/1/archiwum/Ogloszenia_o_przetargach/
-//   - Wykaz / notices board:              https://bip.nidzica.pl/259/Informacje_i_komunikaty/
-//
-// Bot User-Agent:
-//   bip.nidzica.pl requires a standard browser User-Agent in HTTP headers.
 
 import { setTimeout as sleep } from 'node:timers/promises';
 import { pathToFileURL } from 'node:url';
@@ -40,7 +27,6 @@ export const MAX_RESULT_DOCS = Number(process.env.NIDZICA_MAX_RESULT_DOCS) || 20
 export const FETCH_DELAY_MS = Number(process.env.NIDZICA_FETCH_DELAY_MS) || 1000;
 export const CRAWL_BUDGET_MS = Number(process.env.NIDZICA_CRAWL_BUDGET_MS) || 8 * 60 * 1000;
 
-// ── URL & HTML helpers ───────────────────────────────────────────────────────
 
 export function stripTags(s) {
   return (s || '')
@@ -71,11 +57,6 @@ export function moduleStatusUrl(status, page = 1) {
     : `${MODULE_BASE}/${page}/status/${status}/`;
 }
 
-/**
- * Extract tender table rows from structured module HTML (/przetargi/257/status/...).
- * @param {string} html
- * @returns {Array<object>}
- */
 export function parseTenderRows(html) {
   if (!html) return [];
   const rows = [];
@@ -117,11 +98,6 @@ export function parseTenderRows(html) {
   return rows;
 }
 
-/**
- * Extract articles from a standard SystemDoBIP article listing (/258/ or /259/).
- * @param {string} html
- * @returns {Array<{url:string, title:string}>}
- */
 export function parseInformationList(html) {
   if (!html) return [];
   const out = [];
@@ -137,11 +113,6 @@ export function parseInformationList(html) {
   return out;
 }
 
-/**
- * Extract attachments from HTML fragment or detail page.
- * @param {string} html
- * @returns {Array<{url:string, filename:string}>}
- */
 export function parseAttachments(html) {
   if (!html) return [];
   const out = [];
@@ -162,11 +133,6 @@ export function parseAttachments(html) {
   return out;
 }
 
-/**
- * Fetch a page with error handling.
- * @param {string} url
- * @returns {Promise<string|null>}
- */
 async function fetchPage(url) {
   try {
     return await getText(url, FETCH_OPTS);
@@ -176,13 +142,6 @@ async function fetchPage(url) {
   }
 }
 
-/**
- * Extract text from document attachment with fallbacks.
- * @param {string} docUrl
- * @param {string} [pdfUrl]
- * @param {string} [inlineHtml]
- * @returns {Promise<string>}
- */
 export async function extractDocumentText(docUrl, pdfUrl = null, inlineHtml = '') {
   if (docUrl) {
     try {
@@ -216,7 +175,6 @@ export async function extractDocumentText(docUrl, pdfUrl = null, inlineHtml = ''
   return '';
 }
 
-// ── Shared crawl pass ────────────────────────────────────────────────────────
 
 let crawlPromise = null;
 
@@ -234,7 +192,6 @@ async function crawlAll() {
   let activeBoardReached = false;
   let skippedKnown = 0;
 
-  // 1. Walk active structured tenders (/przetargi/257/status/0/)
   const status0Url = moduleStatusUrl(0);
   const status0Html = await fetchPage(status0Url);
 
@@ -275,7 +232,6 @@ async function crawlAll() {
     }
   }
 
-  // 2. Check active article board (/258/Ogloszenia_o_przetargach/)
   const board258Html = await fetchPage(BOARD_258_URL);
   if (board258Html) {
     activeBoardReached = true;
@@ -313,7 +269,6 @@ async function crawlAll() {
     }
   }
 
-  // 3. Walk active wykaz board (/259/Informacje_i_komunikaty/)
   const wykazHtml = await fetchPage(BOARD_259_URL);
   if (wykazHtml) {
     const wykazItems = parseInformationList(wykazHtml);
@@ -337,7 +292,6 @@ async function crawlAll() {
     }
   }
 
-  // 4. Walk concluded tenders (/przetargi/257/{page}/status/1/)
   for (let page = 1; page <= MAX_RESULT_PAGES; page++) {
     if (Date.now() > deadline || resultRefs.length >= MAX_RESULT_DOCS) {
       console.error('  nidzica: crawl budget reached or max results reached');
@@ -356,7 +310,6 @@ async function crawlAll() {
       if (Date.now() > deadline || resultRefs.length >= MAX_RESULT_DOCS) break;
       if (isLease(row.title)) continue;
 
-      // Find dedicated result doc if present, else announcement doc
       let wynikDoc = null;
       let annDoc = null;
 
@@ -429,7 +382,6 @@ export async function crawlResultDocs() {
   return (await crawlPromise).resultRefs;
 }
 
-// ── CLI harness ──────────────────────────────────────────────────────────────
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const active = await crawlActive();

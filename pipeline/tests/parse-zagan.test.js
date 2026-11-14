@@ -1,42 +1,3 @@
-// Żagań parser tests. Fixtures are REAL text/HTML fetched live from
-// bip.zagan.pl (verified 2026-07-11):
-//
-//   Żelazna 16/3   (id 599, /przetargi/344/599/3_/) — 30,00 m², 135.000,00 zł
-//     starting. The task brief (from the 2026-07-09 spike) called this a
-//     "live pending" flat; by this verification date its III przetarg
-//     (16.12.2025) has already concluded NEGATYWNY (confirmed on the
-//     resolved board, page 6 Lp 53) — I (22.07.2025) and II (07.10.2025) were
-//     already negatywny per the detail page's own history text. The live
-//     ACTIVE board is 100% land right now (10 parcels, zero flats) — matches
-//     the spike's own "flats cycle in and out" observation. Żelazna's real
-//     prose is used BOTH ways below: as an ACTIVE-row fixture (groundtruths
-//     the active-parsing path against real text) and as its actual current
-//     RESOLVED (Negatywny) state.
-//   Brodatego 12/2 (id 600, /przetargi/344/600/6_/) — 115,54 m², 300.000,00 zł
-//     starting, SOLD (Pozytywny) after a SIXTH przetarg. Demonstrates a real,
-//     verified city-BIP property: neither the resolved row, the detail page,
-//     nor its single "ogloszenie" DOCX attachment ever gains an achieved
-//     price or buyer name — see parse.js file header. final_price_pln stays
-//     null with an explanatory note.
-//   Chrobrego 1786/14, Asnyka 1979/2 — LAND (niezabudowana), Negatywny/active.
-//   Kolejowa 3116/9 (id 649) — LAND, carries a REAL source typo: "o pow.
-//     0, 0926 ha" (stray space after the decimal comma) — the SAME parcel
-//     re-listed at ids 649/607/597 all carry this typo; a later relisting
-//     (id 632) does not, confirming it's a real, recurring source quirk
-//     landAreaM2FromText must tolerate, not a one-off.
-//   Narutowicza 19 — a real "budynku mieszkalnego" (house, kind 'zabudowana')
-//     row — out of scope for this build (neither analog handles houses
-//     either); groundtruths that inScopeKind correctly excludes it.
-//   A 2015 dzierżawa (lease) notice from the /152/ Nieruchomości archive —
-//     real text; this city's OWN /przetargi/344/ board carried zero
-//     dzierżawa/najem rows across every page sampled (active + resolved +
-//     unieważnione), so this groundtruths the lease-skip gate defensively,
-//     same spirit as miedzyrzecz's own isFlatSaleRow.
-//
-// Raw single-row HTML fixtures (ACTIVE_ROW_HTML, RESOLVED_ROW_HTML) are
-// byte-faithful copies of one <tr> from the live board fetch, used to
-// groundtruth crawl.js's parseBoardPage() independently of the object-literal
-// BoardRow fixtures used everywhere else in this file.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -61,9 +22,7 @@ import {
 } from '../src/cities/zagan/parse.js';
 import { boardUrl, parseBoardPage } from '../src/cities/zagan/crawl.js';
 
-// --------------------------------------------------------------- real fixtures
 
-// Resolved board (status=1), page 6, Lp 53 — real CURRENT state (see file header).
 const ZELAZNA_ROW = {
   detailUrl: 'https://bip.zagan.pl/przetargi/344/599/3_/',
   dotyczyText:
@@ -80,7 +39,6 @@ const ZELAZNA_ROW = {
   ],
 };
 
-// Resolved board, page 6, Lp 52 — real SOLD (Pozytywny) flat.
 const BRODATEGO_ROW = {
   detailUrl: 'https://bip.zagan.pl/przetargi/344/600/6_/',
   dotyczyText:
@@ -97,7 +55,6 @@ const BRODATEGO_ROW = {
   ],
 };
 
-// Resolved board, page 1, Lp 1 — real LAND, Negatywny.
 const CHROBREGO_ROW = {
   detailUrl: 'https://bip.zagan.pl/przetargi/344/651/2_/',
   dotyczyText:
@@ -114,8 +71,6 @@ const CHROBREGO_ROW = {
   ],
 };
 
-// Resolved board, page 1, Lp 3 (id 649) — real LAND, Negatywny, carrying the
-// REAL "o pow. 0, 0926 ha" stray-space quirk (see file header).
 const KOLEJOWA_QUIRK_ROW = {
   detailUrl: 'https://bip.zagan.pl/przetargi/344/649/5_/',
   dotyczyText:
@@ -132,7 +87,6 @@ const KOLEJOWA_QUIRK_ROW = {
   ],
 };
 
-// Active board (status=0), page 1, Lp 1 — real LAND, Brak wyniku (pending).
 const ASNYKA_ROW = {
   detailUrl: 'https://bip.zagan.pl/przetargi/344/653/1_/',
   dotyczyText:
@@ -149,16 +103,12 @@ const ASNYKA_ROW = {
   ],
 };
 
-// Real "budynku mieszkalnego" (house) row, resolved board page 4 Lp 36 —
-// out-of-scope kind for this build (neither analog handles houses).
 const NARUTOWICZA_HOUSE_TEXT =
   'Sprzedaż budynku mieszkalnego przy ul. Narutowicza 19, o powierzchni użytkowej 66,76 m2, wraz z prawem własności nieruchomości oznaczonej numerem ewidencyjnym 2306, o powierzchni 0.0660 ha. dla którego prowadzona jest księga wieczysta ZG1G/00019593/7.';
 
-// Real (2015) dzierżawa notice, /152/Nieruchomosci/ archive — lease-skip fixture.
 const LEASE_TEXT =
   'Ogłoszenie Burmistrza Miasta Żagań o pierwszym nieograniczonym przetargu ustnym na oddanie w dzierżawę na okres 10 lat komunalnego gruntu przy ul. Krętej w Żaganiu. Termin przetargu 27 maja 2015 r. godz. 12:00';
 
-// Raw <tr> HTML, active board (status=0), page 1, Lp 1 — byte-faithful (whitespace/entities intact).
 const ACTIVE_ROW_HTML = `<tr class="odd">
 			<td class="td-no"><span>Lp: </span>1</td>
 			<td class="td-date-1"><div>Data ogłoszenia</div>2026-06-12 00:00:00</td>
@@ -174,7 +124,6 @@ const ACTIVE_ROW_HTML = `<tr class="odd">
 	</td>
 		</tr>`;
 
-// Raw <tr> HTML, resolved board (status=1), page 6, Lp 52 (Brodatego 12/2, Pozytywny flat).
 const RESOLVED_ROW_HTML = `<tr class="even">
 			<td class="td-no"><span>Lp: </span>52</td>
 			<td class="td-date-1"><div>Data ogłoszenia</div>2025-11-14 00:00:00</td>
@@ -190,7 +139,6 @@ const RESOLVED_ROW_HTML = `<tr class="even">
 	</td>
 		</tr>`;
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: dot-thousands, comma-grosze', () => {
   assert.equal(parsePLN('135.000,00'), 135000);
@@ -213,11 +161,11 @@ test('startingPriceFromText: skips the repeated "Cena wywoławcza" <div> label, 
 
 test('dzialkaNrFromText + landAreaM2FromText: real parcels, incl. the "0, 0926 ha" stray-space quirk', () => {
   assert.equal(dzialkaNrFromText(ASNYKA_ROW.dotyczyText), '1979/2');
-  assert.equal(landAreaM2FromText(ASNYKA_ROW.dotyczyText), 565); // 0,0565 ha
+  assert.equal(landAreaM2FromText(ASNYKA_ROW.dotyczyText), 565);
   assert.equal(dzialkaNrFromText(CHROBREGO_ROW.dotyczyText), '1786/14');
-  assert.equal(landAreaM2FromText(CHROBREGO_ROW.dotyczyText), 869); // 0,0869 ha
+  assert.equal(landAreaM2FromText(CHROBREGO_ROW.dotyczyText), 869);
   assert.equal(dzialkaNrFromText(KOLEJOWA_QUIRK_ROW.dotyczyText), '3116/9');
-  assert.equal(landAreaM2FromText(KOLEJOWA_QUIRK_ROW.dotyczyText), 926); // "0, 0926 ha" -> 0.0926 ha
+  assert.equal(landAreaM2FromText(KOLEJOWA_QUIRK_ROW.dotyczyText), 926);
 });
 
 test('landStreetFromText: street only (land has no building number — parcel-keyed, not address-keyed)', () => {
@@ -242,27 +190,19 @@ test('isLeaseRow / inScopeKind: dzierżawa excluded, flats + land in scope, hous
   assert.equal(inScopeKind(BRODATEGO_ROW.dotyczyText), 'mieszkalny');
   assert.equal(inScopeKind(ASNYKA_ROW.dotyczyText), 'grunt');
   assert.equal(inScopeKind(CHROBREGO_ROW.dotyczyText), 'grunt');
-  // Houses ("budynku mieszkalnego") classify as 'zabudowana' — out of scope
-  // for this build (neither gorzow-wielkopolski nor miedzyrzecz handle them
-  // either); a real board row, groundtruthed to make sure it is silently
-  // skipped rather than mis-filed as a flat or land record.
   assert.equal(inScopeKind(NARUTOWICZA_HOUSE_TEXT), null);
 });
 
 test('extractLokalAddress: four real live templates', () => {
   assert.equal(extractLokalAddress(ZELAZNA_ROW.dotyczyText), 'Żelaznej 16/3');
   assert.equal(extractLokalAddress(BRODATEGO_ROW.dotyczyText), 'Brodatego 12/2');
-  // Multi-word street name ("Armii Krajowej") + "położonego" (genitive lokal
-  // form) + a double space before "ul." in the live source.
   const armiiKrajowej =
     'Sprzedaż lokalu mieszkalnego nr 6, położonego przy  ul. Armii Krajowej 13, o powierzchni 17,82 m2, wraz z pomieszczeniami przynależnymi.';
   assert.equal(extractLokalAddress(armiiKrajowej), 'Armii Krajowej 13/6');
-  // Trailing "w m. Żagań" (city name) right after the building number must
-  // never be swallowed into the street/building capture.
   const bema =
     'Sprzedaż lokalu mieszkalnego nr 3, przy ul. Bema 8 w m. Żagań, o powierzchni 30,40 m2, wraz z pomieszczeniem przynależnym.';
   assert.equal(extractLokalAddress(bema), 'Bema 8/3');
-  assert.equal(extractLokalAddress(ASNYKA_ROW.dotyczyText), null); // land — no "lokal ... nr N" anchor
+  assert.equal(extractLokalAddress(ASNYKA_ROW.dotyczyText), null);
   assert.equal(extractLokalAddress(''), null);
 });
 
@@ -271,7 +211,6 @@ test('dateOnly: strips the time-of-day from the board\'s date+time column', () =
   assert.equal(dateOnly(null), null);
 });
 
-// ------------------------------------------------------------------- board rows
 
 test('parseBoardPage: real ACTIVE land row (Asnyka 1979/2) — all 7 columns extracted, zero fetches needed', () => {
   const [row] = parseBoardPage(ACTIVE_ROW_HTML);
@@ -301,7 +240,6 @@ test('boardUrl: page 1 omits the page segment, page N inserts it before "status"
   assert.equal(boardUrl(1, 6), 'https://bip.zagan.pl/przetargi/344/6/status/1/');
 });
 
-// ----------------------------------------------------------------- active rows
 
 test('parseActiveFlatRow: Zelazna 16/3 real prose -> listing (extraction logic; see file header for this notice\'s actual current resolved state)', () => {
   const rec = parseActiveFlatRow(ZELAZNA_ROW);
@@ -333,7 +271,6 @@ test('parseActiveLandRow: Asnyka 1979/2 real row -> land record', () => {
   assert.equal(rec.detail_url, 'https://bip.zagan.pl/przetargi/344/653/1_/');
 });
 
-// ------------------------------------------------------------------ result docs
 
 test('buildResultText: pending (Brak wyniku) row never gets an outcome sentence appended', () => {
   const text = buildResultText(ASNYKA_ROW);

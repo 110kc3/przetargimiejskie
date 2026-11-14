@@ -1,16 +1,6 @@
-// Gniezno parsers.
-//
-// Roles:
-//   1. isFlatSaleTitle / parseBipList    BIP listing page (IDcom.pl CMS)
-//   2. pdfAttachmentUrlsFromDetail       BIP per-entry page PDF links
-//   3. parseResultNotice / parseResultDoc gniezno.eu HTML result notices
-//   4. parseAnnouncement                 ogloszenie PDF text parser
-//
-// Polish letters in regex classes use Unicode escapes or toAsciiPL() normalisation.
 
 import { parseAddress } from '../../core/normalize.js';
 
-// ---- helpers -----------------------------------------------------------------
 
 function stripTags(s) {
   return (s || '')
@@ -23,7 +13,6 @@ function stripTags(s) {
     .trim();
 }
 
-// parsePLN: parse Polish price string to integer PLN
 function parsePLN(numStr) {
   if (!numStr) return null;
   const cleaned = String(numStr).replace(/\s/g, '');
@@ -54,7 +43,6 @@ const PL_MONTHS = {
   grudnia: 12, grudzien: 12,
 };
 
-// toAsciiPL: 1:1 char replacement so output index == input index
 function toAsciiPL(s) {
   return (s || '')
     .toLowerCase()
@@ -89,7 +77,6 @@ function dateFromNumeric(text) {
   return iso(m[3], m[2], m[1]);
 }
 
-// ---- 1. BIP listing parser ---------------------------------------------------
 
 export function isFlatSaleTitle(title) {
   const t = toAsciiPL(title || '');
@@ -132,7 +119,6 @@ export function roundFromTitle(title) {
   return null;
 }
 
-// ---- 2. BIP detail page: PDF attachment URL extraction ----------------------
 
 export function pdfAttachmentUrlsFromDetail(html) {
   if (!html) return [];
@@ -146,7 +132,6 @@ export function pdfAttachmentUrlsFromDetail(html) {
   return out;
 }
 
-// ---- 3. gniezno.eu HTML result notice parser --------------------------------
 
 export function parseResultNotice(text, sourceUrl) {
   if (!text) return [];
@@ -178,8 +163,6 @@ export function parseResultNotice(text, sourceUrl) {
   const starting_price_pln = startM ? parsePLN(startM[1]) : null;
   if (starting_price_pln == null) notes.push('parse: missing starting price');
 
-  // wyniosla (perfective: osiagnieta cena) vs wynosila (imperfective: cena wywolawcza)
-  // After toAsciiPL: wyniosla / wynosila -- accept both with wynios[a-z]*
   const finalM = /najwyzsza\s+cena\s+osiagnieta\s+w\s+przetargu\s+wynios[a-z]*\s+([\d\s.,]+)\s*zl/i.exec(t);
 
   const positive = /wynikiem\s+pozytywnym/i.test(t);
@@ -231,7 +214,6 @@ function resultRoundFromText(t) {
   return null;
 }
 
-// ---- 4. Announcement PDF text parser ----------------------------------------
 
 export function parseAnnouncement(text) {
   const empty = { round: null, auction_date: null, area_m2: null, starting_price_pln: null, address_raw: null };
@@ -258,8 +240,6 @@ export function parseAnnouncement(text) {
     return null;
   })();
 
-  // Auction date anchored on odbedzie sie w dniu in t.
-  // toAsciiPL is 1:1 char replacement so t index == raw index.
   const auction_date = (() => {
     const anchorIdx = t.search(/odbedzie\s+sie\s+(?:w\s+dniu|dnia)/i);
     const scope = anchorIdx >= 0 ? t.slice(anchorIdx) : t.slice(0, 500);
@@ -306,7 +286,6 @@ export function parseAnnouncement(text) {
   return { round, auction_date, area_m2, starting_price_pln, address_raw };
 }
 
-// ---- 5. Contract entry-point -------------------------------------------------
 
 export function parseResultDoc(text, _date, sourceUrl) {
   return parseResultNotice(text, sourceUrl);

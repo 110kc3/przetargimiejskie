@@ -1,12 +1,3 @@
-// Offline recompute of the active-vs-archived auction counts, WITHOUT crawling.
-//
-// Reads each data/<city>/properties.json and rewrites `active_auctions` and
-// `archived_auctions` into that city's data/<city>/meta.json and into the
-// top-level data/index.json. Uses the same outcome rules as refresh.js, so the
-// numbers match what a full pipeline run would produce — handy after a merge or
-// to refresh the homepage split without re-hitting every BIP.
-//
-// Run from anywhere:   node pipeline/scripts/recount-auctions.js
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';

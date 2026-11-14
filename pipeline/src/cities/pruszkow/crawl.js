@@ -1,6 +1,3 @@
-// Crawler for Pruszków (bip.um.pruszkow.pl)
-//
-// Walks yearly boards under Wydział Geodezji and extracts PDF notices.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -46,7 +43,6 @@ export async function crawlActive() {
       const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
       const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').trim() : 'Ogłoszenie o przetargu';
 
-      // Find attachment links
       const attMatches = [...html.matchAll(/href=[\"'](https:\/\/bip\.um\.pruszkow\.pl\/attachments\/download\/(\d+))[\"']/gi)];
       for (const m of attMatches) {
         const attUrl = m[1];

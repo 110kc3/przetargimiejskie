@@ -37,7 +37,6 @@ export async function crawl() {
       try {
         const detailHtml = await fetchHtml(fullUrl);
 
-        // Date from time tag or text
         const timeMatch = detailHtml.match(/<time[^>]*datetime="([^"]+)"/i) ||
                           detailHtml.match(/class="[^"]*posted-on[^"]*"[\s\S]*?>([^<]+)</i);
         const dateStr = timeMatch ? timeMatch[1].slice(0, 10) : null;
@@ -46,7 +45,6 @@ export async function crawl() {
                           detailHtml.match(/<article[\s\S]*?<\/article>/i);
         const contentText = mainMatch ? mainMatch[0].replace(/<[^>]+>/g, ' ') : '';
 
-        // Find PDF / attachment links
         const pdfMatches = [...detailHtml.matchAll(/href="([^"]*\.pdf)"/gi)].map(m => m[1]);
         const uniquePdfs = [...new Set(pdfMatches)];
 

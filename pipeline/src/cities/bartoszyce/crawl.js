@@ -1,16 +1,3 @@
-// Bartoszyce crawler — bip.bartoszyce.pl (SYSTEMDOBIP.PL / E-LINE platform).
-//
-// Boards:
-//   - Active announcements: https://bip.bartoszyce.pl/160/Ogloszenia_o_przetargach/
-//   - Archive announcements & results: https://bip.bartoszyce.pl/160/1/archiwum/Ogloszenia_o_przetargach/{page}/
-//   - Active wykaz: https://bip.bartoszyce.pl/158/Zbycie_w_trybie_przetargu/
-//
-// Both flat and land sales are published as entry articles on board 160 with PDF
-// attachments in /system/pobierz.php?plik=...&id=...
-//
-// Rate limiting: bip.bartoszyce.pl throttles rapid successive hits to system/pobierz.php.
-// A polite delay is used between document fetches and known results are skipped via
-// loadKnownSourceUrls('bartoszyce').
 
 import { setTimeout as sleep } from 'node:timers/promises';
 import { pathToFileURL } from 'node:url';
@@ -36,7 +23,6 @@ const MAX_ARCHIVE_PAGES = Number(process.env.BARTOSZYCE_MAX_ARCHIVE_PAGES) || 6;
 const FETCH_DELAY_MS = Number(process.env.BARTOSZYCE_FETCH_DELAY_MS) || 1200;
 const CRAWL_BUDGET_MS = Number(process.env.BARTOSZYCE_CRAWL_BUDGET_MS) || 8 * 60 * 1000;
 
-// ── HTML helpers ─────────────────────────────────────────────────────────────
 
 function stripTags(s) {
   return (s || '')
@@ -51,11 +37,6 @@ function stripTags(s) {
 
 const deamp = (u) => (u || '').replace(/&amp;/g, '&');
 
-/**
- * Parse a "Lista informacji" board or archive page into entries.
- * @param {string} html
- * @returns {Array<{url:string, title:string}>}
- */
 export function parseInformationList(html) {
   const out = [];
   const blocks = (html || '').split(/<div class="information">/i);
@@ -69,11 +50,6 @@ export function parseInformationList(html) {
   return out;
 }
 
-/**
- * Extract attachments from an entry stub page.
- * @param {string} html
- * @returns {Array<{url:string, filename:string}>}
- */
 export function parseAttachments(html) {
   const out = [];
   const re = /href="((?:https:\/\/bip\.bartoszyce\.pl)?\/system\/pobierz\.php\?plik=([^"&]+)[^"]*)"/gi;
@@ -107,7 +83,6 @@ export function isOgloszenieAttachment(filename, entryTitle) {
   return /ogloszenie|przetarg/i.test(f) || /og[łl]oszenie|przetarg/i.test(t);
 }
 
-// ── fetchers ─────────────────────────────────────────────────────────────────
 
 async function fetchPage(url) {
   try {
@@ -137,7 +112,6 @@ async function extractPdf(pdfUrl, usable) {
 
 const looksLikeAnnouncement = (t) => /ogłasza|przetarg/i.test(t || '') && (t || '').trim().length > 150;
 
-// ── crawlAll shared pass ─────────────────────────────────────────────────────
 
 let crawlPromise = null;
 
@@ -151,7 +125,6 @@ async function crawlAll() {
   const deadline = Date.now() + CRAWL_BUDGET_MS;
   let activeBoardReached = false;
 
-  // 1. Walk active announcements board
   const activeHtml = await fetchPage(BOARD_ACTIVE_URL);
   if (activeHtml) {
     activeBoardReached = true;
@@ -190,7 +163,6 @@ async function crawlAll() {
     }
   }
 
-  // 2. Walk active wykaz board
   const wykazHtml = await fetchPage(BOARD_WYKAZ_URL);
   if (wykazHtml) {
     const wykazEntries = parseInformationList(wykazHtml);
@@ -215,7 +187,6 @@ async function crawlAll() {
     }
   }
 
-  // 3. Walk archive pages for results (wyniki)
   for (let page = 1; page <= MAX_ARCHIVE_PAGES; page++) {
     if (Date.now() > deadline) {
       console.error('  bartoszyce: crawl budget exhausted — stopping archive walk');
@@ -235,7 +206,6 @@ async function crawlAll() {
       if (Date.now() > deadline) break;
       if (isLease(entry.title)) continue;
 
-      // Only inspect result notices in archive
       if (!isResultNotice(entry.title)) continue;
 
       await sleep(FETCH_DELAY_MS);

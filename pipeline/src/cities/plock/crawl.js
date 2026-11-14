@@ -1,44 +1,3 @@
-// Płock (ARS Sp. z o.o.) crawler — two paginated HTML boards on the same
-// server-rendered site:
-//
-//   ANNOUNCE_PATH  /pl/przetargi/ogloszenia-o-przetargach[/N]   ("Ogłoszenia")
-//   RESULTS_PATH   /pl/przetargi/wyniki-przetargow[/N]           ("Wyniki")
-//
-// Each board page is a run of `<div class="listing">` items (title + link +
-// "Dodano: DD-MM-YYYY" publish date); item links point at either
-// `/pl/przetargi/<id>/<slug>` or `/pl/Auction/Details/<id>?title=<slug>` —
-// both render the SAME detail template (verified live 2026-07-18), a short
-// `<div class="standard-content">` body + a "Załączniki" attachment list
-// (`/pl/AttachmentGallery/GetAttachment/<id>`, filename "Ogloszenie.pdf" /
-// "Regulamin.pdf" on the announce board, "protokol.pdf" on the results board).
-// The exact last page number is read straight off the `pagingPanel` on page 1
-// (no blind iteration needed).
-//
-// HTTP ONLY. https://www.ars.plock.pl resets the TLS handshake ("Recv
-// failure: Connection reset by peer" during the ClientHello — verified live
-// 2026-07-18 with curl -v); http:// works fine (matches the spike's "HTTP
-// also works" note).
-//
-// PDFs are a MIX of born-digital and SCANNED (Producer "KONICA MINOLTA bizhub
-// C458" — no text layer) on BOTH boards: the Synagogalna 13 flat's
-// announcement (GetAttachment/569) and one of its two result protocols
-// (GetAttachment/573) are born-digital, but the Sienkiewicza 64 building's
-// announcement (GetAttachment/538, 8 pages) and its result protocol
-// (GetAttachment/543) are scanned. extractPdfText() tries the cheap pdfText
-// first and falls back to OCR (core/ocr-pdf.js) when the quick text is empty
-// or too short — the kwidzyn/zabkowice-slaskie idiom — for BOTH streams.
-//
-// BOUNDED (ADAPTER-GUIDE §5, and per the build brief — a prior research agent
-// got this host rate-limited by making ~150 requests): MAX_PAGES caps board
-// pagination (spike measured 8 announce / 6 results pages — plenty of
-// margin), MAX_DETAILS caps how many notice detail pages (+ their PDF/OCR) are
-// fetched per run, and CRAWL_BUDGET_MS is a wall-clock backstop. Non-sale
-// items (rentals, construction/procurement) are dropped by TITLE before any
-// detail page is even fetched, which is what keeps the real fetch count low —
-// ARS's low volume (2-5 flat/building sale auctions/yr) means the filtered
-// candidate set is always small. crawlResultDocs() additionally skips any
-// notice whose detail URL is already captured in the committed data
-// (core/known-urls.js) — safe because that only applies to CONCLUDED results.
 
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
@@ -55,8 +14,8 @@ const BASE = 'http://www.ars.plock.pl';
 const ANNOUNCE_PATH = '/pl/przetargi/ogloszenia-o-przetargach';
 const RESULTS_PATH = '/pl/przetargi/wyniki-przetargow';
 
-const MAX_PAGES = Number(process.env.PLOCK_MAX_PAGES) || 15; // spike: ~8/~6 pages; margin for growth
-const MAX_DETAILS = Number(process.env.PLOCK_MAX_DETAILS) || 40; // politeness cap
+const MAX_PAGES = Number(process.env.PLOCK_MAX_PAGES) || 15;
+const MAX_DETAILS = Number(process.env.PLOCK_MAX_DETAILS) || 40;
 const CRAWL_BUDGET_MS = Number(process.env.PLOCK_CRAWL_BUDGET_MS) || 8 * 60 * 1000;
 
 const PDFTEXT_CACHE_DIR = fileURLToPath(new URL('../../../pdf-text-cache/', import.meta.url));
@@ -66,8 +25,6 @@ function abs(href) {
   return `${BASE}${href.startsWith('/') ? '' : '/'}${href}`;
 }
 
-/** Strip tags + decode the entities this site actually emits (numeric decimal
- *  entities for accented letters, e.g. "&#243;" -> "ó"; "&amp;"/"&nbsp;"). */
 function stripTags(html) {
   return (html || '')
     .replace(/<[^>]+>/g, ' ')
@@ -78,11 +35,7 @@ function stripTags(html) {
     .trim();
 }
 
-// ---- board list parsing -----------------------------------------------------
 
-/** One board page's items: [{ title, detail_url, published_date }]. Matches
- *  both `/pl/przetargi/<id>/<slug>` and `/pl/Auction/Details/<id>?title=..`
- *  links transparently (both sit inside the same `listing-title` markup). */
 export function parseListItems(html) {
   const out = [];
   const re = /<div class="listing-title"><a href="([^"]+)"[^>]*>([\s\S]*?)<\/a><\/div>/g;
@@ -90,9 +43,6 @@ export function parseListItems(html) {
   while ((m = re.exec(html || '')) !== null) {
     const href = m[1].replace(/&amp;/gi, '&');
     const title = stripTags(m[2]);
-    // Window starts AFTER the matched title element (not at m.index): a long
-    // slug/title can itself run past a fixed offset from m.index, pushing the
-    // "Dodano:" date beyond a window measured from the match start.
     const afterTitle = m.index + m[0].length;
     const window = html.slice(afterTitle, afterTitle + 400);
     const dateM = /Dodano:\s*<b>(\d{2})-(\d{2})-(\d{4})<\/b>/.exec(window);
@@ -102,8 +52,6 @@ export function parseListItems(html) {
   return out;
 }
 
-/** Last page number straight off the `pagingPanel` on page 1 (capped by
- *  MAX_PAGES). Returns 1 when there's no paging panel (a single-page board). */
 export function maxPageFromPagingPanel(html) {
   const panelM = /<div class="pagingPanel">([\s\S]*?)<\/div>/i.exec(html || '');
   if (!panelM) return 1;
@@ -142,15 +90,12 @@ async function crawlBoard(basePath, label) {
   return items;
 }
 
-// ---- detail page parsing -----------------------------------------------------
 
-/** The `<div class="standard-content">` body prose, tags stripped. */
 export function bodyTextFromDetail(html) {
   const m = /<div class="standard-content">([\s\S]*?)<\/div>/i.exec(html || '');
   return m ? stripTags(m[1]) : '';
 }
 
-/** Every "Załączniki" attachment link: [{ url, name }]. */
 export function attachmentsFromDetail(html) {
   const out = [];
   const re = /<a\s+href="([^"]*GetAttachment\/\d+[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi;
@@ -161,16 +106,10 @@ export function attachmentsFromDetail(html) {
   return out;
 }
 
-/** The notice's primary PDF (skip "Regulamin.pdf" — the auction rules
- *  boilerplate, never the notice/protocol itself). */
 function primaryAttachment(atts) {
   return atts.find((a) => !/regulamin/i.test(a.name)) || atts[0] || null;
 }
 
-/** pdfText (born-digital fast path) if it yields real text, else OCR. Any
- *  tiny pdfText \f-junk cache file is removed first so pdf-text-cache is
- *  never polluted with 1-2 byte artifacts (see the scanned-PDF gotcha this
- *  repo has hit before). */
 async function extractPdfText(url) {
   let quick = '';
   try {
@@ -187,7 +126,6 @@ async function extractPdfText(url) {
   return ocrPdf(url);
 }
 
-// ---- crawlActive (announcements) -------------------------------------------
 
 export async function crawlActive() {
   const board = await crawlBoard(ANNOUNCE_PATH, 'ogloszenia');
@@ -235,7 +173,6 @@ export async function crawlActive() {
   return { listings, wykaz: [] };
 }
 
-// ---- crawlResultDocs (achieved-price stream) -------------------------------
 
 export async function crawlResultDocs() {
   const board = await crawlBoard(RESULTS_PATH, 'wyniki');
@@ -250,7 +187,7 @@ export async function crawlResultDocs() {
   for (const c of candidates) {
     if (known.has(c.detail_url)) {
       skippedKnown++;
-      continue; // concluded result already captured — never re-fetch
+      continue;
     }
     if (detailsFetched >= MAX_DETAILS || Date.now() > deadline) {
       console.error(
@@ -276,8 +213,6 @@ export async function crawlResultDocs() {
         console.error(`  plock: result pdf/ocr text failed (${notice.url}): ${err.message}`);
       }
     }
-    // "TYTUL:" marker lets parseResultDoc recover the clean notice title under
-    // the registry's fixed (text, auction_date, pdf_url) contract — see parse.js.
     const text = `TYTUL: ${c.title}\n\n${bodyText}\n\n${pdfTxt}`;
     refs.push({ text, auction_date: null, pdf_url: c.detail_url });
   }

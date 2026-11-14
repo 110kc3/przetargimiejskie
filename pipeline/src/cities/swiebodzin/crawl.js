@@ -1,4 +1,3 @@
-// Świebodzin crawler (bip.swiebodzin.eu - SystemDoBIP CMS).
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

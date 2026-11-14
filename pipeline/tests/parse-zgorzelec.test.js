@@ -1,31 +1,4 @@
-// Zgorzelec parser tests. Fixtures are the REAL title (board anchor text) + REAL
-// article body (extractDocBody output) fetched live from zgorzelec.bip.info.pl on
-// 2026-07-10, so every parser is groundtruthed against production data exactly
-// like parse-naklo-nad-notecia.test.js / parse-chelmno.test.js.
-//
-//   iddok 18253 (idmp 32)  ul. Reymonta 32/1     — FLAT, round I, 180 000 zł,
-//                          przetarg 26.08.2026, pow. 57,61 m² (decoys: 39,69 m²
-//                          "pomieszczeń mieszkalnych" + 17,92 m² piwnica).
-//   iddok 18255 (idmp 32)  ul. Warszawska 12/6A  — COMMERCIAL (lokal
-//                          niemieszkalny), round I, 88 950 zł, 13.08.2026, 28,60 m².
-//   iddok 18166 (idmp 32)  ul. Francuska, dz. 20/4 — LAND, round III, 270 850 zł,
-//                          04.08.2026, 3933 m². Two groundtruthed traps:
-//                          (a) PRIOR-ROUND history "Pierwszy przetarg odbył się
-//                          dnia 21.01.2026 r. Drugi … 12.05.2026 r." must NOT win
-//                          the round or the auction date; (b) the plot is
-//                          ENCUMBERED by a pre-existing ag lease ("Działka … objęta
 //                          jest umową dzierżawy gruntu rolnego") — isLease() must
-//                          still return FALSE so this valid SALE is not dropped.
-//   iddok 18192 (idmp 34)  ul. Migdałowa, dz. 11/3 — LAND RESULT, SOLD, round I,
-//                          215 000 → 217 150 zł, 09.06.2026, buyer JOBCONSULT.
-//
-// Two real bugs were found writing these fixtures and fixed in parse.js:
-//   * LAND_STREET_RE over-ran the terminator-less TITLE occurrence into the
-//     article body (~120 chars) → garbage street; now length-bounded so the clean
-//     BODY occurrence ("… przy ul. Francuskiej, który …") wins.
-//   * isLease() matched a bare "dzierżaw", so a land SALE that merely notes an
-//     existing lease encumbrance was skipped as a lease; now anchored on the lease
-//     being the auction PURPOSE ("na/w/do dzierżawę", monthly rent).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -46,7 +19,6 @@ import {
   parsePLN,
 } from '../src/cities/zgorzelec/parse.js';
 
-// --------------------------------------------------------------- real fixtures
 
 const FLAT_REYMONTA = {
   title: "Ogłoszenie o I ustnym przetargu nieograniczonym na sprzedaż lokalu mieszkalnego nr 1 położonego w Zgorzelcu przy ul. Reymonta 32",
@@ -70,7 +42,6 @@ const RESULT_MIGDALOWA = {
 
 const b = (f) => buildRecordText(f);
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: dot-thousands + grosze tail', () => {
   assert.equal(parsePLN('180.000,00'), 180000);
@@ -100,7 +71,6 @@ test('isLease: an existing-lease ENCUMBRANCE on a land SALE is not a lease', () 
 test('roundFromText: current-auction roman only, prior-round history ignored', () => {
   assert.equal(roundFromText(b(FLAT_REYMONTA)), 1);
   assert.equal(roundFromText(b(COMM_WARSZAWSKA)), 1);
-  // III ustny przetarg — NOT the "Pierwszy/Drugi przetarg odbył się …" history.
   assert.equal(roundFromText(b(LAND_FRANCUSKA)), 3);
   assert.equal(roundFromText(b(RESULT_MIGDALOWA)), 1);
 });
@@ -108,7 +78,6 @@ test('roundFromText: current-auction roman only, prior-round history ignored', (
 test('auctionDateFromText: future "odbędzie się" / result "Dnia … przeprowadzony"', () => {
   assert.equal(auctionDateFromText(b(FLAT_REYMONTA)), '2026-08-26');
   assert.equal(auctionDateFromText(b(COMM_WARSZAWSKA)), '2026-08-13');
-  // 04.08.2026, NOT the past-tense history 21.01.2026 / 12.05.2026.
   assert.equal(auctionDateFromText(b(LAND_FRANCUSKA)), '2026-08-04');
   assert.equal(auctionDateFromText(b(RESULT_MIGDALOWA)), '2026-06-09');
 });
@@ -138,7 +107,6 @@ test('kindFromText: title-first classification', () => {
   assert.equal(kindFromText(b(RESULT_MIGDALOWA)), 'grunt');
 });
 
-// ------------------------------------------------------------- active listings
 
 test('parseAnnouncement: FLAT Reymonta 32/1 → address-keyed active record', () => {
   const r = parseAnnouncement(b(FLAT_REYMONTA));
@@ -176,7 +144,6 @@ test('parseAnnouncement: LAND Francuska dz. 20/4 → parcel-keyed grunt (kept de
   assert.equal(r.round, 3);
 });
 
-// ----------------------------------------------------------------- result records
 
 test('parseResultDoc: Migdałowa dz. 11/3 SOLD (215 000 → 217 150 zł, buyer named)', () => {
   const [r] = parseResultDoc(

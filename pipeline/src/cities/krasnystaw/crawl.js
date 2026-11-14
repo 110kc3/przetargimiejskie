@@ -1,6 +1,3 @@
-// Crawler for Krasnystaw (umkrasnystaw.bip.lubelskie.pl)
-//
-// Fetches AJAX DataTables JSON feeds from lubelskie.pl platform and parses attachments.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

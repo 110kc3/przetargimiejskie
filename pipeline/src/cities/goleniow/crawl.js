@@ -34,7 +34,6 @@ export async function crawl() {
       if (seenUrls.has(fullUrl)) continue;
       seenUrls.add(fullUrl);
 
-      // Only check recent years (2024-2026)
       if (!/(?:202[4-9]|203\d)/.test(dateRaw) && !/(?:202[4-9]|203\d)/.test(titleRaw)) {
         continue;
       }
@@ -44,7 +43,6 @@ export async function crawl() {
       try {
         const articleHtml = await fetchHtml(fullUrl);
 
-        // Find PDF / attachment links
         const pdfMatches = [...articleHtml.matchAll(/href="([^"]*(?:\.pdf|\/zalaczniki\/[^"]*))"/gi)].map(m => m[1]);
         const uniquePdfs = [...new Set(pdfMatches)];
 
@@ -70,7 +68,6 @@ export async function crawl() {
           }
         }
 
-        // Extract content from main body if present
         const mainMatch = articleHtml.match(/<div class="[^"]*article-content[^"]*"[\s\S]*?<\/div>/i) ||
                           articleHtml.match(/<main[\s\S]*?<\/main>/i);
         const contentText = mainMatch ? mainMatch[0].replace(/<[^>]+>/g, ' ') : '';

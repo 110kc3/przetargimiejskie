@@ -1,12 +1,3 @@
-// Guards the durable heals shared by scripts/heal-properties.js and refresh.js
-// (core/verified-heals.js). These fold/re-key/flip verified corrections that
-// history-merge would otherwise re-seed from the committed file on every run.
-// The refresh integration can't be exercised offline (it needs a crawl), so the
-// last test replays refresh.js's exact post-merge sequence on an in-memory
-// fixture with a re-seeded junk key — that is the integration proof.
-//
-// Fixtures use the REAL map entries (katowice/bytom) so a change to those maps
-// that breaks a fold is caught here.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -20,7 +11,6 @@ import {
   stripOcrStreetNoise,
 } from '../src/core/verified-heals.js';
 
-// Silence the heals' console.error progress during the run (failures only).
 const origError = console.error;
 test.before(() => { console.error = () => {}; });
 test.after(() => { console.error = origError; });
@@ -37,7 +27,6 @@ test('OCR street-noise cleanup preserves HTML entity terminators', () => {
   assert.equal(stripOcrStreetNoise('Grudzi&#x105;dzka;j'), 'Grudzi&#x105;dzka');
 });
 
-// ---- applyVerifiedJunk -----------------------------------------------------
 
 test('applyVerifiedJunk folds a covered junk key into its survivor', () => {
   const survivor = {
@@ -51,7 +40,6 @@ test('applyVerifiedJunk folds a covered junk key into its survivor', () => {
   const out = applyVerifiedJunk([survivor, junk], 'katowice');
   assert.equal(out.length, 1, 'junk property should be removed');
   assert.equal(out.find((p) => p.key === 'gornej 4 6 i|8|'), undefined);
-  // same-date rows deduped onto the survivor; the sold outcome/price survives.
   assert.equal(out[0].key, 'gorna|4|');
   assert.ok(out[0].listings.some((l) => l.outcome === 'sold' && l.final_price_pln === 120000));
 });
@@ -106,7 +94,6 @@ test('verified Bednarska migration removes only the covered legacy building row'
   assert.equal(out.find((property) => property.key === 'bednarska|2B|7').listings.length, 1);
 });
 
-// ---- applyVerifiedRenames --------------------------------------------------
 
 test('applyVerifiedRenames re-keys and moves a whole-property total to land', () => {
   const p = {
@@ -281,10 +268,9 @@ test('applyVerifiedAliases refuses to rename an alias when its canonical twin is
   assert.equal(out[0].key, 'karola libelta|10|1');
 });
 
-// ---- crossCityDisplay ------------------------------------------------------
 
 test('crossCityDisplay flips an adjectival genitive with a cross-city twin, not a surname', () => {
-  const globalByNorm = new Map([['raciborska', 'Raciborska']]); // twin exists somewhere
+  const globalByNorm = new Map([['raciborska', 'Raciborska']]);
   const props = [
     { key: 'raciborskiej|5|', street: 'Raciborskiej', street_norm: 'raciborskiej', building: '5', apt: null, kind: 'mieszkalny', listings: [] },
     { key: 'sklodowskiej|2|', street: 'Skłodowskiej', street_norm: 'sklodowskiej', building: '2', apt: null, kind: 'mieszkalny', listings: [] },
@@ -300,12 +286,7 @@ test('crossCityDisplay is a no-op when no evidence map is supplied', () => {
   assert.equal(props[0].street, 'Raciborskiej');
 });
 
-// ---- refresh.js post-merge integration + idempotency -----------------------
 
-// Replays refresh.js's exact post-merge order on a fixture shaped like the
-// output of mergeProperties (survivor + a junk key the merge re-seeded from the
-// committed file). Proves the wired sequence self-heals — and that a second
-// pass changes nothing.
 test('refresh post-merge sequence folds a re-seeded junk key and is idempotent', () => {
   const make = () => ([
     { key: 'gorna|4|', street: 'Górna', street_norm: 'gorna', building: '4', apt: null,
@@ -317,7 +298,6 @@ test('refresh post-merge sequence folds a re-seeded junk key and is idempotent',
   assert.equal(once.find((p) => p.key === 'gornej 4 6 i|8|'), undefined, 're-seeded junk folded away');
   assert.equal(once.length, 1);
 
-  // Idempotency: feeding the healed output back through changes nothing.
   const twice = applyDurablePropertyHeals(
     once.map((p) => ({ ...p, listings: p.listings.map((l) => ({ ...l })) })),
     'katowice',

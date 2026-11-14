@@ -1,6 +1,3 @@
-// Police parsers (bip.police.pl - Logonet eUrząd).
-//
-// Extracts auction listings from Logonet real-estate notice pages and results.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -76,15 +73,12 @@ export function parsePrice(text) {
 export function parseNoticeHtml(html, url = '') {
   const text = cleanText(html);
 
-  // ID from url
   const idMatch = url.match(/\/przetarg-nieruchomosci\/(\d+)/);
   const sourceId = idMatch ? idMatch[1] : null;
 
-  // Title / address header
   const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || html.match(/<title>([\s\S]*?)<\/title>/i);
   const title = titleMatch ? cleanText(titleMatch[1]) : '';
 
-  // Extract from HTML table
   const priceMatch = html.match(/<th[^>]*>\s*Cena wywoławcza\s*<\/th>\s*<td[^>]*>([\s\S]*?)<\/td>/i);
   const price = priceMatch ? parsePrice(cleanText(priceMatch[1])) : null;
 
@@ -96,11 +90,9 @@ export function parseNoticeHtml(html, url = '') {
   const typeMatch = html.match(/<th[^>]*>\s*Rodzaj nieruchomości\s*<\/th>\s*<td[^>]*>([\s\S]*?)<\/td>/i);
   const rawType = typeMatch ? cleanText(typeMatch[1]) : '';
 
-  // Parcel
   const parcelMatch = text.match(/\b(?:działk[aieę]|działek|dz\.|nr\s+działki)\s*(?:nr)?[:\s\-]{1,10}(\d+(?:\/\d+)?)/i);
   const parcel = parcelMatch ? parcelMatch[1] : null;
 
-  // Area
   const areaMatch = text.match(/pow(?:ierzchni|\.)[^\d]{1,25}([\d\s.]+(?:,\d{1,4})?)\s*(m2|m²|ha)/i);
   let area = null;
   if (areaMatch) {
@@ -112,7 +104,6 @@ export function parseNoticeHtml(html, url = '') {
     }
   }
 
-  // Address
   const addrMatch = text.match(/(?:przy\s+ul\.?|ulicy|ul\.)\s+([A-ZĄĆĘŁŃÓŚŹŻ0-9][a-ząćęłńóśźż\s\d\/-]+?)(?:w\s+Policach|\.|,|KW|obręb)/i);
   const rawAddress = addrMatch ? `ul. ${addrMatch[1].trim()}` : (title.includes('Police') ? title : 'Police');
   const address = parseAddress(rawAddress, 'Police');

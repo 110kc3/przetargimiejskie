@@ -62,7 +62,6 @@ test('"niezabudowana" never leaks to house (substring trap)', () => {
 });
 
 test('street names with "dom"/"zabudow" roots do not false-positive', () => {
-  // "Domańskiego" / "Domowa" must not trip the bare-dom rule.
   assert.equal(classifyKind('sprzedaż lokalu mieszkalnego przy ul. Domańskiego 4'), 'mieszkalny');
 });
 

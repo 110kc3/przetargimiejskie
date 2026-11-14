@@ -1,7 +1,3 @@
-// Standardized bip.info.pl platform engine.
-// Handles municipalities running the bip.info.pl server-rendered CMS (Będzin, Ruda Śląska, Lubliniec, etc.)
-// which expose category boards at /index.php?idmp=<idmp>&r=r&istr=<page>
-// and documents at /dokument.php?iddok=<iddok>&idmp=<idmp>&r=r.
 
 import { getText } from './fetch.js';
 import { parseAddress } from './normalize.js';

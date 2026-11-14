@@ -1,10 +1,3 @@
-// Sztum parser unit tests.
-// Tests groundtruthed against real municipal auction documents fetched from bip.sztum.pl:
-//   - ul. Nowowiejskiego 18/1A (I+II przetarg ustny, rokowania, wykaz)
-//   - ul. Jagiełły 6/6 (I przetarg ustny, result)
-//   - ul. Żeromskiego 24A/3 Sztumskie Pole (I przetarg ustny, result)
-//   - Działka 279/237 Sztum (land sold result)
-//   - Działki 239/1... Sztumskie Pole (land announcement)
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -39,7 +32,6 @@ import { parseBoard } from '../src/cities/sztum/crawl.js';
 const FIXTURES_PATH = fileURLToPath(new URL('../test-fixtures/sztum/fixtures.json', import.meta.url));
 const fixtures = JSON.parse(readFileSync(FIXTURES_PATH, 'utf8'));
 
-// ----------------------------------------------------------------- title routing
 
 test('isSkippableTitle: auxiliary files, noise, and pure rentals are filtered out', () => {
   assert.equal(isSkippableTitle('zgłoszenie udziału w rokowaniach'), true);
@@ -51,7 +43,6 @@ test('isSkippableTitle: auxiliary files, noise, and pure rentals are filtered ou
   assert.equal(isSkippableTitle('Konsultacje projektu Lokalnego Planu Deinstytucjonalizacji...'), true);
   assert.equal(isSkippableTitle('wykaz nieruchomości przeznaczonych do dzierżawy na czas określony do 3 lat w drodze bezprzetargowej'), true);
 
-  // Real announcements are NOT skippable
   assert.equal(isSkippableTitle('Ogłoszenie o czwartych rokowaniach na sprzedaż lokalu mieszkalnego - ul. Nowowiejskiego 18/1A w Sztumie.'), false);
   assert.equal(isSkippableTitle('Burmistrz Miasta i Gminy Sztum ogłasza pierwszy nieograniczony przetarg ustny na sprzedaż lokalu mieszkalnego - ul. Jagiełły 6/6 w Sztumie.'), false);
 });
@@ -68,7 +59,6 @@ test('isAnnouncementTitle: identifies sales auctions and rokowania', () => {
   assert.equal(isAnnouncementTitle('Burmistrz Miasta i Gminy Sztum ogłasza pierwszy nieograniczony przetarg ustny na sprzedaż lokalu mieszkalnego - ul. Jagiełły 6/6 w Sztumie.'), true);
   assert.equal(isAnnouncementTitle('Burmistrz Miasta i Gminy Sztum ogłasza pierwszy ustny nieograniczony przetarg na sprzedaż lokalu mieszkalnego - ul. Żeromskiego 24A/3 Sztumskie Pole'), true);
   assert.equal(isAnnouncementTitle('Ogłoszenie o czwartym przetargu ustnym nieograniczonym na sprzedaż działek budowlanych nr 239/1... obr. Sztumskie Pole.'), true);
-  // Results and auxiliary are rejected
   assert.equal(isAnnouncementTitle('Informacja o wyniku drugiego przetargu'), false);
   assert.equal(isAnnouncementTitle('zgłoszenie udziału w rokowaniach'), false);
 });
@@ -79,7 +69,6 @@ test('isWykazTitle: identifies sale wykazy', () => {
   assert.equal(isWykazTitle('Ogłoszenie o przetargu'), false);
 });
 
-// ------------------------------------------------------------- parsing helpers
 
 test('roundFromText: parses word ordinals, roman numerals, rokowania and typos', () => {
   assert.equal(roundFromText('ogłasza pierwszy przetarg ustny nieograniczony'), 1);
@@ -89,7 +78,7 @@ test('roundFromText: parses word ordinals, roman numerals, rokowania and typos',
   assert.equal(roundFromText('ogłoszenie o piątych rokowaniach'), 5);
   assert.equal(roundFromText('informacja o wyniku szóstych rokowań'), 6);
   assert.equal(roundFromText('informacja o wynikach I przetargu ustnego nieograniczonego'), 1);
-  assert.equal(roundFromText('informacja o wyniku pierszewgo przetargu ustnego'), 1); // handles typo in official doc
+  assert.equal(roundFromText('informacja o wyniku pierszewgo przetargu ustnego'), 1);
   assert.equal(roundFromText('brak ordynału'), null);
 });
 
@@ -129,7 +118,6 @@ test('plotFromText: extracts parcel numbers, area in m2, and obręb', () => {
   assert.equal(p3.obreb, 'Sztumskie Pole');
 });
 
-// ------------------------------------------------- groundtruthed document tests
 
 test('Nowowiejskiego 18/1A: II przetarg announcement (file 19304)', () => {
   const rec = parseAnnouncement(fixtures['19304'], {

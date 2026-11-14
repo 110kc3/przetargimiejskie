@@ -1,16 +1,3 @@
-// Chełmno parser tests. Fixtures are condensed-but-faithful copies of the REAL
-// XML-record field values fetched live from bip.chelmno.pl (verified
-// 2026-07-05). Each fixture feeds parse.buildRecordText() exactly as crawl.js
-// does, so the parsers are groundtruthed against production data.
-//
-//   record 10338  ul. Toruńska 8/7   — SOLD, round VIII (Roman), 29 290 zł
-//   record 11290  ul. Wodna 34/9     — UNSOLD (negatywny), round I
-//   record 8824   Powstańców Wlkp 2/7 — SOLD, round IV, no-grosze "170.000 zł"
-//   record 8316   Hallera 6/3        — DZIERŻAWA lease → skipped
-//   record 11740  dz. 185/22 …       — LAND (niezabudowana) → land stream
-//
-// The tresc fixtures deliberately KEEP the prior-round history sentence
-// ("Pierwszy przetarg odbył się …") — the round/date trap the parser must avoid.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -31,7 +18,6 @@ import {
 } from '../src/cities/chelmno/parse.js';
 import { parseBoardPage } from '../src/cities/chelmno/crawl.js';
 
-// --------------------------------------------------------------- real fixtures
 
 const TORUNSKA_SOLD = {
   adres: 'Chełmno, ul.Toruńska 8/7',
@@ -113,7 +99,6 @@ const LAND_ACTIVE = {
     'oraz działka nr 372.</p>]]>',
 };
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: dot-thousands, spaced-thousands, grosze tail', () => {
   assert.equal(parsePLN('29.000,00'), 29000);
@@ -139,7 +124,6 @@ test('startingPriceFromText / achievedPriceFromText', () => {
   assert.equal(startingPriceFromText(buildRecordText(TORUNSKA_SOLD)), 29000);
   assert.equal(achievedPriceFromText(buildRecordText(TORUNSKA_SOLD)), 29290);
   assert.equal(achievedPriceFromText(buildRecordText(POWSTANCOW_SOLD)), 170000);
-  // Unsold: buyer not named ⇒ no achieved price
   assert.equal(achievedPriceFromText(buildRecordText(WODNA_UNSOLD)), null);
 });
 
@@ -157,7 +141,6 @@ test('gates: hasResolution, isLease, isNegativeOutcome', () => {
   assert.equal(isNegativeOutcome(buildRecordText(TORUNSKA_SOLD)), false);
 });
 
-// ------------------------------------------------------------- result records
 
 test('parseResultDoc: Toruńska 8/7 SOLD (round VIII)', () => {
   const [r] = parseResultDoc(buildRecordText(TORUNSKA_SOLD), '2024-08-06', 'https://bip.chelmno.pl/przetarg-nieruchomosci/10338/x');
@@ -198,7 +181,6 @@ test('parseResultDoc: returns [] for a pending (empty-resolution) record', () =>
   assert.deepEqual(parseResultDoc(buildRecordText(LAND_ACTIVE), null, 'x'), []);
 });
 
-// ----------------------------------------------------------- active + land
 
 test('parseAnnouncement: pending flat (empty resolution) → active listing', () => {
   const pending = { ...WODNA_UNSOLD, rozstrzygniecie: '' };
@@ -219,7 +201,6 @@ test('parseAnnouncement: land (niezabudowana) → kind grunt with parcels', () =
   assert.equal(rec.round, 1);
 });
 
-// ----------------------------------------------------------- board XML
 
 test('parseBoardPage: extracts record ids + urls from board XML', () => {
   const xml = `

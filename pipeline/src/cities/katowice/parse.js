@@ -1,11 +1,3 @@
-// Katowice city-BIP parsers:
-//   parseAnnouncement(html, …)        — sale-auction announcement HTML body -> active listing
-//   parseAnnouncements(html, …)       — same, but emits ONE listing per unit (multi-unit aware)
-//   parseLandAnnouncement(html, …)    — same source, nieruchomość gruntowa → land record
-//   parseResultPdf(text, …)           — per-auction "Wyniki przetargów DD.MM.YYYY" PDF table
-//   parseYearlySummaryPdf(text, …)    — annual "Wykaz nieruchomości sprzedanych w roku YYYY" PDF
-//   parseResultDoc(text, …)           — dispatcher: picks the right parser by content sniff
-// See SPIKE-WAVE1.md for samples of both result-PDF formats.
 
 import { parseAddress } from '../../core/normalize.js';
 
@@ -69,12 +61,6 @@ function pickFlatArea(text) {
   return areaNum;
 }
 function sharedDates(fullText) {
-  // Match BOTH the singular "Przetarg odbędzie się" (single-property
-  // announcements) AND the plural "Przetargi odbędą się" (multi-unit). A
-  // prior multi-unit change rewrote this to `odb[ęe]d[ąa]?\s*si[ęe]`, whose
-  // optional single `[ąa]` could not span the "zie" in "odbędzie", silently
-  // dropping auction_date from every single-unit listing. The alternation
-  // (?:zie|[ąa]) keeps both forms. See the singular/plural fixtures below.
   const adM = /Przetarg\w*\s+odb[ęe]d(?:zie|[ąa])\s*si[ęe][^.]{0,40}?\bw\s+dniu\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(fullText);
   const auction_date = adM ? isoDate(adM[1], adM[2], adM[3]) : null;
   const wadM = /[Ww]adium[^.]{0,90}?do\s+dnia\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(fullText);
@@ -157,49 +143,25 @@ export function parseAnnouncement(html, title, docUrl) {
     starting_price_pln, detail_url: docUrl, wadium_deadline, viewing_date,
   };
 }
-/**
- * Parse a land-sale announcement (nieruchomość gruntowa) into a parcel-shaped
- * land record. Returns null when neither a parcel number nor a street can be
- * found (unkeyable). Keyed by parcel, not address — mirrors parseLandNode in
- * the Bielsko adapter.
- *
- * Live pattern (bip.katowice.eu idr=152394):
- *   title: "Przetarg ustny nieograniczony na sprzedaż nieruchomości gruntowej
- *           … przy ul. Solskiego (dz. 1241/36)"
- *   body:  "działka nr 1241/36 … obręb Górne Lasy Pszczyńskie … o pow. 1772 m2 …
- *           Cena wywoławcza … 880 000 zł … Przetarg odbędzie się w dniu 15.09.2026"
- *
- * @param {string} html    announcement HTML body
- * @param {string} title   board link-text (used for street + round fallback)
- * @param {string} docUrl  canonical URL for this announcement document
- * @returns {object|null}  parcel-shaped record or null
- */
 export function parseLandAnnouncement(html, title, docUrl) {
   const text = stripTags(html);
 
-  // -- parcel number: "działka nr 1241/36", "działki nr 811/69 i 813/69",
-  //    "dz. nr 1241/36", "dz. 1241/36" (board title uses no space after dz.)
   const dzM =
     /dzia[łl]ki?\s+nr\s+([\d/]+)/i.exec(text) ||
     /dz\.\s*nr\s+([\d/]+)/i.exec(text) ||
     /dz\.\s*([\d/]+)/i.exec(title);
   const dzialka_nr = dzM ? dzM[1].trim() : null;
 
-  // -- obreb: "obręb Górne Lasy Pszczyńskie", "obrębie Śródmieście"
   const obrebM = /obr[ęe]bi?\w*\s+([^,;(]{2,50}?)(?=[,;(]|\s+stanowi|\s+wpisano|\s+nr\s+KW|$)/i.exec(text);
   const obreb = obrebM ? obrebM[1].replace(/\s+/g, ' ').trim() : null;
 
-  // -- plot area: "o pow. 1772 m2", "o powierzchni 1772 m²"
   const areaM = /o\s+(?:[łl][ąa]cznej\s+)?pow(?:\.|ierzchni)\s*(\d[\d\s]*(?:[.,]\d+)?)\s*m\s*[²2]/i.exec(text);
   const area_m2 = areaM ? Number(areaM[1].replace(/\s/g, '').replace(',', '.')) : null;
 
-  // -- street from title: "przy ul. Solskiego", "przy ul. Magazynowej"
-  //    We only extract the street name (no building) — land parcels rarely have one.
   const streetM =
     /przy\s+(?:ul|al|pl|os)\.?\s*([A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)(?:\s*[\(\[,]|\s+(?:dz\.|działk|obr|stanowi|$))/i.exec(title);
   const street = streetM ? streetM[1].replace(/\s+/g, ' ').trim() : null;
 
-  // unkeyable: no parcel AND no street → skip
   if (!dzialka_nr && !street) return null;
 
   const priceM = /Cena\s+wywo[łl]awcza[^0-9]{0,60}?([\d ]+(?:,\d{2})?)\s*z[łl]/i.exec(text);
@@ -226,23 +188,12 @@ export function parseLandAnnouncement(html, title, docUrl) {
   };
 }
 
-// ----------------------------------------------------------- result PDF table
 
 const ANCHOR = /^\s*(\d{1,3})\s+(\d{2})\.(\d{2})\.(\d{4})\b/;
 
-// Negative result: the row's last column reads "Przetarg zakończony wynikiem
-// negatywnym" (achieved-price column is "------"). Some wykazy mix positive
-// and negative rows, so this is detected PER ROW, not per document.
 const NEGATIVE_ROW_RE = /wynikiem\s+negatywnym|nie\s+wy[łl]oniono\s+nabywc/i;
 
 
-// The result table prints the starting price WITHOUT its own "zł" when the
-// achieved-price cell follows on the same line ("180 000      221 400 zł");
-// the blob's whitespace collapse then glues them into one spaced-thousands
-// token ("180 000 221 400") that parses as 180 BILLION. When an amount is
-// implausibly large, try splitting its 3-digit groups into TWO plausible
-// amounts (start + achieved); a unique valid split wins, otherwise the
-// original is kept so genuinely odd rows stay visible rather than guessed at.
 const MAX_PLAUSIBLE_PLN = 50_000_000;
 function splitGluedAmounts(numStr) {
   const whole = parsePLN(numStr);
@@ -252,7 +203,6 @@ function splitGluedAmounts(numStr) {
   const splits = [];
   for (let i = 1; i < groups.length; i++) {
     const left = Number(groups.slice(0, i).join(''));
-    // The right part must look like a number's own start: no "000…" group.
     if (/^0/.test(groups[i])) continue;
     const right = Number(groups.slice(i).join(''));
     if (
@@ -270,12 +220,6 @@ function parseResultRow(blob, anchorDate, sourceUrl) {
   const notes = [];
   const negative = NEGATIVE_ROW_RE.test(blob);
 
-  // LAND rows ("nieruchomość gruntowa", bare "grunt", parcel-only "dz. nr …"
-  // designations) don't fit the street|building|apt model — their cell has no
-  // building number, so the address scan used to swallow neighbouring columns
-  // into the street ("Grodowa nieruchomość gruntowa Urząd Miasta Katowice
-  // ustny …" with the Lp. as the building). Skip them entirely; see the TODO
-  // entry about surfacing land sales for the principled future fix.
   if (
     !/lokal/i.test(blob) &&
     /nieruchomo[śs][ćc]\s+gruntow|(?:^|\s)gruntu?(?:\s|$)|dz\.\s*nr/i.test(blob)
@@ -303,41 +247,19 @@ function parseResultRow(blob, anchorDate, sourceUrl) {
   const address = addrRaw ? parseAddress(addrRaw) : null;
   if (!address) notes.push('parse: address unresolved: ' + (addrRaw || '(none)'));
 
-  // Kind fallback from the address shape when the row's label fell outside
-  // the blob window: an apartment number means a lokal, and Katowice's own
-  // convention is Roman numerals for commercial units ("Mariackiej 26/V") vs
-  // digits for flats ("Ligocka 5a/16"). No apt (building/whole property) stays
-  // 'unknown' honestly.
   if (kind === 'unknown' && address?.apt) {
     kind = /^[IVXL]+$/i.test(address.apt) ? 'uzytkowy' : 'mieszkalny';
   }
 
-  // Area: the labelled "o pow. użytkowej X m2" form, OR the result-table's
-  // terser "lokal mieszkalny o pow. 26,26 m2" (no "użytkowej"). The fallback
-  // anchors on "lokal" so the parcel's "o łącznej pow. 68 194 m2" can't match.
   const arM = /o\s+pow\.\s*u[żz]ytkowej\s*(\d+(?:[,.]\d+)?)\s*m/i.exec(blob)
     || /lokal\w*[^.]{0,40}?o\s+pow\.\s*(\d+(?:[,.]\d+)?)\s*m/i.exec(blob);
-  // No lokal in the row → the area belongs to the whole property (plot /
-  // building), not a unit. See parseAnnouncement's land_area_m2 note.
   const rowIsWholeProperty = !/lokal/i.test(blob);
   const areaNum = arM ? Number(arM[1].replace(',', '.')) : null;
 
-  // Same amount shape as PLN_ALL_RE below: spaced or dotted thousands and
-  // optional grosze — "850 000 zł", "150 000,00 zł", "150.000,00 zł". The
-  // lookbehind excludes ',' so the ",00 zł" tail can't match alone, and a
-  // preceding LETTER so a unit's own digit cannot become the amount's leading
-  // group: "o łącznej pow. 349 m2   170 000 zł" otherwise starts matching at
-  // the 2 of "m2" and, because spaces are thousands separators here, reads as
-  // "2 170 000". That published Broniewskiego 1b/13 at 2 170 000 zł instead of
-  // 170 000 and tripped the insane-m2 gate (101 639 zł/m²), blocking the whole
-  // katowice commit daily. splitGluedAmounts cannot catch it — 2.17M is under
-  // its plausibility ceiling, so the wrong number looks entirely reasonable.
   const prices = [...blob.matchAll(/(?<![\p{L}\d.,])(\d{1,3}(?:[. ]\d{3})*(?:,\d{2})?)\s*z[łl]/giu)]
     .flatMap((m) => splitGluedAmounts(m[1]))
     .filter((n) => n != null);
   const starting_price_pln = prices[0] ?? null;
-  // In a negative row the achieved-price column is "------" — any second
-  // amount the window catches belongs to a neighbouring row, so force null.
   const final_price_pln = negative ? null : prices[1] ?? null;
   if (starting_price_pln == null) notes.push('parse: missing starting price');
   if (address && address.warning) notes.push(address.warning);
@@ -380,16 +302,13 @@ export function parseResultPdf(text, fallbackDate, sourceUrl) {
         : Math.floor((anchors[k].i + anchors[k + 1].i) / 2) + 1;
     const blob = lines.slice(start, end).join(' ').replace(/\s+/g, ' ').trim();
     const row = parseResultRow(blob, anchors[k].date || fallbackDate, sourceUrl);
-    if (row) out.push(row); // null = land/parcel row, skipped by design
+    if (row) out.push(row);
   }
   return out;
 }
 
-// ------------------------------------------------- yearly summary PDF table
 
 const ROMAN_TO_INT = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8, IX: 9 };
-// Letter-excluding lookbehind for the same reason as parseResultRow's copy: a
-// "349 m2" immediately before a price would otherwise contribute its "2".
 const PLN_ALL_RE = /(?<![\p{L}\d.,])(\d{1,3}(?:[. ]\d{3})*(?:,\d{2})?)\s*z[łl]/giu;
 const DATE_RE = /(\d{1,2})\.(\d{1,2})\.(\d{4})r?\.?/;
 const ROUND_RE = /\b(I{1,3}|IV|V|VI{0,3}|IX)\s+(?:przetarg\s+)?ustny\b/i;
@@ -404,11 +323,6 @@ function isYearlySummaryText(text) {
 
 const BUYER_DESIGNATION_RE = /^(?:fiz|fizyczn\w*|prawn\w*)\b/i;
 
-// Column-bleed sanity for the yearly-summary table — same junk vocabulary as
-// parseResultRow's filter above. The linearised table interleaves cells, so a
-// lazy street capture can swallow the neighbouring "II ustny przetarg" /
-// "Urząd Miasta" columns ("Oddziałów Młodzieży II ustny 86" with a price or
-// area as the building). Such a candidate is junk, not an address.
 const COLUMN_BLEED_RE =
   /\b(urz[ąa]d|miasta|ustny|nieograniczon\w*|przetarg\w*|zako[ńn]czon\w*|gruntow\w*|lokal\w*|sprzedan\w*)\b/i;
 const badAddrCand = (cand) =>
@@ -454,15 +368,8 @@ function parseYearlySummaryRow(lines, lo, _anchorI, hi, prices, sourceUrl) {
     kind = 'mieszkalny';
   }
 
-  // Area: "<num> m2" when the unit is printed; some yearly tables print the
-  // area column BARE ("Mariacka 1/10   34,47   lokal mieszkalny"). The bare
-  // fallback requires a non-zero leading digit + exactly 2 decimals, which a
-  // spaced-thousands price fragment ("2 500 000,00") can never satisfy, and
-  // the value is range-checked below as belt-and-braces.
   const arM = /(\d{1,5}(?:[,.]\d{1,3})?)\s*m2\b/i.exec(blob)
     || /(?<![\d,.])([1-9]\d{0,3},\d{2})(?=\s)/.exec(blob);
-  // "nieruchomość zabudowana" rows (no lokal) carry the PLOT/building total —
-  // route to land_area_m2 (see parseAnnouncement's note).
   const yearlyWholeProperty = !/lokal/i.test(blob);
   let areaNum = arM ? Number(arM[1].replace(',', '.')) : null;
   if (areaNum != null && (areaNum < 8 || areaNum > 5000)) areaNum = null;

@@ -23,7 +23,6 @@ export async function crawl() {
       continue;
     }
 
-    // Matches announcement items: link + title
     const itemRegex = /<a[^>]*href="(\/urzad\/ogloszenia-burmistrza\/[^"]*\/idn:(\d+))"[^>]*>([\s\S]*?)<\/a>/gi;
     let match;
 
@@ -39,7 +38,6 @@ export async function crawl() {
       try {
         const detailHtml = await fetchHtml(detailUrl);
 
-        // Find PDF / attachment links
         const pdfMatches = [...detailHtml.matchAll(/href="([^"]*(?:\/download\/[^"]*|\.pdf))"/gi)].map(m => m[1]);
         const uniquePdfs = [...new Set(pdfMatches)];
 
@@ -65,7 +63,6 @@ export async function crawl() {
           }
         }
 
-        // Date from detail page (e.g. "29 Października 2026")
         const dateMatch = detailHtml.match(/(\d{1,2})\s+([A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż]+)\s+(\d{4})/i);
         const dateStr = dateMatch ? `${dateMatch[3]}-${dateMatch[2]}-${dateMatch[1]}` : null;
 

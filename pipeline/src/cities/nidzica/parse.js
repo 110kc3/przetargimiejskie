@@ -1,26 +1,7 @@
-// Nidzica parsers — announcement (.doc/.docx/HTML) and result documents.
-//
-// BIP Nidzica (bip.nidzica.pl) publishes announcements and result notices
-// on its structured tender module (/przetargi/257/) and article board (/258/).
-// Documents attached as .doc / .docx are extracted via docText before parsing.
-//
-// Groundtruthed against real municipal documents:
-//   Flats:
-//     - ul. Brzozowa 8/2 (lokal mieszkalny nr 2, 24.00 m², round 1 rokowania 78 000 zł, earlier round II unsold)
-//     - ul. Warszawska 4A/16 (lokal mieszkalny nr 16, 29.90 m², II przetarg 160 000 zł, sold)
-//     - ul. Warszawska 4A/1 (lokal mieszkalny nr 1, 30.70 m², I przetarg 130 000 zł, sold)
-//     - Aleja Wojska Polskiego 9/1 (lokal mieszkalny nr 1, 48.70 m², II rokowania 150 000 zł, sold)
-//     - Dobrzyń 31/3 (lokal mieszkalny nr 3, 83.4 m², II przetarg 35 000 zł)
-//     - Zagrzewo 21/3 (lokal mieszkalny po świetlicy, 88.06 m², I przetarg)
-//   Land:
-//     - ul. Polna, dz. 166/26 (obręb 2 m. Nidzica, 0.1064 ha, II przetarg sold 108 000 -> 117 000 zł, buyer Marek Wasiołkowski)
-//     - Jabłonka, dz. 247/4 i 247/6 (obręb Jabłonka, II przetarg active)
-//     - Napiwoda, dz. 162/106 (obręb Napiwoda, I przetarg active)
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
-// ── Whitespace & folding helpers ─────────────────────────────────────────────
 
 export function norm(text) {
   return String(text == null ? '' : text)
@@ -42,13 +23,7 @@ export function foldPl(s) {
     .replace(/[żź]/g, 'z');
 }
 
-// ── Numbers & PLN ────────────────────────────────────────────────────────────
 
-/**
- * "78 000,00 zł" / "160.000,00" / "117 000 zł" -> integer PLN.
- * @param {string|number} s
- * @returns {number|null}
- */
 export function parsePLN(s) {
   if (s == null) return null;
   const str = norm(s);
@@ -64,11 +39,6 @@ export function parsePLN(s) {
   return Number.isFinite(n) && n > 0 ? Math.round(n) : null;
 }
 
-/**
- * "0,1064 ha" -> float ha.
- * @param {string} s
- * @returns {number|null}
- */
 export function parseHa(s) {
   if (!s) return null;
   const cleaned = String(s).replace(/ha/gi, '').trim().replace(',', '.');
@@ -76,17 +46,11 @@ export function parseHa(s) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/** Hectares string -> integer m2. */
 export function haToM2(s) {
   const ha = parseHa(s);
   return ha != null ? Math.round(ha * 10000) : null;
 }
 
-/**
- * "24,00 m2" / "88,06 m²" -> float m2.
- * @param {string|number} s
- * @returns {number|null}
- */
 export function parseAreaM2(s) {
   if (s == null) return null;
   const cleaned = String(s).replace(/m2|m²/gi, '').trim().replace(',', '.');
@@ -94,7 +58,6 @@ export function parseAreaM2(s) {
   return Number.isFinite(n) && n > 0 ? Math.round(n * 100) / 100 : null;
 }
 
-// ── Polish months & dates ────────────────────────────────────────────────────
 
 const PL_MONTHS = {
   stycznia: '01', styczen: '01',
@@ -116,28 +79,19 @@ export function monthNum(word) {
   return PL_MONTHS[foldPl(word)] || null;
 }
 
-/**
- * Parse date string from text into ISO YYYY-MM-DD.
- * Handles "2026-10-28 11:00:00", "07 października 2026", "26.02.2014".
- * @param {string} text
- * @returns {string|null}
- */
 export function parseDate(text) {
   if (!text) return null;
   const t = norm(text);
 
-  // ISO timestamp: "2026-10-28 11:00:00" or "2026-10-28"
   const isoM = t.match(/\b(20\d{2})-(\d{2})-(\d{2})\b/);
   if (isoM) return `${isoM[1]}-${isoM[2]}-${isoM[3]}`;
 
-  // Polish words: "07 października 2026" / "dnia 26 lutego 2014 roku" / "w dniu 22 października 2025 r."
   const wordM = t.match(/(?:w\s+dniu|dnia)?\s*(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(20\d{2})/i);
   if (wordM) {
     const mo = monthNum(wordM[2]);
     if (mo) return `${wordM[3]}-${mo}-${String(wordM[1]).padStart(2, '0')}`;
   }
 
-  // Dotted: "26.02.2014" or "02.12.2025"
   const dotM = t.match(/\b(\d{1,2})\.(\d{1,2})\.(20\d{2})\b/);
   if (dotM) {
     return `${dotM[3]}-${String(dotM[2]).padStart(2, '0')}-${String(dotM[1]).padStart(2, '0')}`;
@@ -146,7 +100,6 @@ export function parseDate(text) {
   return null;
 }
 
-/** ISO auction date from an announcement body. */
 export function announceDateFromText(text) {
   const t = norm(text);
   const m =
@@ -163,7 +116,6 @@ export function announceDateFromText(text) {
   return parseDate(t);
 }
 
-/** ISO auction date from a result notice. */
 export function resultDateFromText(text) {
   const t = norm(text);
   const m =
@@ -180,18 +132,15 @@ export function resultDateFromText(text) {
   return parseDate(t);
 }
 
-// ── Round extraction ─────────────────────────────────────────────────────────
 
 const ROMAN_VALUES = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6 };
 
 export function roundFromText(text) {
   const t = norm(text);
 
-  // Roman numeral przetarg: "II przetarg", "I przetargu"
   const romM = /\b(I|II|III|IV|V|VI)\s+przetarg/i.exec(t);
   if (romM) return ROMAN_VALUES[romM[1].toUpperCase()] || null;
 
-  // Word ordinal: "pierwszy przetarg", "drugi przetarg"
   const f = foldPl(t);
   if (/pierwsz\w*\s+przetarg/i.test(f)) return 1;
   if (/drug\w*\s+przetarg/i.test(f)) return 2;
@@ -200,7 +149,6 @@ export function roundFromText(text) {
   if (/kolejny\s+\(czwarty\)\s+przetarg/i.test(f)) return 4;
   if (/kolejnym\s+\(trzecim\)\s+przetargu/i.test(f)) return 3;
 
-  // Rokowania (negotiations)
   if (/czwart\w*\s+rokowan/i.test(f) || /IV\s+rokowan/i.test(f)) return 4;
   if (/trzeci\w*\s+rokowan/i.test(f) || /III\s+rokowan/i.test(f)) return 3;
   if (/drug\w*\s+rokowan/i.test(f) || /II\s+rokowan/i.test(f)) return 2;
@@ -209,16 +157,13 @@ export function roundFromText(text) {
   return null;
 }
 
-// ── Gates & Filters ──────────────────────────────────────────────────────────
 
-/** Excludes leases / rentals (dzierżawa, najem). */
 export function isLease(text) {
   return /oddani[ae]\s+w\s+dzier[żz]aw|przetarg\s+(?:ustny\s+)?(?:nieograniczony\s+)?na\s+dzier[żz]aw|na\s+oddanie\s+w\s+dzier[żz]aw|najem\s+lokalu|\bogrodk[óo]w\s+gastronomiczn/i.test(
     text || '',
   );
 }
 
-/** Check if document or text is a result notice. */
 export function isResultNotice(text) {
   const f = foldPl(text);
   return (
@@ -228,7 +173,6 @@ export function isResultNotice(text) {
   );
 }
 
-/** Check if outcome is negative (unsold). */
 export function isNegativeOutcome(text) {
   const f = foldPl(text);
   return (
@@ -243,7 +187,6 @@ export function isNegativeOutcome(text) {
   );
 }
 
-/** Check if auction was cancelled / void. */
 export function isCancelled(text) {
   const f = foldPl(text);
   return (
@@ -253,7 +196,6 @@ export function isCancelled(text) {
   );
 }
 
-// ── Village & Location Normalization ─────────────────────────────────────────
 
 const VILLAGE_MAP = {
   dobrzyniu: 'Dobrzyń',
@@ -282,23 +224,15 @@ export function normalizeVillage(name) {
   return VILLAGE_MAP[f] || name;
 }
 
-// ── Property details extraction ──────────────────────────────────────────────
 
-/**
- * Extract flat address from text.
- * @param {string} text
- * @returns {string|null}
- */
 export function extractFlatAddressRaw(text) {
   const t = norm(text);
 
-  // Apt number: "lokal mieszkalny nr 2", "lokal nr 3", "lokalu mieszkalnego nr 16", "m.16"
   const aptM =
     t.match(/lokal\w*\s+(?:mieszkaln\w*\s+)?(?:nr|oznaczony\s+nr)?\s*(\d+[A-Za-z]?)/i) ||
     t.match(/(?:m\.|lok\.)\s*(\d+[A-Za-z]?)/i);
   const apt = aptM ? aptM[1] : null;
 
-  // 1. Street in Nidzica: "przy ul. Brzozowej 8", "przy ul. Warszawskiej 4A", "przy ul. Aleja Wojska Polskiego 9"
   const streetM =
     t.match(/przy\s+(ul\.?\s+[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż\s]+?)\s+(\d+[A-Za-z]?)(?:\s+w\s+Nidzicy|\s*,|\s*\.|\s+nr\s+KW|\s+obręb)/i) ||
     t.match(/przy\s+(Alej\w*\s+[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż\s]+?)\s+(\d+[A-Za-z]?)(?:\s+w\s+Nidzicy|\s*,|\s*\.|\s+nr\s+KW|\s+obręb)/i);
@@ -311,7 +245,6 @@ export function extractFlatAddressRaw(text) {
     return apt ? `${street} ${bldg}/${apt}` : `${street} ${bldg}`;
   }
 
-  // 2. Village building: "w budynku nr 31 w Dobrzyniu" or "w budynku nr 21 w miejscowości i obrębie Zagrzewo"
   const villageBldgM =
     t.match(/w\s+budynku\s+(?:nr\s+)?(\d+[A-Za-z]?)\s+w\s+(?:miejscowości\s+(?:i\s+obrębie\s+)?)?([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]+)/i) ||
     t.match(/w\s+miejscowości\s+(?:i\s+obrębie\s+)?([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]+)[^.\n]*?w\s+budynku\s+(?:nr\s+)?(\d+[A-Za-z]?)/i);
@@ -328,7 +261,6 @@ export function extractFlatAddressRaw(text) {
     return apt ? `${village} ${bldg}/${apt}` : `${village} ${bldg}`;
   }
 
-  // 3. Village with direct number: "w Dobrzyniu 31", "w miejscowości Dobrzyniu 31", "w Muszakach 36B/9"
   const directM = t.match(/w\s+(?:miejscowości\s+(?:i\s+obrębie\s+)?)?([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]+)\s+(\d+[A-Za-z]?(?:\/\d+[A-Za-z]?)?)/i);
   if (directM && !/Nidzic/i.test(directM[1])) {
     const village = normalizeVillage(directM[1].trim());
@@ -337,7 +269,6 @@ export function extractFlatAddressRaw(text) {
     return `${village} ${spec}`;
   }
 
-  // 4. Street fallback from title
   const titleStreetM = t.match(/ul\.\s*([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż\s]+?)\s+(\d+[A-Za-z]?)/i);
   if (titleStreetM) {
     const street = `ul. ${titleStreetM[1].trim()}`;
@@ -348,18 +279,15 @@ export function extractFlatAddressRaw(text) {
   return null;
 }
 
-/** Area in m2 from text. */
 export function extractAreaM2(text) {
   const t = norm(text);
 
-  // Flat usable area: "o powierzchni użytkowej 24,00 m2", "o pow. użytkowej 88,06 m2"
   const flatM =
     t.match(/o\s+pow(?:ierzchni|\.)?\s+u[żz]ytkowej\s*(\d+(?:[.,]\d+)?)\s*(m2|m²)/i) ||
     t.match(/powierzchnia\s+u[żz]ytkowa[^\n]*?wynosi\s*(\d+(?:[.,]\d+)?)\s*(m2|m²)/i) ||
     t.match(/lokal[^\n]*?o\s+pow(?:ierzchni|\.)?\s*(\d+(?:[.,]\d+)?)\s*(m2|m²)/i);
   if (flatM) return parseAreaM2(flatM[1]);
 
-  // Land area: "o pow. 0,1064 ha" or "o pow. 1513 m2"
   const landHaM = t.match(/o\s+pow(?:ierzchni|\.)?\s*(\d+(?:[.,]\d+)?)\s*ha/i);
   if (landHaM) return haToM2(landHaM[1]);
 
@@ -369,7 +297,6 @@ export function extractAreaM2(text) {
   return null;
 }
 
-/** Starting price from text. */
 export function startingPriceFromText(text) {
   const t = norm(text);
   const m =
@@ -378,7 +305,6 @@ export function startingPriceFromText(text) {
   return m ? parsePLN(m[1]) : null;
 }
 
-/** Achieved (final) price from result text. */
 export function achievedPriceFromText(text) {
   const t = norm(text);
   const m =
@@ -388,7 +314,6 @@ export function achievedPriceFromText(text) {
   return m ? parsePLN(m[1]) : null;
 }
 
-/** Buyer name from result text. */
 export function buyerFromText(text) {
   const t = norm(text);
   const m =
@@ -400,7 +325,6 @@ export function buyerFromText(text) {
   return raw;
 }
 
-/** Extract parcel numbers for land. */
 export function extractParcel(text) {
   const t = norm(text);
   const m =
@@ -409,7 +333,6 @@ export function extractParcel(text) {
   return m ? m[1].trim().replace(/\s+i\s+/g, ', ') : null;
 }
 
-/** Extract precinct / village for land. */
 export function extractPrecinct(text) {
   const t = norm(text);
   const m =
@@ -418,14 +341,7 @@ export function extractPrecinct(text) {
   return m ? m[1].trim() : null;
 }
 
-// ── Announcement Parser ──────────────────────────────────────────────────────
 
-/**
- * Parse announcement text into listing or land records.
- * @param {string} text
- * @param {{ detailUrl?: string, sourceUrl?: string, fallbackAuctionDate?: string|null }} [ctx]
- * @returns {Array<object>}
- */
 export function parseAnnouncement(text, ctx = {}) {
   const t = norm(text);
   if (!t || isCancelled(t) || isLease(t)) return [];
@@ -434,7 +350,6 @@ export function parseAnnouncement(text, ctx = {}) {
   const auction_date = ctx.fallbackAuctionDate || announceDateFromText(t) || null;
   const starting_price_pln = startingPriceFromText(t);
 
-  // Check if flat
   const isFlat =
     /lokal\w*\s+mieszkaln|nieruchomo[śs]ci\s+lokalowej/i.test(t) ||
     (/lokal/i.test(t) && /lokal\s+mieszkalny|przebudowy.*na\s+lokal\s+mieszkalny/i.test(t));
@@ -462,7 +377,6 @@ export function parseAnnouncement(text, ctx = {}) {
     ];
   }
 
-  // Land / plots
   const isLand = /dzia[łl]k|grunt|niezabudowan/i.test(t);
   if (!isLand) return [];
 
@@ -470,7 +384,6 @@ export function parseAnnouncement(text, ctx = {}) {
   const obreb = extractPrecinct(t);
   const area_m2 = extractAreaM2(t);
 
-  // Extract street if present (e.g. "ul. Polna")
   const stM = t.match(/(?:przy\s+ul\.|ul\.)\s*([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż\s]+?)(?:,|\.|\s+w\s+Nidzicy|$)/i);
   const street = stM ? `ul. ${stM[1].trim()}` : null;
   const location = street || obreb || 'Nidzica';
@@ -492,15 +405,7 @@ export function parseAnnouncement(text, ctx = {}) {
   ];
 }
 
-// ── Result Parser ────────────────────────────────────────────────────────────
 
-/**
- * Parse one result document or resolved tender record into concluded auction records.
- * @param {string} text
- * @param {string|null} [fallbackDate]
- * @param {string|null} [sourceUrl]
- * @returns {Array<object>}
- */
 export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
   const t = norm(text);
   if (!t || isCancelled(t) || isLease(t)) return [];
@@ -509,7 +414,6 @@ export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
   const round = roundFromText(t);
   const starting_price_pln = startingPriceFromText(t);
 
-  // Determine outcome
   const negative = isNegativeOutcome(t);
   const achieved = negative ? null : achievedPriceFromText(t);
   const buyer = negative ? null : buyerFromText(t);
@@ -522,7 +426,6 @@ export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
     notes.push('wynik: pozytywny (rozstrzygnięty)');
   }
 
-  // Is residential flat or land?
   const isFlat =
     /lokal\w*\s+mieszkaln|nieruchomo[śs]ci\s+lokalowej/i.test(t) ||
     (/lokal/i.test(t) && /lokal\s+mieszkalny|przebudowy.*na\s+lokal\s+mieszkalny/i.test(t));
@@ -553,7 +456,6 @@ export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
     ];
   }
 
-  // Land / plot
   const isLand = /dzia[łl]k|grunt|niezabudowan/i.test(t);
   if (!isLand) return [];
 

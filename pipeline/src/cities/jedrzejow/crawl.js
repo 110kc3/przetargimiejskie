@@ -1,18 +1,3 @@
-// Jędrzejów crawler.
-//
-// Source: bip.jedrzejow.eu — an IDcom.pl server-rendered HTML BIP.
-//
-// Board 3 == "Przetargi":
-//   List: https://bip.jedrzejow.eu/wiadomosci/3/lista/{PAGE}
-//   Detail: https://bip.jedrzejow.eu/wiadomosci/3/wiadomosc/{ID}/{slug}
-//   Attachments: static PDF documents on bip-v1-files.idcom-jst.pl (scanned; OCR via ocrPdf with psm: 1)
-//
-// The board hosts announcements ("Ogłoszenie o przetargu ustnym nieograniczonym na sprzedaż..."),
-// result notices ("Informacja o wyniku przetargu ustnego nieograniczonego na sprzedaż..."),
-// and designation lists ("Wykaz nieruchomości przeznaczonych do sprzedaży...").
-// Non-sale notices (leases, municipal vehicle sales, church restoration procurement) are filtered out.
-//
-// source: 'html' convention: result refs carry the extracted/OCR text in ref.text.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -117,7 +102,6 @@ async function crawlAll() {
   const started = Date.now();
   const overBudget = () => Date.now() - started > DEADLINE_MS;
 
-  // 1. Paginate the board
   const entries = [];
   const seenUrls = new Set();
 
@@ -143,7 +127,6 @@ async function crawlAll() {
     if (entries.length >= MAX_ARTICLES) break;
   }
 
-  // 2. Fetch details & attachments, route records
   const listings = [];
   const wykaz = [];
   const land = [];

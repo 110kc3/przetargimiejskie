@@ -1,30 +1,4 @@
 #!/usr/bin/env node
-// Build-time SEO page generator (P0-C — see TODO.md + GTM.md §3/§7).
-//
-// Generates, into the build-site.sh output dir, fully static indexable pages
-// over the committed data/*.json — no runtime JS needed to see content:
-//
-//   /<miasto>/                 one page per city (aktualne przetargi + wyniki +
-//                              wszystkie nieruchomości + miesięczne podsumowania)
-//   /<miasto>/<adres-slug>/    one page per property (pełna historia licytacji)
-//   /<miasto>/<YYYY-MM>/       monthly recap "co miasto wystawiło" (last 24 months)
-//   /miasta/                   static hub linking every city page
-//   /sitemap.xml               all of the above + the existing site pages
-//
-// SCOPE: all of Poland since 2026-07-27 (PUBLIC_VOIVODESHIPS = null). Narrow to
-// specific voivodeships by setting it to a Set. The /archiwum-all test view
-// still shows every crawled city, published or not.
-//
-// PUBLISH GATE: within that scope a city must also clear MIN_PUBLIC_AUCTIONS
-// (live + archived) to be published at all. This script is the single place the
-// gate is decided — it re-writes <out>/data/index.json with a per-city `public`
-// flag and a date-aware `live_auctions` count, and the runtime pages (landing
-// chips, /archiwum) filter on that flag rather than re-deriving their own.
-//
-// Runs on plain Node (no deps): `node scripts/build-seo-pages.mjs <outDir>`.
-// Called from build-site.sh AFTER site/ + data/ are copied into the out dir.
-// Titles/meta target the GTM.md §3 queries: "przetarg mieszkania <miasto>",
-// "licytacja mieszkania <miasto>", "mieszkanie od miasta", "lokale <ZGM>".
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
@@ -36,43 +10,27 @@ const ROOT = process.env.SEO_ROOT ? resolve(process.env.SEO_ROOT)
   : resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = resolve(process.argv[2] || '_site');
 const SITE = 'https://przetargimiejskie.pl';
-// null = all of Poland. Narrow again with e.g. `new Set(['slaskie'])`.
 const PUBLIC_VOIVODESHIPS = null;
-// Minimum auctions (live + archived) for a city to be published. Below this a
-// city page is mostly empty tables and "brak danych", which reads as broken
-// rather than as honest coverage — so it stays crawled but unlisted.
 const MIN_PUBLIC_AUCTIONS = 10;
-const RECAP_MONTHS = 24; // monthly recap pages: this many calendar months back
+const RECAP_MONTHS = 24;
 
 const readJson = (p) => JSON.parse(readFileSync(p, 'utf8'));
 const esc = (s) => String(s ?? '')
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
   .replaceAll('"', '&quot;');
 
-// ---------- Polish formatting ----------
 
 const MONTHS_NOM = ['styczeń','luty','marzec','kwiecień','maj','czerwiec','lipiec','sierpień','wrzesień','październik','listopad','grudzień'];
 const MONTHS_GEN = ['stycznia','lutego','marca','kwietnia','maja','czerwca','lipca','sierpnia','września','października','listopada','grudnia'];
 const MONTHS_LOC = ['styczniu','lutym','marcu','kwietniu','maju','czerwcu','lipcu','sierpniu','wrześniu','październiku','listopadzie','grudniu'];
 
-// Locative city names live in scripts/lib/city-loc.mjs (shared with the B2G
-// one-pager generator so the declensions can't drift apart).
 
 const fmtInt = (n) => Number(n).toLocaleString('pl-PL');
 const fmtPln = (n) => (n == null ? '—' : `${fmtInt(Math.round(n))} zł`);
 const fmtArea = (a) => (a == null ? '—' : `${Number(a).toLocaleString('pl-PL', { maximumFractionDigits: 2 })} m²`);
 const perM2 = (price, area) => (price && area ? `${fmtInt(Math.round(price / area))} zł/m²` : '—');
 
-// Chip metadata for the landing + /miasta/ hub. A city with nothing scheduled
-// must never render as a bare "0 aukcji" — that reads as broken even when the
-// city has a deep archive behind it — so fall back to the archive/property
-// counts. Every chip therefore carries two real numbers.
 const plural = (n) => (n === 1 ? 'aukcja' : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 'aukcje' : 'aukcji');
-// Deterministic per-city dot colour. Replaces the hand-maintained `--c-<city>`
-// palette, which only covered ~10 cities — every unmapped city rendered the same
-// grey placeholder dot, which is precisely what made a wide city list look
-// unfinished. Hash → hue keeps every city distinct at any coverage. Fixed S/L so
-// all hues stay legible on the dark background. Mirrored in site/index.html.
 const cityHue = (id) => { let h = 0; for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) % 360; return h; };
 const cityDot = (id) => `<span class="city-dot" style="background:hsl(${cityHue(id)} 58% 58%)"></span>`;
 const chipMeta = ({ live, archived, props }) => {
@@ -100,19 +58,12 @@ const outcomeHtml = (l) => {
   if (o === 'sold') return `<span class="ok">sprzedane${l.final_price_pln ? ` za ${fmtPln(l.final_price_pln)}` : ''}</span>`;
   if (o === 'unsold') return `<span class="bad">bez nabywcy${l.unsold_reason === 'no_deposits' ? ' (brak wadium)' : ''}</span>`;
   if (o === 'active' || o === 'announced') {
-    // A stale 'active' whose auction date already passed (result not yet
-    // published/matched) must NOT read as an upcoming auction.
     if (!isLive(l)) return 'po terminie (wynik nieopublikowany)';
     return `<span class="live">${OUTCOME_LABEL[o]}</span>`;
   }
   return OUTCOME_LABEL[o] || esc(o || '—');
 };
 
-// Slugs become directory names, so they must stay under the filesystem's
-// 255-byte limit. A mis-parsed record can carry a whole announcement paragraph
-// in `street` (seen on krakow), which would otherwise crash the build with
-// ENAMETOOLONG — cap at a word boundary and let the caller's dedupe suffix
-// resolve any collisions the truncation creates.
 const SLUG_MAX = 80;
 const slugify = (s) => {
   const full = String(s ?? '').toLowerCase()
@@ -123,7 +74,6 @@ const slugify = (s) => {
   return (cut.slice(0, cut.lastIndexOf('-')) || cut).replace(/-+$/, '');
 };
 
-// ---------- Shared page shell (Slate Ledger, compact subset) ----------
 
 const CSS = `
 :root{color-scheme:dark;--bg:#0d1117;--bg-grad:#131a26;--surface:#161b22;--surface-2:#1b2230;
@@ -231,7 +181,6 @@ function writePage(relDir, html) {
   writeFileSync(join(dir, 'index.html'), html);
 }
 
-// ---------- Load data ----------
 
 const index = readJson(join(ROOT, 'data', 'index.json'));
 const catalog = readJson(join(ROOT, 'data', 'catalog.json'));
@@ -245,29 +194,9 @@ const recapFloor = (() => { // first day of the month RECAP_MONTHS-1 months ago
   return d.toISOString().slice(0, 7);
 })();
 
-// Keep the sitemap deliberately free of <lastmod> until the pipeline persists
-// a real per-page content-modification timestamp. The dates available here are
-// not that:
-//
-//   - meta.generated_at changes after every daily crawl, even when a page's
-//     main content did not change;
-//   - a listing's date is the auction date, not the page modification date, and
-//     is often in the future for an open auction.
-//
-// Publishing either value as <lastmod> makes the whole freshness signal
-// unverifiable (and previously produced hundreds of future-dated sitemap
-// entries). The element is optional; an honest omission is better than a false
-// crawl-scheduling hint.
-const sitemap = []; // { loc }
+const sitemap = [];
 const addUrl = (path) => sitemap.push({ loc: `${SITE}${path}` });
 
-// ---------- Publish gate ----------
-// Load every candidate once, enrich its properties, and derive the *date-aware*
-// live-auction count. index.json's `active_auctions` is a snapshot frozen at the
-// last refresh, so an auction whose date has since passed still counts there —
-// that drift is why the landing used to advertise "8 aukcji" for a city whose
-// own page then said "0 aktualnych przetargów". `live` below is the single
-// definition every public surface uses from here on.
 
 const loaded = [];
 for (const city of candidates) {
@@ -275,7 +204,6 @@ for (const city of candidates) {
   if (!existsSync(join(dataDir, 'properties.json'))) { console.error(`  seo: skipping ${city.id} (no properties.json)`); continue; }
   const props = readJson(join(dataDir, 'properties.json')).properties || [];
 
-  // --- enrich properties: slug, display address, sorted listings ---
   const slugSeen = new Map();
   for (const p of props) {
     p._addr = `ul. ${p.street} ${p.building}${p.apt ? `/${p.apt}` : ''}`;
@@ -285,8 +213,6 @@ for (const city of candidates) {
     p._slug = slug;
     p._listings = [...(p.listings || [])].sort((a, b) => (a.date || '9999').localeCompare(b.date || '9999'));
     p._lastDate = p._listings.reduce((m, l) => (l.date && l.date > m ? l.date : m), '');
-    // "Live" = a genuinely upcoming auction (date >= today). Stale 'active'
-    // rows (auction passed, result never published) stay history-only.
     p._live = [...p._listings].reverse().find(isLive) || null;
   }
 
@@ -305,9 +231,8 @@ if (unlisted.length) {
 }
 if (!cities.length) throw new Error('publish gate left no cities — refusing to build an empty site');
 
-// ---------- Per-city ----------
 
-const cityHub = []; // for /miasta/
+const cityHub = [];
 
 for (const { city, props } of published) {
   const dataDir = join(ROOT, 'data', city.id);
@@ -318,12 +243,10 @@ for (const { city, props } of published) {
   const propHref = (p) => `/${city.id}/${p._slug}/`;
   const propLink = (p) => `<a href="${propHref(p)}">${esc(p._addr)}</a>`;
 
-  // --- collect city-wide rows ---
   const activeRows = props.filter((p) => p._live).sort((a, b) => (a._live.date || '9999').localeCompare(b._live.date || '9999'));
   const concluded = props.flatMap((p) => p._listings.filter((l) => l.outcome === 'sold' || l.outcome === 'unsold').map((l) => ({ p, l })))
     .sort((a, b) => (b.l.date || '').localeCompare(a.l.date || '')).slice(0, 15);
 
-  // monthly recap buckets (last RECAP_MONTHS months)
   const byMonth = new Map();
   for (const p of props) for (const l of p._listings) {
     const ym = (l.date || '').slice(0, 7);
@@ -334,7 +257,6 @@ for (const { city, props } of published) {
   }
   const months = [...byMonth.keys()].sort().reverse();
 
-  // ---------- city page ----------
   const kindCount = {};
   for (const p of props) kindCount[p.kind] = (kindCount[p.kind] || 0) + 1;
   const flats = kindCount.mieszkalny || 0;
@@ -401,7 +323,6 @@ ${monthChips ? `<section class="section"><h2 class="section-title">Miesięczne p
   }));
   addUrl(`/${city.id}/`);
 
-  // ---------- property pages ----------
   for (const p of props) {
     const live = p._live;
     const priceRange = p._listings.filter((l) => l.starting_price_pln).map((l) => l.starting_price_pln);
@@ -437,8 +358,6 @@ ${monthChips ? `<section class="section"><h2 class="section-title">Miesięczne p
             { '@type': 'ListItem', position: 3, name: `${p._addr}, ${city.label}` },
           ],
         },
-        // Product/Offer only while an auction is genuinely upcoming — a sold or
-        // stale listing must not advertise a live price to crawlers.
         {
           '@context': 'https://schema.org', '@type': 'Product',
           name: `${p._addr}, ${city.label}`,
@@ -470,7 +389,6 @@ wiążące informacje znajdują się w dokumentach źródłowych urzędu.</p></s
     addUrl(`/${city.id}/${p._slug}/`);
   }
 
-  // ---------- monthly recap pages ----------
   for (const ym of months) {
     const rows = byMonth.get(ym).sort((a, b) => (a.l.date || '').localeCompare(b.l.date || ''));
     const i = months.indexOf(ym);
@@ -500,7 +418,6 @@ wiążące informacje znajdują się w dokumentach źródłowych urzędu.</p></s
   console.error(`  seo: ${city.id} — 1 city + ${props.length} property + ${months.length} monthly page(s)`);
 }
 
-// ---------- /miasta/ hub ----------
 
 const hubBody = `
 <p class="lead">Historia miejskich przetargów na mieszkania — wybierz miasto. Każda strona
@@ -520,7 +437,6 @@ writePage('miasta', page({
 }));
 addUrl('/miasta/');
 
-// ---------- sitemap.xml ----------
 
 for (const p of [
   '/', '/archiwum/', '/alerty/', '/raporty/', '/dla-samorzadow/',
@@ -535,10 +451,6 @@ writeFileSync(join(OUT, 'sitemap.xml'), xml);
 
 console.error(`  seo: wrote ${sitemap.length} URLs to sitemap.xml (${cityHub.length} cities)`);
 
-// ---------- llms.txt + llms-full.txt ----------
-// Agent-discovery files (https://llmstxt.org): what the site is, where the
-// static pages are, and where the raw JSON lives. Generated so the city list
-// and counts never go stale.
 
 const activeOf = (c) => LIVE_BY_ID[c.id] ?? 0;
 const cityLine = (c) => `- ${c.label}: ${SITE}/${c.id}/ (${fmtInt(activeOf(c))} aktywnych · ${fmtInt(c.archived_auctions || 0)} w archiwum)`;
@@ -599,15 +511,6 @@ ${cityHub.map(({ city }) => `- ${SITE}/data/${city.id}/properties.json`).join('\
 writeFileSync(join(OUT, 'llms-full.txt'), llmsFull);
 console.error('  seo: wrote llms.txt + llms-full.txt');
 
-// ---------- .well-known/agent.json ----------
-// A2A-style agent card: what an agent looks for at a domain root before it will
-// treat a site as a callable data source rather than a page to scrape.
-// Generated rather than committed, so the city count and the per-city endpoint
-// list track the same `cities` array everything else here is built from.
-//
-// Described as a data source, not a callable JSON-RPC agent: what is on offer is
-// a set of static JSON documents, and claiming a transport that does not exist
-// would be worse than publishing no card at all.
 const agentCard = {
   name: 'przetargimiejskie',
   description: 'Historia miejskich przetargów na sprzedaż mieszkań w Polsce: ceny wywoławcze, zł/m², rundy i wyniki, zbierane codziennie z oficjalnych biuletynów BIP. '
@@ -652,24 +555,10 @@ const agentCard = {
 const agentCardJson = `${JSON.stringify(agentCard, null, 2)}\n`;
 mkdirSync(join(OUT, '.well-known'), { recursive: true });
 writeFileSync(join(OUT, '.well-known', 'agent.json'), agentCardJson);
-// Same card at a second, non-dotfile path. The deploy mirrors _site/ to OVH with
-// `lftp mirror --reverse`, and whether that picks up a dot-directory is a detail
-// of lftp's local globbing rather than something this build controls — so the
-// card is also published where no dotfile handling is involved. /agents.json is
-// the convention already used on 110kc3.github.io, and agent-readability
-// auditors accept either path.
 writeFileSync(join(OUT, 'agents.json'), agentCardJson);
-// A2A 1.0 reads /.well-known/agent-card.json. /.well-known/agent.json is the
-// pre-0.3 path, which a 1.0 client never looks at — so serving only that one
-// makes the card invisible to exactly the clients the spec moved for. Same
-// document at both paths while the installed base catches up; it costs a file.
 writeFileSync(join(OUT, '.well-known', 'agent-card.json'), agentCardJson);
 console.error('  seo: wrote .well-known/agent.json + .well-known/agent-card.json + agents.json');
 
-// ---------- landing: bake stats + city chips into the static HTML ----------
-// The landing's own <script> fetches /data/index.json and paints the same
-// values — this injection makes them present in the raw HTML too, so no-JS
-// crawlers see real numbers instead of "—" and an empty #cities container.
 
 const landingPath = join(OUT, 'index.html');
 let landing = readFileSync(landingPath, 'utf8');
@@ -677,20 +566,11 @@ let landing = readFileSync(landingPath, 'utf8');
 const statProps = cities.reduce((s, c) => s + (c.unique_properties || 0), 0);
 const statActive = cities.reduce((s, c) => s + activeOf(c), 0);
 const statArchived = cities.reduce((s, c) => s + (c.archived_auctions || 0), 0);
-// The chip is an <a>, not a <span>. It used to be a span, which made the landing
-// a dead end for a crawler: the 55 city hubs (and through them all ~2 200
-// property pages) were reachable only from the sitemap, because nothing on the
-// homepage linked to them and /miasta/ was itself unlinked. A sitemap gets a URL
-// discovered; internal links are what get it crawled and ranked. Visually
-// identical — every text node inside the chip (.city-name, .city-meta) sets its
 // own colour, and `a` is already text-decoration:none globally.
 const chipHtml = (c) => {
   const meta = chipMeta({ live: activeOf(c), archived: c.archived_auctions || 0, props: c.unique_properties || 0 });
   return `<a class="city-chip" href="/${c.id}/">${cityDot(c.id)}<span class="city-name">${esc(c.label)}</span><span class="city-meta">${meta}</span></a>`;
 };
-// Group by voivodeship, mirroring the landing's runtime JS: largest group first,
-// then alphabetically. (This used to hardcode a single "Śląskie" heading — wrong
-// the moment PUBLIC_VOIVODESHIPS opened past one voivodeship.)
 const WOJ = {
   dolnoslaskie: 'Dolnośląskie', 'kujawsko-pomorskie': 'Kujawsko-Pomorskie', lubelskie: 'Lubelskie',
   lubuskie: 'Lubuskie', lodzkie: 'Łódzkie', malopolskie: 'Małopolskie', mazowieckie: 'Mazowieckie',
@@ -720,14 +600,6 @@ inject('<div class="city-groups" id="cities"></div>', `<div class="city-groups" 
 writeFileSync(landingPath, landing);
 console.error('  seo: baked landing stats + city chips into index.html');
 
-// ---------- publish the gated data/index.json ----------
-// The runtime pages (landing chips, /archiwum) fetch /data/index.json. Rewrite
-// the *published copy* so they see exactly what this script decided: a `public`
-// flag per city plus the same date-aware `live_auctions` count baked into the
-// static HTML above — one gate, one set of numbers, no page contradicting
-// another. The repo's own data/index.json is deliberately left untouched: the
-// Chrome extension fetches that one from raw.githubusercontent.com and must
-// keep seeing every city, listed or not.
 
 const publicIds = new Set(cities.map((c) => c.id));
 const outIndex = {
@@ -750,21 +622,9 @@ const outCatalog = {
 writeFileSync(join(OUT,'data','catalog.json'),JSON.stringify(outCatalog)+'\n');
 console.error(`  seo: published data/index.json — ${publicIds.size} public of ${(index.cities || []).length} cities`);
 
-// ---------- analytics ----------
-// Production uses Cloudflare Web Analytics. Keep the public disclosure in
-// site/privacy/ aligned with the configured provider. Network suppliers still
-// process connection metadata; do not promise that no IP is ever processed.
-// This beacon is website-only; it is never bundled into the extension.
 const ANALYTICS = {
   umami: (id, host) => `<script defer src="${esc((host || 'https://cloud.umami.is').replace(/\/$/, ''))}/script.js" data-website-id="${esc(id)}"></script>`,
   plausible: (id) => `<script defer data-domain="${esc(id)}" src="https://plausible.io/js/script.js"></script>`,
-  // Cloudflare Web Analytics. Chosen 2026-08-03 because this site is on OVH and
-  // moving its DNS to Cloudflare would mean moving a domain that carries live
-  // email — the beacon needs no DNS change at all. Cookieless, no cross-site
-  // identifier, so no consent banner is added by it.
-  //
-  // The token is public by design: it ships in the HTML of every page. It
-  // identifies which site a hit belongs to and grants no access to anything.
   cloudflare: (token) => `<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${esc(token)}"}'></script>`,
 };
 const A_PROVIDER = process.env.ANALYTICS_PROVIDER || 'cloudflare';

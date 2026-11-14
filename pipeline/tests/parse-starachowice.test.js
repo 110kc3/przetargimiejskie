@@ -1,14 +1,3 @@
-// Starachowice parser unit tests.
-// Fixtures groundtruthed against real announcements and result documents from starachowice.eu
-// and bip.um.starachowice.pl:
-// - Słoneczna 20/97 (lokal mieszkalny: round 1 & 2 announcements)
-// - Majówka 24/17 (lokal mieszkalny: round 1 announcement, round 1 unsold result, round 2 sold result)
-// - Wojska Polskiego 12A/65 (lokal mieszkalny: round 1 announcement, round 1 sold result)
-// - Radomska 44/2a (lokal mieszkalny: round 1 sold result)
-// - Majówka 8/5 (lokal mieszkalny: round 4 sold result)
-// - ul. Smugowa (działki nr 2482/3, 2487/3, 2482/7 i 2487/5: round 7 announcement, round 6 unsold result)
-// - ul. Tadeusza Kościuszki 13 (działka nr 945: round 2 sold result)
-// - ul. Kanałowa (działki nr 1091/17, 1091/18, 1091/19: round 2 announcement)
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -40,10 +29,8 @@ import {
   harvestCards,
 } from '../src/cities/starachowice/crawl.js';
 
-// ----------------------------------------------------------------- title routing
 
 test('title routing: sale announcements vs result notices vs excluded noise', () => {
-  // Flat sale announcements
   assert.equal(
     isAnnouncementTitle('Pierwszy przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 97 położonego w Starachowicach przy ul. Słonecznej 20'),
     true,
@@ -57,7 +44,6 @@ test('title routing: sale announcements vs result notices vs excluded noise', ()
     true,
   );
 
-  // Land / built property sale announcements
   assert.equal(
     isAnnouncementTitle('VII przetarg na sprzedaż nieruchomości gruntowej przy ul. Smugowej w Starachowicach'),
     true,
@@ -71,7 +57,6 @@ test('title routing: sale announcements vs result notices vs excluded noise', ()
     true,
   );
 
-  // Result notices
   const res1 = 'Informacja o wyniku II przetargu ustnego nieograniczonego na sprzedaż lokalu mieszkalnego nr 17 przy ul. Majówka 24';
   const res2 = 'Informacja o wyniku I przetargu ustnego nieograniczonego na lokal mieszkalny nr 2a ul. Radomska 44';
   const res3 = 'Informacja o wyniku II przetargu na sprzedaż działki przy ul. Tadeusza Kościuszki';
@@ -86,7 +71,6 @@ test('title routing: sale announcements vs result notices vs excluded noise', ()
   assert.equal(isResultTitle(res4), true);
   assert.equal(isAnnouncementTitle(res4), false);
 
-  // Excluded lease / rental / cemetery noise
   const excl1 = 'Pierwszy przetarg ustny nieograniczony na wydzierzawienie nieruchomosci przy cmentarzu przy ul. Radomskiej w Starachowicach';
   const excl2 = 'Pierwszy przetarg ustny ograniczony na wydzierżawienie części nieruchomości gminnej położonej w Starachowicach przy ul. Nowej z przeznaczeniem na ogródek przydomowy';
   const excl3 = 'I przetarg ustny nieograniczony na miejsca pod urządzenia automatyczne służące do sprzedaży zniczy, położone pod cmentarzami przy ul. Radomskiej, Zgodnej i Polnej.';
@@ -105,7 +89,6 @@ test('title routing: sale announcements vs result notices vs excluded noise', ()
   assert.equal(isAnnouncementTitle(excl5), false);
 });
 
-// --------------------------------------------------------------- unit extractors
 
 test('date extraction and parsing', () => {
   assert.equal(parseDatePL('17.09.2026 r.'), '2026-09-17');
@@ -165,7 +148,6 @@ test('area extraction for flats and land', () => {
     30.00,
   );
 
-  // Plot areas
   assert.equal(
     plotAreaFromText('działk i numer 248 2/ 3 , 2487/3, 2482/7 i 2487/5 o ł ącznej powierzchni 0, 1437 ha'),
     1437,
@@ -223,7 +205,6 @@ test('address extraction for flats', () => {
   assert.equal(a4.address.key, 'wojska polskiego|12A|65');
 });
 
-// ------------------------------------------------------- parseAnnouncement tests
 
 test('parseAnnouncement: flat auction at ul. Słoneczna 20/97 (Round 2)', () => {
   const title = 'Drugi przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 97 położonego w Starachowicach przy ul. Słonecznej 20';
@@ -286,7 +267,7 @@ Warunkiem wzięcia udziału w przetargu jest wpłacenie wadium w kwocie: 7 000,0
   const rec = res[0];
   assert.equal(rec.kind, 'grunt');
   assert.equal(rec.address_raw, 'ul. Kanałowa');
-  assert.equal(rec.address, null); // unnumbered land
+  assert.equal(rec.address, null);
   assert.equal(rec.dzialka_nr, '1091/17, 1091/18, 1091/19');
   assert.equal(rec.obreb, '0005');
   assert.equal(rec.starting_price_pln, 71340);
@@ -295,7 +276,6 @@ Warunkiem wzięcia udziału w przetargu jest wpłacenie wadium w kwocie: 7 000,0
   assert.equal(rec.round, 2);
 });
 
-// --------------------------------------------------------- parseResultDoc tests
 
 test('parseResultDoc: sold flat at Majówka 24/17 (Round 2)', () => {
   const text = `Informacja o wyniku II przetargu ustnego nieograniczonego na sprzedaż lokalu mieszkalnego nr 17 przy ul. Majówka 24
@@ -410,7 +390,6 @@ Nabywca: Olga Pijanowska`;
   assert.equal(r.round, 2);
 });
 
-// ----------------------------------------------------------- crawler helpers tests
 
 test('crawler helpers: extractAttachmentUrl, extractArticleBody, harvestCards', () => {
   const sampleArticleHtml = `

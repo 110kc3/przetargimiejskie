@@ -1,25 +1,3 @@
-// Sandomierz crawler — the mixed "Sprzedaż i dzierżawa mienia komunalnego"
-// board (category 132), server-rendered HTML, no OCR. See config.js.
-//
-// The board is a flat, paginated article list (`?Page=N`, ~590 results / ~66
-// pages, newest first). Each item is a `pageOnPageElement` `<li>` carrying an
-// (href, title, preambule) triple. We harvest candidates by TITLE ONLY
-// (isAnnouncementTitle/isResultTitle — see parse.js for why the preambule
-// blurb is not trusted for the sale-vs-rental call), fetch each candidate's
-// detail page, and let parseAnnouncement's body-level isSaleBody gate make
-// the authoritative sale/rental decision. One memoised pass serves both
-// streams (refresh.js calls crawlResultDocs() then crawlActive()).
-// source:'html' ⇒ result refs already carry `.text`.
-//
-// Pagination quirk (verified live): `?Page=N` past the last page does NOT
-// 404 or return an empty list — it clamps to the last valid page (page 67
-// returns byte-identical content to page 66). So the loop stops when a page's
-// item hrefs are identical to the previous page's, not on an empty page.
-//
-// Bounded for CI: a page cap + a wall-clock budget on the index harvest so
-// the 25-min refresh job can't stall on the ~66-page archive. Incremental:
-// result pages already committed to data/sandomierz are skipped via
-// loadKnownSourceUrls.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -35,10 +13,6 @@ const FETCH_OPTS = { userAgent: BROWSER_UA };
 const MAX_PAGES = Number(process.env.SANDOMIERZ_MAX_PAGES) || 70;
 const TIME_BUDGET_MS = Number(process.env.SANDOMIERZ_TIME_BUDGET_MS) || 180000;
 
-// Board item: <h2 class="pageOnPageHeader"><a href="...">TITLE</a></h2>
-//             <div class="pageOnPagePreambule"><p>PREAMBULE</p></div>
-// The CMS removed the category id (/132/) from canonical article URLs in
-// August 2026. Accept both shapes so archived fixtures and live links work.
 const ITEM_RE = /<a href="(https:\/\/bip\.um\.sandomierz\.pl\/\d+\/(?:132\/)?[^"]+)">([^<]+)<\/a><\/h2>\s*<div class="pageOnPagePreambule"><p>([^<]*)<\/p>/g;
 
 function decodeEntities(s) {
@@ -50,8 +24,6 @@ function decodeEntities(s) {
     .trim();
 }
 
-/** Canonicalise the CMS's retired category segment so old committed source
- * URLs still match the new live links and are not reprocessed as duplicates. */
 export function normalizeArticleUrl(url) {
   return String(url || '').replace(/(bip\.um\.sandomierz\.pl\/\d+)\/132\//i, '$1/');
 }
@@ -66,16 +38,6 @@ export function harvestItems(html) {
   return out;
 }
 
-// Isolate the article body (the page's content div), dropping the
-// surrounding chrome / attachment-list-adjacent footer. The end marker is the
-// FULL opening tag `<div ... class="bip-page__footer"`, not just the bare
-// class-name substring: searching for the substring alone cuts mid-tag
-// (right after the preceding `<div class="` fragment that immediately
-// precedes it in the real markup, `...</div>\n<div class="bip-page__footer">`),
-// leaking a dangling unclosed `<div class="` into the sliced chunk — verified
-// live, htmlToText can't strip an unterminated tag (its tag-stripper requires
-// a closing `>`), so that fragment would otherwise survive into the parsed
-// text of every single article.
 function articleBody(html) {
   const m = /<div[^>]*class="bip-page__content"[^>]*>/i.exec(html);
   if (!m) return html;
@@ -98,10 +60,6 @@ async function crawlAll() {
   );
   const start = Date.now();
 
-  // 1) Harvest candidate (href,title) across the paginated board; keep sale
-  //    announcements + result notices by TITLE, then fetch each article and
-  //    parse its body. Stop when a page repeats the previous one (the CMS
-  //    clamps out-of-range `?Page=N` to the last valid page).
   const seen = new Set();
   const candidates = [];
   let prevHrefsKey = '';
@@ -136,7 +94,6 @@ async function crawlAll() {
   }
   console.error(`  sandomierz: ${candidates.length} candidate article(s) (announcements + results)`);
 
-  // 2) Fetch + parse each. Skip result pages already committed to data/sandomierz.
   const listings = [];
   const land = [];
   const resultRefs = [];
@@ -151,7 +108,6 @@ async function crawlAll() {
     }
     const body = articleBody(html);
     if (c.role === 'result') {
-      // Fold the title into the text so round/kind detection is robust.
       resultRefs.push({
         text: `${c.title}. ${htmlToText(body)}`,
         pdf_url: c.href, detail_url: c.href, auction_date: null,
@@ -160,9 +116,6 @@ async function crawlAll() {
     }
     const rec = parseAnnouncement(c.title, body, c.href);
     if (!rec) {
-      // Expected for the rental/tenant-sale titles the cheap title-gate lets
-      // through (isSaleBody / kind-key gates reject them) — not necessarily a
-      // parser bug, just noise-suppressed here as INFO-level via console.error.
       console.error(`  sandomierz WARN: unparsed announcement ${c.href} (${c.title.slice(0, 70)})`);
       continue;
     }

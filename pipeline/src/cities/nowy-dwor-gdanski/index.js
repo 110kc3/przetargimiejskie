@@ -1,5 +1,3 @@
-// Adapter entry point for Nowy Dwór Gdański (powiat nowodworski, Pomorskie)
-// BIP: https://bip.miastonowydwor.pl
 
 import config from './config.js';
 import { crawlActive, crawlResultDocs, parseResultDoc } from './crawl.js';

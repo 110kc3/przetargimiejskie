@@ -1,5 +1,3 @@
-// Reviewed source-backed ledger migrations, 18–20 October 2026. Original rows
-// remain here for audit; unknown dates and prices are never manufactured.
 export const LEDGER_REPAIRS = [
   {
     "city": "gniezno",

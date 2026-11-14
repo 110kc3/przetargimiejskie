@@ -1,6 +1,3 @@
-// Unit tests for the generic anti-bot / challenge-page detector. STRONG
-// signatures only — real listing content, even when it says "proszę czekać" in
-// prose, must never be flagged (a false positive would drop a healthy city to
 // source-unreachable and preserve stale data).
 
 import test from 'node:test';
@@ -9,7 +6,6 @@ import { isChallengePage, challengeSignature } from '../src/core/challenge-page.
 
 test('real listing content is not a challenge page', () => {
   assert.equal(isChallengePage('<html><body><h1>Wykaz nieruchomości</h1><table><tr><td>ul. 3 Maja 1</td></tr></table></body></html>'), false);
-  // "proszę czekać" in prose without an auto-reload must NOT trip
   assert.equal(isChallengePage('<p>Prosimy czekać na decyzję komisji przetargowej.</p>'), false);
   assert.equal(isChallengePage(''), false);
   assert.equal(isChallengePage(null), false);
@@ -48,18 +44,12 @@ test('DDoS-Guard interstitial is detected', () => {
 });
 
 test('a large real page is not misclassified even if it carries a wait cue', () => {
-  // > 64 KB with the generic cue+reload but NO vendor marker → treated as real.
   const big = '<html><body>' + 'x'.repeat(70 * 1024) + 'proszę czekać<meta http-equiv="refresh"></body></html>';
   assert.equal(isChallengePage(big), false);
   assert.equal(challengeSignature(big), '');
 });
 
 test('SISCO content page (benign spinner + noscript refresh + real links) is NOT a challenge page', () => {
-  // Shape of Opole's real SISCO board page (bip.um.opole.pl, ~30 KB, 47 anchors):
-  // a genuine <title>, a hidden "Proszę czekać" eDcProgress AJAX spinner, and a
-  // <noscript> meta-refresh fallback to /error_js — all benign template markup
-  // that co-occurs with dozens of real content links. Before the link-sparseness
-  // gate this tripped the generic heuristic and threw Opole's whole harvest away.
   const links = Array.from({ length: 15 }, (_, i) => `<a href="/przetargi,9_2026-6_${400 + i}">Przetarg ${i}</a>`).join('');
   const html = `<html><head><title>Urząd Miasta Opola - Przetargi</title>
     <noscript><meta http-equiv="refresh" content="0; url=http://bip.um.opole.pl/error_js"/></noscript></head>

@@ -1,83 +1,7 @@
-// Lubin parsers.
-//
-// Every announcement / result is a born-digital text PDF hung off a thin BIP
-// stub page (Logonet CMS — see config.js/crawl.js). Groundtruthed against
-// REAL `pdftotext -layout` output of live attachments (fetched 2026-07-18,
-// still reachable by direct attachment id even though their wrapping BIP
-// article/category listing has since aged out — see crawl.js header note):
-//   - attachments/9945/download   flat ANNOUNCEMENT, MULTI-lot batch (4 flats:
-//     Drzymały 6/13, Kilińskiego 2/6, Kościuszki 23/24, Szkolna 13/12; II
-//     przetarg; dated 2015, table-driven price/area)
-//   - attachments/10067/download  land ANNOUNCEMENT, single combined lot (2
-//     działki 855/246+154/5 sold together; I przetarg; dated 2016)
-//   - attachments/10683/download  land ANNOUNCEMENT, MULTI-lot batch (11
-//     działki, one price/wadium per działka; IV przetarg; dated 2018-2019)
-//   - attachments/9472/download   WYKAZ (pre-auction package designation, 13
-//     flats at ul. 1 Maja 11/11A/11B, sold together to ONE investor — an
-//     edge-case wykaz shape, not an individual-flat sale wykaz)
-//   - a single-lot flat ANNOUNCEMENT format (labelled "Adres lokalu: … ;
-//     Powierzchnia użytkowa lokalu: … m2; … Cena wywoławcza: … zł.") is
-//     confirmed from the live 2026-03-09 Szkolna 3/8 session via the adradar
-//     aggregator's full-text republication (adradar quotes the announcement
-//     verbatim) — the ORIGINAL bip.um.lubin.pl attachment for that specific
-//     session was already aged out of the board by the time of this build
-//     (see crawl.js), so this shape is validated against a faithful copy of
-//     the source text, not the original PDF bytes directly.
-//
-// NOT validated against a real Lubin document (none reachable — the results
-// board (informacje-o-wynikach-przetargow) is currently empty and no
-// "informacja o wyniku przetargu" URL survives in the live sitemap; see
-// crawl.js): parseResultDoc / isResultNotice / achievedPriceFromText /
-// negativeOutcomeStated are written to the SAME generic Polish
-// municipal-auction result-notice conventions used across this repo (and
-// confirmed present in Lubin's OWN announcement boilerplate — e.g. 10067's
-// "Cena zakupu nieruchomości osiągnięta w przetargu podlegać będzie zapłacie
-// jednorazowo") but are UNVALIDATED live. Flag for re-groundtruthing the
-// moment a real result PDF is captured.
-//
-// Lubin specifics:
-//   * Dates are ALWAYS plain numeric DD.MM.YYYY or DD-MM-YYYY (never a Polish
-//     month name like jelenia-gora) — no month-name table needed here.
-//   * ROUND is stated as a Roman numeral qualifying "nieograniczony przetarg
-//     ustny" — but the WORD ORDER is opposite jelenia-gora's: Lubin's
-//     announcements say "ogłasza <ROUND> nieograniczony przetarg ustny"
-//     (round BEFORE "nieograniczony"), not "<ROUND> przetarg ustny
-//     nieograniczony". roundFromText() also tries the jelenia-gora word order
-//     as a fallback in case a result notice (unvalidated) phrases it that way
-//     instead (a common alternate legal phrasing: "odbył się <round> przetarg
-//     ustny nieograniczony").
-//   * Some announcement PDFs LETTER-SPACE certain runs (a centered/justified
-//     title, or emphasis words like "W a d i u m" / "T e r m i n" /
-//     "P r z e t a r g") — pdftotext then emits each letter as its own token
-//     (e.g. "sprzedaż l oka l i mi es zk al n yc h poł ożon yc h" for
-//     "sprzedaż lokali mieszkalnych położonych"). None of the fields this
-//     parser extracts fall inside an observed garbled run (they sit in clean
-//     table/prose text elsewhere in the same document), so no de-garbling
-//     pass is implemented — documented here as a known risk if a future
-//     document garbles a field this parser DOES rely on.
-//   * MULTI-lot flat batches carry price/area in a TABLE (not per-lot prose,
-//     unlike jelenia-gora): a data row is TWO physical lines in
-//     `pdftotext -layout` output — "<street>  <KW>  <geo_nr>  <obreb>
-//     <plot_area>  <unit_area>  <share>  <cena_lokalu> zł  <cena_udziału> zł
-//     <cena_razem> zł  <wadium> zł" then, on the next line, the wrapped
-//     "<bldg>/<apt>" cell. The numbered prose paragraphs below the table
-//     ("N) <street> <bldg>/<apt> - lokal mieszkalny …") restate the ADDRESS
-//     only (not price/area) — flatTableRows() and splitLots() are joined by
-//     the "<bldg>/<apt>" key.
-//   * MULTI-lot land batches are a single-line-per-parcel table: "<Lp>.
-//     <(intermittently, a wrapped shared "Położenie"/"Obręb" cell)>
-//     <dzialka_nr>  <area m2>  <cena netto> zł  <wadium> zł" — landBatchRows().
-//     Single/combined-parcel land lots (a "Nr księgi wieczystej | Nr działki |
-//     Łączna powierzchnia | Obręb | Położenie | Cena wywoławcza | Wadium"
-//     table, occasionally 2+ KW/działka pairs sharing one price) are handled
-//     by landSingleFallback() on a best-effort basis (first data line only —
-//     a documented simplification, land is the secondary stream here).
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
-// "195.000,00" / "35 500,00 zł" / "1 000 000,00" -> integer PLN. Dot OR space
-// thousands separator, optional ",00" grosze tail.
 export function parsePLN(numStr) {
   if (!numStr) return null;
   const cleaned = String(numStr).replace(/[\s.]/g, '').replace(/,\d{2}$/, '');
@@ -85,17 +9,14 @@ export function parsePLN(numStr) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// "27,10" / "5548" / "0,2095" -> number.
 function parseNum(numStr) {
   if (numStr == null) return null;
   const n = Number(String(numStr).replace(/\s/g, '').replace(',', '.'));
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// ---------------------------------------------------------------- round
 
 const ROMAN = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
-/** "IV" -> 4, "III" -> 3. Returns null on a malformed token. */
 export function romanToInt(s) {
   if (!s || !/^[IVXLCDM]+$/.test(s)) return null;
   let total = 0;
@@ -107,21 +28,12 @@ export function romanToInt(s) {
   return total > 0 ? total : null;
 }
 
-// Polish ordinal STEMS (singular, any case) — fallback path only (Lubin's own
-// announcements always use a Roman numeral; word ordinals are a defensive
-// fallback for an unvalidated result-notice phrasing).
 const WORD_ORDINAL_STEMS = [
   ['pierwsz', 1], ['drug', 2], ['trzeci', 3], ['czwart', 4],
   ['piąt', 5], ['piat', 5], ['szóst', 6], ['szust', 6],
   ['siódm', 7], ['siodm', 7], ['ósm', 8], ['osm', 8],
 ];
 
-/** Round from a Roman numeral (or, as a fallback, a Polish word ordinal)
- *  qualifying the auction phrase. Tries Lubin's own announcement word order
- *  first ("ogłasza <ROUND> nieograniczony przetarg ustny"), then the reverse
- *  order seen elsewhere in this repo ("<ROUND> przetarg ustny
- *  nieograniczony" / "odbył się <round> przetarg ustny nieograniczony") in
- *  case an (unvalidated) result notice phrases it that way instead. */
 export function roundFromText(text) {
   const t = text || '';
   const lubinOrder = /ogłasza\s+([IVXLCDM]+)\s+(?:nie)?ograniczon\S*\s+przetarg\S*\s+ustn\S*/i.exec(t);
@@ -145,20 +57,12 @@ export function roundFromText(text) {
   return null;
 }
 
-// ---------------------------------------------------------------- doc-type gate
 
-/** Result notice ("Informacja o wyniku przetargu") vs. announcement
- *  ("ogłasza … przetarg"). UNVALIDATED against a real Lubin result doc — see
- *  file header. */
 export function isResultNotice(text) {
   return /informacj\S*\s+o\s+wynik\S*\s+przetarg/i.test(text || '');
 }
 
-// ----------------------------------------------------------------------- dates
 
-/** Announcement auction date: "Przetarg odbędzie się w siedzibie … dnia
- *  02-10-2015 roku" / "… dnia 17.05.2019 roku" / "… dnia 09.03.2026 r.".
- *  Lubin dates are always plain numeric DD.MM.YYYY or DD-MM-YYYY. */
 export function auctionDateFromText(text) {
   const m = /odb[ęe]dzie\s+si[ęe][\s\S]{0,250}?dnia:?\s*(\d{1,2})[.\-](\d{1,2})[.\-](\d{4})/i.exec(
     text || '',
@@ -166,11 +70,6 @@ export function auctionDateFromText(text) {
   return m ? `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}` : null;
 }
 
-/** Result auction date (UNVALIDATED — see file header): anchored on the
- *  "informuję, że w dniu DD.MM.YYYY" clause (the date precedes, not follows,
- *  "odbył się" in this phrasing — same convention as jelenia-gora's
- *  resultDateFromText) so an announcement-date citation elsewhere in the
- *  notice is never picked up instead. */
 export function resultDateFromText(text) {
   const m = /informuj\S*\s*,?\s*że\s+(?:w\s+dniu\s+|dnia\s+)?(\d{1,2})[.\-](\d{1,2})[.\-](\d{4})/i.exec(
     text || '',
@@ -178,20 +77,12 @@ export function resultDateFromText(text) {
   return m ? `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}` : null;
 }
 
-// ----------------------------------------------------------------- prices
 
-/** Starting price ("cena wywoławcza"), any labelled form ("Cena wywoławcza:",
- *  "cena wywoławcza netto", "cena wywoławcza nieruchomości netto"). Takes the
- *  first zł amount within a bounded window after the label. Multi-lot flat
- *  batches do NOT restate price in prose (it's table-only — see
- *  flatTableRows()); this is for single-lot flats + land only. */
 export function startingPriceFromText(text) {
   const m = /cena\s+wywo[łl]awcza\S*[\s\S]{0,80}?([\d][\d\s.]*,\d{2})\s*z[łl]/i.exec(text || '');
   return m ? parsePLN(m[1]) : null;
 }
 
-/** Achieved price (result notices only, UNVALIDATED — see file header):
- *  "cena … osiągnięta w przetargu: 45 200,00 zł". A value ⇒ sold. */
 export function achievedPriceFromText(text) {
   const m = /(?:najwy[żz]sza\s+)?cena\s+(?:nabycia\s+|zakupu\s+)?(?:nieruchomo\S*\s+)?osi[ąa]gni[ęe]ta\s+w\s+przetargu\S*\s*:?\s*([\d][\d\s.]*,\d{2})\s*z[łl]/i.exec(
     text || '',
@@ -199,23 +90,18 @@ export function achievedPriceFromText(text) {
   return m ? parsePLN(m[1]) : null;
 }
 
-/** Explicit unsold signal (result notices, UNVALIDATED — see file header):
- *  "zakończony wynikiem negatywnym" / "nie wpłacono wadium". */
 export function negativeOutcomeStated(text) {
   return /wynikiem\s+negatywnym|nie\s+(?:zosta[łl]o\s+)?wp[łl]acono\s+wadium|brak\s+wp[łl]aty\s+wadium/i.test(
     text || '',
   );
 }
 
-// ----------------------------------------------------------- single-lot flat
 
-/** "Adres lokalu: ul. Szkolna 3/8, Lubin, powiat …;" -> "Szkolna 3/8". */
 function singleLotAddressRaw(text) {
   const m = /Adres\s+lokalu\s*:?\s*(?:ul\.?\s*)?([^,;]+?)\s*[,;]/i.exec(text || '');
   return m ? m[1].replace(/\s+/g, ' ').trim() : null;
 }
 
-/** "Powierzchnia użytkowa lokalu: 27,47 m2;" -> 27.47. */
 function singleLotAreaM2(text) {
   const m = /Powierzchnia\s+u[żz]ytkowa\s+lokalu\S*\s*:?\s*(\d+[.,]\d+|\d+)\s*m\s*[²2]/i.exec(
     text || '',
@@ -223,9 +109,6 @@ function singleLotAreaM2(text) {
   return m ? parseNum(m[1]) : null;
 }
 
-/** A single-lot flat/commercial announcement in the labelled
- *  "Adres lokalu: … ; Powierzchnia użytkowa lokalu: … m2; …" shape (the
- *  2026-03-09 Szkolna 3/8 format — see file header on its provenance). */
 function buildSingleUnitRecord(text) {
   const address_raw = singleLotAddressRaw(text);
   if (!address_raw) return null;
@@ -240,11 +123,7 @@ function buildSingleUnitRecord(text) {
   };
 }
 
-// ------------------------------------------------------- multi-lot flat table
 
-/** Table rows for a multi-lot flat batch (see file header for the exact
- *  2-physical-line row shape). Keyed by "<bldg>/<apt>" so splitLots()'s
- *  prose-derived addresses can look up price/area. */
 function flatTableRows(text) {
   const RE =
     /^\s*([^\n]+?)\s+(LE1U\/\d+\/\d+)\s+(\d+\/\d+)\s+(\d+)\s+([\d\s]+?)\s+(\d+,\d+)\s+(\d+\/\d+)\s+([\d\s]+,\d{2})\s*z[łl]\s+([\d\s]+,\d{2})\s*z[łl]\s+([\d\s]+,\d{2})\s*z[łl]\s+([\d\s]+,\d{2})\s*z[łl]\s*\n\s*(\d+[A-Za-z]?)\/(\d+[A-Za-z]?)/gm;
@@ -260,9 +139,6 @@ function flatTableRows(text) {
   return rows;
 }
 
-/** Splits a batch flat announcement into its numbered lots: "N) <address> -
- *  lokal …" header lines (dash is a hyphen OR en-dash — both seen live).
- *  Returns null when fewer than 2 numbered headers are found (not a batch). */
 function splitLots(text) {
   const re = /(?:^|\n)\s*(\d+)\)\s*([^\n]+?)\s*[-–—]\s*lokal/g;
   const out = [];
@@ -273,9 +149,6 @@ function splitLots(text) {
   return out.length >= 2 ? out : null;
 }
 
-/** One lot from a multi-lot flat batch: address from its "N) <address> -
- *  lokal" header, price/area looked up in the table by the "<bldg>/<apt>"
- *  suffix of that same header. */
 function buildLotRecord(lot, table, auction_date, round) {
   const address_raw = `ul. ${lot.addressRaw}`;
   const address = parseAddress(lot.addressRaw);
@@ -294,12 +167,7 @@ function buildLotRecord(lot, table, auction_date, round) {
   };
 }
 
-// ----------------------------------------------------------------- land
 
-/** Batch land table rows (see file header): one row per działka, each on its
- *  own physical line — "<Lp>. … <dzialka_nr>  <area m2>  <cena netto> zł
- *  <wadium> zł" (a shared "Położenie"/"Obręb" cell may wrap across several
- *  rows' leading whitespace — ignored here, see landLocationFromText()). */
 function landBatchRows(text) {
   const RE = /^\s*(\d{1,3})\.\s+.*?(\d+\/\d+)\s{2,}(\d[\d\s]*\d|\d)\s{2,}([\d\s]+,\d{2})\s{2,}([\d\s]+,\d{2})\s*$/gm;
   const out = [];
@@ -315,9 +183,6 @@ function landBatchRows(text) {
   return out;
 }
 
-/** Display-only locality for a land batch/single lot: "przy ulicy
- *  Legnickiej" / "przy ulicy Krzemienieckiej" -> "ul. Legnickiej", or
- *  "Obręb 8 miasta Lubina" -> "obręb 8". */
 function landLocationFromText(text) {
   const streetM = /przy\s+ulic[ay]\s+([A-ZŻŹĆŁŚĄĘÓŃ][^\s,.]+)/i.exec(text || '');
   if (streetM) return `ul. ${streetM[1]}`;
@@ -325,11 +190,6 @@ function landLocationFromText(text) {
   return obrebM ? `obręb ${obrebM[1]}` : null;
 }
 
-/** Single/combined-parcel land lot fallback (best-effort — see file header):
- *  reads only the FIRST data line of the "Nr księgi wieczystej | Nr działki |
- *  Łączna powierzchnia | Obręb | Położenie | Cena wywoławcza | Wadium" table
- *  (a lot combining 2+ działki under one price wraps its 2nd+ KW/działka pair
- *  onto a continuation line, which this simplification does not capture). */
 function landSingleFallback(text) {
   const m =
     /^\s*\d+\.\s*LE1U\/\d+\/\d+\s+(\d+\/\d+)\s+([\d\s]+?)\s+(\d+)\s+([^\n]+?)\s+([\d\s]+,\d{2})\s+([\d\s]+,\d{2})\s*$/m.exec(
@@ -346,11 +206,6 @@ function landSingleFallback(text) {
   };
 }
 
-/** Loose prose fallback for a land RESULT notice (UNVALIDATED — see file
- *  header): unlike announcements, a result describes a single already-decided
- *  parcel in prose rather than a repeated table, so this reads "działka
- *  (nr|numer) N/M", "Obręb N", "powierzchni N m2" independently rather than
- *  requiring the announcement-table row shape. */
 function landResultFallback(text) {
   const dzialkaM = /dzia[łl]k\S*\s*(?:nr|numer)?\s*[:\s]?\s*(\d+\/\d+)/i.exec(text || '');
   const obrebM = /Obr[ęe]b\s+(\d+)/i.exec(text || '');
@@ -384,10 +239,6 @@ function parseLandAnnouncement(text, auction_date, round) {
   return [];
 }
 
-// The October 2026 board uses two text-PDF table layouts: KW/parcel/area/
-// district/location/price/deposit, and parcel/area/district/KW/price/deposit.
-// Read the actual sale table before classifying the surrounding zoning prose,
-// which mentions housing, services and garages even for an undeveloped plot.
 function currentLandTable(text, auction_date, round) {
   const header = text.split(/^\s*\d+\.\s+/m)[0];
   if (!/\b(?:Nr|Numer)\b/i.test(header) || !/działki/i.test(header)
@@ -415,20 +266,11 @@ function currentLandTable(text, auction_date, round) {
   return out;
 }
 
-// ------------------------------------------------------------ announcement parse
 
-/**
- * Parse one ANNOUNCEMENT PDF. Multi-lot flat batch, multi-lot land batch,
- * single-lot flat/commercial, or single/combined-parcel land. One record per
- * lot. Returns [] for anything unrecognised (e.g. a stray non-auction notice
- * filed on the same board).
- * @param {string} text
- * @returns {object[]}
- */
 export function parseAnnouncement(text) {
   if (!text) return [];
   const t = text.replace(/\r/g, '');
-  if (isResultNotice(t)) return []; // a result notice mis-filed on the announcement board
+  if (isResultNotice(t)) return [];
   const auction_date = auctionDateFromText(t);
   const round = roundFromText(t);
 
@@ -459,18 +301,7 @@ export function parseAnnouncement(text) {
   }];
 }
 
-// ------------------------------------------------------------------ result parse
 
-/**
- * Parse one RESULT notice ("Informacja o wyniku przetargu") into a concluded
- * auction record. UNVALIDATED against a real Lubin result document — see
- * file header. Returns 0 or 1 record (Lubin results are not observed to
- * batch multiple lots in one notice, unlike announcements).
- * @param {string} text
- * @param {string|null} fallbackDate
- * @param {string} sourceUrl
- * @returns {Array<object>}
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!isResultNotice(text)) return [];
   const t = text.replace(/\r/g, '');
@@ -528,26 +359,13 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   }];
 }
 
-// ----------------------------------------------------------------- wykaz
 
-/** A genuine pre-auction SALE wykaz title — "przeznaczonej do sprzedaży" /
- *  "przeznaczonych do zbycia" / "przeznaczonej do łącznej sprzedaży" — as
- *  opposed to dzierżawa (lease) / najem / użyczenie / zamiana (exchange) /
- *  bezprzetargowo, which the wykazy-nieruchomosci board is mostly full of
- *  (see crawl.js — the live board on 2026-07-18 held 7 entries, all
- *  dzierżawa/zamiana, none a genuine flat-sale wykaz). Gated on the BIP
- *  ARTICLE TITLE alone so a non-sale wykaz never costs a PDF fetch. */
 export function isGenuineSaleWykazTitle(title) {
   const t = title || '';
   if (/dzier[żz]aw|najem|u[żz]yczeni|zamian|bezprzetargow/i.test(t)) return false;
   return /sprzeda[żz]|zbyci[ae]/i.test(t);
 }
 
-/** Package-sale wykaz table row (the 9472 shape — see file header): "<Lp>
- *  <street+bldg/apt>  <położenie w budynku>  <area>,<dd> m2". Each row is its
- *  own flat; the whole package is sold to a single investor (no per-flat
- *  price is stated — see ADAPTER-GUIDE's wykaz convention: no price/date
- *  yet). */
 function wykazTableRows(text) {
   const RE = /^\s*(\d+)\s{2,}(.+?)\s{2,}\S.*?\s{2,}([\d\s]+,\d+)\s*m2\s*$/gm;
   const out = [];
@@ -558,14 +376,6 @@ function wykazTableRows(text) {
   return out;
 }
 
-/**
- * A genuine SALE wykaz PDF -> one clean address/parcel-only record per flat
- * (no auction_date/price — ADAPTER-GUIDE wykaz convention). Falls back to a
- * single "przy ul. X" mention when the doc isn't a package table.
- * @param {string} text
- * @param {string|null} pdfUrl
- * @returns {object[]}
- */
 export function wykazRecordsFromText(text, pdfUrl) {
   if (!text) return [];
   const t = text.replace(/\r/g, '');

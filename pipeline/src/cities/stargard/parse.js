@@ -1,7 +1,3 @@
-// Stargard parsers.
-// Groundtruthed against live fixtures (2026-06-27):
-//   - TBS: Aleja Gryfa 15/1, III przetarg, 52.83 m2, 221 000 zl, 13.08.2026
-//   - BIP Wynik095/2026: Koscuszki 35/5, II rokowania, 14.38 m2
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -134,7 +130,6 @@ export function addressFromTitle(title, url) {
 
 export function parseTbsDetail(html, url) {
   const text = htmlToText(html);
-  // Classify the notice title, not navigation cards for other properties.
   const titleM = /<title[^>]*>([^<]+)<\/title>/i.exec(html) ||
     /property="og:title"[^>]*content="([^"]+)"/i.exec(html) ||
     /content="([^"]+)"[^>]*property="og:title"/i.exec(html);
@@ -220,12 +215,6 @@ export function parseResultDoc(text, date, url) {
   let auction_date = null;
   const dateM = /(?:w\s+dniu|dnia)\s+(\d{1,2})\s+([a-zÀ-ɏ]+)\s+(\d{4})/i.exec(text);
   if (dateM) auction_date = isoDate(dateM[1],dateM[2],dateM[3]);
-  // Record shape follows the adapter contract consumed by refresh.js /
-  // build-properties.js (notes, outcome, final_price_pln, source_pdf).
-  // Stargard's §12 notices publish only the summary paragraph — no achieved
-  // price and no negative-result sentence — so the concluded auction is
-  // recorded as 'archived' (same convention build-properties uses for
-  // past listings whose outcome the city doesn't publish).
   return [{
     kind,
     address_raw: addrResult.address_raw,
@@ -243,7 +232,6 @@ export function parseResultDoc(text, date, url) {
   }];
 }
 
-/** Enumerated land lots in the current TBS notice. Prices belong to each row. */
 export function parseTbsLandDetail(html, url) {
   const title = htmlToText(/<title[^>]*>([\s\S]*?)<\/title>/i.exec(html)?.[1] || '');
   if (!/nieruchomości gruntowe niezabudowane/i.test(title)) return [];

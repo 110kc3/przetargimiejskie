@@ -1,36 +1,3 @@
-// Kolbuszowa crawler — `bip.kolbuszowa.pl` (Pro3W CMS).
-//
-// DISCOVERY (confirmed live 2026-07-12):
-//   1. Fetch the board index `/63-przetargi.html`. Its nav tree lists tender
-//      categories grouped parent-then-years; the parent "Sprzedaż nieruchomości"
-//      (id 3669) owns one per-year child category `/63-przetargi/<ID>-YYYY-r.html`.
-//      The IDs are NOT derivable (each year gets a fresh one — 2025 is 13508,
-//      2026 is 16729), so discoverSprzedazYearCats() reads them from the tree by
-//      slug: a "sprzedaz-nieruchomosci" parent node turns collection ON, each
-//      following "<id>-YYYY-r" node is one of its year categories. New years are
-//      picked up automatically; the two sibling parents ("Zamówienia Publiczne",
-//      "Pozostałe przetargi") are never collected.
-//   2. Each year category is paginated `?strona=N` (0-indexed; N past the last
-//      page CLAMPS to the last, so pagination stops when a page's article-id set
-//      repeats — collectArticleUrls()). Article hrefs are
-//      `/63-przetargi/<catId>-YYYY-r/<artId>-<slug>.html`.
-//
-// DETAIL FETCHING is bounded (see config.js SCOPE): a detail page is fetched for
-//   - every FLAT article (slug contains "lokal…mieszkaln") across the whole
-//     recent-year window — this is the flat listing AND flat result stream, and
-//     it is tiny (~1 flat/year); the slug is used ONLY to pick the fetch bucket,
-//     never to decide kind (parse.js classifies on the BODY, per ADAPTER-GUIDE),
-//   - every CURRENT-YEAR article (any kind) — to catch active LAND auctions for
-//     land.json without OCR (their bodies are inline HTML).
-// Historical land details are NOT fetched (concluded; land achieved-prices are
-// out of scope — OCRing ~180 scanned land result PDFs per run is infeasible on
-// the Pi). One request/second is enforced by getText's throttle in core/fetch.js.
-//
-// RESULTS: each concluded flat's detail page carries a scanned "Informacja o
-// wyniku przetargu" / "Wynik przetargu" PDF. crawlResultDocs() finds it
-// (findResultPdfHref), OCRs it via core/ocr-pdf.js (tesseract -l pol @300dpi —
-// the embedded text layer is garbled, fresh OCR is clean), and hands the text to
-// parseResultDoc through `ref.text` (source: 'html').
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -40,22 +7,12 @@ import { parseAnnouncement, findResultPdfHref } from './parse.js';
 const HOST = 'https://bip.kolbuszowa.pl';
 const BOARD_URL = `${HOST}/63-przetargi.html`;
 
-// Recency window + safety caps. Results floor is the pipeline's 2020 (see
-// refresh.js); 6 years back from the current year covers it plus every active
-// auction. Pagination and detail counts are bounded so the CI job can't hang on
-// a runaway archive.
 const YEARS_BACK = 6;
 const MAX_PAGES_PER_YEAR = 12;
 const MAX_DETAILS = 100;
 
 const FLAT_SLUG_RE = /lokal\w*-mieszkaln|lokalu-mieszkaln/i;
 
-/**
- * Read the "Sprzedaż nieruchomości" per-year category pages out of the board
- * index nav tree.
- * @param {string} html
- * @returns {Array<{year:number, id:number, url:string}>}
- */
 export function discoverSprzedazYearCats(html) {
   const byYear = new Map();
   let inSprzedaz = false;
@@ -69,19 +26,12 @@ export function discoverSprzedazYearCats(html) {
         byYear.set(Number(yearM[1]), { year: Number(yearM[1]), id, url: `${HOST}${path}.html` });
       }
     } else {
-      // A parent/category node — flip collection on iff it's the sales parent.
       inSprzedaz = /sprzedaz-nieruchomosci/i.test(slug);
     }
   }
   return [...byYear.values()];
 }
 
-/**
- * Paginate one year category, collecting its article URLs. Stops at the clamp
- * (a repeated article set) or the page cap.
- * @param {{year:number, id:number}} cat
- * @returns {Promise<Array<{id:number, url:string, year:number, isFlat:boolean}>>}
- */
 async function collectArticleUrls(cat) {
   const arts = new Map();
   let prevSig = null;
@@ -98,7 +48,7 @@ async function collectArticleUrls(cat) {
     const found = [...html.matchAll(re)];
     const ids = found.map((f) => f[1]).sort();
     const sig = ids.join(',');
-    if (ids.length === 0 || sig === prevSig) break; // empty or clamped → done
+    if (ids.length === 0 || sig === prevSig) break;
     prevSig = sig;
     for (const f of found) {
       const id = Number(f[1]);
@@ -110,10 +60,6 @@ async function collectArticleUrls(cat) {
   return [...arts.values()];
 }
 
-// ---------------------------------------------------------------------------
-// Memoized discovery — crawlActive() and crawlResultDocs() are each called once
-// per refresh.js run and share this single fetch+parse pass.
-// ---------------------------------------------------------------------------
 
 let _cache = null;
 
@@ -140,8 +86,6 @@ async function discoverAll() {
     articles.push(...arts);
   }
 
-  // Fetch details: all flats first (guaranteed within the cap), then this year's
-  // articles (active-land coverage). See file header for the rationale.
   const flatArts = articles.filter((a) => a.isFlat);
   const currentYearArts = articles.filter((a) => !a.isFlat && a.year === currentYear);
   const toFetch = [...flatArts, ...currentYearArts].slice(0, MAX_DETAILS);
@@ -165,10 +109,6 @@ async function discoverAll() {
       continue;
     }
     const resultPdfHref = findResultPdfHref(html);
-    // Drop a subject-less record UNLESS it's a flat whose result PDF we can still
-    // OCR: the older flat announcements ship their body only as a PDF (empty
-    // inline text → no inline subject), but the concluded "Informacja o wyniku"
-    // PDF carries the full address, so parseResultDoc recovers it downstream.
     if (!parsed.address && !parsed.dzialka_nr && !(a.isFlat && resultPdfHref)) {
       console.error(`  kolbuszowa no subject (kind=${parsed.kind}): ${a.url}`);
       continue;
@@ -180,19 +120,15 @@ async function discoverAll() {
   return records;
 }
 
-// ---------------------------------------------------------------------------
-// crawlActive()
-// ---------------------------------------------------------------------------
 
-/** @returns {Promise<{ listings: Array<object>, wykaz: [], land: [] }>} */
 export async function crawlActive() {
   const today = new Date().toISOString().slice(0, 10);
   const records = await discoverAll();
 
   const listings = [];
   for (const r of records) {
-    if (!r.auction_date || r.auction_date < today) continue; // only genuinely upcoming
-    if (!r.address && !r.dzialka_nr) continue; // skip subject-less (PDF-only) records kept for the result stream
+    if (!r.auction_date || r.auction_date < today) continue;
+    if (!r.address && !r.dzialka_nr) continue;
     listings.push({
       kind: r.kind,
       address_raw: r.address_raw,
@@ -208,22 +144,15 @@ export async function crawlActive() {
     });
   }
   console.error(`  kolbuszowa active: ${listings.length} upcoming listing(s)`);
-  // grunt records ride along in `listings`; refresh.js partitions them → land.json.
   return { listings, wykaz: [], land: [] };
 }
 
-// ---------------------------------------------------------------------------
-// crawlResultDocs() — flat achieved-price stream (OCR)
-// ---------------------------------------------------------------------------
 
-/**
- * @returns {Promise<Array<{text:string, pdf_url:string, auction_date:string|null}>>}
- */
 export async function crawlResultDocs() {
   const records = await discoverAll();
   const refs = [];
   for (const r of records) {
-    if (r.kind !== 'mieszkalny' || !r.resultPdfHref) continue; // flats with a result PDF only
+    if (r.kind !== 'mieszkalny' || !r.resultPdfHref) continue;
     const pdfUrl = r.resultPdfHref.startsWith('http') ? r.resultPdfHref : `${HOST}${r.resultPdfHref}`;
     let text;
     try {
@@ -238,9 +167,6 @@ export async function crawlResultDocs() {
   return refs;
 }
 
-// ---------------------------------------------------------------------------
-// CLI harness (manual testing: node crawl.js [active|results])
-// ---------------------------------------------------------------------------
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const mode = process.argv[2] ?? 'active';
   if (mode === 'results') {

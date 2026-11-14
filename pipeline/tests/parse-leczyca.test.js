@@ -1,15 +1,3 @@
-// Łęczyca parser tests — groundtruthed against REAL fixtures from leczyca.info.pl.
-//
-// Tests cover:
-// - Helper extractors: parsePLN, parseArea, parseDateText, extractRound, extractAddress, isRental, isCancellation
-// - Single-lot flat auction (ID 117605: Zachodnia 19/11)
-// - Multi-lot mixed batch (ID 109674: Zachodnia 21/21, Szkolna 1/14, 3 commercial units, 4 land plots)
-// - Multi-lot flat and commercial batch (ID 102684: Belwederska 38C/64, Ozorkowska 14/4, Konopnickiej 10/29, Zachodnia 19/42)
-// - Mixed batch with rental filter and land plots (ID 112643)
-// - Single-lot house / built property (ID 123847: Altera 11)
-// - Single-lot commercial unit (ID 122165: Kościuszki 10/1)
-// - Noise filtering: rental notices (ID 101512) and cancellations (ID 72424)
-// - Result document parser (parseResultDoc) for sold and unsold outcomes
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -36,9 +24,6 @@ const __dirname = dirname(__filename);
 const FIXTURES_PATH = join(__dirname, '../test-fixtures/leczyca/posts.json');
 const FIXTURES = JSON.parse(readFileSync(FIXTURES_PATH, 'utf8'));
 
-// ---------------------------------------------------------------------------
-// Unit helper tests
-// ---------------------------------------------------------------------------
 
 test('parsePLN: various Polish currency strings', () => {
   assert.equal(parsePLN('160.000,00 zł'), 160000);
@@ -97,30 +82,24 @@ test('extractAddress: address and City Hall filtering', () => {
   assert.equal(addr1.parsed.building, '19');
   assert.equal(addr1.parsed.apt, '11');
 
-  // Venue is City Hall (Konopnickiej 14), actual property is Dworcowa 5D/30
   const lotWithVenue = 'w Urzędzie Miejskim w Łęczycy przy ul. Marii Konopnickiej 14 w sali konferencyjnej - pierwszy przetarg na sprzedaż lokalu mieszkalnego nr 30 położonym w Łęczycy przy ul. Dworcowej 5D';
   const addr2 = extractAddress(lotWithVenue);
   assert.equal(addr2.parsed.street, 'Dworcowej');
   assert.equal(addr2.parsed.building, '5D');
   assert.equal(addr2.parsed.apt, '30');
 
-  // Commercial unit at Plac Tadeusza Kościuszki 10/1
   const lotComm = 'pierwszy przetarg ustny nieograniczony na sprzedaż lokalu użytkowego nr 1, położonego w Łęczycy przy Placu Tadeusza Kościuszki 10';
   const addr3 = extractAddress(lotComm);
   assert.equal(addr3.parsed.street, 'Tadeusza Kościuszki');
   assert.equal(addr3.parsed.building, '10');
   assert.equal(addr3.parsed.apt, '1');
 
-  // Land plot with no street address
   const lotLand = 'przetarg na sprzedaż nieruchomości gruntowej położonej w Łęczycy, oznaczonej wg ewidencji gruntów jako działka nr 1865/1';
   const addr4 = extractAddress(lotLand);
   assert.equal(addr4.parcel, '1865/1');
   assert.equal(addr4.raw, 'Łęczyca, dz. 1865/1');
 });
 
-// ---------------------------------------------------------------------------
-// Real Fixture Tests
-// ---------------------------------------------------------------------------
 
 test('Post 117605: single-lot flat auction (Zachodnia 19/11)', () => {
   const post = FIXTURES['117605'];
@@ -146,12 +125,9 @@ test('Post 109674: 2023-10-26 multi-lot batch (flats, commercial, land)', () => 
   const post = FIXTURES['109674'];
   const { listings, land } = parsePost(post);
 
-  // 2 flats + 3 commercial lots = 5 listings
   assert.equal(listings.length, 5);
-  // 4 land plots
   assert.equal(land.length, 4);
 
-  // Flat 1: Zachodnia 21/21
   const flat1 = listings.find((l) => l.address?.building === '21' && l.address?.apt === '21');
   assert.ok(flat1);
   assert.equal(flat1.kind, 'mieszkalny');
@@ -159,7 +135,6 @@ test('Post 109674: 2023-10-26 multi-lot batch (flats, commercial, land)', () => 
   assert.equal(flat1.starting_price_pln, 240000);
   assert.equal(flat1.auction_date, '2023-10-26');
 
-  // Flat 2: Szkolna 1/14
   const flat2 = listings.find((l) => l.address?.street === 'Szkolnej' && l.address?.apt === '14');
   assert.ok(flat2);
   assert.equal(flat2.kind, 'mieszkalny');
@@ -167,13 +142,11 @@ test('Post 109674: 2023-10-26 multi-lot batch (flats, commercial, land)', () => 
   assert.equal(flat2.starting_price_pln, 212500);
   assert.equal(flat2.auction_date, '2023-10-26');
 
-  // Commercial lots
   const commLots = listings.filter((l) => l.kind === 'uzytkowy');
   assert.equal(commLots.length, 3);
   const apts = commLots.map((l) => l.address?.apt).sort();
   assert.deepEqual(apts, ['37', '39', '42']);
 
-  // Land plots
   assert.equal(land.length, 4);
   const parcels = land.map((l) => l.dzialka_nr).sort();
   assert.deepEqual(parcels, ['118/13', '118/37', '1605', '1864']);
@@ -190,7 +163,6 @@ test('Post 102684: 2022-10-18 multi-lot batch (Belwederska, Ozorkowska, Konopnic
   assert.equal(listings.length, 5);
   assert.equal(land.length, 0);
 
-  // Flat Belwederska 38C/64
   const belw = listings.find((l) => l.address?.apt === '64');
   assert.ok(belw);
   assert.equal(belw.kind, 'mieszkalny');
@@ -200,7 +172,6 @@ test('Post 102684: 2022-10-18 multi-lot batch (Belwederska, Ozorkowska, Konopnic
   assert.equal(belw.starting_price_pln, 140000);
   assert.equal(belw.auction_date, '2022-10-18');
 
-  // Flat Ozorkowska 14/4
   const ozork = listings.find((l) => l.address?.street_norm === 'ozorkowska');
   assert.ok(ozork);
   assert.equal(ozork.kind, 'mieszkalny');
@@ -209,13 +180,11 @@ test('Post 102684: 2022-10-18 multi-lot batch (Belwederska, Ozorkowska, Konopnic
   assert.equal(ozork.area_m2, 39.13);
   assert.equal(ozork.auction_date, '2022-10-18');
 
-  // Commercial Konopnickiej 10/29 (building 10, not 14)
   const konop = listings.find((l) => l.address?.building === '10');
   assert.ok(konop);
   assert.equal(konop.kind, 'uzytkowy');
   assert.equal(konop.address.apt, '29');
 
-  // Tenement Poznańska 25
   const pozn = listings.find((l) => l.address?.street_norm === 'poznanska');
   assert.ok(pozn);
   assert.equal(pozn.kind, 'zabudowana');
@@ -228,7 +197,6 @@ test('Post 112643: mixed batch with rental filter and land plots', () => {
   const post = FIXTURES['112643'];
   const { listings, land } = parsePost(post);
 
-  // Flats: Dworcowa 5D/30, Szkolna 1/14; Commercial: Zachodnia 19/42
   assert.equal(listings.length, 3);
   const dworcowa = listings.find((l) => l.address?.street === 'Dworcowej');
   assert.ok(dworcowa);
@@ -242,7 +210,6 @@ test('Post 112643: mixed batch with rental filter and land plots', () => {
   assert.ok(szkolna);
   assert.equal(szkolna.round, 3);
 
-  // Land: 5 plots (1865/1, 1865/6, 1865/3, 1865/4, 1865/5)
   assert.equal(land.length, 5);
   for (const plot of land) {
     assert.equal(plot.kind, 'grunt');
@@ -262,7 +229,7 @@ test('Post 123847: single-lot house / built property (Altera 11)', () => {
   assert.equal(house.kind, 'zabudowana');
   assert.equal(house.address.street, 'gen. Franciszka Altera');
   assert.equal(house.address.building, '11');
-  assert.equal(house.area_m2, 469); // 0.0469 ha = 469 m2
+  assert.equal(house.area_m2, 469);
   assert.equal(house.starting_price_pln, 429000);
   assert.equal(house.auction_date, '2026-10-12');
   assert.equal(house.round, 1);
@@ -296,9 +263,6 @@ test('Noise filtering: rental notices and cancellations produce no records', () 
   assert.deepEqual(resCancel, { listings: [], land: [] });
 });
 
-// ---------------------------------------------------------------------------
-// Result Document Parser (parseResultDoc)
-// ---------------------------------------------------------------------------
 
 test('parseResultDoc: successful / sold flat auction', () => {
   const text = `

@@ -1,6 +1,3 @@
-// JSON embedded in an HTML <script> element must not contain a literal "<".
-// JSON.stringify alone permits </script>, which lets source-controlled strings
-// terminate an application/ld+json block and inject markup.
 export function stringifyJsonForHtml(value) {
   return JSON.stringify(value)
     .replaceAll('<', '\\u003c')

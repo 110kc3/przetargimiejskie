@@ -1,12 +1,3 @@
-// Lębork parse tests — groundtruthed against REAL notices captured live from
-// bip.um.lebork.pl on 2026-07-13 (see the REAL fixtures below: their title+body are
-// the verbatim board-row title and stripped <article> body the crawler produces).
-// Zero-bloat: assert exact parser output; the runner is silenced to failures only.
-//
-// Coverage: a single-flat round-II announcement (prior-round DATE trap + office
-// address trap), a 3-lokal announcement (multi-split incl. an "oficyna" middle
-// unit), a NEGATIVE flat result (result prose drops "ul."), and a SOLD tabular
-// LAND result (bare area abuts the price). Plus the doc-type gates and helpers.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -17,7 +8,6 @@ import {
   wadiumFromText, parsePLN, parseNum,
 } from '../src/cities/lebork/parse.js';
 
-// Verbatim real captures (title = board-row link text; body = stripped article text).
 const REAL = {
   "flatAnn": {
     "url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-ii-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalne-1",
@@ -52,13 +42,13 @@ test('flatAnn: single round-II flat — office+prior-round traps avoided', () =>
   assert.equal(recs.length, 1);
   const r = recs[0];
   assert.equal(r.kind, 'mieszkalny');
-  assert.equal(r.address_raw, 'Łokietka 24/3');            // property, NOT office "Armii Krajowej 14"
+  assert.equal(r.address_raw, 'Łokietka 24/3');
   assert.equal(r.address.key, 'lokietka|24|3');
   assert.equal(r.area_m2, 42.25);
   assert.equal(r.starting_price_pln, 120000);
   assert.equal(r.wadium_pln, 12000);
   assert.equal(r.round, 2);
-  assert.equal(r.auction_date, '2026-08-12');              // future "odbędzie się", NOT prior-round 27.05
+  assert.equal(r.auction_date, '2026-08-12');
 });
 
 test('multiLokal: 3 flats split — incl. the "oficyna" middle unit', () => {
@@ -94,7 +84,7 @@ test('landRes: sold tabular land result — bare area does not corrupt price', (
   assert.equal(r.kind, 'grunt');
   assert.equal(r.dzialka_nr, '132/5');
   assert.equal(r.area_m2, 2392);
-  assert.equal(r.starting_price_pln, 210000);             // NOT "392 210.000,00"
+  assert.equal(r.starting_price_pln, 210000);
   assert.equal(r.final_price_pln, 260883);
   assert.equal(r.outcome, 'sold');
   assert.equal(r.round, 3);
@@ -107,7 +97,6 @@ test('doc-type gates on the real fixtures', () => {
   assert.ok(isResultDoc(blob('flatRes')) && isNegativeOutcome(blob('flatRes')));
   assert.ok(isResultDoc(blob('landRes')) && isLandNotice(blob('landRes')));
   assert.ok(!isLandNotice(blob('flatAnn')) && !isLandNotice(blob('flatRes')));
-  // none of the real notices are leases / rokowania / cancellations
   for (const k of ['flatAnn', 'multiLokal', 'flatRes', 'landRes']) {
     assert.ok(!isLease(blob(k)) && !isRokowania(blob(k)) && !isCancelled(blob(k)));
   }
@@ -128,9 +117,7 @@ test('helpers: parsePLN / parseNum / round / date / price', () => {
   assert.equal(parsePLN(''), null);
   assert.equal(parseNum('33,02'), 33.02);
   assert.equal(parseNum('2392'), 2392);
-  // round anchors on the TITLE Roman, never a street Roman ("Mieszka I")
   assert.equal(roundFromText(buildRecordText({ title: 'ogłasza III przetarg ustny', body: 'lokalu przy ul. Mieszka I 14B' })), 3);
-  // date prefers the future "odbędzie się" over a prior-round "przeprowadzony w dniu"
   assert.equal(auctionDateFromText('I przetarg został przeprowadzony w dniu 27.05.2026r. Przetarg odbędzie się 12.08.2026r.'), '2026-08-12');
   assert.equal(startingPriceFromText('cena wywoławcza 120.000,00 zł, wadium 12.000,00 zł'), 120000);
   assert.equal(wadiumFromText('wadium w wysokości 8.000,00 zł'), 8000);

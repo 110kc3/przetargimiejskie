@@ -1,6 +1,3 @@
-// Lidzbark Warmiński parser tests.
-// Fixtures are verbatim copies of real page/PDF texts fetched live from bip.lidzbarkw.pl
-// (SYSTEMDOBIP.PL / E-LINE board /przetargi/10054/status/{0,1}/).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -29,9 +26,7 @@ import {
   pickResultAttachment,
 } from '../src/cities/lidzbark-warminski/crawl.js';
 
-// ── Fixtures ─────────────────────────────────────────────────────────────────
 
-// 1. Krucza 4/1a (ID 145) — SOLD flat result
 const KRUCZA_ROW = {
   detailUrl: 'https://bip.lidzbarkw.pl/przetargi/10054/145/GG_6840_4_1_2024_JB/',
   dotyczyText:
@@ -66,7 +61,6 @@ Cena wywoławcza: 50.100,00zł
 Cena osiągnięta w przetargu – 84.000,00zł
 Nabywca ustalony w drodze przetargu: Monika Stańczak i Daniel Kępiński`;
 
-// 2. Konstytucji 3 Maja 6/1 (ID 141) — SOLD flat result
 const KONST3MAJA_ROW = {
   detailUrl: 'https://bip.lidzbarkw.pl/przetargi/10054/141/GG_6840_4_82_2023_JB/',
   dotyczyText:
@@ -98,7 +92,6 @@ Cena wywoławcza: 43.100,00zł
 Cena osiągnięta w przetargu – 60.000,00zł
 Nabywca ustalony w drodze przetargu: Monika i Adrian Andrukajtis`;
 
-// 3. Wiejska 51/3 (ID 83) — UNSOLD flat result (Round II)
 const WIEJSKA83_ROW = {
   detailUrl: 'https://bip.lidzbarkw.pl/przetargi/10054/83/GG_6840_4_4_2022_JB/',
   dotyczyText:
@@ -130,7 +123,6 @@ Cena wywoławcza nieruchomości – 154.000, 00zł
 Najwyższa cena osiągnięta w przetargu – BRAK
 Przetarg zakończył się wynikiem negatywnym.`;
 
-// 4. Wiejska 51/3 (ID 94) — SOLD flat result (Round III)
 const WIEJSKA94_ANN_PDF = `BURMISTRZ LIDZBARKA WARMIŃSKIEGO OGŁASZA TRZECI USTNY PRZETARG NIEOGRANICZONY
 na sprzedaż wolnego lokalu mieszkalnego nr 3 położonego w Lidzbarku Warmińskim przy ulicy Wiejskiej 51 z równoczesną sprzedażą udziału wynoszącego 326/1000 w częściach wspólnych budynku oraz w działce gruntu oznaczonej w obrębie 9 numerem ewidencyjnym 4/9 o powierzchni 575m2, ujawnionej w księdze wieczystej nr OL1L/00019964/1.
 Lokal położony jest na pierwszym piętrze – poddaszu, składa się z trzech pokoi, kuchni, łazienki i WC o łącznej powierzchni użytkowej 57,31m2. Do lokalu przynależy pomieszczenie strychowe o pow. 4,32m².`;
@@ -142,7 +134,6 @@ Cena wywoławcza nieruchomości – 123.200,00zł
 Najwyższa cena osiągnięta w przetargu – 124.440,00zł
 Nabywcy ustaleni w drodze przetargu: Agnieszka Angelika Buraczyńska i Jarosław Bohdan Szumczyk`;
 
-// 5. Dantyszka 11/2 (ID 42) — SOLD flat result (Round I)
 const DANTYSZKA_WYNIK_PDF = `Lidzbark Warmiński, dnia 18 lipca 2022r.
 INFORMACJA O WYNIKU PRZETARGU
 ... że w dnia 08 lipca 2022r. w siedzibie Urzędu Miejskiego w Lidzbarku Warmińskim odbył się I przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego oznaczonego nr 2 położonego w budynku przy ul. Dantyszka 11 w Lidzbarku Warmiński wraz z równoczesną sprzedażą udziału...
@@ -154,7 +145,6 @@ const DANTYSZKA_ANN_PDF = `BURMISTRZ LIDZBARKA WARMIŃSKIEGO OGŁASZA PIERWSZY U
 na sprzedaż lokalu mieszkalnego nr 2 położonego w Lidzbarku Warmińskim przy ulicy Dantyszka 11 z równoczesną sprzedażą udziału wynoszącego 11/100...
 Lokal składa się z pokoju i kuchni o łącznej powierzchni użytkowej 21,46m2. Do lokalu przynależy pomieszczenie WC o pow.1,20m² oraz piwnica o pow. 9,39m².`;
 
-// 6. Land auction row (to test out-of-scope filtering)
 const LAND_ROW = {
   detailUrl: 'https://bip.lidzbarkw.pl/przetargi/10054/181/GG_6840_3_11_2025_AT/',
   dotyczyText:
@@ -165,7 +155,6 @@ const LAND_ROW = {
   attachments: [],
 };
 
-// ── Tests ────────────────────────────────────────────────────────────────────
 
 test('parsePLN: parses dot-thousands, space-thousands and space-after-comma formats', () => {
   assert.equal(parsePLN('50.100,00'), 50100);

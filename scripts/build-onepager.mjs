@@ -1,19 +1,4 @@
 #!/usr/bin/env node
-// Fixed-scope B2G report generator.
-//
-// The historical filename is retained so existing runbooks do not break, but
-// this no longer builds a sales "one-pager" or pricing advice. It emits a
-// source-linked HTML/PDF report and CSV ledger for one explicit property class
-// and inclusive date range.
-//
-//   node scripts/build-onepager.mjs \
-//     --kind mieszkalny --from 2024-08-01 --to 2026-07-31 gliwice
-//
-// A public, accessible example can be written directly into the static site:
-//
-//   node scripts/build-onepager.mjs \
-//     --kind mieszkalny --from 2024-08-01 --to 2026-07-31 \
-//     --output-dir site/dla-samorzadow/przyklad-gliwice --web-example gliwice
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
@@ -51,10 +36,6 @@ const KIND_LABELS = {
   grunt: 'grunty',
 };
 
-// Manual HTTP verification belongs to the immutable public snapshot, not the
-// deterministic analysis or its readiness gate. Municipal pages can disappear
-// after publication; recording that fact is more honest than silently dropping
-// the historical URL or pretending a syntactically valid link is still live.
 const PUBLIC_SOURCE_VERIFICATION = Object.freeze({
   gliwice: {
     checkedAt: '2026-08-11',

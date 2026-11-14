@@ -1,38 +1,3 @@
-// Wąbrzeźno parser tests. Fixtures are condensed-but-faithful copies of REAL
-// notice text fetched live from mst-wabrzezno.rbip.mojregion.info (verified
-// 2026-07-12, from this Pi's Polish residential IP): the inline <tresc> for
-// notice 1866, and the born-digital PDF/DOCX attachments for 1461 (DOCX), 336
-// (PDF), 1287 (PDF result) and 1602 (PDF result). Long non-load-bearing
-// boilerplate (the wadium-handling procedure, notarial-cost warnings, cudzoziemcy
-// clause, RODO) is trimmed; every sentence that feeds a parsed field (address,
-// area, price, date, round, kind, outcome) is kept verbatim.
-//
-// The adapter builds its parse blob with buildRecordText({title, body}) from the
-// feed headline (TITLE) + the extracted notice text (BODY); each test builds the
-// SAME blob from the real captured strings, so the parsers are groundtruthed
-// against live data.
-//
-// Groundtruth (hand-verified against the live documents):
-//   1866  INLINE flat announce, round I, MULTI-LOKAL:
-//           Mickiewicza 19/2    33,25 m²  cena wywoławcza 115 670 zł
-//           Niedziałkowskiego 1/68  24,38 m²  cena wywoławcza 89 241 zł
-//           przetarg 2026-07-29
-//   1461  DOCX flat announce, round II, 3-LOKAL (body self-reports the prior
-//         "Pierwszy przetarg odbył się …" — a round/date TRAP):
-//           Mickiewicza 19/2    33,25 m²  90 000 zł
-//           Niedziałkowskiego 1/74  37,89 m²  95 000 zł
-//           Matejki 20A/7       50,70 m²  150 000 zł
-//           przetarg 2025-09-09  (NOT the trap 2025-07-15)
-//   336   PDF LAND announce, round II — grunt komunalny dz. 392/8, 0,3066 ha,
-//         ul. Wspólna, cena wywoławcza 267 300 zł, przetarg 2023-05-09. The URL
-//         slug says "…lokalu-mieszkalnego" but the BODY is a GRUNT sale — the
-//         adapter classifies on the body, so this is 'grunt'.
-//   1287  PDF result, round I, LAND (dz. 555/5,555/26,555/27, ul. Kukułcza,
-//         0,0653 ha) — wynik NEGATYWNY, brak wpłaty wadium, cena wywoławcza
-//         98 000 zł, przetarg 2025-04-01, no achieved price.
-//   1602  PDF result, round II, LAND (6 działek, ul. Gruszkowa/Truskawkowa/
-//         Okrężna) — wynikami NEGATYWNYMI, "brak ofert", "Nikt nie został
-//         nabywcą", cena wywoławcza (pierwsza) 243 048 zł, przetarg 2026-01-15.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -54,10 +19,8 @@ import {
   parseResultDoc,
 } from '../src/cities/wabrzezno/parse.js';
 
-/** Build the parse blob exactly as crawl.js does. */
 const blob = (title, body) => buildRecordText({ title, body });
 
-// ---------------------------------------------------------------- fixtures
 
 const F1866_TITLE =
   'Pierwszy nieograniczony przetarg ustny na sprzedaż prawa własności do lokali mieszkalnych';
@@ -83,8 +46,6 @@ Niedziałkowskiego 1/68) w siedzibie Urzędu Miasta Wąbrzeźno (ul. Wolności n
 Wąbrzeźno, dnia 18.06.2026 r.`;
 const F1866 = blob(F1866_TITLE, F1866_BODY);
 
-// DOCX attachment; feed headline carries no round word — the round comes from
-// the body. Body self-reports the prior "Pierwszy przetarg odbył się …" round.
 const F1461_TITLE = 'Przetarg Mickiewicza 19, Niedziałkowskiego 1, Matejki 20A';
 const F1461_BODY =
   `OGŁASZAM drugi nieograniczony przetarg ustny na sprzedaż prawa własności :
@@ -145,14 +106,12 @@ brutto; 3.- 148.584,00 złote brutto; 4.- 148.584,00 złote brutto; 5.- 148.978,
 nieruchomości. Wywieszono dnia 23.01.2026 r.`;
 const R1602 = blob(R1602_TITLE, R1602_BODY);
 
-// A pure lease and a rokowania notice, for the gates.
 const LEASE = blob(
   'Pierwszy nieograniczony przetarg ustny na dzierżawę pod drobne uprawy',
   'OGŁASZAM pierwszy nieograniczony przetarg ustny na dzierżawę gruntu pod drobne uprawy rolne. Czynsz dzierżawny płatny miesięcznie.',
 );
 const ROKOWANIA_TITLE = 'Ogłoszenie rokowania Chełmińska';
 
-// ------------------------------------------------------------- unit funcs
 
 test('parsePLN: dot/space thousands with grosze tail', () => {
   assert.equal(parsePLN('115.670,00'), 115670);
@@ -170,26 +129,26 @@ test('parseNum: comma and dot decimals', () => {
 });
 
 test('roundFromText: word ordinal (body) beats the prior-round history trap; Roman title fallback', () => {
-  assert.equal(roundFromText(F1866), 1); // "pierwszy nieograniczony przetarg"
-  assert.equal(roundFromText(F1461), 2); // "drugi …" wins over "Pierwszy przetarg odbył się"
+  assert.equal(roundFromText(F1866), 1);
+  assert.equal(roundFromText(F1461), 2);
   assert.equal(roundFromText(F336), 2);
   assert.equal(roundFromText(R1287), 1);
-  assert.equal(roundFromText(R1602), 2); // "drugie nieograniczone przetargi"
+  assert.equal(roundFromText(R1602), 2);
   assert.equal(roundFromText(blob('IV przetarg nieograniczony na zbycie nieruchomości', 'Działka nr 12')), 4);
 });
 
 test('auctionDateFromText: word-month announce, numeric result, "ogłoszone na dzień"; posting date never wins', () => {
   assert.equal(auctionDateFromText(F1866), '2026-07-29');
-  assert.equal(auctionDateFromText(F1461), '2025-09-09'); // NOT the trap 2025-07-15
+  assert.equal(auctionDateFromText(F1461), '2025-09-09');
   assert.equal(auctionDateFromText(F336), '2023-05-09');
-  assert.equal(auctionDateFromText(R1287), '2025-04-01'); // "przeprowadzony w dniu"
-  assert.equal(auctionDateFromText(R1602), '2026-01-15'); // "ogłoszone na dzień", not "Wywieszono dnia 23.01.2026"
+  assert.equal(auctionDateFromText(R1287), '2025-04-01');
+  assert.equal(auctionDateFromText(R1602), '2026-01-15');
 });
 
 test('startingPriceFromText: "cena wywoławcza wynosi/nieruchomości :" — never the wadium/postąpienie', () => {
   assert.equal(startingPriceFromText(F336), 267300);
   assert.equal(startingPriceFromText(R1287), 98000);
-  assert.equal(startingPriceFromText(R1602), 243048); // first parcel, past the "1.-" list index
+  assert.equal(startingPriceFromText(R1602), 243048);
 });
 
 test('achievedPriceFromText: null when "Nikt … został nabywcą" / no buyer named', () => {
@@ -197,12 +156,11 @@ test('achievedPriceFromText: null when "Nikt … został nabywcą" / no buyer na
   assert.equal(achievedPriceFromText(R1287), null);
 });
 
-// ------------------------------------------------------------------- gates
 
 test('gates: isSaleAuction / isLease / isRokowania / isResultDoc / isNegativeOutcome', () => {
   assert.equal(isSaleAuction(F1866), true);
-  assert.equal(isSaleAuction(F336), true); // land "na sprzedaż"/"zbycie"
-  assert.equal(isSaleAuction(LEASE), false); // przetarg but no sprzedaż/zbycie
+  assert.equal(isSaleAuction(F336), true);
+  assert.equal(isSaleAuction(LEASE), false);
 
   assert.equal(isLease(LEASE), true);
   assert.equal(isLease(F1866), false);
@@ -212,14 +170,13 @@ test('gates: isSaleAuction / isLease / isRokowania / isResultDoc / isNegativeOut
 
   assert.equal(isResultDoc(R1287), true);
   assert.equal(isResultDoc(R1602), true);
-  assert.equal(isResultDoc(F1866), false); // announcement ("OGŁASZAM"), not a result
+  assert.equal(isResultDoc(F1866), false);
 
   assert.equal(isNegativeOutcome(R1287), true);
   assert.equal(isNegativeOutcome(R1602), true);
   assert.equal(isNegativeOutcome(F1866), false);
 });
 
-// ------------------------------------------------- parseAnnouncement (flats)
 
 test('parseAnnouncement: 1866 INLINE round I — splits the MULTI-LOKAL notice into two flat records', () => {
   const recs = parseAnnouncement(F1866);
@@ -265,7 +222,6 @@ test('parseAnnouncement: 1461 DOCX round II — three flats, each its own price;
   }
 });
 
-// -------------------------------------------------- parseAnnouncement (land)
 
 test('parseAnnouncement: 336 PDF — grunt (classified on BODY, not the "lokalu-mieszkalnego" slug), parcel-keyed, ha→m²', () => {
   const recs = parseAnnouncement(F336);
@@ -273,15 +229,14 @@ test('parseAnnouncement: 336 PDF — grunt (classified on BODY, not the "lokalu-
   const [r] = recs;
   assert.equal(r.kind, 'grunt');
   assert.equal(r.dzialka_nr, '392/8');
-  assert.equal(r.area_m2, 3066); // 0,3066 ha × 10000
+  assert.equal(r.area_m2, 3066);
   assert.equal(r.address_raw, 'Wspólnej');
   assert.equal(r.starting_price_pln, 267300);
   assert.equal(r.auction_date, '2023-05-09');
   assert.equal(r.round, 2);
-  assert.equal(r.address, undefined); // land records are parcel-keyed, no parsed address
+  assert.equal(r.address, undefined);
 });
 
-// ----------------------------------------------------------- parseResultDoc
 
 test('parseResultDoc: 1287 round I LAND — negative outcome, real parcels/price/date, no fabricated final price', () => {
   const out = parseResultDoc(R1287, null, 'https://mst-wabrzezno.rbip.mojregion.info/1287/x.html');
@@ -289,7 +244,7 @@ test('parseResultDoc: 1287 round I LAND — negative outcome, real parcels/price
   const [r] = out;
   assert.equal(r.kind, 'grunt');
   assert.equal(r.dzialka_nr, '555/5, 555/26, 555/27');
-  assert.equal(r.area_m2, 653); // 0,0653 ha × 10000
+  assert.equal(r.area_m2, 653);
   assert.equal(r.address_raw, 'Kukułczej');
   assert.equal(r.round, 1);
   assert.equal(r.starting_price_pln, 98000);
@@ -297,7 +252,7 @@ test('parseResultDoc: 1287 round I LAND — negative outcome, real parcels/price
   assert.equal(r.outcome, 'unsold');
   assert.equal(r.auction_date, '2025-04-01');
   assert.equal(r.source_url, 'https://mst-wabrzezno.rbip.mojregion.info/1287/x.html');
-  assert.deepEqual(r.notes, []); // negative outcome + price present ⇒ no parse notes
+  assert.deepEqual(r.notes, []);
 });
 
 test('parseResultDoc: 1602 round II multi-parcel LAND — negative ("brak ofert"), parcels joined, first cena wywoławcza, auction date from "ogłoszone na dzień"', () => {
@@ -306,7 +261,7 @@ test('parseResultDoc: 1602 round II multi-parcel LAND — negative ("brak ofert"
   const [r] = out;
   assert.equal(r.kind, 'grunt');
   assert.equal(r.dzialka_nr, '725, 726, 727/2, 727/3, 727/4, 52/4');
-  assert.equal(r.area_m2, 1604); // first parcel 0,1604 ha
+  assert.equal(r.area_m2, 1604);
   assert.equal(r.address_raw, 'Gruszkowej');
   assert.equal(r.round, 2);
   assert.equal(r.starting_price_pln, 243048);

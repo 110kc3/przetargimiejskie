@@ -1,22 +1,3 @@
-// Zabrze COMMERCIAL (lokale użytkowe) crawler — document-list board 552, the
-// municipal commercial-unit sale-auction board ("Prezydent Miasta Zabrze ogłasza
-// … ustny … przetarg … na sprzedaż … lokalu użytkowego"). Found by probing the
-// document-list API (549 = flats; 555 = land auctions; 552 = commercial auctions).
-// Same machinery as crawl-land.js (board 555), but the attachment is the SAME
-// numbered per-unit table the flats board produces — single- OR multi-unit — so
-// we route it to parseCommercialAttachment, which emits address-keyed records.
-// Emits kind:'uzytkowy', merged into the active/listings stream by index.js →
-// data/zabrze/properties.json (refresh.js keeps every non-'grunt' kind there).
-//
-// Board-membership is the classifier: every announcement on 552 is a commercial
-// sale, so we do NOT filter on classifyKind(title) === 'uzytkowy' — several real
-// titles are terse ("Ogłoszenie o IV ustnym … przetargu na dzień 10.03.2026 r.")
-// and a title-only kind check would silently drop them (the recurring bug
-// SPIKE-COVERAGE.md flags). We take every auction announcement and stamp uzytkowy.
-//
-// Defensive throughout (mirrors crawl-land.js): a failed list/doc/attachment
-// fetch is logged and skipped; crawlCommercial() returns [] rather than throwing,
-// so a commercial outage never affects the flats stream (index.js wraps it too).
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -35,11 +16,8 @@ const COMMERCIAL_CATEGORY_ID = 552;
 const LIST_API = `${ORIGIN}/api/v1/document-list/${COMMERCIAL_CATEGORY_ID}?q=`;
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
-// bip.miastozabrze.pl ships an incomplete TLS chain — relax verification for this
-// host only (public, read-only data), the same option the flats/land crawlers use.
 const FETCH_OPTS = { userAgent: BROWSER_UA, insecureTLS: true };
 
-/** Crawl board 552 → per-unit commercial records (kind 'uzytkowy'). */
 export async function crawlCommercial() {
   let json;
   try {
@@ -49,8 +27,6 @@ export async function crawlCommercial() {
     return [];
   }
   const items = Array.isArray(json?.data) ? json.data : [];
-  // Every item on board 552 is a commercial sale; keep the auction announcements
-  // (drop the rare housekeeping notice) without a title-only kind filter.
   const anns = items.filter((it) => {
     const t = it?.dscrpt || '';
     return it?.doc_id && /przetarg|sprzeda|og[łl]oszenie/i.test(t);
@@ -70,9 +46,6 @@ export async function crawlCommercial() {
       continue;
     }
     const title = it.dscrpt || '';
-    // A /doc may link several attachments (the announcement plus a GDPR/result
-    // annex). Try each until one parses as a commercial announcement; the first
-    // that yields units wins.
     let parsedCount = 0;
     for (const attUrl of attachmentUrlsFromDoc(docHtml)) {
       let text = '';
@@ -85,14 +58,9 @@ export async function crawlCommercial() {
           continue;
         }
       }
-      // Skip the GDPR annex and any published result notice — those are not the
-      // sale announcement (results, when present, are handled by the flats-board
-      // result stream; this board's job is the active commercial offers).
       if (/INFORMACJA\s+O\s+(PRZETWARZANIU|WYNIKU)/i.test(text)) continue;
       const parsed = parseCommercialAttachment(text);
       if (parsed.length) {
-        // The title usually carries the date; the body ("Przetarg odbędzie się w
-        // dniu …") is the fallback when it doesn't.
         const auctionDate = auctionDateFromTitle(title) || auctionDateFromText(text);
         for (const u of parsed) {
           out.push({

@@ -1,27 +1,4 @@
-// P1-D — Weekly newsletter digest generator.
-//
-// Renders a Markdown + HTML "nowe ogłoszenia w tym tygodniu" (new auctions this
-// week, per city) digest from the committed data/<city>/properties.json, using a
-// stored sent-list (newsletter/seen.json) so each run reports only announcements
-// not seen before. The send/ESP integration is intentionally out of scope
-// (see TODO P1-D — "build the generator now; the send can follow").
-//
-// WHY delta, not date: a listing has no first-seen field (only the auction
-// `date`), so "new" can't be derived from the data alone — we track which
-// announcement IDs were already reported. Identity per announcement, most-
-// stable-first: source_pdf -> detail_url -> `<city>|<key>|r<round>|<date>`.
-//
-// Only OPEN auctions (outcome active/announced) are rendered: a freshly crawled
-// *result* (sold/unsold/archived) is still recorded in seen.json so it never
-// resurfaces, but it isn't advertised as a buying opportunity. Pass
-// --include-concluded to render those too.
-//
-// FIRST RUN (missing/empty seen.json) seeds the baseline silently: it records
-// every current ID and emits a short "baseline established" digest, so the NEXT
-// run is the first that reports genuine new listings.
-//
 // Pure fns (listingId/buildModel/render*) are exported for the test; main() is
-// the CLI that reads/writes the filesystem.
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
@@ -37,7 +14,6 @@ const KIND_LABEL = {
   unknown: 'Nieruchomość',
 };
 
-/** Stable identity of a single auction announcement (one listing round). */
 export function listingId(citySlug, prop, listing) {
   if (listing.source_pdf) return String(listing.source_pdf).trim();
   if (listing.detail_url) return String(listing.detail_url).trim();
@@ -45,8 +21,6 @@ export function listingId(citySlug, prop, listing) {
   return `${citySlug}|${key}|r${listing.round ?? '?'}|${listing.date ?? '?'}`;
 }
 
-// pl-PL integer with space thousands — implemented by hand so CI output doesn't
-// depend on ICU locale data.
 export function formatPLN(n) {
   if (n == null || !Number.isFinite(n)) return null;
   return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
@@ -61,7 +35,6 @@ export function formatDate(iso) {
   return m ? `${m[3]}.${m[2]}.${m[1]}` : String(iso);
 }
 
-// Polish plural: 1 / 2–4 / 5+ (with the 12–14 "teens" exception → many).
 export function plNoun(n, one, few, many) {
   const n10 = n % 10;
   const n100 = n % 100;
@@ -84,10 +57,6 @@ function kindLabel(kind) {
   return kind.charAt(0).toUpperCase() + kind.slice(1);
 }
 
-/**
- * Build the digest model from already-loaded cities (no filesystem access).
- * @param {{cities:Array<{id:string,label:string,properties:Array}>, seen:Set<string>, now:Date, includeConcluded?:boolean}} args
- */
 export function buildModel({ cities, seen, now, includeConcluded = false }) {
   const firstRun = seen.size === 0;
   const currentIds = new Set();
@@ -100,9 +69,9 @@ export function buildModel({ cities, seen, now, includeConcluded = false }) {
       for (const listing of prop.listings || []) {
         const id = listingId(city.id, prop, listing);
         currentIds.add(id);
-        if (firstRun || seen.has(id)) continue; // not new (or seeding baseline)
+        if (firstRun || seen.has(id)) continue;
         const open = OPEN_OUTCOMES.has(listing.outcome);
-        if (!open && !includeConcluded) continue; // new but concluded → tracked, not shown
+        if (!open && !includeConcluded) continue;
         const price = listing.starting_price_pln ?? null;
         const area = listing.area_m2 ?? prop.area_m2 ?? null;
         const zlM2 = price != null && area != null && area > 0 ? Math.round(price / area) : null;
@@ -125,13 +94,12 @@ export function buildModel({ cities, seen, now, includeConcluded = false }) {
       }
     }
     if (items.length) {
-      items.sort((a, b) => (a.date || '9999').localeCompare(b.date || '9999')); // soonest first, null dates last
+      items.sort((a, b) => (a.date || '9999').localeCompare(b.date || '9999'));
       sections.push({ id: city.id, label: city.label, items });
       totalNew += items.length;
     }
   }
 
-  // seen is monotonic: after this run EVERY current announcement is marked seen.
   const nextSeen = [...new Set([...seen, ...currentIds])].sort();
 
   return {

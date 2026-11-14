@@ -1,12 +1,3 @@
-// Ostrołęka parser test. OCR city (scanned PDFs): the RESULT notices OCR into
-// clean prose and are the authoritative per-flat records. Each BODY below is the
-// REAL OCR text of a live result PDF (verified 2026-07-05), condensed to the
-// load-bearing sentences but preserving the exact OCR phrasings/quirks
-// (e.g. "m?"/"m*"/"m”", "Wdhniu", "Najwyższa cena …"):
-//   28040 Żeromskiego 29/4 — I przetarg, UNSOLD (Nikt nie wpłacił wadium)
-//   28374 Żeromskiego 29/4 — II przetarg, UNSOLD
-//   28668 Żeromskiego 29/4 — SOLD (Najwyższa cena 122 500, Nabywcą … Opęchowscy)
-//   28147 Warszawska 25B/2 — SOLD (Najwyższa cena 64 400, Nabywca Michał Pawełczyk)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
@@ -57,11 +48,11 @@ Nabywcą nieruchomości został Michał Pawełczyk.`;
 test('parseResultDoc: Żeromskiego 29/4 — I przetarg UNSOLD (address+unit, area, starting price)', () => {
   const [r] = parseResultDoc(RESULT_28040_UNSOLD, '2025-10-15', 'https://bip.um.ostroleka.pl/attachments/download/28040');
   assert.equal(r.kind, 'mieszkalny');
-  assert.equal(r.address.key, 'stefana zeromskiego|29|4'); // address incl. unit
-  assert.equal(r.area_m2, 54.6);                             // usable, NOT the 28,20 cellar
+  assert.equal(r.address.key, 'stefana zeromskiego|29|4');
+  assert.equal(r.area_m2, 54.6);
   assert.equal(r.starting_price_pln, 125400);
   assert.equal(r.auction_date, '2025-10-15');
-  assert.equal(r.round, null);                               // first round, no ordinal stated
+  assert.equal(r.round, null);
   assert.equal(r.outcome, 'unsold');
   assert.equal(r.final_price_pln, null);
   assert.equal(r.unsold_reason, 'brak wadium');
@@ -83,7 +74,7 @@ test('parseResultDoc: Żeromskiego 29/4 — SOLD (final_price from a sold result
   assert.equal(r.area_m2, 54.6);
   assert.equal(r.starting_price_pln, 102600);
   assert.equal(r.outcome, 'sold');
-  assert.equal(r.final_price_pln, 122500);   // "Najwyższa cena … 122 500,00"
+  assert.equal(r.final_price_pln, 122500);
   assert.equal(r.unsold_reason, null);
   assert.equal(r.auction_date, '2026-02-11');
 });
@@ -102,7 +93,6 @@ test('parseResultDoc: ignores non-result OCR text', () => {
   assert.deepEqual(parseResultDoc('PREZYDENT MIASTA OSTROŁĘKI OGŁASZA PRZETARG USTNY NIEOGRANICZONY', null, 'x'), []);
 });
 
-// ---- HTML metadata + attachment routing (the active-listing path) -----------
 
 const DETAIL_HTML = `
   <table class="table table-borderless">

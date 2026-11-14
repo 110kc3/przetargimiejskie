@@ -1,61 +1,3 @@
-// Wołów parser tests. Fixtures are condensed-but-faithful copies of REAL page
-// text fetched live from wolow.pl (verified 2026-07-11, from this Pi's Polish
-// residential IP). Long non-load-bearing boilerplate (RODO/GDPR data-
-// processing paragraph, generic wadium-handling procedure, notarial-cost
-// warnings) is trimmed; every sentence that feeds a parsed field (address,
-// area, price, date, round, kind) is kept verbatim. Pełczyn 26's fixture
-// deliberately KEEPS the standing "Zastrzega się prawo odwołania przetargu"
-// clause (present on every real announcement) as a regression fixture for a
-// bug found during this build: it reads exactly like a cancellation to a
-// loose body-wide scan ("odwołania" + "przetargu" both present) even though
-// it just means the mayor RESERVES THE RIGHT to cancel, not that this
-// specific auction WAS cancelled.
-//
-// Groundtruth (hand-verified against the live pages):
-//   Pełczyn 26, lokal mieszkalny nr 2, 61,25 m², dz. nr 522/2:
-//     round I   announce  wolow.pl/3475  cena wywoławcza 140 000 zł,
-//                         auction 2026-01-13, published 2025-11-27
-//     round II  announce  wolow.pl/3866  cena wywoławcza 130 000 zł,
-//                         auction 2026-06-15, published 2026-04-27 — body
-//                         self-reports "I przetarg przeprowadzono
-//                         13.01.2026 r." (round I therefore CONFIRMED unsold,
-//                         independent of round II ever being crawled)
-//   Wołów, ul. Komuny Paryskiej 41/1, lokal mieszkalny nr 1, 39,47 m²:
-//     round I  announce  wolow.pl/3909  cena wywoławcza 88 500 zł,
-//                         auction 2026-06-30, published 2026-05-15 — the
-//                         URL SLUG never says "lokal" (classifyKind on the
-//                         BODY is what correctly resolves this to a flat)
-//   Prawików, dz. nr 156/4 Am 1 (grunt, niezabudowana, 0,1296 ha = 1296 m²):
-//     round II  announce wolow.pl/1100  cena wywoławcza 29 500 zł,
-//                         auction 2021-12-16, published 2021-11-05
-//     round III announce wolow.pl/1281  cena wywoławcza 28 000 zł,
-//                         auction 2022-03-01 — body self-reports BOTH
-//                         "I ... przeprowadzono 07.09.2021r." AND
-//                         "a drugi 16.12.2022r." (note: the source's OWN
-//                         round-III text disagrees with round II's own
-//                         auction date by exactly one year — a genuine
-//                         source typo, not a parser bug; this adapter never
-//                         relies on that self-report for round II's date,
-//                         only for confirming round I's)
-//   Wołów, ul. Polna, dz. nr 8/12 Am 25 (grunt, niezabudowana, 0,1565 ha):
-//     round I  announce  wolow.pl/801   cena wywoławcza 80 000 zł,
-//                         auction 2021-08-18
-//   Wołów, ul. Inwalidów Wojennych 40, dz. nr 170 Am 21 (zabudowana — a
-//   whole built property, NOT a bare flat; area_m2 is the HOUSE's own
-//   103,17 m², not the 712 m² plot):
-//     round I  announce  wolow.pl/1544  cena wywoławcza 158 500 zł,
-//                         auction 2022-08-11
-//   Lubiąż, ul. Willmanna 17/3 (body sometimes spells it "17-3", hyphen not
-//   slash — same flat, same wykaz — confirming the apartment must come from
-//   the separate "Lokal ... nr N" match, never the street-number token):
-//     wykaz             wolow.pl/3701  Cena nieruchomości 88 500 zł, no date
-//     round I  announce wolow.pl/3537  cena wywoławcza 88 500 zł, auction
-//                        date is a LITERAL BLANK TEMPLATE ("……..01.2026r.")
-//                        on the live source — must resolve to null, not a
-//                        fabricated guess
-//   Wołów, ul. Marsz. J. Piłsudskiego 17, lokal niemieszkalny nr 1 (a
-//   COMMERCIAL unit — must classify 'uzytkowy', not 'mieszkalny'):
-//     wykaz             wolow.pl/1549  Cena nieruchomości 18 500 zł
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -73,12 +15,7 @@ import {
   parseResultDoc,
 } from '../src/cities/wolow/parse.js';
 
-// --------------------------------------------------------------- fixtures
 
-// Wraps body prose in the real wolow.pl skyCMS (city-portal) page skeleton,
-// confirmed live 2026-07-11: <h1 class="pageHeader">, content inside
-// <div class="sub-page__content mt-4">, trailing boundary
-// <footer class="sub-page__footer"> containing the "Data publikacji" span.
 function pageHtml(title, bodyText, publishedDDMMYYYY) {
   return `<!doctype html><html><body>
 <main class="sub-page" id="main">
@@ -130,9 +67,6 @@ odbędzie się 15.06.2026 r. o godz. 10.00 w siedzibie Urzędu Miejskiego w Woł
   '27-04-2026 11:11',
 );
 
-// Real gotcha: the URL slug for this one is
-// "i-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-wolowie-..."
-// — no "lokal" anywhere in it — yet the body is unambiguously a flat.
 const KP41_TITLE =
   'I ustny przetarg nieograniczony na sprzedaż nieruchomości położonej w Wołowie, ul. Komuny Paryskiej 41, dz. nr 38/11 AM-28';
 const KP41_HTML = pageHtml(
@@ -206,8 +140,6 @@ Urzędu Miejskiego w Wołowie (Rynek 34, sala sesyjna).`,
   '22-06-2022 08:00',
 );
 
-// Real source typo: the day-of-month is a literal run of dots on the live
-// page, twice ("odbędzie się ……..01.2026r." / "wniesione do ………..01.2026r.").
 const WILLMANNA1_TITLE =
   'Ogłoszenie o I ustnym przetargu nieograniczonym na sprzedaż lokalu mieszkalnego położonego w Lubiążu, ul. Willmanna 17-3, działka nr 220/1';
 const WILLMANNA1_HTML = pageHtml(
@@ -254,13 +186,12 @@ Wołowie.`,
   '28-06-2022 10:00',
 );
 
-// -------------------------------------------------------------- unit funcs
 
 test('parsePLN: space-thousands, dot-thousands+grosze, and the two documented source typos', () => {
   assert.equal(parsePLN('140.000,00'), 140000);
   assert.equal(parsePLN('136 350,00'), 136350);
-  assert.equal(parsePLN('53.197.50'), 53197); // mistyped extra dot instead of comma
-  assert.equal(parsePLN('23.290,00-'), 23290); // trailing-dash typo
+  assert.equal(parsePLN('53.197.50'), 53197);
+  assert.equal(parsePLN('23.290,00-'), 23290);
   assert.equal(parsePLN('brak'), null);
 });
 
@@ -274,12 +205,10 @@ test('roundFromTitle: declension-tolerant ("ustny przetarg" subject case vs "ust
   assert.equal(roundFromTitle(PELCZYN1_TITLE), 1);
   assert.equal(roundFromTitle(PELCZYN2_TITLE), 2);
   assert.equal(roundFromTitle(PRAWIKOW3_TITLE), 3);
-  assert.equal(roundFromTitle(WILLMANNA1_TITLE), 1); // "ustnym przetargu" — object case
+  assert.equal(roundFromTitle(WILLMANNA1_TITLE), 1);
 });
 
 test('isCancelled: the standing "Zastrzega się prawo odwołania przetargu" clause (present on every real announcement) is NOT a cancellation', () => {
-  // Regression: this exact substring pairing ("odwołania" + "przetargu")
-  // false-positived against a naive body-wide scan during this build.
   assert.equal(isCancelled(PELCZYN1_TITLE), false);
   assert.equal(isCancelled('Ogłoszenie o odwołanym przetargu Wołów ul. Spacerowa'), true);
   assert.equal(isCancelled('Ogłoszenie o odwołaniu przetargu Gliniany dz. nr 729 AM-1'), true);
@@ -293,7 +222,6 @@ test('extractArticleText / extractTitle / extractPublishedDate: real skyCMS city
   assert.equal(extractPublishedDate(PELCZYN1_HTML), '2025-11-27');
 });
 
-// ------------------------------------------------------------- parseAnnouncement (flats)
 
 test('parseAnnouncement: Pełczyn 26 round I (wolow.pl/3475) — rural village+number address, no "ul." prefix', () => {
   const r = parseAnnouncement(PELCZYN1_HTML, 'https://wolow.pl/3475/x.html');
@@ -343,7 +271,6 @@ test('parseAnnouncement: Willmanna 17-3 (wolow.pl/3537) — hyphen bldg/apt sepa
   assert.equal(r.round, 1);
 });
 
-// --------------------------------------------------------- parseAnnouncement (land/house)
 
 test('parseAnnouncement: ul. Polna dz. nr 8/12 (wolow.pl/801) — LAND classifies "grunt", not "garaz" (bug-class guard: this doc never mentions garaż)', () => {
   const r = parseAnnouncement(POLNA_HTML, 'https://wolow.pl/801/x.html');
@@ -351,7 +278,7 @@ test('parseAnnouncement: ul. Polna dz. nr 8/12 (wolow.pl/801) — LAND classifie
   assert.equal(r.address, null);
   assert.equal(r.dzialka_nr, '8/12');
   assert.equal(r.obreb, 'Wołów');
-  assert.equal(r.area_m2, 1565); // 0,1565 ha x 10000
+  assert.equal(r.area_m2, 1565);
   assert.equal(r.starting_price_pln, 80000);
   assert.equal(r.auction_date, '2021-08-18');
   assert.equal(r.round, 1);
@@ -362,7 +289,7 @@ test('parseAnnouncement: Prawików dz. nr 156/4 round II (wolow.pl/1100) — sel
   assert.equal(r.kind, 'grunt');
   assert.equal(r.dzialka_nr, '156/4');
   assert.equal(r.obreb, 'Prawików');
-  assert.equal(r.area_m2, 1296); // 0,1296 ha x 10000
+  assert.equal(r.area_m2, 1296);
   assert.equal(r.starting_price_pln, 29500);
   assert.equal(r.auction_date, '2021-12-16');
   assert.equal(r.round, 2);
@@ -390,7 +317,6 @@ test('parseAnnouncement: ul. Inwalidów Wojennych 40 (wolow.pl/1544) — a whole
   assert.equal(r.dzialka_nr, '170');
 });
 
-// --------------------------------------------------------------------- parseWykaz
 
 test('parseWykaz: Lubiąż ul. Willmanna 17/3 (wolow.pl/3701) — clean address, "Cena nieruchomości" price, NO auction date (pre-announcement)', () => {
   const w = parseWykaz(WILLMANNA_WYKAZ_HTML, 'https://wolow.pl/3701/x.html');
@@ -413,7 +339,6 @@ test('parseWykaz: ul. Marsz. J. Piłsudskiego 17, lokal niemieszkalny (wolow.pl/
   assert.equal(w.area_m2, 14.9);
 });
 
-// ----------------------------------------------------------------- parseResultDoc
 
 test('parseResultDoc: Pełczyn 26 round I (wolow.pl/3475) forwarded as CONFIRMED-superseded (round II exists) — real price/area/date, outcome unsold, no fabricated final price', () => {
   const [r] = parseResultDoc(PELCZYN1_HTML, null, 'https://wolow.pl/3475/x.html');

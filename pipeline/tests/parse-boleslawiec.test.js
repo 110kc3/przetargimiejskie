@@ -1,31 +1,3 @@
-// Bolesławiec parser tests. Fixtures are the REAL born-digital PDF text of three
-// result notices fetched live 2026-07-11 from the city BIP results board
-// (www.um.boleslawiec.bip-gov.pl, "Wyniki sprzedaży nieruchomości"), verbatim
-// from pipeline/pdf-text-cache/ (getFile ids 251418 / 251548 / 251620). They
-// cover both result templates this adapter must handle:
-//
-//   1. PROSE-style lokal result (id 251418) — "informację o wyniku III przetargu
-//      ... lokalu mieszkalnego nr 10 ... ul. Warszawskiej Nr 1", 97,10 m²,
-//      cena wywoławcza 350.000 zł, closed "wynikiem negatywnym" because
-//      "nikt nie wpłacił wadium" → unsold / brak wpłaty wadium, round III.
-//      Regression anchors: (a) the genitive street "Warszawskiej" is KEPT as-is
-//      (normalize.js -skiej rule), building "1" comes from "ul. Warszawskiej Nr 1"
-//      and apt "10" from "lokalu mieszkalnego nr 10" — never the 19/100 share,
-//      the 154/1 działka, the JG1B księga wieczysta, or the 0,0295 ha plot;
-//      (b) area is the flat's own 97,10 m², not the 0,0295 ha ground share.
-//
-//   2. PLOT-TABLE grunt result (ids 251548 & 251620) — the tabular
-//      "I przetarg na działkę nr N" layout with "Liczba osób dopuszczonych do
-//      przetargu 0", "Najwyższa cena osiągnięta ... 0", "Nabywca ... brak" →
-//      unsold / brak uczestników. 23/1 is niezabudowana (0,5540 ha = 5540 m²,
-//      cena 570.000 zł), 478 is zabudowana (0,0703 ha = 703 m², cena 499.000 zł).
-//      Anchors: dzialka_nr / obręb / ha→m² / the "Położenie ul. …" street, and
-//      that a zero-participant plot is 'unsold' with final_price_pln null even
-//      though the table prints a literal achieved price of "0".
-//
-// Active-listing (Joomla RSS) parsing is exercised by the live crawl on CI's
-// first refresh; these tests groundtruth the achieved-price result stream, which
-// is the load-bearing extraction and the only surface with committed fixtures.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -43,8 +15,6 @@ import {
 } from '../src/cities/boleslawiec/parse.js';
 
 test('live October residential RSS recovers both flats and uppercase auction round', () => {
-  // Official /index.php/mig/sp-estate/lokale-mieszkalne?format=feed&type=rss,
-  // fetched 2026-10-19 after verifying the portal's rotated YR1 chain.
   const xml = readFileSync(new URL('./fixtures/remediation/boleslawiec-flats-20261019.rss', import.meta.url), 'utf8');
   const rows = parseRssItems(xml).flatMap((item) => parseActiveItem(item.title, item.description, item.link).listings);
   assert.equal(rows.length, 2);
@@ -69,9 +39,7 @@ test('rolling RSS output cannot replace the complete retained land ledger', asyn
   assert.equal(result.land_complete, false, 'refresh must merge last-good plots omitted by the rolling source');
 });
 
-// --------------------------------------------------------------- fixtures
 
-// Prose lokal result (born-digital PDF text, id 251418), verbatim.
 const WARSZAWSKA_RESULT = `MiG.6840.3.5.2024.MK
 
       Zgodnie z § 12 rozporządzenia Rady Ministrów z dnia 14 września 2004r. w sprawie sposobu
@@ -106,7 +74,6 @@ MK/MK
 
                                                         /-/ Robert Rzepnicki`;
 
-// Plot-table grunt result, niezabudowana (id 251548), verbatim.
 const DZ_23_1_RESULT = `Zgodnie § 12 rozporządzenia Rady Ministrów z dnia 14 września 2004r. w sprawie sposobu i trybu
 przeprowadzenia przetargów oraz rokowań na zbycie nieruchomości (Dz. U. z 2021r. poz. 2213) podaje,-
 
@@ -148,7 +115,6 @@ Bolesławiec, dnia 01 lipca 2026r.
 
                                                                       /-/ Robert Rzepnicki`;
 
-// Plot-table grunt result, zabudowana (id 251620), verbatim.
 const DZ_478_RESULT = `Zgodnie § 12 rozporządzenia Rady Ministrów z dnia 14 września 2004r. w sprawie sposobu i trybu
 przeprowadzenia przetargów oraz rokowań na zbycie nieruchomości (Dz. U. z 2021r. poz. 2213) podaje,-
 
@@ -190,7 +156,6 @@ Bolesławiec, dnia 03 lipca 2026r.
 
 const SRC = (id) => `https://www.um.boleslawiec.bip-gov.pl/public/getFile?id=${id}`;
 
-// --------------------------------------------------------- prose lokal result
 
 test('result: prose lokal (Warszawska 1/10) — round III, negatywny', () => {
   const r = parseResultDoc(WARSZAWSKA_RESULT, null, SRC(251418));
@@ -207,12 +172,11 @@ test('result: prose lokal (Warszawska 1/10) — round III, negatywny', () => {
   assert.equal(x.final_price_pln, null);
   assert.equal(x.outcome, 'unsold');
   assert.equal(x.unsold_reason, 'brak wpłaty wadium');
-  assert.equal(x.area_m2, 97.1); // the flat's own area, NOT the 0,0295 ha share
+  assert.equal(x.area_m2, 97.1);
   assert.deepEqual(x.notes, []);
   assert.equal(x.source_pdf, SRC(251418));
 });
 
-// ----------------------------------------------------- plot-table grunt result
 
 test('result: plot niezabudowana (dz 23/1) — round I, 0 uczestników', () => {
   const r = parseResultDoc(DZ_23_1_RESULT, null, SRC(251548));
@@ -221,12 +185,12 @@ test('result: plot niezabudowana (dz 23/1) — round I, 0 uczestników', () => {
   assert.equal(x.kind, 'grunt');
   assert.equal(x.dzialka_nr, '23/1');
   assert.equal(x.obreb, '0001');
-  assert.equal(x.area_m2, 5540); // 0,5540 ha
+  assert.equal(x.area_m2, 5540);
   assert.equal(x.address_raw, 'ul. Tadeusza Kościuszki');
   assert.equal(x.auction_date, '2026-06-23');
   assert.equal(x.round, 1);
   assert.equal(x.starting_price_pln, 570000);
-  assert.equal(x.final_price_pln, null); // "0" achieved is NOT a real sale price
+  assert.equal(x.final_price_pln, null);
   assert.equal(x.outcome, 'unsold');
   assert.equal(x.unsold_reason, 'brak uczestników');
 });
@@ -238,7 +202,7 @@ test('result: plot zabudowana (dz 478) — round I, 0 uczestników', () => {
   assert.equal(x.kind, 'grunt');
   assert.equal(x.dzialka_nr, '478');
   assert.equal(x.obreb, '0008');
-  assert.equal(x.area_m2, 703); // 0,0703 ha
+  assert.equal(x.area_m2, 703);
   assert.equal(x.address_raw, 'ul. Plac Piastowski');
   assert.equal(x.auction_date, '2026-06-25');
   assert.equal(x.round, 1);
@@ -247,14 +211,12 @@ test('result: plot zabudowana (dz 478) — round I, 0 uczestników', () => {
   assert.equal(x.unsold_reason, 'brak uczestników');
 });
 
-// --------------------------------------------------------------------- guards
 
 test('result: non-result text returns no records', () => {
   assert.deepEqual(parseResultDoc('Zwykły tekst bez wyniku przetargu.', null, 'x'), []);
   assert.deepEqual(parseResultDoc('', null, 'x'), []);
 });
 
-// ----------------------------------------------------------------- pure helpers
 
 test('parsePLN: spaced/dotted thousands + trailing ",-"', () => {
   assert.equal(parsePLN('350.000,-'), 350000);

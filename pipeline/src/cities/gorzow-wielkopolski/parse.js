@@ -1,46 +1,8 @@
-// Gorzów Wielkopolski parsers — announcement batch PDFs + result-notice PDFs.
-//
-// Both streams are PDFs attached to BIP stub pages (bip.um.gorzow.pl).
-// Groundtruthed 2026-07-06 against live documents:
-//
-//   Announcement (born-digital, 12 flats):
-//     https://bip.um.gorzow.pl/system/obj/59130_Ogloszenie_nr_61-2025.pdf
-//   Result — flats, achieved prices inline (born-digital):
-//     https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu.pdf&id=a7a56a4144b2940d40da90ac2b872c22&stats=true
-//   Result — land, wynik negatywny (born-digital):
-//     https://bip.um.gorzow.pl/system/pobierz.php?plik=Informacja_o_wyniku_przetargow_9-2026_z_16.04.2026.pdf&id=2cf2aa3fcd59798adbf4d77a4ec84cdc&stats=true
-//
-// Layout reality (why the strategies below):
-//
-//   * ANNOUNCEMENTS render as a 12-row table whose columns pdftotext interleaves
-//     vertically: the address, the description (area), and the price+wadium pair
-//     each appear ONCE PER ROW and IN ROW ORDER, but not on predictable lines.
-//     So parseAnnouncement collects each field sequence independently and zips
-//     them by index, validating counts + the cena/wadium ratio before trusting
-//     the price column. Verified for both poppler (CI) and xpdf output.
-//
-//   * RESULT notices are one-row-per-lot tables where every row has an "N."
-//     anchor line carrying the prices, with the address 1-2 lines above it.
-//     parseResultDoc splits the text into (prevAnchor, anchor] blocks and reads
-//     each block positionally: first big price = cena wywoławcza, second =
-//     cena osiągnięta.
-//
-//   * Some EZD-printed PDFs embed a diacritic font WITHOUT a ToUnicode map:
-//     whole words containing ą/ę/ł/ś/ż/ź/ć/ń are silently dropped by every
-//     extractor (poppler, xpdf, pypdf — verified). Keywords used here are
-//     chosen ASCII-safe ("przeprowadzon", "lokal mieszkaln", "wynikiem
-//     negatywnym") and month matching is prefix-based + diacritic-tolerant.
-//     Rows whose street name is dropped entirely (e.g. "     19/7") cannot be
-//     address-keyed and are skipped.
-//
-// See spike: spikes/lubuskie/gorzow-wielkopolski/gorzow-wielkopolski.md
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
-// ── Small shared helpers ─────────────────────────────────────────────────────
 
-/** Diacritic-fold + lowercase (xpdf drops some diacritics, poppler keeps them). */
 function fold(s) {
   return (s || '')
     .toLowerCase()
@@ -49,12 +11,6 @@ function fold(s) {
     .replace(/ś/g, 's').replace(/[żź]/g, 'z');
 }
 
-/**
- * Polish month token → 'MM', tolerant of missing diacritics
- * ("października" / xpdf "padziernika" both → '10').
- * @param {string} token
- * @returns {string|null}
- */
 export function monthNum(token) {
   const t = fold(token);
   if (/^sty/.test(t)) return '01';
@@ -72,46 +28,28 @@ export function monthNum(token) {
   return null;
 }
 
-// "39.000" / "1.100.000" → integer PLN (dot-thousands, no groszy in Gorzów docs)
 function plnFromDotted(s) {
   const n = Number(String(s).replace(/\./g, ''));
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// "19,43" → 19.43
 function parseArea(s) {
   const n = Number(String(s).replace(',', '.'));
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// Dot-thousands money ("39.000", "1.100.000"). Guards exclude:
-//   * udział fractions — "5.126/124.339" (slash-adjacent),
-//   * EZD ids — "351904.1032173.1205423" (digit/dot-adjacent),
-//   * dates — "12.02.2026" (needs exactly 3-digit groups).
 const MONEY_RE = /(?<![\d.,\/])(\d{1,3}(?:\.\d{3})+)(?![\d.\/]|\s*m\s*[²2?*])/g;
 
-// "lokal mieszkalny o pow. 19,43m2" — the per-row unit area phrase.
 const AREA_RE = /lokal\w*\s+mieszkaln\w*\s+o\s+pow\.?\s*(\d+(?:[.,]\d+)?)\s*m(?=[²2?*\s.,;]|$)/gi;
 
-// Street + building/apt address candidate: "Fabryczna 53/9", "Armii Polskiej 17/4",
-// "ul. Grobla 22/12". Requires a capitalised street word directly before the
-// slashed number, so parcel ids ("10-719/1"), KW numbers ("GW1G/00047313/2"),
-// udział fractions ("5.126/124.339") and SCHE ids never match.
 const ADDR_RE =
   /(?:^|[\s(>])((?:ul\.\s*)?(?:\d{1,2}\s+(?=(?:Maja|Stycznia|Lutego|Marca|Kwietnia|Czerwca|Lipca|Sierpnia|Września|Października|Listopada|Grudnia)\b))?\p{Lu}[\p{Ll}'.]+(?:\s+\p{Lu}[\p{Ll}'.]+){0,3})\s+(\d{1,3}[A-Za-z]?\/\d{1,3}[A-Za-z]?)(?![\d\/])/gmu;
 
-// Reject pseudo-streets whose last word is a document keyword ("Ogłoszenie Nr
-// 61/2025" → street candidate "Ogłoszenie Nr").
 const STREET_STOPWORDS = new Set([
   'nr', 'lp', 'kw', 'dz', 'obr', 'poz', 'ust', 'pkt', 'art', 'godz', 'pok',
   'tel', 'ul', 'ogloszenie', 'ogloszeniu', 'informacja', 'wlkp', 'ezd', 'sche',
 ]);
 
-/**
- * All flat-address candidates in text, in document order.
- * @param {string} text
- * @returns {Array<{raw:string, street:string, num:string}>}
- */
 export function extractFlatAddresses(text) {
   const out = [];
   ADDR_RE.lastIndex = 0;
@@ -126,7 +64,6 @@ export function extractFlatAddresses(text) {
   return out;
 }
 
-// ── Round (Polish ordinal word → number) ─────────────────────────────────────
 
 function stemToRound(word) {
   const w = fold(word);
@@ -141,15 +78,7 @@ function stemToRound(word) {
   return null;
 }
 
-// ── Dates ────────────────────────────────────────────────────────────────────
 
-/**
- * Batch auction date from an announcement body.
- * "Przetargi odbędą się 9 października 2025r." (xpdf: "Przetargi odbd si 9
- * padziernika 2025r." — hence the \S* tolerance).
- * @param {string} text
- * @returns {string|null} ISO date
- */
 export function auctionDateFromText(text) {
   const m = /przetargi?\s+odb\S*\s+si\S*\s+(\d{1,2})\s+(\S+)\s+(\d{4})/i.exec(text || '');
   if (!m) return null;
@@ -157,13 +86,6 @@ export function auctionDateFromText(text) {
   return mo ? `${m[3]}-${mo}-${String(m[1]).padStart(2, '0')}` : null;
 }
 
-/**
- * Auction date from a result body or a result-notice TITLE.
- * Body:  "przeprowadzonych dnia 5 lutego 2026 r."
- * Title: "przeprowadzonych w dniu 5 lutego 2026r. o godz.10 …"
- * @param {string} text
- * @returns {string|null} ISO date
- */
 export function resultDateFromText(text) {
   const m =
     /przeprowadzon\w*(?:\s+w)?\s+dni[au]\s+(\d{1,2})\s+(\S+)\s+(\d{4})/i.exec(text || '');
@@ -172,40 +94,17 @@ export function resultDateFromText(text) {
   return mo ? `${m[3]}-${mo}-${String(m[1]).padStart(2, '0')}` : null;
 }
 
-// ── Announcement parser ──────────────────────────────────────────────────────
 
-// End of the lot table / start of the boilerplate: "Lokale będące przedmiotem
-// przetargu przeznaczone są…" — ASCII-safe middle words used as the cutoff.
 const TABLE_END_RE = /przedmiotem\s+przetargu\s+przeznaczone/i;
 
-// Row anchor with the round-ordinal word: "1.   drugi   I – 21.08.2025r. …"
 const ANCHOR_ROUND_RE = /^\s{0,12}(\d{1,2})\.\s+(\S+)/gm;
 
-/**
- * Parse a Gorzów batch flat-sale announcement PDF (pdftotext -layout output)
- * into one record per flat.
- *
- * Strategy: addresses, unit areas ("lokal mieszkalny o pow. X,XXm2") and
- * cena/wadium pairs each occur exactly once per row and in row order in the
- * extracted text (verified for poppler and xpdf), so they are collected as
- * independent sequences and zipped by index. Areas/prices are only attached
- * when their counts match the address count AND every cena/wadium pair has a
- * plausible ratio (wadium 2–30% of cena) — otherwise they degrade to null
- * rather than risk cross-row misattribution.
- *
- * @param {string} text
- * @param {{ pdfUrl?: string, detailUrl?: string, fallbackAuctionDate?: string|null }} [ctx]
- * @returns {Array<object>}
- */
 export function parseAnnouncement(text, ctx = {}) {
   if (!text || !/lokal\w*\s+mieszkaln/i.test(text)) return [];
   const t = text.replace(/\r/g, '');
 
-  // Board date-2 ("Data i godzina przetargu") is authoritative when supplied;
-  // the body phrase is the fallback (useful for direct-PDF parses).
   const auction_date = ctx.fallbackAuctionDate || auctionDateFromText(t) || null;
 
-  // Restrict table-field scans to the lot table (before the boilerplate).
   const endM = TABLE_END_RE.exec(t);
   const table = endM ? t.slice(0, endM.index) : t;
 
@@ -215,7 +114,6 @@ export function parseAnnouncement(text, ctx = {}) {
 
   const areas = [...table.matchAll(AREA_RE)].map((m) => parseArea(m[1]));
 
-  // Money sequence must be exactly n (cena, wadium) pairs to be trusted.
   const moneys = [...table.matchAll(MONEY_RE)].map((m) => plnFromDotted(m[1]));
   let prices = null;
   if (moneys.length === 2 * n) {
@@ -233,7 +131,6 @@ export function parseAnnouncement(text, ctx = {}) {
     if (ok) prices = cands;
   }
 
-  // Rounds from the "N. <ordinal>" anchor lines, positioned by lp number.
   const rounds = [];
   ANCHOR_ROUND_RE.lastIndex = 0;
   let am;
@@ -262,53 +159,22 @@ export function parseAnnouncement(text, ctx = {}) {
   return out;
 }
 
-// ── Result parser ────────────────────────────────────────────────────────────
 
-/**
- * Guard: is this text a Gorzów result notice? ASCII-safe — survives both the
- * dropped-diacritics text layer and OCR output.
- * @param {string} text
- * @returns {boolean}
- */
 export function isResultNotice(text) {
   return /informacja\s+o\s+wynik/i.test(text || '') && /przetarg|rokowa/i.test(text || '');
 }
 
-/** "przetarg zakończył się wynikiem negatywnym" (also with dropped diacritics). */
 export function isNegative(text) {
   return /wynikiem\s+negatywnym|nie\s+odnotowano\s+wp[łl]at/i.test(text || '');
 }
 
-// Result row anchor: "1. …" at line start (lp column).
 const RESULT_ANCHOR_RE = /^\s{0,12}\d{1,2}\.\s/;
 
-/**
- * Parse a Gorzów result-notice PDF into concluded flat-auction records.
- *
- * Rows are anchored by "N." lines that carry the prices; the address sits 1-2
- * lines above its anchor. Blocks span (previous anchor, own anchor]. Only
- * blocks that contain BOTH a parseable street address with an apartment part
- * AND the phrase "lokal mieszkaln…" become records — land/commercial rows and
- * rows whose street name was dropped by the broken PDF font are skipped.
- *
- * Positional prices: first dot-thousands number in the block = cena
- * wywoławcza, second = cena osiągnięta (verified against the 05.02.2026
- * flats result: 181.000→215.000, 162.000→198.000).
- *
- * @param {string} text           pdftotext/OCR output
- * @param {string|null} fallbackDate  ISO date from the crawl ref (board title)
- * @param {string} sourceUrl      PDF URL (provenance)
- * @returns {Array<object>}
- */
 export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
   if (!text || !isResultNotice(text)) return [];
   const t = text.replace(/\r/g, '');
   const auction_date = resultDateFromText(t) || fallbackDate || null;
 
-  // Address positions delimit complete rows. The Lp marker is vertically
-  // centred in some tables and absent after OCR in others, so it is not a
-  // safe row boundary. Include a preceding subject line when it introduces
-  // this row's flat area before the address column starts.
   const addresses = extractFlatAddresses(t);
   const rows = addresses.map((candidate) => {
     const lineStart = t.lastIndexOf('\n', candidate.index - 1) + 1;
@@ -340,8 +206,6 @@ export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
 
     const moneyMatches = [...block.matchAll(MONEY_RE)]
       .filter((match) => !/\/\s*$/.test(block.slice(0, match.index)));
-    // A vertically wrapped ownership share can put its denominator on the
-    // next source line, interleaved with the address/description columns.
     const denominators = new Set();
     for (const fraction of block.matchAll(/(\d{1,3}(?:\.\d{3})+)\/\s*/g)) {
       const numerator = plnFromDotted(fraction[1]);

@@ -1,49 +1,3 @@
-// Pułtusk parser tests — groundtruthed against REAL fixtures fetched LIVE
-// from pultusk.pl (wp-json/wp/v2/posts, search + list endpoints) on
-// 2026-07-10. Every HTML fixture below is content.rendered exactly as WordPress
-// returned it (byte-for-byte, generated from the captured JSON — not
-// paraphrased); title/date/link are the same posts' real metadata.
-//
-//   FLAT pending (round III): https://pultusk.pl/ogloszenie-z-dnia-26-03-2026-r/
-//     "OGŁOSZENIE z dnia 26.03.2026 r. BURMISTRZ MIASTA PUŁTUSK OGŁASZA III PRZETARG USTNY NIEOGRANICZONY"
-//     ul. Na Skarpie 3/25, 73,00 m², 300 000,00 zł / wadium 30 000,00 zł,
-//     przetarg 05.05.2026, KW OS1U/00044602/6. Round is stated ONLY in the
-//     TITLE (the body never restates "ogłasza ... przetarg") — the real
-//     quirk that roundFromText's title fallback exists for.
-//
-//   LAND pending (round III, obręb 28, 2 bundled-parcel rows): https://pultusk.pl/ogloszenie-o-iii-przetargach/
-//     "OGŁOSZENIE O III PRZETARGACH"
-//     Row 1: działki 122/6+121/5, 0,0953 ha, 105 000,00 zł / wadium 10 000,00 zł.
-//     Row 2: działki 122/7+120/5, 0,1366 ha, 205 000,00 zł / wadium 20 000,00 zł.
-//     Price cells here are BARE numbers (no inline "zł"). Round stated in a
-//     body <h1>. Shares its two prior (higher-priced, failed) rounds' real
-//     announcement text with LAND_OBREB28_ROUND_I_INTRO/ROUND_II below.
-//
-//   LAND pending (round I, obręb 20, 3 single-parcel rows + a 7th "Decyzja o
-//   warunkach zabudowy" column the obręb-28 table doesn't have): https://pultusk.pl/ogloszenie-o-i-przetargu/
-//     "OGŁOSZENIE O I PRZETARGACH"
-//     58/18 0,0709 ha 262 000,00 zł / wadium 26 000,00 zł
-//     58/19 0,0725 ha 268 000,00 zł / wadium 26 000,00 zł
-//     58/20 0,0727 ha 268 500,00 zł / wadium 26 000,00 zł
-//     Price cells here carry an inline "zł" suffix + `&nbsp;` thousands sep —
-//     the opposite quirk from the obręb-28 table, both real.
-//
-//   LEASE (must be skipped — never reaches parseFlatAnnouncement): https://pultusk.pl/nabor-wnioskow-o-najem-lokalu-mieszkalnego-w-budynku-przy-al-tysiaclecia-2a/
-//     "Nabór wniosków o najem lokalu mieszkalnego w budynku przy Al. Tysiąclecia 2A"
-//     A municipal-flat rental application window, not a sale.
-//
-//   WYKAZ (excluded — no scheduled date, contract allows wykaz: []):
-//     "WYKAZ NIERUCHOMOŚCI PRZEZNACZONEJ DO SPRZEDAŻY POŁOŻONEJ W MIEJSCOWOŚCI GŁOWNO"
-//
-//   Real word-ordinal + "date before odbędzie się" fixture (round I
-//   predecessor of the Na Skarpie 3/25 flat above — no price table, so it
-//   never reaches parseFlatAnnouncement, but groundtruths roundFromText's
-//   word-ordinal branch + auctionDateFromText's 3rd fallback pattern):
-//   https://pultusk.pl/pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-przy-ul-na-skarpie-3-2/
-//     "Pierwszy przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego przy ul. Na Skarpie 3"
-//
-//   No results stream: "informacja o wyniku" searched live 2026-07-10 — 0
-//   relevant hits for property auctions (see parse.js file header).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -70,7 +24,6 @@ import {
   parseResultDoc,
 } from '../src/cities/pultusk/parse.js';
 
-// --------------------------------------------------------------- real fixtures
 
 const FLAT_URL = "https://pultusk.pl/ogloszenie-z-dnia-26-03-2026-r/";
 const FLAT_TITLE = "OGŁOSZENIE z dnia 26.03.2026 r. BURMISTRZ MIASTA PUŁTUSK OGŁASZA III PRZETARG USTNY NIEOGRANICZONY";
@@ -318,36 +271,15 @@ const LEASE_HTML = `
 
 const WYKAZ_TITLE = "WYKAZ NIERUCHOMOŚCI PRZEZNACZONEJ DO SPRZEDAŻY POŁOŻONEJ W MIEJSCOWOŚCI GŁOWNO";
 
-// Real captured intro-paragraph text (obręb 28, rounds I and II — the two
-// PRIOR, now-superseded rounds of the SAME land bundle LAND28_HTML is round
-// III of), used for roundFromText's 3 real body shapes: an <h1> heading
-// (LAND28/LAND20 above), a plain body PARAGRAPH (round I, below,
-// https://pultusk.pl/sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-obrebie-28-w-pultusku-ogloszenie/),
-// and an <h1> reached via a news-style write-up post (round II, below,
-// https://pultusk.pl/ii-przetargi-ustne-w-pultusku-nieruchomosci-gminne-na-sprzedaz/).
-// Derived programmatically (see gen-test.mjs) — not hand-transcribed.
 const LAND_OBREB28_ROUND_I_INTRO = "Burmistrz Miasta Pułtusk ogłasza I PRZETARGI USTNE NIEOGRANICZONE na sprzedaż nieruchomości niezabudowanych, położonych w obrębie 28 miasta Pułtusk, stanowiących własność Gminy Pułtusk, objętych księgą wieczystą KW nr 0S1U/00040080/2, wymienionych w poniższej tabeli:";
 const LAND_OBREB28_ROUND_II_INTRO = "OGŁOSZENIE z dnia 10.03.2026 r. BURMISTRZ MIASTA PUŁTUSK OGŁASZA II PRZETARGI USTNE NIEOGRANICZONE na sprzedaż nieruchomości niezabudowanych, położonych w obrębie 28 miasta Pułtusk, stanowiących własność Gminy Pułtusk, objętych księgą wieczystą KW nr 0S1U/00040080/2, wymienionych w poniższej tabeli:";
-// The SAME extraction (introText) applied to the two full-HTML fixtures
-// above, for a direct real-<h1>-heading round test (LAND28_HTML/LAND20_HTML
-// already prove this end-to-end via parseLandAnnouncements further down).
 const LAND_OBREB28_ROUND_III_INTRO = "OGŁOSZENIE z dnia 24.06.2026 r. BURMISTRZ MIASTA PUŁTUSK OGŁASZA III PRZETARGI USTNE NIEOGRANICZONE na sprzedaż nieruchomości niezabudowanych, położonych w obrębie 28 miasta Pułtusk, stanowiących własność Gminy Pułtusk, objętych księgą wieczystą KW nr 0S1U/00040080/2, wymienionych w poniższej tabeli:";
 const LAND_OBREB20_ROUND_I_INTRO = "OGŁOSZENIE z dnia 24.06.2026 r. BURMISTRZ MIASTA PUŁTUSK OGŁASZA I PRZETARGI USTNE NIEOGRANICZONE na sprzedaż nieruchomości niezabudowanych, położonych w obrębie 20 miasta Pułtusk, stanowiących własność Gminy Pułtusk, objętych księgą wieczystą KW nr 0S1U/00016474/4, wymienionych w poniższej tabeli:";
-// Real captured flat intro text + the "Opis lokalu" table cell — both
-// derived programmatically from FLAT_HTML (see gen-test.mjs), used for the
-// standalone aptFromText/streetBuildingFromText/areaFromDescCell unit tests.
 const FLAT_INTRO = "Na sprzedaż lokalu mieszkalnego nr 25 w budynku przy ulicy Na Skarpie 3 w Pułtusku wraz z udziałem w nieruchomości wspólnej, dla którego Sąd Rejonowy w Pułtusku IV Wydział Ksiąg Wieczystych prowadzi księgę wieczystą nr OS1U/00044602/6.";
 const FLAT_DESC_CELL = "Lokal mieszkalny o powierzchni 73,00 m 2 , mieści się na drugim piętrze w budynku przy ul. Na Skarpie 3 w Pułtusku.W skład lokalu mieszkalnego wchodzą cztery pokoje, kuchnia, przedpokój, łazienka i wc.";
 
-// Real captured text (stripped) of the round-I predecessor of Na Skarpie
-// 3/25 — a short announcement with NO price table (never reaches
-// parseFlatAnnouncement), used to groundtruth the word-ordinal round branch
-// + auctionDateFromText's "date BEFORE odbędzie się" fallback. Derived
-// programmatically (see gen-test.mjs) from the real captured content.rendered
-// — not hand-transcribed.
 const PIERWSZY_PRZETARG_TEXT = "Burmistrz Miasta Pułtusk niniejszym informuje, że w dniu 25.11.2025 r. o godz. 10 00 w siedzibie Urzędu Miejskiego w Pułtusku odbędzie się pierwszy przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego Nr 25 o powierzchni 73,00 m 2 w budynku przy ul. Na Skarpie 3. W skład lokalu mieszkalnego wchodzą cztery pokoje, kuchnia, przedpokój, łazienka i wc Szczegółowe informacje dotyczące przetargu dostępne są stronie: https://bip.pultusk.pl/kategorie/45-zawiadomienia-obwieszczenia-i-ogloszenia/artykuly/5220-ogloszenie-o-i-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-25-w-budynku-przy-ulicy-na-skarpie-3-w-pultusku?lang=PL Wydział Gospodarki Gruntami i Architektury";
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: space-thousands + grosze tail, with and without inline "zł"', () => {
   assert.equal(parsePLN('300 000,00'), 300000);
@@ -459,7 +391,6 @@ test('isLeaseTitle / isWykazTitle: real titles', () => {
   assert.equal(isWykazTitle(LAND28_TITLE), false);
 });
 
-// ----------------------------------------------------------------- table extraction
 
 test('extractTables + findPricedTable: real flat table (6 cols, "Opis lokalu" present)', () => {
   const tables = extractTables(FLAT_HTML);
@@ -488,7 +419,7 @@ test('extractTables: real land table (obręb 20) has 7 columns (extra "Decyzja o
   const tables = extractTables(LAND20_HTML);
   assert.equal(tables.length, 1);
   assert.equal(tables[0][0].length, 7);
-  assert.equal(tables[0].length, 4); // header + 3 parcel rows
+  assert.equal(tables[0].length, 4);
 });
 
 test('findPricedTable: no table -> null', () => {
@@ -496,7 +427,6 @@ test('findPricedTable: no table -> null', () => {
   assert.equal(findPricedTable(''), null);
 });
 
-// --------------------------------------------------------------- flat announcement
 
 test('parseFlatAnnouncement: Na Skarpie 3/25 round III — full record matches live data', () => {
   const post = { title: FLAT_TITLE, content: FLAT_HTML, date: FLAT_DATE, link: FLAT_URL };
@@ -528,7 +458,6 @@ test('parseFlatAnnouncement: null post -> null', () => {
   assert.equal(parseFlatAnnouncement(null), null);
 });
 
-// --------------------------------------------------------------- land announcements
 
 test('parseLandAnnouncements: obręb 28 round III — 2 bundled-parcel records, bare (no "zł") price cells', () => {
   const post = { title: LAND28_TITLE, content: LAND28_HTML, date: LAND28_DATE, link: LAND28_URL };
@@ -587,7 +516,6 @@ test('parseLandAnnouncements: null post -> []', () => {
   assert.deepEqual(parseLandAnnouncements(null), []);
 });
 
-// ------------------------------------------------------------- top-level dispatcher
 
 test('parseAnnouncementPost: routes the real flat post to a 1-element mieszkalny array', () => {
   const post = { title: FLAT_TITLE, content: FLAT_HTML, date: FLAT_DATE, link: FLAT_URL };
@@ -610,18 +538,11 @@ test('parseAnnouncementPost: the real LEASE post is skipped (isLeaseTitle guard)
 });
 
 test('parseAnnouncementPost: a WYKAZ-titled post is skipped (isWykazTitle guard) regardless of body content', () => {
-  // Real title (a real wykaz post genuinely does carry a priced table with no
-  // auction date — see WYKAZ_TITLE's post); body here is synthetic filler
-  // that deliberately WOULD parse as a priced flat/land table if the guard
-  // didn't fire first, to prove the title guard wins regardless of body.
   const post = { title: WYKAZ_TITLE, content: '<table><tr><td>Cena wywoławcza</td></tr><tr><td>301 000,00</td></tr></table>', date: '2026-06-30', link: 'https://pultusk.pl/wykaz-nieruchomosci-przeznaczonej-do-sprzedazy-polozonej-w-miejscowosci-glowno/' };
   assert.deepEqual(parseAnnouncementPost(post), []);
 });
 
 test('parseAnnouncementPost: unrelated news (real title, "OSTRZEŻENIE O SILNYM WIETRZE", 2026-07-08) -> []', () => {
-  // Body is synthetic filler (only the title was checked live) — the guard
-  // this proves is classifyKind returning something other than mieszkalny/
-  // grunt for ordinary city-news content, which doesn't depend on body text.
   const post = { title: 'OSTRZEŻENIE O SILNYM WIETRZE', content: '<p>ostrzeżenie meteorologiczne</p>', date: '2026-07-08', link: 'https://pultusk.pl/ostrzezenie-o-silnym-wietrze-8/' };
   assert.deepEqual(parseAnnouncementPost(post), []);
 });
@@ -630,7 +551,6 @@ test('parseAnnouncementPost: null post -> []', () => {
   assert.deepEqual(parseAnnouncementPost(null), []);
 });
 
-// ----------------------------------------------------------------------- result stub
 
 test('parseResultDoc: stub returns [] for any input (no achieved-price stream on pultusk.pl)', () => {
   assert.deepEqual(parseResultDoc('cena osiągnięta 350000 zł', '2026-07-30', 'https://example.com'), []);

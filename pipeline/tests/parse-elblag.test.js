@@ -1,29 +1,3 @@
-// Elbląg parser tests. Fixtures are condensed-but-faithful copies of REAL
-// extracted text, verified live 2026-07-16 against bip.elblag.eu:
-//   - attachment 14800 "2025-10-27 - Mickiewicza.pdf" — flat ANNOUNCEMENT
-//     (ul. Adama Mickiewicza 29/2, I przetarg, 160.000 zł, area 31,60 m2, obręb
-//     16 działka 355, auction 27.10.2025). `pdftotext -layout`.
-//   - attachment 17827 "Dębowa usługa.pdf" — a "nieruchomość zabudowana"
-//     ANNOUNCEMENT whose "Lokalizacja" line carries NO building number (ul.
-//     Dębowa, obręb 24 działka 238/2, 225.000 zł) — a real edge case the
-//     announcement parser must SKIP (address-keyed kinds need a resolvable
-//     building number to join on), not guess at. `pdftotext -layout`.
-//   - attachment 18396/18393 "informacja o wynikach przetargów -
-//     06.07.2026.doc" — a BATCH result document covering three properties
-//     decided the same day: ul. Legionów (I przetarg ograniczony, dz. 795/4,
-//     obręb 5, SOLD — single admitted bidder, wins at the cena wywoławcza
-//     50.500 zł, no recorded raise) and ul. Dębowa x2 (I przetarg
-//     nieograniczony, dz. 230/2 + 238/2, obręb 24, both UNSOLD — "Brak wpłaty
-//     wadium"). `catdoc -a -d utf-8`. This is the SAME document linked from
-//     both the Legionów and Dębowa detail pages (byte-identical attachments) —
-//     crawl.js dedupes by text so it is only parsed once per crawl.
-//   - attachment 18374 "ZPME nr 273_2026 - wersja edytowalna.pdf" — a REAL
-//     tenant-sale (bezprzetargowo) wykaz: "ZARZĄDZENIE NR 273/2026 …w sprawie
-//     … wykazu lokali mieszkalnych przeznaczonych do sprzedaży na rzecz
-//     najemców…" / "…sprzedaży w trybie bezprzetargowym na rzecz ich
-//     najemców…", carrying a bonifikata table (Ogrodowa 17/8, Giermków 22/5,
-//     Przyjaźni 21/1, …) with NO "cena wywoławcza" / "przetarg ustny" anywhere.
-//     Groundtruths the load-bearing bezprzetargowo exclusion. `pdftotext -layout`.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -47,15 +21,14 @@ import {
   parseResultDoc,
 } from '../src/cities/elblag/parse.js';
 
-// ------------------------------------------------------------------- helpers
 
 test('parsePLN: dot-thousands, trailing "zł", table dash placeholders', () => {
   assert.equal(parsePLN('160.000 zł'), 160000);
   assert.equal(parsePLN('225.000 zł'), 225000);
   assert.equal(parsePLN('2.043.200 zł'), 2043200);
   assert.equal(parsePLN('50.500'), 50500);
-  assert.equal(parsePLN('225.000,00'), 225000); // dot thousands + comma grosze
-  assert.equal(parsePLN('-----'), null); // "not applicable" table placeholder
+  assert.equal(parsePLN('225.000,00'), 225000);
+  assert.equal(parsePLN('-----'), null);
   assert.equal(parsePLN('------'), null);
   assert.equal(parsePLN(''), null);
   assert.equal(parsePLN(null), null);
@@ -85,7 +58,6 @@ test('ddmmyyyyToIso', () => {
   assert.equal(ddmmyyyyToIso('bad'), null);
 });
 
-// ----------------------------------------------------------- doc classifiers
 
 test('isAnnouncementDoc / isResultDoc / isBezprzetargowoDoc: mutually exclusive on real headers', () => {
   const ann = 'PREZYDENT MIASTA ELBLĄG\nogłasza\npierwszy ustny przetarg nieograniczony\nna sprzedaż nieruchomości lokalowej';
@@ -102,9 +74,6 @@ test('isAnnouncementDoc / isResultDoc / isBezprzetargowoDoc: mutually exclusive 
   assert.equal(isBezprzetargowoDoc(wykaz), true);
 });
 
-// ------------------------------------------------------- flat announcement (real)
-//
-// Condensed from attachment 14800 "2025-10-27 - Mickiewicza.pdf" (pdftotext -layout).
 
 const ANN_FLAT_MICKIEWICZA = `                                     PREZYDENT MIASTA ELBLĄG
                                                  ogłasza
@@ -154,7 +123,7 @@ test('parseAnnouncement: flat — address key, usable area, price, date, round, 
   });
   assert.ok(r, 'a record is returned');
   assert.equal(r.kind, 'mieszkalny');
-  assert.equal(r.address.key, 'adama mickiewicza|29|2'); // ← the result→announcement JOIN KEY
+  assert.equal(r.address.key, 'adama mickiewicza|29|2');
   assert.equal(r.address_raw, 'ul. Adama Mickiewicza 29/2');
   assert.equal(r.area_m2, 31.6, 'flat usable area, NOT the 3,3 m² cellar');
   assert.equal(r.starting_price_pln, 160000);
@@ -166,18 +135,10 @@ test('parseAnnouncement: falls back to PDF prose when HTML fields are absent', (
   const r = parseAnnouncement({ pdfText: ANN_FLAT_MICKIEWICZA });
   assert.ok(r);
   assert.equal(r.kind, 'mieszkalny');
-  assert.equal(r.starting_price_pln, 160000); // parsed from "Cena wywoławcza nieruchomości: 160.000 zł"
+  assert.equal(r.starting_price_pln, 160000);
   assert.equal(r.auction_date, '2025-10-27');
 });
 
-// --------------------------------------------------- building announcement (real, SKIP case)
-//
-// Condensed from attachment 17827 "Dębowa usługa.pdf". Real edge case: the
-// "Lokalizacja" line carries NO building number (a service-pavilion PLOT, not
-// an addressed building) — parseAnnouncement must return null for an
-// address-keyed kind it cannot join, not guess an address. Also exercises the
-// auctionDateFromText anchor against a DECOY "odbędzie się" earlier in the body
-// (an unrelated uzbrojenie/utilities sentence) that must NOT be picked up.
 
 const ANN_BUILDING_DEBOWA = `                                       PREZYDENT MIASTA ELBLĄG
                                 ogłasza pierwszy ustny przetarg nieograniczony
@@ -227,13 +188,6 @@ test('parseAnnouncement: no pdfText at all → null', () => {
   assert.equal(parseAnnouncement({}), null);
 });
 
-// --------------------------------------------------------- RESULT batch doc (real)
-//
-// Condensed (blank lines collapsed, matching parseResultDoc's own normalization)
-// from attachment 18396/18393 "informacja o wynikach przetargów -
-// 06.07.2026.doc" (catdoc -a -d utf-8). Real columns: Lp. | Adres | KW | Obręb |
-// Nr działki | Pow. w ha | Liczba dopuszczonych | Liczba niedopuszczonych |
-// Cena wywoławcza netto | Najwyższa zaoferowana cena netto | Nabywca.
 
 const RESULT_BATCH = `Informacja o wynikach przetargów przeprowadzonych w dniu 6 lipca 2026
 r.
@@ -280,14 +234,11 @@ test('parseResultDoc: batch doc expands into ONE RECORD PER ROW (3 properties, s
 
   const [legionow, debowa1, debowa2] = recs;
 
-  // Legionów — I przetarg OGRANICZONY, single admitted bidder: SOLD at the
-  // cena wywoławcza (no numeric "najwyższa cena" recorded — a real nuance of
-  // restricted auctions with exactly one qualified participant).
   assert.equal(legionow.kind, 'grunt');
   assert.equal(legionow.address_raw, 'ul. Legionów');
   assert.equal(legionow.dzialka_nr, '795/4');
   assert.equal(legionow.obreb, '5');
-  assert.equal(legionow.area_m2, 345); // 0,0345 ha
+  assert.equal(legionow.area_m2, 345);
   assert.equal(legionow.round, 1);
   assert.equal(legionow.starting_price_pln, 50500);
   assert.equal(legionow.final_price_pln, 50500);
@@ -295,21 +246,19 @@ test('parseResultDoc: batch doc expands into ONE RECORD PER ROW (3 properties, s
   assert.equal(legionow.auction_date, '2026-07-06');
   assert.ok(legionow.notes.length > 0, 'flags the single-bidder-at-wywoławcza inference');
 
-  // Dębowa działka 230/2 — I przetarg NIEOGRANICZONY, unsold (no wadium paid).
   assert.equal(debowa1.kind, 'grunt');
   assert.equal(debowa1.address_raw, 'ul. Dębowa');
   assert.equal(debowa1.dzialka_nr, '230/2');
   assert.equal(debowa1.obreb, '24');
-  assert.equal(debowa1.area_m2, 545); // 0,0545 ha
+  assert.equal(debowa1.area_m2, 545);
   assert.equal(debowa1.starting_price_pln, 145000);
   assert.equal(debowa1.final_price_pln, null);
   assert.equal(debowa1.outcome, 'unsold');
 
-  // Dębowa działka 238/2 — same round/day, different parcel, also unsold.
   assert.equal(debowa2.kind, 'grunt');
   assert.equal(debowa2.dzialka_nr, '238/2');
   assert.equal(debowa2.obreb, '24');
-  assert.equal(debowa2.area_m2, 1177); // 0,1177 ha
+  assert.equal(debowa2.area_m2, 1177);
   assert.equal(debowa2.starting_price_pln, 225000);
   assert.equal(debowa2.final_price_pln, null);
   assert.equal(debowa2.outcome, 'unsold');
@@ -324,16 +273,6 @@ test('parseResultDoc: missing/empty text → []', () => {
   assert.deepEqual(parseResultDoc(null, null, 'u'), []);
 });
 
-// ------------------------------------------------ bezprzetargowo (tenant-sale) exclusion
-//
-// THE load-bearing correctness requirement for this city (see spike + config.js).
-// Condensed from a REAL wykaz notice: attachment 18374 "ZPME nr 273_2026 -
-// wersja edytowalna.pdf" (pdftotext -layout), fetched from
-// bip.elblag.eu/artykul/191/10430/... (the "Wykaz nieruchomości - zbycie"
-// board — a board this adapter's crawler never visits; this fixture proves the
-// SECOND, explicit layer of defense: even if such a document's text ever
-// reached parseAnnouncement/parseResultDoc, it is rejected, not misread as a
-// real auction).
 
 const TENANT_SALE_WYKAZ = `                                    ZARZĄDZENIE NR 273/2026
                                   PREZYDENTA MIASTA ELBLĄG

@@ -1,28 +1,3 @@
-// Strzelce Opolskie (GZMK, gzmk.pl) parser tests. Fixtures are condensed-but-
-// faithful copies of REAL notice pages fetched live from gzmk.pl (this Pi,
-// 2026-07-12), wrapped in the site's actual fast4net article shell
-// (<div id="text_content"> with <div class="mar3"><b>Label:</b></div> /
-// <div class="mar10">value</div> field pairs, an inline "ZAWIADOMIENIE"
-// prose result block on concluded notices, then <div class="table_file"> and
-// the <div id="div_up"> registry). Every sentence/value that feeds a parsed
-// field (status, address, parcel, area, price, date, round, outcome) is kept
-// verbatim; long non-load-bearing boilerplate (zoning notes, wadium-handling
-// procedure, KW/notarial clauses) is trimmed.
-//
-// Groundtruth (hand-verified against the live pages; ids are the gzmk.pl
-// article ids in the `,14,<id>` URL tail):
-//   x,14,1000 Kalinowice dz. 294/7 (grunt) — LIVE announce, Status: ogłoszony,
-//             0,1660 ha, cena wyw. 110 000 zł netto, auction 12.08.2026, round I
-//   x,14,900  Krakowska 13/6 (lokal mieszkalny nr 6, 46,42 m²) — round I,
-//             cena wyw. 180 000 zł, auction 12.07.2023, INLINE result negatywny
-//   x,14,911  Krakowska 13/6 — round II (18.09.2023), INLINE result negatywny;
-//             the SAME flat as round I → must key identically (krakowska|13|6)
-//   x,14,986  Szymiszów dz. 861/1 (grunt) — round I (15.01.2026), INLINE result
-//             SOLD "za cenę 90.000 zł" (cena wyw. 85 000 → osiągnięta 90 000)
-//   x,14,985  Grodzisko dz. 174/2 (grunt, przetarg OGRANICZONY) — SOLD 3.300 zł
-//   x,14,991  Rozmierka ul. Strzelecka 33 (zabudowana) — round I (27.05.2026),
-//             INLINE result negatywny (żadne wadium)
-//   x,14,992  Kalinowice dz. 294/7 (grunt) — round I (12.05.2026), negatywny
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -40,11 +15,7 @@ import {
   parseResultDoc,
 } from '../src/cities/strzelce-opolskie/parse.js';
 
-// --------------------------------------------------------------- fixtures
 
-// Reproduce the real fast4net article shell: the ordered mar3/mar10 field pairs
-// inside <div id="text_content">, an optional prose block, then the attachment
-// table + registry footer (carrying "Informację wprowadził(a): … (DATE …)").
 function gzmkPage({ title, fields, prose = '', pubDate = '2026-01-01' }) {
   const rows = [`<div class="mar10"><b>${title}</b></div>`];
   for (const [label, value] of fields) {
@@ -69,7 +40,6 @@ ${rows.join('\n')}
 </div></body></html>`;
 }
 
-// x,14,1000 — LIVE land announcement (Status: ogłoszony), no result yet.
 const KALINOWICE_LIVE = gzmkPage({
   title: 'I ustny przetarg nieograniczony na sprzedaż działki budowlanej położonej w Kalinowicach',
   fields: [
@@ -87,7 +57,6 @@ const KALINOWICE_LIVE = gzmkPage({
   pubDate: '2026-07-01',
 });
 
-// x,14,900 — flat, round I, INLINE negative result.
 const KRAKOWSKA1 = gzmkPage({
   title: 'I ustny przetarg nieograniczony na sprzedaż lokalu mieszkalnego nr 6 położonego w budynku przy ul. Krakowskiej 13 w Strzelcach Opolskich',
   fields: [
@@ -106,7 +75,6 @@ const KRAKOWSKA1 = gzmkPage({
   pubDate: '2023-06-07',
 });
 
-// x,14,911 — the SAME flat, round II, negative (must key identically).
 const KRAKOWSKA2 = gzmkPage({
   title: 'II ustny przetarg nieograniczony na sprzedaż lokalu mieszkalnego przy ul. Krakowskiej 13/6 w Strzelcach Op.',
   fields: [
@@ -125,7 +93,6 @@ const KRAKOWSKA2 = gzmkPage({
   pubDate: '2023-08-16',
 });
 
-// x,14,986 — land, round I, INLINE SOLD result ("za cenę 90.000 zł").
 const SZYMISZOW = gzmkPage({
   title: 'I ustny przetarg nieograniczony na sprzedaż działki nr 861/1 położonej w Szymiszowie',
   fields: [
@@ -144,7 +111,6 @@ const SZYMISZOW = gzmkPage({
   pubDate: '2025-12-09',
 });
 
-// x,14,985 — land, restricted tender (przetarg ograniczony), INLINE SOLD.
 const GRODZISKO = gzmkPage({
   title: 'I ustny przetarg ograniczony na sprzedaż działki nr 174/2 położonej w Grodzisku',
   fields: [
@@ -163,7 +129,6 @@ const GRODZISKO = gzmkPage({
   pubDate: '2025-12-08',
 });
 
-// x,14,991 — whole built property (zabudowana), round I, negative.
 const ROZMIERKA = gzmkPage({
   title: 'I ustny przetarg nieograniczony na sprzedaż nieruchomości zabudowanej położonej w Rozmierce przy ul. Strzeleckiej 33 (byłe przedszkole)',
   fields: [
@@ -182,7 +147,6 @@ const ROZMIERKA = gzmkPage({
   pubDate: '2026-04-15',
 });
 
-// x,14,992 — land, round I, negative.
 const KALINOWICE_NEG = gzmkPage({
   title: 'I ustny przetarg nieograniczony na sprzedaż nieruchomości gminnej położonej w Kalinowicach',
   fields: [
@@ -201,7 +165,6 @@ const KALINOWICE_NEG = gzmkPage({
   pubDate: '2026-04-09',
 });
 
-// -------------------------------------------------------------- unit funcs
 
 test('parsePLN: space-thousands (netto price) and dot-thousands (inline hammer price)', () => {
   assert.equal(parsePLN('110 000,00'), 110000);
@@ -219,10 +182,10 @@ test('parseArea: comma/dot decimal separators (ha and m²)', () => {
 });
 
 test('parseDateText: nominative structured month, genitive prose month, numeric', () => {
-  assert.equal(parseDateText('12 sierpień 2026'), '2026-08-12'); // nominative (structured field)
+  assert.equal(parseDateText('12 sierpień 2026'), '2026-08-12');
   assert.equal(parseDateText('18 wrzesień 2023, 10:00'), '2023-09-18');
-  assert.equal(parseDateText('15 stycznia 2026r.'), '2026-01-15'); // genitive (prose)
-  assert.equal(parseDateText('12.07.2023r.'), '2023-07-12'); // numeric
+  assert.equal(parseDateText('15 stycznia 2026r.'), '2026-01-15');
+  assert.equal(parseDateText('12.07.2023r.'), '2023-07-12');
   assert.equal(parseDateText('brak daty'), null);
 });
 
@@ -249,7 +212,6 @@ test('extractOutcome: sold ("za cenę …"), negative ("wynikiem negatywnym"/"ż
   assert.equal(extractOutcome(extractTextContent(KALINOWICE_LIVE)).outcome, 'open');
 });
 
-// ---------------------------------------------------------- parseNotice (announcements)
 
 test('parseNotice: Kalinowice dz. 294/7 (x,14,1000) — LIVE land announce, grunt, parcel-keyed, ha→m², nominative-month date', () => {
   const r = parseNotice(KALINOWICE_LIVE, 'https://gzmk.pl/bw/x,14,1000');
@@ -258,7 +220,7 @@ test('parseNotice: Kalinowice dz. 294/7 (x,14,1000) — LIVE land announce, grun
   assert.equal(r.address, null);
   assert.equal(r.dzialka_nr, '294/7');
   assert.equal(r.obreb, 'Kalinowice');
-  assert.equal(r.area_m2, 1660); // 0,1660 ha × 10000
+  assert.equal(r.area_m2, 1660);
   assert.equal(r.starting_price_pln, 110000);
   assert.equal(r.auction_date, '2026-08-12');
   assert.equal(r.round, 1);
@@ -272,7 +234,7 @@ test('parseNotice: Krakowska 13/6 round I (x,14,900) — flat classified from BO
   assert.equal(r.address.building, '13');
   assert.equal(r.address.apt, '6');
   assert.equal(r.address.key, 'krakowska|13|6');
-  assert.equal(r.area_m2, 46.42); // prose "pow. użytkowej 46,42 m²", NOT the parcel share
+  assert.equal(r.area_m2, 46.42);
   assert.equal(r.starting_price_pln, 180000);
   assert.equal(r.auction_date, '2023-07-12');
   assert.equal(r.round, 1);
@@ -295,13 +257,12 @@ test('parseNotice: Rozmierka ul. Strzelecka 33 (x,14,991) — whole built proper
   assert.equal(r.address.building, '33');
   assert.equal(r.address.apt, null);
   assert.equal(r.address.key, 'strzelecka|33|');
-  assert.equal(r.area_m2, 467); // 0,0467 ha × 10000
+  assert.equal(r.area_m2, 467);
   assert.equal(r.starting_price_pln, 530000);
   assert.equal(r.auction_date, '2026-05-27');
   assert.equal(r.round, 1);
 });
 
-// ----------------------------------------------------------- parseResultDoc
 
 test('parseResultDoc: Szymiszów dz. 861/1 (x,14,986) — INLINE SOLD land, parcel-keyed, hammer price 90 000 > starting 85 000', () => {
   const [r] = parseResultDoc(SZYMISZOW, null, 'https://gzmk.pl/bw/x,14,986');

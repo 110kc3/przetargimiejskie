@@ -1,23 +1,3 @@
-// Sępólno Krajeńskie crawler — single board on the extranet "BIP w JST" CMS
-// bip.gmina-sepolno.pl (see config.js for the full rationale).
-//
-//   harvestNotices() [memoized] — crawls the Przetargi board /657/405 (paginated
-//     ?Page=N, bounded), then fetches + parses each notice page ONCE. Shared by
-//     both entry points so one refresh run fetches each notice HTML a single time.
-//
-//   crawlActive() — sale notices, address-keyed kinds only (flats/commercial/
-//     garaż/built): metadata + title drive kind/round/price/date/address; the
-//     ogłoszenie PDF fills area_m2 (the one DEEP field). Land (działki/grunt)
-//     and lease (dzierżawa) are detected and skipped (see config.js scope note).
-//     Returns { listings, wykaz: [], land: [] }.
-//
-//   crawlResultDocs() — sale notices carrying an "informacja o wyniku przetargu"
-//     PDF: extract its text (pdfText, born-digital → NEVER OCR) and return refs
-//     with ref.text (source:'html' → refresh.js reads ref.text directly).
-//     Returns Array<{ text, pdf_url, auction_date }>.
-//
-// All fetches use a browser UA + insecureTLS (the host ships an incomplete cert
-// chain — core/fetch.js handles it; we invent no new mechanism).
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -26,29 +6,19 @@ import { parseNotice, areaFromAnnouncement, parseResultDoc } from './parse.js';
 
 const PORTAL = 'https://bip.gmina-sepolno.pl';
 const BOARD = `${PORTAL}/657/przetargi.html`;
-const BOARD_DOCID = '657'; // the board's own self-link — never a notice
-const MAX_PAGES = 6; // observed ~2 pages; a safety bound for growth
+const BOARD_DOCID = '657';
+const MAX_PAGES = 6;
 
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA, insecureTLS: true };
 
-// Address-keyed kinds we emit as listings; grunt (parcel-keyed land) is skipped
-// in v1 (compound multi-parcel notices — see config.js).
 const LISTING_KINDS = new Set(['mieszkalny', 'zabudowana', 'uzytkowy', 'garaz']);
 
-/**
- * Extract notice-detail links from one board-index page.
- * Notice URL: /<docid>/<slug>.html; the historical /405/ category segment is
- * also accepted (absolute or root-relative). Skips the
- * board's own self-link (docid 657 / slug "przetargi.html").
- * @param {string} html @returns {Array<{docid:string, url:string}>}
- */
 export function parseBoardLinks(html) {
   const out = [];
   const seen = new Set();
   // Scope to board-card titles. Once /405/ disappeared, a global href scan
-  // also matched hundreds of navigation pages that merely share /<id>/<slug>.
   const re = /<div[^>]*class="cct-item__name"[^>]*>\s*<a href="((?:https?:\/\/[^"]+)?\/(\d+)\/(?:405\/)?([^"]+\.html))"/gi;
   let m;
   while ((m = re.exec(html)) !== null) {
@@ -64,12 +34,10 @@ export function parseBoardLinks(html) {
   return out;
 }
 
-// ---------------------------------------------------------------- harvest (memoized)
 
 let noticesPromise = null;
 
 async function harvestNotices() {
-  // 1. Paginate the board, collecting unique notice links.
   const links = [];
   const seen = new Set();
   for (let page = 1; page <= MAX_PAGES; page++) {
@@ -89,11 +57,10 @@ async function harvestNotices() {
       links.push(l);
       added++;
     }
-    if (added === 0) break; // no new notices on this page — stop paginating
+    if (added === 0) break;
   }
   console.error(`  sepolno-krajenskie: ${links.length} notice link(s) across board`);
 
-  // 2. Fetch + parse each notice page once.
   const notices = [];
   for (const l of links) {
     let html;
@@ -113,7 +80,6 @@ function getNotices() {
   return noticesPromise;
 }
 
-// ---------------------------------------------------------------- crawlActive
 
 export async function crawlActive() {
   const notices = await getNotices();
@@ -121,9 +87,8 @@ export async function crawlActive() {
 
   for (const n of notices) {
     if (!n.is_sale) continue;
-    if (!LISTING_KINDS.has(n.kind)) continue; // grunt/unknown → skipped (see config.js)
+    if (!LISTING_KINDS.has(n.kind)) continue;
 
-    // area_m2 (the one deep field) from the born-digital ogłoszenie PDF.
     let area_m2 = null;
     if (n.announcementPdf) {
       try {
@@ -150,7 +115,6 @@ export async function crawlActive() {
   return { listings, wykaz: [], land: [] };
 }
 
-// ---------------------------------------------------------------- crawlResultDocs
 
 export async function crawlResultDocs() {
   const notices = await getNotices();
@@ -172,7 +136,6 @@ export async function crawlResultDocs() {
   return refs;
 }
 
-// ---------------------------------------------------------------- CLI smoke test
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();

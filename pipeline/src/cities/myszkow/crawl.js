@@ -1,6 +1,3 @@
-// Crawler for Myszków (bip.miastomyszkow.pl)
-//
-// Scrapes BIPv2 tender categories and digital text PDFs from bip-api.miastomyszkow.pl.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

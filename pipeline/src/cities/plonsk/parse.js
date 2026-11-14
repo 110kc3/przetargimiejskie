@@ -1,14 +1,3 @@
-// Parsers for Płońsk municipal property announcements and result notices.
-//
-// BIP host: umplonsk.bip.org.pl (bip.org.pl network CMS).
-// Notices live inside attachments (mixed .docx and born-digital / scanned .pdf).
-//
-// Groundtruthed against real municipal documents (2021–2026):
-//   - ul. Młodzieżowa 23/4 (2026 announcement & result notice, unsold)
-//   - ul. Północna 10/22 (2023 announcement & result notice, sold 185 090 zł)
-//   - Pl. 15-go Sierpnia 2 (2024 share announcement & result notice, sold 253 448 zł)
-//   - ul. Zduńska 8a (2023 house announcement & result notice, sold 186 605 zł)
-//   - ul. Rzemieślnicza (2026 active land auction, round 2, 2026-11-20)
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -28,7 +17,6 @@ const PL_MONTHS = {
   grudnia: '12', grudzien: '12',
 };
 
-// Urząd Miejski w Płońsku office addresses to exclude from property matching
 const OFFICE_STREETS_RE = /\b(?:Płocka|Plocka|1[- ]go\s+Maja|1\s+Maja)\b/i;
 
 export function htmlToText(html) {
@@ -44,7 +32,6 @@ export function htmlToText(html) {
     .trim();
 }
 
-/** Parses Polish date strings (e.g. "20 marca 2026", "15.12.2023") into ISO YYYY-MM-DD. */
 export function parseDate(str) {
   if (!str) return null;
   const s = str.trim();
@@ -60,7 +47,6 @@ export function parseDate(str) {
   return null;
 }
 
-/** Parses Polish currency strings into integer PLN (e.g. "183.250,00 zł" -> 183250). */
 export function parsePLN(str) {
   if (!str) return null;
   const clean = String(str).replace(/\s*z[łl]\.?$/i, '').trim();
@@ -73,14 +59,12 @@ export function parsePLN(str) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/** Parses decimal area strings into float m² (e.g. "22,91" -> 22.91). */
 export function parseArea(str) {
   if (!str) return null;
   const n = Number(String(str).trim().replace(/\s/g, '').replace(',', '.'));
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/** Nominative normalization for Płońsk street adjectives. */
 export function normalizeStreetName(street) {
   if (!street) return street;
   let s = street.trim();
@@ -96,14 +80,12 @@ export function normalizeStreetName(street) {
   return s;
 }
 
-/** Discriminator: true if document or title represents a tender outcome / result notice. */
 export function isResultDoc(title, text) {
   const t = `${title || ''} ${text || ''}`;
   if (/wyni?k/i.test(title || '')) return true;
   return /informacj\w*\s+o\s+wynik|zako[ńn]czy[łl]\s+si[ęe]\s+wynikiem/i.test(t);
 }
 
-/** Discriminator: true if document represents a tender announcement (not result or qualification list). */
 export function isAnnouncementDoc(title, text) {
   if (isResultDoc(title, text)) return false;
   const t = `${title || ''} ${text || ''}`;
@@ -111,7 +93,6 @@ export function isAnnouncementDoc(title, text) {
   return /przetarg|og[łl]oszenie/i.test(t);
 }
 
-/** Extracts tender round number (1, 2, 3...) from title or text. */
 export function roundFromText(text) {
   if (!text) return null;
   const t = text.toLowerCase().replace(/[-_]/g, ' ');
@@ -124,7 +105,6 @@ export function roundFromText(text) {
   return null;
 }
 
-/** Extracts auction date from text. */
 export function auctionDateFromText(text) {
   if (!text) return null;
   let m = /(?:odby[łl]\s+si[ęe]\s+w\s+dniu|wyznaczonego\s+na\s+dzie[ńn]|odb[ęe]dzie\s+si[ęe]\s+w\s+dniu)\s+(\d{1,2}\s+[a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ]+\s+\d{4}|\d{1,2}[.\-]\d{1,2}[.\-]\d{4})/i.exec(text);
@@ -140,7 +120,6 @@ export function auctionDateFromText(text) {
   return null;
 }
 
-/** Extracts starting price (cena wywoławcza) from text. */
 export function startingPriceFromText(text) {
   if (!text) return null;
   let m = /cena\s+wywo[łl]awcza[\s\S]{0,100}?wynios[łl]a?[\s\S]{0,30}?([\d\s.,]+)\s*z[łl]/i.exec(text);
@@ -156,7 +135,6 @@ export function startingPriceFromText(text) {
   return null;
 }
 
-/** Extracts achieved price (cena osiągnięta) from result notice text. */
 export function achievedPriceFromText(text) {
   if (!text) return null;
   const m = /(?:najwy[żz]sza\s+)?cena\s+osi[ąa]gni[ęe]ta\s+w\s+przetargu\s*(?:wynios[łl]a)?\s*[:\-–]?\s*([\d\s.,]+)\s*z[łl]/i.exec(text);
@@ -166,7 +144,6 @@ export function achievedPriceFromText(text) {
   return null;
 }
 
-/** Outcome extractor for result notices. */
 export function outcomeFromText(text) {
   if (!text) return { outcome: 'unknown', reason: null };
   if (/wynikiem\s+negatywnym|nie\s+wy[łl]oniono\s+nabywcy/i.test(text)) {
@@ -184,7 +161,6 @@ export function outcomeFromText(text) {
   return { outcome: 'unknown', reason: null };
 }
 
-/** Buyer extractor for positive-outcome result notices. */
 export function buyerFromText(text) {
   if (!text) return null;
   const m = /nabywc[aą]\s+(?:ww\.?\s+)?[^.\n]*?(?:zostali|zosta[łl][aoy]?|ustalono)\s*:?\s*([^\n]+)/i.exec(text);
@@ -195,7 +171,6 @@ export function buyerFromText(text) {
   return null;
 }
 
-/** Unit usable area in m² (powierzchnia użytkowa). */
 export function unitAreaFromText(text) {
   if (!text) return null;
   const m = /pow\.?\s*u[żz]ytk\w*\.?\s*:?\s*([\d]+[,.]\d+)\s*m/i.exec(text);
@@ -211,7 +186,6 @@ export function unitAreaFromText(text) {
   return null;
 }
 
-/** Plot area in m² from ha or m² (for land or total property plot). */
 export function plotAreaFromText(text) {
   if (!text) return null;
   const ha = /o\s+pow(?:ierzchni)?\w*\.?\s*([\d]+[,.]\d+)\s*ha\b/i.exec(text);
@@ -227,7 +201,6 @@ export function plotAreaFromText(text) {
   return null;
 }
 
-/** Cadastral parcel number (działka nr ...). */
 export function parcelFromText(text) {
   if (!text) return null;
   const m = /dzia[łl]k\w*\s+(?:ewidencyjn\w+\s+|ew\.\s+)?(?:nr\.?|numer\w*)\s*([\d]+(?:\/\d+)?)/i.exec(text)
@@ -235,14 +208,12 @@ export function parcelFromText(text) {
   return m ? m[1].trim() : null;
 }
 
-/** Cadastral precinct (obręb ...). */
 export function obrebFromText(text) {
   if (!text) return null;
   const m = /obr[ęe]b\w*\s+(\d{2,4}|[A-ZŻŹĆŁŚĄĘÓŃ][a-zżźćłśąęóń]+)/i.exec(text);
   return m ? m[1].trim() : null;
 }
 
-/** Fractional share in property (e.g. '1/2'). */
 export function shareFromText(text) {
   if (!text) return null;
   if (/udzia[łl]\s+½/i.test(text)) return '1/2';
@@ -251,7 +222,6 @@ export function shareFromText(text) {
   return m ? `${m[1]}/${m[2]}` : null;
 }
 
-/** Street name extraction for land records. */
 export function landStreetFromText(text) {
   if (!text) return null;
   const m = /(?:przy|w\s+rejonie|po[łl]o[żz]on\w+\s+przy)\s+ul(?:icy)?\.?\s+([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ.\- ]+?)(?=[,\s\n;]|\s+w\s+Płońsku|\s+obr[ęe]b|\s+oznaczon|$)/i.exec(text);
@@ -261,15 +231,9 @@ export function landStreetFromText(text) {
   return null;
 }
 
-/**
- * Extracts property address (flat or building) from notice title and body.
- * Normalizes Polish adjectival street names to nominative form.
- * Excludes UM office street references (Płocka 39, 1-go Maja).
- */
 export function addressFromText(title, text) {
   const combined = `${title || ''}\n${text || ''}`.replace(/_/g, ' ');
 
-  // 1. Plac 15 Sierpnia / Pl. 15-go Sierpnia (also matches OCR artifact 'PI.')
   const mPlac = /(?:przy\s+|w\s+)?(?:p[li]\.?|plac(?:u)?)\s*(?:nr\s*)?(15(?:\s*-\s*go)?\s+sierpnia)\s+(\d+[A-Za-z]?)/i.exec(combined);
   if (mPlac) {
     const raw = `Pl. 15-go Sierpnia ${mPlac[2]}`;
@@ -277,12 +241,10 @@ export function addressFromText(title, text) {
     if (parsed) return { raw, parsed };
   }
 
-  // 2. Unit number if present in text or title
   let apt = null;
   const mUnit = /(?:lokal(?:u|e|em)?(?:\s+mieszkaln\w+)?|\bm\.)\s*(?:nr|oznaczony\s+nr)?\s*(\d+[A-Za-z]?)/i.exec(combined);
   if (mUnit) apt = mUnit[1];
 
-  // 3. Street + building
   const mStreet = /(?:przy\s+ul(?:icy)?\.?\s+|ul\.\s+|ulicy\s+)([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ.\- ]+?)\s+(\d+[A-Za-z]?)(?:\/(\d+[A-Za-z]?))?(?=[,\s\n]|$)/i.exec(combined);
   if (mStreet) {
     const streetCandidate = mStreet[1].trim();
@@ -298,9 +260,6 @@ export function addressFromText(title, text) {
   return null;
 }
 
-/**
- * Parses an announcement document into an active listing or land record.
- */
 export function parseAnnouncement(title, text, sourceUrl, detailUrl, publishedDate) {
   const t = text || '';
   const kind = classifyKind(t || title);
@@ -353,10 +312,6 @@ export function parseAnnouncement(title, text, sourceUrl, detailUrl, publishedDa
   };
 }
 
-/**
- * Parses a tender result document ("Informacja o wyniku przetargu").
- * Returns an array of result records.
- */
 export function parseResultDoc(text, fallbackAuctionDate, sourceUrl) {
   if (!text) return [];
   const t = text.replace(/\r/g, '');

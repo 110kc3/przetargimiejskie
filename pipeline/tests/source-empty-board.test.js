@@ -4,8 +4,6 @@ import { readFileSync } from 'node:fs';
 import { crawlActive as crawlWschowa } from '../src/cities/wschowa/crawl.js';
 import { crawlActive as crawlZagan, parseBoardPage } from '../src/cities/zagan/crawl.js';
 
-// Active-board regions (line endings/trailing blanks normalized), fetched on
-// 2026-10-19: Wschowa /przetargi/29/status/0/, Żagań /przetargi/344/status/0/.
 const fixture = (city) => readFileSync(new URL(`./fixtures/remediation/${city}-active-20261019.html`, import.meta.url), 'utf8');
 
 test('Wschowa accepts the official explicit empty response for each active asset stream', async () => {

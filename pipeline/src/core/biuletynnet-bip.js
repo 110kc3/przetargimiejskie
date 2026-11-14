@@ -152,11 +152,9 @@ export function parseBiuletynNetNotice(html, url, defaultCityLabel = '') {
 
   const fullText = `${title} ${content}`;
 
-  // Parcel extraction
   const parcelMatch = fullText.match(/(?:działk[a-ząćęłńóśźż]*\s+(?:ewidencyjn[a-ząćęłńóśźż]*\s+)?(?:nr\s*)?|dz\.\s*nr\s*|nr\s+geod\.\s*)([0-9]+(?:\/[0-9]+)?)/i);
   const parcel = parcelMatch ? parcelMatch[1] : null;
 
-  // Area extraction
   let area = null;
   const areaM2 = fullText.match(/(\d+(?:[.,]\d+)?)\s*(?:m2|m²)/i);
   if (areaM2) {
@@ -166,11 +164,9 @@ export function parseBiuletynNetNotice(html, url, defaultCityLabel = '') {
     if (areaHa) area = Math.round(parseFloat(areaHa[1].replace(',', '.')) * 10000);
   }
 
-  // Price extraction
   const priceMatch = fullText.match(/(?:cena wywoławcza|wywoławcza|cena)\s*(?::|-)?\s*([0-9\s]+(?:[.,][0-9]{2})?)\s*(?:zł|pln)/i);
   const price = priceMatch ? parsePrice(priceMatch[0]) : parsePrice(fullText);
 
-  // Auction date extraction
   const dateMatch = fullText.match(/(?:odbędzie się|termin przetargu|w dniu|dnia)\s*(?::|-)?\s*([0-9]{1,2}[.\s][0-9a-ząćęłńóśźż]+[.\s][0-9]{4})/i);
   const auctionDate = dateMatch ? parsePlDate(dateMatch[1]) : null;
 

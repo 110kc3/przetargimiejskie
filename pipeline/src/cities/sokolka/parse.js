@@ -1,6 +1,3 @@
-// Parser for Sokółka auction notices and results (bip-umsokolka.podlaskie.eu)
-//
-// Handles Podlaskie platform notices and attached PDF files.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';

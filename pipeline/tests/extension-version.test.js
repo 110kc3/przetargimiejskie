@@ -1,10 +1,3 @@
-// Version-lockstep guard for the extension.
-//
-// CLAUDE.md requires extension/manifest.json `version` and the
-// extension/popup.html `<span class="version">vX.Y.Z</span>` to always match —
-// Chrome reads the manifest, the user only ever sees the popup label, so any
-// drift makes the popup misreport which build is installed. It's a manual
-// dual-write today; this turns a drift into a CI failure (runs in `npm test`).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -29,8 +22,6 @@ test('manifest.json and popup.html declare the same version', () => {
 });
 
 test('CHANGELOG.md top entry matches the manifest version', () => {
-  // The popup version label is the only number a user sees, so CHANGELOG's
-  // newest header is the answer to "what did this update do?" — keep it in sync.
   const manifestVersion = JSON.parse(readFileSync(ext('manifest.json'), 'utf8')).version;
   const changelog = readFileSync(fileURLToPath(new URL('../../CHANGELOG.md', import.meta.url)), 'utf8');
   const m = /^##\s+v(\d+\.\d+\.\d+)\b/m.exec(changelog);

@@ -1,5 +1,3 @@
-// Adapter entry point for Działdowo (powiat działdowski, Warmińsko-Mazurskie)
-// BIP: https://bip.dzialdowo.eu
 
 import config from './config.js';
 import { crawlActive, crawlResultDocs, parseResultDoc } from './crawl.js';

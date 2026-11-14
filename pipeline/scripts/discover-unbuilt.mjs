@@ -22,7 +22,6 @@ async function hostResolves(host) {
 }
 
 async function findPlatform(city) {
-  // 1. If spike exists, try detectCityPlatform first
   const detected = await detectCityPlatform(city);
   if (detected) return detected;
 
@@ -48,7 +47,6 @@ async function findPlatform(city) {
 
     const lower = html.toLowerCase();
 
-    // Logonet
     if (lower.includes('logonet') || html.includes('author" content="Logonet') || lower.includes('/przetargi-nieruchomosci/')) {
       let boardUrl = `https://${h}/przetargi-nieruchomosci/376`;
       const mBoard = html.match(/href="([^"]*\/przetargi-nieruchomosci\/(\d+)[^"]*)"/i) || html.match(/href="([^"]*\/artykuly\/(\d+)\/przetargi[^"]*)"/i);
@@ -66,7 +64,6 @@ async function findPlatform(city) {
       };
     }
 
-    // BIP Lubelskie
     if (h.includes('bip.lubelskie.pl') || lower.includes('bip.lubelskie.pl') || lower.includes('action=list-ajax') || lower.includes('pobierz_przetargi')) {
       return {
         engine: 'biplubelskie',
@@ -79,7 +76,6 @@ async function findPlatform(city) {
       };
     }
 
-    // MADKOM
     if (lower.includes('madkom') || lower.includes('data-ng-app="app"') || lower.includes('/api/contexts/')) {
       return {
         engine: 'madkom',
@@ -92,7 +88,6 @@ async function findPlatform(city) {
       };
     }
 
-    // SystemDoBIP
     if (lower.includes('systemdobip') || lower.includes('e-line') || (lower.includes('/przetargi/') && lower.includes('/status/'))) {
       let boardId = 361;
       const mBoard = html.match(/\/przetargi\/(\d+)\//);

@@ -1,5 +1,3 @@
-// Iława parser and crawler unit tests.
-// Fixtures are verbatim excerpts from real municipal documents published on bip.umilawa.pl.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -26,7 +24,6 @@ import {
   extractAttachmentUrls,
 } from '../src/cities/ilawa/crawl.js';
 
-// ── Verbatim Fixtures ───────────────────────────────────────────────────────
 
 const FIXTURE_ANN_FLAT = `
 Iława, dnia 19.02.2026 r.
@@ -119,7 +116,6 @@ Nabywcą nieruchomości został: brak ofert kupna.
 Informacja o wyniku przetargu została wywieszona na tablicy ogłoszeń Urzędu Miasta Iławy w dniu: 07.11.2018r.
 `;
 
-// ── Unit Tests ──────────────────────────────────────────────────────────────
 
 test('parsePLN correctly converts Polish currency strings', () => {
   assert.equal(parsePLN('420.000,00 zł'), 420000);

@@ -1,9 +1,3 @@
-// Ostrzeszów crawler — fetches both the city BIP (ostrzeszow.nowoczesnagmina.pl)
-// and housing manager ZGM BIP (bip.zgm-ostrzeszow.pl).
-//
-// Extracts:
-// - crawlActive(): { listings, wykaz, land, valid_empty, valid_empty_land }
-// - crawlResultDocs(): Array<{ text, auction_date, pdf_url }>
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -31,7 +25,6 @@ const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
 
-/** Unified document text loader: born-digital PDF -> doc/docx -> scanned PDF OCR (with psm: 1 for rotated scans). */
 async function getDocText(url) {
   if (/\.docx?\b/i.test(url)) {
     try {
@@ -82,9 +75,6 @@ async function crawlAll() {
   const seenPdf = new Set();
   const knownUrls = await loadKnownSourceUrls('ostrzeszow');
 
-  // -------------------------------------------------------------------------
-  // 1. City BIP (ostrzeszow.nowoczesnagmina.pl)
-  // -------------------------------------------------------------------------
   try {
     const cityBoardHtml = await getText(CITY_BOARD_URL, FETCH_OPTS);
     const userContentIdx = cityBoardHtml.indexOf('id="user_content"');
@@ -126,7 +116,6 @@ async function crawlAll() {
         isResultLabel(title) ||
         attRows.some((r) => isResultLabel(stripTags(r[1])));
 
-      // Harvest result attachments
       for (const r of attRows) {
         const attLabel = stripTags(r[1]);
         const attHref = r[2].replace(/&amp;/g, '&');
@@ -148,15 +137,12 @@ async function crawlAll() {
         }
       }
 
-      // If active (not concluded), harvest listings or land
       if (!isConcluded) {
         const isLand = /niezabudowan|grunt/i.test(title);
-        // Check inline HTML table
         const inlineRecords = parseInlineTable(artHtml, artUrl, title);
         if (inlineRecords.length > 0) {
           land.push(...inlineRecords);
         } else {
-          // Announcement document
           const annRow = attRows.find(
             (r) => !isResultLabel(stripTags(r[1])) && !/regulamin/i.test(stripTags(r[1]))
           );
@@ -184,11 +170,7 @@ async function crawlAll() {
     console.error(`  ostrzeszow: city board crawl error: ${err.message}`);
   }
 
-  // -------------------------------------------------------------------------
-  // 2. Housing manager ZGM BIP (bip.zgm-ostrzeszow.pl)
-  // -------------------------------------------------------------------------
 
-  // (a) Active board id=31
   try {
     const activeHtml = await getText(ZGM_ACTIVE_URL, FETCH_OPTS);
     const articles = [...activeHtml.matchAll(/<div class="article">[\s\S]*?<h3><a href="([^"]+)"[^>]*>([\s\S]*?)<\/a><\/h3>[\s\S]*?<div class="artDate">([\s\S]*?)<\/div>/gi)];
@@ -241,7 +223,6 @@ async function crawlAll() {
     console.error(`  ostrzeszow: ZGM active board crawl error: ${err.message}`);
   }
 
-  // (b) Concluded board id=32 (harvest results and archived wykazy)
   try {
     for (let s = 1; s <= 18; s++) {
       const pageUrl = ZGM_CONCLUDED_URL(s);
@@ -284,7 +265,6 @@ async function crawlAll() {
 
           if (/regulamin/i.test(fileLabel)) continue;
 
-          // Check if it's a result or protocol or odwołanie doc
           if (isResultLabel(fileLabel) || isResultLabel(title) || /odwo[łl]anie|protok[oó][łl]/i.test(fileLabel)) {
             if (!seenPdf.has(fileUrl)) {
               seenPdf.add(fileUrl);

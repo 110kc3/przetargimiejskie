@@ -1,31 +1,3 @@
-// Mrągowo crawler — the city BIP's single mixed property board (kategoria
-// 1050, "Gospodarka nieruchomościami") on the Warmińsko-Mazurskie CNT CMS
-// (same engine as Olsztyn — see config.js). See parse.js for field extraction.
-//
-//   LIST (current):  /kategoria/1050/gospodarka-nieruchomosciami.html?page=N
-//   LIST (archive):  same + ?VInformacjaSearch[archiwum]=1&page=N
-//   ARTICLE:         /{id}/{slug}.html  — <article class="post"> body, plain
-//                     HTML prose (no PDF, no attachment).
-//
-// TWO views, deliberately crawled differently:
-//   - "Aktualny" (current, ~76 records / ~4 pages today): announcements whose
-//     auction hasn't happened yet, or a result so fresh it hasn't archived.
-//     Both listing- and result-routing run here.
-//   - "Archiwalny" (historical, ~1,800 records / ~90 pages today): concluded
-//     matters — this is where almost every result notice ends up once its
-//     short "podano do publicznej wiadomości" display window (about a week)
-//     closes. Bounded to MAX_ARCHIVE_PAGES (see below) and scanned for
-//     RESULT-titled rows only — an announcement found here would already be
-//     concluded (auction date in the past), so listing-routing is skipped to
-//     keep the crawl bounded and fast.
-//
-// Row titles are mostly self-descriptive EXCEPT results, which are always the
-// generic "Informacja o (negatywnym) wyniku przetargu" — the body is fetched
-// and inspected for every non-skippable row regardless of which bucket its
-// title suggests.
-//
-// source:'html' ⇒ result refs already carry `.text`; refresh.js calls
-// crawlResultDocs() then crawlActive(), both awaiting one memoised crawl.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -43,14 +15,6 @@ const ORIGIN = 'https://bipmragowo.warmia.mazury.pl';
 const BOARD_PATH = '/kategoria/1050/gospodarka-nieruchomosciami.html';
 const ARCHIVE_QS = 'VInformacjaSearch%5Barchiwum%5D=1';
 
-// The current board is tiny (~4 pages); this cap is just a safety net against
-// runaway growth. The archive is genuinely huge (~90 pages / ~1,800 records
-// today, spanning many years of general "gospodarka nieruchomościami"
-// business) — bounded per ADAPTER-GUIDE's "big archive" guidance so the CI job
-// can't time out. 30 pages (~600 records) reaches back roughly a year and a
-// half at the observed publication rate and is confirmed live to contain
-// several real flat announcement/result cycles (Mrongowiusza 31/5, Wolności
-// 20D/12) well within that window.
 const MAX_PAGES = 20;
 const MAX_ARCHIVE_PAGES = 30;
 
@@ -61,7 +25,6 @@ function boardUrl(page, archived) {
   return `${ORIGIN}${BOARD_PATH}${parts.length ? `?${parts.join('&')}` : ''}`;
 }
 
-/** Total pages from the "Wyświetlone 1-20 z N rekordów." footer, capped. */
 function totalPagesFromHtml(html, cap) {
   const m = /z\s+([\d,]+)\s+rekord/i.exec(html || '');
   if (!m) return 1;
@@ -70,9 +33,6 @@ function totalPagesFromHtml(html, cap) {
   return Math.min(Math.ceil(total / 20), cap);
 }
 
-/** Board rows { id, title, detailUrl, published_date } from one index page.
- *  Row shape: <tr data-key="ID"><td ...><td data-col-date>DD-MM-YYYY</td>
- *  <td ...><a href="/ID/slug.html" ...>TITLE</a></td>...</tr> */
 export function parseIndexPage(html) {
   if (!html) return [];
   const rows = [];
@@ -95,10 +55,6 @@ export function parseIndexPage(html) {
   return rows;
 }
 
-/** The article body text: the `<div class="post-body ...">` content (stops
- *  right before the "Metryka" aside / version-history comment that follows
- *  it), stripped to plain text. Falls back to the whole <article> on layout
- *  drift. */
 export function extractBodyText(html) {
   const bodyM = /<div class="post-body[^"]*">([\s\S]*?)<\/div>\s*(?:<!--|<aside)/i.exec(html || '');
   if (bodyM) return stripTags(bodyM[1]);
@@ -161,12 +117,11 @@ function pushResult(resultRefs, resultSeen, ref, text) {
 let crawlPromise = null;
 
 async function crawlAll() {
-  const listings = []; // address-keyed active records (flats/units)
-  const land = []; // kind:'grunt' active records → land.json
-  const resultRefs = []; // { text, pdf_url, detail_url, auction_date }
+  const listings = [];
+  const land = [];
+  const resultRefs = [];
   const resultSeen = new Set();
 
-  // --- current board: announcements (listings + land) and any fresh results ---
   const activeRows = await fetchBoardRows(false, MAX_PAGES);
   for (const ref of activeRows) {
     if (isSkippableTitle(ref.title)) continue;
@@ -181,8 +136,6 @@ async function crawlAll() {
     if (!isAnnouncementTitle(ref.title)) continue;
     const text = await fetchDetailText(ref);
     if (!text || isLeaseNotice(text)) continue;
-    // Body is authoritative: a mistitled announcement that is actually a
-    // result gets routed correctly instead of dropped.
     if (isResultNotice(text)) {
       pushResult(resultRefs, resultSeen, ref, text);
       continue;
@@ -196,12 +149,11 @@ async function crawlAll() {
     (rec.kind === 'grunt' ? land : listings).push(enriched);
   }
 
-  // --- archived board: bounded scan for the achieved-price result stream ---
   const archiveRows = await fetchBoardRows(true, MAX_ARCHIVE_PAGES);
   for (const ref of archiveRows) {
     if (resultSeen.has(ref.id)) continue;
     if (isSkippableTitle(ref.title)) continue;
-    if (!isResultTitle(ref.title)) continue; // archive pass: results only (see header note)
+    if (!isResultTitle(ref.title)) continue;
     const text = await fetchDetailText(ref);
     if (!text || isLeaseNotice(text) || !isResultNotice(text)) continue;
     pushResult(resultRefs, resultSeen, ref, text);
@@ -213,13 +165,11 @@ async function crawlAll() {
   return { listings, land, resultRefs };
 }
 
-/** Result notices (achieved-price stream). source:'html' ⇒ refs carry `.text`. */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resultRefs;
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, land } = await crawlPromise;

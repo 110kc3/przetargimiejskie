@@ -1,9 +1,3 @@
-// Kraków parsers — MULTI-PROPERTY notices. Each ?news_id article is a numbered
-// list of properties; the auction date is shared. Groundtruthed against real
-// notices (verified 2026-06-26): news_id 245809 (announcement: garaż G12 ul.
-// Królewska 69 + udział działki 169/16) and 249643 (result: same two, garaż sold
-// 114 000 → 130 000, udział negatywny). Reuses core/finn-bip.js (htmlToText,
-// parsePLN, areaFromText) + classifyKind + parseAddress.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -11,8 +5,6 @@ import { htmlToText, parsePLN, areaFromText } from '../../core/finn-bip.js';
 
 export { htmlToText };
 
-// Formatting tags can split a single word (e.g. <span>l</span>okalu). Repeated
-// replacement strips nested wrappers until a fixed point is reached.
 function unwrapInlineFormatting(input) {
   let previous;
   let text = String(input || '');
@@ -28,9 +20,6 @@ const noticeText = text => htmlToText(unwrapInlineFormatting(text));
 const PL_MONTH = { stycznia: 1, lutego: 2, marca: 3, kwietnia: 4, maja: 5, czerwca: 6, lipca: 7, sierpnia: 8, 'września': 9, wrzesnia: 9, 'października': 10, pazdziernika: 10, listopada: 11, grudnia: 12 };
 function isoFrom(d, mo, y) { const m = PL_MONTH[String(mo).toLowerCase()]; return m ? `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}` : null; }
 
-// Auction date. Announcement: "Przetargi … odbędą się w dniu 15 kwietnia 2026 r."
-// (+ title "Termin przetargu: 15 kwietnia 2026 r."). Result: "W dniu 15 kwietnia
-// 2026 r. w siedzibie … przeprowadzone zostały" / header "z dnia 15 kwietnia 2026".
 export function noticeDate(text, { isResult = false } = {}) {
   const t = noticeText(text);
   if (isResult) {
@@ -45,9 +34,6 @@ export function noticeDate(text, { isResult = false } = {}) {
   return numeric ? `${numeric[3]}-${numeric[2].padStart(2, '0')}-${numeric[1].padStart(2, '0')}` : null;
 }
 
-// Split a notice body into numbered property items (each carries a cena wywoławcza
-// amount). htmlToText flattens newlines, so split on " N. " markers and keep only
-// price-bearing segments (drops the header + boilerplate numbered lists).
 export function splitItems(text) {
   let source = String(text || '');
   const bodyStart = source.indexOf('<div class="news_short">');
@@ -82,8 +68,6 @@ export function landStreet(seg) {
   return null;
 }
 
-// Built unit (flat / commercial / garage): "w budynku przy ul. Królewskiej Nr 69";
-// garage unit "oznaczonego Nr G12" → "ul. Królewskiej 69 garaż nr 12".
 export function builtAddress(seg) {
   const invalidStreet = /\b(?:cena|wywo[łl]awcza|powierzchni|u[żz]ytkowej|wynosi[łl]a|dzia[łl]ek|po[łl]o[żz]on\w*|budynk\w*)\b|\bi\s+ul\b/i;
   const streetPattern = '[\\p{L}][\\p{L}.-]*(?:\\s+[\\p{L}][\\p{L}.-]*){0,7}?';
@@ -103,8 +87,6 @@ export function builtAddress(seg) {
 
 function parseItem(seg, { isResult, auction_date, url }) {
   if ((seg.match(/cena\s+wywo[łl]awcz/gi) || []).length !== 1) return null;
-  // Legal boilerplate/footer links can name other asset classes. Classify
-  // this item's subject, before its first price, rather than the whole page.
   const subject = String(seg || '').split(/cena\s+wywo[łl]awcz/i)[0];
   const classified = classifyKind(subject.split(/\.\s+(?=[A-ZĄĆĘŁŃÓŚŹŻ])/)[0]);
   const kind = classified !== 'garaz' && /lokal\w*\s+o\s+przeznaczeniu\s+innym\s+ni[żz]\s+mieszkalne/i.test(subject)
@@ -155,8 +137,6 @@ export function parseNotice(text, { isResult = false, url = null } = {}) {
   return out;
 }
 
-// Some announcements price parcel groups in separate paragraphs instead of
-// numbered lots. Resolve every price against the header's parcel/area list.
 function parseLandPriceGroups(text, { auction_date, url }) {
   const plain = noticeText(text);
   const pricePattern = /cena\s+wywo[łl]awcza\s+dzia[łl](?:ek|ki)\s+nr\s+(\d+\/\d+(?:\s+i\s+nr\s+\d+\/\d+)*)\s+wynosi\s+(?:[łl][ąa]cznie\s+)?([\d][\d\s.]*,\d{2})\s*z[łl]/gi;

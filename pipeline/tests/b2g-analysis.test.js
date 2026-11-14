@@ -79,7 +79,6 @@ test('elapsed observations start only at explicit unsold and end at the next dis
   const result = analyseB2G([
     property('a', [
       listing('2024-01-01', 'unsold'),
-      // A duplicate source row on the same date is folded, not a zero-day attempt.
       listing('2024-01-01', 'archived', {
         detail_url: 'https://example.test/a',
         unsold_reason: 'no_deposits',

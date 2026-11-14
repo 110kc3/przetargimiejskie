@@ -1,28 +1,3 @@
-// Jarocin crawler — WOKISS BIP (`bip2.wokiss.pl/jarocin`).
-//
-// DISCOVERY. The board `Przetargi na sprzedaż nieruchomości` is a year-indexed
-// HTML menu (one sub-page per year, 2007..current). Each year sub-page lists
-// its notices as `<div class="temat"><a href="...przetargi-w-roku-YYYY.html
-// ?pid=N">TITLE</a></div>`; opening a `?pid=N` renders that one notice, whose
-// real content is a single attached born-digital text PDF under
-// `/jarocin/zasoby/przetargi/*.pdf`. So the crawl is:
-//   index → recent year sub-pages → per-notice list (pid + title) → route by
-//   title → fetch each notice's pid page → extract its PDF href → pdfText →
-//   parse. One shared, memoized fetch+extract pass feeds BOTH crawlActive
-//   (announcements) and crawlResultDocs (results), so no PDF is fetched twice.
-//
-// BOUND (ADAPTER-GUIDE §5): only the most recent YEARS_BACK years are scanned
-// (older auctions fall under the pipeline's 2020 history floor anyway), only
-// announcement + "informacja o wyniku" titles are fetched (cancellations and
-// restricted-tender qualification lists are skipped by title), and the whole
-// set is capped at MAX_NOTICES (newest pid first) so a big archive can't blow
-// the CI wall-clock. Already-captured result PDFs are skipped via
-// core/known-urls.js (safe: concluded results only).
-//
-// KIND is NOT taken from the title/slug — parse.js classifyKind(PDF BODY)
-// decides flat vs land (this gmina sells mostly land, occasional flats).
-//
-// One request per second (core/fetch.js getText throttle).
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -31,7 +6,6 @@ import { loadKnownSourceUrls } from '../../core/known-urls.js';
 import { parseAnnouncementLots, parseResultDoc, isCancellation, parseDateText } from './parse.js';
 
 const ORIGIN = 'https://bip2.wokiss.pl';
-// The CMS sets <base href="/jarocin/"> — every relative href resolves here.
 const BASE = `${ORIGIN}/jarocin/`;
 const INDEX_URL = `${BASE}bip/przetargi-na-sprzedaz-nieruchomosci.html`;
 
@@ -39,13 +13,9 @@ const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
 
-// How many years back (incl. current) to scan, and the hard notice cap.
-const YEARS_BACK = 3;          // current + 3 prior = 4 year sub-pages
-const MAX_NOTICES = 120;       // wall-clock guard (newest pid first)
+const YEARS_BACK = 3;
+const MAX_NOTICES = 120;
 
-// ---------------------------------------------------------------------------
-// HTML structure helpers (WOKISS menu markup)
-// ---------------------------------------------------------------------------
 
 function stripTags(s) {
   return (s || '')
@@ -57,13 +27,10 @@ function stripTags(s) {
     .trim();
 }
 
-/** Absolute URL from a page-relative href (resolved against the CMS base). */
 function abs(href) {
   try { return new URL(href, BASE).href; } catch { return null; }
 }
 
-/** Year sub-page hrefs from the board index → [{year, url}] (real href kept,
- *  so the "20181.html" source typo is not reconstructed). */
 export function parseYearIndex(html) {
   const out = [];
   const seen = new Set();
@@ -76,7 +43,6 @@ export function parseYearIndex(html) {
   return out;
 }
 
-/** Notice list on a year sub-page → [{pid, url, title}]. */
 export function parseNoticeList(html) {
   const out = [];
   const seen = new Set();
@@ -93,29 +59,23 @@ export function parseNoticeList(html) {
   return out;
 }
 
-/** The notice's attached PDF url from its pid page (first .pdf anchor — the
- *  year list on the same page contains only ?pid links, never .pdf). */
 export function extractNoticePdfUrl(html) {
   const m = /href="([^"]+\.pdf[^"]*)"/i.exec(html || '');
   return m ? abs(m[1]) : null;
 }
 
-// Title routing (NOT kind — kind comes from the PDF body). ASCII-folded.
 function classifyTitle(title) {
   const t = (title || '')
     .toLowerCase()
     .replace(/ł/g, 'l').replace(/ó/g, 'o').replace(/ż/g, 'z').replace(/ś/g, 's')
     .replace(/ą/g, 'a').replace(/ę/g, 'e').replace(/ć/g, 'c').replace(/ń/g, 'n').replace(/ź/g, 'z');
-  if (/informacj\w*\s+o\s+odwolan/.test(t)) return 'skip';   // cancellation
-  if (/kwalifikacyjn/.test(t)) return 'skip';                // qualification list
+  if (/informacj\w*\s+o\s+odwolan/.test(t)) return 'skip';
+  if (/kwalifikacyjn/.test(t)) return 'skip';
   if (/informacj\w*\s+o\s+wynik/.test(t)) return 'result';
   if (/og[l]oszeni\w*.*przetarg|przetarg\w*\s+ustn/.test(t)) return 'announce';
   return 'skip';
 }
 
-// ---------------------------------------------------------------------------
-// Shared discovery + fetch + parse pass (memoized per process run)
-// ---------------------------------------------------------------------------
 
 let _cache = null;
 
@@ -136,7 +96,6 @@ async function discoverAll() {
     .filter((y) => y.year >= minYear && y.year <= thisYear + 1)
     .sort((a, b) => b.year - a.year);
 
-  // Collect candidate notices (announce + result) across the bounded years.
   const candidates = [];
   let complete = years.length > 0;
   for (const y of years) {
@@ -154,11 +113,8 @@ async function discoverAll() {
       candidates.push({ ...n, type });
     }
   }
-  // Newest first, then cap.
   candidates.sort((a, b) => b.pid - a.pid);
 
-  // Skip result PDFs already committed (concluded → safe). Applied per-notice
-  // below once we know the PDF url; here we just load the set once.
   const known = await loadKnownSourceUrls('jarocin');
 
   const records = [];
@@ -179,7 +135,7 @@ async function discoverAll() {
       console.error(`  jarocin: notice ${c.pid} has no PDF attachment — skipping`);
       continue;
     }
-    if (c.type === 'result' && known.has(pdfUrl)) continue; // already captured
+    if (c.type === 'result' && known.has(pdfUrl)) continue;
     fetched++;
     let text;
     try {
@@ -189,8 +145,6 @@ async function discoverAll() {
       console.error(`  jarocin: PDF text failed (${pdfUrl}): ${err.message}`);
       continue;
     }
-    // Born-digital text PDFs only (spike): an empty extract means a scanned
-    // page slipped in — log and skip (OCR is not wired; none seen live).
     if (!text || !text.trim()) {
       complete = false;
       console.error(`  jarocin: EMPTY pdftotext for ${pdfUrl} (scanned?) — skipping, not OCR'd`);
@@ -207,9 +161,6 @@ async function discoverAll() {
   return records;
 }
 
-// ---------------------------------------------------------------------------
-// crawlActive()
-// ---------------------------------------------------------------------------
 
 export async function crawlActive({ loadRecords = discoverAll, todayIso = new Date().toISOString().slice(0, 10) } = {}) {
   const records = await loadRecords();
@@ -224,7 +175,7 @@ export async function crawlActive({ loadRecords = discoverAll, todayIso = new Da
         console.error(`  jarocin: announce ${r.pid} no subject (kind=${a.kind}) — skipping`);
         continue;
       }
-      if (!a.auction_date || a.auction_date < todayIso) continue; // only upcoming
+      if (!a.auction_date || a.auction_date < todayIso) continue;
       listings.push(a);
     }
   }
@@ -232,9 +183,6 @@ export async function crawlActive({ loadRecords = discoverAll, todayIso = new Da
   return { listings, wykaz: [], land: [], land_complete: false };
 }
 
-// ---------------------------------------------------------------------------
-// crawlResultDocs()  → refs for refresh.js: { text, pdf_url, auction_date }
-// ---------------------------------------------------------------------------
 
 export async function crawlResultDocs({ loadRecords = discoverAll } = {}) {
   const records = await loadRecords();
@@ -243,9 +191,6 @@ export async function crawlResultDocs({ loadRecords = discoverAll } = {}) {
   for (const r of records) {
     if (r.type !== 'result') continue;
     if (!parseResultDoc(r.text, null, r.pdfUrl).length) refs.complete = false;
-    // Fallback auction date (parseResultDoc re-extracts; this backs it up):
-    // body "w dniu <date>" → else title "z dnia <date>". A window is sliced so
-    // a dotted numeric date ("20.03.2025") is captured whole.
     const bi = r.text.search(/w\s+dniu\s/i);
     const ti = r.title.search(/z\s+dnia\s/i);
     const auction_date =
@@ -257,9 +202,6 @@ export async function crawlResultDocs({ loadRecords = discoverAll } = {}) {
   return refs;
 }
 
-// ---------------------------------------------------------------------------
-// CLI harness: node crawl.js [active|results]
-// ---------------------------------------------------------------------------
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const mode = process.argv[2] ?? 'active';
   if (mode === 'results') {

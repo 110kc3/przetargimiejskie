@@ -1,5 +1,3 @@
-// Adapter entry point for Żywiec (powiat żywiecki, Śląskie)
-// BIP: https://www.bip.zywiec.pl
 
 import config from './config.js';
 import { crawlActive, crawlResultDocs, parseResultDoc } from './crawl.js';

@@ -1,14 +1,3 @@
-// Jędrzejów parsers.
-//
-// Miasto i Gmina Jędrzejów (Burmistrz Miasta Jędrzejowa) auctions municipal
-// property — both flats (lokale mieszkalne) and land parcels (działki) — via
-// "przetarg ustny nieograniczony" on bip.jedrzejow.eu.
-//
-// Announcements and results are published on the same 'Przetargi' board (category 3).
-// Attachments are scanned PDFs hosted on bip-v1-files.idcom-jst.pl (OCR via ocrPdf).
-//
-// This module parses the labelled text blob produced by buildRecordText({ title, body }).
-// Both horizontal tabular result notices and vertical column scans are handled.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -21,7 +10,6 @@ const PL_MONTH = {
 
 const ROMAN = { I: 1, V: 5, X: 10, L: 50 };
 
-/** Roman numeral (I..XXXIX range) -> int, or null if malformed. */
 export function romanToInt(s) {
   if (!s) return null;
   const up = String(s).toUpperCase().trim();
@@ -35,10 +23,6 @@ export function romanToInt(s) {
   return total > 0 && total < 40 ? total : null;
 }
 
-/**
- * Parses monetary amounts in złoty into integer PLN.
- * Handles "112.000.00 zł", "146.000,00 zł", "50 000,00 zł", "9.000,00 zł", "110.000,00".
- */
 export function parsePLN(numStr) {
   if (!numStr) return null;
   const stripped = String(numStr).replace(/\s*z[łl].*$/i, '').trim();
@@ -48,16 +32,13 @@ export function parsePLN(numStr) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/** Parses decimal numbers with comma or dot decimal separators. */
 export function parseNum(numStr) {
   if (numStr == null) return null;
   const n = Number(String(numStr).replace(/\s/g, '').replace(',', '.'));
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// ------------------------------------------------------------- record text blob
 
-/** Collapse an HTML fragment or OCR text into structured plain lines. */
 export function stripHtml(s) {
   if (!s) return '';
   return String(s)
@@ -81,11 +62,6 @@ export function stripHtml(s) {
     .trim();
 }
 
-/**
- * Assemble the labelled text blob used by all parsers.
- * @param {{ title?: string, body?: string }} f
- * @returns {string}
- */
 export function buildRecordText(f = {}) {
   return [
     `TITLE: ${stripHtml(f.title)}`,
@@ -103,67 +79,51 @@ function whole(text) {
   return text || '';
 }
 
-// ----------------------------------------------------------------- doc gates
 
-/** True when the notice relates to a property sale auction. */
 export function isSaleAuction(text) {
   const t = whole(text);
   return /przetarg/i.test(t) && /sprzeda[żz]/i.test(t);
 }
 
-/** True when the notice relates to a lease / rent, not a property sale. */
 export function isLease(text) {
   const t = whole(text);
   return /dzier[żz]aw|\bnajem\b|stanowisk\s+handlowych|ci[ąa]gnik|odbudowy\s+zabytk[oó]w|zam[oó]wie[ńn]\s+publicznych|[śs]wiadcze[ńn]\s+zdrowotnych/i.test(t);
 }
 
-/** True when this is an outcome notice (informacja o wyniku przetargu). */
 export function isResultDoc(text) {
   const t = whole(text);
   return /informacj\w*\s+o\s+wyniku\s+przetargu|wynik\w*\s+przetargu/i.test(t) &&
     !/^\s*og[łl]oszenie\s+o\b/i.test(field(text, 'TITLE'));
 }
 
-/** True when this is an announcement of an upcoming auction. */
 export function isAnnouncement(text) {
   const t = whole(text);
   return /og[łl]oszenie\s+o\s+przetargu|og[łl]asza\s+przetarg/i.test(t) && !isResultDoc(text);
 }
 
-/** True when this is a designation list (wykaz nieruchomości). */
 export function isWykaz(text) {
   const t = whole(text);
   return /wykaz\s+nieruchomo[śs]ci/i.test(t) && !/przetarg\s+odb[ęe]dzie\s+si[ęe]/i.test(t);
 }
 
-/** True when the text explicitly indicates an unsold / negative outcome. */
 export function isNegativeOutcome(text) {
   const t = whole(text);
   return /wynikiem\s+negatywnym|brak\s+wadium|brak\s+wniesionego\s+wadium|brak\s+oferent[oó]w|brak\s+post[ąa]pie[ńn]|nie\s+przyst[ąa]pi|nie\s+stawi[łl]\s+si[ęe]/i.test(t);
 }
 
-// ----------------------------------------------------------------- round
 
-/**
- * Auction round from "<ROMAN> przetarg".
- */
 export function roundFromText(text) {
   const m = /\b([IVXL]{1,5})\s+przetarg\b/i.exec(whole(text));
   return m ? romanToInt(m[1]) : null;
 }
 
-// ----------------------------------------------------------------- dates
 
 function toIso(dd, mm, yyyy) {
   return `${yyyy}-${String(mm).padStart(2, '0')}-${String(dd).padStart(2, '0')}`;
 }
 
-/**
- * Auction date from text, falling back to a crawl-supplied date if needed.
- */
 export function parseAuctionDate(text, fallbackDate = null) {
   const t = whole(text);
-  // 1. Result format: "przeprowadzonego w dniu 19 lutego 2026 r." / "w dniu 26.06.2025 r."
   let m = /przeprowadzonego\s+w\s+dniu\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(t);
   if (m) {
     const mo = PL_MONTH[m[2].toLowerCase()];
@@ -172,7 +132,6 @@ export function parseAuctionDate(text, fallbackDate = null) {
   m = /przeprowadzonego\s+w\s+dniu\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(t);
   if (m) return toIso(m[1], m[2], m[3]);
 
-  // 2. Announcement format: "Przetarg odbędzie się [dnia] 15 października 2026 r."
   m = /Przetarg\s+odb[ęe]dzie\s+si[ęe]\s+(?:dnia\s+)?(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(t);
   if (m) {
     const mo = PL_MONTH[m[2].toLowerCase()];
@@ -181,7 +140,6 @@ export function parseAuctionDate(text, fallbackDate = null) {
   m = /Przetarg\s+odb[ęe]dzie\s+si[ęe]\s+(?:dnia\s+)?(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(t);
   if (m) return toIso(m[1], m[2], m[3]);
 
-  // 3. Announcement format with missing year: "Przetarg odbędzie się 26 czerwca"
   m = /Przetarg\s+odb[ęe]dzie\s+si[ęe]\s+(?:dnia\s+)?(\d{1,2})\s+([a-ząćęłńóśźż]+)/i.exec(t);
   if (m && fallbackDate) {
     const mo = PL_MONTH[m[2].toLowerCase()];
@@ -189,20 +147,15 @@ export function parseAuctionDate(text, fallbackDate = null) {
     if (mo && yr) return toIso(m[1], mo, yr);
   }
 
-  // 4. Result title date fallback: "z dnia 19.02.2026 roku"
   m = /z\s+dnia\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i.exec(t);
   if (m) return toIso(m[1], m[2], m[3]);
 
   return fallbackDate || null;
 }
 
-// ----------------------------------------------------------------- result parser
 
 const PRICE_RE = /\b(\d{1,3}(?:[ .]\d{3})*(?:[.,]\d{2})?)\s*z[łl]/gi;
 
-/**
- * Normalises street names like "11 Listopada" and extracts building number.
- */
 function extractStreetAndBuilding(rawStr) {
   const m = /(?:ul\.|przy\s+ul\.)\s*((?:11\s+Listopada|\d+\s+[A-Za-zŁŚŻŹĆĘÓŃĄa-z]+|[A-Za-zŁŚŻŹĆĘÓŃĄa-z\s.-]+?))\s+(\d+[A-Za-z]?)\b/i.exec(rawStr) ||
             /\b(11\s+Listopada)\s+(\d+[A-Za-z]?)\b/i.exec(rawStr) ||
@@ -211,14 +164,6 @@ function extractStreetAndBuilding(rawStr) {
   return { street: m[1].trim(), building: m[2].trim() };
 }
 
-/**
- * Parse one CONCLUDED result notice into an array of property records.
- * Handles single-item notices, multi-item horizontal tabular notices, and vertical column scans.
- * @param {string} text labelled blob from buildRecordText
- * @param {string|null} fallbackDate captured published date
- * @param {string} sourceUrl source URL
- * @returns {Array<object>}
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!text) return [];
   if (!isResultDoc(text)) return [];
@@ -229,7 +174,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const docRound = roundFromText(text);
   const wholeText = whole(text);
 
-  // Check if text is vertical column scan (where all property descriptions precede all prices)
   const firstZl = wholeText.indexOf('zł');
   const allFlatStarts = [...wholeText.matchAll(/Lokal\s+mieszka[lł]ny/gi)].map((m) => m.index);
   const isVertical = allFlatStarts.length > 1 && firstZl !== -1 && allFlatStarts.every((idx) => idx < firstZl);
@@ -245,7 +189,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
       if (!sb) return;
       const raw = `${sb.street} ${sb.building}/${apt}`;
       const address = parseAddress(raw);
-      // Prices offset: in 893577, 1st price is land parcel, followed by flat prices
       const starting_price_pln = prices[idx + 1] || null;
       records.push({
         auction_date,
@@ -285,7 +228,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     return records;
   }
 
-  // Standard horizontal row parsing
   const stopIdx = wholeText.search(/Informacj[ęe]\s+o\s+wyniku\s+przetargu\s+wywiesza/i);
   const tableText = stopIdx !== -1 ? wholeText.slice(0, stopIdx) : wholeText;
 
@@ -381,15 +323,7 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   return records;
 }
 
-// ----------------------------------------------------------- announcement parser
 
-/**
- * Parse an ANNOUNCEMENT notice into an array of flat listings and land parcels.
- * @param {string} text labelled blob from buildRecordText
- * @param {string|null} fallbackDate publication date
- * @param {string} sourceUrl source URL
- * @returns {Array<object>}
- */
 export function parseAnnouncement(text, fallbackDate, sourceUrl) {
   if (!text) return [];
   if (isResultDoc(text)) return [];
@@ -405,7 +339,6 @@ export function parseAnnouncement(text, fallbackDate, sourceUrl) {
 
   const results = [];
 
-  // When no round header is present, treat the entire body up to limit as one section
   const sections = [];
   if (roundMatches.length === 0) {
     sections.push({ roundNum: null, text: wholeText.slice(0, limit) });
@@ -487,15 +420,7 @@ export function parseAnnouncement(text, fallbackDate, sourceUrl) {
   return results;
 }
 
-// ----------------------------------------------------------------- wykaz parser
 
-/**
- * Parse a pre-auction designation notice (wykaz nieruchomości) for residential flats.
- * @param {string} text labelled blob from buildRecordText
- * @param {string|null} publishedDate publication date
- * @param {string} sourceUrl source URL
- * @returns {Array<object>}
- */
 export function parseWykaz(text, publishedDate, sourceUrl) {
   if (!text) return [];
   if (!isWykaz(text)) return [];

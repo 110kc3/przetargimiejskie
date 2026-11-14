@@ -1,17 +1,3 @@
-// Kołobrzeg crawler.
-//
-// Dual-board crawler for Gmina Miasto Kołobrzeg (Prezydent Miasta Kołobrzeg):
-// Source: bip.um.kolobrzeg.pl (Madkom SIP platform, JSON HTTP API).
-//
-// Endpoints:
-//   GET /api/menu/<menuId>/articles?limit=N&offset=K   -> board articles list
-//   GET /api/articles/<id>                             -> article details + attachments
-//   GET /api/files/<id>                                -> raw file bytes (.doc / .pdf)
-//
-// Menus:
-//   - Announcements (Sprzedaż):       menu 31009 ("Przetargi - sprzedaż")
-//   - Results (Rozstrzygnięcia):       menu 30712 ("Rozstrzygnięcia - sprzedaż")
-//   - Pre-auction designations (Wykaz): menu 31012 ("Wykazy - zbycie")
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -32,9 +18,9 @@ import {
 const ORIGIN = 'https://bip.um.kolobrzeg.pl';
 const API = `${ORIGIN}/api`;
 
-const ANNOUNCE_MENU = 31009; // "Przetargi - sprzedaż"
-const RESULT_MENU = 30712;   // "Rozstrzygnięcia - sprzedaż"
-const WYKAZ_MENU = 31012;    // "Wykazy - zbycie"
+const ANNOUNCE_MENU = 31009;
+const RESULT_MENU = 30712;
+const WYKAZ_MENU = 31012;
 
 const LIST_LIMIT = 100;
 const MAX_RESULT_DETAILS = Number(process.env.KOLOBRZEG_MAX_DETAILS) || 100;
@@ -65,7 +51,6 @@ function itemPublishDate(item) {
   return cf?.value ? cf.value.trim().slice(0, 10) : null;
 }
 
-/** Fetch articles from a BIP menu board */
 async function fetchMenuArticles(menuId) {
   const items = [];
   try {
@@ -87,7 +72,6 @@ async function fetchMenuArticles(menuId) {
   return items;
 }
 
-/** Fetch details and attachments for one article */
 async function fetchArticleDetails(articleId) {
   try {
     const raw = await getText(articleUrl(articleId), FETCH_OPTS);
@@ -98,7 +82,6 @@ async function fetchArticleDetails(articleId) {
   }
 }
 
-/** Extract text from an attachment: handles .doc/.docx via docText, .pdf via pdfText or ocrPdf */
 async function extractAttachmentText(att) {
   const url = fileUrl(att.id);
   const ext = String(att.extension || '').toLowerCase();
@@ -120,7 +103,6 @@ async function extractAttachmentText(att) {
       // Ignore pdftotext error and fall back to OCR
     }
 
-    // Scanned PDFs yield empty or whitespace-only text from pdftotext
     if (!text || text.trim().length < 50) {
       try {
         text = await ocrPdf(url, FETCH_OPTS);
@@ -135,16 +117,11 @@ async function extractAttachmentText(att) {
   return null;
 }
 
-/**
- * Crawl active announcements board for flat listings, land plots, and pre-auction designations.
- * @returns {Promise<{ listings: Array, wykaz: Array, land: Array, valid_empty: boolean, valid_empty_land: boolean }>}
- */
 export async function crawlActive() {
   const listings = [];
   const land = [];
   const wykaz = [];
 
-  // 1. Announcements board
   const announceArticles = await fetchMenuArticles(ANNOUNCE_MENU);
   console.error(`  kolobrzeg: found ${announceArticles.length} announcement articles in menu ${ANNOUNCE_MENU}`);
 
@@ -155,13 +132,11 @@ export async function crawlActive() {
     if (!details) continue;
 
     const atts = Array.isArray(details.attachments) ? details.attachments : [];
-    // Filter out RODO attachments
     const relevantAtts = atts.filter(
       (a) => a?.id != null && !/rodo|przetwarzani.*danych/i.test(a.name || '')
     );
     if (!relevantAtts.length) continue;
 
-    // Prefer .doc / .docx (accessible WCAG Word format), otherwise .pdf
     const docAtt = relevantAtts.find((a) => ['doc', 'docx'].includes(String(a.extension || '').toLowerCase()));
     const pdfAtt = relevantAtts.find((a) => String(a.extension || '').toLowerCase() === 'pdf');
     const mainAtt = docAtt || pdfAtt;
@@ -186,7 +161,6 @@ export async function crawlActive() {
     }
   }
 
-  // 2. Pre-auction designations (Wykaz) board
   const wykazArticles = await fetchMenuArticles(WYKAZ_MENU);
   console.error(`  kolobrzeg: found ${wykazArticles.length} wykaz articles in menu ${WYKAZ_MENU}`);
 
@@ -214,7 +188,6 @@ export async function crawlActive() {
     wykaz.push(...recs);
   }
 
-  // Keep genuinely upcoming auctions as active
   const today = todayWarsaw();
   const active = listings.filter((l) => !l.auction_date || l.auction_date >= today);
 
@@ -228,10 +201,6 @@ export async function crawlActive() {
   return { listings: active, wykaz, land, valid_empty, valid_empty_land };
 }
 
-/**
- * Crawl result documents from menu 30712 (Rozstrzygnięcia - sprzedaż) and 31009.
- * @returns {Promise<Array<object>>} Result doc refs for parseResultDoc
- */
 export async function crawlResultDocs() {
   const known = await loadKnownSourceUrls('kolobrzeg');
   const resultRefs = [];
@@ -239,7 +208,6 @@ export async function crawlResultDocs() {
   let processed = 0;
   let skippedKnown = 0;
 
-  // 1. Annual result articles in menu 30712
   const resultArticles = await fetchMenuArticles(RESULT_MENU);
   console.error(`  kolobrzeg: found ${resultArticles.length} annual result articles in menu ${RESULT_MENU}`);
 
@@ -258,7 +226,6 @@ export async function crawlResultDocs() {
         continue;
       }
 
-      // Filter for residential notices (or unclassified notices)
       if (!isFlat(att.name) && isLand(att.name)) continue;
 
       if (processed >= MAX_RESULT_DETAILS || Date.now() > deadline) {
@@ -285,7 +252,6 @@ export async function crawlResultDocs() {
     if (processed >= MAX_RESULT_DETAILS || Date.now() > deadline) break;
   }
 
-  // 2. Check 31009 for any direct result notice articles
   const announceArticles = await fetchMenuArticles(ANNOUNCE_MENU);
   for (const art of announceArticles) {
     if (!/wynik|rozstrzyg/i.test(art.title)) continue;
@@ -330,9 +296,6 @@ export async function crawlResultDocs() {
   return resultRefs;
 }
 
-// ---------------------------------------------------------------------------
-// CLI smoke test
-// ---------------------------------------------------------------------------
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const active = await crawlActive();

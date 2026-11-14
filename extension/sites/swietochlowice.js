@@ -1,12 +1,3 @@
-// Świętochłowice site adapter — (www.)bip.swietochlowice.pl (Liferay portal).
-//
-// The flats-only auction category page /bipkod/29287911 server-renders each
-// announcement as a title link to a .doc attachment (/res/serwisy/pliki/<id>).
-// The TITLE carries "… przy ul. <Street> <bldg>[/<apt>]" + the round; the
-// price/area/date live inside the .doc (read by the pipeline, not us). There is
-// no HTML detail page — the announcement is the .doc download — so this is a
-// listing-index-only adapter. window.ZGM_FINN.{isFlatAnnouncement,
-// addressFromTitle} mirror the pipeline so badges join the same property keys.
 
 (function () {
   if (!window.ZGM_SITES || !window.ZGM_FINN) return;

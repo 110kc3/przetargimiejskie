@@ -1,16 +1,3 @@
-// Wodzisław Śląski parser unit tests.
-// Fixtures are exact representations of real documents published via FINN eUrząd
-// on bip.wodzislaw-slaski.pl / eurzad.finn.pl/gmwodzislawsl.
-//
-// Groundtruth:
-//   ANN flat: os. 1 Maja 27/1 (72.49 m², 200 000 zł, round 1, date 2024-11-26)
-//   ANN multi-flat: ul. PCK 16/11 (28.44 m², 95 000 zł) + os. 1 Maja 35/19 (54.12 m², 165 000 zł, date 2023-07-13)
-//   ANN house: ul. Leonida Teligi 69 (zabudowana, round 4, date 2026-10-15)
-//   ANN land: ul. Ofiar Oświęcimskich (4378 m², 360 000 zł, round 2, date 2026-11-26)
-//   RES flat sold: ul. kard. Stefana Wyszyńskiego 26/14 (round 2, wyw. 125 000 zł, hammer 147 750 zł, buyer "Dawid Sitko", date 2023-10-12)
-//   RES flat unsold: os. 1 Maja 27/1 (round 1, wyw. 215 000 zł, unsold "brak uczestników", 72.49 m², date 2024-09-19)
-//   RES land sold: ul. Kwiatowa (dz. 3153/1, 1640 m², round 1, wyw. 145 000 zł, hammer 178 450 zł, buyer "PHU ,,BARTEX” Grzegorz Oślizło", date 2026-08-06)
-//   RES house sold: ul. Chrobrego 229 (round 4, date 2022-06-14, sold)
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -33,7 +20,6 @@ import {
   parseResultDoc,
 } from '../src/cities/wodzislaw-slaski/parse.js';
 
-// ==================================================================== FIXTURES
 
 const FIXTURE_ANN_1_MAJA = `OGŁOSZENIE O PRZETARGU
 
@@ -196,7 +182,6 @@ przy ul. Chrobrego 229, zakończony wynikiem pozytywnym.
   Najwyższa cena osiągnięta w przetargu netto: 313.100,00 zł
 4. Nabywca nieruchomości: Jan Kowalski.`;
 
-// ======================================================================= TESTS
 
 test('isResultNotice correctly classifies result notices vs announcements', () => {
   assert.equal(isResultNotice(FIXTURE_RES_SOLD_FLAT), true);
@@ -257,25 +242,21 @@ test('outcomeFromText and buyerFromText parse results accurately', () => {
 });
 
 test('addressFromText handles complex estate and numbered street formats', () => {
-  // os. 1 Maja with staircase: 27/I/1 -> 27/1
   const a1 = addressFromText('', FIXTURE_ANN_1_MAJA);
   assert.equal(a1.address_raw, 'os. 1 Maja 27/1');
   assert.equal(a1.address.key, '1 maja|27|1');
 
-  // Numbered street: 26 Marca 29/15
   const a2 = addressFromText('sprzedaż lokalu przy ul. 26 Marca 29/15', '');
   assert.equal(a2.address_raw, 'ul. 26 Marca 29/15');
   assert.equal(a2.address.street, '26 Marca');
   assert.equal(a2.address.building, '29');
   assert.equal(a2.address.apt, '15');
 
-  // House: ul. Leonida Teligi 69
   const a3 = addressFromText('', FIXTURE_ANN_HOUSE);
   assert.equal(a3.address_raw, 'ul. Leonida Teligi 69');
   assert.equal(a3.address.building, '69');
   assert.equal(a3.address.apt, null);
 
-  // Venue guard: town hall address (ul. Bogumińska 4B) must not match as property address
   const aVenue = addressFromText('Ogłoszenie w Urzędzie Miasta', 'Przetarg odbędzie się w siedzibie Urzędu Miasta przy ul. Bogumińskiej 4B.');
   assert.equal(aVenue, null);
 });

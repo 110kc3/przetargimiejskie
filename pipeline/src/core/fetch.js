@@ -1,11 +1,3 @@
-// Polite fetcher: identifies the bot, throttles requests, retries transient failures.
-//
-// All HTTP traffic to zgm-gliwice.pl flows through here so we have one
-// consistent place to enforce rate limits and user-agent.
-//
-// Production fetches are direct from disposable GitHub-hosted runners. There is
-// no proxy/private-network switch; adapters that require residential egress are
-// excluded by refresh-matrix.js and remain visibly degraded on last-good data.
 
 import { setTimeout as sleep } from 'node:timers/promises';
 import https from 'node:https';
@@ -15,10 +7,6 @@ import { isChallengePage, challengeSignature } from './challenge-page.js';
 import { recordRequest } from './request-metrics.js';
 import { getSourceTlsAgent } from './source-tls.js';
 
-/**
- * Instrumented direct-fetch handle for city-local code that must build its own
- * requests (for example a waiting-room retry with a Cookie header).
- */
 export function directFetch(...args) {
   recordRequest(args[0]);
   return fetch(...args);
@@ -27,24 +15,11 @@ export function directFetch(...args) {
 const USER_AGENT =
   'przetargimiejskie-bot/0.1 (+https://github.com/110kc3/przetargimiejskie)';
 
-// 1 req/sec default, easily under any reasonable threshold. The env override
-// (FETCH_MIN_INTERVAL_MS) exists for local one-off runs against hosts already
-// verified to tolerate it - CI never sets it.
 const MIN_INTERVAL_MS = Number(process.env.FETCH_MIN_INTERVAL_MS) || 1000;
-// Bound both the connection and response-body phases. Native fetch otherwise
-// has no overall deadline, so one municipal server that accepts a connection
-// and then stalls can hold an entire city (and CI matrix job) indefinitely.
 const REQUEST_TIMEOUT_MS = Number(process.env.FETCH_TIMEOUT_MS) || 30000;
 let lastFetchAt = 0;
 
-// ---- failure-snapshot hook (CI triage) -------------------------------------
-//
-// When DEBUG_FETCH_DIR is set (refresh.yml sets it for every matrix job), each
 // fetched body is also written to that dir so a breaking run preserves the
-// EXACT bytes the crawler saw — the evidence a layout-change fix needs, without
-// re-hitting a flaky municipal server later. Capped to the first 25 fetches /
-// ~15 MB: board/index pages come first in every adapter and are what matter;
-// the caps keep PDF-heavy cities (Zabrze: ~113 docs) from bloating artifacts.
 const SNAPSHOT_DIR = process.env.DEBUG_FETCH_DIR || '';
 const SNAPSHOT_MAX_FILES = 25;
 const SNAPSHOT_MAX_BYTES = 15 * 1024 * 1024;
@@ -73,8 +48,6 @@ async function throttle() {
   lastFetchAt = Date.now();
 }
 
-// Browser-baseline headers, sent when a city opts into "browser mode" (a custom
-// User-Agent). Some municipal WAFs reject a browser UA that lacks these.
 function browserHeaders(userAgent, accept) {
   return {
     'User-Agent': userAgent,
@@ -87,10 +60,6 @@ function browserHeaders(userAgent, accept) {
   };
 }
 
-// ---- host-scoped incomplete-chain compatibility path (node:https) --------
-// Legacy adapter option `insecureTLS` now selects a reviewed intermediate chain,
-// with full certificate verification. It never disables TLS authentication.
-// The hostname/credential/port allowlist is checked again on every redirect.
 async function getBufferWithSourceChain(url, opts = {}) {
   const agent = getSourceTlsAgent(url);
   const { userAgent, accept, retries = 3, redirects = 5 } = opts;
@@ -106,7 +75,7 @@ async function getBufferWithSourceChain(url, opts = {}) {
         const req = https.get(url, { agent, headers, timeout: 30000 }, (res) => {
           const { statusCode = 0, headers: h } = res;
           if (statusCode >= 300 && statusCode < 400 && h.location && redirects > 0) {
-            res.resume(); // drain
+            res.resume();
             const next = new URL(h.location, url).toString();
             getBufferWithSourceChain(next, { ...opts, redirects: redirects - 1 }).then(resolve, reject);
             return;
@@ -126,7 +95,7 @@ async function getBufferWithSourceChain(url, opts = {}) {
       });
     } catch (err) {
       lastErr = err;
-      if (attempt === retries) break; // out of retries — don't sleep for nothing
+      if (attempt === retries) break;
       const backoff = 1000 * Math.pow(2, attempt);
       console.error(`  fetch failed (${err.message}) [source-tls]; retry in ${backoff}ms`);
       await sleep(backoff);
@@ -135,17 +104,8 @@ async function getBufferWithSourceChain(url, opts = {}) {
   throw lastErr;
 }
 
-/**
- * GET a URL with throttling, retry, and a polite UA. Returns the Response.
- * @param {string} url
- * @param {{ retries?: number, accept?: string }} [opts]
- * @returns {Promise<Response>}
- */
 export async function politeGet(url, opts = {}) {
   const { retries = 3, accept = '*/*', userAgent, timeoutMs } = opts;
-  // When a city overrides the UA (browser mode), send the rest of a browser's
-  // baseline headers too — some municipal WAFs (e.g. bip.miastozabrze.pl) reject
-  // requests that present a browser UA but lack Accept-Language / Sec-Fetch-*.
   const browserMode = Boolean(userAgent);
   const headers = {
     'User-Agent': userAgent || USER_AGENT,
@@ -178,14 +138,11 @@ export async function politeGet(url, opts = {}) {
       return res;
     } catch (err) {
       lastErr = err;
-      // `fetch failed` hides the real reason on its `.cause` — surface it so
-      // connection failures (DNS / TLS / refused / timeout / IP-block) are
-      // diagnosable from the CI log instead of an opaque "fetch failed".
       const cause = err?.cause;
       const detail = cause
         ? ` [cause: ${cause.code || cause.name || ''} ${cause.message || ''}`.trimEnd() + ']'
         : '';
-      if (attempt === retries) break; // out of retries — don't sleep for nothing
+      if (attempt === retries) break;
       const backoff = 1000 * Math.pow(2, attempt);
       console.error(`  fetch failed (${err.message})${detail}; retry in ${backoff}ms`);
       await sleep(backoff);
@@ -194,12 +151,7 @@ export async function politeGet(url, opts = {}) {
   throw lastErr;
 }
 
-// A fetched-OK anti-bot / challenge / waiting-room interstitial is NOT the real
-// page — treat it like an outage. Throwing a "fetch failed: …" error (matches
-// triage-report.js NETWORK_RE) makes any city's challenge page classify as
 // source-unreachable instead of layout-change, and lets refresh.js preserve
-// last-good data. The body is snapshot()ted BEFORE we throw, so the challenge
-// bytes are still captured in the DEBUG_FETCH_DIR artifact.
 function assertNotChallenge(url, text) {
   if (!isChallengePage(text)) return text;
   const sig = challengeSignature(text) || 'challenge page';
@@ -210,7 +162,6 @@ function assertNotChallenge(url, text) {
   throw err;
 }
 
-/** @param {string} url @param {{ userAgent?: string, insecureTLS?: boolean, retries?: number }} [opts] */
 export async function getText(url, opts = {}) {
   if (opts.insecureTLS) {
     const buf = await getBufferWithSourceChain(url, {
@@ -234,7 +185,6 @@ export async function getText(url, opts = {}) {
   return assertNotChallenge(url, text);
 }
 
-/** @param {string} url @param {{ userAgent?: string, insecureTLS?: boolean, retries?: number }} [opts] */
 export async function getBytes(url, opts = {}) {
   if (opts.insecureTLS) {
     const buf = await getBufferWithSourceChain(url, {

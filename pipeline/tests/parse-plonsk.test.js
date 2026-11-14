@@ -1,5 +1,3 @@
-// Tests for Płońsk municipal property auction adapter.
-// Real fixtures from BIP Urząd Miejski w Płońsku (umplonsk.bip.org.pl).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -29,7 +27,6 @@ import {
   parseResultDoc,
 } from '../src/cities/plonsk/parse.js';
 
-// --- Real HTML excerpt from year 2026 board (/id/2602) ---
 const BOARD_2602_HTML = `
 <div class="attachments list-group list-group-item">
  <h5>Załączone pliki:</h5>
@@ -126,7 +123,6 @@ const BOARD_2602_HTML = `
 </div>
 `;
 
-// --- Real document fixtures from live BIP attachments ---
 
 const MLODZIEZOWA_ANNOUNCE = `
 GP.6840.1.2025.MO
@@ -276,7 +272,6 @@ Cena wywoławcza: 1.003.487,00 zł.
 Przetarg zakończył się wynikiem negatywnym.
 `;
 
-// --- Tests ---
 
 test('config: exports valid city descriptor for Płońsk', () => {
   assert.equal(config.id, 'plonsk');
@@ -310,10 +305,8 @@ test('discriminators: isResultDoc and isAnnouncementDoc route correctly', () => 
   assert.ok(isResultDoc('informacja_wynik__pierwszego__przetargu', MLODZIEZOWA_RESULT));
   assert.ok(!isAnnouncementDoc('informacja_wynik__pierwszego__przetargu', MLODZIEZOWA_RESULT));
 
-  // Typo variant from live board: "Informacja o wynku"
   assert.ok(isResultDoc('Informacja o wynku I przetargu', PLAC_15_SIERPNIA_RESULT));
 
-  // "Lista osób zakwalifikowanych" is neither announcement nor result
   assert.ok(!isAnnouncementDoc('Lista osób zakwalifikowanych do przetargu', 'Lista osób zakwalifikowanych'));
   assert.ok(!isResultDoc('Lista osób zakwalifikowanych do przetargu', 'Lista osób zakwalifikowanych'));
 });
@@ -364,7 +357,6 @@ test('addressFromText: extracts and normalizes addresses, ignores City Hall offi
   assert.equal(a3.parsed.building, '2');
   assert.equal(a3.parsed.key, '15 go sierpnia|2|');
 
-  // Must not pick up City Hall address (Płocka 39)
   const officeOnly = 'Urząd Miejski w Płońsku, ul. Płocka 39, 09-100 Płońsk, wejście od ul. 1-go Maja.';
   assert.equal(addressFromText('', officeOnly), null);
 });

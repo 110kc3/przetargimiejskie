@@ -1,43 +1,3 @@
-// Zduńska Wola parser + crawl-helper tests. Fixtures are faithful copies of
-// REAL XML field values (live + Wayback-archived), fetched 2026-07-11.
-//
-//   id 12995  ul. Karola Szymanowskiego — LAND, PENDING, round I (Pierwszy),
-//             108 000 zł, przetarg 08.07.2026. Live: https://bip.zdunskawola.pl/
-//             przetarg-nieruchomosci/xml/12995/1 (no <rozstrzygniecie> tag at
-//             all while pending — not just empty, entirely OMITTED).
-//   id 12972  ul. Torowa — LAND, SOLD, round I (Pierwszy), 320 000 zł
-//             wywoławcza → 324 000 zł achieved, buyer "Katarzyna i Paweł
-//             małż. Wojciechowscy". Live: .../przetarg-nieruchomosci/xml/12972/1
-//             (INLINE <rozstrzygniecie>, no separate result PDF/page). This
-//             city's boilerplate never says "nabywca" — it says "Osobami
-//             wyłonionymi ... zostali ..., którzy wylicytowali ... za cenę X
-//             zł" / "zakończył się wynikiem pozytywnym".
-//   id 12666  ul. 1 Maja 10 lokal nr 18 — FLAT, PENDING, round IV (Czwarty),
-//             przetarg 20.11.2025. This record has since aged OUT of the live
-//             board/XML entirely (both now 404 — confirmed live 2026-07-11)
-//             — captured via the Wayback Machine snapshot from 2025-11-04
-//             (http://web.archive.org/web/20251104102640/https://
-//             bip.zdunskawola.pl/przetarg-nieruchomosci/xml/12666/1, fetched
-//             through Wayback's raw "if_" passthrough, i.e. the actual live
-//             XML bytes as archived — not a paraphrase). Two real gotchas
-//             live in this one record: rodzaj-nieruchomosci reads
-//             "Nieruchomość lokalowa" (not "Lokal mieszkalny" — a 5th kind
-//             this board's own filter exposes that classifyKind() can't
-//             place) and cena-wywolawcza reads the LITERAL STRING "w treści
-//             ogłoszenia" ("[stated] in the announcement text") instead of a
-//             number — the real 185 000 zł figure (per the spike) lives only
-//             in the PDF attachment, which this html-source adapter does not
-//             fetch.
-//   BONIFIKATA_WYKAZ_TEXT — real prose from a SEPARATE URL namespace
-//             (bip.zdunskawola.pl/artykul/406/12899/wykaz-nieruchomosci-
-//             lokalowych-przeznaczonych-do-sprzedazy-na-rzecz-najemcow,
-//             dated 2026-03-30, captured live via Wayback 2026-07-11) — a
-//             tenant-bonifikata sale notice, structurally outside the
-//             /przetargi-nieruchomosci/ board this adapter crawls, but used
-//             here to groundtruth the defensive isSkippable() guard.
-//   BOARD_XML — the real (small) board XML as fetched live 2026-07-11 from
-//             https://bip.zdunskawola.pl/przetargi-nieruchomosci/xml/439/1
-//             (2 records: both currently-active land plots).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -63,7 +23,6 @@ import {
 } from '../src/cities/zdunska-wola/parse.js';
 import { parseBoardPage } from '../src/cities/zdunska-wola/crawl.js';
 
-// --------------------------------------------------------------- real fixtures
 
 const SZYMANOWSKIEGO_LAND_PENDING = {
   adres: 'Zduńska Wola, ul. Karola Szymanowskiego',
@@ -102,14 +61,9 @@ const MAJA_10_18_FLAT_PENDING = {
   rozstrzygniecie: '',
 };
 
-// Real prose (bip.zdunskawola.pl/artykul/406/12899/..., 2026-03-30) — lives
-// OUTSIDE the /przetargi-nieruchomosci/ board namespace (see file header) but
-// used to groundtruth the defensive isSkippable() guard.
 const BONIFIKATA_WYKAZ_TEXT =
   'OBWIESZCZENIE \nw sprawie podania do publicznej wiadomości wykazu dotyczącego lokali mieszkalnych przeznaczonych \ndo sprzedaży na rzecz najemców wraz z udziałem we własności gruntu oraz w częściach wspólnych budynku\n– w trybie bezprzetargowym.\nNa podstawie art. 34 ust. 1 pkt 1 i 2 oraz art. 35 ust. 1 i 2 ustawy z dnia 21 sierpnia 1997 r. o gospodarce  nieruchomościami (tj. Dz. U. z 2024 r. poz. 1145 ze zm.) Prezydent Miasta Zduńska Wola podaje do publicznej wiadomości, iż nw. lokale mieszkalne zostały przeznaczone do sprzedaży na rzecz najemców wraz z udziałem we własności gruntu oraz w częściach wspólnych budynku – w trybie bezprzetargowym. \nSzczegóły w załączniku.';
 
-// The real (small) board XML, fetched live 2026-07-11 from
-// https://bip.zdunskawola.pl/przetargi-nieruchomosci/xml/439/1 — 2 records.
 const BOARD_XML = `<?phpxml version="1.0" encoding="UTF-8"?><bip.zdunskawola.pl>
     <przetargi-nieruchomosci>
         <strona>1</strona>
@@ -138,7 +92,6 @@ const BOARD_XML = `<?phpxml version="1.0" encoding="UTF-8"?><bip.zdunskawola.pl>
             </przetargi-nieruchomosci>
 </bip.zdunskawola.pl>`;
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: space-thousands, grosze tail, VAT-suffixed amounts', () => {
   assert.equal(parsePLN('108 000,00'), 108000);
@@ -187,9 +140,9 @@ test('isSkippable: regression — the meeting-venue address "ul. Stefana Złotni
 });
 
 test('roundFromText: leading ordinal in PRZETARGNA (no "ogłasza" preamble)', () => {
-  assert.equal(roundFromText(buildRecordText(SZYMANOWSKIEGO_LAND_PENDING)), 1); // Pierwszy
-  assert.equal(roundFromText(buildRecordText(TOROWA_LAND_SOLD)), 1); // Pierwszy
-  assert.equal(roundFromText(buildRecordText(MAJA_10_18_FLAT_PENDING)), 4); // Czwarty
+  assert.equal(roundFromText(buildRecordText(SZYMANOWSKIEGO_LAND_PENDING)), 1);
+  assert.equal(roundFromText(buildRecordText(TOROWA_LAND_SOLD)), 1);
+  assert.equal(roundFromText(buildRecordText(MAJA_10_18_FLAT_PENDING)), 4);
 });
 
 test('auctionDateFromText: spaced-dot DATA field -> ISO', () => {
@@ -264,7 +217,6 @@ test('unitAreaFromText: pending flat has no inline area (PDF-only) -> null', () 
   assert.equal(unitAreaFromText(buildRecordText(MAJA_10_18_FLAT_PENDING)), null);
 });
 
-// ============================================================ parseAnnouncement
 
 test('parseAnnouncement: LAND pending (Szymanowskiego) — full record', () => {
   const rec = parseAnnouncement(buildRecordText(SZYMANOWSKIEGO_LAND_PENDING));
@@ -274,7 +226,7 @@ test('parseAnnouncement: LAND pending (Szymanowskiego) — full record', () => {
   assert.equal(rec.starting_price_pln, 108000);
   assert.equal(rec.auction_date, '2026-07-08');
   assert.equal(rec.round, 1);
-  assert.equal(rec.dzialka_nr, null); // PDF-only while pending
+  assert.equal(rec.dzialka_nr, null);
 });
 
 test('parseAnnouncement: FLAT pending (1 Maja 10/18), round IV, non-numeric price', () => {
@@ -285,19 +237,15 @@ test('parseAnnouncement: FLAT pending (1 Maja 10/18), round IV, non-numeric pric
   assert.equal(rec.address.key, '1 maja|10|18');
   assert.equal(rec.address.building, '10');
   assert.equal(rec.address.apt, '18');
-  assert.equal(rec.starting_price_pln, null); // "w treści ogłoszenia" — PDF-only
+  assert.equal(rec.starting_price_pln, null);
   assert.equal(rec.auction_date, '2025-11-20');
   assert.equal(rec.round, 4);
 });
 
 test('parseAnnouncement: a resolved record (non-empty ROZSTRZYGNIECIE) is not re-announced', () => {
-  // crawl.js routes on hasResolution() before calling parseAnnouncement, but
-  // parseAnnouncement itself has no such gate — verify the caller contract
-  // instead: Torowa's blob should be routed via parseResultDoc, not this.
   assert.equal(hasResolution(buildRecordText(TOROWA_LAND_SOLD)), true);
 });
 
-// ============================================================== parseResultDoc
 
 test('parseResultDoc: LAND SOLD (Torowa) — achieved price, buyer, parcels, bare-m2 area', () => {
   const recs = parseResultDoc(

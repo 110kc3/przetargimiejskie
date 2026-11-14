@@ -1,6 +1,3 @@
-// Parser for Nowy Dwór Gdański auction notices and results (bip.miastonowydwor.pl)
-//
-// Handles 2ClickPortal notices and attached documents.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';

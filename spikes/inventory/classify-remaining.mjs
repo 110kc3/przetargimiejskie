@@ -71,7 +71,6 @@ async function classifyOne(city) {
       try {
         const page = await getText(`https://${cand}`, { userAgent: BROWSER_UA, timeoutMs: 1200, retries: 0 });
         if (page && page.length > 200) {
-          // Check if parked/for sale
           if (/sprzedaż.*domen|domena.*zaparkowana|oferta sprzedaży domeny|for sale/i.test(page)) {
             continue;
           }
@@ -108,7 +107,6 @@ async function classifyOne(city) {
 
   const lower = (resolvedHost + ' ' + html).toLowerCase();
 
-  // Check supported platforms
   if (lower.includes('logonet') || html.includes('author" content="Logonet') || lower.includes('/przetargi-nieruchomosci/')) {
     return { id: city.id, label: city.label, voivodeship: city.voivodeship, verdict: 'BUILD', platform: 'logonet', host: resolvedHost };
   }
@@ -131,7 +129,6 @@ async function classifyOne(city) {
     return { id: city.id, label: city.label, voivodeship: city.voivodeship, verdict: 'BUILD', platform: 'smartsite', host: resolvedHost };
   }
 
-  // Check whether it has real estate auctions
   const hasAuctions = /przetarg.*nieruchom|ogłoszenie o przetargu.*nieruchom|zbycie nieruchomości|sprzedaż lokali/i.test(html);
   if (!hasAuctions) {
     return {

@@ -1,45 +1,3 @@
-// Tomaszów Mazowiecki crawler — bip.tomaszow.miasta.pl (custom PHP BIP,
-// server-rendered, no JS). See config.js for the two-board shape.
-//
-// crawlActive():
-//   Fetches the announcements board (?id=144386), each of whose rows is a
-//   SUB-PAGE link (`?id=`, not a file). Each sub-page is fetched in turn and
-//   lists several PDF attachments (mapa, regulamin, oświadczenia, AND the
-//   real "Ogłoszenie o przetargu ...pdf") — pickAnnouncementFile() selects the
-//   real announcement by filename. That file's text is extracted (pdfText or
-//   docText) and handed to parse.js. Bounded by MAX_ANNOUNCEMENT_ITEMS (the
-//   whole board is a single non-paginated page; the cap is a defensive CI
-//   budget, not a real pagination limit — currently only 3 items live).
-//
-// crawlResultDocs():
-//   Fetches the results board (?id=148898), whose ~200 rows link DIRECTLY to
-//   a PDF/DOCX (no sub-page) — "Informacja [Prezydenta Miasta] o
-//   wynikach/rozstrzygnięciu ... przetargu" — newest-first, one page, no
-//   pagination. ALL already-known docs (loadKnownSourceUrls ∪
-//   loadKnownLandUrls — properties.json AND land.json URLs) are re-emitted
-//   from the content-addressed text cache (no network), because refresh.js
-//   REBUILDS land.json from each crawl; only genuinely NEW docs count against
-//   MAX_RESULT_ITEMS, so each refresh advances the backfill window ~15 docs
-//   deeper into the archive at a capped host load. Raise the cap via
-//   TOMASZOW_MAX_RESULT_ITEMS for a faster one-off backfill.
-//
-// The "Aktualne wykazy nieruchomości" board (?id=153642) is deliberately not
-// crawled — see config.js header for the scope decision (stale/bezprzetargowa/
-// aport mix, not the open-auction stream).
-//
-// Session-redirect defensive fallback (see config.js header): the spike
-// (2026-06-27) reported cookie-less ?id= deep links redirecting to the
-// homepage; this build's live re-verification (2026-07-19) found every board
-// and item page loads its real content on a bare, cookie-less GET — the quirk
-// did not reproduce over several repeated fetches (including fresh processes,
-// no shared session). fetchPage() below keeps a defensive one-shot retry
-// (establish a session against the homepage, harvest the JSESSIONID
-// Set-Cookie, forward it via the shared direct-fetch handle — the same cookie-jar
-// idiom as brzeg/crawl.js's waiting-room retry, since politeGet cannot send a Cookie
-// header) in case the redirect resurfaces for a different caller IP (e.g. the
-// GH Actions runner). Detection: a homepage redirect serves the bare site
-// title with NO page-specific " - Urząd..." suffix that every real content
-// page carries.
 
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { readFile } from 'node:fs/promises';
@@ -59,13 +17,10 @@ const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
 
-const MAX_ANNOUNCEMENT_ITEMS = 20; // defensive cap; board is un-paginated, ~3 live today
+const MAX_ANNOUNCEMENT_ITEMS = 20;
 const MAX_RESULT_ITEMS = Number(process.env.TOMASZOW_MAX_RESULT_ITEMS) || 15;
 const CRAWL_BUDGET_MS = Number(process.env.TOMASZOW_CRAWL_BUDGET_MS) || 10 * 60 * 1000;
 
-// ---------------------------------------------------------------------------
-// Session-redirect defensive fallback (see header)
-// ---------------------------------------------------------------------------
 
 const HOMEPAGE_TITLE_RE = /<title>\s*Urz[ąa]d\s+Miasta\s+w\s+Tomaszowie\s+Mazowieckim\s*<\/title>/i;
 
@@ -84,8 +39,6 @@ function harvestCookies(res, jar) {
 
 let sessionJarPromise = null;
 
-// Establish (once per process) a session cookie against the homepage, for the
-// defensive retry only — never called on the normal/expected path.
 function establishSession() {
   sessionJarPromise ??= (async () => {
     const jar = new Map();
@@ -100,9 +53,6 @@ function establishSession() {
   return sessionJarPromise;
 }
 
-/** Fetch a bip.tomaszow.miasta.pl page; retry once with a session cookie if
- *  the CMS serves the homepage instead of the requested content (see header).
- *  @param {string} url @returns {Promise<string>} */
 async function fetchPage(url) {
   const html = await getText(url, FETCH_OPTS);
   if (!looksLikeHomepageRedirect(html)) return html;
@@ -121,13 +71,6 @@ async function fetchPage(url) {
   return retry.text();
 }
 
-// ---------------------------------------------------------------------------
-// Board parsing — every board (announcements/results/an item sub-page's
-// attachment list) server-renders a flat `<li class="element_podkategorii">`
-// list; chunk on that marker rather than one large regex so per-row markup
-// quirks (extra whitespace, an optional trailing counter row) can't break the
-// whole board.
-// ---------------------------------------------------------------------------
 
 const ITEM_MARKER = '<li class="element_podkategorii">';
 
@@ -147,12 +90,8 @@ function splitBoardItems(html) {
   return chunks;
 }
 
-// Announcements-board row: a SUB-PAGE link (no file yet), e.g.
-// `<a href="/public/?id=239781" class="nazwa_pliku nourl">TITLE</a>`.
 const SUBPAGE_LINK_RE = /<a href="\/public\/\?id=(\d+)"[^>]*class="nazwa_pliku nourl"[^>]*>([^<]*)<\/a>/;
 
-/** @param {string} html the announcements board's HTML
- *  @returns {Array<{id:string, title:string, url:string}>} */
 export function announcementItemsFromBoard(html) {
   const items = [];
   for (const chunk of splitBoardItems(html)) {
@@ -163,15 +102,9 @@ export function announcementItemsFromBoard(html) {
   return items;
 }
 
-// A direct file-link row (results board rows, AND an announcement sub-page's
-// own attachment rows — same markup shape): e.g.
-// `<a href="/public/getFile?id=623585" ...class="nazwa_pliku" ><img.../><span>TITLE</span></a>`
-// followed (results board only) by a `udostepnil_data">(YYYY-MM-DD ...)` date.
 const FILE_LINK_RE = /<a href="\/public\/(getFile\?id=(\d+))"[^>]*class="nazwa_pliku"[^>]*>[\s\S]*?<span>([^<]*)<\/span>/;
 const UDOSTEPNIL_DATE_RE = /udostepnil_data">\((\d{4}-\d{2}-\d{2})/;
 
-/** @param {string} html a board or item-sub-page's HTML
- *  @returns {Array<{url:string, id:string, title:string, date:string|null}>} */
 export function fileItemsFromBoard(html) {
   const items = [];
   for (const chunk of splitBoardItems(html)) {
@@ -183,22 +116,10 @@ export function fileItemsFromBoard(html) {
   return items;
 }
 
-// Among a sub-page's attachments (mapa/regulamin/oświadczenia/ogłoszenie),
-// pick the real announcement — always named "Ogłoszenie o ... przetargu..."
-// on every live fixture (Zielona/Środkowa/Spalska) — falling back to the
-// first attachment if none matches (defensive; not expected to fire).
 export function pickAnnouncementFile(attachments) {
   return attachments.find((a) => /og[łl]oszeni/i.test(a.title)) || attachments[0] || null;
 }
 
-// ---------------------------------------------------------------------------
-// Text extraction — born-digital PDF (pdfText) by default; .doc/.docx
-// attachments (docText) when the filename says so, OR when pdfText rejects
-// the bytes as "not a PDF" (a few result rows are .docx with no extension
-// shown in the display title — see crawl.js/config.js notes); ocrPdf when
-// pdftotext comes back ~blank (scanned/image-only PDF — the older archive
-// rows are scans; a bare "\f" pdftotext output is the tell).
-// ---------------------------------------------------------------------------
 
 async function extractText(url, filenameHint) {
   const looksDocLike = /\.docx?$/i.test(filenameHint || '');
@@ -210,16 +131,10 @@ async function extractText(url, filenameHint) {
     if (/not a PDF/i.test(err.message)) return docText(url, FETCH_OPTS);
     throw err;
   }
-  // Scanned (image-only) PDF: pdftotext yields ~nothing (often a bare \f).
-  // Fall through to OCR — same >=120 stripped-chars threshold as
-  // oswiecim/crawl.js's attachmentText().
   if (text.replace(/\s+/g, '').length >= 120) return text;
   return ocrPdf(url, FETCH_OPTS);
 }
 
-// ---------------------------------------------------------------------------
-// crawlActive — announcements board (+ its per-item sub-page attachments)
-// ---------------------------------------------------------------------------
 
 export async function crawlActive() {
   const listings = [];
@@ -268,17 +183,7 @@ export async function crawlActive() {
   return { listings, wykaz: [], land };
 }
 
-// ---------------------------------------------------------------------------
-// crawlResultDocs — results board, newest-first, incremental via known-urls
-// ---------------------------------------------------------------------------
 
-// core/known-urls.js only reads properties.json — but on this mixed board most
-// result docs are LAND ('grunt' -> data/<city>/land.json), so without this
-// union those docs would never count as "known" and the MAX_RESULT_ITEMS
-// window would stay pinned to the same newest rows forever instead of
-// advancing into the 197-row archive (where the flat results with achieved
-// prices live). Reads the same four URL fields core/known-urls.js does;
-// fail-safe empty set on first run / missing file.
 const LAND_JSON_PATH = fileURLToPath(
   new URL('../../../../data/tomaszow-mazowiecki/land.json', import.meta.url),
 );
@@ -313,18 +218,11 @@ export async function crawlResultDocs() {
 
   const known = await loadKnownSourceUrls('tomaszow-mazowiecki');
   for (const url of await loadKnownLandUrls()) known.add(url);
-  const items = fileItemsFromBoard(html); // newest-first on the live board
+  const items = fileItemsFromBoard(html);
   const deadline = Date.now() + CRAWL_BUDGET_MS;
   let fetched = 0;
   let reused = 0;
 
-  // KNOWN items are still extracted + emitted — their text is a content-
-  // addressed cache hit (no network), and land.json is REBUILT from each
-  // crawl's records (refresh.js overwrites it; only properties.json history-
-  // merges), so dropping known docs would drop their land history. Only
-  // genuinely NEW docs count against MAX_RESULT_ITEMS, which is what lets the
-  // backfill window advance ~15 docs per run into the 197-row archive while
-  // keeping per-run host load capped.
   for (const item of items) {
     if (Date.now() > deadline) break;
     const isKnown = known.has(item.url);
@@ -349,9 +247,6 @@ export async function crawlResultDocs() {
   return resultRefs;
 }
 
-// ---------------------------------------------------------------------------
-// CLI smoke test
-// ---------------------------------------------------------------------------
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings, land } = await crawlActive();

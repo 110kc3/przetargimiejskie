@@ -65,7 +65,6 @@ export async function probeCity(city) {
 
     const lower = html.toLowerCase();
 
-    // 1. BiuletynNet
     if (host.includes('biuletyn.net') || lower.includes('biuletyn.net')) {
       let defaultCid = 70;
       const mCid = fullUrl.match(/cid=(\d+)/) || html.match(/href="[^"]*cid=(\d+)[^"]*"[^>]*>[^<]*przetarg/i);
@@ -81,7 +80,6 @@ export async function probeCity(city) {
       };
     }
 
-    // 2. Logonet
     if (lower.includes('logonet') || html.includes('author" content="Logonet') || lower.includes('/przetargi-nieruchomosci/')) {
       let boardUrl = `https://${host}/przetargi-nieruchomosci/376`;
       const mBoard = html.match(/href="([^"]*\/przetargi-nieruchomosci\/(\d+)[^"]*)"/i) || html.match(/href="([^"]*\/artykuly\/(\d+)\/przetargi[^"]*)"/i);
@@ -99,7 +97,6 @@ export async function probeCity(city) {
       };
     }
 
-    // 3. MADKOM
     if (lower.includes('madkom') || lower.includes('data-ng-app="app"') || lower.includes('/api/contexts/')) {
       return {
         engine: 'madkom',
@@ -112,7 +109,6 @@ export async function probeCity(city) {
       };
     }
 
-    // 4. SystemDoBIP
     if (lower.includes('systemdobip') || lower.includes('e-line') || (lower.includes('/przetargi/') && lower.includes('/status/'))) {
       let boardId = 361;
       const mBoard = html.match(/\/przetargi\/(\d+)\//);
@@ -128,7 +124,6 @@ export async function probeCity(city) {
       };
     }
 
-    // 5. BIP Lubelskie
     if (host.includes('bip.lubelskie.pl') || lower.includes('bip.lubelskie.pl') || lower.includes('action=list-ajax') || lower.includes('pobierz_przetargi')) {
       return {
         engine: 'biplubelskie',
@@ -141,7 +136,6 @@ export async function probeCity(city) {
       };
     }
 
-    // 6. FINN
     if (host.includes('.finn.pl') || lower.includes('finn.pl') || lower.includes('/bipkod/')) {
       return {
         engine: 'finn',
@@ -154,7 +148,6 @@ export async function probeCity(city) {
       };
     }
 
-    // 7. WOKISS
     if (host.includes('wokiss.pl') || lower.includes('wokiss')) {
       return {
         engine: 'wokiss',

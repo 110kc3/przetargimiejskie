@@ -1,17 +1,3 @@
-// Mogilno unit tests: parser + crawl helper tests.
-//
-// Groundtruthed against real fixtures from bip.mogilno.pl (2026-10-21):
-//   1. ACTIVE RESIDENTIAL ANNOUNCEMENT (Wyrobki 7):
-//      URL: /kategorie/98-zbycie-nieruchomosci/artykuly/314-...
-//      Attachment 538: Wyrobki nr 7, dz. 19/13, lokal: 39,41 m², cena: 44.000,00 zł, przetarg: 26.06.2023.
-//   2. SPIKE REFERENCE ANNOUNCEMENT (Wasielewko 18/3):
-//      Wasielewko nr 18 lok. 3, lokal: 48,20 m², cena: 65 000 zł, II przetarg: 15.09.2023.
-//   3. SOLD RESULT NOTICE (attachment 7294):
-//      Przetarg 17.09.2026 r., dz. 416/3, obręb Mogilno, cena wywoławcza 16 000,00 zł, nabywcy: Edyta i Paweł Woźniak.
-//   4. UNSOLD RESULT NOTICE (attachment 6910):
-//      Przetarg 25.06.2026 r., dz. 179/1 pow. 0,1383 ha, obręb Chabsko, cena 120 000,00 zł, nikt się nie stawił.
-//   5. RESIDENTIAL RESULT NOTICE (synthetic following Mogilno result format):
-//      Przetarg 26.06.2023 r., Wyrobki nr 7, pow. 39,41 m², cena wywoławcza 44 000 zł, cena osiągnięta 51 000 zł, nabywca Jan Kowalski.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -35,7 +21,6 @@ import {
   parseDetailPage,
 } from '../src/cities/mogilno/parse.js';
 
-// ── Config tests ─────────────────────────────────────────────────────────────
 
 test('mogilno config contract', () => {
   assert.equal(config.id, 'mogilno');
@@ -47,7 +32,6 @@ test('mogilno config contract', () => {
   assert.equal(config.source, 'html');
 });
 
-// ── Numeric & String helpers ──────────────────────────────────────────────────
 
 test('parsePLN handles formatted currency strings', () => {
   assert.equal(parsePLN('16 000,00'), 16000);
@@ -103,7 +87,6 @@ test('addressFromText parses village and urban addresses', () => {
   assert.equal(addressFromText('brak adresu'), null);
 });
 
-// ── Dates, Round, Area, Prices ───────────────────────────────────────────────
 
 test('auctionDateFromText parses spelled-out Polish months and dotted dates', () => {
   assert.equal(
@@ -203,7 +186,6 @@ test('outcomeFromText identifies sold vs unsold correctly', () => {
   );
 });
 
-// ── HTML page parsing ────────────────────────────────────────────────────────
 
 const SAMPLE_LIST_HTML = `
 <div id="category">
@@ -269,7 +251,6 @@ test('parseDetailPage extracts title, publishedDate, and attachment URLs', () =>
   assert.equal(detail.attachments[0].name, 'Ogłoszenie Burmistrza Mogilna o przetargu ustnym nieograniczonym na sprzedaż nieruchomości.pdf');
 });
 
-// ── parseResultDoc end-to-end tests with real fixtures ────────────────────────
 
 const FIXTURE_7294_SOLD_LAND = `
 INFORMACJA O WYNIKU PRZETARGU

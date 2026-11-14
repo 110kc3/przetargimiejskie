@@ -1,29 +1,3 @@
-// Olsztyn parser tests — groundtruthed against REAL fixtures (2026-06-27).
-//
-// Fixtures captured from bip.olsztyn.eu:
-//   Result page (17 Apr 2026 session):
-//     https://bip.olsztyn.eu/2905/informacja-o-wynikach-przetargow-na-sprzedaz-lokali-mieszkalnych-stanowiacych-wlasnosc-gminy-olsztyn-ktore-odbyly-sie-w-dniu-17-kwietnia-2026-r.-w-siedzibie-urzedu-miasta-olsztyna.html
-//   Result page (20 Mar 2026 session, mixed flat + commercial):
-//     https://bip.olsztyn.eu/2720/informacja-o-wynikach-przetargow-z-20.03.2026-r..html
-//   Announcement (Curie-Skłodowskiej 2a, 17 Apr 2026):
-//     https://bip.olsztyn.eu/2626/ogloszenie-o-przetargu-ustnym-nieograniczonym-na-sprzedaz-lokalu-mieszkalnego-nr-2a-w-budynku-nr-10-przy-ulicy-curie-sklodowskiej-w-olsztynie.html
-//
-// All field values are verified against the actual live pages — not inferred.
-//
-// Ground truth (17 Apr 2026 session):
-//   Curie-Skłodowskiej 10/2a: wywoławcza 380 000 → osiągnięta 384 000 (sold)
-//   Curie-Skłodowskiej 10/2:  wywoławcza 460 000 → osiągnięta 464 600 (sold)
-//   Kasprowicza 5b/13:        wywoławcza 540 000 → brak wpłat (unsold)
-//   Partyzantów 69/8:         wywoławcza 640 000 → osiągnięta 646 400 (sold)
-//
-// Ground truth (20 Mar 2026 session, mixed page):
-//   Bałtyckiej 25B/4:  wywoławcza 250 000 → osiągnięta 252 500 (sold)  [lokal mieszkalny]
-//   Dąbrowszczaków 14/??: lokal nieMIESZKALNY — must be SKIPPED
-//   Partyzantów 73/6:  wywoławcza 200 000 → osiągnięta 362 000 (sold)  [lokal mieszkalny]
-//   Partyzantów 67/4a: wywoławcza 400 000 → osiągnięta 404 000 (sold)  [lokal mieszkalny]
-//
-// Announcement (Curie-Skłodowskiej 2a):
-//   area = 54.7 m², wywoławcza = 380 000 zł, auction_date = 2026-04-17, round = 1
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -31,7 +5,6 @@ import assert from 'node:assert/strict';
 import { parseResultDoc, parseActiveDoc, stripTags } from '../src/cities/olsztyn/parse.js';
 import { parseIndexPage } from '../src/cities/olsztyn/crawl.js';
 
-// ── stripTags helper ─────────────────────────────────────────────────────────
 
 test('stripTags: removes HTML tags and decodes common entities', () => {
   assert.equal(stripTags('<p>cena wywoławcza: <strong>380&nbsp;000,00 zł</strong></p>'), 'cena wywoławcza: 380 000,00 zł');
@@ -40,7 +13,6 @@ test('stripTags: removes HTML tags and decodes common entities', () => {
   assert.equal(stripTags(null), '');
 });
 
-// ── parseIndexPage helper ────────────────────────────────────────────────────
 
 const INDEX_HTML = `
 <tr class="c-grid-table--head"><th>...</th></tr>
@@ -81,10 +53,6 @@ test('parseIndexPage: returns empty array for empty / no-rows HTML', () => {
   assert.deepEqual(parseIndexPage(''), []);
 });
 
-// ── parseResultDoc — 17 April 2026 session (4 flats, new format) ─────────────
-//
-// Fixture text reproduced faithfully from the live page (get_page_text output,
-// 2026-06-27). Minimal HTML retained to exercise stripTags; prose is verbatim.
 
 const RESULT_17APR_TEXT = `
 Informacja o wynikach przetargów na sprzedaż lokali mieszkalnych stanowiących własność Gminy Olsztyn, które odbyły się w dniu 17 kwietnia 2026 r. w siedzibie Urzędu Miasta Olsztyna
@@ -158,8 +126,6 @@ test('parseResultDoc: Kasprowicza 5b/13 — brak wpłat → unsold, no final pri
   assert.equal(r.final_price_pln, null);
   assert.equal(r.outcome, 'unsold');
   assert.equal(r.unsold_reason, 'unknown');
-  // Regression: building must be 5B (from "budynku nr 5b"), NOT 5A (first number
-  // in the multi-building street fragment "Kasprowicza 5a,5b").
   assert.equal(r.address?.building, '5B', 'building must be 5B not 5A');
   assert.equal(r.address?.street, 'Kasprowicza', 'street must be clean (no digits/commas)');
 });
@@ -181,21 +147,6 @@ test('parseResultDoc: all records have kind=mieszkalny and source_pdf set', () =
   }
 });
 
-// ── parseResultDoc — 20 March 2026 session (mixed: flat + commercial + land) ─
-//
-// This page mixes:
-//   1. lokal mieszkalny nr 4 at ul. Bałtyckiej 25B (KEEP)
-//   2. lokal nieMIESZKALNY nr 7 at ul. Dąbrowszczaków 14 (SKIP)
-//   3. lokal mieszkalny nr 6 at ul. Partyzantów 73 (KEEP)
-//   4. lokal mieszkalny nr 4a at ul. Partyzantów 67 (KEEP)
-//
-// Older price format: "cena lokalu: X zł" + "cena Y/Z gruntu: W zł" summed
-// into wywoławcza rather than a single "cena wywoławcza: N zł" line.
-//
-// Ground truth verified from live page 2026-06-27:
-//   Bałtyckiej 25B/4:    wywoławcza 250 000 (173 000 lokal + 77 000 grunt) → 252 500
-//   Partyzantów 73/6:    wywoławcza 200 000 (190 000 + 7 800 + 2 200)      → 362 000
-//   Partyzantów 67/4a:   wywoławcza 400 000 (376 000 + 16 000 + 8 000)     → 404 000
 
 const RESULT_20MAR_TEXT = `
 Informacja o wynikach przetargów z 20.03.2026 r.
@@ -231,7 +182,6 @@ const SRC_2720 = 'https://bip.olsztyn.eu/2720/informacja-o-wynikach-przetargow-z
 test('parseResultDoc: 20 Mar 2026 mixed page — returns 3 records (skips lokal nieMIESZKALNY)', () => {
   const recs = parseResultDoc(RESULT_20MAR_TEXT, '2026-03-30', SRC_2720);
   assert.equal(recs.length, 3, 'must be 3 residential flats (commercial skipped)');
-  // Verify no record has an address that would match Dąbrowszczaków (the skipped one)
   const hasCommercial = recs.some((r) => /dabrowszczak/i.test(r.address_raw || ''));
   assert.equal(hasCommercial, false);
 });
@@ -270,11 +220,6 @@ test('parseResultDoc: Partyzantów 67/4a — split-format wywoławcza 400 000, o
   assert.equal(r.outcome, 'sold');
 });
 
-// ── parseResultDoc — Feb 2026 single-flat result (with "nabywca" field) ──────
-//
-// Ground truth from /2493/ (6 Feb 2026 session, 1 flat):
-//   Kościuszki 23/4: II przetarg, wywoławcza 800 000 zł, osiągnięta 808 000 zł,
-//   nabywca: Pan Karol Śliwiński
 
 const RESULT_6FEB_TEXT = `
 Informacja o wynikach przetargów na zbycie nieruchomości, które odbyły się w dniu 6 lutego 2026 r.
@@ -308,7 +253,6 @@ test('parseResultDoc: Feb 2026 — auction date extracted from body (6 February 
   assert.equal(recs[0].auction_date, '2026-02-06');
 });
 
-// ── parseResultDoc — edge cases ──────────────────────────────────────────────
 
 test('parseResultDoc: empty/null input returns empty array', () => {
   assert.deepEqual(parseResultDoc('', null, 'https://example.com'), []);
@@ -336,14 +280,6 @@ test('parseResultDoc: fallbackDate used when body has no date', () => {
   assert.equal(recs[0].auction_date, '2026-01-15');
 });
 
-// ── parseActiveDoc — announcement page (Curie-Skłodowskiej 2a) ───────────────
-//
-// Ground truth from /2626/ (published 2026-03-13, auction 2026-04-17):
-//   address: Curie-Skłodowskiej 10/2a
-//   area: 54.7 m²
-//   wywoławcza: 380 000 zł
-//   auction_date: 2026-04-17
-//   round: 1
 
 const ANN_TITLE_2A = 'Ogłoszenie o przetargu ustnym nieograniczonym na sprzedaż lokalu mieszkalnego nr 2a w budynku nr 10 przy ulicy Curie-Skłodowskiej w Olsztynie';
 const ANN_BODY_2A = `Prezydent Olsztyna ogłasza przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego stanowiącego własność Gminy Olsztyn.
@@ -402,18 +338,7 @@ Przetarg odbędzie się 15 maja 2026 r. o godz. 10:00.`;
   assert.equal(r.area_m2, 38.0);
 });
 
-// ── Multi-building announcement: "Kasprowicza 5a, 5b" ───────────────────────
-//
-// When a single announcement covers two buildings (e.g. "przy ulicy Kasprowicza
-// 5a, 5b w Olsztynie"), the street capture used to bleed the building list into
-// the street field ("Kasprowicza 5a, 5b"), producing a junk-street key.
-// The correct output: street="Kasprowicza", building from "budynku nr 5b".
-//
-// Bug reproduced live with sanity-check error:
-//   ERROR olsztyn: [junk-street] kasprowicza 5a 5b|5B|13 -- street 'Kasprowicza 5a, 5b'
 
-// Active announcement title as it appears on bip.olsztyn.eu for the flat in
-// building 5b (apt 13) of the Kasprowicza multi-building group.
 const ANN_TITLE_KASP = 'Ogłoszenie o przetargu ustnym nieograniczonym na sprzedaż lokalu mieszkalnego nr 13 w budynku nr 5b przy ulicy Kasprowicza 5a, 5b w Olsztynie';
 const ANN_BODY_KASP = `Prezydent Olsztyna ogłasza przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego stanowiącego własność Gminy Olsztyn.
 Przedmiotem sprzedaży jest lokal nr 13 położony na III piętrze 5-kondygnacyjnego budynku nr 5b zlokalizowanego przy ul. Kasprowicza 5a,5b w Olsztynie.
@@ -424,10 +349,8 @@ Przetarg odbędzie się 17 kwietnia 2026 r. o godz. 10:00 w siedzibie Urzędu Mi
 test('parseActiveDoc: Kasprowicza multi-building — street clean, building=5B', () => {
   const r = parseActiveDoc(ANN_TITLE_KASP, ANN_BODY_KASP);
   assert.ok(r, 'must parse the announcement');
-  // Street must be a bare name with no digits or commas (no junk-street).
   assert.equal(r.address.street, 'Kasprowicza');
   assert.ok(!/\d/.test(r.address.street), 'street must contain no digits');
-  // Building comes from "budynku nr 5b", not from the street fragment.
   assert.equal(r.address.building, '5B');
   assert.equal(r.address.apt, '13');
 });
@@ -443,14 +366,9 @@ test('parseActiveDoc: Kasprowicza multi-building — area 68 m², price 540 000'
 test('parseActiveDoc: Kasprowicza multi-building — key has no spaces/commas in street part', () => {
   const r = parseActiveDoc(ANN_TITLE_KASP, ANN_BODY_KASP);
   assert.ok(r);
-  // key format: "<street_norm>|<building>|<apt>"
-  // Before fix the key was: "kasprowicza 5a 5b|5B|13"  (junk-street)
-  // After fix the key must be: "kasprowicza|5B|13"
   assert.equal(r.address.key, 'kasprowicza|5B|13');
 });
 
-// Result page with the Kasprowicza 5a,5b block (same text as RESULT_17APR_TEXT
-// fixture but exercised explicitly for the building-override code path).
 const RESULT_KASP_ONLY = `
 Informacja testowa
 

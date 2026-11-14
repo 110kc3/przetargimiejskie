@@ -1,7 +1,3 @@
-// Configuration for Inowrocław adapter (bip.inowroclaw.pl)
-//
-// Gmina Miasto Inowrocław (powiat inowrocławski, kujawsko-pomorskie)
-// TERC: 0407011
 
 export const CONFIG = {
   id: 'inowroclaw',

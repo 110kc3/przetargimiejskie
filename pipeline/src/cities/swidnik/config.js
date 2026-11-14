@@ -1,7 +1,3 @@
-// Configuration for Świdnik adapter (umswidnik.bip.lubelskie.pl)
-//
-// Gmina Miejska Świdnik (powiat świdnicki, lubelskie)
-// TERC: 0617011
 
 export const CONFIG = {
   id: 'swidnik',

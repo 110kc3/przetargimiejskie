@@ -1,8 +1,3 @@
-// Zabrze parser tests. The live BIP can't be reached from CI sandboxes, so we
-// exercise the pure parsers against fixtures: the list-item markup observed in
-// a browser, and a synthetic announcement body in the standard Polish
-// ogłoszenie vocabulary. (The real attachment parser is validated/tuned on the
-// first GitHub Actions run — see cities/zabrze/config.js.)
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -29,7 +24,6 @@ test('auctionDateFromTitle → ISO', () => {
   assert.equal(auctionDateFromTitle('… bez daty'), null);
 });
 
-// Shape returned by /api/v1/document-list/549 (observed in a browser).
 const LIST_JSON = {
   data: [
     {
@@ -42,7 +36,6 @@ const LIST_JSON = {
       dscrpt: 'Ogłoszenie o I ustnym nieograniczonym przetargu na sprzedaż lokalu mieszkalnego na dzień 26.03.2026 r.',
       pubdat: '2026-02-13 09:17:00+01',
     },
-    // a non-auction notice that should be filtered out
     { doc_id: 99999, dscrpt: 'Informacja porządkowa', pubdat: '2026-01-01 00:00:00+01' },
   ],
 };
@@ -65,10 +58,8 @@ test('parseDocumentList: missing/empty data → []', () => {
 });
 
 test('attachmentUrlFromDoc finds the attachment link (absolute or relative)', () => {
-  // Real /doc HTML uses an ABSOLUTE url:
   const abs = '<a href="https://bip.miastozabrze.pl/attachment/43642" title="Pobierz załącznik"></a>';
   assert.equal(attachmentUrlFromDoc(abs), 'https://bip.miastozabrze.pl/attachment/43642');
-  // tolerate a relative form too:
   assert.equal(
     attachmentUrlFromDoc('<a href="/attachment/96404"></a>'),
     'https://bip.miastozabrze.pl/attachment/96404',
@@ -76,9 +67,6 @@ test('attachmentUrlFromDoc finds the attachment link (absolute or relative)', ()
   assert.equal(attachmentUrlFromDoc('<p>nothing</p>'), null);
 });
 
-// Real attachment text (from a downloaded Zabrze ogłoszenie, doc/5969 era):
-// numbered per-flat blocks; each block has a *plot* `pow.:` (działka) before the
-// *flat* `pow.:` (opis lokalu); boilerplate carries office addresses to exclude.
 const ANN_TEXT = `Prezydent Miasta Zabrze ogłasza II ustne przetargi nieograniczone na sprzedaż niżej wymienionych lokali mieszkalnych
 1. adres: ul. Ks. Bolesława Domańskiego 4/6
 działka: nr 4129/50 pow.: 1.377 m2 księga wieczysta nr
@@ -110,15 +98,9 @@ test('parseAnnouncementText: per-flat address, FLAT area (not plot), price; offi
   const k = flats.find((f) => f.address.key === 'krakowska|82|4');
   assert.equal(k.area_m2, 42.34);
   assert.equal(k.starting_price_pln, 53000);
-  // no office address leaked through
   assert.ok(!flats.some((f) => /powsta|wolnosci/.test(f.address.street_norm)));
 });
 
-// The other real Zabrze layout (doc 96404): the `pdftotext -layout` table wraps
-// so the FLAT area is detached from its "pow." label, the plot renders as
-// "953 m     2", the cellar header "pomieszczenia przynależne" lands just before
-// the flat's area, the flat area itself can be wide-spaced ("49,11 m  2"), and
-// the price label is followed by an inline "w tym: …%" cell.
 const ANN_WRAPPED = `Prezydent Miasta Zabrze ogłasza II ustne przetargi nieograniczone na sprzedaż lokali mieszkalnych
 1.                                   adres: ul. Gen. Władysława Andersa 35/4
 działka:   nr 740/1, 739/1,       pow.:      arkusz mapy: 2           prawo:        udział:
@@ -155,10 +137,6 @@ test('parseAnnouncementText: empty text → no flats', () => {
   assert.deepEqual(parseAnnouncementText(''), []);
 });
 
-// ---------------- result notices (achieved-price stream) ----------------
-// Condensed from the real attachment 97916 ("INFORMACJA O WYNIKU PRZETARGÓW",
-// 28.04.2026 — drugie przetargi): two sold bullets, incl. the "na działce"
-// locative (k→c declension) and the de Gaulle’a typographic apostrophe.
 
 const RESULT_NOTICE = `                           INFORMACJA O WYNIKU PRZETARGÓW
      Zgodnie z § 12 Rozporządzenia … Prezydent Miasta Zabrze podaje do publicznej
@@ -202,10 +180,6 @@ test('parseResultDoc: announcement text is not a result notice', () => {
   assert.deepEqual(parseResultDoc('Ogłoszenie o II ustnych przetargach …', null, 'u'), []);
 });
 
-// Condensed from the real 2022 cooperative-right announcement (doc 43654) —
-// the typographic apostrophe in "de Gaulle’a" used to break ADDR_IN_LINE
-// (0-flat warn), and the boilerplate "prawa użytkowania wieczystego" used to
-// flip the kind to uzytkowy.
 const ANN_APOSTROPHE = `1. adres : ul. Gen. de Gaulle’a 89/3
 działka: nr 2796/123, pow.: 1.050 m2 księga wieczysta nr GL1Z/00004904/8 prawo: spółdzielcze własnościowe
 lokal: położenie: parter pow.: 48,14 m2 pomieszczenia: 2 pokoje, przedpokój, kuchnia, łazienka z wc
@@ -222,11 +196,6 @@ test('parseAnnouncementText: typographic apostrophe address + kind not fooled by
   assert.equal(flats[0].starting_price_pln, 144000);
 });
 
-// Third real layout (docs 91932/96874, the Harcerska 2/2 case): pdftotext
-// wraps the SUPERSCRIPT of the flat's "m²" onto the PREVIOUS line ("lokalu:
-// parter   2" / "34,90 m łazienka…"), so the strict "<num> m2" token never
-// appears for the flat — only for the plot and the cellar. The bare-"<num> m"
-// fallback must recover the flat area without picking up plot or cellar.
 const ANN_WRAPPED_SUPERSCRIPT = `Prezydent Miasta Zabrze ogłasza II ustne przetargi nieograniczone
 4.                                          adres: ul. Harcerska 2/2
 działka:   nr 473/57          pow.:     Arkusz mapy 3,               prawo:           udział:
@@ -247,7 +216,6 @@ test('parseAnnouncementText: flat area recovered when the m² superscript wraps 
   assert.equal(h.starting_price_pln, 70000);
 });
 
-// ---- Land (board 555 działki/grunty) ----
 import { parseLandAttachment } from '../src/cities/zabrze/parse.js';
 
 test('parseLandAttachment: parcel/area/obręb/street/price from a real land notice', () => {
@@ -267,16 +235,8 @@ test('parseLandAttachment: plot thousands "1.377 m2" → 1377; null for GDPR ann
   assert.equal(parseLandAttachment('INFORMACJA O PRZETWARZANIU DANYCH OSOBOWYCH w drodze przetargu'), null);
 });
 
-// ---- Commercial (board 552 lokale użytkowe) ----
-// Fixtures faithful to the real `pdftotext -layout` output (docs 99878 / 95852 /
-// 43727): a numbered "lokal użytkowy [nr N]" header, a *plot* `pow.` (działka)
-// before the *unit* `pow.` (opis lokalu/położenie), and the "Cena wywoławcza"
-// split by an inline "w tym: …%" cell. parseCommercialAttachment emits
-// kind:'uzytkowy', the unit's usable area (not the plot), and the starting price.
 import { parseCommercialAttachment } from '../src/cities/zabrze/parse.js';
 
-// doc 99878: single unit spanning several floors — its "położenie" LISTS
-// "piwnica, parter, …", so a naive cellar filter would wrongly drop the area.
 const COMM_MULTIFLOOR = `                                    Prezydent Miasta Zabrze
    ogłasza V ustny przetarg nieograniczony na sprzedaż niżej wymienionego lokalu użytkowego
                              udziału w gruncie, położonego w Zabrzu:
@@ -299,7 +259,6 @@ test('parseCommercialAttachment: single unit — unit area 591,06 (not plot 792)
   assert.equal(u[0].starting_price_pln, 600000);
 });
 
-// doc 95852: NO "adres:" label — the street sits directly on the numbered line.
 const COMM_NO_ADRES = `                                        Prezydent Miasta Zabrze
            I ustny przetarg nieograniczony na sprzedaż niżej wymienionego lokalu użytkowego
 1.                           ul. Bytomskich Strzelców 37 lokal użytkowy nr 1
@@ -318,9 +277,6 @@ test('parseCommercialAttachment: header without "adres:" label still parses; "nr
   assert.equal(u[0].starting_price_pln, 130000);
 });
 
-// doc 43727: TWO units at the same building (nr 2 + nr 3) — must NOT collapse to
-// one record. A footer viewing-times list repeats "ul. Witosa 6 lokal użytkowy
-// nr N o godz. …" but those lines aren't numbered headers, so they're ignored.
 const COMM_MULTI = `Prezydent Miasta Zabrze ogłasza III ustne przetargi nieograniczone na sprzedaż lokali użytkowych
    1.                         adres: ul. Wincentego Witosa 6 lokal użytkowy nr 2
    działka: nr 1234/5  pow.: 600 m2   prawo: własność udział: 50/1000

@@ -34,7 +34,6 @@ export async function crawl() {
       if (seenSoids.has(soid)) continue;
       seenSoids.add(soid);
 
-      // Only inspect recent years (2024-2026)
       if (!/(?:202[4-9]|203\d)/.test(dateRaw) && !/(?:202[4-9]|203\d)/.test(titleRaw)) {
         continue;
       }
@@ -44,7 +43,6 @@ export async function crawl() {
       try {
         const detailHtml = await fetchHtml(detailUrl);
 
-        // Find attachment links
         const fileMatches = [...detailHtml.matchAll(/href="([^"]*(?:files\/|\.pdf|\.docx?))"/gi)].map(m => m[1]);
         const uniqueFiles = [...new Set(fileMatches)];
 

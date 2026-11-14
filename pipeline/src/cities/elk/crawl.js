@@ -1,7 +1,3 @@
-// Ełk crawler — www.elk.pl
-//
-// Walks paginated HTML category 139:
-// https://www.elk.pl/aktualnosci-kategorie/139/invest-sprzedaz-nieruchomosci-tryb-przetargowy
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -47,7 +43,6 @@ async function crawlAll() {
       break;
     }
 
-    // Match links to articles: href="/aktualnosci-wpis/ID/slug"
     const linkRe = /href="(\/aktualnosci-wpis\/\d+\/[^"]+)"/gi;
     let m;
     const articlePaths = [];
@@ -73,11 +68,9 @@ async function crawlAll() {
         continue;
       }
 
-      // Title
       const mTitle = artHtml.match(/<h1[^>]*class="[^"]*title[^"]*"[^>]*>([\s\S]*?)<\/h1>/i);
       const title = cleanText(mTitle ? mTitle[1] : '');
 
-      // Content inside regular-content or article
       const mContent = artHtml.match(/<div[^>]*class="[^"]*regular-content[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
       const text = cleanText(mContent ? mContent[1] : artHtml);
 

@@ -1,21 +1,3 @@
-// Busko-Zdrój crawler.
-//
-// Single host (umig.busko.pl) with a large mixed /ogloszenia feed. Both the
-// flat/land listings and result PDFs share announcement pages. One memoized
-// crawl walks the visible feed's published pager, bounded to 60 pages, and
-// reads each matched article once. PDF-only announcements use text extraction.
-//
-// crawlActive():
-//   Harvest → fetch each announcement page → parseAnnouncementListings →
-//   supported flat/land records. Returns { listings, land, wykaz: [] }.
-//
-// crawlResultDocs():
-//   Harvest → fetch each announcement page → parseResultLink; if a result PDF
-//   ("Informacja o wynikach przetargu") is linked, fetch its text (pdfText,
-//   born-digital) → { text, pdf_url, auction_date }. parseResultDoc extracts
-//   supported flat/land outcomes; missing items keep the stream incomplete.
-//
-// See config.js + spikes/swietokrzyskie/powiat-buski/busko-zdroj.md.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -23,16 +5,13 @@ import { pdfText } from '../../core/pdf-text.js';
 import { parseIndexPage, parseAnnouncementListings, parseLandAnnouncementListings, parseResultLink, parseResultDoc } from './parse.js';
 
 const FEED_BASE = 'https://www.umig.busko.pl/ogloszenia.html';
-const PAGE_SIZE = 10;           // Joomla feed: 10 items/page
-const MAX_PAGES = 60;           // 42 linked pages observed; capped if the source grows
+const PAGE_SIZE = 10;
+const MAX_PAGES = 60;
 
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
 
-// ---------------------------------------------------------------------------
-// Shared: harvest auction-announcement links across the bounded feed window
-// ---------------------------------------------------------------------------
 
 export async function harvestAnnouncementLinks({ fetchText = getText, maxPages = MAX_PAGES } = {}) {
   const links = [];
@@ -73,9 +52,6 @@ export async function harvestAnnouncementLinks({ fetchText = getText, maxPages =
   return links;
 }
 
-// ---------------------------------------------------------------------------
-// crawlActive
-// ---------------------------------------------------------------------------
 
 export async function crawlAll({ fetchText = getText, extractText = pdfText, maxPages = MAX_PAGES } = {}) {
   const links = await harvestAnnouncementLinks({ fetchText, maxPages });
@@ -139,9 +115,6 @@ export async function crawlResultDocs() {
   return (await crawlPromise).resultDocs;
 }
 
-// ---------------------------------------------------------------------------
-// CLI smoke test
-// ---------------------------------------------------------------------------
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();

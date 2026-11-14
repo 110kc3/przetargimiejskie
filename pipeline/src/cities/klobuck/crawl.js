@@ -1,18 +1,3 @@
-// Kłobuck crawler — gminaklobuck.pl, a bespoke PHP portal consumed as plain
-// server HTML (browser UA; no SPA, no PDF, no OCR). See config.js.
-//
-// ⚠️ Śląskie = PUBLIC-TIER: this crawl must NOT throw and must stay well under a
-// 20-min CI step. Every fetch is in a try/catch; the walk is triple-bounded
-// (MAX_PAGES listing depth, MAX_DETAILS notice fetches, MAX_FETCHES hard ceiling).
-//
-// SHAPE: `/ogloszenia?page=N` is a MIXED board (sales, leases, wykazy, konkursy,
-// obwieszczenia) of `/ogloszenie/<slug>-<id>` detail pages. The detail page's
-// <h1> is a USELESS generic "Ogłoszenie", so routing keys on the URL SLUG (which
-// carries the real title: "…oglasza-trzeci-przetarg-…-sprzedaz-lokalu-…" /
-// "informacja-o-wyniku-…-przetargu-…"). We fetch ONLY the sale-announcement and
-// result detail pages — leases/wykazy/konkursy/cancellations are dropped by slug
-// before any detail fetch. The asset KIND is still classified on the body
-// (parse.js), never the slug.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -26,14 +11,10 @@ const ORIGIN = 'https://gminaklobuck.pl';
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
-// Bounds (public-tier CI safety). The board is ~26 pages of 6; sale/result notices
-// are a low-volume subset, so at ~1 req/s a full run is ~26 list + ~30 detail
-// fetches (~1 min). The ceilings are slack above that, never a functional cap.
-const MAX_PAGES = 30;      // listing pages walked
-const MAX_DETAILS = 90;    // sale/result detail pages fetched
-const MAX_FETCHES = 160;   // hard ceiling on total HTTP requests per run
+const MAX_PAGES = 30;
+const MAX_DETAILS = 90;
+const MAX_FETCHES = 160;
 
-/** URL slug → space-joined real title (the detail <h1> is a generic "Ogłoszenie"). */
 function slugTitleFromUrl(url) {
   const slug = String(url)
     .replace(/^.*\/ogloszenie\//, '')
@@ -42,7 +23,6 @@ function slugTitleFromUrl(url) {
   return slug.replace(/-/g, ' ');
 }
 
-/** Route a slug to a stream, or null to skip (lease / wykaz / konkurs / cancel). */
 function routeSlug(st) {
   if (isCancelled(st) || isLeaseTitle(st)) return null;
   if (/\bwykaz|konkurs|obwieszczeni|zam[óo]wien|nab[óo]r|bezprzetarg|linii\s+kolejow/i.test(st)) return null;
@@ -53,7 +33,6 @@ function routeSlug(st) {
 
 let crawlPromise = null;
 
-/** Walk the paginated board, collecting every /ogloszenie/<slug>-<id> link once. */
 async function collectLinks(state) {
   const links = [];
   const seen = new Set();
@@ -77,16 +56,15 @@ async function collectLinks(state) {
       links.push(url);
       fresh++;
     }
-    if (fresh === 0 && p > 1) break; // past the last populated page
+    if (fresh === 0 && p > 1) break;
   }
   return links;
 }
 
-/** Fetch + route every sale/result notice once (memoised per run). */
 async function crawlAll() {
-  const listings = []; // address-keyed active flats/units → properties.json
-  const land = [];     // kind:'grunt' active plots → land.json
-  const resultRefs = []; // { text, pdf_url, auction_date } for parseResultDoc
+  const listings = [];
+  const land = [];
+  const resultRefs = [];
   const today = new Date().toISOString().slice(0, 10);
   const state = { fetches: 0 };
 
@@ -113,7 +91,6 @@ async function crawlAll() {
       continue;
     }
 
-    // announcement
     let rec;
     try {
       rec = parseAnnouncement(html, url);
@@ -122,8 +99,7 @@ async function crawlAll() {
       continue;
     }
     if (!rec || rec.cancelled) continue;
-    if (!rec.address_raw && !rec.dzialka_nr) continue; // nothing usable extracted
-    // Active = genuinely upcoming (or dateless); concluded ones ride the result stream.
+    if (!rec.address_raw && !rec.dzialka_nr) continue;
     if (rec.auction_date && rec.auction_date < today) continue;
     (rec.kind === 'grunt' ? land : listings).push(rec);
   }
@@ -134,13 +110,11 @@ async function crawlAll() {
   return { listings, land, resultRefs };
 }
 
-/** Concluded records (achieved-price stream). source:'html' ⇒ refs carry `.text`. */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resultRefs;
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, land } = await crawlPromise;

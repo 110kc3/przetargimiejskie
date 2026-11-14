@@ -1,15 +1,3 @@
-// Grodzisk Wielkopolski crawler.
-//
-// Platform: nv.pl / Symfony REST backend (Madkom SIP / Logonet family)
-// BIP host: bip.grodzisk.wlkp.pl
-//
-// API Endpoints:
-//   Board:   GET /api/menu/512/articles?limit=100&offset=N[&archived=1]
-//   Article: GET /api/articles/{id}
-//
-// All announcements and results are published in menu 512 ("Przetargi").
-// Articles may reside in either the active or archived board.
-// Both boards are queried to ensure complete historical coverage.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -48,11 +36,6 @@ function articleTitle(item) {
   return cf?.value || '';
 }
 
-/**
- * Fetch all articles from one board (active or archived), paginating up to MAX_PAGES.
- * @param {boolean} archived
- * @returns {Promise<{ articles: Array<object>, complete: boolean }>}
- */
 async function fetchBoardArticles(archived) {
   const items = [];
   let complete = true;
@@ -87,11 +70,6 @@ async function fetchBoardArticles(archived) {
   return { articles: items, complete };
 }
 
-/**
- * Fetch single article JSON.
- * @param {string} id
- * @returns {Promise<object|null>}
- */
 async function fetchArticle(id) {
   try {
     const raw = await getText(articleUrl(id), FETCH_OPTS);
@@ -118,7 +96,6 @@ async function crawlAll() {
     annComplete = false;
   }
 
-  // De-duplicate articles by ID across active and archived boards
   const byId = new Map();
   for (const a of [...activeBoard.articles, ...archivedBoard.articles]) {
     if (!byId.has(a.id)) byId.set(a.id, a);
@@ -151,7 +128,6 @@ async function crawlAll() {
         auction_date,
       });
     } else {
-      // Announcement notice
       if (!/przetarg|sprzeda|zbycie/i.test(title)) continue;
       if (/dzier[żz]aw|najem|dow[óo]z|siwz|sto[łl][óo]wek|roln/i.test(title)) continue;
 
@@ -184,20 +160,11 @@ async function crawlAll() {
   };
 }
 
-/**
- * Concluded records stream (achieved prices).
- * source:'html' => refs carry `.text` containing HTML content.
- * @returns {Promise<Array<object>>}
- */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resultRefs;
 }
 
-/**
- * Active announcements stream.
- * @returns {Promise<{ listings: Array<object>, wykaz: Array<object>, land: Array<object>, valid_empty: boolean, valid_empty_land: boolean }>}
- */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, valid_empty, valid_empty_land } = await crawlPromise;

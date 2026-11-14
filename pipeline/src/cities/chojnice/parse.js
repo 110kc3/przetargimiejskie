@@ -1,5 +1,3 @@
-// Chojnice parsers.
-// Handles both active announcements and concluded auction results from miastochojnice.pl.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -138,8 +136,8 @@ export function unitAreaFromText(text) {
   while ((m = re.exec(text || '')) !== null) {
     const val = parseFloat(m[1].replace(',', '.'));
     const precede = (text || '').slice(Math.max(0, m.index - 60), m.index);
-    if (/dzia[łl]k/i.test(precede)) continue; // plot area
-    if (/piwnic/i.test(precede)) continue; // cellar area
+    if (/dzia[łl]k/i.test(precede)) continue;
+    if (/piwnic/i.test(precede)) continue;
     if (val > 0) return val;
   }
   return null;

@@ -1,20 +1,3 @@
-// Grodzisk Mazowiecki parsers.
-//
-// Extracts structured data from:
-// 1. WordPress announcements & wykazy on nieruchomosci.grodzisk.pl
-// 2. BIP Grodzisk Mazowiecki auction announcement & result PDFs
-//
-// Vocabulary & conventions:
-// - "I/II/III/IV przetarg ustny nieograniczony na sprzedaż..."
-// - "spółdzielczego własnościowego prawa do lokalu mieszkalnego nr <apt> ... przy ul. <street> <bldg>"
-// - "Wykaz nieruchomości przeznaczonych do sprzedaży dot. lokalu mieszkalnego..."
-// - "INFORMACJA O WYNIKU ... PRZETARGU USTNEGO NIEOGRANICZONEGO"
-// - "Najwyższa cena zaoferowana w przetargu wynosiła <amount> zł" -> sold
-// - "Przetarg zakończył się wynikiem negatywnym z uwagi na brak oferentów" -> unsold
-//
-// Office exclusion:
-// - Urząd Miejski: ul. T. Kościuszki 12A
-// - Willa Niespodzianka (auction room): ul. Kościuszki 12
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -40,7 +23,6 @@ const PL_MONTHS = {
 const ROMAN_MAP = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8, IX: 9, X: 10 };
 const ROMAN_SRC = '(VIII|VII|VI|IX|IV|V|X|III|II|I)';
 
-/** Round number from text or title */
 export function roundFromText(text) {
   if (!text) return null;
   const t = text;
@@ -60,7 +42,6 @@ export function roundFromText(text) {
   return null;
 }
 
-/** Parse Polish date string to YYYY-MM-DD */
 export function parseDate(s) {
   if (!s) return null;
   const iso = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s.trim());
@@ -79,22 +60,18 @@ export function parseDate(s) {
   return null;
 }
 
-/** Date from result document text ("W dniu DD.MM.YYYY r. ... został przeprowadzony") */
 export function resultDateFromText(text) {
   if (!text) return null;
-  // 1. Look for the date the auction was conducted: "W dniu DD.MM.YYYY r. ... został przeprowadzony"
   let m = /w\s+dniu\s+(\d{1,2}[.\-]\d{1,2}[.\-]\d{4}|\d{1,2}\s+[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+\s+\d{4})\s*r[.\s\S]{0,120}?zosta[łl]\s+przeprowadzony/i.exec(text);
   if (m) {
     const d = parseDate(m[1]);
     if (d) return d;
   }
-  // 2. Look for any "w dniu DD.MM.YYYY r."
   m = /w\s+dniu\s+(\d{1,2}[.\-]\d{1,2}[.\-]\d{4}|\d{1,2}\s+[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+\s+\d{4})\s*r/i.exec(text);
   if (m) {
     const d = parseDate(m[1]);
     if (d) return d;
   }
-  // 3. Header fallback: "dnia DD.MM.YYYY r."
   m = /dnia\s+(\d{1,2}[.\-]\d{1,2}[.\-]\d{4}|\d{1,2}\s+[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+\s+\d{4})\s*r/i.exec(text);
   if (m) {
     const d = parseDate(m[1]);
@@ -103,16 +80,13 @@ export function resultDateFromText(text) {
   return auctionDateFromText(text);
 }
 
-/** Floor / usable unit area in m2 */
 export function unitAreaFromText(text) {
   if (!text) return null;
-  // Look for "o pow. użytkowej 35,48 m2", "o powierzchni użytkowej 35,48 m2", "Pow. lokalu mieszkalnego: 34,00 m 2"
   const m = /(?:pow(?:ierzchni[ae])?(?:\s+u[żz]ytkow\w+)?(?:\s+lokalu(?:\s+mieszkalnego)?)?)\s*(?:wynosi|:|o\s+pow\w*\.?\s+u[żz]ytkow\w+)?\s*[:\-–]?\s*(\d+[,.]\d+)\s*m\s*[²2]?/i.exec(text);
   if (m) {
     const v = Number(m[1].replace(',', '.'));
     if (Number.isFinite(v) && v > 0) return v;
   }
-  // Generic area fallback
   const alt = /(\d+[,.]\d+)\s*m\s*[²2](?!\d)/i.exec(text);
   if (alt) {
     const v = Number(alt[1].replace(',', '.'));
@@ -121,7 +95,6 @@ export function unitAreaFromText(text) {
   return null;
 }
 
-/** Plot area in m2 (from ha or m2) */
 export function plotAreaFromText(text) {
   if (!text) return null;
   const ha = /o\s+(?:pow|powierzchni)\w*\.?\s+(\d+[.,]\d+|\d+)\s*ha\b/i.exec(text);
@@ -137,22 +110,18 @@ export function plotAreaFromText(text) {
   return null;
 }
 
-/** Starting price from text */
 export function startingPriceFromText(text) {
   if (!text) return null;
-  // 1. Look for amount followed by zł near "cena wywoławcza"
   let m = /cena\s+wywo[łl]awcza[\s\S]{0,300}?(\d{1,3}(?:[.\s\u00A0]\d{3})+(?:,\d{2})?|\d{5,})\s*z[łl]/i.exec(text);
   if (m) {
     const p = parsePLN(m[1]);
     if (p && p >= 1000) return p;
   }
-  // 2. Direct label: "Cena wywoławcza: 335.000,00 zł"
   m = /cena\s+wywo[łl]awcza\s*(?:wynosi[łl]a|wynosi)?\s*[:\-–]?\s*(\d[\d.,\s\u00A0]*?)\s*z[łl]/i.exec(text);
   if (m) {
     const p = parsePLN(m[1]);
     if (p && p >= 1000) return p;
   }
-  // 3. Fallback: "wynosi ... zł"
   m = /wynosi\s+(\d[\d.,\s\u00A0]*?)\s*z[łl]/i.exec(text);
   if (m) {
     const p = parsePLN(m[1]);
@@ -161,14 +130,12 @@ export function startingPriceFromText(text) {
   return null;
 }
 
-/** Achieved price in result notice */
 export function achievedPriceFromText(text) {
   if (!text) return null;
   const m = /(?:(?:najwy[żz]sza\s+)?cena\s+)?(?:zaoferowana|osi[ąa]gni[ęe]ta)\s+w\s+przetargu\s*(?:wynosi[łl]a)?\s*[:\-–]?\s*(\d[\d.,\s\u00A0]*?)\s*z[łl]/i.exec(text);
   return m ? parsePLN(m[1]) : null;
 }
 
-/** KW land registry number (court code WA1G) */
 export function kwFromText(text) {
   if (!text) return null;
   const m = /\b(WA[1IL]\s*G\s*\/\s*\d{5,9}\s*\/\s*\d)\b/i.exec(text);
@@ -178,7 +145,6 @@ export function kwFromText(text) {
   return /^[A-Z0-9]{4}\/\d{5,9}\/\d$/.test(kw) ? kw : null;
 }
 
-/** Parcel number (działka nr ...) */
 export function parcelFromText(text) {
   if (!text) return null;
   const m = /dzia[łl]k\w*\s+(?:ewidencyjn\w+\s+|ew\.\s+)?(?:nr\.?|numer\w*|[mn]\b\.?)\s*([\d]+(?:\/\d+)?(?:\s*(?:,|i)\s*(?:(?:nr|[mn])\b\.?\s*)?\d+(?:\/\d+)?)*)/i.exec(text);
@@ -190,14 +156,12 @@ export function parcelFromText(text) {
   return nums.length ? nums.join(', ') : null;
 }
 
-/** Cadastral precinct (obręb ...) */
 export function obrebFromText(text) {
   if (!text) return null;
   const m = /obr[ęe]b\w*\s+(\d{2,4}|[A-ZŻŹĆŁŚĄĘÓŃ][a-zżźćłśąęóń]+)/i.exec(text);
   return m ? m[1].trim() : null;
 }
 
-/** Extract street name for land property */
 export function landStreetFromText(text) {
   if (!text) return null;
   const re = /(?:przy|w\s+rejonie|po[łl]o[żz]on\w+\s+przy)\s+ul(?:icy)?\.?\s+([A-Z0-9ŻŹĆŁŚĄĘÓŃ][A-Za-z0-9ŻŹĆŁŚĄĘÓŃżźćłśąęóń.\- ]+?)(?=\s*[,;.]|\s+w\s+[A-ZŻŹĆŁŚ]|\s+obr[ęe]b|\s+oznaczon|\s+ksi|\n|$)/gi;
@@ -209,9 +173,7 @@ export function landStreetFromText(text) {
   return null;
 }
 
-/** Address extractor for flats/buildings */
 export function addressFromText(title, text) {
-  // 1. Check title first (editor-typed titles are clean, e.g. "ul. Wólczyńska 10A/11")
   if (title) {
     const titleM = /ul\.\s+([A-Z0-9ŻŹĆŁŚĄĘÓŃ][A-Za-z0-9ŻŹĆŁŚĄĘÓŃżźćłśąęóń.\- ]+?)\s+(\d+[A-Za-z]?)(?:\/(\d+[A-Za-z]?))?/i.exec(title);
     if (titleM && !OFFICE_STREET_RE.test(titleM[1])) {
@@ -234,17 +196,15 @@ export function addressFromText(title, text) {
   const combined = `${title || ''} ${text || ''}`;
   let apt = null;
 
-  // 2. Try to find unit number: "lokalu mieszkalnego nr 24", "lokal nr 11", "m. 11", "/11"
   const unitM = /(?:lokal\w*(?:\s+mieszkaln\w+|\s+niemieszkaln\w+|\s+u[żz]ytkow\w+)?\s*(?:nr\.?|m\.?)\s*(\d+[A-Za-z]?)|(?:m\.|lok\.)\s*(\d+[A-Za-z]?))/i.exec(combined);
   if (unitM) apt = unitM[1] || unitM[2];
 
-  // 3. Find street and building
   const streetRe = /(?:przy|w\s+rejonie|po[łl]o[żz]on\w+\s+przy|w\s+budynku\s+przy|lokalizacja:?[^\n]*?)\s+ul(?:icy)?\.?\s+([A-Z0-9ŻŹĆŁŚĄĘÓŃ][A-Za-z0-9ŻŹĆŁŚĄĘÓŃżźćłśąęóń.\- ]+?)\s+(\d+[A-Za-z]?)(?:\s*(?:\/|m\.\s*)(\d+[A-Za-z]?))?(?=\s*(?:,|w\s+Grodzisku|\(|$|\n))/gi;
   let sm;
   let best = null;
   while ((sm = streetRe.exec(combined)) !== null) {
     const s = sm[1].trim();
-    if (OFFICE_STREET_RE.test(s)) continue; // skip office
+    if (OFFICE_STREET_RE.test(s)) continue;
     const b = sm[2].trim();
     if (sm[3]) apt = sm[3].trim();
     best = { street: s, building: b, apt };
@@ -258,33 +218,22 @@ export function addressFromText(title, text) {
   return { raw, parsed: parseAddress(raw) };
 }
 
-/** Gate: is this a sale announcement or wykaz? */
 export function isAnnouncement(text) {
   const t = (text || '').toLowerCase();
   if (/\bnajem\b|najmu|dzier[żz]aw|wynajem/.test(t)) return false;
   return /przetarg|wykaz|sprzeda[żz]/i.test(t);
 }
 
-/** Gate: is this a result document? */
 export function isResult(text) {
   const t = (text || '').toLowerCase();
   return /informacja\s+o\s+wynik|wynik\w*\s+.*przetarg|rozstrzygni[ęe]ci/i.test(t);
 }
 
-/** Gate: is this a pre-auction wykaz designation? */
 export function isWykaz(text) {
   const t = (text || '').toLowerCase();
   return /wykaz\s+nieruchomo[sś]ci\s+przeznaczonych\s+do\s+sprzeda[żz]y|^\s*wykaz\b/i.test(t);
 }
 
-/**
- * Parse an announcement / wykaz post.
- * @param {string} title
- * @param {string} content
- * @param {string} url
- * @param {{ isWykaz?: boolean }} [options]
- * @returns {object|null}
- */
 export function parseAnnouncement(title, content, url, options = {}) {
   const text = htmlToText(content);
   if (!isAnnouncement(`${title} ${text}`)) return null;
@@ -342,13 +291,6 @@ export function parseAnnouncement(title, content, url, options = {}) {
   };
 }
 
-/**
- * Parse one RESULT document text into concluded auction records.
- * @param {string} text
- * @param {string|null} fallbackDate
- * @param {string} sourceUrl
- * @returns {Array<object>}
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const t = htmlToText(text);
   if (!isResult(t)) return [];

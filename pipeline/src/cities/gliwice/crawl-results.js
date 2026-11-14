@@ -1,37 +1,19 @@
-// Walks /wyniki-przetargow/page/N/ and returns every historical result-PDF URL.
-//
-// The page itself is HTML with one card per result; each card links to a PDF
-// (e.g. .../04.05.2026-r.-wyniki-przetargow.pdf) and shows a "Data publikacji"
-// date. The *auction* date sits inside the PDF filename — we extract it here so
-// downstream code never has to parse Polish month names.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 
 const BASE = 'https://zgm-gliwice.pl/wyniki-przetargow';
 
-/**
- * @typedef {object} ResultPdfRef
- * @property {string} pdf_url
- * @property {string} auction_date     ISO YYYY-MM-DD parsed from the PDF filename
- * @property {string} listing_page_url
- */
 
 const PDF_RE =
   /href="(https:\/\/zgm-gliwice\.pl\/wp-content\/uploads\/[^"]+wyniki[^"]*\.pdf)"/gi;
 
-// ZGM is inconsistent with filename dates. Examples seen:
-//   04.05.2026-r.-wyniki-przetargow.pdf   (DD.MM.YYYY canonical)
-//   16.06.2025-wyniki-przetargow.pdf      (DD.MM.YYYY, no "r.")
-//   22.092025-r.-wyniki-przetargow.pdf    (DD.MMYYYY — missing dot, real typo)
-//   26.08.24-wyniki-przetargow.pdf        (DD.MM.YY — 2-digit year)
 const DATE_PATTERNS = [
   /\/(\d{2})\.(\d{2})\.(\d{4})[.-]/, // DD.MM.YYYY
   /\/(\d{2})\.(\d{2})(\d{4})[.-]/,   // DD.MMYYYY
   /\/(\d{2})\.(\d{2})\.(\d{2})[.-]/, // DD.MM.YY
 ];
 
-/** @param {string} pdfUrl @returns {string|null} */
 function extractAuctionDate(pdfUrl) {
   for (const re of DATE_PATTERNS) {
     const m = re.exec(pdfUrl);
@@ -45,9 +27,7 @@ function extractAuctionDate(pdfUrl) {
   return null;
 }
 
-/** @returns {Promise<ResultPdfRef[]>} */
 export async function crawlAllResultPdfs() {
-  /** @type {Map<string, ResultPdfRef>} */
   const found = new Map();
   let page = 1;
   let consecutiveEmpty = 0;

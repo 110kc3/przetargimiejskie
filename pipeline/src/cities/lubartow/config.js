@@ -1,7 +1,3 @@
-// Configuration for Lubartów adapter (umlubartow.bip.lubelskie.pl)
-//
-// Gmina Miejska Lubartów (powiat lubartowski, lubelskie)
-// TERC: 0608011
 
 export const CONFIG = {
   id: 'lubartow',

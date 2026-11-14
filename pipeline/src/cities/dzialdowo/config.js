@@ -1,5 +1,3 @@
-// City configuration for Działdowo (powiat działdowski, Warmińsko-Mazurskie)
-// BIP: https://bip.dzialdowo.eu
 
 export default {
   id: 'dzialdowo',

@@ -1,7 +1,3 @@
-// Configuration for Nowy Dwór Mazowiecki adapter (bip.nowydwormaz.pl)
-//
-// Gmina Miejska Nowy Dwór Mazowiecki (powiat nowodworski, mazowieckie)
-// TERC: 1414011
 
 export const CONFIG = {
   id: 'nowy-dwor-mazowiecki',

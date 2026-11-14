@@ -1,7 +1,3 @@
-// Configuration for Radzyń Podlaski adapter (umradzynpodlaski.bip.lubelskie.pl)
-//
-// Gmina Miejska Radzyń Podlaski (powiat radzyński, lubelskie)
-// TERC: 0615011
 
 export const CONFIG = {
   id: 'radzyn-podlaski',

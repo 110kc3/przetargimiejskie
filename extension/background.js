@@ -1,16 +1,3 @@
-// Service worker:
-//   - fetches per-city data/<city>/{properties,active,meta}.json from GitHub
-//     for every city in CITIES, merges them into a single payload the popup
-//     consumes as a flat list (with each record city-tagged + key-namespaced)
-//   - chrome.alarms periodic check: re-fetches, diffs merged active.json
-//     against the user's watchlist, and fires chrome.notifications for any
-//     newly-active watched property
-//   - notification click → opens the property detail page
-//
-// Multi-city note: the pipeline's data files keep their original
-// `street|building|apt` keys; namespacing to `city|street|building|apt` happens
-// here at merge time so the extension can mix cities without collisions. A
-// one-shot migration upgrades any legacy un-namespaced watchlist entries.
 
 // The watchlist module exposes globalThis.ZGM_WATCH when imported below.
 importScripts('watchlist.js', 'catalog.js');
@@ -21,8 +8,6 @@ const CATALOG_URL = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/data/ca
 let CITIES = [];
 const RAW = (city) =>
   `https://raw.githubusercontent.com/${REPO}/${BRANCH}/data/${city}`;
-// Notification-click fallback targets when a watchlist entry has no
-// detail_url (legacy entries) — per-city source home, then the project site.
 const PROJECT_HOME = 'https://przetargimiejskie.pl/';
 const CITY_HOME = {
   gliwice: 'https://zgm-gliwice.pl/',
@@ -35,9 +20,9 @@ const CITY_HOME = {
   myslowice: 'https://bip.myslowice.pl/',
   swietochlowice: 'https://bip.swietochlowice.pl/',
 };
-const TTL_MS = 6 * 60 * 60 * 1000;       // 6h soft TTL for ad-hoc reads
+const TTL_MS = 6 * 60 * 60 * 1000;
 const ALARM_NAME = 'zgm-watchlist-check';
-const ALARM_INTERVAL_MIN = 240;          // 4h periodic watchlist scan
+const ALARM_INTERVAL_MIN = 240;
 
 const CACHE_PREFIX = 'cache:v4:city:';
 const CATALOG_KEY = 'cache:v4:catalog';
@@ -62,17 +47,13 @@ async function saveToCache(key, payload) {
   await chrome.storage.local.set({ [key]: payload });
 }
 
-// ---------------- merging ----------------
 
 function nsKey(city, key) {
   if (!key) return key;
-  // Already namespaced (looks like "<city>|...") — leave as-is.
   if (key.startsWith(`${city}|`)) return key;
   return `${city}|${key}`;
 }
 
-// Mutates each property to (a) prefix `key` with its city and (b) carry a
-// `city` field. Returns the same array for chaining.
 function namespaceProperties(properties, city) {
   for (const p of properties) {
     p.key = nsKey(city, p.key);
@@ -92,8 +73,6 @@ function namespaceActiveListings(listings, city) {
   return listings;
 }
 
-// Land plots keep their own parcel keys (dz|… / street|building| / addr|…);
-// namespace them by city the same way as properties so cities can't collide.
 function namespaceLandPlots(plots, city) {
   for (const p of plots) {
     p.key = nsKey(city, p.key);
@@ -102,8 +81,6 @@ function namespaceLandPlots(plots, city) {
   return plots;
 }
 
-// Builds the merged payload the popup/archive consume. Each city contributes
-// its own three JSONs; key namespacing happens here.
 function mergeCityPayloads(cityPayloads) {
   const allProperties = [];
   const allActive = [];
@@ -145,11 +122,6 @@ function mergeCityPayloads(cityPayloads) {
     }
   }
 
-  // Mirror the legacy shape the popup/archive already expect:
-  //   payload.properties.properties = [...]
-  //   payload.active.listings       = [...]
-  //   payload.active.wykaz          = [...]
-  //   payload.meta                  = { ...aggregates, per_city }
   return {
     properties: {
       schema_version: 1,
@@ -196,7 +168,6 @@ async function getCatalog(force = false) {
 }
 
 async function cacheCity(city, data) {
-  // Serialise eviction so concurrent fetches cannot resurrect evicted entries.
   const task = cacheQueue.then(async () => {
     const all = await chrome.storage.local.get(null);
     const key=CACHE_PREFIX+city;
@@ -210,7 +181,6 @@ async function cacheCity(city, data) {
     }
     const remove=Object.keys(all).filter(k=>(k.startsWith(CACHE_PREFIX)&&!keep.has(k))
       || (k.startsWith('cache:v')&&!k.startsWith('cache:v4:')));
-    // Evict before setting the new item so Chrome's storage quota is respected.
     if(remove.length)await chrome.storage.local.remove(remove);
     if(keep.has(key))await saveToCache(key,value);
   });
@@ -265,8 +235,6 @@ async function getOrFetch(force = false, requested = [], senderUrl = null, inclu
   }
   if(includeWatches){const watches=await ZGM_WATCH.getAll();ids=Object.keys(watches).map(k=>k.split('|')[0]);}
   ids=[...new Set(ids)].filter(id=>CITIES.includes(id));
-  // UI selections are one city; alarm checks visit watched cities in bounded
-  // batches, with only the eight most recent city payloads retained on disk.
   if(!includeWatches && ids.length>1) throw new Error('select one city');
   const results=await ZGM_CATALOG.mapLimit(ids,2,id=>fetchCity(id,force));
   const available=results.filter(r=>!r.error);
@@ -279,12 +247,7 @@ async function getOrFetch(force = false, requested = [], senderUrl = null, inclu
   return {...merged,fetched_at:Date.now()};
 }
 
-// ---------------- watchlist migration ----------------
 
-// One-shot upgrade for keys saved by the pre-merge extension. Legacy keys
-// look like "street|building|apt" (2 pipes); namespaced keys look like
-// "city|street|building|apt" (3 pipes). Anything with <3 pipes is assumed to
-// be a Gliwice entry (the only city that existed when those keys were saved).
 async function migrateWatchlistOnce() {
   try {
     const flag = (await chrome.storage.local.get(MIGRATION_FLAG))[MIGRATION_FLAG];
@@ -311,7 +274,6 @@ async function migrateWatchlistOnce() {
   }
 }
 
-// ---------------- watchlist diff + notifications ----------------
 
 function activeFingerprint(listing) {
   return {
@@ -333,10 +295,6 @@ function fmtPLN(n) {
   return new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 }).format(n) + ' zł';
 }
 
-// notif:registry maps a notification id → the URL its click should open. Three
-// writers mutate it (notifyNewListing, notifyReminder, onClicked); a bare
-// read-modify-write lets a click's write-back clobber URLs a concurrent alarm
-// scan just added. Chain every mutation through one promise so they serialize.
 let _regQueue = Promise.resolve();
 function mutateRegistry(fn) {
   _regQueue = _regQueue
@@ -355,8 +313,6 @@ async function notifyNewListing(key, entry, listing) {
     reg[id] = entry.detail_url || CITY_HOME[entry.city] || PROJECT_HOME;
   });
 
-  // PL strings (the app's default). City prefix helps disambiguate now that
-  // notifications can fire for any of CITIES.
   const cityLabel = entry.city ? ` [${entry.city}]` : '';
   const title = `przetargimiejskie${cityLabel} — nowa aukcja obserwowanej nieruchomości`;
   const body = `${entry.addr} — aukcja ${listing.auction_date || '?'} po ${fmtPLN(listing.starting_price_pln)}`;
@@ -369,10 +325,7 @@ async function notifyNewListing(key, entry, listing) {
   });
 }
 
-// ---------------- deadline reminders (wadium / auction day) ----------------
 
-// Europe/Warsaw civil date (YYYY-MM-DD) — same rationale as popup.js: UTC
-// "today" flips 1-2 h late, which matters for "is the deadline tomorrow?".
 function todayWarsaw() {
   return new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Europe/Warsaw',
@@ -380,7 +333,6 @@ function todayWarsaw() {
   }).format(new Date());
 }
 
-/** Whole days from `today` (YYYY-MM-DD) to `dateISO`; null when unparsable. */
 function daysUntil(dateISO, today) {
   const a = Date.parse(dateISO);
   const b = Date.parse(today);
@@ -443,12 +395,10 @@ async function notifyReminder(key, entry, listing, reminder) {
     priority: 2,
   });
 
-  // Record + prune: drop entries whose deadline date is >14 days past, so the
-  // sent-set can't grow forever.
   sent[id] = reminder.date;
-  const cutoff = daysUntil; // alias for clarity below
+  const cutoff = daysUntil;
   for (const [sid, sdate] of Object.entries(sent)) {
-    const d = cutoff(today, sdate); // days from sdate to today
+    const d = cutoff(today, sdate);
     if (d != null && d > 14) delete sent[sid];
   }
   await chrome.storage.local.set({ [REMIND_KEY]: sent });
@@ -471,16 +421,11 @@ async function runWatchlistCheck() {
     (payload.properties?.properties || []).flatMap(p => [[p.key,p],...(p.legacy_keys||[]).map(k=>[k,p])]),
   );
   const today = todayWarsaw();
-  // active.json listings carry the dates the reminders need (wadium_deadline
-  // lives ONLY here — the merged property listings don't have it). When a key
-  // has several active rows (re-list / duplicate board post), prefer the
-  // soonest still-upcoming auction so reminders track the next real event
-  // rather than whichever row happened to be first.
   const activeByKey = new Map();
   const reminderRank = (l) => {
     const d = l.auction_date || '';
-    if (!d) return [2, ''];               // undated → lowest priority
-    return d >= today ? [0, d] : [1, d];  // upcoming before past
+    if (!d) return [2, ''];
+    return d >= today ? [0, d] : [1, d];
   };
   for (const l of payload.active?.listings || []) {
     const k = l.address?.key;
@@ -503,7 +448,6 @@ async function runWatchlistCheck() {
       continue;
     }
 
-    // Day-before / day-of reminders for wadium + auction on watched listings.
     const live = activeByKey.get(key);
     const dates = {
       auction_date: live?.auction_date || active.date || null,
@@ -532,12 +476,9 @@ async function runWatchlistCheck() {
   }
 }
 
-// ---------------- alarms wiring ----------------
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.alarms.create(ALARM_NAME, { periodInMinutes: ALARM_INTERVAL_MIN });
-  // Best-effort migration on upgrade so legacy watchlist keys don't silently
-  // stop matching once the merge starts namespacing.
   migrateWatchlistOnce().catch(() => {});
 });
 
@@ -554,19 +495,15 @@ chrome.alarms.onAlarm.addListener((alarm) => {
   }
 });
 
-// ---------------- notification click → open detail page ----------------
 
 chrome.notifications.onClicked.addListener(async (id) => {
   const reg = (await chrome.storage.local.get('notif:registry'))['notif:registry'] || {};
   const url = reg[id];
   if (url) chrome.tabs.create({ url });
   chrome.notifications.clear(id);
-  // Serialize the delete through the queue so it re-reads the latest registry
-  // and can't erase entries a concurrent scan added since the read above.
   await mutateRegistry((r) => { delete r[id]; });
 });
 
-// ---------------- message handlers ----------------
 
 chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   if (msg?.type === 'getCatalog') {

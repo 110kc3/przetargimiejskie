@@ -1,5 +1,3 @@
-// Chojnice crawler.
-// Crawls municipal auction announcements and results from miastochojnice.pl.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -86,7 +84,6 @@ async function crawlAll() {
   let boardAnnReached = false;
   let boardResReached = false;
 
-  // 1) Harvest results index (process results first so achieved price stream is populated)
   const resSeen = new Set();
   const resCandidates = [];
   for (let p = 1; p <= MAX_PAGES_RES; p++) {
@@ -118,7 +115,6 @@ async function crawlAll() {
     }
   }
 
-  // 2) Process result documents
   for (const item of resCandidates) {
     if (Date.now() - start > TIME_BUDGET_MS) {
       console.error('  chojnice: time budget reached during result processing');
@@ -156,7 +152,6 @@ async function crawlAll() {
     });
   }
 
-  // 3) Harvest announcements index
   const annSeen = new Set();
   const annCandidates = [];
   for (let p = 1; p <= MAX_PAGES_ANN; p++) {
@@ -188,7 +183,6 @@ async function crawlAll() {
     }
   }
 
-  // 4) Process announcement documents
   for (const item of annCandidates) {
     if (Date.now() - start > TIME_BUDGET_MS) {
       console.error('  chojnice: time budget reached during announcement processing');

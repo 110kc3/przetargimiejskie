@@ -1,14 +1,4 @@
 import { repairLandLedger } from './core/ledger-repairs.js';
-// Top-level orchestrator. Loops the city registry (src/cities/index.js) and
-// builds, per city:
-//
-//   data/<city>/properties.json   one entry per unique (street, building, apt)
-//   data/<city>/active.json       current active listings + wykaz announcements
-//   data/<city>/meta.json         provenance: when this ran, parser version, counts
-//
-// plus a top-level data/index.json listing every city and its headline counts.
-//
-// Run with:  npm run refresh   (from pipeline/)
 
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -16,11 +6,6 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { setDefaultResultOrder } from 'node:dns';
 
-// Prefer IPv4 for all DNS lookups. Some municipal BIPs publish an AAAA record
-// that isn't routable from GitHub-hosted Actions (Azure), which made fetch
-// hang on connect (UND_ERR_CONNECT_TIMEOUT) for e.g. bip.swietochlowice.pl while
-// the host loaded fine over IPv4 from a browser. ipv4first makes Node try the A
-// record first. Harmless for hosts that already work over IPv4.
 try { setDefaultResultOrder('ipv4first'); } catch { /* older node */ }
 
 import { cities } from './cities/index.js';
@@ -34,10 +19,6 @@ import { mergeProperties, archiveAllActive, archivePastActive } from './core/mer
 import { closeBrowser } from './core/render.js';
 import { validationPolicy } from '../scripts/validation-policy.js';
 
-// History accumulation: merge each run with the previously-committed
-// properties.json so a record the source later removes is retained (not lost).
-// Set MERGE_HISTORY=0 to disable (fresh rebuild); also achieved per-city by
-// deleting that city's data/<city>/properties.json before a run.
 const MERGE_HISTORY = process.env.MERGE_HISTORY !== '0';
 
 const SCHEMA_VERSION = 1;
@@ -45,12 +26,6 @@ const LAND_SCHEMA_VERSION = 1;
 const PARSER_VERSION = '0.2.0';
 const DATA_DIR = fileURLToPath(new URL('../../data/', import.meta.url));
 
-// Pipeline floor: drop historical records whose auction year is older than
-// this. Active listings and wykaz pre-announcements are never dropped (those
-// are current/upcoming). The extension layers a soft per-user UI window on
-// top of this floor (default = current_year - 3, see extension/settings.js)
-// — so this floor should stay broader than that UI default to leave room.
-// Override with `MIN_HISTORY_YEAR=YYYY npm run refresh`.
 const PIPELINE_MIN_HISTORY_YEAR =
   Number(process.env.MIN_HISTORY_YEAR) || 2020;
 
@@ -65,13 +40,10 @@ function observedAssetClasses(properties, landCount) {
   return [...names].sort();
 }
 
-// Crawl, OCR/parse, enrich and write one city's three JSON files.
 async function refreshCity(city, globalStreetDisplay = new Map()) {
   const attemptedAt = new Date().toISOString();
   console.error(`\n=== ${city.label} (${city.id}) ===`);
 
-  // Triage E2E hook: lets a workflow_dispatch run exercise the whole
-  // failure→issue path without breaking a real crawl. Throws exactly like a
   // crawler would, so the per-city catch + preserve logic is what's tested.
   if (process.env.FORCE_FAIL === city.id) {
     throw new Error('forced failure (triage E2E test)');
@@ -97,8 +69,6 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
   for (const ref of docRefs) {
     let text;
     try {
-      // 'pdf' sources are scanned images and need OCR; other sources (html,
-      // docx) supply text directly on the ref.
       text = city.source === 'pdf' ? await ocrPdf(ref.pdf_url) : city.source === 'pdf-text' ? await pdfText(ref.pdf_url) : ref.text;
     } catch (err) {
       console.error(`  ERROR OCR ${ref.pdf_url}: ${err.message}`);
@@ -108,22 +78,13 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     if (recs.length === 0) {
       console.error(`  WARN ${ref.auction_date}: parser returned 0 records from ${ref.pdf_url}`);
     }
-    // Defensive: an adapter's result records may omit `notes` (it's optional in
-    // the record contract). Guard so a missing field can never crash the whole
-    // city refresh (see belchatow, whose first-ever result post tripped this).
     for (const r of recs) parsedNoteCount += r.notes?.length ?? 0;
     allRecords.push(...recs);
   }
   const beforeFloor = allRecords.length;
-  // Apply the pipeline floor. Records with no auction_date pass through —
-  // they're rare (parser noise) and harmless; the extension's soft window
-  // will hide them too if they fall outside.
   const floored = allRecords.filter((r) => {
-    if (!r.auction_date) return true; // dateless rows pass through (parser noise)
+    if (!r.auction_date) return true;
     const yr = Number(r.auction_date.slice(0, 4));
-    // An unparseable year (e.g. a malformed "unknown" date → NaN) is garbage,
-    // not "too old" — treat it like a dateless row and keep it, rather than
-    // silently dropping what may be a real auction.
     return !Number.isFinite(yr) || yr >= PIPELINE_MIN_HISTORY_YEAR;
   });
   allRecords.length = 0;
@@ -155,11 +116,6 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
   } = activeCrawl;
   console.error(`Got ${active.length} active listings, ${wykaz.length} wykaz entries.\n`);
 
-  // Partition LAND (kind 'grunt') out of the address-keyed streams: land has no
-  // street|building|apt, so it must never enter build-properties' property map.
-  // Collected here (+ any land the adapter returned explicitly via `land`) and
-  // written to the SEPARATE data/<city>/land.json by buildLand below. Houses
-  // (kind 'zabudowana') DO have addresses and stay in the flat streams.
   const crawledActiveCount = active.length;
   const landRecords = [...land];
   for (const arr of [active, allRecords]) {
@@ -172,10 +128,8 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     console.error(`  partitioned ${landRecords.length} land record(s) → land.json`);
   }
 
-  // Optional per-city enrichment of the active listings (e.g. wadium dates).
   if (city.enrichActive) await city.enrichActive(active);
 
-  // Optional per-city unit-area enrichment from detail pages.
   let detailAreas = new Map();
   if (city.crawlDetailAreas) {
     try {
@@ -188,7 +142,6 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
   const built = buildCityData({ allRecords, active, wykaz, detailAreas });
   let properties = built.properties;
 
-  // Read the previously-committed data (used by both the history merge and the
   // preserve-on-empty safety net below).
   const propPath = join(DATA_DIR, city.id, 'properties.json');
   const metaPath = join(DATA_DIR, city.id, 'meta.json');
@@ -201,20 +154,7 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
   try { prevMeta = JSON.parse(await readFile(metaPath, 'utf8')); } catch { /* none */ }
 
   // SAFETY NET — preserve on empty. A crawl that produced absolutely nothing
-  // (no active listings, no result records, no wykaz) almost always means the
-  // source BIP was down (5xx / timeout / proxy error), NOT that every auction
-  // genuinely disappeared. If we have already published data for this city, keep
-  // it: skip the write entirely so the last-good listings (current + archive)
-  // stay live, and reuse the previous meta for the index. The source recovering
-  // on a later run writes correct data again (including dropping ended auctions).
-  // A genuinely-empty city with no prior data still writes normally.
-  // Use the PRE-floor record count: a city whose entire history is older than
-  // MIN_HISTORY_YEAR still had a perfectly healthy crawl — only a crawl that
-  // saw literally nothing indicates a source outage.
   const crawlEmpty = crawledActiveCount === 0 && beforeFloor === 0 && wykaz.length === 0 && landRecords.length === 0;
-  // `valid_empty` describes the address-keyed property stream. A healthy board
-  // may still yield out-of-scope land rows, so do not require the separate land
-  // stream to be empty before accepting the adapter's explicit proof.
   const propertyCrawlEmpty = active.length === 0 && allRecords.length === 0 && wykaz.length === 0;
   const verifiedEmpty = propertyCrawlEmpty && valid_empty === true;
   if (verifiedEmpty) {
@@ -224,28 +164,15 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     console.error(
       `  ${city.id}: crawl returned EMPTY but ${prevProperties.length} properties were previously published — treating as a source outage. Preserving existing data.`,
     );
-    // Machine-readable twin of the line above for scripts/triage-report.js —
-    // CI classifies this as source-outage vs layout-change from the log.
     console.error('TRIAGE ' + JSON.stringify({
       city: city.id, kind: 'empty-crawl', message: 'crawl returned empty',
       prev_properties: prevProperties.length,
     }));
-    // Even while preserving, apply the same durable identity/round heals as a
-    // healthy refresh. Otherwise an outage can indefinitely re-publish aliases
-    // and stale inferred rounds from the committed baseline.
     const beforePreserveHeal = JSON.stringify(prevProperties);
     prevProperties = applyDurablePropertyHeals(prevProperties, city.id, globalStreetDisplay);
     const preserveHealed = JSON.stringify(prevProperties) !== beforePreserveHeal;
 
-    // Even while preserving, AGE OUT concluded auctions. Some boards (e.g. ZGM
-    // Rybnik) legitimately empty out after an auction day — every announcement
     // is removed until the next batch. Without this, the preserved listings
-    // stay frozen at outcome 'active' with a past date forever, and the UI
-    // shows them NOWHERE (the active view date-filters them; the archive view
-    // only shows concluded outcomes). A past auction date means the auction is
-    // over regardless of whether the source is down or just empty, so this
-    // reclassification is always safe. Idempotent: next run ages out 0 and
-    // skips the write again.
     const aged = archivePastActive(prevProperties, todayWarsaw());
     if (aged === 0 && !preserveHealed) {
       console.error('  nothing to age out; updating source-attempt state only.');
@@ -289,16 +216,12 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
       join(cityDir, 'properties.json'),
       JSON.stringify({ schema_version: SCHEMA_VERSION, city: city.id, properties: prevProperties }, null, 2) + '\n',
     );
-    // Mirror the aging in active.json (the popup's live snapshot): drop
-    // past-dated rows, keep dateless/future ones exactly as last published.
     try {
       const activePath = join(cityDir, 'active.json');
       const prevActive = JSON.parse(await readFile(activePath, 'utf8'));
       const today = todayWarsaw();
       const keep = (prevActive.listings || []).filter((l) => !l.auction_date || l.auction_date >= today);
       for (const l of keep) if (l.kind != null) l.kind = normalizeKind(l.kind);
-      // Old Gliwice active snapshots predate round provenance; their non-BIP
-      // values were history-derived and should follow the healed property row.
       syncActiveListingRounds(keep, prevProperties, { inferUnmarked: city.id === 'gliwice' });
       if (JSON.stringify(keep) !== JSON.stringify(prevActive.listings || [])) {
         await writeFile(activePath, JSON.stringify({ ...prevActive, listings: keep }, null, 2) + '\n');
@@ -334,15 +257,8 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     return meta;
   }
 
-  // Accumulate against the previously-committed file so upstream deletions
-  // don't erase history. active.json stays a live snapshot (current crawl only).
   let retained = { kept_properties: 0, kept_listings: 0 };
   if (MERGE_HISTORY && prevProperties.length > 0) {
-    // Canonicalize kinds on the COMMITTED side BEFORE the merge so the
-    // dateless-row fingerprint can't read a legacy "zabudowa" and a fresh
-    // "zabudowana" as two distinct events that then heal into a duplicate.
-    // (Fresh kinds are already canonical out of the parsers; the committed file
-    // is the only source of legacy spellings.) Post-merge healKinds stays below.
     healKinds(prevProperties);
     try {
       const merged = mergeProperties(prevProperties, properties);
@@ -354,8 +270,6 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     } catch (err) {
       console.error(`  WARN: history merge skipped (${err.message}); writing fresh build.`);
     }
-    // Heal aliases, old parser keys, street variants, kinds, and inferred rounds
-    // on the POST-merge array. The same entry point is used by fresh builds,
     // preserve-on-empty, and the offline healer.
     const beforeHeal = properties.length;
     properties = applyDurablePropertyHeals(properties, city.id, globalStreetDisplay);
@@ -363,18 +277,9 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
       console.error(`  healed ${beforeHeal - properties.length} duplicate/alias propert${beforeHeal - properties.length === 1 ? 'y' : 'ies'} post-merge.`);
     }
   } else {
-    // No history merge ran (city's FIRST publish, or MERGE_HISTORY=0). The merge
-    // branch above is where kinds + street variants + plot areas normally get
-    // healed, so heal here too — otherwise a non-canonical kind or a plot-sized
-    // area from a parser reaches properties.json unhealed on exactly these paths
-    // (the first-run gap in the kind/TYP guarantee). healStreetVariants also runs
-    // healPlotAreas; buildCityData already coalesced fresh street variants.
     properties = applyDurablePropertyHeals(properties, city.id, globalStreetDisplay);
   }
 
-  // Age out retained listings: a listing the source removed while still
-  // 'active' is frozen by the merge and would inflate active_auctions forever.
-  // (buildCityData reclassifies only the freshly-crawled listings.)
   const verifiedEmptyArchived = verifiedEmpty ? archiveAllActive(properties) : 0;
   if (verifiedEmptyArchived) {
     console.error(
@@ -384,18 +289,8 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
   const agedOut = archivePastActive(properties, todayWarsaw());
   if (agedOut) console.error(`  aged out ${agedOut} past-dated retained listings (active → archived).`);
 
-  // Back-fill the history-derived round onto the live `active` listings (which
-  // are written to active.json and power the site's "AKTUALNE AUKCJE" table).
-  // build-properties derived the round from each property's attempt history, but
-  // active.json carries the raw crawl listings — so copy the round across by
-  // property key. This is what makes Gliwice's current listing show "II przetarg"
-  // when it had one prior attempt, instead of a blank round.
   syncActiveListingRounds(active, properties);
 
-  // Count auctions by real status (from each listing's outcome), so the site can
-  // show RUNNING auctions separately from concluded/archived ones. `active.length`
-  // above is just the raw crawl size and over-counts "current" (it includes
-  // past-dated announcements that build-properties reclassifies as `archived`).
   let activeAuctions = 0;
   let archivedAuctions = 0;
   for (const p of properties) {
@@ -408,8 +303,6 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
 
   const landBuilt = buildLand(landRecords, city.id, city);
 
-  // A complete current board is still a rolling snapshot, not a complete
-  // historical ledger. Apply the same default history retention as properties.
   const landFile = join(DATA_DIR, city.id, 'land.json');
   let prevPlots = [];
   if (existsSync(landFile)) {
@@ -491,10 +384,6 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
     join(cityDir, 'meta.json'),
     JSON.stringify(meta, null, 2) + '\n',
   );
-  // Separate parcel-keyed store for land (działki/grunty). Flats, houses
-  // (zabudowana) and commercial stay in properties.json/active.json; only land
-  // lives here. See core/build-land.js.
-  // Skip when preserving (above) so the last-good land.json is left untouched.
   if (!landPreserved) {
     await writeFile(
       join(cityDir, 'land.json'),
@@ -513,12 +402,6 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
   return meta;
 }
 
-// City filter for the CI matrix: `CITY=bytom npm run refresh` runs only that
-// city (comma-separated ids allowed) and SKIPS writing data/index.json —
-// isolated shard worktrees would otherwise emit competing copies. The single
-// publisher rebuilds the index afterwards via `node src/build-index.js`
-// (see .github/workflows/refresh.yml). No CITY → full run, index written,
-// exactly as before.
 const CITY_FILTER = (process.env.CITY || '')
   .split(',')
   .map((s) => s.trim())
@@ -527,8 +410,6 @@ const CITY_FILTER = (process.env.CITY || '')
 async function main() {
   await mkdir(DATA_DIR, { recursive: true });
 
-  // Cross-city street-display evidence for the post-merge heal, built ONCE from
-  // the committed corpus and passed to every city (see core/verified-heals.js).
   const globalStreetDisplay = buildGlobalStreetDisplay(DATA_DIR);
 
   let selected = cities;
@@ -546,16 +427,10 @@ async function main() {
 
   const metas = [];
   for (const city of selected) {
-    // Per-city isolation: one city's crawl crashing (uncaught network/5xx error,
-    // parser throw, …) must never fail the whole pipeline or drop the city from
-    // the site. On failure we log it and reuse the city's last-published meta so
-    // it keeps showing its previously-committed listings; its data files on disk
-    // are left untouched.
     try {
       metas.push(await refreshCity(city, globalStreetDisplay));
     } catch (err) {
       console.error(`\n!!! ${city.id}: refresh FAILED (${err?.message || err}) — keeping last-published data, continuing with other cities.`);
-      // Machine-readable twin for scripts/triage-report.js (CI failure triage).
       console.error('TRIAGE ' + JSON.stringify({
         city: city.id, kind: 'throw', message: String(err?.message || err),
       }));
@@ -564,9 +439,6 @@ async function main() {
         metas.push({ ...prevMeta, city: city.id, stale: true });
       } catch {
         console.error(`    (no previously-published data for ${city.id}; emitting a zero-count placeholder so it still appears in index.json)`);
-        // Mirror build-index.js, which writes a zero-count row for a city with no
-        // data on disk. Without this the city silently vanishes from a full-run
-        // index.json whenever its very first crawl fails.
         metas.push({
           schema_version: SCHEMA_VERSION,
           city: city.id,
@@ -585,7 +457,6 @@ async function main() {
   if (CITY_FILTER.length) {
     console.error('\n=== selected cities done (index.json left to build-index.js) ===');
   } else {
-    // Top-level discovery file: which cities exist + their headline counts.
     const index = {
       schema_version: SCHEMA_VERSION,
       generated_at: new Date().toISOString(),
@@ -628,15 +499,10 @@ async function main() {
     console.error(JSON.stringify(index, null, 2));
   }
 
-  // Shut the headless browser if any city used it, so the process can exit.
-  // No-op when render.js was never invoked (the common case).
   await closeBrowser();
 }
 
 main().catch(async (err) => {
-  // Only truly catastrophic, non-city errors reach here (e.g. cannot write
-  // DATA_DIR). Per-city crawl failures are isolated inside main()'s loop and
-  // never bubble up to fail the whole pipeline.
   console.error('FATAL:', err);
   await closeBrowser().catch(() => {});
   process.exit(1);

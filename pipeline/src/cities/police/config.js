@@ -1,7 +1,3 @@
-// Configuration for Police adapter (bip.police.pl)
-//
-// Gmina Police (powiat policki, zachodniopomorskie)
-// TERC: 3211044
 
 export const CONFIG = {
   id: 'police',

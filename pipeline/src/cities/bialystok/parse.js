@@ -1,34 +1,7 @@
-// Bialystok parsers.
-//
-// The BIP detail page (bip.bialystok.pl) uses a SmartSite CMS that renders
-// every field as a pair of .grid-inner-item divs inside a .grid-inner wrapper:
-//
-//   <div class="grid-inner">
-//     <div class="grid-inner-item"><strong>Tytul</strong></div>
-//     <div class="grid-inner-item" data-value="">ul. Juliana Tuwima 1/1 m 41</div>
-//   </div>
-//
-// Fields present on every detail page:
-//   Tytul, Lokalizacja (polozenie), Przeznaczenie, Cena wywolawcza,
-//   Termin przetargu, Status, Osoba do kontaktu
-// Extra field only on Rozstrzygniety (resolved) pages:
-//   Cena nabycia  ->  achieved price (our money signal)
-//
-// crawlResultDocs() pre-extracts these fields from the HTML so parseResultDoc()
-// receives a plain-text blob with one "KEY: VALUE" line per field. This keeps
-// the parser free of HTML manipulation and easily unit-testable.
 
 import { parseAddress } from '../../core/normalize.js';
 
-// ---------------------------------------------------------------------------
-// Shared HTML helpers
-// ---------------------------------------------------------------------------
 
-/**
- * Strip HTML tags and decode common entities.
- * @param {string} html
- * @returns {string}
- */
 export function stripTags(html) {
   if (!html) return '';
   let s = html
@@ -46,23 +19,9 @@ export function stripTags(html) {
   return s.replace(/\s+/g, ' ').trim();
 }
 
-/**
- * Parse the .grid-inner field/value pairs from a BIP detail page.
- * Returns a Map of label -> value (both stripped of whitespace).
- * @param {string} html  raw HTML of the detail page
- * @returns {Map<string, string>}
- */
 export function parseDetailFields(html) {
   const fields = new Map();
   if (!html) return fields;
-  // The SmartSite grid renders each field as:
-  //   <div class="grid-inner[ resolution]">
-  //     <div class="grid-inner-item"><strong>LABEL</strong></div>
-  //     <div class="grid-inner-item" id="" data-value="">VALUE</div>
-  //   </div>
-  //
-  // Strategy: scan for <strong>LABEL</strong> then the immediately-following
-  // second .grid-inner-item sibling for its value text.
   const pairRe =
     /<strong[^>]*>([\s\S]*?)<\/strong>[\s\S]*?<\/div>\s*<div[^>]*grid-inner-item[^>]*>([\s\S]*?)<\/div>/gi;
   let m;
@@ -74,11 +33,7 @@ export function parseDetailFields(html) {
   return fields;
 }
 
-// ---------------------------------------------------------------------------
-// PLN helper
-// ---------------------------------------------------------------------------
 
-// "341.600,00 zl" / "285 100,00" / "269500" -> integer PLN
 function parsePLN(s) {
   if (!s) return null;
   const cleaned = String(s)
@@ -89,43 +44,19 @@ function parsePLN(s) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// ---------------------------------------------------------------------------
-// Address parsing
-// ---------------------------------------------------------------------------
 
-// Bialystok addresses on the BIP follow the format:
-//   "ul. Juliana Tuwima 1/1 m 41"    -> building=1, apt=41
-//   "Al. Jozefa Pilsudskiego 38 m 23" -> building=38, apt=23
-//   "ul. Wierzbowa 29A m 55"          -> building=29A, apt=55
-//
-// core/normalize parseAddress() converts "m N" -> "/N" before parsing, so the
-// simple "BLDG m APT" cases work directly. The "BLDG/STAIRCASE m APT" case
-// fails because parseAddress interprets the first "/" as the building/apt
-// separator. We pre-strip the staircase so "1/1 m 41" becomes "1 m 41".
 
-/**
- * Parse a Bialystok BIP address string into a structured address object.
- * @param {string} raw  e.g. "ul. Juliana Tuwima 1/1 m 41"
- * @returns {{ address_raw: string, address: object|null }}
- */
 export function parseDetailAddress(raw) {
   if (!raw) return { address_raw: raw, address: null };
   let s = raw.trim();
 
-  // Strip leading city-name prefix: "Białystok, " (case-insensitive, any diacritics)
-  // Seen on some BIP entries: "Białystok, Aleja Józefa Piłsudskiego 24 m 62, dz. nr 1282"
   s = s.replace(/^Bia[łl]ystok\s*,\s*/i, '');
 
-  // Strip trailing działka / dz. nr fragment:
-  //   ", dz. nr 1282"  /  ", działka nr 1282"
-  // The comma before "dz." is part of the tail and must be consumed here,
-  // otherwise it is left on the string and breaks the address parser.
   s = s.replace(/\s*,?\s*dz\.\s*nr\b.*/i, '');
   s = s.replace(/\s*,?\s*dzia[łl]ka\b.*/i, '');
 
   s = s.trim();
 
-  // Strip staircase: "BLDG/STAIRCASE m APT" -> "BLDG m APT"
   const normalised = s.replace(
     /(\d+[A-Za-z]?)\/\d+(\s+m\.?\s*\d+[A-Za-z]?)/,
     '$1$2',
@@ -134,24 +65,12 @@ export function parseDetailAddress(raw) {
   return { address_raw: raw, address };
 }
 
-// ---------------------------------------------------------------------------
-// parseDetailPage
-// ---------------------------------------------------------------------------
 
-/**
- * Parse a single BIP detail page into a structured property record.
- * Returns null if not a residential flat (przeznaczenie filter).
- *
- * @param {string} html        raw HTML of the detail page
- * @param {string} detailUrl   the page URL (provenance)
- * @returns {object|null}
- */
 export function parseDetailPage(html, detailUrl) {
   if (!html) return null;
   const fields = parseDetailFields(html);
   const notes = [];
 
-  // Filter: only residential flats. "Przeznaczenie" field distinguishes them.
   const przeznaczenie = fields.get('Przeznaczenie') || '';
   if (!/lokal\s+mieszkaln/i.test(przeznaczenie)) return null;
 
@@ -200,32 +119,12 @@ export function parseDetailPage(html, detailUrl) {
   };
 }
 
-// ---------------------------------------------------------------------------
-// parseResultDoc  (registry contract function)
-// ---------------------------------------------------------------------------
 
-// crawlResultDocs() pre-serialises detail-page fields as a plain-text blob:
-//   Tytul: ul. Juliana Tuwima 1/1 m 41
-//   Przeznaczenie: lokal mieszkalny
-//   Cena wywolawcza: 285.100,00 zl
-//   Termin przetargu: 2026-08-26
-//   Status: Otwarty
-//   Cena nabycia: 341.600,00 zl
-//   source_url: https://...
 
-/**
- * Parse one pre-serialised result-doc text into concluded auction records.
- *
- * @param {string}      text         serialised field lines
- * @param {string|null} fallbackDate ISO date from the crawl ref
- * @param {string}      sourceUrl    detail page URL (provenance)
- * @returns {Array<object>}
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!text) return [];
   const notes = [];
 
-  // Parse key: value lines
   const fields = new Map();
   for (const line of String(text).split('\n')) {
     const colon = line.indexOf(':');
@@ -235,12 +134,10 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     if (key && val) fields.set(key, val);
   }
 
-  // Filter to flat sales only
   const przeznaczenie = fields.get('Przeznaczenie') || '';
   if (!/lokal\s+mieszkaln/i.test(przeznaczenie)) return [];
 
   const status = fields.get('Status') || '';
-  // Skip open auctions (defensive)
   if (/^otwarty$/i.test(status.trim())) return [];
 
   const lokalizacja =

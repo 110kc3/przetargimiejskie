@@ -1,7 +1,3 @@
-// Configuration for Wołomin adapter (wolomin.bip.net.pl)
-//
-// Gmina Wołomin (powiat wołomiński, mazowieckie)
-// TERC: 1434124
 
 export const CONFIG = {
   id: 'wolomin',

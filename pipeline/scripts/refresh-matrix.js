@@ -1,9 +1,3 @@
-// Build the city list that can safely run on GitHub-hosted Azure runners.
-//
-// Adapters marked needsResidentialEgress remain registered and published, but
-// are deliberately held out of hosted automation. Their last-good data remains
-// published and a short-lived stale-only health window makes the unresolved
-// hosted-access gap fail visibly instead of becoming a permanent blind spot.
 
 import { appendFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
@@ -13,9 +7,6 @@ import { cities } from '../src/cities/index.js';
 const DEFAULT_SHARD_WEIGHT = 5;
 const MAX_SHARDS = 240;
 
-// These adapters invoke OCR directly in their city implementation. Keep them
-// alone unless they share a source host, just as render-backed adapters are.
-// This list is an operational scheduling hint, not a coverage declaration.
 export const HEAVY_CITY_IDS = new Set([
   'belchatow', 'biala-podlaska', 'bytom', 'choszczno', 'gliwice',
   'golub-dobrzyn', 'gorzow-wielkopolski', 'gostyn', 'grudziadz', 'kolbuszowa',

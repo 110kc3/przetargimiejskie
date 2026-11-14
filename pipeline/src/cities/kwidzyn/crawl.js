@@ -1,40 +1,3 @@
-// Kwidzyn crawler — the eUrząd/Logonet "nowoczesny BIP" JSON API on
-// `bip.kwidzyn.pl` (same API family as tarnowskie-gory/sosnowiec/wegrow; see
-// config.js for the analog note).
-//
-// DISCOVERY. The board `Gospodarka Nieruchomościami` (menu id 13536) has one
-// child menu per year. The raw site is a React SPA, but it is backed by a clean
-// JSON API, which we drive directly (so NO Playwright / core/render.js — see
-// config.js):
-//   GET /api/menu/13536              → the full top nav; the requested branch's
-//                                      node carries `children` = the year menus.
-//   GET /api/menu/{yearId}/articles  → { total, articles:[{id, link,
-//                                      aliasFields[title], columnFields[date]}] }.
-//   GET /api/articles/{id}           → { title, attachments:[{id, extension,
-//                                      name, …}] }.
-//   GET /e,pobierz,get.html?id={att} → the attachment bytes (the scanned PDF).
-// The result "Informacja o wyniku przetargu" is normally a SECOND attachment on
-// the announcement's own article, so one shared, memoized pass fetches every
-// candidate article's PDFs, OCRs them, and classifies each PDF body — feeding
-// BOTH crawlActive (announcements) and crawlResultDocs (results). No PDF twice.
-//
-// EXTRACTION IS OCR. The notice PDFs are the Burmistrz's signed paper scans
-// (image-only; pdfText returns \f) → core/ocr-pdf.js `ocrPdf` (tesseract -l pol).
-// `extractNoticeText` tries the cheap pdfText first so a future born-digital PDF
-// is handled for free, then falls back to OCR (deleting the tiny pdfText junk so
-// pdf-text-cache stays clean).
-//
-// BOUND (ADAPTER-GUIDE §5). OCR is the wall-clock bottleneck, so the crawl is
-// bounded hard: only the most recent YEARS_BACK years (+ the board root's direct
-// articles) are scanned; wykaz pre-announcement lists and cancellations are
-// skipped by TITLE (kind still comes from the PDF body); the candidate set is
-// capped (MAX_ARTICLES, newest first); and — crucially — at most
-// MAX_UNCACHED_OCR *uncached* PDFs are extracted per run (valid text/OCR cache
-// hits are free and always processed). The committed ocr-cache means CI re-runs
-// are cheap and the backlog backfills a slice per run. Already-captured result
-// PDFs are skipped via core/known-urls.js (safe: concluded results only).
-//
-// One request per second (core/fetch.js getText throttle).
 
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -50,26 +13,23 @@ import { parseAnnouncement, parseResultDoc, isCancellation, toAscii } from './pa
 
 const ORIGIN = 'https://bip.kwidzyn.pl';
 const API = `${ORIGIN}/api`;
-const GN_ROOT_MENU_ID = '13536'; // board "Gospodarka Nieruchomościami"
+const GN_ROOT_MENU_ID = '13536';
 
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
 
-const YEARS_BACK = 1;            // current + 1 prior year of the board
-const MAX_ARTICLES = 80;         // candidate cap (newest article-id first)
-const MAX_UNCACHED_OCR = 24;     // per-run wall-clock guard (uncached OCRs only)
-const LIST_LIMIT = 200;          // articles per menu page
-const LIST_PAGE_CAP = 2;         // ≤ 2 pages per menu
+const YEARS_BACK = 1;
+const MAX_ARTICLES = 80;
+const MAX_UNCACHED_OCR = 24;
+const LIST_LIMIT = 200;
+const LIST_PAGE_CAP = 2;
 
-// pipeline/ocr-cache — used to tell whether a PDF's OCR is already committed
-// (a free hit) vs. would incur a fresh tesseract run (counts to the cap).
 const OCR_CACHE_DIR = fileURLToPath(new URL('../../../ocr-cache/', import.meta.url));
 const PDFTEXT_CACHE_DIR = fileURLToPath(new URL('../../../pdf-text-cache/', import.meta.url));
 export function textCached(url, directories = [OCR_CACHE_DIR, PDFTEXT_CACHE_DIR]) {
   return directories.some((directory) => {
     const path = join(directory, urlCacheKey(url) + '.txt');
-    // A cached form-feed from an image-only PDF does not save an OCR run.
     return existsSync(path) && readFileSync(path, 'utf8').replace(/\s/g, '').length >= 40;
   });
 }
@@ -81,12 +41,7 @@ async function getJson(url) {
   return JSON.parse(text);
 }
 
-// ---------------------------------------------------------------------------
-// Structure helpers
-// ---------------------------------------------------------------------------
 
-/** Year menus under the board root → [{year, id}], from the GN node's children
- *  in GET /api/menu/{root}. @returns {Array<{year:number,id:string}>} */
 export function parseYearMenus(menuArray, rootId = GN_ROOT_MENU_ID) {
   const root = (menuArray || []).find((m) => String(m.id) === String(rootId));
   const kids = (root && Array.isArray(root.children)) ? root.children : [];
@@ -98,8 +53,6 @@ export function parseYearMenus(menuArray, rootId = GN_ROOT_MENU_ID) {
   return out;
 }
 
-/** One article-list entry → {id, title, date, link}. Title comes from the
- *  aliasFields "title" (clean), date from the "Czas publikacji" column. */
 export function parseArticleEntry(a) {
   const t = (a.aliasFields || []).find((f) => f.alias === 'title');
   const title = (t && t.value)
@@ -110,23 +63,19 @@ export function parseArticleEntry(a) {
   return { id: String(a.id), title, date, link: a.link };
 }
 
-/** Title routing (NOT kind — kind comes from the PDF body). */
 function classifyTitle(title) {
   const t = toAscii(title || '');
-  if (/wykaz/.test(t)) return 'skip';           // pre-announcement lists (bulk noise)
-  if (isCancellation(title)) return 'skip';     // "o odwołaniu przetargu"
+  if (/wykaz/.test(t)) return 'skip';
+  if (isCancellation(title)) return 'skip';
   if (/przetarg|sprzeda/.test(t)) return 'candidate';
   return 'skip';
 }
 
-/** An attachment worth OCR-ing: a PDF that is not a location map. */
 function isNoticePdf(att) {
   if (!att || String(att.extension).toLowerCase() !== 'pdf') return false;
   return !/map|rzut|szkic|graficzn/i.test(att.name || '');
 }
 
-/** Classify one OCR'd PDF body → announce | result | skip. Result markers are
- *  tested first (a result form also prints "cena wywoławcza"). */
 function classifyBody(text) {
   const t = toAscii(text || '');
   if (/informacj\w*\s+o\s+wynik/.test(t) || /cena\s+osiagni[ea]t/.test(t) ||
@@ -135,9 +84,6 @@ function classifyBody(text) {
   return 'skip';
 }
 
-/** Text of a scanned notice PDF: pdfText (born-digital fast path) if it yields
- *  real text, else OCR. Any tiny pdfText \f-junk cache file is removed so
- *  pdf-text-cache is never polluted with 1–2 byte artifacts. */
 async function extractNoticeText(url) {
   const ocrPath = join(OCR_CACHE_DIR, urlCacheKey(url) + '.txt');
   if (existsSync(ocrPath)) {
@@ -147,14 +93,10 @@ async function extractNoticeText(url) {
   let quick = '';
   try { quick = await pdfText(url, FETCH_OPTS); } catch { quick = ''; }
   if (quick && quick.replace(/\s/g, '').length >= 40) return quick;
-  // Scanned (the confirmed Kwidzyn case): drop the junk, OCR instead.
   try { await rm(join(PDFTEXT_CACHE_DIR, urlCacheKey(url) + '.txt'), { force: true }); } catch { /* ignore */ }
   return ocrPdf(url, FETCH_OPTS);
 }
 
-// ---------------------------------------------------------------------------
-// Shared discovery + fetch + OCR + classify pass (memoized per process run)
-// ---------------------------------------------------------------------------
 
 let scanPromise = null;
 const scan = () => (scanPromise ??= discoverAll());
@@ -191,7 +133,6 @@ export async function discoverAll({
   knownUrls = null, thisYear = new Date().getFullYear(), maxUncached = MAX_UNCACHED_OCR,
 } = {}) {
 
-  // 1. Year menus under the board root.
   let menuArray;
   try {
     menuArray = await fetchJson(`${API}/menu/${GN_ROOT_MENU_ID}`);
@@ -204,12 +145,10 @@ export async function discoverAll({
   const yearMenus = allYearMenus
     .filter((y) => y.year >= minYear && y.year <= thisYear + 1)
     .sort((a, b) => b.year - a.year);
-  // Board root itself carries a few direct (undated-menu) articles too.
   const menuIds = [GN_ROOT_MENU_ID, ...yearMenus.map((y) => y.id)];
   let complete = yearMenus.some((menu) => menu.year === thisYear)
     && !allYearMenus.some((menu) => menu.year >= 2020 && menu.year < minYear);
 
-  // 2. Candidate articles across those menus (deduped by article id).
   const byId = new Map();
   for (const menuId of menuIds) {
     const entries = await fetchMenuArticles(menuId, fetchJson);
@@ -220,13 +159,12 @@ export async function discoverAll({
     }
   }
   const candidates = [...byId.values()]
-    .sort((a, b) => Number(b.id) - Number(a.id)) // newest article-id first
+    .sort((a, b) => Number(b.id) - Number(a.id))
     .slice(0, MAX_ARTICLES);
   if (byId.size > MAX_ARTICLES) complete = false;
 
   const known = knownUrls ?? await loadKnownSourceUrls('kwidzyn', { includeLand: true, resolvedOnly: true });
 
-  // 3. Per article: fetch attachments, OCR the notice PDFs, classify each.
   const records = [];
   let uncachedOcr = 0;
   let articlesProcessed = 0;
@@ -247,8 +185,6 @@ export async function discoverAll({
       const pdfUrl = attUrl(att.id);
       if (!/^\d+$/.test(String(att.id))) { complete = false; continue; }
       const cached = isCached(pdfUrl);
-      // Known announcements must still be emitted while current. Classify the
-      // cached body before using a resolved-outcome URL as a result shortcut.
       if (!cached) {
         if (uncachedOcr >= maxUncached) { complete = false; continue; }
         uncachedOcr++;
@@ -280,9 +216,6 @@ export async function discoverAll({
   return { records, complete };
 }
 
-// ---------------------------------------------------------------------------
-// crawlActive()
-// ---------------------------------------------------------------------------
 
 export async function crawlActive({ discover = scan, today = new Date().toISOString().slice(0, 10) } = {}) {
   const { records } = await discover();
@@ -294,17 +227,13 @@ export async function crawlActive({ discover = scan, today = new Date().toISOStr
       console.error(`  kwidzyn: announce article ${r.articleId} no subject (kind=${a.kind}) — skipping`);
       continue;
     }
-    if (!a.auction_date || a.auction_date < today) continue; // upcoming only
+    if (!a.auction_date || a.auction_date < today) continue;
     listings.push(a);
   }
   console.error(`  kwidzyn active: ${listings.length} upcoming listing(s)`);
   return { listings, wykaz: [], land: [], land_complete: false };
 }
 
-// ---------------------------------------------------------------------------
-// crawlResultDocs() → refs for refresh.js: { text, pdf_url, auction_date }
-// (source:'html' → refresh.js uses ref.text directly; see refresh.js).
-// ---------------------------------------------------------------------------
 
 export async function crawlResultDocs({ discover = scan } = {}) {
   const { records, complete } = await discover();
@@ -318,9 +247,6 @@ export async function crawlResultDocs({ discover = scan } = {}) {
   return refs;
 }
 
-// ---------------------------------------------------------------------------
-// CLI harness: node crawl.js [active|results]
-// ---------------------------------------------------------------------------
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const mode = process.argv[2] ?? 'active';
   if (mode === 'results') {

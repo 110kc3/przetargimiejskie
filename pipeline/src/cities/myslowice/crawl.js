@@ -1,4 +1,3 @@
-// Myslowice crawler -- built from the reusable FINN-BIP crawler factory.
 
 import { pathToFileURL } from 'node:url';
 import { config } from './config.js';

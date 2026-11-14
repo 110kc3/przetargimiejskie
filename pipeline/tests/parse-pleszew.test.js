@@ -1,79 +1,3 @@
-// Pleszew parser tests. Every fixture below is copied verbatim from REAL
-// live documents fetched from bip.pleszew.pl on 2026-07-10 (announcement/
-// result PDFs extracted with the real `pdftotext -layout`, board HTML copied
-// from the live year-board pages) — the generic legal boilerplate paragraphs
-// repeated on every notice (pełnomocnictwa, cudzoziemcy, oględziny, contact
-// info, "zastrzega sobie prawo", "Ogłoszenie zamieszczono ...") are trimmed
-// for brevity, matching the parse-chodziez.test.js convention, but every
-// sentence kept is verbatim, including its real quirks (spacing, "r." vs no
-// "r.", "ustny nieograniczony" vs "ustny ograniczony").
-//
-//   ZACHODNIA_II_ANN   ul. Zachodniej 1, 1/2 udziału w lokalu nr 1 — II
-//                      przetarg (posted 2025-01-20, auction 2025-02-26),
-//                      122 260 zł, 69,10 m². Same asset's I przetarg
-//                      (2024-10-31, auction 2024-12-05) is the
-//                      ZACHODNIA_I_WYNIK fixture below — both rounds are
-//                      REAL and both concluded UNSOLD (no bidders); as of
-//                      2026-07-10 no III przetarg has been posted yet (the
-//                      live crawl.js smoke test confirms 0 active flat
-//                      listings right now — see the adapter's build report).
-//   ZACHODNIA_I_WYNIK  same lokal nr 1, I przetarg result: "wyniku brak
-//                      oferentów zakończył się wynikiem negatywnym" — UNSOLD.
-//   KALISZ_ANN         "nieruchomość lokalowa" nr 4, ul. Młynarska 13,
-//                      Kalisz — a Pleszew-owned unit physically in
-//                      neighbouring Kalisz (KW prefix KZ1A, Sąd Rejonowy w
-//                      Kaliszu). I przetarg, 232 500 zł, 77,50 m². Note the
-//                      street is NOMINATIVE "Młynarska" here.
-//   KALISZ_WYNIK_SOLD  same flat, II przetarg result: "zakończył się
-//                      wynikiem pozytywnym. Nabywcą za cenę 227 000 zł ...
-//                      została Pani Julita Szaleniec." — SOLD. Note the
-//                      street is GENITIVE "Młynarskiej" here (a real,
-//                      observed source inconsistency — see parse.js).
-//   NOWAWIES_R4_ANN    3 działki (249/7, 249/8, 249/9), Nowa Wieś — IV
-//                      przetarg, posted 2026-07-09 (ONE DAY before this
-//                      fixture was fetched), auction 2026-08-18 — CURRENTLY
-//                      OPEN as of 2026-07-10, the freshest live fixture in
-//                      this whole file. Per-parcel table price (all three
-//                      91 020,00 zł).
-//   KUCZKOW_ANN        4 działki (67/1, 67/4, 67/5, 67/6), Kuczków — II
-//                      przetarg, DIFFERENT per-parcel price phrasing ("dla
-//                      działki NR – KWOTA zł") than Nowa Wieś's bare table.
-//   SOWIN_WYNIK        dz. 138/39, Sowin — I przetarg result: "nie wpłynęło
-//                      żadne wadium ... zakończył się wynikiem negatywnym"
-//                      — UNSOLD. Single-parcel TABLE-row result format.
-//   ZAWIDOWICE_WYNIK   dz. 111, Zawidowice — I przetarg result: "nabywcą ww.
-//                      działki za kwotę brutto 16.150,00 zł zostali:
-//                      Agnieszka i Tomasz Pilarczyk" — SOLD (15 990 -> 16
-//                      150 zł). Bare (non-table) single-parcel format.
-//   LENARTOWICE_WYNIK  dz. 136/6, Lenartowice — I przetarg USTNY
-//                      OGRANICZONY (restricted, not nieograniczony) result:
-//                      SOLD (12 935 -> 13 065 zł, "netto" price phrasing —
-//                      a third starting-price wording distinct from both
-//                      Sowin's and Zawidowice's).
-//   LEASE_PIASKI_OGLOSZENIE / WYKAZ_PIASKI_DZIERZAWA
-//                      ul. Piaski 41, Pleszew — a grunt LEASE (dzierżawa),
-//                      real board teasers, MUST be skipped despite the
-//                      lease announcement using the exact same "ogłasza
-//                      <round> przetarg ustny nieograniczony na ..." shape
-//                      as a real sale (differing only in the object noun:
-//                      "na wydzierżawienie" not "na sprzedaż" — this is the
-//                      hard case the skip-gate must inspect the whole
-//                      teaser, not just the "ogłasza" anchor, to catch).
-//   WYKAZ_ZACHODNIA_GENUINE / WYKAZ_PIEKARZEWO_GENUINE
-//                      genuine PRE-AUCTION sale wykazy (flat + land) —
-//                      "wykazuje do sprzedaży w drodze przetargu ..." /
-//                      "zamierza sprzedać działkę ...". The Piekarzewo one
-//                      is the exact real fixture that caught a genuine
-//                      SALE_VERB_RE bug while building this adapter (see
-//                      parse.js's file header) — an earlier version of the
-//                      pattern matched only the ż/z-ending noun forms
-//                      ("sprzedaż"/"sprzedaży") and silently missed this
-//                      ć-ending infinitive verb form ("sprzedać").
-//   BOARD_HTML         a condensed-but-real excerpt of the live 2024 year
-//                      board combining the Zachodnia I przetarg entry
-//                      (h2 + prose + <hr/> + result link, verbatim) and the
-//                      Piaski dzierżawa wykaz entry, to exercise
-//                      parseYearBoard's entry-splitting + pdfLinks harvest.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -108,7 +32,6 @@ import {
   parseResultDoc,
 } from '../src/cities/pleszew/parse.js';
 
-// --------------------------------------------------------------- real fixtures
 
 const ZACHODNIA_II_ANN = `
                         BURMISTRZ MIASTA I GMINY PLESZEW
@@ -305,10 +228,6 @@ W wyniku I przetargu ustnego ograniczonego nabywcą ww. działki za
 kwotę netto 13.065,00 zł zostali: Emilia i Ryszard Kujawscy.
 `;
 
-// Real board teasers (inline HTML prose, stripped) — copied verbatim from
-// the live 2024/2025/2026 year-board pages. The lease cases are the hard
-// ones: both use the exact "ogłasza <round> przetarg ustny nieograniczony
-// na ..." shape a real sale announcement uses.
 const LEASE_PIASKI_OGLOSZENIE =
   'Burmistrz Miasta i Gminy Pleszew ogłasza przetarg ustny nieograniczony na wydzierżawienie ' +
   'gruntu pod działalność gospodarczą o pow. 54 m2 (w tym 24 m2 pod ustawienie obiektu ' +
@@ -329,18 +248,10 @@ const WYKAZ_ZACHODNIA_GENUINE =
   'oznaczonej nr 2841 o pow. 507 m2, księga wieczysta nieruchomości gruntowej nr ' +
   'KZ1P/00006613/5.';
 
-// The exact real fixture that caught a genuine SALE_VERB_RE bug (see
-// parse.js file header): "zamierza SPRZEDAĆ" (infinitive verb, ć-ending) —
-// an earlier pattern only matched the ż/z-ending noun forms and silently
-// missed this, the DOMINANT phrasing on genuine sale wykazy.
 const WYKAZ_PIEKARZEWO_GENUINE =
   'Burmistrz Miasta i Gminy Pleszew zamierza sprzedać działkę nr 117 o pow. 0,2275 ha, ' +
   'zapisaną w KW nr KZ1P/00022904/0 w miejscowości Piekarzewie';
 
-// Condensed-but-real excerpt of the live 2024 year-board HTML: the
-// Zachodnia I przetarg entry (h2 + prose + <hr/> + result link — verbatim,
-// including the real trailing content-footer boundary) followed by the
-// Piaski dzierżawa wykaz entry.
 const BOARD_HTML = `
 <div class="text-wrapper">
 <h1>Ogłoszenia 2024</h1>
@@ -370,13 +281,12 @@ const BOARD_HTML = `
 </div>
 `;
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: dot-thousands (no decimal), dot-thousands+comma-decimal, space-thousands', () => {
-  assert.equal(parsePLN('122.260'), 122260); // Zachodnia cena wywoławcza
-  assert.equal(parsePLN('91.020,00'), 91020); // Nowa Wieś table price
-  assert.equal(parsePLN('227 000'), 227000); // Kalisz achieved price (space-thousands, no decimal)
-  assert.equal(parsePLN('82.270,60'), 82270); // Kowalewo achieved (grosze truncated)
+  assert.equal(parsePLN('122.260'), 122260);
+  assert.equal(parsePLN('91.020,00'), 91020);
+  assert.equal(parsePLN('227 000'), 227000);
+  assert.equal(parsePLN('82.270,60'), 82270);
   assert.equal(parsePLN('brak'), null);
   assert.equal(parsePLN(''), null);
 });
@@ -398,7 +308,6 @@ test('roundFromText: "Ogłasza <ROMAN> przetarg" anchor (case-insensitive O, cas
   assert.equal(roundFromText(KALISZ_ANN), 1);
   assert.equal(roundFromText(NOWAWIES_R4_ANN), 4);
   assert.equal(roundFromText(KUCZKOW_ANN), 2);
-  // Lower-case Polish "i" (the conjunction "and") must never false-match.
   assert.equal(roundFromText('kuchnia i łazienka, ogłasza się coś tutaj'), null);
 });
 
@@ -412,7 +321,6 @@ test('roundFromText: result-doc fallbacks ("o wyniku <ROMAN>", "ustalono termin 
 test('auctionDateFromText: inline ("Przetarg odbędzie się <date> r.") and location-clause-intervening forms', () => {
   assert.equal(auctionDateFromText(ZACHODNIA_II_ANN), '2025-02-26');
   assert.equal(auctionDateFromText(KALISZ_ANN), '2024-09-23');
-  // Nowa Wieś / Kuczków: "Przetarg odbędzie się w siedzibie Urzędu ... w dniu <date>"
   assert.equal(auctionDateFromText(NOWAWIES_R4_ANN), '2026-08-18');
   assert.equal(auctionDateFromText(KUCZKOW_ANN), '2024-07-12');
 });
@@ -422,19 +330,11 @@ test('startingPriceFromText: inline "cena wywoławcza X zł" and result-doc "ust
   assert.equal(startingPriceFromText(KALISZ_ANN), 232500);
   assert.equal(startingPriceFromText(ZAWIDOWICE_WYNIK), 15990);
   assert.equal(startingPriceFromText(LENARTOWICE_WYNIK), 12935);
-  // Sowin's price sits in a TABLE ("Cena wywoławcza" column header far from
-  // the value, with the parcel/area/KW columns in between) — NOT this
-  // generic single-price helper's job; parseResultDoc reaches it via
-  // parcelPriceFromText/parcelsFromText instead (see those tests below,
-  // and the "parseResultDoc: Sowin" integration test).
   assert.equal(startingPriceFromText(SOWIN_WYNIK), null);
 });
 
 test('streetBuildingFromText: same Kalisz street in two grammatical cases across two real documents', () => {
   assert.deepEqual(streetBuildingFromText(ZACHODNIA_II_ANN), { street: 'Zachodniej', building: '1' });
-  // Announcement: nominative "Młynarska". Result doc: genitive "Młynarskiej"
-  // (see parse.js's documented source-inconsistency note) — both captured
-  // as-stated, never force-normalized.
   assert.deepEqual(streetBuildingFromText(KALISZ_ANN), { street: 'Młynarska', building: '13' });
   assert.deepEqual(streetBuildingFromText(KALISZ_WYNIK_SOLD), { street: 'Młynarskiej', building: '13' });
 });
@@ -457,23 +357,19 @@ test('flatAreaFromText: "o łącznej pow. użytkowej XX,XX m2"', () => {
 test('parcelFromText: bare inline "nr N" (Zawidowice/Lenartowice — no table) and real bug #1 (accusative "działkę nr N")', () => {
   assert.equal(parcelFromText(ZAWIDOWICE_WYNIK), '111');
   assert.equal(parcelFromText(LENARTOWICE_WYNIK), '136/6');
-  assert.equal(parcelFromText(WYKAZ_PIEKARZEWO_GENUINE), '117'); // "zamierza sprzedać działkę nr 117" — accusative
+  assert.equal(parcelFromText(WYKAZ_PIEKARZEWO_GENUINE), '117');
 });
 
 test('obrebFromText / miejscowoscFromText: locality extraction, incl. real bug #2 (no lower-case leak into 2nd word)', () => {
-  assert.equal(miejscowoscFromText(NOWAWIES_R4_ANN), 'Nowej Wsi'); // two-word locality via "w miejscowości"
+  assert.equal(miejscowoscFromText(NOWAWIES_R4_ANN), 'Nowej Wsi');
   assert.equal(miejscowoscFromText(SOWIN_WYNIK), 'Sowinie');
-  // "położonej w Zawidowicach oznaczonej ..." — must capture ONLY "Zawidowicach",
-  // not "Zawidowicach oznaczonej" (the real bug #2 regression).
   assert.equal(miejscowoscFromText(ZAWIDOWICE_WYNIK), 'Zawidowicach');
-  assert.equal(miejscowoscFromText(KALISZ_ANN), 'Kaliszu'); // "położonej w Kaliszu przy ul." — must not swallow "przy"
+  assert.equal(miejscowoscFromText(KALISZ_ANN), 'Kaliszu');
 });
 
 test('plotAreaFromText: "o pow. X,XXXX ha" -> m2 (bare inline single-parcel notices only)', () => {
   assert.equal(plotAreaFromText(ZAWIDOWICE_WYNIK), 1300);
   assert.equal(plotAreaFromText(LENARTOWICE_WYNIK), 199);
-  // Sowin's area lives in the SAME table as its price (no bare "o pow. X ha"
-  // sentence at all) — reached via parcelsFromText instead (see below).
   assert.equal(plotAreaFromText(SOWIN_WYNIK), null);
 });
 
@@ -489,17 +385,12 @@ test('parcelsFromText: multi-parcel table rows, Kuczków and Nowa Wieś shapes',
     { dzialka_nr: '249/8', area_m2: 860 },
     { dzialka_nr: '249/9', area_m2: 860 },
   ]);
-  // single-parcel table-row result doc (Sowin) also matches this shape
   assert.deepEqual(parcelsFromText(SOWIN_WYNIK), [{ dzialka_nr: '138/39', area_m2: 1014 }]);
 });
 
 test('parcelPriceFromText: "dla działki NR – KWOTA zł" (Kuczków) — a real false-match was caught here', () => {
   assert.equal(parcelPriceFromText(KUCZKOW_ANN, '67/1'), 67834);
   assert.equal(parcelPriceFromText(KUCZKOW_ANN, '67/4'), 85546);
-  // 67/5 and 67/6 are mentioned EARLIER in the "godz. ... dla działki 67/5 i
-  // 11/30 dla działki 67/6" time-schedule sentence, right before the real
-  // price table — an unanchored version of this function matched THAT
-  // mid-sentence mention and returned the WRONG (67/1's) price for both.
   assert.equal(parcelPriceFromText(KUCZKOW_ANN, '67/5'), 93295);
   assert.equal(parcelPriceFromText(KUCZKOW_ANN, '67/6'), 98707);
 });
@@ -511,10 +402,6 @@ test('parcelPriceFromText: bare table row (Nowa Wieś), line-anchored so a mid-s
 });
 
 test('parcelPriceFromText: a KW-code trailing digit must never be mistaken for the start of the price (Sowin)', () => {
-  // "138/39 ... KZ1P/00017410/2             63.960,00 zł" — the "2" ending
-  // the KW number sits right before the real price; without the
-  // whitespace-anchored capture this returned 263960 (the stray "2" glued
-  // onto the front of the real amount).
   assert.equal(parcelPriceFromText(SOWIN_WYNIK, '138/39'), 63960);
 });
 
@@ -522,7 +409,7 @@ test('achievedPriceFromText: "Nabywcą za cenę X zł ... została" (flat) and "
   assert.equal(achievedPriceFromText(KALISZ_WYNIK_SOLD), 227000);
   assert.equal(achievedPriceFromText(ZAWIDOWICE_WYNIK), 16150);
   assert.equal(achievedPriceFromText(LENARTOWICE_WYNIK), 13065);
-  assert.equal(achievedPriceFromText(ZACHODNIA_I_WYNIK), null); // unsold — no buyer
+  assert.equal(achievedPriceFromText(ZACHODNIA_I_WYNIK), null);
 });
 
 test('isUnsoldText / isSoldText', () => {
@@ -534,7 +421,6 @@ test('isUnsoldText / isSoldText', () => {
   assert.equal(isUnsoldText(KALISZ_WYNIK_SOLD), false);
 });
 
-// ------------------------------------------------------- board-entry classification
 
 test('isSkippableEntryText: real lease cases (both the wykaz AND the harder "ogłasza ... na wydzierżawienie" announcement shape)', () => {
   assert.equal(isSkippableEntryText(WYKAZ_PIASKI_DZIERZAWA), true);
@@ -553,8 +439,6 @@ test('isSaleAnnouncementText: real sale teasers -> true; the lease-shaped "ogła
     'Miasta i Gminy Pleszew, zapisanych w KW nr KZ1P/00001713/1, oznaczonych ewidencyjnie nr: ' +
     '249/7, 249/8 i 249/9';
   assert.equal(isSaleAnnouncementText(nowawiesTeaser), true);
-  // The hard case: same "ogłasza <round> przetarg ustny nieograniczony na"
-  // shape, but the object is "wydzierżawienie" (lease), not "sprzedaż".
   assert.equal(isSaleAnnouncementText(LEASE_PIASKI_OGLOSZENIE), false);
 });
 
@@ -562,12 +446,10 @@ test('isGenuineSaleWykazText: real genuine-sale wykazy -> true (incl. the accusa
   assert.equal(isGenuineSaleWykazText(WYKAZ_ZACHODNIA_GENUINE), true);
   assert.equal(isGenuineSaleWykazText(WYKAZ_PIEKARZEWO_GENUINE), true);
   assert.equal(isGenuineSaleWykazText(WYKAZ_PIASKI_DZIERZAWA), false);
-  // bezprzetargowo sale — real 2025 fixture — out of scope despite the sale verb.
   const bezprzetargowo =
     'Burmistrz Miasta i Gminy Pleszew zamierza sprzedać w trybie bezprzetargowym lokal ' +
     'mieszkalny nr 2, położony w budynku przy ul. Dworcowej 20';
   assert.equal(isGenuineSaleWykazText(bezprzetargowo), false);
-  // capital-contribution ("aport") — real 2024 fixture — never a sale.
   const aport =
     'Burmistrz Miasta i Gminy Pleszew zamierza wnieść aport rzeczowy do majątku Spółki ' +
     'Społeczna Inicjatywa Mieszkaniowa "KZN - Wielkopolska" Sp.';
@@ -579,7 +461,6 @@ test('isResultLabel: distinguishes the two real anchor labels', () => {
   assert.equal(isResultLabel('Pobierz dokument - format pdf'), false);
 });
 
-// ----------------------------------------------------------- parseAnnouncementPage
 
 test('parseAnnouncementPage: Zachodnia II przetarg — pending flat (1/2 udział)', () => {
   const [r] = parseAnnouncementPage(ZACHODNIA_II_ANN, 'https://bip.pleszew.pl/x/zachodnia-ii-1.pdf');
@@ -613,7 +494,7 @@ test('parseAnnouncementPage: Nowa Wieś IV przetarg — CURRENTLY PENDING land, 
     assert.equal(r.auction_date, '2026-08-18');
     assert.equal(r.round, 4);
     assert.equal(r.obreb, 'Nowej Wsi');
-    assert.equal(r.address, null); // land is parcel-keyed, not address-keyed
+    assert.equal(r.address, null);
   }
 });
 
@@ -642,7 +523,6 @@ test('parseAnnouncementPage: empty/unparseable input -> []', () => {
   assert.deepEqual(parseAnnouncementPage('losowy tekst bez tresci przetargowej', 'x'), []);
 });
 
-// ----------------------------------------------------------------- board + wykaz
 
 test('parseYearBoard: splits the real condensed 2024 excerpt into 2 entries with correct pdfLinks', () => {
   const entries = parseYearBoard(BOARD_HTML, 'https://bip.pleszew.pl/pleszewm/');
@@ -656,7 +536,6 @@ test('parseYearBoard: splits the real condensed 2024 excerpt into 2 entries with
   assert.equal(zachodnia.pdfLinks[0].label, 'Pobierz dokument - format pdf');
   assert.equal(zachodnia.pdfLinks[1].url, 'https://bip.pleszew.pl/pleszewm/zasoby/files/nieruchomosci/2024/gp-inf-10122024-1.pdf');
   assert.equal(zachodnia.pdfLinks[1].label, 'Informacja o wyniku przetargu - format pdf');
-  // the boilerplate content-footer (person names/timestamps) must NOT leak into bodyText
   assert.doesNotMatch(zachodnia.bodyText, /Stempniewicz/);
 
   assert.equal(wykaz.title, 'Wykaz z dnia 05.12.2024');
@@ -666,11 +545,6 @@ test('parseYearBoard: splits the real condensed 2024 excerpt into 2 entries with
 });
 
 test('parseYearBoard: a "Pobierz dokument" link label must never leak into the prose bodyText (real bug caught live)', () => {
-  // Reproduces the exact shape that broke miejscowoscFromText on the live
-  // site: a locality name as the LAST word of the prose, immediately
-  // followed by the "Pobierz dokument - format pdf" link paragraph. Without
-  // stripping the anchor's own text before building bodyText, stripTags's
-  // whitespace-collapse joined them into "Piekarzewie Pobierz".
   const html = `
 <h2>Wykaz z dnia 07.07.2026</h2>
 <p>Burmistrz Miasta i Gminy Pleszew zamierza sprzedać działkę nr 117 o pow. 0,2275 ha, zapisaną w KW nr KZ1P/00022904/0 w miejscowości Piekarzewie</p>
@@ -695,7 +569,6 @@ test('wykazRecordFromEntry: genuine sale wykaz -> flat record (Zachodnia) and la
   assert.equal(land.address_raw, 'Piekarzewie');
 });
 
-// ------------------------------------------------------------- parseResultDoc
 
 test('parseResultDoc: Zachodnia I przetarg — UNSOLD flat (brak oferentów)', () => {
   const [r] = parseResultDoc(ZACHODNIA_I_WYNIK, null, 'https://bip.pleszew.pl/x/zachodnia-i-wynik.pdf');

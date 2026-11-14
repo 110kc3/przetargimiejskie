@@ -1,7 +1,3 @@
-// Configuration for Włodawa adapter (umwlodawa.bip.lubelskie.pl)
-//
-// Gmina Miejska Włodawa (powiat włodawski, lubelskie)
-// TERC: 0619011
 
 export const CONFIG = {
   id: 'wlodawa',

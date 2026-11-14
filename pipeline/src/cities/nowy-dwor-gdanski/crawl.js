@@ -1,6 +1,3 @@
-// Crawler for Nowy Dwór Gdański (bip.miastonowydwor.pl)
-//
-// Fetches RSS feed and 2ClickPortal announcement pages.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

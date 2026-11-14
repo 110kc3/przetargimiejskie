@@ -1,10 +1,3 @@
-// Śrem crawler — bip.srem.pl (iBIP CMS).
-//
-// Root board: http://bip.srem.pl/public/?id=1162 ("Zbycie i najem nieruchomości")
-// Subcategories organized by year:
-//   - "Sprzedaż i najem nieruchomości <year>" (announcements)
-//   - "Wykaz nieruchomości <year>" (wykazy)
-//   - "Wyniki przetargów na sprzedaż nieruchomości <year>" (results)
 
 import { getText } from '../../core/fetch.js';
 import { docText } from '../../core/doc-text.js';

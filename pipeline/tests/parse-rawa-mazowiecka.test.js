@@ -1,83 +1,3 @@
-// Rawa Mazowiecka parser tests. Fixtures are faithful copies of REAL document
-// bodies + attachment file names, fetched live from bip.rawamazowiecka.pl
-// (verified 2026-07-10) via the actual crawl.js `extractDoc()` extractor
-// against the live document URLs — not paraphrased, not hand-typed — so the
-// parsers are groundtruthed against production data exactly like
-// parse-naklo-nad-notecia.test.js / parse-zgorzelec.test.js.
-//
-//   REYMONTA_ANNOUNCE  tresc=32411  3-in-1 PENDING flats (nr 1/4/5), round
-//                      unstated (1st listing) — the spike's headline fixture:
-//                      ul. Reymonta 11 (building number ONLY recoverable from
-//                      the PDF attachment name — see parse.js REAL DATA
-//                      QUIRK #1), 40/31.28/31.88 m², 110k/87k/53k zł,
-//                      22.10.2024
-//   REYMONTA_RESULT    tresc=32589  the SAME 3 flats, ALL SOLD — 110k→111.5k,
-//                      87k→88k, 53k→53.7k, buyers "Państwo Kazimierz i
-//                      Grażyna Stefańscy"
-//   BIALA_ANNOUNCE     tresc=33622  multi-parcel LAND pending (dz. 205/11 +
-//                      206/12 + 706/5, łączny obszar 0,0830 ha), 273 900 zł,
-//                      10.09.2025 — no street number (land; address is
-//                      context only)
-//   BIALA_RESULT_SOLD  tresc=33775  same parcels SOLD 273 900→276 900 zł,
-//                      single buyer ("został", not "zostali")
-//   DZ167_RESULT_UNSOLD tresc=33865  land UNSOLD (2-parcel, dz.167+166,
-//                      "Nie wpłynęła żadna wpłata wadium … zakończył się
-//                      wynikiem negatywnym")
-//   LEASE_ANNOUNCE_R1  tresc=31750  NAJEM (lease) of Pl. Piłsudskiego 7,
-//                      round 1 stated as the WORD ordinal "pierwszego
-//                      ustnego przetargu" (unlike zgorzelec's Roman-numeral
-//                      "I ustnym przetargu") — must never reach an active
-//                      listing (isLease gate)
-//   LEASE_RESULT_R1_UNSOLD tresc=31853  that lease's result, UNSOLD — must
-//                      never reach parseResultDoc's output (isLease gate)
-//   QUALIFIED_BIDDERS  tresc=32478  "Lista osób zakwalifikowanych …" — a
-//                      THIRD document type sharing the RESULTS board
-//                      (published between announcement and result for a
-//                      "przetarg ograniczony"). Written entirely in future
-//                      tense ("odbędzie się", "zgłosili się") — REAL BUG this
-//                      caught: a naive "mentions a przetarg + a date" parse
-//                      would have manufactured a bogus result from it;
-//                      isResultDoc() requires the past-tense
-//                      "przeprowadzono"/"odbył się" (or "wyniku") signal,
-//                      which this document never has.
-//   MURARSKA_ANNOUNCE  tresc=31181  kind 'zabudowana' (built, not a flat) —
-//                      round-2 re-announcement of dz. 321/2, and UNLIKE most
-//                      zabudowana sales here, the body DOES state a building
-//                      number: "przy ul. Murarskiej 1." — 118 m², 240 000 zł,
-//                      16.01.2024, round 2 ("drugi ustny przetarg")
-//   PRUSA_RESULT       tresc=32532  dz. 265, a "przetarg OGRANICZONY do
-//                      właścicieli nieruchomości przyległych" (restricted to
-//                      adjacent owners) result — REAL BUG this caught: this
-//                      template never says "działka"/"niezabudowana"/"grunt"
-//                      at all (just "nieruchomości … oznaczonej nr ewid.
-//                      265"), so classifyKind() returns 'unknown', not
-//                      'grunt' — parse.js's isLandLike() routes it to land
-//                      anyway by recognising the "<N> o pow. <area> ha" shape
-//                      landPlotsFromText finds. SOLD 20 000→20 300 zł.
-//   MSZCZONOWSKA_ANNOUNCE tresc=33629  land REAL BUG regression: "przy ul.
-//                      Mszczonowskiej w sąsiedztwie zabudowy …" has NO comma
-//                      before the next clause — the street name must stop at
-//                      "Mszczonowskiej" (lowercase "w" follows) without
-//                      swallowing the run-on sentence.
-//   JEZIORANSKIEGO_ANNOUNCE tresc=30279  land REAL BUG regression: "przy ul.
-//                      Jeziorańskiego Przedmiotem ustnego przetargu…" runs
-//                      the header straight into a new, ALSO-capitalized
-//                      sentence with only a space — must resolve to
-//                      "Jeziorańskiego" (via the doc's second, comma-
-//                      terminated mention), not "Jeziorańskiego Przedmiotem".
-//   SLONECZNA_ANNOUNCE tresc=29982  land REAL BUG regression (price): source
-//                      itself typos the grosze comma as a third dot — "Cena
-//                      wywoławcza wynosi 53.197.50 zł" (should be
-//                      "53.197,50") — must parse as 53 197 zł, not the
-//                      100x-inflated 5 319 750 a naive all-dots-stripped
-//                      parse produces. ALSO exhibits the same street-into-
-//                      new-sentence shape as Jeziorańskiego ("przy ul.
-//                      Słonecznej Przedmiotem…").
-//
-// Every regex is anchored against these exact captured strings; see parse.js
-// / crawl.js header comments for the full bug-by-bug narrative (7 real
-// parser bugs were found and fixed by testing against this live data before
-// this file was written).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -104,7 +24,6 @@ import {
 } from '../src/cities/rawa-mazowiecka/parse.js';
 import { parseBoardRefs, extractDoc, discoverBoards } from '../src/cities/rawa-mazowiecka/crawl.js';
 
-// --------------------------------------------------------------- real fixtures
 
 const REYMONTA_ANNOUNCE = {
   body:
@@ -166,67 +85,50 @@ const PRUSA_RESULT = {
   attach: '',
 };
 
-// REAL BUG regression: unpunctuated "przy ul. Mszczonowskiej w sąsiedztwie …"
-// must stop at "Mszczonowskiej" (see parse.js STREET_RE header).
 const MSZCZONOWSKA_ANNOUNCE = {
   body:
     'id="PageContent"> BURMISTRZ MIASTA RAWA MAZOWIECKA ogłasza ustny przetarg nieograniczony na sprzedaż nieruchomości, położonej w obrębie 2 miasta Rawa Mazowiecka Przedmiotem ustnego przetargu nieograniczonego jest sprzedaż nieruchomości gruntowej, oznaczonej w ewidencji gruntów jako działki nr: 167 o pow. 0,2086 ha (użytek gruntowy B,RV) i 166 o pow. 0,0475 ha (użytek gruntowy dr), położonej w obrębie 2 miasta Rawa Mazowiecka o łącznym obszarze 0,2561 ha , uregulowanej w księdze wieczystej LD1R/00046659/6 . 2. Nieruchomość będąca przedmiotem przetargu położona jest w północno-wschodniej części miasta przy ul. Mszczonowskiej w sąsiedztwie zabudowy produkcyjno-usługowej i magazynowej wielkokubaturowej. W skład nieruchomości wchodzą działki ewidencyjne nr 167 i 166. 3. Ustny przetarg nieograniczony odbędzie się w dniu 8 października 2025 r. o godz. 10.00 w siedzibie Urzędu Miasta Rawa Mazowiecka. Cena wywoławcza nieruchomości wynosi 815.000,00 zł + podatek VAT 23%. Rawa Mazowiecka, dnia 5 sierpnia 2025 r. ogłoszenie o przetargu Mszczonowska.pdf (PDF)',
   attach: 'ogłoszenie o przetargu Mszczonowska.pdf',
 };
 
-// REAL BUG regression: "przy ul. Jeziorańskiego Przedmiotem ustnego …" runs
-// the header straight into a new (also-capitalized) sentence with no
-// punctuation — must resolve via the doc's SECOND, comma-terminated mention.
 const JEZIORANSKIEGO_ANNOUNCE = {
   body:
     'id="PageContent"> Burmistrz Miasta Rawa Mazowiecka ogłasza ustny przetarg nieograniczony na sprzedaż nieruchomości, położonej w obrębie 5 miasta Rawa Mazowiecka przy ul. Jeziorańskiego Przedmiotem ustnego przetargu nieograniczonego jest sprzedaż nieruchomości położonej w obrębie 5 miasta Rawa Mazowiecka przy ul. Jeziorańskiego, oznaczonej jako działka nr 38/1 o pow. 0,1927 ha (użytek gruntowy RIVa – grunty orne), uregulowanej w księdze wieczystej LD1R/00014488/3. Przetarg odbędzie się w dniu 6 czerwca 2023 r. o godz. 11.00 w siedzibie Urzędu Miasta Rawa Mazowiecka. Cena wywoławcza wynosi 237.021,00 zł brutto (192.700,00 zł netto + VAT 23% w kwocie 44.321,00 zł). Rawa Mazowiecka, dnia 28 kwietnia 2023 r. Ogłoszenie o przetargu ul. Jeziorańskiego.pdf (PDF)',
   attach: 'Ogłoszenie o przetargu ul. Jeziorańskiego.pdf',
 };
 
-// REAL BUG regression (price): the source itself typos the grosze comma as a
-// THIRD dot — "53.197.50" (should be "53.197,50") — must parse as 53 197 zł,
-// not a 100x-inflated 5 319 750. Also exhibits the same street/"Przedmiotem"
-// run-on shape as Jeziorańskiego (bonus coverage, different parcel).
 const SLONECZNA_ANNOUNCE = {
   body:
     'id="PageContent"> Burmistrz Miasta Rawa Mazowiecka ogłasza ustny przetarg nieograniczony na sprzedaż nieruchomości, położonej w obrębie 2 miasta Rawa Mazowiecka przy ul. Słonecznej Przedmiotem ustnego przetargu nieograniczonego jest sprzedaż nieruchomości położonej w obrębie 2 miasta Rawa Mazowiecka przy ul. Słonecznej, nr 319 o pow. 0,0173ha (użytek gruntowy B) dla której Sąd Rejonowy w Rawie Mazowieckiej prowadzi księgę wieczystą LD1R/00002593/5. Przetarg odbędzie się w dniu 29 marca 2023 r. o godz. 11.00 w siedzibie Urzędu Miasta Rawa Mazowiecka. Cena wywoławcza wynosi 53.197.50 zł brutto (43.250 zł netto + VAT23% - 9.947,50 zł). Warunkiem przystąpienia do przetargu jest wpłacenie wadium w PLN w wysokości: 5.000,00 zł, tytułem: „wadium – działka nr 319”. Rawa Mazowiecka, dnia 24 lutego 2023 r.',
   attach: '',
 };
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: dot-thousands, space-thousands, and the double-dot grosze typo', () => {
   assert.equal(parsePLN('110.000,00'), 110000);
   assert.equal(parsePLN('2 302 240,00'), 2302240);
-  // REAL BUG (tresc=29982): source typos "," as "." before the grosze —
-  // "53.197.50" must still parse as 53 197, not 5 319 750.
   assert.equal(parsePLN('53.197.50'), 53197);
   assert.equal(parsePLN('815.000,00'), 815000);
   assert.equal(parsePLN('brak'), null);
 });
 
 test('streetFromText: single word (Reymonta, both connector styles) and multi-word (Zamkowa-style) forms', () => {
-  assert.equal(streetFromText(buildRecordText(REYMONTA_ANNOUNCE)), 'Reymonta'); // "– ul. Reymonta oraz …"
-  assert.equal(streetFromText(buildRecordText(REYMONTA_RESULT)), 'Reymonta'); // "przy ul. Reymonta w Rawie …"
-  assert.equal(streetFromText(buildRecordText(PRUSA_RESULT)), 'Bolesława Prusa'); // 2-word, comma-terminated
-  assert.equal(streetFromText(buildRecordText(MURARSKA_ANNOUNCE)), 'Murarskiej'); // genitive, kept as-is
+  assert.equal(streetFromText(buildRecordText(REYMONTA_ANNOUNCE)), 'Reymonta');
+  assert.equal(streetFromText(buildRecordText(REYMONTA_RESULT)), 'Reymonta');
+  assert.equal(streetFromText(buildRecordText(PRUSA_RESULT)), 'Bolesława Prusa');
+  assert.equal(streetFromText(buildRecordText(MURARSKA_ANNOUNCE)), 'Murarskiej');
 });
 
 test('streetFromText: REAL BUG regressions — run-on sentences must not over-capture', () => {
-  // "przy ul. Mszczonowskiej w sąsiedztwie …" — no comma; must stop before
-  // the lowercase "w" rather than swallowing the rest of the sentence.
   assert.equal(streetFromText(buildRecordText(MSZCZONOWSKA_ANNOUNCE)), 'Mszczonowskiej');
-  // "przy ul. Jeziorańskiego Przedmiotem ustnego …" — "Przedmiotem" is ALSO
-  // capitalized (sentence-initial); must resolve via the doc's second,
-  // comma-terminated mention, not glob the new sentence's first word.
   assert.equal(streetFromText(buildRecordText(JEZIORANSKIEGO_ANNOUNCE)), 'Jeziorańskiego');
   assert.equal(streetFromText(buildRecordText(SLONECZNA_ANNOUNCE)), 'Słonecznej');
 });
 
 test('roundFromText: word ordinals (not Roman numerals) — pierwszego=1, drugi=2', () => {
-  assert.equal(roundFromText(buildRecordText(LEASE_ANNOUNCE_R1)), 1); // "Przedmiotem pierwszego ustnego przetargu"
-  assert.equal(roundFromText(buildRecordText(MURARSKA_ANNOUNCE)), 2); // "ogłasza drugi ustny przetarg"
-  assert.equal(roundFromText(buildRecordText(REYMONTA_ANNOUNCE)), null); // unstated (1st time) — not a parse failure
+  assert.equal(roundFromText(buildRecordText(LEASE_ANNOUNCE_R1)), 1);
+  assert.equal(roundFromText(buildRecordText(MURARSKA_ANNOUNCE)), 2);
+  assert.equal(roundFromText(buildRecordText(REYMONTA_ANNOUNCE)), null);
 });
 
 test('auctionDateFromText: future-tense "odbędzie się w dniu" (word-month), scoped', () => {
@@ -240,8 +142,6 @@ test('resultDateFromText: past-tense "W dniu … o godz. … przeprowadzono", sc
 });
 
 test('startingPriceFromText: REAL BUG regression — a digit-excluding gap cannot cross the unit number', () => {
-  // "Cena wywoławcza lokalu nr 1 wynosi 110.000,00 zł" — the "1" in "nr 1"
-  // sits BETWEEN the keyword and the amount; a naive [^0-9] gap dies there.
   assert.equal(startingPriceFromText(buildRecordText(REYMONTA_ANNOUNCE)), 110000);
   assert.equal(startingPriceFromText(buildRecordText(BIALA_ANNOUNCE)), 273900);
   assert.equal(startingPriceFromText(buildRecordText(MURARSKA_ANNOUNCE)), 240000);
@@ -254,8 +154,6 @@ test('achievedPriceFromText: only when a buyer is named; null for unsold', () =>
 });
 
 test('unitAreaFromText: usable area from the unit-scoped "nr N o pow." clause, not the piwnica', () => {
-  // Reymonta lokal 1: "Lokal mieszkalny nr 1 o pow. 40 m 2 … piwnicą nr 1 …
-  // o pow. 9 m 2" — must pick 40, never the cellar's 9.
   const [{ text: unit1 }] = splitAnnouncementUnits(buildRecordText(REYMONTA_ANNOUNCE));
   assert.equal(unitAreaFromText(unit1, '1'), 40);
 });
@@ -268,8 +166,6 @@ test('gates: isSaleAuction / isLease / isResultDoc / isNegativeOutcome', () => {
 
   assert.equal(isResultDoc(buildRecordText(REYMONTA_RESULT)), true);
   assert.equal(isResultDoc(buildRecordText(BIALA_RESULT_SOLD)), true);
-  // REAL BUG regression: the qualified-bidders procedural notice (future
-  // tense throughout) must NOT look like a result.
   assert.equal(isResultDoc(buildRecordText(QUALIFIED_BIDDERS)), false);
 
   assert.equal(isNegativeOutcome(buildRecordText(DZ167_RESULT_UNSOLD)), true);
@@ -280,24 +176,13 @@ test('kindFromText: mieszkalny / grunt / zabudowana / unknown (the "ograniczony"
   assert.equal(kindFromText(buildRecordText(REYMONTA_ANNOUNCE)), 'mieszkalny');
   assert.equal(kindFromText(buildRecordText(BIALA_ANNOUNCE)), 'grunt');
   assert.equal(kindFromText(buildRecordText(MURARSKA_ANNOUNCE)), 'zabudowana');
-  // REAL BUG: the "przetarg ograniczony" RESULT template never says
-  // "działka"/"niezabudowana"/"grunt" — classifyKind() genuinely can't tell,
-  // and returns 'unknown'. parseResultDoc's isLandLike() compensates (see
-  // the "parseResultDoc: PRUSA_RESULT" test below) rather than this
-  // function lying about what the text actually says.
   assert.equal(kindFromText(buildRecordText(PRUSA_RESULT)), 'unknown');
 });
 
-// ----------------------------------------------------- multi-unit splitting
 
 test('splitAnnouncementUnits: 3 windows for Reymonta, REAL BUG regression — no duplicate per unit', () => {
-  // "dla lokalu nr 1" appears TWICE (the date clause AND the wadium clause) —
-  // an earlier version treated every match as a new window boundary and
-  // produced 6 windows (2 per flat); must dedupe to exactly 3.
   const units = splitAnnouncementUnits(buildRecordText(REYMONTA_ANNOUNCE));
   assert.deepEqual(units.map((u) => u.unit), ['1', '4', '5']);
-  // Each window must carry its OWN price clause through to the next unit's
-  // boundary (not truncated at the wadium re-mention of the same unit).
   assert.ok(units[0].text.includes('Cena wywoławcza lokalu nr 1 wynosi 110.000,00'));
   assert.ok(!units[0].text.includes('dla lokalu nr 4'));
 });
@@ -309,14 +194,13 @@ test('splitResultUnits: 3 windows for Reymonta, each anchored on its own "W dniu
   assert.ok(units[1].text.includes('uzyskano kwotę 88 .000,00'));
 });
 
-// ------------------------------------------------------------- active listings
 
 test('parseAnnouncement: Reymonta 3-in-1 PENDING flat → 3 independent address-keyed records', () => {
   const recs = parseAnnouncement(buildRecordText(REYMONTA_ANNOUNCE));
   assert.equal(recs.length, 3);
   const [u1, u4, u5] = recs;
   assert.equal(u1.kind, 'mieszkalny');
-  assert.equal(u1.address.key, 'reymonta|11|1'); // building "11" ONLY from the attachment name
+  assert.equal(u1.address.key, 'reymonta|11|1');
   assert.equal(u1.area_m2, 40);
   assert.equal(u1.starting_price_pln, 110000);
   assert.equal(u1.auction_date, '2024-10-22');
@@ -334,7 +218,7 @@ test('parseAnnouncement: multi-parcel land (Biała, real fixture) → kind grunt
   const [rec] = parseAnnouncement(buildRecordText(BIALA_ANNOUNCE));
   assert.equal(rec.kind, 'grunt');
   assert.equal(rec.dzialka_nr, '205/11, 206/12, 706/5');
-  assert.equal(rec.area_m2, 830); // "łącznym obszarze 0,0830 ha" wins over summing parts
+  assert.equal(rec.area_m2, 830);
   assert.equal(rec.starting_price_pln, 273900);
   assert.equal(rec.auction_date, '2025-09-10');
 });
@@ -354,7 +238,6 @@ test('parseAnnouncement: lease (najem) never reaches an active listing — gated
   assert.equal(isLease(text), true);
 });
 
-// ----------------------------------------------------------------- result records
 
 test('parseResultDoc: Reymonta 3-in-1 RESULT → 3 SOLD records', () => {
   const recs = parseResultDoc(buildRecordText(REYMONTA_RESULT), '2024-10-30', 'https://bip.rawamazowiecka.pl/redir,3477?tresc=32589');
@@ -393,9 +276,6 @@ test('parseResultDoc: land UNSOLD (2-parcel, wynikiem negatywnym) — fallbackDa
 });
 
 test('parseResultDoc: REAL BUG regression — "przetarg ograniczony" result (kind=unknown) still routes to land', () => {
-  // classifyKind() returns 'unknown' for this template (no "działka"/
-  // "grunt"/"niezabudowana" anywhere) — isLandLike() must still recognise
-  // the "265 o pow. 0,0098 ha" shape and route it to land, not drop it.
   const [r] = parseResultDoc(buildRecordText(PRUSA_RESULT), null, 'x');
   assert.equal(kindFromText(buildRecordText(PRUSA_RESULT)), 'unknown');
   assert.equal(r.kind, 'grunt');
@@ -417,29 +297,16 @@ test('parseResultDoc: returns [] for a non-result (pending announcement) blob', 
   assert.deepEqual(parseResultDoc(buildRecordText(REYMONTA_ANNOUNCE), null, 'x'), []);
 });
 
-// ----------------------------------------------------- crawl.js board + document shape
 
 test('parseBoardRefs: extracts distinct tresc ids from the real board-list href shape', () => {
-  // Mirrors the real board_3496 HTML shape: each notice is a
-  // "wyswietl_wiecej_link" anchor to redir,<board>?tresc=<id> (verified live,
-  // board 3496 / przetargi-2024 — 6 real notices, IDs 32411 down to 31750).
   const html = `
     <div class="akapit_skrot">… <a href="redir,3496?tresc=32411" class="wyswietl_wiecej_link">więcej &raquo;<span class="hide"> ()</span></a></div>
     <div class="akapit_skrot">… <a href="redir,3496?tresc=32402" class="wyswietl_wiecej_link">więcej &raquo;<span class="hide"> ()</span></a></div>
     <div class="akapit_skrot">… <a href="redir,3496?tresc=32411" class="wyswietl_wiecej_link">więcej &raquo;<span class="hide"> ()</span></a></div>`;
-  assert.deepEqual(parseBoardRefs(html, '3496'), ['32411', '32402']); // dedup, in first-seen order
+  assert.deepEqual(parseBoardRefs(html, '3496'), ['32411', '32402']);
 });
 
 test('extractDoc: cuts BODY at the metryka footer and collects ATTACH names, REAL BUG regression on the boundary itself', () => {
-  // Mirrors the real detail-page shape (verified live, tresc=32411):
-  // PageContent > akapit body text > obiekt_pliki attachment list > metryka
-  // footer (the "<div class=\"metryka_przycisk_wrapper\">" boundary). A
-  // naive `indexOf('metryka_przycisk_wrapper')` cut lands MID-ATTRIBUTE,
-  // inside that div's own opening tag, leaving a dangling, unclosed
-  // "<div class=\"" fragment that the tag-stripper can't remove (no ">" to
-  // match) — verified live on tresc=34834, where BODY used to end "…dnia
-  // 29.05.2026 r. <div class=\"". extractDoc must back the cut up to a clean
-  // tag boundary.
   const html = `<html><body>
     <div id="wrapperSectionPageContent"><div id="PageContent">
     <article><div class="system_anchor obiekt obiekt_akapit" id="akapit_1">Treść ogłoszenia. Cena wywoławcza wynosi 100.000,00 zł.</div>
@@ -458,7 +325,6 @@ test('extractDoc: cuts BODY at the metryka footer and collects ATTACH names, REA
   assert.equal(publishDate, '2024-09-17');
 });
 
-// Reduced current live menu from /1311,przetargi (18 October 2026).
 test('year-board discovery survives the expanded menu without role attributes', () => {
   const html = `<a class="item1 selected current external_self" href="1311,przetargi">
     <span class="ikona icon icon-arrow-angle-triangle-right"></span><span class="menuLinkText">Przetargi</span>
@@ -472,7 +338,6 @@ test('year-board discovery survives the expanded menu without role attributes', 
     [{ id: '3699', year: 2026 }, { id: '3648', year: 2025 }]);
   assert.deepEqual(discoverBoards(html, '1312,wyniki-przetargow', /href="(\d+),(\d{4})"/),
     [{ id: '3700', year: 2026 }]);
-  // No submenu must not pick a neighbouring family's bare year links.
   const noChildren = `<a href="1312,wyniki-przetargow">Wyniki</a>
     <a href="other">Other</a><ul><a href="9999,2026">2026</a></ul>`;
   assert.deepEqual(discoverBoards(noChildren, '1312,wyniki-przetargow', /href="(\d+),(\d{4})"/), []);

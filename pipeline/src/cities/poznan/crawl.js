@@ -1,22 +1,3 @@
-// Poznań crawler — bip.poznan.pl WGN board. LIVE-VERIFIED 2026-07-16.
-//
-// Uses the department's JSON API (works fine with a browser UA + the default
-// browser-mode Accept header politeGet already sends — the spike's earlier
-// probe returned empty because it lacked a browser UA):
-//   https://bip.poznan.pl/api-json/bip/wydzial-gospodarki-nieruchomosciami,24/news/
-// Each item gives nw_title/nw_text (board teaser HTML, real address/parcel/
-// area/date but NO price) + id/or_id, from which a stable "print" detail URL
-// is constructed (`news.html?co=print&id=<id>&or_id=<or_id>`) — LIVE-VERIFIED
-// to render the same "Treść" + "Załączniki" (PDF attachment list) as the
-// friendly slug URL, without needing to reproduce the CMS's slugification.
-// The starting price lives in the "pełna treść ogłoszenia" PDF attachment
-// (born-digital — confirmed live on a real 275KB PDF, no OCR needed).
-//
-// Results ("wyniki przetargów") use the SAME JSON API mechanism against the
-// sitewide category 8800: https://bip.poznan.pl/api-json/bip/news/-,c,8800/
-// — a real, confirmed, recurring category (Wayback: ~15 notices 2020-2026)
-// that happened to be EMPTY at build time (items are purged from the live
-// CMS ~1-3 weeks after posting). See config.js header for the full note.
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -29,9 +10,6 @@ const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
 
-// The department board is thin (single digits of items, per the spike + this
-// build's live check) and the CMS purges expired items outright (404), so
-// there is no deep archive to page into — one JSON call covers the live set.
 function itemsFromApiJson(json) {
   const data = json?.['bip.poznan.pl']?.data?.[0];
   if (!data) return [];
@@ -39,7 +17,7 @@ function itemsFromApiJson(json) {
   const wrap = key ? data[key] : null;
   if (!wrap || !Array.isArray(wrap.items) || !wrap.items.length) return [];
   const first = wrap.items[0];
-  if (!first || typeof first !== 'object') return []; // empty category -> items:[""]
+  if (!first || typeof first !== 'object') return [];
   return Array.isArray(first.komunikat_ogloszenie) ? first.komunikat_ogloszenie : [];
 }
 
@@ -65,11 +43,6 @@ function printUrl(item) {
   return `${ORIGIN}/bip/news.html?co=print&id=${item.id}&instance=${item.instance || 1056}&lang=pl&parent=0&category=null&or_id=${item.or_id ?? ''}`;
 }
 
-// Scoped to the "Załączniki" section (stops at the next <h3>) so a link from
-// the unrelated "Komunikat w dziale" list below it can never be picked up.
-// Prefers the attachment labelled "ogłoszenie" (the full notice); falls back
-// to the first attachment found (e.g. when the label wording drifts) rather
-// than skipping the notice's price entirely.
 function extractAttachmentPdfUrl(detailHtml) {
   const m = /Za[łl][ąa]czniki[\s\S]*?<\/h3>([\s\S]*?)(?:<h3|$)/i.exec(detailHtml || '');
   const section = m ? m[1] : '';

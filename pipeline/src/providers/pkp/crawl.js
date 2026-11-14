@@ -4,9 +4,6 @@ import { parsePkpDetail, parsePkpListPage, pkpMaxPage } from './parse.js';
 
 const BROWSER_UA = 'Mozilla/5.0 (compatible; PrzetargiMiejskie/1.0; +https://przetargimiejskie.pl)';
 const ORIGIN = 'https://www.pkp.pl';
-// PKP occasionally drops Azure connections for longer than the core fetcher's
-// default four-attempt (~49 s) window. Two extra attempts extend the critical
-// list-page window to ~91 s while remaining well inside the provider job cap.
 const FETCH_OPTS = { userAgent: BROWSER_UA, retries: 5 };
 
 function listUrl(page, today) {

@@ -1,6 +1,3 @@
-// Crawler for Siemiatycze (bip-umsiemiatycze.podlaskie.eu)
-//
-// Scrapes Podlaskie platform property pages and born-digital PDFs.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -57,7 +54,6 @@ export async function crawlActive() {
         const detailHtml = await getText(item.url);
         docText = detailHtml || '';
 
-        // Check if there are attached PDFs
         const pdfMatches = [...(detailHtml || '').matchAll(/href="([^"]*\/resource\/[^"]+\.pdf)"/gi)];
         for (const pm of pdfMatches) {
           const pdfHref = pm[1];

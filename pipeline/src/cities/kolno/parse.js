@@ -1,20 +1,7 @@
-// Kolno parsers — BIP bip-umkolno.podlaskie.eu (SmartSite by BIT Sp. z o.o.)
-//
-// Boards:
-//   - Announcement board: /616c955210c658b/ ("Przetargi i zamówienia publiczne")
-//   - Property designation board: /4634573d2ce9367/ ("Obrót nieruchomości i dzierżawy")
-//
-// Groundtruthed against live fixtures:
-//   - Flat: ul. 11 Listopada 6/11 (32.89 m², round 1: 150 000 zł, round 2: 130 000 zł)
-//   - Flat: ul. 11 Listopada 12/41 (37.90 m², round 1: 105 000 zł)
-//   - Residential building: ul. Marii Dąbrowskiej 2 (222 m² plot, sold 56 560 zł on 2023-04-27)
-//   - Garage land plots: ul. Wojska Polskiego (działki 1369/191-244, 18-29 m²)
-//   - Wykaz notices: 11 Listopada 6/17 (32.63 m²), 11 Listopada 12/37 (47.29 m²)
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
-// ---- helpers ----------------------------------------------------------------
 
 const PL_MONTHS = {
   stycznia: 1, styczen: 1,
@@ -40,7 +27,6 @@ export function iso(y, m, d) {
   return `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
 }
 
-/** "130 000,00 zł" / "130.000,00" / "130000" → integer PLN */
 export function parsePLN(str) {
   if (!str) return null;
   const s = String(str).replace(/\s+/g, '').replace(/\u00a0/g, '');
@@ -53,7 +39,6 @@ export function parsePLN(str) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/** "32,89" / "32.89" → 32.89 */
 export function parseArea(str) {
   if (str == null) return null;
   const n = Number(String(str).replace(/\s+/g, '').replace(',', '.'));
@@ -73,7 +58,6 @@ export function stripHtml(s) {
     .trim();
 }
 
-/** Extract auction round from text */
 export function roundFromText(text) {
   if (!text) return null;
   const t = text.toLowerCase();
@@ -87,10 +71,8 @@ export function roundFromText(text) {
   return null;
 }
 
-/** Extract auction date from text */
 export function auctionDateFromText(text) {
   if (!text) return null;
-  // 1. "przetarg odbędzie się w dniu DD [month|MM] YYYY"
   const m1Word = /przetarg\s+odb[ęe]dzie\s+si[ęe]\s+w\s+dniu\s+(\d{1,2})\s+([a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ]+)\s+(\d{4})/i.exec(text);
   if (m1Word) {
     const mo = PL_MONTHS[normPL(m1Word[2])];
@@ -99,7 +81,6 @@ export function auctionDateFromText(text) {
   const m1Num = /przetarg\s+odb[ęe]dzie\s+si[ęe]\s+w\s+dniu\s+(\d{1,2})[.\s](\d{1,2})[.\s](\d{4})/i.exec(text);
   if (m1Num) return iso(m1Num[3], m1Num[2], m1Num[1]);
 
-  // 2. "W dniu DD.MM.YYYY r. ... odbył się ... przetarg"
   const m2Num = /w\s+dniu\s+(\d{1,2})[.\s](\d{1,2})[.\s](\d{4})(?:[^\n]{0,150})?odby[łl]\s+si[ęe]/i.exec(text)
     || /odby[łl]\s+si[ęe](?:[^\n]{0,150})?w\s+dniu\s+(\d{1,2})[.\s](\d{1,2})[.\s](\d{4})/i.exec(text);
   if (m2Num) return iso(m2Num[3], m2Num[2], m2Num[1]);
@@ -110,7 +91,6 @@ export function auctionDateFromText(text) {
     if (mo) return iso(m2Word[3], mo, m2Word[1]);
   }
 
-  // 3. Fallbacks: "odbędzie się w dniu ...", "w dniu ...", "dnia ..."
   const mWord = /(?:odb[ęe]dzie\s+si[ęe]\s+w\s+dniu|w\s+dniu|dnia|dn\.)\s*(\d{1,2})\s+([a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ]+)\s+(\d{4})/i.exec(text);
   if (mWord) {
     const mo = PL_MONTHS[normPL(mWord[2])];
@@ -121,29 +101,23 @@ export function auctionDateFromText(text) {
   return null;
 }
 
-/** Check if title or URL represents a property article */
 export function isPropertyArticle(title, href) {
   const t = (title + ' ' + (href || '')).toLowerCase();
-  // Filter out municipal tenders & procurement
   if (/odpad|azbest|dostawa|samoch[oó]d|pojazd|namiot|agregat|przyczep|klimatyzat|sprz[eę]t|projektow|swz|przebudow|budowa\s+ul|remont\s+[łl]azien|innowacyjne\s+oze|wodoci[ąa]g|kanalizac|posi[łl]k|dania\s+gor[ąa]c/i.test(t)) {
     return false;
   }
-  // Keep property keywords
   return /lokal|mieszkan|nieruchomo|dzia[łl]k|grunt|gara[żz]|11\s*listopada|wojska\s*polskiego|dabrowsk|wykaz|wscieklice|sienkiewicza|kasztanow/i.test(t);
 }
 
-/** Check if text is a result notice */
 export function isResultNotice(text) {
   return /informacja\s+o\s+wynik|wynik\w*\s+przetargu/i.test(text || '');
 }
 
-/** Check if attachment filename indicates a result notice */
 export function isResultAttachment(filenameOrText) {
   const norm = normPL(filenameOrText || '');
   return /wynik|rozstrzyg/i.test(norm) && !/otwarcia/i.test(norm);
 }
 
-/** Parse year directories from board HTML */
 export function parseYearLinks(html, baseUrl, minYear = 2020) {
   const yearLinks = [];
   const origin = new URL(baseUrl).origin;
@@ -164,7 +138,6 @@ export function parseYearLinks(html, baseUrl, minYear = 2020) {
   return yearLinks;
 }
 
-/** Parse article links from a year directory page */
 export function parseArticleLinks(html, origin) {
   const articles = [];
   const seen = new Set();
@@ -182,7 +155,6 @@ export function parseArticleLinks(html, origin) {
   return articles;
 }
 
-/** Extract attachment links from detail page HTML */
 export function extractAttachments(html, origin) {
   const attachments = [];
   const seen = new Set();
@@ -201,11 +173,9 @@ export function extractAttachments(html, origin) {
   return attachments;
 }
 
-/** Parse announcement details from HTML and optional docx text */
 export function parseAnnouncementDetail(text, url, title = '') {
   const combined = (title + ' ' + text).replace(/\s+/g, ' ');
 
-  // 1. Kind classification
   let kind = 'mieszkalny';
   if (/zabudowan\w*\s+budynkiem\s+mieszkaln/i.test(combined)) {
     kind = 'zabudowana';
@@ -215,13 +185,10 @@ export function parseAnnouncementDetail(text, url, title = '') {
     kind = 'grunt';
   }
 
-  // 2. Round
   const round = roundFromText(combined);
 
-  // 3. Address
   let address = null;
   let addressRaw = null;
-  // Match flat: "lokal ... nr 11 ... przy ul. 11 Listopada 6"
   const flatM = /lokal(?:u)?\s+mieszkaln\w*\s+nr\s+(\d+[a-zA-Z]?)[^.\n]*?(?:w\s+Kolnie\s+)?przy\s+(?:ul\.\s*|ulicy\s+)([A-ZĄĆĘŁŃÓŚŹŻ0-9][A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż0-9\s.-]+?)\s+(\d+[a-zA-Z]?)(?:[,\s]|$)/i.exec(combined)
     || /(?:przy\s+)?(?:ul\.\s*|ulicy\s+)([A-ZĄĆĘŁŃÓŚŹŻ0-9][A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż0-9\s.-]+?)\s+(\d+[a-zA-Z]?)[^.\n]*?lokal(?:u)?\s+mieszkaln\w*\s+nr\s+(\d+[a-zA-Z]?)/i.exec(combined);
   if (flatM) {
@@ -238,7 +205,6 @@ export function parseAnnouncementDetail(text, url, title = '') {
     addressRaw = `ul. ${street} ${bldg}/${apt}`;
     address = parseAddress(addressRaw);
   } else {
-    // General street address: "przy ul. Marii Dąbrowskiej 2"
     const m = /(?:przy\s+)?(?:ul\.\s*|ulicy\s+)([A-ZĄĆĘŁŃÓŚŹŻ0-9][A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż0-9\s.-]+?)\s+(\d+[a-zA-Z]?)(?:\/(\d+[a-zA-Z]?))?(?:[,\s]|$)/i.exec(combined);
     if (m) {
       const street = m[1].trim();
@@ -249,16 +215,13 @@ export function parseAnnouncementDetail(text, url, title = '') {
     }
   }
 
-  // 4. Area — prioritize usable floor area of unit
   const areaM = /(?:powierzchni\s+u[żz]ytkowej|pow\.?\s*u[żz]ytkowa)\s*([\d\s,.]+)\s*m\s*(?:2|²)/i.exec(combined)
     || /(?:o\s+powierzchni|o\s+pow\.)\s*([\d\s,.]+)\s*m\s*(?:2|²)/i.exec(combined);
   const area_m2 = areaM ? parseArea(areaM[1]) : null;
 
-  // 5. Price
   const priceM = /cena\s+wywo[łl]awcza\s*(?:nieruchomo[sś]ci)?\s*:?\s*([\d\s,.]+)\s*z[łl]/i.exec(combined);
   const starting_price_pln = priceM ? parsePLN(priceM[1]) : null;
 
-  // 6. Auction date
   const auction_date = auctionDateFromText(combined);
 
   return {
@@ -273,18 +236,14 @@ export function parseAnnouncementDetail(text, url, title = '') {
   };
 }
 
-/** Parse wykaz details */
 export function parseWykazDetail(text, url, title = '') {
   const combined = (title + ' ' + text).replace(/\s+/g, ' ');
 
-  // Extract date: "wywieszony na okres 21 dni od DD.MM.YYYY r." or "od DD.MM.YYYY"
   let date = null;
   const dm = /(?:od\s+dnia|od\s+)(\d{1,2})[.\s](\d{1,2})[.\s](\d{4})/i.exec(combined);
   if (dm) date = iso(dm[3], dm[2], dm[1]);
 
   const results = [];
-  // Look for flat pattern:
-  // "samodzielny lokal mieszkalny nr 17 w budynku przy ul. 11 Listopada 6 o pow. użytkowej 32,63 m 2"
   const m = /samodzielny\s+lokal\s+mieszkaln\w*\s+nr\s+(\d+[a-zA-Z]?)\s+(?:w\s+budynku\s+)?przy\s+(?:ul\.\s*|ulicy\s+)([A-ZĄĆĘŁŃÓŚŹŻ0-9][A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż0-9\s.-]+?)\s+(\d+[a-zA-Z]?)[^.]*?(?:o\s+pow\.\s*u[żz]ytkowej|o\s+pow\.)\s*([\d\s,.]+)\s*m\s*(?:2|²)/i.exec(combined);
   if (m) {
     const apt = m[1];
@@ -305,7 +264,6 @@ export function parseWykazDetail(text, url, title = '') {
   return results;
 }
 
-/** Parse unbuilt land parcels from announcement text */
 export function parseLandParcels(text, url, title = '', round = null, auctionDate = null) {
   const combined = (title + ' ' + text).replace(/\r/g, '');
   const lines = combined.split(/(?=(?:^|\n)\s*\d+\.\s*dzia[łl]k[ai])/i);
@@ -331,13 +289,6 @@ export function parseLandParcels(text, url, title = '', round = null, auctionDat
   return parcels;
 }
 
-/**
- * Parse one result notice document into concluded auction records.
- * @param {string} text  extracted text from PDF (pdfText/ocrPdf) or DOCX/DOC (docText)
- * @param {string|null} fallbackDate  ISO date from crawl context
- * @param {string} sourceUrl  document URL provenance
- * @returns {Array<object>}
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!text || !isResultNotice(text)) return [];
 
@@ -346,7 +297,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const isGlobalNegative = /przetarg\s+(?:odby[łl]\s+si[ęe]\s+z\s+wynikiem\s+negatywnym|zako[ńn]czy[łl]\s+si[ęe]\s+wynikiem\s+negatywnym)/i.test(text)
     && !/nabywc[ąa]|zosta[łl]\s+sprzedan/i.test(text);
 
-  // Check if document lists numbered parcel items (garage plots, land auctions)
   const lines = text.split(/(?=(?:^|\n)\s*\d+\.\s*dzia[łl]k[ai])/i);
   const parcelItems = [];
   for (const item of lines) {
@@ -375,7 +325,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
         outcome = 'sold';
         finalPrice = parsePLN(sm[1] || sm[2]);
       } else if (text.includes('dla każdej z wymienionych działek') && text.includes(p.nr)) {
-        // Kolno 2026 pattern: "za cenę 6060,00 zł netto dla każdej z wymienionych działek"
         const buyerSection = text.match(/Nabywcą działki[^.]+za cenę\s*([\d\s,.]+)\s*zł\s*netto dla każdej/i);
         if (buyerSection && buyerSection[0].includes(p.nr)) {
           outcome = 'sold';
@@ -400,7 +349,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     return results;
   }
 
-  // Single property notice (residential building / flat / single plot)
   const sellIdx = text.search(/na\s+sprzeda[żz]|sprzeda[żz]\s+na\s+w[łl]asno[sś][ćc]|nieruchomo[sś][ćc]i\s+po[łl]o[żz]on/i);
   const targetText = sellIdx !== -1 ? text.slice(sellIdx) : text;
 
@@ -432,7 +380,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     }
   }
 
-  // Check parcel number if no street address found or if land
   const singleParcelM = /dzia[łl]k[ai]\s+gruntu\s+nr\s+([0-9/]+)/i.exec(targetText)
     || /dzia[łl]k[ai]\s+nr\s+([0-9/]+)/i.exec(targetText);
   const dzialka_nr = singleParcelM ? singleParcelM[1].trim() : null;

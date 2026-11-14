@@ -1,26 +1,3 @@
-// Chełm parser tests — groundtruthed against REAL PDF fixtures (2026-06-28).
-//
-// Fixture sources (live-verified):
-//   Announcement (flat, spółdzielcze własnościowe prawo do lokalu):
-//     https://umchelm.bip.lubelskie.pl/upload/pliki/5-ogloszenie_o_przetargu.pdf
-//     Document id: 2319732 (board id=55)
-//     Title: "Prezydent Miasta Chełm ogłasza III ustny nieograniczony przetarg
-//             na sprzedaż spółdzielczego własnościowego prawa do lokalu
-//             mieszkalnego, położonego w Chełmie przy ul. Wołyńskiej 65 A / 5."
-//     → address_raw: "ul. Wołyńskiej 65A/5"  (JOIN KEY: wolynskiej|65A|5)
-//     → area_m2: 51.5, starting_price_pln: 278350, auction_date: 2026-07-20, round: 3
-//
-//   Result notice (flat sold):
-//     https://umchelm.bip.lubelskie.pl/upload/pliki/INFORMACJA_O_WYNIKACH_PRZETARGU.pdf
-//     Document id: 1652132 (board id=55, date: 2021-06-29)
-//     → address_raw: "ul. G. Stephensona 4/2A"
-//     → starting_price_pln: 33300, final_price_pln: 64030, outcome: 'sold'
-//     → auction_date: 2021-06-21 (from "w dniu 21.06.2021 roku")
-//
-// API discovery (2026-06-28): POST ?id=55&action=list-ajax returns DataTables
-// JSON (sEcho/iTotalRecords/aaData). PDF URL on GET ?id=55&action=details&document_id=N.
-//
-// NOTE: achieved-price stream is WEAK (only ~5 result notices on 796-record board).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -39,7 +16,6 @@ import {
   parseResultDoc,
 } from '../src/cities/chelm/parse.js';
 
-// ---------------------------------------------------------------- title routing
 
 test('isSkippableTitle: wykaz, najem, odwołanie, zamiar wszczęcia, sprostowanie', () => {
   assert.equal(isSkippableTitle('WYKAZ NIERUCHOMOŚCI PRZEZNACZONYCH DO SPRZEDAŻY'), true);
@@ -48,7 +24,6 @@ test('isSkippableTitle: wykaz, najem, odwołanie, zamiar wszczęcia, sprostowani
   assert.equal(isSkippableTitle('Informacja o odwołaniu przetargu.'), true);
   assert.equal(isSkippableTitle('Ogłoszenie o zamiarze wszczęcia postępowania administracyjnego'), true);
   assert.equal(isSkippableTitle('Sprostowanie ogłoszenia o przetargu'), true);
-  // real announcements are NOT skippable
   assert.equal(isSkippableTitle('Prezydent Miasta Chełm ogłasza III ustny nieograniczony przetarg na sprzedaż spółdzielczego własnościowego prawa do lokalu mieszkalnego'), false);
   assert.equal(isSkippableTitle('Prezydent Miasta Chełm ogłasza przetarg na sprzedaż nieruchomości niezabudowanej'), false);
 });
@@ -66,10 +41,8 @@ test('isAnnouncementTitle: przetarg + sprzedaż / nieruchomość', () => {
   assert.equal(isAnnouncementTitle('Informacja o wyniku przetargu'), false);
 });
 
-// ---------------------------------------------------------------- isResultNotice
 
 test('isResultNotice: detects result body from both result PDF fixtures', () => {
-  // Real result PDF body text (condensed but faithful)
   assert.equal(
     isResultNotice('INFORMACJA Stosownie do § 12 Rozporządzenia … odbył się przetarg ustny nieograniczony … wadium w wymaganej wysokości wpłaciło 11 osób … w przetargu osiągnięto cenę 64.030,00 zł'),
     true,
@@ -78,14 +51,12 @@ test('isResultNotice: detects result body from both result PDF fixtures', () => 
     isResultNotice('INFORMACJA O WYNIKU przetargu ustnego nieograniczonego na sprzedaż nieruchomości'),
     true,
   );
-  // announcement body is NOT a result notice
   assert.equal(
     isResultNotice('OGŁOSZENIE O PRZETARGU Prezydent Miasta Chełm ogłasza III ustny nieograniczony przetarg'),
     false,
   );
 });
 
-// ---------------------------------------------------------------- roundFromText
 
 test('roundFromText: word ordinal + Roman numeral prefix', () => {
   assert.equal(roundFromText('III ustny nieograniczony przetarg na sprzedaż'), 3);
@@ -95,10 +66,8 @@ test('roundFromText: word ordinal + Roman numeral prefix', () => {
   assert.equal(roundFromText('bez numeru rundy'), null);
 });
 
-// ---------------------------------------------------------------- auctionDateFromText
 
 test('auctionDateFromText: Polish long-form date from announcement', () => {
-  // Real fixture: "Przetarg odbędzie się w Urzędzie Miasta Chełm … w dniu 20 lipca 2026r."
   assert.equal(
     auctionDateFromText('Przetarg odbędzie się w Urzędzie Miasta Chełm przy ul. Lubelskiej 65 w Sali Konferencyjnej nr 1 w dniu 20 lipca 2026r. o godz. 11'),
     '2026-07-20',
@@ -108,39 +77,28 @@ test('auctionDateFromText: Polish long-form date from announcement', () => {
   assert.equal(auctionDateFromText('brak daty w tekście'), null);
 });
 
-// ---------------------------------------------------------------- resultDateFromText
 
 test('resultDateFromText: numeric and long-form date from result notice', () => {
-  // Real fixture: "w dniu 21.06.2021 roku … odbył się przetarg"
   assert.equal(resultDateFromText('w dniu 21.06.2021 roku w Urzędzie Miasta Chełm przy ul. Lubelskiej 65 odbył się przetarg'), '2021-06-21');
   assert.equal(resultDateFromText('w dniu 14 września 2020 roku w Urzędzie'), '2020-09-14');
   assert.equal(resultDateFromText('brak pasującej frazy'), null);
 });
 
-// ---------------------------------------------------------------- price extractors
 
 test('startingPriceFromText: Chełm dot-thousands format', () => {
-  // Real fixture announcement: "Cena wywoławcza … wynosi 278.350,00zł"
   assert.equal(startingPriceFromText('Cena wywoławcza spółdzielczego własnościowego prawa do lokalu wynosi 278.350,00zł'), 278350);
-  // Real fixture result: "cena wywoławcza (brutto) nieruchomości wynosiła 33.300,00zł"
   assert.equal(startingPriceFromText('cena wywoławcza (brutto) nieruchomości wynosiła 33.300,00zł,'), 33300);
-  // Also handle space-separated thousands
   assert.equal(startingPriceFromText('cena wywoławcza wynosi 159 000,00 zł'), 159000);
   assert.equal(startingPriceFromText('brak ceny'), null);
 });
 
 test('achievedPriceFromText: "osiągnięto cenę" form from result notice', () => {
-  // Real fixture: "w przetargu osiągnięto cenę 64.030,00 zł"
   assert.equal(achievedPriceFromText('w przetargu osiągnięto cenę 64.030,00 zł,'), 64030);
   assert.equal(achievedPriceFromText('Cena osiągnięta w przetargu: 100.000,00 zł'), 100000);
   assert.equal(achievedPriceFromText('brak ceny osiągniętej'), null);
 });
 
-// ---------------------------------------------------------------- parseAnnouncement (real fixture)
 
-// Condensed but faithful copy of the REAL pdftotext -layout output from
-// https://umchelm.bip.lubelskie.pl/upload/pliki/5-ogloszenie_o_przetargu.pdf
-// (document id 2319732, Wołyńska 65A/5, verified 2026-06-28)
 const ANN_WOLYNSKA = `                           OGŁOSZENIE O PRZETARGU
 
     Prezydent Miasta Chełm ogłasza III ustny nieograniczony przetarg
@@ -162,7 +120,6 @@ test('parseAnnouncement: Wołyńska 65A/5 flat — address/area/price/date/round
   const r = parseAnnouncement(ANN_WOLYNSKA);
   assert.ok(r, 'a record is returned');
   assert.equal(r.kind, 'mieszkalny');
-  // JOIN KEY (address_raw → parseAddress key)
   assert.equal(r.address_raw, 'ul. Wołyńskiej 65A/5');
   assert.equal(r.address.key, 'wolynskiej|65A|5');
   assert.equal(r.area_m2, 51.5);
@@ -177,11 +134,7 @@ test('parseAnnouncement: returns null for non-address text', () => {
   assert.equal(parseAnnouncement(null), null);
 });
 
-// ---------------------------------------------------------------- parseResultDoc (real fixture)
 
-// Condensed faithful copy of the REAL pdftotext -layout output from
-// https://umchelm.bip.lubelskie.pl/upload/pliki/INFORMACJA_O_WYNIKACH_PRZETARGU.pdf
-// (document id 1652132, G. Stephensona 4/2A, verified 2026-06-28)
 const RESULT_STEPHENSONA = `MIASTO CHEŁM
 ul. Lubelska 65
 22-100 CHEŁM

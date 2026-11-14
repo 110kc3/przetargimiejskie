@@ -1,8 +1,3 @@
-// Reusable WOKISS platform engine.
-//
-// Handles municipalities in Wielkopolska and surrounding regions hosted on the WOKISS platform
-// (bip3.wokiss.pl or custom domains with /bip/ /bip3/ paths).
-// Articles are structured under category and notice paths.
 
 import { getText } from './fetch.js';
 import { parseAddress } from './normalize.js';

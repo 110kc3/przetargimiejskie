@@ -32,7 +32,6 @@ export async function crawl() {
 
     if (colMatches.length < 5) continue;
 
-    // Col 0: Ulica, Col 1: Działka, Col 2: Obręb, Col 3: Przeznaczenie, Col 4: Powierzchnia, Col 5: Termin
     const ulica = colMatches[0];
     const dzialka = colMatches[1];
     const obreb = colMatches[2];

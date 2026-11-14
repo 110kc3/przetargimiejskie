@@ -1,20 +1,7 @@
-// Iława parsers — announcement and result documents.
-//
-// BIP Iława (bip.umilawa.pl) publishes auction announcements and result notices
-// with attached .docx / .doc and PDF documents. The document text is extracted
-// via docText / pdfText / ocrPdf before reaching these parsers.
-//
-// Groundtruthed against real municipal documents:
-//   - Plażowa 5 lok. 1 (lokal mieszkalny nr 1, 88.17 m²)
-//   - Dąbrowskiego 17 (budynek mieszkalny, 173.90 m²)
-//   - Wojska Polskiego 24A (budynek mieszkalny wielorodzinny, SOLD 989 800 zł)
-//   - Przemysłowa dz. 46/12 (nieruchomość niezabudowana, SOLD 1 111 000 zł)
-//   - Pileckiego dz. 229/1 i 214/2 (nieruchomość niezabudowana, UNSOLD negative)
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
-// ── Whitespace & normalization helpers ──────────────────────────────────────
 
 export function norm(text) {
   return String(text == null ? '' : text)
@@ -36,7 +23,6 @@ export function fold(s) {
     .replace(/[żź]/g, 'z');
 }
 
-// ── Polish months & dates ───────────────────────────────────────────────────
 
 const PL_MONTHS = {
   stycznia: '01',
@@ -67,10 +53,8 @@ export function parseDMY(dayStr, monthStr, yearStr) {
   return `${yearStr}-${mon}-${day}`;
 }
 
-/** ISO auction date from an announcement body or title. */
 export function announceDate(text) {
   const t = norm(text);
-  // "przetarg odbędzie się w dniu 26 marca 2026 r." / "odbędzie się 26 marca 2026 r."
   const m = /(?:przetarg\s+odb[ęe]dzie\s+si[ęe]|termin\s+przetargu)[^.\n]*?(?:w\s+dniu)?\s*(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(
     t,
   );
@@ -78,7 +62,6 @@ export function announceDate(text) {
     const d = parseDMY(m[1], m[2], m[3]);
     if (d) return d;
   }
-  // Alternate: "w terminie do dnia DD.MM.YYYY" or general "w dniu DD miesiąca YYYY"
   const m2 = /(?:w\s+dniu|dnia)\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})\s*(?:r\.?|roku)?\s+o\s+godz/i.exec(t);
   if (m2) {
     const d = parseDMY(m2[1], m2[2], m2[3]);
@@ -87,10 +70,8 @@ export function announceDate(text) {
   return null;
 }
 
-/** ISO auction date from a result document. */
 export function resultAuctionDate(text) {
   const t = norm(text);
-  // Case 1: "w dniu 18 listopada 2025 r. ... przeprowadzono" or "w dniu 15 listopada 2023 r. ... odbył się"
   let m = /w\s+dniu\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})\s*(?:r\.?|roku)?\s+[^.\n]*?\b(?:przeprowadzono|odby[łl]\s+si[ęe])/i.exec(
     t,
   );
@@ -99,14 +80,12 @@ export function resultAuctionDate(text) {
     if (d) return d;
   }
 
-  // Case 2: "przeprowadzonego w dniu 26 marca 2026 r."
   m = /(?:przeprowadzonego|odby[łl]\s+si[ęe])\s+w\s+dniu\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(t);
   if (m) {
     const d = parseDMY(m[1], m[2], m[3]);
     if (d) return d;
   }
 
-  // Case 3: "przeprowadzono ... w dniu 18 listopada 2025 r."
   m = /(?:przeprowadzono|odby[łl]\s+si[ęe])\s+[^.\n]*?w\s+dniu\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(t);
   if (m) {
     const d = parseDMY(m[1], m[2], m[3]);
@@ -116,7 +95,6 @@ export function resultAuctionDate(text) {
   return null;
 }
 
-// ── Money / PLN ─────────────────────────────────────────────────────────────
 
 export function parsePLN(s) {
   if (s == null) return null;
@@ -152,7 +130,6 @@ export function achievedPrice(text) {
   return null;
 }
 
-// ── Area ────────────────────────────────────────────────────────────────────
 
 export function areaToM2(numStr, unit) {
   const n = Number(String(numStr).replace(/\s/g, '').replace(',', '.'));
@@ -163,13 +140,11 @@ export function areaToM2(numStr, unit) {
 
 export function extractAreaM2(text, kind) {
   if (kind !== 'grunt') {
-    // Look for usable flat/building area first: "powierzchnia użytkowa ... wynosi X m2" or "o pow. X m2"
     const m = /(?:powierzchnia\s+u[żz]ytkowa(?:\s+budynku)?(?:\s*\(.*?\))?\s*wynosi|o\s+pow(?:ierzchni|\.)?)\s*(\d+[.,]\d+)\s*(m2|m²)/i.exec(
       text,
     );
     if (m) return areaToM2(m[1], m[2]);
   }
-  // Land or general fallback: check ha or m2
   const m2 = /(?:o\s+(?:[łl][aą]cznej\s+)?pow(?:ierzchni|\.)?|dzia[łl]k[ai]\s+nr\s+[^\n,]+?\s+o\s+pow(?:ierzchni|\.)?)\s*(\d+[.,]\d+)\s*(ha|m2|m²)/i.exec(
     text,
   );
@@ -177,7 +152,6 @@ export function extractAreaM2(text, kind) {
   return null;
 }
 
-// ── Subject extraction: Address, Parcel, Precinct, Round ─────────────────────
 
 export function roundFromText(text) {
   const t = text.toLowerCase();
@@ -245,15 +219,12 @@ export function extractSubject(text, title = '') {
     }
   }
 
-  // Address extraction:
-  // 1) Explicit "Lokalizacja: ..., ul. <Address>"
   let address_raw = null;
   const lokM = /Lokalizacja:[\s\S]*?ul\.\s*([a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ0-9\s\/-]+?)(?:\.|\n|\r|$)/i.exec(text);
   if (lokM) {
     address_raw = 'ul. ' + lokM[1].trim();
   }
 
-  // 2) Explicit property location: "położon... przy ul. <Street> <Building>"
   if (!address_raw) {
     const m = /położon\w+\s+(?:w\s+Iławie\s+)?przy\s+(?:ul\.|ulicy|Bulwarze)\s*([a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ0-9\s\/-]+?)(?:\s*\(|\s*,|\s*\.|\s+w\s+Iławie|\s+w\s+obrębie|\s+oznaczon|\s+stanowiąc|\s+z\s+przeznaczeniem|\s+wraz|\s+o\s+pow|$)/i.exec(
       text,
@@ -263,7 +234,6 @@ export function extractSubject(text, title = '') {
     }
   }
 
-  // 3) General "przy ul." matches (ignoring Town Hall address at ul. Niepodległości 13)
   if (!address_raw) {
     const matches = [...text.matchAll(/(?:przy\s+ul\.|przy\s+ulicy|przy\s+Bulwarze)\s*([a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ0-9\s\/-]+?)(?:\s*\(|\s*,|\s*\.|\s+w\s+Iławie|\s+w\s+obrębie|\s+oznaczon|\s+stanowiąc|\s+z\s+przeznaczeniem|\s+wraz|\s+o\s+pow|$)/gi)];
     for (const match of matches) {
@@ -275,7 +245,6 @@ export function extractSubject(text, title = '') {
     }
   }
 
-  // 4) Title fallback (e.g. "ul. Dąbrowskiego 17")
   if (!address_raw && title) {
     const m = /(?:przy\s+ul\.|ul\.)\s*([a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ0-9\s\/-]+?)(?:\s*\(|\s*,|\s*\.|\s+w\s+Iławie|$)/i.exec(
       title,
@@ -285,7 +254,6 @@ export function extractSubject(text, title = '') {
     }
   }
 
-  // Append flat number if available and not yet present in address_raw
   if (address_raw && !address_raw.includes('/')) {
     const flatM = /lokal\w*\s+(?:mieszkaln\w*\s+)?nr\s+(\d+[\w-]*)/i.exec(combined);
     if (flatM) {
@@ -308,7 +276,6 @@ export function extractSubject(text, title = '') {
   };
 }
 
-// ── Announcement parser ─────────────────────────────────────────────────────
 
 export function parseAnnouncement(title, text, detailUrl = null, docUrl = null) {
   const t = norm(text);
@@ -338,7 +305,6 @@ export function parseAnnouncement(title, text, detailUrl = null, docUrl = null) 
   ];
 }
 
-// ── Result document parser ──────────────────────────────────────────────────
 
 export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
   const t = norm(text);

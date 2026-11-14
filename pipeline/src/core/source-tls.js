@@ -1,6 +1,3 @@
-// Reviewed intermediate chains for municipal sources that omit them on the wire.
-// These supplement Node's public roots; certificate/hostname/expiry verification
-// remains enabled. Never add a self-signed root, a leaf, or caller-supplied CA here.
 import https from 'node:https';
 import { rootCertificates } from 'node:tls';
 import { readFileSync } from 'node:fs';

@@ -1,6 +1,3 @@
-// Crawler for Kartuzy (bip.kartuzy.pl)
-//
-// Fetches articles from MADKOM eBIP REST API and parses attached PDFs.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

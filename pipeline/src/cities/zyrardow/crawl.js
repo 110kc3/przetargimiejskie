@@ -14,7 +14,6 @@ export async function crawl() {
   const notices = [];
   const menuData = await fetchJson(`${BASE_URL}/api/menu/${MENU_ROOT_ID}`);
 
-  // Find 4914 root menu in the response list or use directly
   const rootMenu = Array.isArray(menuData)
     ? menuData.find(m => String(m.id) === String(MENU_ROOT_ID))
     : menuData;
@@ -23,7 +22,6 @@ export async function crawl() {
 
   if (rootMenu && Array.isArray(rootMenu.children)) {
     for (const yearMenu of rootMenu.children) {
-      // Look at recent years (2024-2026)
       const name = yearMenu.name || '';
       if (!/(?:202[4-9]|203\d)/.test(name)) continue;
 
@@ -39,7 +37,6 @@ export async function crawl() {
     }
   }
 
-  // Fallback if none matched
   if (targetMenuIds.size === 0) {
     targetMenuIds.add('5915');
     targetMenuIds.add('5916');

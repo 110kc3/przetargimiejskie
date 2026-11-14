@@ -1,32 +1,3 @@
-// Szczecin crawler — bip.um.szczecin.pl / chapter_131207.
-//
-// Source: ICOR Application Server BIP; the listing page (chapter_131207.asp)
-// renders its index client-side via JS, but the SAME board exposes a
-// complete RSS feed at rss/131207/rss_131207.xml that contains EVERY
-// announcement + result notice with its ?soid=<GUID> detail URL. As of
-// 2026-06-27 the feed has 1 033 items (the full archive since ~2010).
-//
-// Crawl strategy:
-//   1. Fetch the RSS feed (one HTTP request, ~1 MB).
-//   2. Parse all <item> titles + links — split into flat announcements and
-//      flat result notices; skip land/commercial/bezprzetargowy.
-//   3. For announcements: fetch each ?soid= detail page; parse the HTML table
-//      for address / area / starting price / auction date / round.
-//   4. For result notices: same fetch + parse for achieved price + outcome.
-//
-// Both streams share the same board (chapter_131207) — no separate "wyniki"
-// subpage for the WMiRSPN flat stream (unlike WZiON chapter_50749).
-//
-// `source: 'html'` ⇒ the refresh loop never calls ocrPdf / pdfText.
-// crawlResultDocs() returns refs whose .text is pre-set; refresh.js hands
-// them directly to parseResultDoc (which re-parses from the raw HTML stored
-// in .text).
-//
-// NOTE (validate on first CI run): The RSS feed contains the full archive.
-// Only items published/updated within the last ~MAX_AGE_DAYS are fetched as
-// detail pages for active listings; older items are ignored for the
-// crawlActive pass. The result pass looks back further to capture recent
-// completed auctions (RESULT_LOOKBACK_DAYS).
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -45,22 +16,13 @@ const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
 
-// Only fetch detail pages for listings/results published within this window.
-// Active announcements are typically posted 4–8 weeks before the auction date.
 const MAX_AGE_DAYS = 90;
-// Result notices appear a few days after the auction; look back further.
 const RESULT_LOOKBACK_DAYS = 180;
 
-// Parse RFC-2822 pubDate from RSS ("<Thu, 06 Oct 2025 06:59:28 GMT>") → ms epoch.
 function parsePubDate(rfc2822) {
   try { return new Date(rfc2822).getTime(); } catch { return 0; }
 }
 
-/**
- * Parse RSS XML into structured item refs.
- * @param {string} xml
- * @returns {Array<{title:string, href:string, pubDate:string, pubMs:number}>}
- */
 export function parseRss(xml) {
   if (!xml) return [];
   const out = [];
@@ -74,9 +36,7 @@ export function parseRss(xml) {
     const dateM = /<pubDate><!\[CDATA\[(.*?)\]\]>/i.exec(body);
     if (!titleM || !linkM) continue;
     const pubDate = dateM ? dateM[1].trim() : '';
-    // RSS title may have a ", Sprzedaż, Lokale, 2025/10/06..." suffix — strip it
     const title = titleM[1].trim().replace(/,\s*Sprzedaż.*$/, '').trim();
-    // Convert link to absolute if needed
     let href = linkM[1].trim();
     try {
       const parsed = new URL(href);
@@ -93,7 +53,6 @@ export function parseRss(xml) {
   return out;
 }
 
-/** ISO date string from RSS pubDate ("Mon, 06 Oct 2025 06:59:28 GMT") → "2025-10-06" */
 function rssDateToISO(rfc2822) {
   try {
     const d = new Date(rfc2822);
@@ -105,7 +64,6 @@ function rssDateToISO(rfc2822) {
 let crawlPromise = null;
 
 async function crawlAll() {
-  // Step 1: fetch RSS
   let xml;
   try {
     xml = await getText(RSS_URL, FETCH_OPTS);
@@ -121,7 +79,6 @@ async function crawlAll() {
   const activeCutoff = now - MAX_AGE_DAYS * 86400 * 1000;
   const resultCutoff = now - RESULT_LOOKBACK_DAYS * 86400 * 1000;
 
-  // Split by title type
   const announcementItems = allItems.filter(
     (it) => isAnnouncementTitle(it.title) && it.pubMs >= activeCutoff,
   );
@@ -134,7 +91,6 @@ async function crawlAll() {
     `${resultItems.length} result notices (last ${RESULT_LOOKBACK_DAYS}d)`,
   );
 
-  // Step 2: fetch + parse announcement detail pages
   const listings = [];
   for (const it of announcementItems) {
     let html;
@@ -152,8 +108,6 @@ async function crawlAll() {
     listings.push(rec);
   }
 
-  // Step 3: prepare result refs (with pre-fetched HTML as .text so refresh.js
-  // can call parseResultDoc without a second network round-trip per ref).
   const resultRefs = [];
   for (const it of resultItems) {
     let html;
@@ -177,25 +131,17 @@ async function crawlAll() {
   return { listings, wykaz: [], resultRefs };
 }
 
-/** Result notices (achieved prices) — crawlAll() fetches both streams in one pass. */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resultRefs;
 }
 
-/** Active listings (flat auctions). */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, wykaz } = await crawlPromise;
   return { listings, wykaz };
 }
 
-/**
- * parseResultDoc — adapter entry point for refresh.js.
- * `text` here is the raw HTML of the result detail page (not PDF text).
- * `fallbackDate` is the RSS pubDate ISO string.
- * `sourceUrl` is the ?soid= URL.
- */
 export { parseResultDoc } from './parse.js';
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

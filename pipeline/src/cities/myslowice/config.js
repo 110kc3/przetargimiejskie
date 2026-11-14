@@ -1,5 +1,3 @@
-// Myslowice -- municipal flat sales are run by Prezydent Miasta Myslowice.
-// First user of the reusable core/finn-bip.js helper (FINN eUrzad platform).
 
 const ORIGIN = 'https://bip.myslowice.pl';
 

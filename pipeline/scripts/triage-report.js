@@ -1,28 +1,4 @@
-// Per-city failure triage — classifies WHY a city's refresh broke and renders
-// the GitHub issue body (including a paste-into-Claude-Code fix prompt).
-//
-// Motivation: a broken city's matrix job is usually GREEN — refresh.js catches
 // per-city throws and the preserve-on-empty path exits 0 (by design, so one
-// city can't block the others). Job conclusion alone therefore says nothing;
-// this script inspects the teed refresh/sanity logs, the machine-readable
-// `TRIAGE {...}` lines refresh.js emits, and the pre-run vs post-run meta.json
-// to decide whether the city is broken and how.
-//
-// CLI (all subcommands exit 0 ALWAYS — triage must never change a job's
-// status or block a data commit):
-//   node scripts/triage-report.js classify --city X \
-//     --refresh-outcome success|failure|cancelled|skipped --sanity-outcome ... \
-//     --refresh-log F --sanity-log F --prev-meta F [--new-meta F] \
-//     --run-url U --out-dir D
-//       → writes D/failure.json + D/issue-body.md ONLY when broken.
-//   node scripts/triage-report.js synthesize --city X --classification timeout \
-//     --run-url U --out-dir D
-//       → failure entry for a hard-killed job that never ran classify.
-//   node scripts/triage-report.js render --failure F.json --out body.md
-//       → issue body from an existing failure.json (health-check path).
-//
-// Exports (classifyCity / renderTitle / renderIssueBody) are pure and
-// unit-tested in tests/triage-report.test.js.
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -31,13 +7,8 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const DATA_DIR = fileURLToPath(new URL('../../data/', import.meta.url));
 const LOG_TAIL_LINES = 80;
 
-// Error messages that mean the SOURCE is down/blocking, not that our code is
-// wrong. `http \d{3}` covers 4xx/5xx throws from fetch.js; the rest are Node
-// connection/TLS failure codes surfaced via the `[cause: ...]` detail line.
 const NETWORK_RE = /\bhttp [45]\d{2}\b|ETIMEDOUT|ENOTFOUND|ECONNRESET|ECONNREFUSED|EAI_AGAIN|EPROTO|UND_ERR|UNABLE_TO_VERIFY|CERT_|certificate|\bTLS\b|\btimeout\b|fetch failed/i;
 
-// Lines fetch.js prints on every failed attempt — their presence alongside an
-// empty crawl points at an outage rather than a layout change.
 const FETCH_FAIL_LINE_RE = /^\s*fetch failed \(/m;
 
 function tail(text, lines = LOG_TAIL_LINES) {
@@ -46,7 +17,6 @@ function tail(text, lines = LOG_TAIL_LINES) {
   return all.slice(Math.max(0, all.length - lines)).join('\n').trim();
 }
 
-/** Parse the machine-readable `TRIAGE {json}` lines refresh.js emits. */
 export function parseTriageLines(log, city) {
   const out = [];
   for (const m of (log || '').matchAll(/^TRIAGE (\{.*\})\s*$/gm)) {
@@ -58,19 +28,6 @@ export function parseTriageLines(log, city) {
   return out;
 }
 
-/**
- * Decide whether a city is broken and why. Returns null when healthy, else:
- * { schema, city, classification, headline, phase, run_url, run_id,
- *   detected_at, prev_meta, evidence[], log_tail, artifact_name }
- *
- * Rules are ORDERED — first match wins (see the plan in the repo docs):
- *   1. sanity step failed            → sanity-failure
- *   2. refresh cancelled/killed      → timeout
- *   3. TRIAGE line (throw)           → source-unreachable | adapter-error
- *      TRIAGE line (empty-crawl)     → source-unreachable | layout-change
- *   4. green but meta counts crashed → layout-change (low confidence)
- *   5. otherwise                     → healthy (null)
- */
 export function classifyCity({
   city, refreshOutcome, sanityOutcome,
   refreshLog = '', sanityLog = '', prevMeta = null, newMeta = null,
@@ -90,7 +47,6 @@ export function classifyCity({
     ...base, classification, headline, evidence, log_tail: tail(logText),
   });
 
-  // 1. Sanity gate failed — the parser produced junk-shaped data.
   if (sanityOutcome === 'failure') {
     const evidence = (sanityLog.match(/^.*\[[a-z-]+\].*$/gm) || []).slice(0, 20);
     const classes = [...new Set((sanityLog.match(/\[([a-z-]+)\]/g) || []))];
@@ -104,15 +60,11 @@ export function classifyCity({
 
   const triage = parseTriageLines(refreshLog, city);
 
-  // 2. Hard-killed: step cancelled, or exit 1 with a log that just stops
-  //    (no per-city summary, no TRIAGE line — refresh.js always prints one of
-  //    those before returning, so their absence means the process died).
   const endedMidCrawl = !triage.length && !/--- summary/m.test(refreshLog);
   if (refreshOutcome === 'cancelled' || (refreshOutcome === 'failure' && endedMidCrawl)) {
     return done('timeout', 'job timed out or was killed mid-crawl (infra)', []);
   }
 
-  // 3. refresh.js told us exactly what happened.
   if (triage.length) {
     const t = triage[triage.length - 1];
     const msg = t.message || '';
@@ -139,8 +91,6 @@ export function classifyCity({
     }
   }
 
-  // 4. Everything looked green — compare counts. A big silent shrink usually
-  //    means the parser now misses most of the board (partial layout change).
   if (prevMeta && newMeta) {
     const prev = prevMeta.unique_properties ?? 0;
     const cur = newMeta.unique_properties ?? 0;
@@ -148,8 +98,6 @@ export function classifyCity({
       return done('layout-change', `layout change suspected (unique_properties ${prev} → 0)`,
         [`unique_properties dropped ${prev} → 0 with a green run`]);
     }
-    // merge-history means unique_properties normally only GROWS; a >60% drop
-    // on a green run is a rebuilt/misparsed dataset, not organic churn.
     if (prev >= 5 && cur < prev * 0.4) {
       return done('layout-change',
         `layout change suspected (unique_properties ${prev} → ${cur}, −${Math.round((1 - cur / prev) * 100)}%)`,
@@ -157,7 +105,7 @@ export function classifyCity({
     }
   }
 
-  return null; // healthy
+  return null;
 }
 
 function pickCounts(meta) {
@@ -243,7 +191,6 @@ every failing run and auto-closed when ${f.city} refreshes green.*
 `;
 }
 
-// ---- CLI -------------------------------------------------------------------
 
 function parseArgs(argv) {
   const args = {};
@@ -321,10 +268,8 @@ function main() {
   console.error('usage: triage-report.js classify|synthesize|render [--flags]  (see file header)');
 }
 
-// Only run the CLI when executed directly, not when imported by tests.
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   try { main(); } catch (err) {
-    // Never fail the caller — triage is best-effort observability.
     console.error(`triage: error (${err?.message || err}) — continuing without a report`);
   }
 }

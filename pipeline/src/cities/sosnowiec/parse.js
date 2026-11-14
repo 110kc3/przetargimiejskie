@@ -1,15 +1,3 @@
-// Sosnowiec parsers.
-//
-// Sosnowiec BIP (bip.um.sosnowiec.pl) is a React SPA backed by a JSON API.
-// Each auction is one article whose content is HTML holding the full
-// announcement text inline (no PDF needed for flats). Flat auctions AND land
-// (dzialka/grunt) auctions are parsed here; see crawl.js for routing.
-//
-// LAND phrasings (June 2026), confirmed from live API:
-//   Single plot: "dzialka nr 2420 obreb 0010 Sosnowiec, o powierzchni 1.457 m2"
-//   Multi-merged: "dzialki o numerach 2225/10, 2226/6, obreb 03 Zagorze, 1308 m2"
-//   Multi-separate: I. Nieruchomosc ... II. Nieruchomosc ...
-//   Date forms: "w dniu 10 lipca 2026 r." / "w dniu 21.08.2026 r." / "6.02.2026 r."
 
 import { parseAddress } from '../../core/normalize.js';
 
@@ -41,9 +29,6 @@ export function htmlToText(html) {
   return s.replace(/ /g, ' ').replace(/\s+/g, ' ').trim();
 }
 
-// Shared "this is a sale auction" gate: a przetarg na sprzedaż that is not a
-// lease/withdrawal/qualified-bidders/result notice. Class (flat / commercial /
-// building / land) is decided on top of this.
 export function isSaleAuctionTitle(title) {
   const t = (title || '').toLowerCase();
   if (!/przetarg/.test(t) || /bezprzetarg/.test(t)) return false;
@@ -53,17 +38,12 @@ export function isSaleAuctionTitle(title) {
   return true;
 }
 
-// Flat auctions. The title usually carries "lokal(u) mieszkalny(ego)" or the
-// co-op phrasing "…prawa do lokalu mieszkalnego…". Some co-op titles are
-// truncated before "mieszkalnego" ("…prawo do lokalu poł. przy…"); pass `body`
-// so those are still recognised when the body confirms a residential lokal.
 export function isFlatAuction(title, body) {
   if (!isSaleAuctionTitle(title)) return false;
   const t = (title || '').toLowerCase();
   if (/lokal\w*\s+mieszkaln|lokalu\s+mieszkaln|prawa\s+w[łl]asno[śs]ci\s+lokalu\s+mieszkaln/.test(t)) {
     return true;
   }
-  // Truncated co-op / "prawo do lokalu …" title: confirm via body.
   const coopTitle = /praw\w*\s+(?:w[łl]asno[śs]ci\w*\s+)?(?:sp[óo][łl]dziel\w*\s+)?(?:w[łl]asno[śs]ci\w*\s+)?(?:do\s+)?lokal/.test(t);
   if (coopTitle && !/u[żz]ytkow/.test(t) && /lokal\w*\s+mieszkaln|lokalu\s+mieszkaln/i.test(body || '')) {
     return true;
@@ -71,27 +51,19 @@ export function isFlatAuction(title, body) {
   return false;
 }
 
-// Commercial unit ("lokal użytkowy") sale → property record, kind 'uzytkowy'.
 export function isCommercialAuction(title) {
   if (!isSaleAuctionTitle(title)) return false;
   const t = (title || '').toLowerCase();
   return /lokal\w*\s+u[żz]ytkow|lokalu\s+u[żz]ytkow|prawa\s+w[łl]asno[śs]ci\s+lokalu\s+u[żz]ytkow/.test(t);
 }
 
-// Built-up property ("nieruchomość zabudowana" — kamienica, dom, budynek
-// mieszkalno-użytkowy) sale → property record, kind 'zabudowana'. The parcel/area
-// live in the body; the title only says "…na sprzedaż nieruchomości zabudowanej…".
-// The (?<!nie) lookbehind keeps "niezabudowanej" (vacant land) out.
 export function isBuildingAuction(title) {
   if (!isSaleAuctionTitle(title)) return false;
   const t = (title || '').toLowerCase();
-  if (/lokal/.test(t)) return false; // a lokal in a building → flat/commercial, handled above
+  if (/lokal/.test(t)) return false;
   return /(?<!nie)zabudowan/.test(t);
 }
 
-// Generic "…na sprzedaż nieruchomości…" with no class word in the TITLE. The
-// disambiguator (działka / zabudowana / lokal) is only in the body. Route to the
-// body-driven parsers (land logic recovers the parcel/area).
 export function isGenericSaleAuction(title) {
   if (!isSaleAuctionTitle(title)) return false;
   const t = (title || '').toLowerCase();
@@ -136,10 +108,6 @@ function parseArea(s) {
 }
 
 export function priceFromText(text) {
-  // Widened from {0,40} and singular "cena wywoławcza": the price often sits behind
-  // a long qualifier ("…do II ustnego przetargu nieograniczonego wynosi:", "…za całą
-  // nieruchomość wynosi –", "…wynosi netto :") and the header is sometimes plural
-  // ("Ceny wywoławcze … wynoszą"). The \s*zł anchor keeps it from grabbing a non-price number.
   const m = /cen[ay]\s+wywo[łl]awcz\w*[^0-9]{0,90}?([\d][\d\s.]*(?:,\d{2})?)\s*z[łl]/i.exec(text || '');
   return m ? parsePLN(m[1]) : null;
 }
@@ -167,11 +135,7 @@ export function areaFromText(text) {
 export function addressFrom(title, text) {
   const src = `${title} ${text}`;
   const apt = /lokal\w*\s+mieszkaln\w*\s+(?:o\s+numerze|nr)\s*(\d+[A-Za-z]?)/i.exec(src)?.[1] || null;
-  const RE_LOC = /przy\s+(?:ul\.|al\.|alei|placu|pl\.|os\.)?\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]{1,40}?)\s+(\d+[A-Za-z]?)\b/;  // ≤40 chars: stop the lazy street swallowing a whole sentence to a far number
-  // Try the title first (cleanest), then the body alone. We deliberately do NOT
-  // run the regex over `title + body` concatenated: when the title ends mid-street
-  // (e.g. "…przy ul. M. Skłodowskiej-Curie" with the number only in the body) the
-  // glued string captures the title tail + body preamble as one bogus street.
+  const RE_LOC = /przy\s+(?:ul\.|al\.|alei|placu|pl\.|os\.)?\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]{1,40}?)\s+(\d+[A-Za-z]?)\b/;
   const loc = RE_LOC.exec(title) || RE_LOC.exec(text);
   if (!loc) return null;
   const street = loc[1].replace(/\s+/g, ' ').trim();
@@ -196,9 +160,6 @@ export function parseAnnouncement(title, content) {
   };
 }
 
-// Usable area of a whole building ("powierzchni użytkowej 709,58 m²"). Unlike
-// areaFromText (flat-sized, capped at 300 m²) a kamienica/budynek can be far
-// larger, so only a sane lower bound is applied.
 export function buildingAreaFromText(text) {
   if (!text) return null;
   const m = /pow(?:ierzchni\w*)?\.?\s+u[żz]ytkow\w*[^0-9]{0,20}?([\d.,]+)\s*m\s*(?:[²2]|kw)/i.exec(text);
@@ -207,10 +168,6 @@ export function buildingAreaFromText(text) {
   return v != null && v >= 8 ? v : null;
 }
 
-// Built property ('zabudowana') and commercial unit ('uzytkowy') → one property
-// record. Reuses the flat helpers for address/price/date/round; area is the flat
-// usable area for a lokal użytkowy, the building usable area for a zabudowana
-// (with the plot's parcel/obręb/area carried alongside when present in the body).
 export function parsePropertyAnnouncement(title, content, kind) {
   const text = htmlToText(content);
   const addr = addressFrom(title, text);
@@ -232,15 +189,9 @@ export function parsePropertyAnnouncement(title, content, kind) {
   };
 }
 
-// ---------------- land (dzialki/grunty) parsing ----------------------------
 
 function parsePricesPerParcel(text) {
   const map = new Map();
-  // Multi-plot announcements price each parcel separately, in many phrasings:
-  //   "dla działki nr 4292/4 wynosi : 199 200,00 zł", "dla dz. nr 2452/4 o pow.… - 148 000,00 zł",
-  //   "za działkę nr 645 wynosi netto : 1.877.000,00 zł", "za nieruchomość … geodezyjne jako
-  //   działka nr 3414 – 8.000,00 zł" (note the "geodezyjne" typo). Anchor on dla/za + parcel,
-  //   skip an optional "o pow.…/udział…" clause, take the next "<price> zł" (glued or spaced).
   const re = /(?:dla|za)\s+(?:nieruchomo[śs][ćc]\s+oznaczon[a-zżźćńłśąęó]*\s+geodezyjn[a-zżźćńłśąęó]*\s+jako\s+)?(?:dzia[łl]k[a-zżźćńłśąęó]*|dz\.)\s*(?:nr\s*)?(\d+(?:\/\d+)?)[\s\S]{0,90}?([\d][\d\s.]*(?:,\d{2})?)\s*z[łl]/gi;
   let m;
   while ((m = re.exec(text)) !== null) {
@@ -274,16 +225,14 @@ function parsePlotArea(text) {
   if (!text) return null;
   const num = (s) => {
     let raw = String(s).replace(/[  ]/g, '');
-    if (/^\d{1,3}(?:\.\d{3})+$/.test(raw)) raw = raw.replace(/\./g, ''); // thousands dots
+    if (/^\d{1,3}(?:\.\d{3})+$/.test(raw)) raw = raw.replace(/\./g, '');
     raw = raw.replace(',', '.');
     const n = Number(raw);
     return Number.isFinite(n) && n > 0 ? n : null;
   };
-  // m² / m2 / mkw, optional pow./powierzchni/łącznej preamble, glued or spaced.
   const reM2 = /(?:pow(?:ierzchni)?\.?|powierzchni\w*)?\s*(?:[łl][ąa]cznej\s+)?([\d][\d . ]*(?:,\d+)?)\s*m\s*(?:[²2]|kw)(?!\d)/i;
   let m = reM2.exec(text);
   if (m) { const n = num(m[1]); if (n != null) return n; }
-  // hectares: "0,1115 ha" / "1,5350 ha" → m²
   m = /([\d][\d . ]*(?:,\d+)?)\s*ha\b/i.exec(text);
   if (m) { const n = num(m[1]); if (n != null) return Math.round(n * 10000); }
   return null;
@@ -333,10 +282,6 @@ function parseMultiPlotBlocks(text) {
   return blocks;
 }
 
-// Land (działki / grunty / niezabudowana) auctions. The title normally carries
-// niezabudowan / działk / grunt. A generic "…na sprzedaż nieruchomości…" title
-// keeps the parcel only in the body, so pass `body` to recover those: if the
-// body shows a "działka nr …" it is parsed through the land logic too.
 export function isLandAuction(title, body) {
   const t = (title || '').toLowerCase();
   if (!/przetarg/.test(t)) return false;
@@ -344,9 +289,8 @@ export function isLandAuction(title, body) {
   if (/bezprzetarg|dzier[żz]aw|najem/.test(t)) return false;
   if (/odwo[łl]anie|lista\s+os[óo]b|wynik/.test(t)) return false;
   if (/lokal\w*\s+mieszkaln|lokalu\s+mieszkaln|lokal\w*\s+u[żz]ytkow|lokalu\s+u[żz]ytkow/.test(t)) return false;
-  if (/(?<!nie)zabudowan/.test(t)) return false; // built property → isBuildingAuction
+  if (/(?<!nie)zabudowan/.test(t)) return false;
   if (/niezabudowan|dzia[łl]k|grunt/.test(t)) return true;
-  // Generic-sale title (no class word): trust the body's "działka nr …".
   if (isGenericSaleAuction(title) && /dzia[łl]k[ai]?\s+(?:o\s+)?(?:nr|numer)/i.test(body || '')) return true;
   return false;
 }
@@ -424,11 +368,6 @@ export function isFlatResult(title) {
   return /lokalu?\s+mieszkaln/.test(t);
 }
 
-// Result-notice classifier mirroring the auction side: a "Wyniki … na sprzedaż …"
-// notice for a flat (mieszkaln), commercial unit (użytkowy) or built property
-// (zabudowana). Returns the property kind, or null if it is not a sale result we
-// keep (lease/withdrawal/land results are excluded here — land has no result
-// stream wired).
 export function saleResultKind(title) {
   const t = (title || '').toLowerCase();
   if (!/^\s*wynik/.test(t)) return null;
@@ -468,7 +407,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!auction_date) auction_date = fallbackDate || null;
 
   let finalM = /najwy[żz]sz[ąa]\s+cen[ęe][^0-9]{0,60}?([\d][\d\s.]*(?:,\d{2})?)\s*z[łl]/i.exec(body);
-  // Older result notices phrase the achieved price as "...osiągnęła kwotę w wysokości N zł".
   if (!finalM) finalM = /osi[ąa]gn[ęe][łl]a\s+kwot[ęe][^0-9]{0,30}?([\d][\d\s.]*(?:,\d{2})?)\s*z[łl]/i.exec(body);
   const negative =
     /negatywn|nie\s+wy[łl]oniono|zako[ńn]czy[łl]\s+si[ęe]\s+wynikiem/i.test(body) ||

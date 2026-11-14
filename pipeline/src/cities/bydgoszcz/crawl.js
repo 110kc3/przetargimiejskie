@@ -1,29 +1,3 @@
-// Bydgoszcz crawler — server-rendered Logonet BIP (v2.9.x), board 1208.
-// Live markup groundtruthed 2026-07-06.
-//
-// Single board holds announcements AND result notices for all property types:
-//   Index:   https://bip.um.bydgoszcz.pl/artykuly/1208/{page}/{per}/ogloszenia-o-przetargach-na-zbycie-nieruchomosci
-//            Article links are ABSOLUTE ("https://bip.um.bydgoszcz.pl/artykul/1208/{id}/{slug}")
-//            inside <article><header><h2><a …>TITLE</a>. At 25/page the whole
-//            board (~14 items) fits on page 1; page 2 MIRRORS page 1, so
-//            pagination stops when a page yields no NEW article ids.
-//   Article: /artykul/1208/{id}/{slug} — HTML stub; the content is in the
-//            "Załączniki" attachments:
-//              announcement: PDF (scanned) + .doc (born-digital OLE) + rzut PDF
-//              result:       PDF + .docx (born-digital OOXML, 15-20 kB)
-//            Attachment rows look like:
-//              <a … href="https://bip.um.bydgoszcz.pl/attachments/download/32143">
-//                 NAME</a></span> <span class="files textWord">doc, 54 kB</span>
-//            The extension text can be EMPTY ("…textWord">, 19 kB" seen live on
-//            download/32640) — select by the textWord CLASS, never by the
-//            extension label. doc-text.js detects .doc vs .docx by magic bytes.
-//
-// Routing: title/slug classify (flat announcement / result / skip), body header
-// (isResultNotice) as the authoritative fallback. Land+building results are kept
-// in crawlResultDocs (parseResultDoc returns [] for grunt); land announcements
-// are skipped from the flat stream.
-//
-// source:'html' ⇒ crawlResultDocs() refs already carry `.text`.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -33,7 +7,7 @@ import { parseAnnouncement, isResultNotice } from './parse.js';
 const ORIGIN = 'https://bip.um.bydgoszcz.pl';
 const BOARD = 1208;
 const PER_PAGE = 25;
-const MAX_PAGES = 4; // board shows ~14 items; the cap only guards a runaway loop
+const MAX_PAGES = 4;
 
 const abs = (p) => (/^https?:/.test(p) ? p : `${ORIGIN}${p.startsWith('/') ? '' : '/'}${p}`);
 
@@ -46,10 +20,6 @@ async function fetchHtml(url) {
   }
 }
 
-/**
- * Article stubs from one index page. Live hrefs are absolute.
- * @returns {Array<{id:string, slug:string, title:string}>}
- */
 export function parseIndexPage(html) {
   const out = [];
   const seen = new Set();
@@ -68,28 +38,16 @@ export function parseIndexPage(html) {
   return out;
 }
 
-/**
- * Classify an article stub by title/slug → 'flat-ann' | 'result' | 'skip'.
- * Live titles (2026-07-06):
- *   "Lokal przeznaczony do sprzedaży w drodze przetargu ustnego nieograniczonego
- *    w dniu 09.07.2026 r., ul.H.Sienkiewicza 37m2"                → flat-ann
- *   "Informacja o wyniku przetargu przeprowadzonego w dniu 26.06.2026r,
- *    ul. Chodkiewicza 2, lokal nr 1"                              → result
- *   "Sprzedaż nieruchomości niezabudowanych, w drodze III przetargu …" → skip
- */
 export function classifyArticle(title, slug) {
   const t = (title || '').toLowerCase();
   const s = (slug || '').toLowerCase();
-  if (/odwo[łl]ani/.test(t) || /odwolani/.test(s)) return 'skip'; // cancellations
+  if (/odwo[łl]ani/.test(t) || /odwolani/.test(s)) return 'skip';
   if (/informacja\s+o\s+wyniku/.test(t) || /informacja-o-wyniku/.test(s)) return 'result';
-  // The board added an explicit kind between "Lokal" and "przeznaczony" in
-  // August 2026 (for example "Lokal użytkowy przeznaczony...").  Keep the
-  // older unqualified form too; parseAnnouncement determines the final kind.
   if (
     /lokal\w*(?:\s+(?:mieszkaln\w+|u[żz]ytkow\w+|niemieszkaln\w+))?\s+przeznaczon\w+\s+do\s+sprzeda[żz]y/.test(t) ||
     /^lokal-(?:(?:mieszkalny|uzytkowy|niemieszkalny)-)?przeznaczony-do-sprzedazy/.test(s)
   ) return 'flat-ann';
-  return 'skip'; // land / buildings / wykaz — out of the flat stream
+  return 'skip';
 }
 
 /**
@@ -102,13 +60,6 @@ export function isVerifiedEmptyBoard({ boardVerified, boardComplete, activeCandi
   return boardVerified && boardComplete && activeCandidates === 0;
 }
 
-/**
- * Word-processor attachments (the born-digital .doc/.docx) on an article page.
- * Selected by the `class="files textWord"` span that FOLLOWS the link — the
- * extension label text is unreliable (seen empty live). PDFs are class textPDF
- * (announcement PDFs are scanned; pdftotext yields nothing) and are skipped.
- * @returns {Array<{url:string, name:string}>}
- */
 export function docAttachments(html) {
   const out = [];
   const seen = new Set();
@@ -123,22 +74,16 @@ export function docAttachments(html) {
   return out;
 }
 
-/**
- * Publication date from the article metryczka:
- *   <th>Data opublikowania:</th> … <time datetime="2026-07-03T00:00:01">
- * Used only as an auction_date fallback for result refs.
- */
 export function pubDateFromHtml(html) {
   const m = /Data\s+(?:opublikowania|wytworzenia):[\s\S]{0,200}?datetime="(\d{4}-\d{2}-\d{2})/i.exec(html || '');
   return m ? m[1] : null;
 }
 
-// One memoised crawl per refresh run (refresh.js calls both streams).
 let crawlPromise = null;
 
 async function crawlAll() {
-  const listings = [];   // active flat announcements (address-keyed)
-  const resultRefs = []; // { text, pdf_url, detail_url, auction_date } — all asset types
+  const listings = [];
+  const resultRefs = [];
 
   const articlesSeen = new Set();
   let boardVerified = false;
@@ -155,7 +100,7 @@ async function crawlAll() {
     const fresh = stubs.filter((s) => !articlesSeen.has(s.id));
     if (fresh.length === 0) {
       boardComplete = true;
-      break; // past the last page (Logonet mirrors it)
+      break;
     }
 
     for (const stub of fresh) {
@@ -199,7 +144,6 @@ async function crawlAll() {
         continue;
       }
 
-      // Flat announcement
       const rec = parseAnnouncement(text);
       if (!rec || rec.kind === 'grunt' || !rec.address) {
         console.error(`  bydgoszcz: announcement not parsed (article ${stub.id})`);
@@ -210,7 +154,7 @@ async function crawlAll() {
 
     if (stubs.length < PER_PAGE) {
       boardComplete = true;
-      break; // short page ⇒ last page
+      break;
     }
   }
 
@@ -219,18 +163,14 @@ async function crawlAll() {
   return { listings, resultRefs, validEmpty };
 }
 
-/** Result notices (achieved-price stream). source:'html' ⇒ refs carry `.text`. */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resultRefs;
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, validEmpty } = await crawlPromise;
-  // wykaz board 1071 exists (pre-auction designations, no date/price) — not
-  // wired; land announcements are skipped (parcel stream not built for this city).
   return { listings, wykaz: [], land: [], valid_empty: validEmpty };
 }
 

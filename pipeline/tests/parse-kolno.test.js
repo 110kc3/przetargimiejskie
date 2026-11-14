@@ -1,5 +1,3 @@
-// Tests for Kolno adapter (pipeline/src/cities/kolno/*)
-// Groundtruthed against real BIP fixtures from bip-umkolno.podlaskie.eu
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -22,7 +20,6 @@ import {
   parseResultDoc,
 } from '../src/cities/kolno/parse.js';
 
-// --- Adapter contract & config tests ---
 
 test('kolno config: matches required metadata', () => {
   assert.equal(config.id, 'kolno');
@@ -41,7 +38,6 @@ test('kolno adapter: exports complete contract', () => {
   assert.equal(typeof adapter.parseResultDoc, 'function');
 });
 
-// --- Board navigation & filtering tests ---
 
 test('parseYearLinks: extracts and filters year folders >= 2020', () => {
   const html = `
@@ -106,7 +102,6 @@ test('isResultAttachment: identifies result notices vs other files', () => {
   assert.ok(!isResultAttachment('SWZ.pdf'));
 });
 
-// --- Announcement parsing tests ---
 
 test('parseAnnouncementDetail: round 2 flat auction at ul. 11 Listopada 6/11', () => {
   const title = 'Burmistrz Miasta Kolno ogłasza drugi ustny przetarg nieograniczony na sprzedaż na własność lokalu mieszkalnego nr 11 położonego w Kolnie przy ul. 11 listopada 6 z równoczesną sprzedażą ułamkowej części gruntu';
@@ -179,7 +174,6 @@ test('parseLandParcels: garage parcels at ul. Wojska Polskiego', () => {
   assert.equal(parcels[2].starting_price_pln, 11000);
 });
 
-// --- Wykaz parsing tests ---
 
 test('parseWykazDetail: wykaz for 11 Listopada 6/17 (2026)', () => {
   const text = `
@@ -210,7 +204,6 @@ test('parseWykazDetail: wykaz for 11 Listopada 12/37 (2024)', () => {
   assert.equal(res[0].date, '2024-09-03');
 });
 
-// --- Result notices parsing tests (parseResultDoc) ---
 
 test('parseResultDoc: sold residential property (ul. Marii Dąbrowskiej 2)', () => {
   const text = `

@@ -1,25 +1,3 @@
-// Białystok parser tests — groundtruthed against REAL fixtures (2026-06-27).
-//
-// Fixture sources (live-verified):
-//   Active flat (Otwarty):
-//     https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-11-m-41-44.html
-//     Title: ul. Juliana Tuwima 1/1 m 41
-//     Przeznaczenie: lokal mieszkalny
-//     Cena wywoławcza: 285.100,00 zł
-//     Termin przetargu: 2026-08-26
-//     Status: Otwarty
-//     (No Cena nabycia)
-//
-//   Resolved flat (Rozstrzygnięty, with Cena nabycia):
-//     https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/al-jozefa-pilsudskiego-38-m-23.html
-//     Title: Al. Józefa Piłsudskiego 38 m 23
-//     Przeznaczenie: lokal mieszkalny
-//     Cena wywoławcza: 269.500,00 zł
-//     Termin przetargu: 2024-01-25
-//     Status: Rozstrzygnięty
-//     Cena nabycia: 341.600,00 zł
-//
-// All field values verified against the actual live pages 2026-06-27.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -38,9 +16,6 @@ import {
   parseTotalCount,
 } from '../src/cities/bialystok/crawl.js';
 
-// ---------------------------------------------------------------------------
-// stripTags helper
-// ---------------------------------------------------------------------------
 
 test('stripTags: removes tags and decodes entities', () => {
   assert.equal(
@@ -55,12 +30,7 @@ test('stripTags: removes tags and decodes entities', () => {
   assert.equal(stripTags(null), '');
 });
 
-// ---------------------------------------------------------------------------
-// parseDetailFields — field extraction from BIP HTML
-// ---------------------------------------------------------------------------
 
-// Minimal HTML reproducing the SmartSite grid-inner structure (verified from
-// the live page source 2026-06-27).
 const FIELD_HTML = `
 <div class="grid-inner">
   <div class="grid-inner-item"><strong>Tytuł</strong></div>
@@ -113,11 +83,7 @@ test('parseDetailFields: returns empty Map for empty HTML', () => {
   assert.equal(fields.size, 0);
 });
 
-// ---------------------------------------------------------------------------
-// parseDetailPage — full detail page → structured record
-// ---------------------------------------------------------------------------
 
-// Synthesise a minimal but realistic full-page HTML for Tuwima (Otwarty)
 const DETAIL_HTML_ACTIVE = `<!DOCTYPE html><html><body>
 <div class="grid-inner">
   <div class="grid-inner-item"><strong>Tytuł</strong></div>
@@ -157,7 +123,6 @@ test('parseDetailPage (Otwarty): kind is mieszkalny', () => {
 test('parseDetailPage (Otwarty): address key = tuwima|1|41', () => {
   const r = parseDetailPage(DETAIL_HTML_ACTIVE, DETAIL_URL_ACTIVE);
   assert.ok(r?.address, 'address must be parsed');
-  // "1/1 m 41": staircase /1 stripped, building=1, apt=41
   assert.ok(/tuwima/i.test(r.address.street_norm));
   assert.equal(r.address.building, '1');
   assert.equal(r.address.apt, '41');
@@ -179,7 +144,6 @@ test('parseDetailPage (Otwarty): outcome is open, no final price', () => {
   assert.equal(r.final_price_pln, null);
 });
 
-// Synthesise Piłsudskiego resolved page (Rozstrzygnięty + Cena nabycia)
 const DETAIL_HTML_RESOLVED = `<!DOCTYPE html><html><body>
 <div class="grid-inner">
   <div class="grid-inner-item"><strong>Tytuł</strong></div>
@@ -261,18 +225,6 @@ test('parseDetailPage: returns null for null/empty input', () => {
   assert.equal(parseDetailPage('', 'https://example.com'), null);
 });
 
-// ---------------------------------------------------------------------------
-// parseDetailAddress — city-prefix + działka-tail stripping (junk-street gate)
-// ---------------------------------------------------------------------------
-//
-// Real-world BIP entries sometimes include a leading "Białystok, " city prefix
-// AND/OR a trailing ", dz. nr N" działka fragment in the Lokalizacja field.
-// Without stripping these, the street absorbs the city name and a comma —
-// both of which fail the sanity-check junk-street gate.
-//
-// Error from live sanity-check.js run:
-//   ERROR bialystok: [junk-street] bialystok aleja jozefa pilsudskiego 24 m 62 dz nr|1282|
-//   — street 'Białystok, Aleja Józefa Piłsudskiego 24 m 62, dz. nr'
 
 test('parseDetailAddress: strips leading city prefix and trailing dz. nr fragment', () => {
   const { address_raw, address } = parseDetailAddress(
@@ -281,14 +233,11 @@ test('parseDetailAddress: strips leading city prefix and trailing dz. nr fragmen
   // address_raw must preserve the original string
   assert.equal(address_raw, 'Białystok, Aleja Józefa Piłsudskiego 24 m 62, dz. nr 1282');
   assert.ok(address, 'address must be parsed (not null)');
-  // Street must not contain the city prefix, a comma, or działka vocabulary
   assert.ok(!/Bia[łl]ystok/i.test(address.street), `street must not contain city name: ${address.street}`);
   assert.ok(!/,/.test(address.street), `street must not contain comma: ${address.street}`);
   assert.ok(!/dz\.?\s*nr|dzia[łl]k/i.test(address.street), `street must not contain działka fragment: ${address.street}`);
-  // Building and apt must parse correctly from "24 m 62"
   assert.equal(address.building, '24');
   assert.equal(address.apt, '62');
-  // Street norm must contain Piłsudskiego
   assert.ok(/pilsudsk/i.test(address.street_norm), `street_norm must contain pilsudsk: ${address.street_norm}`);
 });
 
@@ -303,7 +252,6 @@ test('parseDetailAddress: strips trailing działka fragment without city prefix'
 });
 
 test('parseDetailAddress: normal address (no prefix/tail) still parses correctly', () => {
-  // Regression: stripping must not break the common clean case
   const { address } = parseDetailAddress('ul. Juliana Tuwima 1/1 m 41');
   assert.ok(address, 'address must be parsed');
   assert.ok(/tuwima/i.test(address.street_norm));
@@ -311,12 +259,7 @@ test('parseDetailAddress: normal address (no prefix/tail) still parses correctly
   assert.equal(address.apt, '41');
 });
 
-// ---------------------------------------------------------------------------
-// parseResultDoc — the registry-contract function
-// ---------------------------------------------------------------------------
 
-// Pre-serialised field text for the Piłsudskiego resolved flat
-// (as crawlResultDocs() would produce it)
 const RESULT_TEXT_PILSUDSKIEGO = `Tytuł: Al. Józefa Piłsudskiego 38 m 23
 Lokalizacja (położenie): Al. Józefa Piłsudskiego 38 m 23
 Przeznaczenie: lokal mieszkalny
@@ -376,7 +319,6 @@ test('parseResultDoc: Piłsudskiego — source_pdf is the detail URL', () => {
   assert.equal(recs[0].source_pdf, SRC_PILSUDSKIEGO);
 });
 
-// Nierozstrzygnięty (unsold) flat — Wierzbowa 29A m 28 (from spike notes)
 const RESULT_TEXT_WIERZBOWA_UNSOLD = `Tytuł: ul. Wierzbowa 29A m 28
 Lokalizacja (położenie): ul. Wierzbowa 29A m 28
 Przeznaczenie: lokal mieszkalny
@@ -438,9 +380,6 @@ test('parseResultDoc: empty/null input returns empty array', () => {
   assert.deepEqual(parseResultDoc(null, null, 'https://example.com'), []);
 });
 
-// ---------------------------------------------------------------------------
-// parseIndexPage (crawl helper)
-// ---------------------------------------------------------------------------
 
 const INDEX_HTML = `
 <div class="list-item">
@@ -480,7 +419,7 @@ test('parseIndexPage: deduplicates repeated links', () => {
   <a href="/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-11-m-41-44.html">ul. Juliana Tuwima 1/1 m 41</a>
   `;
   const refs = parseIndexPage(dupe);
-  assert.equal(refs.length, 3); // still 3, not 4
+  assert.equal(refs.length, 3);
 });
 
 test('parseIndexPage: returns empty array for empty HTML', () => {

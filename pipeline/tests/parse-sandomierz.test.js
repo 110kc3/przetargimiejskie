@@ -1,48 +1,3 @@
-// Sandomierz parser tests. Fixtures are REAL live bip.um.sandomierz.pl article
-// bodies (fetched + verified 2026-07-10), condensed to the operative
-// sentences (address/area/price/date/round/outcome) — boilerplate (identity
-// verification, payment account numbers, contact emails, the trailing
-// PDF-attachment-name list) is cut, but every KEPT sentence is a verbatim
-// substring of the live page, not reworded. Re-verified after condensing
-// that every assertion below still holds against the full uncut body.
-//
-//   Portowa 18/16      — flat ANNOUNCEMENT (article 13385, I przetarg, 17,08
-//                         m², cena wywoławcza 76 500 zł, przetarg 24.10.2024)
-//                         + its own RESULT (article 13746, sold 92 000 zł,
-//                         nabywca named) — this is the exact pair the spike
-//                         confirms ("cena osiągnięta 92000 zł").
-//   K.K.Baczyńskiego 9/14 — a SECOND real flat ANNOUNCEMENT + RESULT pair
-//                         (article 8507/8935, I przetarg, 27,30 m², 99 698 zł
-//                         -> sold 100 698 zł) — cross-checks the parser
-//                         against an independent flat, different phrasing
-//                         quirks (no separate "lokal nr" clause; udział
-//                         clause sits BEFORE "cena wywoławcza", not between
-//                         label and amount like Portowa's WYNIK doc does).
-//   Piaski dz. 2133/24  — land RESULT UNSOLD (article 17912, II przetarg,
-//                         0,1036 ha, 66 420 zł, "zakończył się wynikiem
-//                         negatywnym" — nobody paid the wadium).
-//   Zaleśnej dz. 816/5  — land RESULT UNSOLD (article 18157, III przetarg
-//                         USTNY OGRANICZONY — restricted, not nieograniczony
-//                         — 0,2648 ha, 199 260 zł, same negative outcome).
-//   Piaski (announcement) — a real MULTI-PARCEL land announcement (article
-//                         17543: two plots, dz. 2133/10 + dz. 2133/24, each
-//                         with its own price/date, in ONE document) that also
-//                         reproduces the classifyKind 'garaz' misfire (see
-//                         parse.js resolveKindLocal) via its real zoning
-//                         boilerplate "...wolnostojącymi z garażami...".
-//   3x "Wykaz ... na rzecz najemcy" — real tenant-sale (bezprzetargowo)
-//                         designations (Por.T.Króla 6/48, K.K.Baczyńskiego
-//                         9/16, Por.T.Króla 8/16) — never reach an auction.
-//   "Ogłoszenie o wolnym lokalu mieszkalnym" — a real RENTAL-vacancy notice
-//                         (no "przetarg" in the title at all).
-//   "Ogłoszenie o II przetargu licytacyjnym ..." (Opatowska 13) — a real,
-//                         LIVE title/body mismatch: the board's own preambule
-//                         blurb for this article reads "na sprzedaż lokalu
-//                         użytkowego ..." (sale) but the article's actual
-//                         body reads "na wynajem lokalu użytkowego ..."
-//                         (rental) — confirms why isAnnouncementTitle only
-//                         pre-filters on title and isSaleBody (on the fetched
-//                         BODY) is the sole sale-vs-rental authority.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -82,7 +37,6 @@ import {
   parseResultDoc,
 } from '../src/cities/sandomierz/parse.js';
 
-// --------------------------------------------------------------- real fixtures
 
 const PORTOWA_ANN_TITLE = "Ogłoszenie o I przetargu ustnym nieograniczonym";
 const PORTOWA_ANN_TEXT = "Załącznik nr 2 do Zarządzenia Burmistrza Miasta Sandomierza Nr206/2042/GN z dnia 20.09.2024r. Burmistrz Miasta Sandomierza ogłasza I przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego Nr 16 położonego w komunalnym budynku wielomieszkaniowym w Sandomierzu przy ul. Portowej 18, stanowiącego własność Gminy Sandomierz, KW KI1S/00065581/2. Powierzchnia lokalu wynosi 17,08 m 2 . Składa się on z pokoju, przedpokoju, kuchni i łazienki ( I piętro).Lokal przeznaczony do remontu. Do lokalu przynależy piwnica o pow. 5,30 m 2 . Z własnością lokalu mieszkalnego związany jest udział w częściach wspólnych budynku i w prawie własności działki nr 1406/53 o pow. 0,2273 ha wynoszący 2238/103205 części, wyliczony proporcjonalnie do powierzchni użytkowej lokalu i całego budynku. Cena wywoławcza wynosi – 76.500,00 zł. Minimalne postąpienie wynosi 1%. Wadium w pieniądzu w wysokości 7.650,00 zł płatne najpóźniej do dnia 17.10. 2024r . na konto Urzędu Miejskiego w Sandomierzu BS Sandomierz Nr 15 9429 0004 2001 0000 1300 0028. Przetarg odbędzie się w dniu 24.10.2024r. o godz. 9 00 w siedzibie Urzędu Miejskiego w Sandomierzu Pl. Poniatowskiego 3.";
@@ -114,7 +68,6 @@ const WOLNY_LOKAL_TEXT = "Sandomierz, 04.12.2025 r. GN.7124.46.2025.AKB O G Ł O
 const RENTAL_LICYTACYJNY_TITLE = "Ogłoszenie o II przetargu licytacyjnym ustnym nieograniczonym";
 const RENTAL_LICYTACYJNY_TEXT = "OGŁOSZENIE Burmistrz Miasta Sandomierza o g ł a s z a II przetarg licytacyjny ustny nieograniczony na wynajem lokalu użytkowego położonego w obrębie Starego Miasta w budynku przy ul. Opatowskiej 13, usytuowanego na parterze, składającego się z: 3 pomieszczeń, korytarza oraz zaplecza z wc, o łącznej powierzchni użytkowej 43,48 m 2 . Ww. lokal wyposażony jest w instalację: elektryczną, wodno-kanalizacyjną i centralnego ogrzewania. Przedmiot najmu przeznaczony jest na prowadzenie działalności gospodarczej – z wyłączeniem prowadzenia usług w zakresie urządzania gier hazardowych (losowych), w tym na automatach o niskich wygranych. Przetarg odbędzie się w dniu 02.01.2026 r. o godz. 11 00 w siedzibie Urzędu Miejskiego pl. Poniatowskiego 1 pok. nr 103.";
 
-// ------------------------------------------------------------------- unit funcs
 
 test('title routing: sale announcement vs result notice vs noise', () => {
   assert.equal(isAnnouncementTitle(PORTOWA_ANN_TITLE), true);
@@ -123,15 +76,9 @@ test('title routing: sale announcement vs result notice vs noise', () => {
   assert.equal(isResultTitle(BACZYNSKIEGO_WYNIK_TITLE), true);
   assert.equal(isAnnouncementTitle(PORTOWA_WYNIK_TITLE), false);
   assert.equal(isResultTitle(PORTOWA_ANN_TITLE), false);
-  // "Wykaz ... na rzecz najemcy" (bezprzetargowo tenant sale) is never an
-  // announcement, regardless of it containing "sprzedaży".
   assert.equal(isAnnouncementTitle(WYKAZ_NAJEMCA_KROLA_TITLE), false);
   assert.equal(isResultTitle(WYKAZ_NAJEMCA_KROLA_TITLE), false);
-  // "Ogłoszenie o wolnym lokalu mieszkalnym" (rental vacancy) has no
-  // "przetarg" in the title at all.
   assert.equal(isAnnouncementTitle(WOLNY_LOKAL_TITLE), false);
-  // Dzierżawa/najem result variants (not fixtured above) must not pass as a
-  // sale result.
   assert.equal(isResultTitle('Informacja o wyniku przetargu na dzierżawę nieruchomości'), false);
   assert.equal(isResultTitle('Informacja o wyniku  przetargu na najem lokalu użytkowego'), false);
   assert.equal(isAnnouncementTitle('Ogłoszenie o przetargu na najem lokalu użytkowego'), false);
@@ -139,14 +86,9 @@ test('title routing: sale announcement vs result notice vs noise', () => {
 });
 
 test('isSaleBody: the real board-preambule/body mismatch (article 17919, Opatowska 13)', () => {
-  // The title alone is ambiguous ("Ogłoszenie o II przetargu licytacyjnym
-  // ustnym nieograniczonym" — no "sprzedaż"/"wynajem" either way), and the
-  // board's own preambule for this exact article reads "na sprzedaż lokalu
-  // użytkowego ..." — but the fetched body is unambiguous: "na wynajem
-  // lokalu użytkowego ...". isSaleBody must side with the body.
-  assert.equal(isAnnouncementTitle(RENTAL_LICYTACYJNY_TITLE), true); // title-gate lets it through
+  assert.equal(isAnnouncementTitle(RENTAL_LICYTACYJNY_TITLE), true);
   assert.match(RENTAL_LICYTACYJNY_TEXT, /na\s+wynajem\s+lokalu\s+użytkowego/);
-  assert.equal(isSaleBody(RENTAL_LICYTACYJNY_TEXT), false); // body-gate rejects it
+  assert.equal(isSaleBody(RENTAL_LICYTACYJNY_TEXT), false);
   assert.equal(isSaleBody(PORTOWA_ANN_TEXT), true);
   assert.equal(isSaleBody(LAND_PIASKI_ANN_TEXT), true);
 });
@@ -154,23 +96,13 @@ test('isSaleBody: the real board-preambule/body mismatch (article 17919, Opatows
 test('roundFromBody: case-sensitive roman ordinal immediately before "przetarg ustn..."', () => {
   assert.equal(roundFromBody('I przetarg ustny nieograniczony przeprowadzono w dniu 24 października 2024r'), 1);
   assert.equal(roundFromBody('II przetarg ustny nieograniczony przeprowadzono w dniu 04 grudnia 2025r'), 2);
-  // "ustny OGRANICZONY" (restricted, not nieograniczony) still matches.
   assert.equal(roundFromBody('III przetarg ustny ograniczony przeprowadzono w dniu 30 grudnia 2025r'), 3);
 });
 
 test('startingPriceFromText: real fixture bug -- finn-bip priceFromText returns null on Portowa\'s WYNIK doc (162-char label-to-amount gap)', () => {
-  // Real captured sentence: the "udział w częściach wspólnych budynku ...
-  // udziału wynoszącego 2238/103205 części" clause sits BETWEEN "cena
-  // wywoławcza" and "wynosiła", well past finn-bip's priceFromText 140-char
-  // cap. startingPriceFromText anchors on "wynosi(ła)" instead and must not
-  // be fooled by the digit runs in that clause ("1406/53", "2238/103205").
   const wideGap = 'Cena wywoławcza lokalu mieszkalnego wraz z udziałem w częściach wspólnych budynku i w prawie własności działki nr 1406/53 udziału wynoszącego 2238/103205 części wynosiła brutto 76.500,00 zł';
   assert.equal(startingPriceFromText(wideGap), 76500);
-  // Short-gap form (Baczyńskiego's WYNIK doc -- the udział clause sits
-  // BEFORE "cena wywoławcza" this time, so the label-to-amount gap is short;
-  // must still work).
   assert.equal(startingPriceFromText('Cena wywoławcza lokalu mieszkalnego wynosiła brutto 99.698,00 złotych.'), 99698);
-  // Announcement phrasing: "wynosi – <kwota> zł" (en-dash, present tense).
   assert.equal(startingPriceFromText('Cena wywoławcza wynosi – 76.500,00 zł.'), 76500);
   assert.equal(startingPriceFromText(PORTOWA_ANN_TEXT), 76500);
   assert.equal(startingPriceFromText(PORTOWA_WYNIK_TEXT), 76500);
@@ -180,9 +112,8 @@ test('startingPriceFromText: real fixture bug -- finn-bip priceFromText returns 
 test('achievedPriceFromText: "cena nabycia ... wynosi brutto ... zł" (present tense, not bochnia\'s "wyniosła")', () => {
   assert.equal(achievedPriceFromText(PORTOWA_WYNIK_TEXT), 92000);
   assert.equal(achievedPriceFromText(BACZYNSKIEGO_WYNIK_TEXT), 100698);
-  // A "cena wywoławcza" alone (no "cena nabycia") must not be read as achieved.
   assert.equal(achievedPriceFromText('Cena wywoławcza wynosi – 76.500,00 zł.'), null);
-  assert.equal(achievedPriceFromText(WYNIK_PIASKI_TEXT), null); // unsold: no buyer
+  assert.equal(achievedPriceFromText(WYNIK_PIASKI_TEXT), null);
 });
 
 test('isNegativeOutcome: "zakończył się wynikiem negatywnym" (nobody paid the wadium)', () => {
@@ -196,41 +127,28 @@ test('parcelFromText: announcement "dz. nr N/N" vs WYNIK doc "nr ewid. N/N" (rea
   assert.equal(parcelFromText('oznaczoną nr ewid. 2133/24 o pow. 0,1036 ha'), '2133/24');
   assert.equal(parcelFromText(WYNIK_PIASKI_TEXT), '2133/24');
   assert.equal(parcelFromText(WYNIK_ZALESNEJ_TEXT), '816/5');
-  assert.equal(parcelFromText(LAND_PIASKI_ANN_TEXT), '2133/10'); // first parcel only
+  assert.equal(parcelFromText(LAND_PIASKI_ANN_TEXT), '2133/10');
 });
 
 test('plotAreaFromText: hectares to m²', () => {
-  assert.equal(plotAreaFromText(WYNIK_PIASKI_TEXT), 1036); // 0,1036 ha
-  assert.equal(plotAreaFromText(WYNIK_ZALESNEJ_TEXT), 2648); // 0,2648 ha
+  assert.equal(plotAreaFromText(WYNIK_PIASKI_TEXT), 1036);
+  assert.equal(plotAreaFromText(WYNIK_ZALESNEJ_TEXT), 2648);
 });
 
 test('landStreetFromText: stops at prose continuation, not just a comma (real fixture bug vs bochnia\'s unguarded lookahead)', () => {
-  // Bochnia's plain landStreetFromText would run past "Piaski" all the way to
-  // "księgi" here (no comma stops it before "stanowiących"); the
-  // PROSE-continuation stop set fixes that.
   assert.equal(landStreetFromText(LAND_PIASKI_ANN_TEXT), 'Piaski');
   assert.equal(landStreetFromText(WYNIK_PIASKI_TEXT), 'Piaski');
   assert.equal(landStreetFromText(WYNIK_ZALESNEJ_TEXT), 'Zaleśnej');
-  // The office address must never read as a land street.
   assert.equal(landStreetFromText('w siedzibie Urzędu Miejskiego w Sandomierzu przy Pl. Poniatowskiego 3'), null);
 });
 
 test('resolveKindLocal: real fixture bug -- classifyKind GARAGE_RE misfires on land zoning boilerplate ("...z garażami...")', () => {
-  // Verified live: classifyKind() alone returns 'garaz' on the Piaski
-  // announcement's raw text (GARAGE_RE is checked before LAND_RE in the
-  // shared classifier) because of "...zabudowę domami mieszkalnymi,
-  // jednorodzinnymi, wolnostojącymi z garażami..." -- pure zoning boilerplate
-  // about what may be BUILT there, never the sale's subject.
   assert.equal(resolveKindLocal(LAND_PIASKI_ANN_TITLE, LAND_PIASKI_ANN_TEXT), 'grunt');
-  // A genuine garage-for-sale (singular "garażu"/"garażem") must still classify as a garage.
   assert.equal(resolveKindLocal('', 'sprzedaż garażu położonego przy ul. Krótkiej'), 'garaz');
-  // Land WYNIK docs with no "działka"/"niezabudowana"/"grunt" word at all
-  // (just "nr ewid. N/N o pow. 0,NNNN ha") still resolve to land.
   assert.equal(resolveKindLocal('', WYNIK_PIASKI_TEXT), 'grunt');
   assert.equal(resolveKindLocal(PORTOWA_ANN_TITLE, PORTOWA_ANN_TEXT), 'mieszkalny');
 });
 
-// ------------------------------------------------------------- active listings
 
 test('parseAnnouncement: PENDING flat (real fixture, Portowa 18/16, article 13385) -> active listing carrying cena wywoławcza', () => {
   const rec = parseAnnouncement(PORTOWA_ANN_TITLE, PORTOWA_ANN_TEXT, 'https://bip.um.sandomierz.pl/13385/ogloszenie-o-i-przetargu-ustnym-nieograniczonym.html');
@@ -264,7 +182,7 @@ test('parseAnnouncement: multi-parcel land (real fixture, Piaski, article 17543)
   assert.ok(rec);
   assert.equal(rec.kind, 'grunt');
   assert.equal(rec.dzialka_nr, '2133/10');
-  assert.equal(rec.area_m2, 1403); // 0,1403 ha
+  assert.equal(rec.area_m2, 1403);
   assert.equal(rec.address_raw, 'ul. Piaski');
   assert.equal(rec.starting_price_pln, 67650);
   assert.equal(rec.auction_date, '2025-12-04');
@@ -272,19 +190,15 @@ test('parseAnnouncement: multi-parcel land (real fixture, Piaski, article 17543)
 });
 
 test('parseAnnouncement: tenant-sale wykaz (na rzecz najemcy, bezprzetargowo) never reaches an active listing', () => {
-  // crawl.js's candidateRole() gate (isAnnouncementTitle) skips these before
-  // parseAnnouncement is ever called on them -- asserted directly here.
   assert.equal(isAnnouncementTitle(WYKAZ_NAJEMCA_KROLA_TITLE), false);
-  // Three independently-confirmed real tenant-sale titles, all excluded the same way.
   assert.equal(isAnnouncementTitle('Wykaz lokalu mieszkalnego przeznaczonego do sprzedaży na rzecz najemcy'), false);
 });
 
 test('parseAnnouncement: rental (wolny lokal / licytacyjny wynajem) never reaches an active listing', () => {
-  assert.equal(isAnnouncementTitle(WOLNY_LOKAL_TITLE), false); // no "przetarg" in title
-  assert.equal(parseAnnouncement(RENTAL_LICYTACYJNY_TITLE, RENTAL_LICYTACYJNY_TEXT, 'x'), null); // body-gated
+  assert.equal(isAnnouncementTitle(WOLNY_LOKAL_TITLE), false);
+  assert.equal(parseAnnouncement(RENTAL_LICYTACYJNY_TITLE, RENTAL_LICYTACYJNY_TEXT, 'x'), null);
 });
 
-// ----------------------------------------------------------------- result records
 
 test('parseResultDoc: Portowa 18/16 SOLD (real fixture, article 13746) -- cena osiągnięta/nabycia 92 000 zł + nabywca named', () => {
   const [r] = parseResultDoc(
@@ -298,7 +212,7 @@ test('parseResultDoc: Portowa 18/16 SOLD (real fixture, article 13746) -- cena o
   assert.equal(r.address.building, '18');
   assert.equal(r.address.apt, '16');
   assert.equal(r.starting_price_pln, 76500);
-  assert.equal(r.final_price_pln, 92000); // matches the spike's confirmed "cena osiągnięta 92000 zł"
+  assert.equal(r.final_price_pln, 92000);
   assert.equal(r.outcome, 'sold');
   assert.equal(r.auction_date, '2024-10-24');
   assert.equal(r.round, 1);
@@ -341,7 +255,7 @@ test('parseResultDoc: Zaleśnej land UNSOLD via USTNY OGRANICZONY round III (rea
   assert.equal(r.area_m2, 2648);
   assert.equal(r.starting_price_pln, 199260);
   assert.equal(r.outcome, 'unsold');
-  assert.equal(r.round, 3); // "III przetarg ustny ograniczony", not nieograniczony
+  assert.equal(r.round, 3);
   assert.equal(r.auction_date, '2025-12-30');
 });
 

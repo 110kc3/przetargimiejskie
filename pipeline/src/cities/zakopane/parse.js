@@ -1,14 +1,3 @@
-// Zakopane parsers — bip.zakopane.eu (ESC S.A. / VelaBIP).
-// Notices render as:
-//   <article id="cnt" class="document">
-//     <header><h2>TITLE</h2></header>
-//     <article class="lead">LEAD</article>
-//     <article class="content">BODY</article>
-//     <h3>Pliki do pobrania</h3>
-//     <ul class="attach_show_list">...</ul>
-//
-// Operative notice texts live in born-digital attachments (PDF or Word DOC)
-// or occasionally inline HTML.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -47,7 +36,6 @@ export function htmlToText(html) {
     .trim();
 }
 
-// ---------------------------------------------------------------- title routing
 
 export function isResult(title, lead = '') {
   const t = `${title || ''} ${lead || ''}`.toLowerCase();
@@ -76,7 +64,6 @@ export function isAnnouncement(title, lead = '') {
   return /przetarg/.test(combo) && /(?:sprzeda[żz]|zbyci[ae])/.test(combo);
 }
 
-// ------------------------------------------------------------- detail extraction
 
 const H2_RE = /<h[12][^>]*>([\s\S]*?)<\/h[12]>/i;
 const LEAD_RE = /<article\s+class="lead">([\s\S]*?)<\/article>/i;
@@ -135,7 +122,6 @@ export function extractDetail(html) {
   return { title, lead, contentText, contentHtml, attachments };
 }
 
-/** Pick the operative notice attachment (PDF or Word DOC), skipping regulations and maps. */
 export function pickAttachment(attachments) {
   if (!attachments || !attachments.length) return null;
 
@@ -145,7 +131,6 @@ export function pickAttachment(attachments) {
     /docx?$/i.test(a.name) ||
     /docx?$/i.test(a.format);
 
-  // 1. Operative announcement or result document
   const operative = attachments.find(
     (a) =>
       /og[łl]oszenie|informacja|wynik|przetarg/i.test(a.name) &&
@@ -154,17 +139,14 @@ export function pickAttachment(attachments) {
   );
   if (operative) return operative;
 
-  // 2. Any PDF or DOC that is not a map or regulations
   const candidate = attachments.find(
     (a) => !/regulamin|mapa|rzut|geodezyjn/i.test(a.name) && isDocFormat(a),
   );
   if (candidate) return candidate;
 
-  // 3. Fallback to first PDF or DOC
   return attachments.find(isDocFormat) || null;
 }
 
-// ---------------------------------------------------------------- field parsers
 
 export function cleanStreet(s) {
   return (s || '')
@@ -174,20 +156,14 @@ export function cleanStreet(s) {
     .trim();
 }
 
-/**
- * Extract property address from announcement or result notice text.
- * Prevents false-matching the Urząd Miasta address (ul. Kościuszki 13).
- */
 export function extractPropertyAddress(text) {
   const full = text || '';
 
-  // Flat unit number (e.g. "lokal mieszkalny nr 24", "lokalowa, mieszkalna nr 5")
   const flatM = /(?:lokal\w*|nieruchomo[sś][cć]\s+lokalow\w*)[\s,]+(?:mieszkaln\w*[\s,]+)?nr\.?\s*(\d+[A-Za-z]?(?:\/\d+)?)/i.exec(
     full,
   );
   const flatId = flatM ? flatM[1] : null;
 
-  // Street with building number: "przy [ul.] Street 5 w Zakopanem"
   const bldgRe =
     /(?:przy|w\s+rejonie|po[łl]o[żz]on\w+\s+przy)\s+(?:ul(?:\.|\b|\s+icy)?\s+)?([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ0-9.\- ]+?)\s+(\d+[A-Za-z]?(?:\s*[\-–]\s*\d+[A-Za-z]?)?)(?:\s+w\s+Zakopanem|\s*,|\s+oraz|\s+wraz|\s*\n|$)/gi;
   let m;
@@ -196,7 +172,7 @@ export function extractPropertyAddress(text) {
   while ((m = bldgRe.exec(full)) !== null) {
     const s = cleanStreet(m[1]);
     const nr = m[2].trim();
-    if (/Ko[sś]ciuszki/i.test(s) && nr === '13') continue; // Skip Town Hall
+    if (/Ko[sś]ciuszki/i.test(s) && nr === '13') continue;
     street = s;
     bldg = nr;
     break;
@@ -208,7 +184,6 @@ export function extractPropertyAddress(text) {
     return { address_raw: raw, address, flatId };
   }
 
-  // Undeveloped land street (no building number): "w rejonie ul. Droga do Olczy w Zakopanem"
   const landRe =
     /(?:przy|w\s+rejonie|po[łl]o[żz]on\w+\s+przy)\s+ul(?:\.|\b|\s+icy)?\s+([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ0-9.\- ]+?)(?=\s+w\s+Zakopanem|\s*,|\s+stanowi|\s+oznaczon|\s*\n|$)/gi;
   while ((m = landRe.exec(full)) !== null) {
@@ -226,7 +201,6 @@ export function extractArea(text, kind) {
   const t = text || '';
 
   if (kind === 'grunt') {
-    // Look for hectares first (e.g. "o łącznej powierzchni 0,0337 ha" -> 337 m2)
     const haM = /o\s+(?:[łl][ąa]czn\w+\s+)?(?:pow|powierzchni)\w*\.?\s+(\d+[.,]\d+|\d+)\s*ha\b/i.exec(t);
     if (haM) {
       const v = Number(haM[1].replace(',', '.'));
@@ -251,7 +225,6 @@ export function extractArea(text, kind) {
     }
   }
 
-  // Flat (or fallback building)
   const unitM =
     /(?:lokal\w*|nieruchomo[sś][cć]\s+lokalow\w*)[\s\S]{0,60}?(?:o\s+)?(?:pow|powierzchni)\w*\.?\s*(?:u[żz]ytkow\w*)?\s*([\d\s]+(?:,\d+)?)\s*m\s*[²2]/i.exec(
       t,
@@ -261,7 +234,6 @@ export function extractArea(text, kind) {
     if (v > 0) return v;
   }
 
-  // Generic m2
   const genM = /(?:pow|powierzchni)\w*\.?\s*(?:u[żz]ytkow\w*|zabudowy)?\s*([\d\s]+(?:,\d+)?)\s*m\s*[²2]/i.exec(t);
   if (genM) {
     const v = Number(genM[1].replace(/\s+/g, '').replace(',', '.'));
@@ -293,7 +265,6 @@ export function extractFinalPrice(text) {
 
 export function extractAuctionDate(text) {
   const t = text || '';
-  // Numbered point format: "Data i miejsce przetargu: 19.05.2026 r." / "Termin i miejsce przetargu: 02.09.2026 r."
   const ptM = /(?:Data|Termin)\s+(?:i\s+miejsce\s+)?przetargu:\s*(\d{1,2})[.\s](\d{1,2}|[a-ząćęłńóśźż]+)[.\s](\d{4})/i.exec(
     t,
   );
@@ -309,7 +280,6 @@ export function extractAuctionDate(text) {
     return `${year}-${month}-${day}`;
   }
 
-  // Fallback pattern: DD.MM.YYYY
   const m = /\b(\d{1,2})\.(\d{2})\.(\d{4})\b/.exec(t);
   if (m) {
     return `${m[3]}-${m[2]}-${m[1].padStart(2, '0')}`;
@@ -394,7 +364,6 @@ export function resolveKindZakopane(title, text) {
   return classifyKind(combo);
 }
 
-// ------------------------------------------------------------- announcement parser
 
 export function parseAnnouncement(title, bodyText, url) {
   const text = htmlToText(bodyText);
@@ -442,7 +411,6 @@ export function parseAnnouncement(title, bodyText, url) {
   };
 }
 
-// ----------------------------------------------------------------- result parser
 
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const t = htmlToText(text);

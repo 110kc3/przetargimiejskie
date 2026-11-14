@@ -1,34 +1,3 @@
-// Namysłów (ZAN) parser tests — groundtruthed against REAL fixtures fetched
-// live from zan-namyslow.pl on 2026-07-10 (spike day 2026-07-08 re-verified
-// during build; the 3 flats below were all still live/present).
-//
-// DETAIL PAGES (real <div class="entry-content">...</div> HTML, byte-for-byte
-// as served — the "I V" split-Roman-numeral quirk on the first fixture is a
-// REAL source quirk, not a transcription error; the backup PDF for that same
-// post does NOT have it):
-//
-//   https://zan-namyslow.pl/iv-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-przy-ul-jana-pawla-ii-5a-2-w-namyslowie/
-//     IV przetarg — ul. Jana Pawła II 5A/2, 60,12 m2, cena wywoławcza
-//     160.000,00 zł, przetarg 30 lipca 2026r. godz. 11:00, KW OP1U/00069839/1.
-//     Matches the task's groundtruth example exactly.
-//
-//   https://zan-namyslow.pl/iii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-przy-ul-boh-warszawy-7-8-w-namyslowie/
-//     III przetarg — ul. Bohaterów Warszawy 7/8, 38,11 m2 (area sentence has
-//     the "wraz z powierzchnią przynależną" gap this fixture groundtruths),
-//     cena wywoławcza 105.000,00 zł, KW OP1U/00086457/4. Body also contains
-//     the wadium clause "10% ceny wywoławczej" (genitive) — the fixture that
-//     proves startingPriceFromText doesn't match it.
-//
-//   https://zan-namyslow.pl/iii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-2-przy-ul-jana-pawla-ii-5-w-namyslowie/
-//     The ROUND-III predecessor of the 5A/2 flat above — still published,
-//     past-dated (12 czerwca 2026): the round that failed and led to round
-//     IV. Same address/price, different round + date + KW-adjacent prose
-//     formatting (this post uses <strong>/<u> tags instead of bare <p><br>).
-//
-// BOARD PAGE (condensed but faithful reproduction of the real Divi article
-// markup at zan-namyslow.pl/przetargi/ — titles/urls/dates are REAL, captured
-// live 2026-07-10; trimmed from ~255 KB down to 6 representative posts: 3
-// flat-sale + 3 real non-flat categories the filter must reject).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -52,7 +21,6 @@ import {
   parseResultDoc,
 } from '../src/cities/namyslow/parse.js';
 
-// --------------------------------------------------------------- real fixtures
 
 const JP2_5A2_IV_URL =
   'https://zan-namyslow.pl/iv-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-przy-ul-jana-pawla-ii-5a-2-w-namyslowie/';
@@ -134,16 +102,6 @@ const JP2_5_2_III_HTML = `<div class="entry-content">
 				<div id="sidebar">
 		`;
 
-// Real fixture (live 2026-07-10) demonstrating a genuine ZAN source quirk found
-// during the mandatory live-crawl verification: this post's opening paragraph
-// is rendered with letter-spacing baked into the text itself — "o g ł a s z a
-// I I p u b l i c z n y p r z e t a r g" — which defeats roundFromText's
-// "ogłasza ... przetarg" anchor even though the rest of the notice (address,
-// area, price, date, KW) parses normally. The <h1> title ("II publiczny
-// przetarg...") is NOT letter-spaced, so parseDetailPage falls back to it via
-// roundFromTitle. Includes the real <h1>/<p class="post-meta"> header that
-// sits OUTSIDE entry-content on the real page (unlike the other 3 fixtures,
-// which only embed entry-content onward — this one needs the header too).
 const ARMII_4_9_II_URL =
   'https://zan-namyslow.pl/ii-publiczny-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-nr-9-przy-ul-armii-krajowej-4-w-namyslowie/';
 const ARMII_4_9_II_HTML = `<h1 class="entry-title">II publiczny przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 9 przy ul. Armii Krajowej 4 w Namysłowie</h1>
@@ -175,7 +133,6 @@ wywoławczej podanej w ogłoszeniu do dnia 2 marca 2026r.</p>
 				<div id="sidebar">
 		`;
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: dot-thousands + grosze tail (ZAN\'s format)', () => {
   assert.equal(parsePLN('160.000,00'), 160000);
@@ -267,7 +224,6 @@ test('streetBuildingFromText: not confused by ZAN\'s own "w Namysłowie" mention
   assert.equal(streetBuildingFromText(t), 'Bohaterów Warszawy 7');
 });
 
-// ------------------------------------------------------------- parseNoticeText
 
 test('parseNoticeText: full record — Jana Pawła II 5A/2 (round IV, task groundtruth)', () => {
   const t =
@@ -300,7 +256,6 @@ test('parseNoticeText: empty/garbage -> null', () => {
   assert.equal(parseNoticeText('lokal mieszkalny ale bez adresu ani numeru'), null);
 });
 
-// ----------------------------------------------------------------- board page
 
 test('isFlatSaleTitle: real flat-sale titles -> true', () => {
   assert.equal(
@@ -327,10 +282,6 @@ test('isFlatSaleTitle: empty -> false', () => {
   assert.equal(isFlatSaleTitle(null), false);
 });
 
-// Condensed-but-faithful reproduction of the real zan-namyslow.pl/przetargi/
-// board markup (Divi theme) — titles/urls/published dates are REAL, captured
-// live 2026-07-10 (trimmed from the full ~255 KB page to 6 representative
-// posts spanning 2 of the real board's categories).
 const BOARD_HTML = `<main>
 <article id="post-225814" class="et_pb_post clearfix et_pb_blog_item_0_0 post-225814 post type-post status-publish format-standard has-post-thumbnail hentry category-aktualnosci category-przetargi">
 	<h2 class="entry-title">
@@ -396,7 +347,6 @@ test('parseBoardPage: empty/no articles -> []', () => {
   assert.deepEqual(parseBoardPage('<main>nothing here</main>'), []);
 });
 
-// ---------------------------------------------------------------- detail page
 
 test('parseDetailPage: Jana Pawła II 5A/2 — full record matches the task groundtruth', () => {
   const r = parseDetailPage(JP2_5A2_IV_HTML, JP2_5A2_IV_URL);
@@ -436,7 +386,6 @@ test('parseDetailPage: Jana Pawła II 5/2 round III (past-dated predecessor of r
   assert.equal(r.auction_date, '2026-06-12');
   assert.equal(r.round, 3);
   assert.equal(r.kw_nr, 'OP1U/00069839/1');
-  // Only one PDF link on this post (no separate Regulamin) — still resolved.
   assert.equal(r.detail_pdf, 'https://zan-namyslow.pl/pseeckoo/2026/04/Przetarg-Czerwiec-2026.pdf');
 });
 
@@ -461,7 +410,6 @@ test('parseDetailPage: a page with no flat-sale prose -> null', () => {
   assert.equal(parseDetailPage(html, 'https://zan-namyslow.pl/zapytanie-ofertowe/'), null);
 });
 
-// ---------------------------------------------------------------- result stub
 
 test('parseResultDoc: stub returns [] for any input (ZAN has no flat-results board)', () => {
   assert.deepEqual(parseResultDoc('cena osiągnięta 200000 zł', '2026-07-30', 'https://example.com'), []);

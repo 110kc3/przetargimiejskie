@@ -1,11 +1,3 @@
-// Reusable Logonet eUrząd platform engine.
-//
-// Handles municipalities running Logonet eUrząd v2.9.x (Bydgoszcz).
-// Supports two primary modes:
-//   - 'estate': dedicated real-estate module (/przetargi-nieruchomosci/<boardId>)
-//               with notice details under /przetarg-nieruchomosci/<id>/<slug>
-//   - 'articles': generic article board (/artykuly/<boardId>/...)
-//                 with notice details under /artykul/<boardId>/<id>/<slug> or /artykul/<slug>
 
 import { getText } from './fetch.js';
 import { parseAddress } from './normalize.js';
@@ -88,21 +80,18 @@ export function parseLogonetNotice(html, url = '', options = {}) {
   const cityLabel = options.label || 'Gmina';
   const cityId = options.id || 'logonet';
 
-  // Extract ID from url
   const idMatch = url.match(/\/przetarg-nieruchomosci\/(\d+)/) || url.match(/\/artykul\/\d+\/(\d+)/) || url.match(/\/(\d+)\//);
   const sourceId = idMatch ? idMatch[1] : null;
 
   const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || html.match(/<title>([\s\S]*?)<\/title>/i);
   const title = titleMatch ? cleanText(titleMatch[1]) : '';
 
-  // Extract price from table or prose
   const priceTableMatch = html.match(/<th[^>]*>\s*Cena wywoławcza\s*<\/th>\s*<td[^>]*>([\s\S]*?)<\/td>/i);
   const priceProseMatch =
     text.match(/(?:cena wywoławcza|cena)\s*(?:netto|brutto)?[:\-]?\s*([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i) ||
     text.match(/cena wywoławcza[^\d]{1,60}([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i);
   const price = priceTableMatch ? parsePrice(cleanText(priceTableMatch[1])) : (priceProseMatch ? parsePrice(priceProseMatch[1]) : null);
 
-  // Extract date from time/table or prose
   const dateTagMatch = html.match(/<time[^>]*datetime="([^"]+)"/i) || html.match(/<th[^>]*>\s*Data przetargu\s*<\/th>\s*<td[^>]*>([\s\S]*?)<\/td>/i);
   const dateProseMatch =
     text.match(/(?:odbędzie się w dniu|w dniu|termin przetargu)\s+([0-9]{1,2}\s+[a-ząćęłńóśźż]+\s+20\d{2})/i) ||
@@ -112,11 +101,9 @@ export function parseLogonetNotice(html, url = '', options = {}) {
   const typeTableMatch = html.match(/<th[^>]*>\s*Rodzaj nieruchomości\s*<\/th>\s*<td[^>]*>([\s\S]*?)<\/td>/i);
   const rawType = typeTableMatch ? cleanText(typeTableMatch[1]) : '';
 
-  // Parcel
   const parcelMatch = text.match(/\b(?:działk[aieę]|działek|dz\.|nr\s+działki)\s*(?:nr)?[:\s\-]{1,10}(\d+(?:\/\d+)?)/i);
   const parcel = parcelMatch ? parcelMatch[1] : null;
 
-  // Area
   const areaMatch = text.match(/pow(?:ierzchni|\.)[^\d]{1,25}([\d\s.]+(?:,\d{1,4})?)\s*(m2|m²|ha)/i);
   let area = null;
   if (areaMatch) {
@@ -128,7 +115,6 @@ export function parseLogonetNotice(html, url = '', options = {}) {
     }
   }
 
-  // Address
   const addrMatch = text.match(/(?:przy\s+ul\.?|ulicy|ul\.)\s+([A-ZĄĆĘŁŃÓŚŹŻ0-9][a-ząćęłńóśźż\s\d\/-]+?)(?:w\s+[A-ZĄĆĘŁŃÓŚŹŻ]|\.|,|KW|obręb)/i);
   const rawAddress = addrMatch ? `ul. ${addrMatch[1].trim()}` : (title.includes(cityLabel) ? title : cityLabel);
   const address = parseAddress(rawAddress, cityLabel);

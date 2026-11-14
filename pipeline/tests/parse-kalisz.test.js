@@ -1,40 +1,3 @@
-// Kalisz parser tests. Fixtures are REAL board HTML rows + REAL PDF text
-// (pdftotext -layout) this build live-fetched from bip.kalisz.pl on
-// 2026-07-16:
-//   - BOARD_ITEMS_HTML — real raw HTML rows from the live "Sprzedaż,
-//     dzierżawa nieruchomości" board (r_ogl=SN), items #4, #9, #13 in their
-//     real board numbering, concatenated — groundtruths
-//     itemsFromBoardHtml()'s title/pdfUrl/ref extraction. Item #9 is the
-//     board's OWN mismatched entry (see crawl.js header): its title claims a
-//     Częstochowska 7/6A flat result, but its real linked PDF
-//     (03072026do24072026.pdf) is an unrelated lease wykaz — kept here to
-//     prove the crawler extracts the raw href/title/ref faithfully
-//     regardless of what the PDF actually contains (routing/classification
-//     happens on the PDF TEXT, tested separately below, never on this title).
-//   - GORNOSLASKA_EXCERPT — ul. Górnośląska 42/11A, flat, II przetarg ustny
-//     OGRANICZONY po obniżonej cenie, area 14,63 m², price 43.000,00 zł,
-//     auction 2026-07-30 (excerpt: subject + termin + area + cena wywoławcza
-//     sections of the real 6-page PDF, 1706gornoslaska42lok11a.pdf).
-//   - PULASKIEGO_EXCERPT — ul. Kazimierza Pułaskiego 14/2 (the spike's own
-//     cited fixture, still live 2026-07-16), flat, I przetarg ustny
-//     NIEOGRANICZONY, area 43,60 m², price 130.000,00 zł, auction
-//     2024-08-22 (excerpt of the real 8-page PDF,
-//     20240712-wgm_6840_01_0029_2022_ad.pdf). Deliberately has the OPPOSITE
-//     clause order from Górnośląska ("przy ul. X ... o powierzchni Y" vs
-//     "o powierzchni Y ... przy ul. X"), proving addressFromText/
-//     areaFromText are order-agnostic.
-//   - GARNCARSKA_RESULT — ul. Garncarska 9A, RESULT notice (full real
-//     1-page PDF text, 1307garncarska9a.pdf), kind zabudowana (a built
-//     property, not a flat — "zabudowanej nieruchomości", no "lokal
-//     mieszkalny"), I przetarg ustny nieograniczony, cena wywoławcza
-//     350.000,00 zł, SOLD above asking at 353.500,00 zł, "Przetarg
-//     zakończył się wynikiem pozytywnym."
-//   - CZESTOCHOWSKA_MISMATCH — the full real 1-page PDF actually linked from
-//     board item #9 (03072026do24072026.pdf): a WYKAZ (lease designation)
-//     for ul. Wojciecha z Brudzewa, completely unrelated to item #9's own
-//     board title. Proves isAnnouncement/isResultNotice correctly reject it
-//     (neither an announcement nor a result) even though the board title
-//     claimed it was a flat result notice.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -287,9 +250,6 @@ test('isAuctionSaleDoc / isAnnouncement / isResultNotice: real flat announcement
   assert.equal(isResultNotice(GARNCARSKA_RESULT), true);
   assert.equal(isAnnouncement(GARNCARSKA_RESULT), false);
 
-  // The board's OWN mismatched PDF: neither an announcement nor a result —
-  // it's an unrelated dzierżawa wykaz, correctly rejected by CONTENT, not
-  // by the (wrong) board title.
   assert.equal(isAuctionSaleDoc(CZESTOCHOWSKA_MISMATCH), false);
   assert.equal(isAnnouncement(CZESTOCHOWSKA_MISMATCH), false);
   assert.equal(isResultNotice(CZESTOCHOWSKA_MISMATCH), false);
@@ -313,9 +273,9 @@ test('addressFromText: order-agnostic across the two real flat fixtures\' opposi
 });
 
 test('roundFromText: word-ordinal round from both the announcement ("ogłasza") and result ("wyniku") idioms', () => {
-  assert.equal(roundFromText(GORNOSLASKA_EXCERPT), 2); // "ogłasza ... drugi przetarg ustny ograniczony"
-  assert.equal(roundFromText(PULASKIEGO_EXCERPT), 1); // "ogłasza pierwszy przetarg ustny nieograniczony"
-  assert.equal(roundFromText(GARNCARSKA_RESULT), 1); // "o wyniku pierwszego przetargu"
+  assert.equal(roundFromText(GORNOSLASKA_EXCERPT), 2);
+  assert.equal(roundFromText(PULASKIEGO_EXCERPT), 1);
+  assert.equal(roundFromText(GARNCARSKA_RESULT), 1);
 });
 
 test('auctionDateFromText: future-tense announcement date + past-tense result date', () => {
@@ -386,32 +346,6 @@ test('isNegativeOutcome: documented cross-city idiom conformance (ADAPTER-GUIDE.
   assert.equal(isNegativeOutcome('Przetarg zakończył się wynikiem pozytywnym.'), false);
 });
 
-// --- Regression fixtures: two REAL bugs caught by a full live 18-item
-// board smoke test (not the curated fixtures above) during this build, both
-// from scanning the WHOLE multi-page PDF instead of just the subject clause
-// — see parse.js's subjectWindow() header note for the full story:
-//   - RUSINOWO_EXCERPT — a real multi-parcel LAND notice (Rusinowo, two
-//     działki, 2,5960 ha + 1,7948 ha). Its subject says "niezabudowanych
-//     nieruchomości gruntowych" (land), but section II incidentally mentions
-//     an unrelated small utility structure ("część działki ... zabudowana
-//     przepompownią ścieków" — a sewage pump station on part of the plot).
-//     An UNSCOPED classifyKind(wholeText) misread this as kind 'zabudowana'
-//     (built property) instead of 'grunt' (land) — this excerpt keeps both
-//     the real subject clause AND that real section-II sentence to prove
-//     classifyKind(subjectWindow(text)) picks the subject's 'grunt', not the
-//     section-II noise.
-//   - JANKOW_DRUGI_EXCERPT — a real BUILT ('zabudowana') property notice for
-//     a village property (miejscowość Janków Drugi, gmina Blizanów — no city
-//     street at all). Its RODO/data-processing clause (present in every real
-//     Kalisz notice) names a software VENDOR'S own office address ("Logotec
-//     Enterprise S.A. ... przy ulicy Aleksandra Ostrowskiego 7," Wrocław) —
-//     real "przy ulicy <street> <number>" text that is NOT the property's
-//     address. An UNSCOPED addressFromText(wholeText) fell through to this
-//     vendor address and fabricated a bogus "ul. Aleksandra Ostrowskiego 7"
-//     record. This excerpt keeps both the real (street-less) subject AND
-//     that real vendor-address sentence to prove addressFromText()/
-//     subjectWindow() correctly stop at the "I. Miejsce i termin przetargu"
-//     section header and never reach the vendor address, yielding null.
 
 const RUSINOWO_EXCERPT = `PREZYDENT MIASTA KALISZA
 WGM.6840.01.0021.2026.JJ
@@ -483,16 +417,11 @@ przy realizacji zadania do których należą:
 test('subjectWindow / classifyKind: real Rusinowo land notice is NOT misclassified by an incidental section-II "zabudowana" (utility pump station)', () => {
   assert.equal(isAnnouncement(RUSINOWO_EXCERPT), true);
   const rec = parseAnnouncement(RUSINOWO_EXCERPT, { url: 'https://bip.kalisz.pl/ogloszenia/sn/1507rusinowo.pdf' });
-  // Correctly rejected: kind 'grunt' (land) is out of scope this build (see
-  // parse.js header) — NOT fabricated as a 'zabudowana' address-keyed record.
   assert.equal(rec, null);
 });
 
 test('subjectWindow / addressFromText: real Janków Drugi village-property notice never picks up the RODO clause\'s software-vendor office address', () => {
   assert.equal(isAnnouncement(JANKOW_DRUGI_EXCERPT), true);
-  // No real city street exists for this subject (a village property in gmina
-  // Blizanów) — addressFromText must NOT fall through to the vendor address
-  // ("ul. Aleksandra Ostrowskiego 7") that appears later in the same real text.
   assert.equal(addressFromText(JANKOW_DRUGI_EXCERPT), null);
   const rec = parseAnnouncement(JANKOW_DRUGI_EXCERPT, { url: 'https://bip.kalisz.pl/ogloszenia/sn/0707drugi.pdf' });
   assert.equal(rec, null);

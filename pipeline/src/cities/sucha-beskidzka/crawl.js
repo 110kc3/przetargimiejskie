@@ -1,29 +1,3 @@
-// Sucha Beskidzka crawler — the Interaktywna Polska property board on
-// `sucha-beskidzka.pl` (server-rendered HTML). See config.js.
-//
-// DISCOVERY. One fetch of the board `/pl/879/0/przetargi-na-nieruchomosci.html`
-// returns every notice as an <a> whose href points at a born-digital PDF under
-// `/mfiles/879/28/0/z/*.pdf` and whose visible text carries the full title
-// ("BURMISTRZ MIASTA SUCHA BESKIDZKA ogłasza … na sprzedaż …"). We harvest
-// (url, title) pairs, keep only SALE notices by title (drops the najem/dzierżawa/
-// rokowania lease stream that dominates this small board), dedupe by url, cap the
-// count, then `pdfText` each and parse. The board is a single page listing the
-// whole history (2015→now, ~40 anchors, ≈5 of them sales), so no pagination — but
-// the cap + the content-addressed pdf-text cache keep it well inside CI budget.
-//
-// ONE memoised pass serves both streams (refresh.js calls crawlResultDocs() then
-// crawlActive()). crawlActive emits every parsed sale announcement (bochnia
-// model — the board is an archive, so no future-date filter; test-tier + the
-// merge/aging pipeline handle history). crawlResultDocs applies the wolow
-// round-supersession inference: it groups announcements by subject (address key
-// for flats, parcel for land) and forwards each round K whose round K+1 also
-// exists on the board, as an unsold result carrying round K's OWN text — the
-// os. Beskidzkie 1/9 flat (rounds I→II→III) yields rounds I and II as unsold.
-// There is no server-HTML achieved-price surface (results are on the
-// bip.malopolska JS-SPA, out of scope), so this is the only outcome signal.
-//
-// source:'html' ⇒ result refs carry `.text` (the extracted PDF text); refresh.js
-// hands that straight to parseResultDoc without re-fetching.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -37,12 +11,9 @@ const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
 
-// Property-board notices live under /mfiles/879/ (other /mfiles/<id>/ sections on
-// the page are unrelated program docs). Capture href + the anchor's visible text.
 const NOTICE_RE = /<a[^>]+href="([^"]*\/mfiles\/879\/[^"]*\.pdf)"[^>]*>([\s\S]*?)<\/a>/gi;
 const MAX_NOTICES = Number(process.env.SUCHA_MAX_NOTICES) || 60;
 
-/** Resolve a board href (relative, or a bare http:// mirror) to an https URL. */
 function absPdf(href) {
   if (href.startsWith('//')) return `https:${href}`;
   if (href.startsWith('http://')) return `https://${href.slice('http://'.length)}`;
@@ -79,7 +50,7 @@ async function crawlAll() {
 
   const listings = [];
   const land = [];
-  const records = []; // parsed records carrying their own text/url for supersession
+  const records = [];
   for (const n of notices) {
     let raw;
     try {
@@ -122,7 +93,6 @@ export async function crawlResultDocs() {
 
   const refs = [];
   for (const group of groups.values()) {
-    // Dedupe same-round republishes before the round-order arithmetic.
     const byRound = new Map();
     for (const r of group) if (!byRound.has(r.round)) byRound.set(r.round, r);
     const rounds = [...byRound.keys()].sort((a, b) => a - b);
@@ -135,7 +105,6 @@ export async function crawlResultDocs() {
   return refs;
 }
 
-// CLI harness: node crawl.js [active|results]
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const mode = process.argv[2] ?? 'active';
   if (mode === 'results') {

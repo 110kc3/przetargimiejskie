@@ -1,30 +1,3 @@
-// Busko-Zdrój parser tests — groundtruthed against REAL live fixtures
-// (fetched 2026-07-05).
-//
-// Fixture sources (live-verified):
-//
-//   ANNOUNCEMENT (umig.busko.pl/ogloszenia/24147-…-gnwr-6840-23-2025.html):
-//     Title: "Burmistrz Miasta i Gminy Busko-Zdrój ogłasza pierwszy przetarg
-//             ustny nieograniczony na sprzedaż nieruchomości komunalnych.
-//             Znak: GNWR.6840.23.2025"
-//     Batch of 2 properties:
-//       - lokal mieszkalny os. Kościuszki 7/6, 26,38 m², II piętro,
-//         cena wywoławcza 190 000,00 zł, przetarg 7 sierpnia 2025 (KEEP)
-//       - zabudowana nieruchomość Plac Zwycięstwa 26, 2 500 000,00 zł (DROP)
-//     Attachments linked on the page:
-//       "Dokument źródłowy do pobrania [pdf]"    → …/2025/06/03/Ogloszenie_o_przetargu.pdf
-//       "Informacja o wynikach przetargu [pdf]"  → …/2025/08/19/informacja_o_wybikach_przetargu_gnwr_6840_23_3_2025.pdf
-//
-//   RESULT PDF (born-digital, pdftotext -layout — diacritics dropped on this
-//   host, e.g. "Kościuszki" → "Kociuszki", "użytkowej" → "uytkowej"):
-//     Multi-clause; the flat clause reports:
-//       Cena wywoławcza 190 000,00 zł · cena osiągnięta w przetargu - 0
-//       inne informacje - przetarg zakończony wynikiem negatywnym  → UNSOLD
-//     The Plac Zwycięstwa (zabudowana) clause is filtered out.
-//
-//   NOTE (real-data caveat): pdftotext's diacritic loss makes the result-notice
-//   street_norm ("kociuszki") differ from the HTML listing's ("kosciuszki");
-//   building+apt (7|6) still match. Verified on first live CI refresh.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -40,9 +13,6 @@ import {
   parseResultDoc,
 } from '../src/cities/busko-zdroj/parse.js';
 
-// ---------------------------------------------------------------------------
-// Scalar helpers
-// ---------------------------------------------------------------------------
 
 test('parsePLN: "190 000,00" → 190000', () => {
   assert.equal(parsePLN('190 000,00'), 190000);
@@ -83,9 +53,6 @@ test('roundFromTitle: empty → 1 (default)', () => {
   assert.equal(roundFromTitle(null), 1);
 });
 
-// ---------------------------------------------------------------------------
-// parseIndexPage — auction-announcement links filtered out of the mixed feed
-// ---------------------------------------------------------------------------
 
 const INDEX_HTML = `
 <div class="feed">
@@ -111,14 +78,7 @@ test('parseIndexPage: empty HTML → []', () => {
   assert.deepEqual(parseIndexPage(''), []);
 });
 
-// ---------------------------------------------------------------------------
-// parseAnnouncementListings — flat record from the real article body
-// ---------------------------------------------------------------------------
 
-// Minimal HTML reproducing the live Joomla article structure: a
-// com-content-article__body div holding the flat descriptor, the shared auction
-// date, the "Ceny wywoławcze" enumeration, and both attachment links; a
-// pagenavigation nav bounds the body. Verbatim wording from the live page.
 const ANNOUNCEMENT_HTML = `<!DOCTYPE html><html><head>
 <title>Burmistrz Miasta i Gminy Busko-Zdrój ogłasza pierwszy przetarg ustny nieograniczony na sprzedaż nieruchomości komunalnych. Znak: GNWR.6840.23.2025</title>
 </head><body>
@@ -188,9 +148,6 @@ test('parseAnnouncementListings: non-flat page → []', () => {
   );
 });
 
-// ---------------------------------------------------------------------------
-// parseResultLink — attachment PDFs + article date
-// ---------------------------------------------------------------------------
 
 test('parseResultLink: result PDF URL extracted', () => {
   const r = parseResultLink(ANNOUNCEMENT_HTML);
@@ -222,10 +179,6 @@ test('parseResultLink: page without result PDF → resultPdf null', () => {
   assert.ok(r.announcementPdf?.endsWith('Ogloszenie_o_przetargu.pdf'));
 });
 
-// ---------------------------------------------------------------------------
-// parseResultDoc — real pdftotext output of the Kościuszki 7/6 result PDF.
-// Diacritics dropped verbatim as pdftotext emits them on this host.
-// ---------------------------------------------------------------------------
 
 const RESULT_TEXT = `BURMISTRZ
 MIASTA I GMINY

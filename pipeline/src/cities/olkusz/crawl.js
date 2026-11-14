@@ -1,10 +1,3 @@
-// Olkusz crawler — the WordPress author-archive (server-rendered, no OCR). See
-// config.js. Harvest dated post links from the paginated archive, fetch each,
-// parse the body (sale gate + kind from the body, since titles are dates).
-// Offer-side only: no result stream (the achieved-price notices weren't found).
-//
-// NOTE (confirm on first CI refresh): the archive harvest + pagination depth were
-// inferred from the live post URLs; the body parser is groundtruthed.
 
 import { getText } from '../../core/fetch.js';
 import { parseAnnouncement } from './parse.js';
@@ -37,7 +30,7 @@ async function crawlAll() {
       try {
         html = await getText(url, FETCH_OPTS);
       } catch (err) {
-        break; // 404 past the last page → stop paging this archive
+        break;
       }
       let added = 0;
       for (const path of harvestPosts(html)) { if (!seen.has(path)) { seen.add(path); posts.push(path); added++; } }

@@ -1,24 +1,3 @@
-// Międzyrzecz parser tests. Fixtures are REAL text/HTML fetched live from
-// bip.miedzyrzecz.pl (verified 2026-07-10):
-//
-//   Kursko 28a/1     — result DOCX (born-digital), SOLD 76.000 -> 76.800 zł
-//   Mieszka I 88B/5  — result PDF (SCANNED, OCR'd via tesseract --psm 1 pol),
-//                      SOLD 115.000 -> 116.150 zł (the spike's "115 000 zł"
-//                      was the STARTING price; OCR gives the real achieved
-//                      figure — see parse.js file header)
-//   Marcinkowskiego 28/7 — resolved-board list ROW text, UNSOLD (Negatywny);
-//                      never fetched as a document (see buildNegativeResultText)
-//   Kęszyca Leśna 74C/8  — resolved-board list ROW text, UNSOLD, village
-//                      address with no "ul." (klatka + "budynku nr" form)
-//   Jagielnik 25/3   — resolved-board list ROW text, bare "Miejscowość NN"
-//                      address form (no "ul.", no "budynku nr")
-//   dz. 675/115+675/125  — ACTIVE-board list ROW, LAND (not a flat) — must be
-//                      excluded from both crawlActive and crawlResultDocs
-//
-// Raw single-row HTML fixtures (ACTIVE_ROW_HTML, RESOLVED_ROW_HTML) are
-// byte-faithful copies of one <tr> from the live board fetch, used to
-// groundtruth crawl.js's parseBoardPage() independently of the object-literal
-// BoardRow fixtures used everywhere else in this file.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -40,9 +19,7 @@ import {
 } from '../src/cities/miedzyrzecz/parse.js';
 import { boardUrl, parseBoardPage } from '../src/cities/miedzyrzecz/crawl.js';
 
-// --------------------------------------------------------------- real fixtures
 
-// https://bip.miedzyrzecz.pl/system/pobierz.php?plik=Informacja_o_wyniku_przetargu.docx&id=9b49f5e78d06b9430e31361d95f26462
 const KURSKO_WYNIK_TEXT = `BURMISTRZ MIĘDZYRZECZA
 RYNEK 1
 66-300 MIĘDZYRZECZ
@@ -66,8 +43,6 @@ Z up. BURMISTRZA
 mgr Tomasz Markiewicz
 Zastępca Burmistrza`;
 
-// https://bip.miedzyrzecz.pl/system/pobierz.php?plik=INFORMACJA_O_WYNIKU_PRZETARGU_-_MIESZKA_I_88.B.5.pdf&id=fa3c2ed0ee6d637ae66edf47526a4b15
-// (SCANNED — Canon iR-ADV, no text layer; this is tesseract -l pol --psm 1 output verbatim, including its OCR slips)
 const MIESZKA_WYNIK_TEXT = `Urząd Miejski w Międzyrzeczu
 
 ul. Rynek 1 66-300 Międzyrzecz
@@ -110,7 +85,6 @@ Nabywca nieruchomości: Elżbieta Sobczyk.
 
 Z up. BURMISTRZĄ`;
 
-// Resolved board, row 1 (status=1, page 1) — "Dotyczy"/"Cena wywoławcza"/"Wynik" cell text.
 const MARCINKOWSKI_ROW = {
   detailUrl: 'https://bip.miedzyrzecz.pl/przetargi/0/366/360_/',
   dotyczyText:
@@ -136,7 +110,6 @@ const MARCINKOWSKI_ROW = {
   ],
 };
 
-// Resolved board, row 2 — rural "klatka" + "budynku nr" address (no "ul.").
 const KESZYCA_ROW = {
   detailUrl: 'https://bip.miedzyrzecz.pl/przetargi/0/365/359_/',
   dotyczyText:
@@ -153,7 +126,6 @@ const KESZYCA_ROW = {
   attachments: [],
 };
 
-// Resolved board, row 3 — bare "Miejscowość NN" address (no "ul.", no "budynku nr").
 const JAGIELNIK_ROW = {
   detailUrl: 'https://bip.miedzyrzecz.pl/przetargi/0/364/358_/',
   dotyczyText:
@@ -170,7 +142,6 @@ const JAGIELNIK_ROW = {
   attachments: [],
 };
 
-// Active board, row 1 (status=0) — LAND, not a flat; must never reach crawlActive's listings.
 const LAND_ROW = {
   detailUrl: 'https://bip.miedzyrzecz.pl/przetargi/0/367/361_/',
   dotyczyText:
@@ -190,7 +161,6 @@ const LAND_ROW = {
   ],
 };
 
-// Raw <tr> HTML, active board (status=0), row 1 — byte-faithful (whitespace/entities intact).
 const ACTIVE_ROW_HTML = `<tr class="odd">
 			<td class="td-no"><span>Lp: </span>1</td>
 			<td class="td-date-1"><div>Data ogłoszenia</div>2026-07-08 11:02:00</td>
@@ -209,7 +179,6 @@ podatek VAT (23%): 164.034,88 zł</td>
 	</td>
 		</tr>`;
 
-// Raw <tr> HTML, resolved board (status=1), row 1 (Marcinkowskiego 28/7) — two attachments, Negatywny.
 const RESOLVED_ROW_HTML = `<tr class="odd">
 			<td class="td-no"><span>Lp: </span>1</td>
 			<td class="td-date-1"><div>Data ogłoszenia</div>2026-03-18 08:58:00</td>
@@ -229,7 +198,6 @@ cena gruntu w udziale 170/1000:  3.323,52 zł</td>
 	</td>
 		</tr>`;
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: dot-thousands, comma-grosze', () => {
   assert.equal(parsePLN('76.000,00'), 76000);
@@ -253,7 +221,7 @@ test('startingPriceFromText: skips the repeated <div> label, finds the real valu
 test('achievedPriceFromText: skips the section HEADING ("... cena osiągnięta w przetargu" with no value), finds the labelled value', () => {
   assert.equal(achievedPriceFromText(KURSKO_WYNIK_TEXT), 76800);
   assert.equal(achievedPriceFromText(MIESZKA_WYNIK_TEXT), 116150);
-  assert.equal(achievedPriceFromText(MARCINKOWSKI_ROW.cenaText), null); // never resolved positively
+  assert.equal(achievedPriceFromText(MARCINKOWSKI_ROW.cenaText), null);
 });
 
 test('isPositiveOutcome / isNegativeOutcome: doc sentence and terse list-row cell', () => {
@@ -263,16 +231,13 @@ test('isPositiveOutcome / isNegativeOutcome: doc sentence and terse list-row cel
   assert.equal(isPositiveOutcome(MARCINKOWSKI_ROW.wynikText), false);
   assert.equal(isNegativeOutcome(MARCINKOWSKI_ROW.wynikText), true);
   assert.equal(isPositiveOutcome(LAND_ROW.wynikText), false);
-  assert.equal(isNegativeOutcome(LAND_ROW.wynikText), false); // "Brak wyniku" is neither
+  assert.equal(isNegativeOutcome(LAND_ROW.wynikText), false);
 });
 
 test('isFlatSaleRow: flats pass, land is excluded, the standard legal-basis boilerplate does not false-positive', () => {
   assert.equal(isFlatSaleRow(MARCINKOWSKI_ROW.dotyczyText), true);
   assert.equal(isFlatSaleRow(KESZYCA_ROW.dotyczyText), true);
   assert.equal(isFlatSaleRow(LAND_ROW.dotyczyText), false);
-  // Every wynik doc cites "... przetargów oraz rokowań na zbycie nieruchomości"
-  // as its legal basis — a bare "rokowa" substring exclusion would wrongly
-  // reject this (see parse.js isFlatSaleRow doc comment).
   assert.equal(isFlatSaleRow(KURSKO_WYNIK_TEXT), true);
 });
 
@@ -289,9 +254,6 @@ test('dateOnly: strips the time-of-day from the board\'s date+time column', () =
 
 test('extractLokalAddress: explicit "ul." form, entrance letter folded from "w klatce"', () => {
   assert.equal(extractLokalAddress(MARCINKOWSKI_ROW.dotyczyText), 'Marcinkowskiego 28/7');
-  // List-row phrasing for Mieszka I 88/5 states the entrance separately
-  // ("w klatce B ... ul. Mieszka I 88") — must fold to "88B" to key IDENTICALLY
-  // to the doc-derived address below (ul. Mieszka I 88B, letter already inline).
   const listRowText =
     'Sprzedaży lokalu mieszkalnego nr 5 położonego w klatce B budynku przy ul. Mieszka I 88 w ' +
     'Międzyrzeczu - działka oznaczona ewidencyjnie nr 668/5 obręb 0002 Międzyrzecz.';
@@ -300,14 +262,7 @@ test('extractLokalAddress: explicit "ul." form, entrance letter folded from "w k
 });
 
 test('extractLokalAddress: "budynku nr NN" + nearest place name (rural, no "ul.")', () => {
-  // "Kęszycy Leśnej" (locative, as written) -> "Kęszyca Leśna" (nominative)
-  // via the word-level locative-ending fix (ej->a, cy->ca) — same physical
-  // flat's OTHER rounds use "w m. Kęszyca Leśna" (already nominative; see the
-  // "same flat, two phrasings" test below), so both must key identically.
   assert.equal(extractLokalAddress(KESZYCA_ROW.dotyczyText), 'Kęszyca Leśna 74C/8');
-  // Single-word locative "Kursku" is corrected via the OTHER heuristic (the
-  // obręb's nominative spelling, on a 4-char prefix match) since it has no
-  // "-ej"/"-cy" ending for the word-level fix to catch.
   assert.equal(extractLokalAddress(KURSKO_WYNIK_TEXT), 'Kursko 28A/1');
 });
 
@@ -325,7 +280,6 @@ test('extractLokalAddress: same flat, two live phrasings ("w X" locative vs "w m
 });
 
 test('extractLokalAddress: bare "Miejscowość NN" (no "ul.", no "budynku nr")', () => {
-  // The lokal nr (3) wins over the unrelated trailing "/4" in "Jagielnik 25/4".
   assert.equal(extractLokalAddress(JAGIELNIK_ROW.dotyczyText), 'Jagielnik 25/3');
 });
 
@@ -339,7 +293,6 @@ test('extractLokalAddress: no lokal-nr anchor -> null', () => {
   assert.equal(extractLokalAddress(''), null);
 });
 
-// ------------------------------------------------------------------- board rows
 
 test('parseBoardPage: active-board LAND row (real HTML) — all 7 columns extracted', () => {
   const [row] = parseBoardPage(ACTIVE_ROW_HTML);
@@ -367,7 +320,6 @@ test('boardUrl: page 1 omits the page segment, page N inserts it before "status"
   assert.equal(boardUrl(1, 3), 'https://bip.miedzyrzecz.pl/przetargi/0/3/status/1/');
 });
 
-// ----------------------------------------------------------------- active rows
 
 test('parseActiveRow: land row -> null (excluded, not a flat)', () => {
   assert.equal(parseActiveRow(LAND_ROW), null);
@@ -385,7 +337,6 @@ test('parseActiveRow: pending flat (Kęszyca Leśna, "Brak wyniku") -> active li
   assert.equal(rec.detail_url, 'https://bip.miedzyrzecz.pl/przetargi/0/365/359_/');
 });
 
-// ------------------------------------------------------------------ result docs
 
 test('parseResultDoc: Kursko 28A/1 SOLD (born-digital DOCX, pierwszy przetarg)', () => {
   const [r] = parseResultDoc(KURSKO_WYNIK_TEXT, '2021-09-28', 'https://bip.miedzyrzecz.pl/x/kursko-wynik.docx');

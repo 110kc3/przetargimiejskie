@@ -1,7 +1,3 @@
-// Configuration for Milicz adapter (bip.milicz.pl)
-//
-// Gmina Milicz (powiat milicki, dolnośląskie)
-// TERC: 0213034
 
 export const CONFIG = {
   id: 'milicz',

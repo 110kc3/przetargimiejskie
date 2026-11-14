@@ -1,16 +1,3 @@
-// Stargard parser tests.
-//
-// Fixtures are condensed but faithful copies of REAL pages (live-verified
-// 2026-06-27):
-//
-//   TBS FIXTURE (announcement):
-//     URL: https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-aleja-gryfa-15-1-iii-przetarg-na-sprzedaz/
-//     Fields: Aleja Gryfa 15/1, III przetarg, 52.83 m², 221 000 zł, 13.08.2026
-//
-//   BIP FIXTURE (result list entry, Wynik095/2026):
-//     URL: https://bip.stargard.eu/22358 (page 1) + detail /22358/dokument/72459
-//     Fields: Kościuszki 35/5, II rokowania, lokal mieszkalny nr 5, 14.38 m²,
-//             24.04.2026. Achieved price is in PDF only (not in HTML body).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -32,9 +19,6 @@ import {
   parseResultDoc,
 } from '../src/cities/stargard/parse.js';
 
-// -----------------------------------------------------------------------
-// Shared helpers
-// -----------------------------------------------------------------------
 
 test('parsePLN: standard Polish number formats', () => {
   assert.equal(parsePLN('221 000,00'), 221000);
@@ -56,8 +40,8 @@ test('roundFromText: Roman ordinal before przetarg', () => {
   assert.equal(roundFromText('III przetarg ustny nieograniczony'), 3);
   assert.equal(roundFromText('II rokowania na sprzedaż'), 2);
   assert.equal(roundFromText('I przetarg na sprzedaż'), 1);
-  assert.equal(roundFromText('przetarg ustny nieograniczony'), 1); // bare = first
-  assert.equal(roundFromText('rokowania na sprzedaż'), 1); // bare = first
+  assert.equal(roundFromText('przetarg ustny nieograniczony'), 1);
+  assert.equal(roundFromText('rokowania na sprzedaż'), 1);
   assert.equal(roundFromText(''), null);
 });
 
@@ -67,11 +51,7 @@ test('roundFromText: Polish word ordinals', () => {
   assert.equal(roundFromText('czwarty przetarg'), 4);
 });
 
-// -----------------------------------------------------------------------
-// TBS announcement detail parser
-// -----------------------------------------------------------------------
 
-// Condensed fixture from live page: Aleja Gryfa 15/1, III przetarg, 2026-08-13
 const TBS_HTML = `<!DOCTYPE html>
 <html>
 <head>
@@ -168,12 +148,7 @@ test('parseTbsDetail: returns null for land (grunt) page', () => {
   assert.equal(rec, null);
 });
 
-// -----------------------------------------------------------------------
-// BIP result-notice list parser
-// -----------------------------------------------------------------------
 
-// Condensed fixture from live page (bip.stargard.eu/22358, 2026-06-27).
-// Two flat entries + one land entry (should be filtered out).
 const BIP_LIST_HTML = `
 <div class="list list_date-sym w-100 mx-auto mt-1 mb-1">
   <div class="row date_sym mx-auto pb-1">
@@ -233,11 +208,7 @@ test('parseBipResultList: empty HTML yields no items', () => {
   assert.deepEqual(parseBipResultList('<html><body>nic</body></html>'), []);
 });
 
-// -----------------------------------------------------------------------
-// BIP result address extractor
-// -----------------------------------------------------------------------
 
-// Live fixture text from Wynik095/2026 (bip.stargard.eu/22358/dokument/72459)
 const BIP_RESULT_TEXT = 'Prezydent Miasta Stargard informuje, że dnia 24 kwietnia 2026 r. w siedzibie Stargardzkiego Towarzystwa Budownictwa Społecznego Sp. z o.o. przy ul. Andrzeja Struga 29 w Stargardzie odbyły się II rokowania na sprzedaż lokalu mieszkalnego nr 5 o pow. użytkowej 14,38 m2 wraz z przynależnym pomieszczeniem wc o pow. 0,36 m2 usytuowanym poza lokalem (dostęp z klatki schodowej) i przynależnym pomieszczeniem piwnicy o pow. 1,85 m2, położony w budynku mieszkalnym przy ul. Tadeusza Kościuszki 35 w Stargardzie (obręb 10).';
 
 test('addressFromBipText: extracts street+bldg+apt from Wynik095 body', () => {
@@ -260,9 +231,7 @@ test('parseResultDoc: full integration on Wynik095 fixture', () => {
   assert.equal(doc.area_m2, 14.38);
   assert.equal(doc.auction_date, '2026-04-24');
   assert.equal(doc.round, 2);
-  // Contract fields (refresh.js/build-properties.js consume these; the old
-  // shape — result_date/achieved_price_pln, no notes — crashed refresh.js).
-  assert.equal(doc.outcome, 'archived'); // §12 notice carries no outcome/price
+  assert.equal(doc.outcome, 'archived');
   assert.equal(doc.final_price_pln, null);
   assert.deepEqual(doc.notes, []);
   assert.equal(doc.source_pdf, 'https://bip.stargard.eu/22358/dokument/72459');

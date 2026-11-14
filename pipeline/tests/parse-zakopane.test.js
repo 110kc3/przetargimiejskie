@@ -1,14 +1,3 @@
-// Zakopane parser unit tests.
-// Fixtures are condensed-but-faithful copies of real live bip.zakopane.eu bodies:
-//   - Flat announcement (Aleja 3-go Maja 5/24, III przetarg)
-//   - Flat announcement (Kamieniec 2A/5, I przetarg, Word DOC fixture)
-//   - Building announcement (Pod Lipkami 8, III przetarg)
-//   - Land announcement (Droga do Olczy, I przetarg)
-//   - Flat result UNSOLD (Aleja 3-go Maja 5/24, III przetarg)
-//   - Flat result SOLD (Przewodnika Józefa Krzeptowskiego 33/5, VII przetarg)
-//   - Building result UNSOLD (Pod Lipkami 8, II przetarg)
-//   - Land result SOLD (Na Gubałówkę, I przetarg)
-//   - Lease notices (Kuźnice, dworzec Chramcówki 35A) — filtered out
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -33,10 +22,8 @@ import {
   parseResultDoc,
 } from '../src/cities/zakopane/parse.js';
 
-// ---------------------------------------------------------------- title routing
 
 test('title routing: announcements, results, leases, and movables', () => {
-  // Flat announcements
   assert.equal(
     isAnnouncement(
       'OGŁOSZENIE O PRZETARGU',
@@ -51,7 +38,6 @@ test('title routing: announcements, results, leases, and movables', () => {
     ),
     true,
   );
-  // Building announcement
   assert.equal(
     isAnnouncement(
       'OGŁOSZENIE O PRZETARGU',
@@ -59,7 +45,6 @@ test('title routing: announcements, results, leases, and movables', () => {
     ),
     true,
   );
-  // Land announcement
   assert.equal(
     isAnnouncement(
       'OGŁOSZENIE O PRZETARGU',
@@ -68,7 +53,6 @@ test('title routing: announcements, results, leases, and movables', () => {
     true,
   );
 
-  // Result notices
   assert.equal(
     isResult(
       'Informacja o wyniku przetargu',
@@ -91,7 +75,6 @@ test('title routing: announcements, results, leases, and movables', () => {
     false,
   );
 
-  // Lease notices (must be skipped)
   assert.equal(
     isLease(
       'OGŁOSZENIE O PRZETARGU',
@@ -114,7 +97,6 @@ test('title routing: announcements, results, leases, and movables', () => {
     true,
   );
 
-  // Movables skip
   assert.equal(
     isMovable(
       'Ogłoszenie o przetargu',
@@ -130,7 +112,6 @@ test('title routing: announcements, results, leases, and movables', () => {
     false,
   );
 
-  // Wykaz / bezprzetarg skip
   assert.equal(
     isAnnouncement(
       'ZARZĄDZENIE NR 0050.191.2026',
@@ -140,7 +121,6 @@ test('title routing: announcements, results, leases, and movables', () => {
   );
 });
 
-// ------------------------------------------------------------- detail & attachment
 
 test('detail extraction and attachment picking', () => {
   const html = `
@@ -186,7 +166,6 @@ test('detail extraction and attachment picking', () => {
   assert.equal(picked.url, 'https://bip.zakopane.eu/zalacznik/60261');
 });
 
-// ----------------------------------------------------------------- announcements
 
 test('parse flat announcement (Aleja 3-go Maja 5/24, III przetarg)', () => {
   const text = `
@@ -323,7 +302,6 @@ Zakopane przy ul. Kościuszki 13, Zakopane, sala nr 1, /parter/.
   assert.equal(rec.round, 1);
 });
 
-// ----------------------------------------------------------------- result notices
 
 test('parse flat result UNSOLD (Aleja 3-go Maja 5/24, III przetarg)', () => {
   const text = `

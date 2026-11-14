@@ -1,7 +1,3 @@
-// Olkusz parser test. Fixture is a condensed-but-faithful copy of the REAL
-// WordPress post (verified 2026-06-26): dz. 638/25, V przetarg, ul. Wapiennej,
-// cena wywoławcza 627 400,00 zł, przetarg 11.04.2025. Title is a date, so the
-// sale gate + kind come from the body; the office "Rynek 1" is not a street.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { isSaleAnnouncement, parcelFromText, plotAreaFromText, landStreetFromText, parseAnnouncement } from '../src/cities/olkusz/parse.js';
@@ -19,7 +15,7 @@ test('helpers', () => {
   assert.equal(isSaleAnnouncement('Burmistrz ogłasza wykaz nieruchomości do dzierżawy'), false);
   assert.equal(parcelFromText(BODY), '638/25');
   assert.equal(plotAreaFromText(BODY), 3137);
-  assert.equal(landStreetFromText(BODY), 'Wapiennej'); // NOT "Rynek" (office)
+  assert.equal(landStreetFromText(BODY), 'Wapiennej');
 });
 
 test('parseAnnouncement: land — parcel, area, street, price, date, round', () => {
@@ -30,6 +26,6 @@ test('parseAnnouncement: land — parcel, area, street, price, date, round', () 
   assert.equal(rec.area_m2, 3137);
   assert.equal(rec.address_raw, 'ul. Wapiennej');
   assert.equal(rec.starting_price_pln, 627400);
-  assert.equal(rec.auction_date, '2025-04-11'); // future przetarg, not a prior round
+  assert.equal(rec.auction_date, '2025-04-11');
   assert.equal(rec.round, 5);
 });

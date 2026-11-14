@@ -1,21 +1,9 @@
-// Brzeg anti-DDoS waiting-room detector tests.
-//
-// Since 2026-07-07 the brzeg.pl WordPress host serves Azure-hosted CI IPs
-// an ~12 KB challenge page — <title>Proszę czekać…</title> plus a
-// setTimeout(() => location.reload(), 5000) script — instead of the real
-// ~726 KB listing page (evidence: triage-brzeg artifact snapshot
-// 024-brzeg.pl_gminne-nieruchomosci-do-sprzedazy_.html, run 2026-07-07).
-// isWaitingRoom() is the detector crawl.js uses to retry the fetch and,
-// failing that, throw a network-style error so triage classifies the run
-// source-unreachable instead of layout-change.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
 import { isWaitingRoom } from '../src/cities/brzeg/crawl.js';
 
-// Synthetic minimal waiting-room page: the two signals the detector requires
-// (challenge title + self-reload script), shaped like the CI snapshot.
 const WAITING_ROOM_HTML = `<!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -30,8 +18,6 @@ const WAITING_ROOM_HTML = `<!DOCTYPE html>
 </body>
 </html>`;
 
-// Real-page negative case: skeleton of the actual WordPress listing page
-// (entry-content block, groundtruthed fields from parse-brzeg.test.js).
 const REAL_PAGE_HTML = `<!DOCTYPE html>
 <html lang="pl-PL">
 <head><title>Gminne nieruchomości do sprzedaży – Urząd Miasta w Brzegu</title></head>

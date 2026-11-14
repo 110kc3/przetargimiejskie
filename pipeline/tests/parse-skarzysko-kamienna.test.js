@@ -1,36 +1,3 @@
-// Tests for pipeline/src/cities/skarzysko-kamienna/parse.js + crawl.js
-//
-// Fixtures groundtruthed 2026-06-29 against live BIP bip.skarzysko.pl:
-//
-//   ANNOUNCEMENT (flat, round 3):
-//     https://bip.skarzysko.pl/przetarg-nieruchomosci/10586/…chalubinskiego-nr-8-lokal-nr-5
-//     "ogłasza trzeci przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego
-//      nr 5, mieszczącego się w budynku przy ul. Chałubińskiego nr 8"
-//     Structured table: Cena wywoławcza 95 800,00 zł, Data przetargu 14.01.2025
-//     Body: "skład lokalu: … o łącznej powierzchni 33,60 m²"
-//           "CENA WYWOŁAWCZA do przetargu wynosi - 95.800,00 zł"
-//           "Przetarg odbędzie się w dniu 14 stycznia 2025 r."
-//
-//   RESULT flat SOLD (round 1):
-//     https://bip.skarzysko.pl/przetarg-nieruchomosci/9821/…staffa-nr-25-lokal-nr-1-informacja-o-wyniku-przetargu
-//     "odbył się ustny nieograniczony przetarg … przy ul. Staffa 25 …
-//      lokal mieszkalny nr 1 … o powierzchni 14,00 m2"
-//     "Cena wywoławcza została ustalona na kwotę 31.600,00 zł."
-//     "Najwyższa cena jak została osiągnięta w przetargu wyniosła 31.920,00 zł."
-//
-//   RESULT flat UNSOLD/wadium (round 3):
-//     https://bip.skarzysko.pl/przetarg-nieruchomosci/10876/…chalubinskiego-nr-8-lokal-nr-5-informacja-o-wyniku-trzeciego-przetargu
-//     "odbył się trzeci ustny nieograniczony przetarg … przy ul. Chałubińskiego 8/5
-//      … o powierzchni 33,60 m2"
-//     "Cena wywoławcza została ustalona na kwotę 95.800,00 zł"
-//     "Na przedmiotowy lokal nie zostało wpłacone wadium … wynikiem negatywnym."
-//
-//   RESULT flat UNSOLD/brak oferentów (round 5):
-//     https://bip.skarzysko.pl/przetarg-nieruchomosci/8141/…staffa-13-2-informacja-o-wyniku-przetargu
-//     "odbył się piąty ustny nieograniczony przetarg … przy ul. Staffa 13/2 …
-//      o powierzchni 33,00 m2"
-//     "Cena wywoławcza została ustalona na kwotę 62.920,00 zł"
-//     "W związku z brakiem oferentów przetarg zakończył się wynikiem negatywnym."
 
 import { strict as assert } from 'node:assert';
 import { describe, it } from 'node:test';
@@ -56,7 +23,6 @@ import {
   parseListingPage,
 } from '../src/cities/skarzysko-kamienna/crawl.js';
 
-// ----------------------------------------------------------------- parsePLN
 
 describe('parsePLN', () => {
   it('parses dot-thousands with comma-decimal', () => {
@@ -76,7 +42,6 @@ describe('parsePLN', () => {
   });
 });
 
-// ----------------------------------------------------------------- isResultNotice
 
 describe('isResultNotice', () => {
   it('detects INFORMACJA O WYNIKU header', () => {
@@ -93,7 +58,6 @@ describe('isResultNotice', () => {
   });
 });
 
-// ----------------------------------------------------------------- title routing
 
 describe('isSkippableTitle', () => {
   it('skips najem', () => assert.equal(isSkippableTitle('najem lokalu', ''), true));
@@ -129,7 +93,6 @@ describe('isAnnouncementTitle', () => {
   });
 });
 
-// ----------------------------------------------------------------- roundFromText
 
 describe('roundFromText', () => {
   it('extracts trzeci (3)', () => {
@@ -151,7 +114,6 @@ describe('roundFromText', () => {
   });
 });
 
-// ----------------------------------------------------------------- auctionDateFromText
 
 describe('auctionDateFromText', () => {
   it('parses "w dniu 14 stycznia 2025 r."', () => {
@@ -184,7 +146,6 @@ describe('auctionDateFromText', () => {
   });
 });
 
-// ----------------------------------------------------------------- resultDateFromText
 
 describe('resultDateFromText', () => {
   it('parses "w dniu 14 maja 2024 r. w siedzibie"', () => {
@@ -216,7 +177,6 @@ describe('resultDateFromText', () => {
   });
 });
 
-// ----------------------------------------------------------------- startingPriceFromText
 
 describe('startingPriceFromText', () => {
   it('parses "CENA WYWOŁAWCZA do przetargu wynosi - 95.800,00 zł"', () => {
@@ -250,7 +210,6 @@ describe('startingPriceFromText', () => {
   });
 });
 
-// ----------------------------------------------------------------- achievedPriceFromText
 
 describe('achievedPriceFromText', () => {
   it('parses "Najwyższa cena jak została osiągnięta … wyniosła 31.920,00 zł"', () => {
@@ -271,7 +230,6 @@ describe('achievedPriceFromText', () => {
   });
 });
 
-// ----------------------------------------------------------------- addressRawFromText
 
 describe('addressRawFromText', () => {
   it('extracts "ul. Chałubińskiego 8/5" from result notice inline form', () => {
@@ -313,7 +271,6 @@ describe('addressRawFromText', () => {
   });
 });
 
-// ----------------------------------------------------------------- unitAreaFromText
 
 describe('unitAreaFromText', () => {
   it('extracts 33.60 from "o łącznej powierzchni 33,60 m²"', () => {
@@ -340,10 +297,8 @@ describe('unitAreaFromText', () => {
   });
 });
 
-// ----------------------------------------------------------------- parseAnnouncement
 
 describe('parseAnnouncement', () => {
-  // Fixture from https://bip.skarzysko.pl/przetarg-nieruchomosci/10586/…chalubinskiego-nr-8-lokal-nr-5
   const ANN_TEXT = `
 Adres nieruchomości 26-110 Skarżysko-Kamienna, ul. Chałubińskiego Nr 8, lokal nr 5
 Przetarg na Sprzedaż lokalu mieszkalnego
@@ -391,10 +346,8 @@ Przetarg odbędzie się w dniu 14 stycznia 2025 r. o godz. 9 w sali konferencyjn
   });
 });
 
-// ----------------------------------------------------------------- parseResultDoc
 
 describe('parseResultDoc — result SOLD (Staffa 25/1)', () => {
-  // Fixture from https://bip.skarzysko.pl/przetarg-nieruchomosci/9821/…staffa-nr-25-lokal-nr-1-…
   const SOLD_TEXT = `
 Adres nieruchomości 26-110 Skarżysko-Kamienna, ul. Staffa nr 25, lokal nr 1 - informacja o wyniku przetargu
 Cena wywoławcza 31 600,00 zł
@@ -460,7 +413,6 @@ Skarżysko-Kamienna, dn. 22.05.2024.
 });
 
 describe('parseResultDoc — result UNSOLD/wadium (Chałubińskiego 8/5 round 3)', () => {
-  // Fixture from https://bip.skarzysko.pl/przetarg-nieruchomosci/10876/…informacja-o-wyniku-trzeciego-przetargu
   const UNSOLD_WADIUM_TEXT = `
 Adres nieruchomości 26-110 Skarżysko-Kamienna, ul. Chałubińskiego Nr 8, lokal nr 5 - Informacja o wyniku trzeciego przetargu
 Cena wywoławcza 95.800,00 zł
@@ -508,7 +460,6 @@ Skarżysko-Kamienna, dn. 16.01.2025.
 });
 
 describe('parseResultDoc — result UNSOLD/brak oferentów (Staffa 13/2 round 5)', () => {
-  // Fixture from https://bip.skarzysko.pl/przetarg-nieruchomosci/8141/…staffa-13-2-informacja-o-wyniku-przetargu
   const UNSOLD_BRAK_TEXT = `
 Adres nieruchomości 26-110 Skarzysko-Kamienna ul. Staffa 13/2 - informacja o wyniku przetargu
 Cena wywoławcza 62 920,00 zł
@@ -566,7 +517,6 @@ describe('parseResultDoc — rejects non-result text', () => {
   });
 });
 
-// ----------------------------------------------------------------- parseListingPage (crawl)
 
 describe('parseListingPage', () => {
   const LISTING_HTML = `

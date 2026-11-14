@@ -1,6 +1,3 @@
-// Bartoszyce parser tests — REAL fixtures: pdftotext extracted text from
-// bip.bartoszyce.pl.
-// Groundtruth hand-verified against source PDFs.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -30,7 +27,6 @@ import {
   isOgloszenieAttachment,
 } from '../src/cities/bartoszyce/crawl.js';
 
-// ── FIXTURES ─────────────────────────────────────────────────────────────────
 
 const BEMA_WYNIK = `                                        Informacja o wyniku I przetargu ustnego nieograniczonego
  przeprowadzonego w dniu 16 kwietnia 2026 r. w Sali nr 9 Urzędu Miasta Bartoszyce, ul. Boh. Monte Cassino 1 w Bartoszycach, na sprzedaż
@@ -235,7 +231,6 @@ Przetarg odbędzie się dnia 25 listopada 2026 r. o godz. 1000 w sali Nr 9 Urzę
 
 const LEASE_FIXTURE = `Burmistrz Miasta Bartoszyce ogłasza I przetarg ustny nieograniczony na oddanie w dzierżawę części nieruchomości położonej przy Placu Konstytucji 3 Maja w Bartoszycach w celu lokalizacji ogródków gastronomicznych`;
 
-// ── TESTS ────────────────────────────────────────────────────────────────────
 
 test('parsePLN handles varied Polish currency formats', () => {
   assert.equal(parsePLN('96.000,00 zł'), 96000);

@@ -1,18 +1,3 @@
-// Trzebinia crawler — the Joomla "Tablica ogłoszeń → Ogłoszenia" board
-// (server-rendered HTML, no OCR). See config.js.
-//
-// The board is a MIXED, paginated list (Joomla ?start=N); each item is a full
-// HTML article at /administracja-miasto-i-gmina/tablica-ogloszen/ogloszenia/<id>-<slug>.
-// The listing link TEXT carries the full title (the slug is truncated), so we
-// harvest (href,title) pairs, keep only sale announcements + result notices by
-// TITLE, then fetch each article and parse its body.
-//
-// One memoised pass serves both streams (refresh.js calls crawlResultDocs() then
-// crawlActive()). source:'html' ⇒ result refs already carry `.text`.
-//
-// NOTE (confirm on first CI refresh): the Joomla listing markup + pagination
-// depth were inferred from the live article URLs; the body parsers are
-// groundtruthed. Confirm the index harvest on the first real run.
 
 import { getText } from '../../core/fetch.js';
 import {
@@ -24,11 +9,10 @@ const BOARD = '/administracja-miasto-i-gmina/tablica-ogloszen/ogloszenia';
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
-const MAX_PAGES = 12; // Joomla ?start=N (20/page) — defensive depth
+const MAX_PAGES = 12;
 
 const abs = (p) => (/^https?:/.test(p) ? p : `${ORIGIN}${p.startsWith('/') ? '' : '/'}${p}`);
 
-// Harvest (href,title) of board articles from one listing page's HTML.
 function harvestLinks(html) {
   const out = [];
   const re = /<a[^>]+href="((?:https?:\/\/[^"]+)?\/administracja-miasto-i-gmina\/tablica-ogloszen\/ogloszenia\/\d+-[^"#?]+)"[^>]*>([\s\S]*?)<\/a>/gi;
@@ -48,8 +32,6 @@ async function crawlAll() {
   const land = [];
   const resultRefs = [];
 
-  // 1) Harvest candidate (href,title) across the paginated board; keep sale
-  //    announcements + result notices by title; dedupe by href.
   const seen = new Set();
   const candidates = [];
   for (let p = 0; p < MAX_PAGES; p++) {
@@ -71,11 +53,10 @@ async function crawlAll() {
       candidates.push({ href, title, role: isRes ? 'result' : 'ann' });
       added++;
     }
-    if (added === 0 && p > 0) break; // no new relevant items → stop paging
+    if (added === 0 && p > 0) break;
   }
   console.error(`  trzebinia: ${candidates.length} candidate article(s) (announcements + results)`);
 
-  // 2) Fetch + parse each.
   for (const c of candidates) {
     let html;
     try {

@@ -1,7 +1,3 @@
-// Configuration for Nowy Sącz adapter (bip.malopolska.pl/nowysacz)
-//
-// Miasto na prawach powiatu Nowy Sącz (małopolskie)
-// TERC: 1262011
 
 export const CONFIG = {
   id: 'nowy-sacz',

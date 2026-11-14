@@ -46,7 +46,6 @@ export async function crawl() {
       try {
         const detailHtml = await fetchHtml(fullUrl);
 
-        // Find PDF / attachment links
         const pdfMatches = [...detailHtml.matchAll(/href="([^"]*\.pdf)"/gi)].map(m => m[1]);
         const uniquePdfs = [...new Set(pdfMatches)].filter(p => !p.includes('Strategia') && !p.includes('SSE'));
 
@@ -74,7 +73,6 @@ export async function crawl() {
                           detailHtml.match(/<article[\s\S]*?<\/article>/i);
         const contentText = mainMatch ? mainMatch[0].replace(/<[^>]+>/g, ' ') : '';
 
-        // Date match from page
         const dateMatch = detailHtml.match(/(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i);
         const dateStr = dateMatch ? `${dateMatch[3]}-${dateMatch[2]}-${dateMatch[1]}` : null;
 

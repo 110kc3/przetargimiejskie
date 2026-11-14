@@ -1,41 +1,3 @@
-// Nowa Sól parser tests — groundtruthed against REAL fixtures (2026-06-29).
-//
-// Fixture sources (live-verified via Chrome MCP on 2026-06-29):
-//
-//   INDEX PAGE (nowasol.pl/przetargi):
-//     12 items on page 1 (Jun 2026); flat-sale items visible:
-//       "Przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 4
-//        w budynku nr 28, przy ul. Głogowskiej"
-//         URL:  …/glogowskiej/25-06-2026    published: 2026-06-25
-//       "Przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 2
-//        w budynku nr 34 przy ul. B. Chrobrego"
-//         URL:  …/chrobrego/22-06-2026      published: 2026-06-22
-//       "Przetarg na sprzedaż lokalu mieszkalnego nr 7 w budynku nr 6,
-//        przy ul. Hutniczej"
-//         URL:  …/hutniczej/25-05-2026      published: 2026-05-25
-//     Non-flat items (must be excluded by parseIndexPage):
-//       "Przetarg ustny nieograniczony na sprzedaż nieruchomości gruntowej
-//        niezabudowanej …"  ×4
-//       "Przetarg ustny nieograniczony na sprzedaż prawa własności
-//        nieruchomości gruntowej zabudowanej …"  ×1 (zabudowana, not flat)
-//
-//   DETAIL PAGE — Głogowska 28/4 (live, 25-06-2026):
-//     KW: ZG1N/00004654/2
-//     Address: ul. Głogowska 28  lokal nr 4
-//     Area: 35,57 m²  (plus piwnica 10,36 m² + komórka 2,57 m²)
-//     Cena wywoławcza: 105 000,00 zł
-//     Wadium: 10 000,00 zł
-//     Auction date: 30 lipca 2026 r. → 2026-07-30
-//     Previous rounds: 2 March 2026, 21 May 2026 → round 3
-//
-//   DETAIL PAGE — Chrobrego 34/2 (live, 22-06-2026):
-//     KW: ZG1N/00034975/7
-//     Address: ul. Bolesława Chrobrego 34  lokal nr 2
-//     Area: 51,94 m²
-//     Cena wywoławcza: not directly visible in accessibility tree
-//       (price cell split; confirmed "000,00 zł" pattern in DOM)
-//
-//   RESULT STREAM: Not available — parseResultDoc is a stub returning [].
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -50,9 +12,6 @@ import {
   parseResultDoc,
 } from '../src/cities/nowa-sol/parse.js';
 
-// ---------------------------------------------------------------------------
-// parsePLN
-// ---------------------------------------------------------------------------
 
 test('parsePLN: "105 000,00" → 105000', () => {
   assert.equal(parsePLN('105 000,00'), 105000);
@@ -71,9 +30,6 @@ test('parsePLN: null/empty → null', () => {
   assert.equal(parsePLN(''), null);
 });
 
-// ---------------------------------------------------------------------------
-// parseArea
-// ---------------------------------------------------------------------------
 
 test('parseArea: "35,57" → 35.57', () => {
   assert.equal(parseArea('35,57'), 35.57);
@@ -88,9 +44,6 @@ test('parseArea: null/empty → null', () => {
   assert.equal(parseArea(''), null);
 });
 
-// ---------------------------------------------------------------------------
-// parseDateText
-// ---------------------------------------------------------------------------
 
 test('parseDateText: "30 lipca 2026" → 2026-07-30', () => {
   assert.equal(parseDateText('30 lipca 2026'), '2026-07-30');
@@ -113,9 +66,6 @@ test('parseDateText: null/empty → null', () => {
   assert.equal(parseDateText(''), null);
 });
 
-// ---------------------------------------------------------------------------
-// dateFromUrl
-// ---------------------------------------------------------------------------
 
 test('dateFromUrl: extracts publication date from URL slug', () => {
   assert.equal(
@@ -132,17 +82,7 @@ test('dateFromUrl: no date in URL → null', () => {
   assert.equal(dateFromUrl('https://nowasol.pl/przetargi'), null);
 });
 
-// ---------------------------------------------------------------------------
-// parseIndexPage — fixture from live nowasol.pl/przetargi (2026-06-29)
-// ---------------------------------------------------------------------------
 
-// Minimal HTML reproducing the live index page structure (accessibility-tree
-// verified 2026-06-29).  The list under "Aktualne przetargi:" contains links
-// with title text and a "Data publikacji:" span below each.
-//
-// Includes 2 flat-sale items (must be returned) and 3 non-flat items (must
-// be excluded): a gruntowa niezabudowana, a gruntowa zabudowana (house), and
-// a lokale użytkowe.
 const INDEX_HTML = `
 <main>
   <h2>Aktualne przetargi:</h2>
@@ -193,7 +133,6 @@ const HUTNICZA_URL = 'https://nowasol.pl/przetargi/przetarg/przetarg-na-sprzedaz
 
 test('parseIndexPage: returns only flat-sale (mieszkalny) items', () => {
   const links = parseIndexPage(INDEX_HTML);
-  // Must include Głogowska, Chrobrego, Hutnicza — must NOT include niezabudowana, zabudowana, użytkowy
   assert.ok(links.length >= 3, `expected ≥3 flat links, got ${links.length}`);
   for (const l of links) {
     assert.ok(/lokal\w*\s+mieszkaln/i.test(l.title), `non-flat slipped through: ${l.title}`);
@@ -249,21 +188,7 @@ test('parseIndexPage: empty HTML → empty array', () => {
   assert.deepEqual(parseIndexPage('<html><body>nothing</body></html>'), []);
 });
 
-// ---------------------------------------------------------------------------
-// parseDetailPage — Głogowska 28 lokal 4 fixture (live 2026-06-29)
-// ---------------------------------------------------------------------------
 
-// Minimal HTML reproducing the live detail page structure, groundtruthed via
-// accessibility-tree read on 2026-06-29.
-//
-// Key facts confirmed live:
-//   KW: ZG1N/00004654/2
-//   Address: ul. Głogowska 28, lokal nr 4
-//   Area: 35,57 m² (main unit; piwnica 10,36 m² + komórka 2,57 m² extra)
-//   Price: 105 000,00 zł (rendered split as "105" + "000,00 zł")
-//   Auction: 30 lipca 2026 r. o godzinie 10
-//   Previous rounds: 2 marca 2026, 21 maja 2026 → this is round 3
-//   Published: 25-06-2026 (from URL)
 const GLOGOWSKA_HTML = `<!DOCTYPE html><html><body>
 <main>
   <h2>Przetargi</h2>
@@ -345,16 +270,7 @@ test('parseDetailPage (Głogowska): detail_url is the page URL', () => {
   assert.equal(r.detail_url, GLOGOWSKA_URL);
 });
 
-// ---------------------------------------------------------------------------
-// parseDetailPage — Bolesława Chrobrego 34 lokal 2 fixture (live 2026-06-29)
-// ---------------------------------------------------------------------------
 
-// Second listing confirmed live 2026-06-29:
-//   KW: ZG1N/00034975/7
-//   Address: ul. Bolesława Chrobrego 34, lokal nr 2
-//   Area: 51,94 m²
-//   Published: 22-06-2026
-//   No "Poprzednie przetargi" text observed → round defaults from title
 const CHROBREGO_HTML = `<!DOCTYPE html><html><body>
 <main>
   <h2>Przetargi</h2>
@@ -426,9 +342,6 @@ test('parseDetailPage: non-flat page (niezabudowana działka) → null', () => {
   assert.equal(r, null, 'gruntowa/niezabudowana page must return null');
 });
 
-// ---------------------------------------------------------------------------
-// parseResultDoc — stub
-// ---------------------------------------------------------------------------
 
 test('parseResultDoc: stub returns [] for any input', () => {
   assert.deepEqual(parseResultDoc('some result text', '2026-07-30', 'https://example.com'), []);

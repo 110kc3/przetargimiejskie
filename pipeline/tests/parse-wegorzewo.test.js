@@ -1,66 +1,3 @@
-// Tests for pipeline/src/cities/wegorzewo/{parse,crawl}.js
-//
-// Fixtures groundtruthed 2026-07-10/11 against LIVE bip.wegorzewo.pl (IDcom
-// CMS, insecureTLS — see config.js). Every string embedded below (titles,
-// body text, prices, dates) is copied verbatim from a real fetched page, not
-// paraphrased — the same methodology parse-naklo-nad-notecia.test.js and
-// parse-gizycko.test.js use. Detail-page body text was extracted via the
-// SAME balanced-div algorithm crawl.js ships (extractTrescDiv), run against
-// the raw captured HTML, so the test proves the real parser output, not an
-// idealized re-typing of it.
-//
-//   PENDING flat, village form, no round stated:
-//     wiadomosc/616337  Sztynort Mały 3/6 — 24,40 m2, 23 600 zł, 2022-03-29
-//   PENDING flat, town street, round I ("pierwszy"):
-//     wiadomosc/801593  Armii Krajowej 42/3 — 14,30 m2, 39 400 zł, 2025-03-06
-//   PENDING flat, village "we wsi" form, no round stated:
-//     wiadomosc/822001  Pniewo 5/4 — 33,20 m2, 40 300 zł, 2025-06-26
-//   PENDING flat, "w miejscowości" form, round III via "(III przetarg)":
-//     wiadomosc/403110  Węgielsztyn 37/4 — 109,03 m2, 60 000 zł, 2018-01-19
-//     (price notation "60.000,-zł" — dot-thousands, dash for "no grosze")
-//   PENDING flat, title carries NO address at all (body-only fallback,
-//   village name captured in the LOCATIVE case "w Kalu" — kept as-is, same
-//   policy this codebase applies to genitive street names elsewhere):
-//     wiadomosc/501783  "Kalu" 38/2 — 89,20 m2, 91 000 zł, 2020-02-07
-//     (also the DETAIL_HTML fixture below: <div class="tresc"> nests
-//     further <div>s for each numbered section I-VII — a naive
-//     non-greedy-to-first-</div> extraction truncates after section I,
-//     losing the price/date/wadium entirely)
-//   PENDING land, multi-parcel notice (636/36 + 636/38 + 636/40 in one
-//   announcement — only the FIRST parcel is extracted, same simplification
-//   gizycko's own multi-flat nr 53/2025 fixture already applies), a stray
-//   space BEFORE the comma in the price ("12 000, 00 zł" — a typo in the
-//   source itself):
-//     wiadomosc/886596  Słowackiego, dz. 636/36 — 0,0023 ha, 12 000 zł, 2026-07-09
-//
-//   RESULT flat SOLD, inline HTML (no PDF attachment):
-//     wiadomosci/14619/wiadomosc/830000  Pniewo 5/4 — 40 300 -> 40 703 zł
-//   RESULT flat SOLD, inline HTML (no PDF attachment):
-//     wiadomosci/14619/wiadomosc/809365  Armii Krajowej 42/3 — 39 400 -> 70 132 zł
-//   RESULT land UNSOLD ("zakończył się wynikiem negatywnym" + "nie wyłoniono
-//   nabywcy"), round V ("piąty"):
-//     wiadomosci/14619/wiadomosc/783284  Kal, dz. 132/45 — 140 000 zł wywoławcza,
-//     "najwyższa cena osiągnięta w przetargu: - 0" (no "zł" at all -> null)
-//
-//   LEASE (dzierżawa + ograniczony, board-level title only, never reaches a
-//   detail fetch — crawl.js's isSaleAuctionTitle gate rejects it):
-//     wiadomosc/563781  "...ograniczony do mieszkańców... na dzierżawę działki..."
-//   Non-property PROCUREMENT noise sharing the SAME IDcom category (must
-//   also be rejected — neither states "sprzedaż"/"zbycie"):
-//     wiadomosc/853945  "Przetarg na przygotowywanie i wydawanie gorących posiłków..."
-//     wiadomosc/381755  "Ogłoszenie o zamówieniu - budowa kanalizacji sanitarnej..."
-//   COMMERCIAL unit (lokal NIEmieszkalny — must classify 'uzytkowy', not
-//   'mieszkalny'; also proves classifyKind's LAND_RE gap around plural
-//   "działek" does NOT affect this path):
-//     wiadomosci/14619/wiadomosc/883253  "...lokalu niemieszkalnego nr 5 o pow.
-//     97,43 m2, poł. w Radziejach przy ul. Węgorzewskiej 25..."
-//
-// *** SOURCE CORRECTION vs the spike/gizycko analog *** — results here are
-// NOT scanned PDFs. 10+ result detail pages were sampled live across
-// 2021-2026 (land/flat/commercial) and every one is inline HTML with a
-// structured "cena wywoławcza / najwyższa cena osiągnięta / nabywca" block;
-// none carried a PDF attachment. parseResultDoc is therefore a REAL parser
-// (unlike gizycko's always-[] OCR stub) — see parse.js/crawl.js headers.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -92,7 +29,6 @@ import {
   listUrl,
 } from '../src/cities/wegorzewo/crawl.js';
 
-// ============================================================== board HTML
 
 test('listUrl builds the per-year, per-category board URL', () => {
   assert.equal(
@@ -105,11 +41,6 @@ test('listUrl builds the per-year, per-category board URL', () => {
   );
 });
 
-// Real snippet from bip.wegorzewo.pl/wiadomosci/3/lista/3/2025 (confirmed
-// live 2026-07-10): a flat, a land plot, and an unrelated procurement
-// (roadworks) notice sharing the SAME board — proves parseListPage extracts
-// title+url only (the <p class="tresc"> teaser is present in real markup
-// but must not be captured).
 const LIST_HTML = `
     <div class="t1 clickable">
 	<div class="contener">
@@ -162,13 +93,6 @@ test('parseListPage: returns [] for empty/null', () => {
   assert.deepEqual(parseListPage(null), []);
 });
 
-// Real raw HTML captured from
-// https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/501783/... (confirmed live
-// 2026-07-10) — <div class="tresc"> nests a further <div> for EVERY
-// numbered section (II-VII), each opening and often closing on the same
-// line. A non-greedy "up to the first </div>" extraction (the pattern both
-// gizycko/crawl.js and pisz/crawl.js use) stops right after section I,
-// losing "IV. Cena wywoławcza" and "V. Miejsce i termin przetargu" entirely.
 const DETAIL_HTML_KAL = `
 	    <div class="wiadomosc">
 
@@ -249,7 +173,6 @@ test('extractTrescDiv: captures the FULL nested body, not just section I (real b
   assert.match(body, /91\s*000,00\s*z/);
   assert.match(body, /07\.02\.2020/);
   assert.match(body, /VII\. Warunki zawarcia/);
-  // Must NOT bleed into the sibling "Wiadomość powiązana z" block.
   assert.doesNotMatch(body, /Wiadomość powiązana/);
   assert.doesNotMatch(body, /Rejestr zmian/);
 });
@@ -258,7 +181,7 @@ test('bodyTextFromDetail: strips tags/entities and yields the same full content'
   const text = bodyTextFromDetail(DETAIL_HTML_KAL);
   assert.match(text, /Cena wywoławcza nieruchomości: 91 000,00 zł/);
   assert.match(text, /dnia 07\.02\.2020 r\./);
-  assert.match(text, /o powierzchni użytkowej 89,20 m²/); // &sup2; decoded
+  assert.match(text, /o powierzchni użytkowej 89,20 m²/);
   assert.ok(!text.includes('<div>'), 'should not contain HTML tags');
 });
 
@@ -279,7 +202,6 @@ test('attachmentPdfUrlsFromDetail: finds a PDF link when present', () => {
   ]);
 });
 
-// ============================================================ title gates
 
 test('isSaleAuctionTitle: accepts real flat/land sale titles', () => {
   assert.equal(
@@ -376,7 +298,6 @@ test('isResultTitle: false when "wynik" is absent, or for empty/null', () => {
   assert.equal(isResultTitle(null), false);
 });
 
-// =============================================================== numbers
 
 test('parsePLN: dot-thousands and space-thousands', () => {
   assert.equal(parsePLN('60.000'), 60000);
@@ -386,7 +307,6 @@ test('parsePLN: dot-thousands and space-thousands', () => {
   assert.equal(parsePLN(null), null);
 });
 
-// =========================================================== real fixtures
 
 const WEGIELSZTYN_TITLE =
   'Ogłoszenie prztargu nieograniczonego na sprzedaż lokalu mieszkalnego nr 4 poł. w miejscowości Węgielsztyn 37 gm. Węgorzewo (III przetarg)';
@@ -418,14 +338,6 @@ const KAL_FULL = `${KAL_TITLE}\n${KAL_BODY}`;
 
 const SLOWACKIEGO_TITLE =
   'Burmistrz Węgorzewa ogłasza pierwszy ustny przetarg nieograniczony na sprzedaż działek nr: 636/36, 636/38, 636/40 położonych w Węgorzewie przy ul. Słowackiego, obręb 0002 Węgorzewo2, gmina Węgorzewo-miasto, stanowiących własność Gminy Węgorzewo';
-// Includes the REAL warunki-zabudowy clause verbatim ("... budowie budynku
-// garażowego ...") — an EARLIER, trimmed version of this fixture omitted it
-// and thereby masked a real bug: classify-kind.js's GARAGE_RE fires on ANY
-// "garaż" mention (checked before LAND_RE), so this land parcel's own
-// zoning text misclassified it as kind 'garaz' instead of 'grunt' — see
-// parse.js's resolveKind() for the fix. Caught live 2026-07-11 via the
-// `node crawl.js` smoke test, not by this test file (which is exactly why
-// the clause is now included instead of trimmed away).
 const SLOWACKIEGO_BODY =
   'Burmistrz Węgorzewa ogłasza pierwszy ustny przetarg nieograniczony na sprzedaż niżej wymienionych działek położonych w Węgorzewie przy ul. Słowackiego, obręb 0002 Węgorzewo2, gmina Węgorzewo, stanowiących własność Gminy Węgorzewo: Opis nieruchomości: Działka nr: 636/36 Powierzchnia: 0,0023ha Użytek: PsV Numer księgi wieczystej: OL2G/00008976/0 Nieruchomość gruntowa niezabudowana. Dojazd do zbywanej działki zapewniony jest istniejącym zjazdem z drogi publicznej gminnej nr 128599N od strony ul. Słowackiego (działka nr 543/1) następnie przez działkę nr 636/34. Przeznaczenie nieruchomości: Przedmiotowy teren nie jest objęty obowiązującym miejscowym planem zagospodarowania przestrzennego, objęty jest natomiast obowiązującą decyzją o warunkach zabudowy nr 61/2025 z dnia 16.05.2025r. znak: PL.6730.54.2025 dla inwestycji polegającej na budowie budynku garażowego murowanego w zabudowie szeregowej. Obciążenia i zobowiązania: Przedmiotowe działki wolne są od obciążeń i zobowiązań. Cena wywoławcza nieruchomości: 12 000, 00 zł (słownie: dwanaście tysięcy zł) – każda działka. Wysokość wadium: 1 200,00zł (każda działka) Miejsce i termin przetargu: Przetarg ustny nieograniczony odbędzie się w siedzibie Urzędu Miejskiego w Węgorzewie, ul. Zamkowa 3 w sali narad – II piętro w dniu 9 lipca 2026r. godz. 10 00 .';
 const SLOWACKIEGO_FULL = `${SLOWACKIEGO_TITLE}\n${SLOWACKIEGO_BODY}`;
@@ -436,16 +348,6 @@ const LEASE_TITLE =
 const PNIEWO_RESULT_BODY =
   'Informacja o wyniku pierwszego przetargu ustnego nieograniczonego na zbycie lokalu mieszkalnego nr 4 o pow. 33,20m2, poł. w miejscowości Pniewo 5, obręb geod. 0017 Pniewo. Na podstawie § 12 Rozporządzenia Rady Ministrów z dnia 14 września 2004 r. w sprawie sposobu i trybu przeprowadzenia przetargów oraz rokowań na zbycie nieruchomości (j. t. Dz. U. z 2021r. poz. 2213), uprzejmie informuję, że pierwszy przetarg ustny nieograniczony na zbycie lokalu mieszkalnego nr 4 o powierzchni użytkowej 33,20 m2, składający się z jednego pokoju, kuchni, łazienki oraz przedpokoju poł. na poddaszu w budynku mieszkalnym wielorodzinnym nr 5 w miejscowości Pniewo, gm. Węgorzewo, związany z lokalem nr 4 udział 1/4 części w elementach wspólnych budynku odbył się w dniu 26.06.2025r. o godz. 10:00 w siedzibie Urzędu Miejskiego w Węgorzewie w sali narad - II piętro i zakończył się wynikiem pozytywnym. liczba osób dopuszczonych do uczestnictwa w przetargu – 2 liczba osób niedopuszczonych do przetargu – 0 cena wywoławcza nieruchomości – 40.300,00 zł najwyższa cena osiągnięta w przetargu: 40.703,00 zł nabywca nieruchomości – Szymon Bagiński';
 
-// This page's <div class="tresc"> body (unlike Pniewo's) does NOT restate
-// the building number "42" anywhere — it only appears in the page's <h2>/
-// <title> heading, OUTSIDE the tresc div (confirmed live: raw HTML has
-// "...ul. Armii Krajowej 42, obręb geod. 0001 Węgorzewo." at the h2/title,
-// then the tresc body's own street mention drops the "42" entirely — "...ul.
-// Armii Krajowej, obręb 01 Węgorzewo..."). crawl.js's fetchResultText joins
-// `${entry.title}\n${body}` (entry.title = the BOARD-LIST title, which DOES
-// carry "Armii Krajowej 42" as captured below) before ever calling
-// parseResultDoc, so the real pipeline sees the building number even though
-// the tresc body alone does not — this fixture reproduces that exact join.
 const ARMIIKRAJOWEJ_RESULT_TITLE =
   'Informacja o wyniku pierwszego przetargu ustnego nieograniczonego na zbycie lokalu mieszkalnego nr 3 o pow. 14,30m2, poł. w Węgorzewie przy ul. Armii Krajowej 42, obręb geod. 0001 Węgorzewo.';
 const ARMIIKRAJOWEJ_RESULT_BODY =
@@ -455,7 +357,6 @@ const ARMIIKRAJOWEJ_RESULT_FULL = `${ARMIIKRAJOWEJ_RESULT_TITLE}\n${ARMIIKRAJOWE
 const KAL_LAND_RESULT_BODY =
   'Na podstawie § 12 Rozporządzenia Rady Ministrów z dnia 14 września 2004r. w sprawie sposobu i trybu przeprowadzania przetargów oraz rokowań na zbycie nieruchomości (j. t. Dz. U. z 2021r. poz. 2213.) uprzejmie informuję, że piąty przetarg ustny nieograniczony na zbycie nieruchomości niezabudowanej oznaczonej w ewidencji gruntów i budynków numerem 132/45 o powierzchni 0,1850ha, położonej w obrębie Kal, gmina Węgorzewo, opisanej w KW OL2G/00010658/2 odbył się w dniu 23.10.2024r. w siedzibie Urzędu Miejskiego w Węgorzewie w pokoju nr 19- parter i zakończył się wynikiem negatywnym. cena wywoławcza nieruchomości: 140 000,00zł + 23%VAT najwyższa cena osiągnięta w przetargu: - 0 liczba osób dopuszczonych do uczestnictwa w przetargu – 0 liczba osób niedopuszczonych do przetargu – 0 nabywca nieruchomości – nie wyłoniono nabywcy';
 
-// ------------------------------------------------------------- round
 
 test('roundFromText: "(III przetarg)" parenthetical Roman form (Węgielsztyn, real fixture)', () => {
   assert.equal(roundFromText(WEGIELSZTYN_FULL), 3);
@@ -474,7 +375,6 @@ test('roundFromText: genitive "pierwszego" inside "informacji o wyniku pierwszeg
   assert.equal(roundFromText(PNIEWO_RESULT_BODY), 1);
 });
 
-// ------------------------------------------------------------- date
 
 test('auctionDateFromBody: word-date "dnia D MONTH YYYY r." (Węgielsztyn, real fixture)', () => {
   assert.equal(auctionDateFromBody(WEGIELSZTYN_FULL), '2018-01-19');
@@ -500,7 +400,6 @@ test('auctionDateFromBody: null for empty/no date', () => {
   assert.equal(auctionDateFromBody('brak daty'), null);
 });
 
-// ------------------------------------------------------------- area
 
 test('areaFromBody: "o pow. X m2" with no "użytkowej" (Węgielsztyn, real fixture)', () => {
   assert.equal(areaFromBody(WEGIELSZTYN_FULL), 109.03);
@@ -524,7 +423,6 @@ test('areaFromBody: null when absent', () => {
   assert.equal(areaFromBody(''), null);
 });
 
-// ------------------------------------------------------------- starting price
 
 test('startingPriceFromBody: dot-thousands, dash-for-grosze "60.000,-zł" (Węgielsztyn, real fixture)', () => {
   assert.equal(startingPriceFromBody(WEGIELSZTYN_FULL), 60000);
@@ -547,7 +445,6 @@ test('startingPriceFromBody: null when absent', () => {
   assert.equal(startingPriceFromBody(''), null);
 });
 
-// ------------------------------------------------------------- achieved price / outcome
 
 test('achievedPriceFromBody: sold, "najwyższa cena osiągnięta w przetargu: X zł" (real fixtures)', () => {
   assert.equal(achievedPriceFromBody(PNIEWO_RESULT_BODY), 40703);
@@ -562,7 +459,6 @@ test('isNegativeOutcome: true only on the unsold fixture', () => {
   assert.equal(isNegativeOutcome(ARMIIKRAJOWEJ_RESULT_BODY), false);
 });
 
-// ------------------------------------------------------------- address
 
 test('addressFromText: pattern A, town street form (Armii Krajowej, real fixture)', () => {
   const a = addressFromText(ARMIIKRAJOWEJ_FULL);
@@ -585,7 +481,7 @@ test('addressFromText: pattern C, body-only fallback, title has NO address at al
   assert.ok(a, 'address must be non-null');
   assert.equal(a.apt, '2');
   assert.equal(a.building, '38');
-  assert.match(a.street, /Kal/i); // locative "Kalu" kept as-is (no PL-declension guessing)
+  assert.match(a.street, /Kal/i);
 });
 test('addressFromText: null when no address anywhere', () => {
   assert.equal(addressFromText('brak adresu'), null);
@@ -598,28 +494,20 @@ test('addressFromText: COMMERCIAL unit ("lokal niemieszkalny", real fixture, Wę
   assert.deepEqual(a, { apt: '5', street: 'Węgorzewskiej', building: '25' });
 });
 
-// ------------------------------------------------------------- land
 
 test('landParcelFromText + landAreaFromText + obrebFromText: Słowackiego multi-parcel notice (real fixture, first parcel only)', () => {
   assert.equal(landParcelFromText(SLOWACKIEGO_FULL), '636/36');
-  assert.equal(landAreaFromText(SLOWACKIEGO_FULL), 23); // 0,0023 ha -> 23 m2
+  assert.equal(landAreaFromText(SLOWACKIEGO_FULL), 23);
   assert.match(obrebFromText(SLOWACKIEGO_FULL), /Węgorzewo/i);
 });
 test('landParcelFromText + landAreaFromText: Kal result (real fixture, "numerem X" no "działka" word nearby)', () => {
   assert.equal(landParcelFromText(KAL_LAND_RESULT_BODY), '132/45');
-  assert.equal(landAreaFromText(KAL_LAND_RESULT_BODY), 1850); // 0,1850 ha -> 1850 m2
+  assert.equal(landAreaFromText(KAL_LAND_RESULT_BODY), 1850);
 });
 test('landParcelFromText: null when absent', () => {
   assert.equal(landParcelFromText('brak działki'), null);
 });
 
-// REAL BUG caught by the live `node crawl.js` smoke test (2026-07-11, not by
-// a unit test — see resolveKind() in parse.js): core/classify-kind.js's
-// GARAGE_RE fires on ANY "garaż" mention and is checked BEFORE LAND_RE, so
-// an undeveloped PARCEL whose own zoning text mentions a garage building
-// misclassifies as kind 'garaz' (address-keyed) instead of 'grunt'
-// (parcel-keyed) and silently fails to parse (no address exists for a bare
-// działka). Two independent real notices hit this on bip.wegorzewo.pl.
 test('parseAnnouncement: land whose OWN zoning text says "budowie budynku garażowego" still classifies grunt, not garaz (real fixture, Słowackiego)', () => {
   const rec = parseAnnouncement(SLOWACKIEGO_FULL, 'x');
   assert.ok(rec, 'must not be null — this exact shape used to fail');
@@ -633,10 +521,9 @@ test('parseAnnouncement: land explicitly "przeznaczonych pod zabudowę garażow�
   assert.ok(rec, 'must not be null');
   assert.equal(rec.kind, 'grunt');
   assert.equal(rec.dzialka_nr, '1100');
-  assert.equal(rec.round, 2); // "drugi"
+  assert.equal(rec.round, 2);
 });
 
-// ===================================================== parseAnnouncement
 
 test('parseAnnouncement: PENDING flat (real fixture, Armii Krajowej 42/3) -> active listing', () => {
   const rec = parseAnnouncement(ARMIIKRAJOWEJ_FULL, 'https://bip.wegorzewo.pl/wiadomosci/3/wiadomosc/801593/x');
@@ -673,9 +560,6 @@ test('parseAnnouncement: PENDING land, multi-parcel notice (real fixture, Słowa
 });
 
 test('parseAnnouncement: LEASE (dzierżawa) title never reaches parseAnnouncement — crawl.js gates on isSaleAuctionTitle first', () => {
-  // Asserted at the gate directly (mirrors the real crawl.js flow: the
-  // lease title is filtered out BEFORE any detail fetch, so
-  // parseAnnouncement is never even called on it).
   assert.equal(isSaleAuctionTitle(LEASE_TITLE), false);
 });
 
@@ -684,7 +568,6 @@ test('parseAnnouncement: returns null when neither an address nor a parcel can b
   assert.equal(parseAnnouncement('', 'x'), null);
 });
 
-// ======================================================== parseResultDoc
 
 test('parseResultDoc: flat SOLD (real fixture, Pniewo 5/4 — 40 300 -> 40 703 zł)', () => {
   const [r] = parseResultDoc(

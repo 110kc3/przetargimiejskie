@@ -1,6 +1,3 @@
-// Ostrów Wielkopolski crawler (bip.umostrow.pl)
-//
-// Scrapes Logonet board 187 (gospodarka-nieruchomosciami).
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

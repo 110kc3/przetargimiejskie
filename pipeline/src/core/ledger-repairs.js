@@ -1,5 +1,3 @@
-// Reviewed cross-ledger repairs. Source evidence and the original records are
-// retained in ledger-repairs-data.js; generated_at is never advanced here.
 import { LEDGER_REPAIRS } from './ledger-repairs-data.js';
 import { mergePartialLand } from './build-land.js';
 
@@ -18,7 +16,6 @@ export function repairPropertyLedger(properties, city) {
   const rules = LEDGER_REPAIRS.filter((r) => r.city === city);
   const retained = removeReviewedRows(properties, rules, 'properties');
   const targets = rules.flatMap((r) => r.properties || []).map((p) => structuredClone(p));
-  // The durable property healer folds identical keys and histories afterwards.
   for (const target of targets) {
     const current = retained.find((p) => p.key === target.key);
     if (!current) { retained.push(target); continue; }

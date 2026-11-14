@@ -8,8 +8,6 @@ import { mergeProperties } from '../src/core/merge-history.js';
 import { buildRecordText, parseResultDoc } from '../src/cities/trzebnica/parse.js';
 import { applyDurablePropertyHeals } from '../src/core/verified-heals.js';
 
-// Exact article elements from the official board XML, fetched 2026-10-19.
-// The small pagination envelope below is synthetic so failures are deterministic.
 const articles = ['3489', '3490'].map((id) => readFileSync(new URL(`./fixtures/remediation/trzebnica-board-${id}.xml`, import.meta.url), 'utf8'));
 const knownUrls = new Set(articles.flatMap((xml) => parseBoardPage(xml).map((ref) => ref.url)));
 const board = (body = articles.join(''), pages = 1, count = 2) => `<przetargi-nieruchomosci><strona>1</strona><ilosc-stron>${pages}</ilosc-stron><ilosc-rekordow>${count}</ilosc-rekordow><artykuly>${body}</artykuly></przetargi-nieruchomosci>`;
@@ -95,8 +93,6 @@ test('a historical flat with a village-only board address is recovered from its 
 });
 
 test('uncached historical identity work is bounded and a truncated pass stays incomplete', async () => {
-  // Synthetic identities/pagination reuse the real flat fields to stress the
-  // request budget without making network requests or writing text caches.
   const ids = Array.from({ length: 14 }, (_, index) => String(9000 + index));
   const entries = ids.map((id) => articles[0].replaceAll('/3489/', `/${id}/`));
   const text = readFileSync(new URL('../pdf-text-cache/7181.1e14fe84.txt', import.meta.url), 'utf8');

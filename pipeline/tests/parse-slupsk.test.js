@@ -1,6 +1,3 @@
-// Tests for pipeline/src/cities/slupsk/parse.js
-//
-// Fixtures are grounded against live data fetched 2026-06-27.
 
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
@@ -15,9 +12,6 @@ import {
   parseResultDoc,
 } from '../src/cities/slupsk/parse.js';
 
-// ---------------------------------------------------------------------------
-// isFlatAuction
-// ---------------------------------------------------------------------------
 describe('isFlatAuction', () => {
   it('accepts flat auction titles including corner-street format', () => {
     assert.ok(isFlatAuction(
@@ -57,9 +51,6 @@ describe('isFlatAuction', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// roundFromTitle
-// ---------------------------------------------------------------------------
 describe('roundFromTitle', () => {
   it('extracts Roman numeral round', () => {
     assert.equal(roundFromTitle('I przetarg ustny nieograniczony'), 1);
@@ -82,9 +73,6 @@ describe('roundFromTitle', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// parseListingPage
-// ---------------------------------------------------------------------------
 describe('parseListingPage', () => {
   const LISTING_HTML = [
     '<div class="mx-list">',
@@ -152,10 +140,6 @@ describe('parseListingPage', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// parseNoticePage -- Mochnackiego 14/8
-// Uses the exact HTML structure from live page 2883.html (2026-06-27)
-// ---------------------------------------------------------------------------
 describe('parseNoticePage -- Mochnackiego 14/8', () => {
   const NOTICE_HTML_MOCHNACKI = [
     '<div class="mx-article">',
@@ -219,9 +203,6 @@ describe('parseNoticePage -- Mochnackiego 14/8', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// parseNoticePage -- Kopernika 6/4
-// ---------------------------------------------------------------------------
 describe('parseNoticePage -- Kopernika 6/4', () => {
   const NOTICE_HTML_KOPERNIKA = [
     '<div class="mx-article">',
@@ -258,12 +239,6 @@ describe('parseNoticePage -- Kopernika 6/4', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// parseNoticePage -- corner address regression test
-// Bug: "ul. Stefana Starzyńskiego 1 - Wojska Polskiego 54" was stored with
-// both streets jammed into the STREET field, failing the junk-street gate.
-// Fix: strip the " - <second street>" corner tail before parseAddress.
-// ---------------------------------------------------------------------------
 describe('parseNoticePage -- corner address Starzyńskiego 1 / Wojska Polskiego 54', () => {
   const CORNER_HTML = [
     '<div class="mx-article">',
@@ -309,9 +284,6 @@ describe('parseNoticePage -- corner address Starzyńskiego 1 / Wojska Polskiego 
   });
 });
 
-// ---------------------------------------------------------------------------
-// parseResultArchive
-// ---------------------------------------------------------------------------
 describe('parseResultArchive', () => {
   const ARCHIVE_HTML = [
     '<div class="mx-files">',
@@ -342,9 +314,6 @@ describe('parseResultArchive', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// parseResultDoc -- negative outcome (Sierpinka 2/9)
-// ---------------------------------------------------------------------------
 describe('parseResultDoc -- negative (Sierpinka 2/9)', () => {
   const SIERPINKA_TEXT = [
     'Słupsk, dnia 25.06.2026r.',
@@ -411,9 +380,6 @@ describe('parseResultDoc -- negative (Sierpinka 2/9)', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// parseResultDoc -- negative outcome (Filmowa 4/3)
-// ---------------------------------------------------------------------------
 describe('parseResultDoc -- negative (Filmowa 4/3)', () => {
   const FILMOWA_TEXT = [
     'Słupsk, dnia 25.06.2026r.',
@@ -448,9 +414,6 @@ describe('parseResultDoc -- negative (Filmowa 4/3)', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// parseResultDoc -- positive sold outcome (synthetic)
-// ---------------------------------------------------------------------------
 describe('parseResultDoc -- positive sold outcome (synthetic)', () => {
   const SOLD_TEXT = [
     'Słupsk, dnia 15.04.2025r.',
@@ -503,9 +466,6 @@ describe('parseResultDoc -- positive sold outcome (synthetic)', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// parseResultDoc -- edge cases
-// ---------------------------------------------------------------------------
 describe('parseResultDoc -- edge cases', () => {
   it('returns [] on empty text', () => {
     assert.deepEqual(parseResultDoc('', null, 'http://x'), []);
@@ -533,7 +493,6 @@ describe('parseResultDoc -- edge cases', () => {
   });
 });
 
-// Full retained notice fragments for the two joint-frontage lots.
 it('keeps joint building frontages without putting building numbers in the street', async () => {
   const { readFileSync } = await import('node:fs');
   const parser = await import('../src/cities/slupsk/parse.js');

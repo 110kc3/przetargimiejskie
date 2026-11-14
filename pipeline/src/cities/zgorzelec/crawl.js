@@ -1,20 +1,3 @@
-// Zgorzelec crawler — server-rendered bip.info.pl BIP, consumed as plain HTML
-// (no SPA, no OCR, no TLS workaround). See config.js.
-//
-// Two dedicated boards under "Przetargi":
-//   ANNOUNCEMENTS  index.php?idmp=32&r=r → crawlActive (listings + land)
-//   RESULTS        index.php?idmp=34&r=r → crawlResultDocs (achieved price)
-// Each board is a table; every property row links to a document
-//   dokument.php?iddok={id}&idmp={NN}&r=r
-// whose <div id="content-main"> carries the full notice as flowing HTML text.
-// We extract the board link text (TITLE) + the document body (BODY) and build
-// the parse blob via buildRecordText(). Announcements are routed by kind:
-//   grunt → land ;  flat / commercial unit → listings.
-// Call-for-tenders / works contracts ("Zaproszenie do składania ofert …") and
-// leases ("dzierżawa"/"najem") share the announcement board and are skipped.
-//
-// source:'html' ⇒ result refs already carry `.text` (the built blob), which
-// refresh.js hands straight to parseResultDoc.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -34,13 +17,9 @@ const IDMP_RESULT = 34;
 const ANNOUNCEMENT_ARCHIVE = `${ORIGIN}/dokument.php?iddok=10598&idmp=394&r=r`;
 const RESULT_ARCHIVE = `${ORIGIN}/dokument.php?iddok=11762&idmp=402&r=r`;
 
-// A browser UA — bip.info.pl serves the bot UA too, but a browser UA is the safe
-// default for municipal WAFs (harmless if unneeded).
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
-// Bound actual pagination, explicitly linked year archives and each document
-// stream. Missing/looping pages and the result category placeholder stay partial.
 const MAX_PAGES = 12;
 const MAX_YEAR_BOARDS = 8;
 const MAX_DOCUMENTS = 120;
@@ -48,8 +27,6 @@ const MAX_DOCUMENTS = 120;
 const boardUrl = idmp => `${ORIGIN}/index.php?idmp=${idmp}&r=r`;
 const docUrl = (iddok, idmp) => `${ORIGIN}/dokument.php?iddok=${iddok}&idmp=${idmp}&r=r`;
 
-/** Isolate the <div id="content-main"> region of a page (board list or document
- *  body), dropping the surrounding chrome + the right column / footer. */
 function contentMain(html) {
   if (!html) return '';
   const i = html.indexOf('id="content-main"');
@@ -59,7 +36,6 @@ function contentMain(html) {
   return j > i ? html.slice(i, j) : html.slice(i);
 }
 
-/** Decode the handful of entities that appear inside hrefs. */
 function decodeHref(h) {
   return h.replace(/&amp;/gi, '&');
 }
@@ -76,7 +52,6 @@ function sourceUrl(href) {
   } catch { return null; }
 }
 
-/** Only explicitly linked year boards; admin links become public board probes. */
 export function parseYearBoards(html, year = new Date().getFullYear()) {
   const seen = new Set();
   return links(contentMain(html)).flatMap(link => {
@@ -89,14 +64,6 @@ export function parseYearBoards(html, year = new Date().getFullYear()) {
   }).sort((a, b) => b.year - a.year);
 }
 
-/**
- * Article refs from one board page's HTML. Each property row links to
- * dokument.php?iddok={id}&idmp={idmp}&r=r; the anchor text is the notice title
- * and the (optional) `title=` attribute carries the validity/deadline date.
- * @param {string} html
- * @param {number} idmp
- * @returns {Array<{iddok:string, url:string, title:string, deadline:string|null}>}
- */
 export function parseBoardPage(html, idmp) {
   const region = contentMain(html);
   const out = [];
@@ -117,7 +84,6 @@ export function parseBoardPage(html, idmp) {
   return out;
 }
 
-/** All article refs on a board, following only its own published page links. */
 export async function fetchBoardRefs(idmp, { fetchText = getText, maxPages = MAX_PAGES } = {}) {
   const refs = [];
   refs.complete = false;
@@ -170,9 +136,6 @@ export async function fetchBoardRefs(idmp, { fetchText = getText, maxPages = MAX
   return refs;
 }
 
-/** Extract the notice BODY (plain text) from a document page's content-main:
- *  trim the metadata header ("… wersja do wydruku") and the footer ("Powrót" /
- *  "Metryka dokumentu"), which carry publish-date decoys. */
 export function extractDocBody(html) {
   let txt = contentMain(html)
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
@@ -194,7 +157,6 @@ export function extractDocBody(html) {
   return txt;
 }
 
-/** Fetch one document → { text, title, url }, or null. */
 async function fetchDoc(ref, fetchText = getText) {
   let html;
   try {
@@ -216,11 +178,10 @@ async function fetchDoc(ref, fetchText = getText) {
 let crawlPromise = null;
 
 export async function crawlAll({ fetchText = getText, year = new Date().getFullYear(), maxDocuments = MAX_DOCUMENTS } = {}) {
-  const listings = []; // address-keyed active records (flats + commercial units)
-  const land = [];     // kind:'grunt' active records → land.json
-  const resultRefs = []; // { text, source_url, auction_date }
+  const listings = [];
+  const land = [];
+  const resultRefs = [];
 
-  // ---- announcements board (idmp=32) ----
   async function discover(root, archive) {
     const refs = await fetchBoardRefs(root, { fetchText });
     const seen = new Set(refs.map(ref => ref.iddok));
@@ -246,8 +207,8 @@ export async function crawlAll({ fetchText = getText, year = new Date().getFullY
     const rec = await fetchDoc(ref, fetchText);
     if (!rec) { announceRefs.complete = false; continue; }
     const { text } = rec;
-    if (!isSaleAuction(text)) continue; // Zaproszenie do składania ofert / works
-    if (isLease(text)) continue;        // dzierżawa / najem
+    if (!isSaleAuction(text)) continue;
+    if (isLease(text)) continue;
 
     const parsedRecords = parseAnnouncements(text);
     if (!parsedRecords.length || parsedRecords.some(record => !record.auction_date)) announceRefs.complete = false;
@@ -257,7 +218,6 @@ export async function crawlAll({ fetchText = getText, year = new Date().getFullY
     }
   }
 
-  // ---- results board (idmp=34) ----
   const resultBoardRefs = await discover(IDMP_RESULT, RESULT_ARCHIVE);
   resultRefs.complete = resultBoardRefs.complete === true;
   for (const ref of resultBoardRefs) {
@@ -280,13 +240,11 @@ export async function crawlAll({ fetchText = getText, year = new Date().getFullY
   return { listings, land, resultRefs, land_complete: false };
 }
 
-/** Concluded records (achieved-price stream). source:'html' ⇒ refs carry `.text`. */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resultRefs;
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, land } = await crawlPromise;

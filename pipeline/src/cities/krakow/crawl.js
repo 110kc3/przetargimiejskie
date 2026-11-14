@@ -1,17 +1,10 @@
-// Kraków crawler — bip.krakow.pl (bespoke ACK Cyfronet BIP, server-rendered HTML).
-// See config.js. Boards list ?news_id=N article links; each article is a
-// multi-property notice parsed by parse.js. Announcements → listings/land;
-// result notices → the achieved-price stream (source:'html' ⇒ refs carry .text).
-//
-// Pagination is one-based: strona=0 returns HTTP 400. Follow only pages exposed
-// by the official pager, with bounded archive depth reported as incomplete.
 
 import { getText } from '../../core/fetch.js';
 import { parseNotice, splitItems } from './parse.js';
 
 const ORIGIN = 'https://www.bip.krakow.pl';
-const ANNOUNCEMENT_BOARDS = ['?dok_id=30626', '?dok_id=102895']; // active + archive
-const RESULT_BOARDS = ['?dok_id=30630', '?dok_id=102899'];       // active + archive
+const ANNOUNCEMENT_BOARDS = ['?dok_id=30626', '?dok_id=102895'];
+const RESULT_BOARDS = ['?dok_id=30630', '?dok_id=102899'];
 const MAX_PAGES = 6;
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
@@ -72,7 +65,6 @@ export async function crawlAll({ fetchText = getText, maxPages = MAX_PAGES } = {
   const land = [];
   const resultRefs = [];
 
-  // Result notices (the achieved-price stream).
   const resultIds = await harvestNewsIds(RESULT_BOARDS, { fetchText, maxPages });
   let resultsComplete = resultIds.complete;
   for (const id of resultIds) {
@@ -90,7 +82,6 @@ export async function crawlAll({ fetchText = getText, maxPages = MAX_PAGES } = {
     resultRefs.push({ text: html, pdf_url: url, detail_url: url, auction_date: null });
   }
 
-  // Announcements (active listings + land).
   for (const id of await harvestNewsIds(ANNOUNCEMENT_BOARDS, { fetchText, maxPages })) {
     const url = newsUrl(id);
     let html;

@@ -1,40 +1,3 @@
-// Jędrzejów parser tests.
-// Fixtures are faithful captures of real BIP documents from bip.jedrzejow.eu
-// (IDcom.pl platform; scanned PDF attachments OCR-processed via tesseract).
-//
-// Groundtruth:
-//   wiadomosc 869500 (2026-02-19 result):
-//     - Land 160/1 obr. 01: SOLD for 190,000 PLN (start 110,000 PLN, Andrzej Majewski)
-//     - Land 160/2 obr. 01: SOLD for 115,000 PLN (start 111,000 PLN, Danuta Majewska)
-//     - Land 998 obr. Gozna: SOLD for 9,100 PLN (start 9,000 PLN, Dariusz Mróz)
-//     - Flat 11 Listopada 132/40: UNSOLD (start 112,000 PLN)
-//     - Flat 11 Listopada 80/12: UNSOLD (start 146,000 PLN)
-//     - Land 51/1 obr. 05: UNSOLD (start 72,450 PLN)
-//     - Flat 11 Listopada 119/10: UNSOLD (start 145,000 PLN)
-//   wiadomosc 830188 (2025-06-26 result):
-//     - Flat Głowackiego 31/3: SOLD for 51,000 PLN (start 50,000 PLN, KLE-RENT Sp. z o.o.)
-//     - Flat 11 Listopada 119/10: UNSOLD (start 145,000 PLN)
-//     - Land 150/11, 211/3, 212/9: UNSOLD (start 257,000 PLN)
-//     - Land 51/1: UNSOLD (start 72,450 PLN)
-//   wiadomosc 846564 (2025-10-16 result):
-//     - Land 150/11, 211/3, 212/9 obr. 11: SOLD for 371,000 PLN (start 257,000 PLN, Świadkowie Jehowy w Polsce)
-//     - Land 51/1 obr. 05: UNSOLD (start 72,450 PLN)
-//     - Flat 11 Listopada 119/10: UNSOLD (start 145,000 PLN)
-//   wiadomosc 902794 (2026-09-03 result):
-//     - Flat Mieszka I 4/12: UNSOLD (start 299,900 PLN)
-//   wiadomosc 893577 (2026-07-02 result, vertical layout):
-//     - Land 197 obr. 11: UNSOLD (start 682,600 PLN)
-//     - Flat 11 Listopada 132/40: UNSOLD (start 112,000 PLN)
-//     - Flat 11 Listopada 80/12: UNSOLD (start 146,000 PLN)
-//     - Flat 11 Listopada 119/10: UNSOLD (start 145,000 PLN)
-//   wiadomosc 902069 (2026-10-15 multi-round announcement):
-//     - Round I: Land parcels 584, 585 (782 m², 151,600 PLN), 14/7 (570 m², 30,000 PLN), 51/1 (180 m², 77,900 PLN)
-//     - Round III: Flat 11 Listopada 132/40 (21.28 m², 112,000 PLN), Flat 11 Listopada 80/12 (30.00 m², 146,000 PLN)
-//     - Round V: Flat 11 Listopada 119/10 (26.60 m², 145,000 PLN)
-//   wiadomosc 895633 (2026-09-03 announcement):
-//     - Round I: Flat Mieszka I 4/12 (48.00 m², 299,900 PLN)
-//   wiadomosc 883434 (wykaz):
-//     - Flat Mieszka I 4/12 designation
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -54,7 +17,6 @@ import {
   parseWykaz,
 } from '../src/cities/jedrzejow/parse.js';
 
-// ------------------------------------------------------------- Real Fixtures
 
 const RESULT_869500 = {
   title: 'Informacja o wyniku przetargu ustnego nieograniczonego na sprzedaż nieruchomości komunalnych z dnia 19.02.2026 roku',
@@ -270,7 +232,6 @@ Wykaz wywiesza się na tablicy ogłoszeń Urzędu Miejskiego w Jędrzejowie.
 `,
 };
 
-// ------------------------------------------------------------- Tests
 
 test('jedrzejow: helpers - parsePLN', () => {
   assert.equal(parsePLN('112.000.00 zł'), 112000);
@@ -331,7 +292,6 @@ test('jedrzejow: parseResultDoc - 869500 (multi-item mixed sold & unsold)', () =
 
   assert.equal(recs.length, 7);
 
-  // Sold land parcels
   const soldLand = recs.filter((r) => r.kind === 'grunt' && r.outcome === 'sold');
   assert.equal(soldLand.length, 3);
   assert.deepEqual(
@@ -343,7 +303,6 @@ test('jedrzejow: parseResultDoc - 869500 (multi-item mixed sold & unsold)', () =
     ],
   );
 
-  // Unsold flats
   const flats = recs.filter((r) => r.kind === 'mieszkalny');
   assert.equal(flats.length, 3);
   assert.deepEqual(
@@ -355,7 +314,6 @@ test('jedrzejow: parseResultDoc - 869500 (multi-item mixed sold & unsold)', () =
     ],
   );
 
-  // Unsold land
   const unsoldLand = recs.filter((r) => r.kind === 'grunt' && r.outcome === 'unsold');
   assert.equal(unsoldLand.length, 1);
   assert.equal(unsoldLand[0].dzialka_nr, '51/1');

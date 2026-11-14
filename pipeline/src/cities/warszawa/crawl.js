@@ -1,37 +1,3 @@
-// Warszawa crawler — ETO category/165 (Wykup lokalu, przetargi).
-//
-// ARCHITECTURE:
-//   ETO /category/165/announcement  <- single non-paginated page with ALL active
-//                                      flat-sale announcements across all 18 dzielnice
-//     +-- City-owned items (Srodmiescie, etc.)
-//     |     href -> <dzielnica>.um.warszawa.pl/-/<slug>
-//     |     crawlActive(): fetch dzielnica detail page, parse article text
-//     |     crawlResultDocs(): fetch result-notice detail page, return with .text set
-//     |
-//     +-- AMW items (Agencja Mienia Wojskowego)
-//           href -> eto.um.warszawa.pl/category/165/announcement/<eto-id>
-//           PDF at /announcement/attachment/<eto-id>/<att-id> (scanned image)
-//           crawlActive(): OCR the PDF via ocrPdf(), parse with parseAmwPdfText()
-//
-// SOURCE: 'html' -- crawlResultDocs() sets ref.text so refresh.js feeds it
-// directly to parseResultDoc() without re-fetching.
-//
-// ETO is a LIVE WINDOW: only currently-active announcements appear on the list.
-// Result notices have ~8-day windows. Daily polling is required to capture them.
-// crawlResultDocs() skips known URLs (via loadKnownSourceUrls) to avoid
-// re-processing already-captured result pages.
-//
-// NO PAGINATION: the ETO /category/165/announcement page shows ALL active items
-// in one page (confirmed 2026-06-29: 11 items, no page-2 link).
-//
-// KNOWN LIMITS:
-//   - Starting price: NOT available from ETO list titles or Srodmiescie article
-//     bodies in current live samples (wykaz-phase notices). Added as null for
-//     city-owned items.
-//   - AMW PDF: scanned images (pdftotext returns empty); OCR via ocrPdf()
-//     + parseAmwPdfText() extracts starting_price_pln, area_m2, auction_date.
-//     Requires Polish tessdata (pol.traineddata) in the OCR environment.
-//   - Per-dzielnica spot-check completed 2026-06-29 -- see warszawa.md.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -57,7 +23,6 @@ async function crawlAll() {
   const listings = [];
   const resultRefs = [];
 
-  // 1. Fetch ETO list page
   let listHtml;
   try {
     listHtml = await getText(ETO_LIST_URL, { userAgent: BROWSER_UA });
@@ -72,13 +37,11 @@ async function crawlAll() {
   const knownUrls = await loadKnownSourceUrls('warszawa');
   const seenUrls = new Set();
 
-  // 2. Route each item
   for (const item of items) {
     const url = item.detail_url;
     if (seenUrls.has(url)) continue;
     seenUrls.add(url);
 
-    // Result notice
     if (isResultNoticeTitle(item.title)) {
       if (knownUrls.has(url)) {
         console.error('  warszawa result: already captured ' + url + ' -- skipping');
@@ -101,17 +64,13 @@ async function crawlAll() {
       continue;
     }
 
-    // Filter non-flat items
     if (item.kind && item.kind !== 'mieszkalny') {
       console.error('  warszawa: skipping non-flat "' + item.title.slice(0, 60) + '" (kind=' + item.kind + ')');
       continue;
     }
 
-    // AMW publishes through ETO too, but its sales belong to the independent
-    // institutional provider ledger, not Warsaw's municipal counts/medians.
     if (item.is_eto_hosted) continue;
 
-    // City-owned item: fetch dzielnica detail page
     let detailHtml = '';
     try {
       detailHtml = await getText(url, { userAgent: BROWSER_UA, retries: 1 });

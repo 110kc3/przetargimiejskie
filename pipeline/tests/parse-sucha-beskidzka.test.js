@@ -1,43 +1,3 @@
-// Sucha Beskidzka parser tests. Fixtures are condensed-but-faithful copies of
-// REAL notice-PDF text fetched live from sucha-beskidzka.pl (the Interaktywna
-// Polska property board /pl/879/…, notices under /mfiles/879/28/0/z/*.pdf;
-// verified 2026-07-12 from this Pi's Polish residential IP, extracted with the
-// same core/pdf-text.js `pdfText` the adapter uses). Long non-load-bearing
-// boilerplate (warunki przetargu a–f, RODO clause, wadium-handling procedure,
-// cudzoziemcy note) is trimmed; every sentence that feeds a parsed field
-// (opening declaration, subject line, area, price, auction date, round ordinal)
-// is kept VERBATIM.
-//
-// The round-I flat fixture deliberately KEEPS the live pdftotext quirk that
-// makes this source tricky: its "m²" superscript is dropped, so the flat area
-// reads "51,52 m" followed by a U+200B zero-width space and NO "2" (written
-// `​` below). It is a regression fixture for cleanText() + the subject-
-// anchored flatAreaFromText(), which must still read 51,52 m² where the generic
-// "…m²" area helper returns null. The piwnica ("9,95 m") is kept too, to prove
-// the flat's own area wins over the cellar's.
-//
-// Groundtruth (hand-verified against the live PDFs):
-//   os. Beskidzkie, blok nr 1, lokal mieszkalny nr 9, 51,52 m², dz. ewid. 9673/6:
-//     round I   /mfiles/879/28/0/z/Ogloszenie_przetargu_.pdf   cena wywoławcza
-//               155 000 zł, auction 2015-10-26 (opening has NO ordinal word →
-//               round 1)
-//     round II  /mfiles/879/28/0/z/Ogloszenie_przetargu-1.pdf  155 000 zł,
-//               auction 2016-03-01 ("ogłasza drugi przetarg…")
-//     round III /mfiles/879/28/0/z/Ogloszenie-przetarg_III.pdf 155 000 zł,
-//               auction 2016-05-16 ("ogłasza trzeci przetarg…")
-//     → all three share address key "beskidzkie|1|9"; crawlResultDocs forwards
-//       rounds I & II as unsold (superseded), keeps III as the latest listing.
-//   ul. J. Piłsudskiego, dz. ewid. 9911/1 (grunt, 0,1356 ha = 1356 m²):
-//     /mfiles/879/28/0/z/Przetarg_nieograniczony_ul_Pilsudskiego.pdf  cena
-//     wywoławcza netto 240 000 zł, auction 2016-12-15 (the venue sits between
-//     "odbędzie się" and "w dniu 15 grudnia 2016 r." — resolves via the "w dniu"
-//     fallback). Live body describes the plot "zabudowana dwoma budynkami" ~2200
-//     chars in; resolveKind's bounded window must ignore that (see the dedicated
-//     test) and route it grunt, not zabudowana.
-//   ul. Spółdzielców, dz. 6900/7 (grunt, table-format notice):
-//     /mfiles/879/28/0/z/Przetarg_S.pdf  auction 2020-08-11; parcel extracted
-//     from the "Lp." table row; price/area are not machine-readable from the
-//     table layout (best-effort null — a documented low-value gap).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -56,7 +16,6 @@ import {
   parseResultDoc,
 } from '../src/cities/sucha-beskidzka/parse.js';
 
-// ------------------------------------------------------------------ fixtures
 
 const T_FLAT1 = 'BURMISTRZ MIASTA SUCHA BESKIDZKA ogłasza przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 9, znajdującego się w bloku nr 1, os. Beskidzkie';
 const FLAT1 =
@@ -105,16 +64,14 @@ Lp. Nr działki Położenie / opis Powierzchnia Nr Księgi Przeznaczenie Cena Wa
 1. 6900 / 7 Położona w Suchej Beskidzkiej 504 KR1B/00030500/5 12MN1 – tereny 55.350,00 zł 5.000,00 przy ul. Spółdzielców. Działka stanowi wąski pas gruntu.
 Przetarg odbędzie się w dniu 11 sierpnia 2020 r. o godz. 12.00 w sali nr 21, I piętro Urzędu Miasta.`;
 
-// A real lease notice title from the same board (dominant stream, must be dropped).
 const T_LEASE = 'BURMISTRZ MIASTA SUCHA BESKIDZKA ogłasza przetarg pisemny nieograniczony na najem lokalu użytkowego w bloku nr 6, os. Beskidzkie w Suchej Beskidzkiej';
 const T_ROKOWANIA = 'BURMISTRZ MIASTA SUCHA BESKIDZKA zaprasza do rokowań na dzierżawę lokalu użytkowego znajdującego się w bloku nr 14, os. Beskidzkie';
 
-// ------------------------------------------------------------------ unit funcs
 
 test('cleanText: strips the U+200B zero-width space that pdftotext leaves where the "m²" superscript was dropped', () => {
   assert.equal(cleanText('51,52 m​'), '51,52 m');
-  assert.equal(cleanText('wodno­kanalizacyjną'), 'wodnokanalizacyjną'); // soft hyphen
-  assert.equal(cleanText('a b'), 'a b'); // nbsp → space
+  assert.equal(cleanText('wodno­kanalizacyjną'), 'wodnokanalizacyjną');
+  assert.equal(cleanText('a b'), 'a b');
 });
 
 test('isSaleTitle: keeps "ustny … na sprzedaż" sales, drops the najem/dzierżawa/rokowania lease stream', () => {
@@ -135,8 +92,8 @@ test('flatAddressFrom: "os. <Osiedle>, blok nr <bldg>, lokal mieszkalny nr <apt>
 });
 
 test('flatAreaFromText: reads the subject-line area even when the "m²" superscript was dropped, and never the piwnica (9,95)', () => {
-  assert.equal(flatAreaFromText(cleanText(FLAT1)), 51.52); // "51,52 m" + U+200B, no trailing 2
-  assert.equal(flatAreaFromText(cleanText(FLAT2)), 51.52); // "51,52 m2"
+  assert.equal(flatAreaFromText(cleanText(FLAT1)), 51.52);
+  assert.equal(flatAreaFromText(cleanText(FLAT2)), 51.52);
 });
 
 test('parcelFromText: prose "działkę ewidencyjną nr 9911 / 1" (diacritic-declined, spaced /) AND the table row "1. 6900 / 7"', () => {
@@ -149,10 +106,6 @@ test('landStreetFromText: first "przy ul. <Street>" subject, not the Urząd venu
   assert.equal(landStreetFromText(cleanText(LAND_PIL)), 'J. Piłsudskiego');
 });
 
-// Models the live Piłsudskiego notice: a grunt subject up front, then — ~2200
-// chars into Część II — the plot is described "…zabudowana dwoma połączonymi
-// budynkami". classifyKind over the WHOLE body is fooled into 'zabudowana' by
-// that deep mention; resolveKind's bounded opening window must not be.
 const PIL_DEEP_ZABUDOWA =
   'ogłasza przetarg ustny nieograniczony na sprzedaż nieruchomości zlokalizowanej przy ul. J. Piłsudskiego. '
   + 'właścicielem nieruchomości obejmującej działkę ewidencyjną nr 9911/1 o powierzchni 0,1356 ha jest Gmina. '
@@ -160,11 +113,10 @@ const PIL_DEEP_ZABUDOWA =
   + 'Nieruchomość położona jest na działce o nieregularnym, ale korzystnym kształcie, zabudowana dwoma połączonymi budynkami.';
 
 test('resolveKind: bounded opening window ignores a deep incidental "zabudowan" → grunt, though classifyKind(whole body) is fooled into zabudowana', () => {
-  assert.equal(classifyKind(PIL_DEEP_ZABUDOWA), 'zabudowana'); // whole-doc classify: wrong
-  assert.equal(resolveKind(PIL_DEEP_ZABUDOWA), 'grunt');       // window: right
+  assert.equal(classifyKind(PIL_DEEP_ZABUDOWA), 'zabudowana');
+  assert.equal(resolveKind(PIL_DEEP_ZABUDOWA), 'grunt');
 });
 
-// ------------------------------------------------------- parseAnnouncement (flats)
 
 test('parseAnnouncement: os. Beskidzkie 1/9 round I — no ordinal word ⇒ round 1; area survives the dropped superscript', () => {
   const r = parseAnnouncement(T_FLAT1, FLAT1, 'https://sucha-beskidzka.pl/mfiles/879/28/0/z/Ogloszenie_przetargu_.pdf');
@@ -193,12 +145,11 @@ test('parseAnnouncement: os. Beskidzkie 1/9 round III — "ogłasza trzeci przet
   assert.equal(r.auction_date, '2016-05-16');
 });
 
-// --------------------------------------------------------- parseAnnouncement (land)
 
 test('parseAnnouncement: ul. J. Piłsudskiego (grunt) — parcel 9911/1, 0,1356 ha → 1356 m², cena wywoławcza netto 240 000 zł, date via "w dniu" fallback', () => {
   const r = parseAnnouncement(T_LAND_PIL, LAND_PIL, 'https://sucha-beskidzka.pl/x.pdf');
   assert.equal(r.kind, 'grunt');
-  assert.equal(r.address, null); // land is parcel-keyed
+  assert.equal(r.address, null);
   assert.equal(r.address_raw, 'ul. J. Piłsudskiego');
   assert.equal(r.dzialka_nr, '9911/1');
   assert.equal(r.area_m2, 1356);
@@ -218,7 +169,6 @@ test('parseAnnouncement: ul. Spółdzielców (grunt, table notice) — parcel fr
   assert.equal(r.area_m2, null);
 });
 
-// ------------------------------------------- supersession (the achieved-price proxy)
 
 test('supersession: os. Beskidzkie 1/9 rounds I→II→III share one subject key; rounds I & II are the superseded set (III retained)', () => {
   const recs = [
@@ -229,12 +179,11 @@ test('supersession: os. Beskidzkie 1/9 rounds I→II→III share one subject key
   const keys = new Set(recs.map(subjectKey));
   assert.equal(keys.size, 1);
   assert.equal([...keys][0], 'beskidzkie|1|9');
-  // Replicates crawlResultDocs' grouping: forward every round but the last.
   const byRound = new Map();
   for (const r of recs) if (!byRound.has(r.round)) byRound.set(r.round, r);
   const rounds = [...byRound.keys()].sort((a, b) => a - b);
   assert.deepEqual(rounds, [1, 2, 3]);
-  assert.deepEqual(rounds.slice(0, -1), [1, 2]); // superseded → unsold; round III stays active
+  assert.deepEqual(rounds.slice(0, -1), [1, 2]);
 });
 
 test('parseResultDoc: superseded round I forwarded — real price/area/date, outcome unsold, NO fabricated hammer price', () => {

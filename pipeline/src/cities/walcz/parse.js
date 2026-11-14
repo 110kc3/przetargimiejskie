@@ -1,10 +1,3 @@
-// Wałcz notice & result document parsers.
-//
-// Analyzes:
-//   1. Category article lists from Joomla / GovArticle tables
-//   2. Notice detail pages (attachments block)
-//   3. Born-digital notice PDFs (cena wywoławcza, powierzchnia, wadium, termin, adres)
-//   4. Achieved-price result notices / PDFs ("Informacja o wyniku przetargu")
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -94,12 +87,10 @@ export function extractRound(title, text) {
 }
 
 export function extractAuctionDate(title, text) {
-  // 1. In title: "termin przetargu 18.11.2026 r."
   if (title) {
     const tM = /termin\s+przetargu\s+(\d{1,2}[.-]\d{1,2}[.-]\d{4})/iu.exec(title);
     if (tM) return polishDateToIso(tM[1]);
   }
-  // 2. In text: "Przetarg odbędzie się w dniu 18 listopada 2026 r."
   if (text) {
     const bodyM = /(?:przetarg\s+odb[eę]dzie\s+si[eę]\s+w\s+dniu|w\s+dniu)\s+(\d{1,2}\s+[a-ząćęłńóśźż]+\s+\d{4}|\d{1,2}[.-]\d{1,2}[.-]\d{4})/iu.exec(text);
     if (bodyM) return polishDateToIso(bodyM[1]);
@@ -127,20 +118,17 @@ export function extractWadiumDeadline(text) {
 
 export function extractFlatArea(text) {
   if (!text) return null;
-  // Look for unit area in notice lead: "o powierzchni [użytkowej] 44,43 m2"
   const m = /o\s+powierzchni(?:\s+u[żz]ytkowej)?\s*([0-9]+(?:[.,][0-9]+)?)\s*m\s*[2²]/iu.exec(text);
   return m ? parseArea(m[1]) : null;
 }
 
 export function extractLandArea(title, text) {
   const combined = `${title || ''} ${text || ''}`;
-  // Hectares e.g. "0,1496 ha" -> convert to m2
   const haM = /pow\.?\s*([0-9]+(?:[.,][0-9]+)?)\s*ha/iu.exec(combined);
   if (haM) {
     const val = Number(haM[1].replace(',', '.'));
     if (Number.isFinite(val) && val > 0) return Math.round(val * 10000);
   }
-  // Direct m2 e.g. "1496 m2"
   const m2M = /pow\.?\s*([0-9]+(?:[.,][0-9]+)?)\s*m\s*[2²]/iu.exec(combined);
   if (m2M) {
     return parseArea(m2M[1]);
@@ -163,21 +151,18 @@ export function extractParcels(title, text) {
 export function extractAddress(title, text) {
   const sources = [title || '', text || ''];
   for (const src of sources) {
-    // 1. Match "przy ul. Bydgoskiej nr 3, oznaczonego numerem 6"
     const m1 = /(?:przy\s+)?(?:ulicy|ul\.)\s+([\p{L}\d\s.-]+?)(?:\s+nr)?\s+(\d+[A-Za-z]?)(?:,\s*|\s+)oznaczonego numerem\s*(\d+[A-Za-z]?)/iu.exec(src);
     if (m1) {
       const street = m1[1].trim().replace(/\s+/g, ' ');
       const parsed = parseAddress(`ul. ${street} ${m1[2]}/${m1[3]}`);
       if (parsed) return parsed;
     }
-    // 2. Match "przy ulicy Chełmińskiej 29 lok. nr 31" or "przy ulicy Bydgoskiej 3 lok. nr 6"
     const m2 = /(?:przy\s+)?(?:ulicy|ul\.)\s+([\p{L}\d\s.-]+?)(?:\s+nr)?\s+(\d+[A-Za-z]?)(?:\s*,)?\s*(?:lok\.|lokalu)?(?:\s*nr)?\s*(\d+[A-Za-z]?)(?:\s*[,.]|$|\s+termin|\s+o\s+pow)/iu.exec(src);
     if (m2) {
       const street = m2[1].trim().replace(/\s+/g, ' ');
       const parsed = parseAddress(`ul. ${street} ${m2[2]}/${m2[3]}`);
       if (parsed) return parsed;
     }
-    // 3. Fallback: "ul. Street 12/3" standard format
     const m3 = /(?:przy\s+)?(?:ulicy|ul\.)\s+([\p{L}\d\s.-]+?)\s+(\d+[A-Za-z]?)\/(\d+[A-Za-z]?)/iu.exec(src);
     if (m3) {
       const street = m3[1].trim().replace(/\s+/g, ' ');
@@ -216,7 +201,6 @@ export function parseBoardArticles(html, baseUrl = 'https://bip.walcz.pl') {
     const url = new URL(href, baseUrl).toString();
     items.push({ url, title, publishDate });
   }
-  // Fallback if table was missing or structured differently
   if (items.length === 0) {
     const linkRe = /<a\s+[^>]*href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/gi;
     let lm;
@@ -250,7 +234,6 @@ export function extractAttachments(html, baseUrl = 'https://bip.walcz.pl') {
       rawHref.includes('task=article.downloadAttachment') ||
       rawHref.toLowerCase().includes('.pdf')
     ) {
-      // Exclude generic non-notice assets like ewidencja zabytków
       if (/gminna_ewidencja_zabytkow/i.test(rawHref)) continue;
       const url = new URL(rawHref, baseUrl).toString();
       if (seen.has(url)) continue;
@@ -338,7 +321,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!text) return [];
   const clean = text.replace(/\r/g, '').replace(/\s+/g, ' ');
 
-  // Require result markers
   const isResult =
     /informacja\s+o\s+wyniku|wynik\s+przetargu|przetarg\s+zako[ńn]czy[łl]\s+si[ęe]/iu.test(clean) ||
     /nabywc[aą]|najwy[żz]sza\s+cena/iu.test(clean);
@@ -352,7 +334,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const starting_price_pln = extractStartingPrice(clean);
   const area_m2 = extractFlatArea(clean);
 
-  // Negative / unsold markers
   const isNegative =
     /wynik\w*\s+negatywn/iu.test(clean) ||
     /nie\s+wp[łl]yn[ęe][łl]o\s+wadium/iu.test(clean) ||
@@ -366,7 +347,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     final_price_pln = null;
     unsold_reason = 'no_buyer';
   } else {
-    // Sold: extract highest achieved price
     const finalM =
       /(?:cena\s+osi[aą]gni[eę]ta|najwy[żz]sza\s+cena)[^\n\d]*?([0-9]{1,3}(?:[ .\s][0-9]{3})*(?:,[0-9]{2})?)\s*z[łl]/iu.exec(clean) ||
       /(?:za\s+kwot[eę]|za\s+cen[eę])[^\n\d]*?([0-9]{1,3}(?:[ .\s][0-9]{3})*(?:,[0-9]{2})?)\s*z[łl]/iu.exec(clean);

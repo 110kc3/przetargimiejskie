@@ -1,6 +1,3 @@
-// Staszów parser — www.bip.staszow.pl
-//
-// Extracts listing, land, and result records from born-digital LibreOffice PDF attachments.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -165,14 +162,12 @@ export function parseAnnouncement(text, title, url) {
   const parcels = extractParcels(combined);
   const kw = extractKw(combined);
 
-  // Address
   let address = null;
   const mAddr = combined.match(/(?:przy\s+(?:ulicy|ul\.|al\.|alei)|położona?\s+przy\s+(?:ulicy|ul\.|al\.|alei)?)\s*([A-ZĄĆĘŁŃÓŚŹŻ0-9][a-ząćęłńóśźż0-9\.\s\/-]+?)(?:\s+w\s+Staszowie|\s+w\s+miejscowości\s+STASZÓW)?(?:,|\.|\s+o\s+pow|\s+dla\s+której|\s+stanowiąc|\s+Nr|\s+nr)/i);
   if (mAddr) {
     address = parseAddress(mAddr[1].trim(), 'Staszów');
   }
 
-  // Area
   let area_m2 = null;
   const mArea = combined.match(/(?:powierzchni(?:i|a)?\s+użytkowej|pow\.\s*użytkow[a-z]*|o\s+pow(?:ierzchni)?)\s*:?\s*([\d\s,.]+)\s*(?:m2|m²|m\.kw\.)/i);
   if (mArea) {
@@ -185,14 +180,12 @@ export function parseAnnouncement(text, title, url) {
     }
   }
 
-  // Price
   let price = null;
   const mPrice = combined.match(/Cena\s+wywoławcza[^\n\r:]*[:–-]?\s*([\d\s,.]+)\s*(?:zł|pln)/i);
   if (mPrice) {
     price = parsePLN(mPrice[1]);
   }
 
-  // Date
   let auction_date = null;
   const mDate = combined.match(/(?:odbędzie\s+się\s+w\s+dniu|przetarg\s+w\s+dniu|termin\s+przetargu:?)\s*(\d{1,2}\s+[a-ząćęłńóśźż]+\s+\d{4}|\d{1,2}\.\d{1,2}\.\d{4}|\d{4}-\d{2}-\d{2})/i);
   if (mDate) {

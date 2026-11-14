@@ -1,16 +1,3 @@
-// Słubice crawler.
-//
-// Source: bip.slubice.pl — bespoke Next.js SSR BIP platform.
-//
-// Boards:
-//   ANNOUNCEMENTS & RESULTS (Category 193 "Sprzedaż mienia - przetargi"):
-//     https://bip.slubice.pl/kategorie/193-sprzedaz-mienia-przetargi
-//
-// Document layer:
-//   Auction notices and results are published as scanned PDF attachments
-//   (Develop ineo+ 451i office copier scans, CCITT-Fax / JPEG images @ 300 dpi).
-//   Extract via pdfText, falling back to ocrPdf.
-//   Attachment URLs in article HTML resolve via bip-api / bip-docrepo-api.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -36,7 +23,6 @@ export function boardPageUrl(page = 0) {
 
 export async function extractAttachmentText(url) {
   if (!url) return '';
-  // Try native pdftotext first
   try {
     const text = await pdfText(url);
     if (text && text.trim().length > 30) return text;
@@ -44,7 +30,6 @@ export async function extractAttachmentText(url) {
     // fall through to OCR
   }
 
-  // Scanned PDF: route through tesseract -l pol
   try {
     return await ocrPdf(url);
   } catch (err) {
@@ -72,7 +57,6 @@ async function doCrawlActive() {
 
     const items = parseListPage(html, ORIGIN);
     if (page === 0) {
-      // Reaching the official board with content or explicit category header verifies the source
       verified = items.length > 0 ||
         /Sprzeda[żz]\s+mienia\s*[-–]\s*przetargi/i.test(html) ||
         /Brak\s+artyku[łl]/i.test(html);

@@ -1,4 +1,3 @@
-// Regression tests for the "Open (low)" fixes from the June 2026 review.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -10,24 +9,18 @@ import { isFlatAnnouncement } from '../src/cities/swietochlowice/parse.js';
 import { parseAnnouncement as parseKatowiceAnnouncement } from '../src/cities/katowice/parse.js';
 
 test('finn-bip rounds: conjunction "i" is not Roman I; map reaches VII+', () => {
-  // body scope "ogłasza i zaprasza na II przetarg": /i-flagged \bI\b used to
-  // return 1 off the conjunction before ever seeing "II"
   assert.equal(roundFromText('Prezydent ogłasza i zaprasza na II przetarg ustny'), 2);
   assert.equal(roundFromTitle('Ogłoszenie o VII przetargu ustnym nieograniczonym'), 7);
-  // "piątek" (Friday) is not the ordinal "piąty"
   assert.equal(roundFromTitle('Przetarg ustny w piątek na sprzedaż lokalu'), 1);
   assert.equal(roundFromTitle('Piąty przetarg ustny'), 5);
 });
 
 test('finn-bip pattern B: lowercase capture after "przy" is rejected', () => {
-  // "…budynku nr 5 przy czym nabywca…" — the /i flag used to defeat the
-  // uppercase street guard and capture "czym nabywca…" as a street.
   const r = addressFrom(
     '',
     'sprzedaż lokalu mieszkalnego nr 3 w budynku nr 5 przy czym nabywca zobowiązany jest do wpłaty',
   );
   assert.equal(r, null);
-  // genuine pattern B still works
   const ok = addressFrom('', 'lokalu mieszkalnego nr 3 w budynku nr 5 przy ul. Mickiewicza w Mysłowicach');
   assert.equal(ok.address.key, 'mickiewicza|5|3');
 });
@@ -53,7 +46,6 @@ test('Świętochłowice: KW citation no longer rejects a real announcement', () 
     ),
     true,
   );
-  // the bare land-registry annex stays rejected
   assert.equal(isFlatAnnouncement('KW lokalu mieszkalnego przy ul. Katowickiej 5'), false);
   assert.equal(isFlatAnnouncement('Księga wieczysta — załącznik'), false);
 });

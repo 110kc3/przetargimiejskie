@@ -1,8 +1,3 @@
-// Bielsko-Biała parser tests. The live giełda (bielsko-biala.pl) can't be
-// reached from CI sandboxes, so we exercise the parser against fixtures that
-// reproduce the documented "Najważniejsze informacje" labelled block (June 2026,
-// SPIKE-WAVE2.md "Bielsko-Biała"). Tune these against the first real refresh if
-// the live markup differs.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -21,9 +16,6 @@ import {
 
 import { parseIndexLinks, classifyFallback } from '../src/cities/bielsko/crawl.js';
 
-// A flat offer's detail node, Drupal-style label/value divs. Includes the
-// structured `Powierzchnia` = PLOT area (438 m²) to confirm it is NOT taken as
-// the flat area, and the real flat area (17,75 m²) in the description prose.
 const FLAT_NODE = `
 <article class="nieruchomosc">
   <h1>Lokal mieszkalny — ul. Stanisława Wyspiańskiego 32/9</h1>
@@ -44,7 +36,6 @@ const FLAT_NODE = `
   </div>
 </article>`;
 
-// A non-flat offer (działka / plot) — must be rejected by isFlat / parseNode.
 const PLOT_NODE = `
 <article>
   <div><div class="label">Adres:</div><div class="val">ul. Polna (działka)</div></div>
@@ -60,8 +51,6 @@ test('field() reads a labelled value up to the next label', () => {
   assert.equal(field(t, 'Rodzaj nieruchomości'), 'lokal mieszkalny');
   assert.equal(field(t, 'Status oferty'), 'Przetarg ogłoszony');
   assert.equal(field(t, 'Forma przetargu'), 'Pierwszy przetarg pisemny nieograniczony');
-  // "Cena" must not swallow "Cena wywoławcza"-style suffixes; here it's the
-  // plain price.
   assert.equal(field(t, 'Cena'), '92 450,00 zł');
 });
 
@@ -77,9 +66,9 @@ test('roundFromForma maps the ordinal in Forma przetargu', () => {
   assert.equal(roundFromForma('Pierwszy przetarg pisemny nieograniczony'), 1);
   assert.equal(roundFromForma('Drugi przetarg ustny nieograniczony'), 2);
   assert.equal(roundFromForma('Trzeci przetarg'), 3);
-  assert.equal(roundFromForma('Rokowania po drugim przetargu'), 2); // ordinal wins
-  assert.equal(roundFromForma('Rokowania'), null); // negotiations, no round
-  assert.equal(roundFromForma('przetarg pisemny'), 1); // bare → first
+  assert.equal(roundFromForma('Rokowania po drugim przetargu'), 2);
+  assert.equal(roundFromForma('Rokowania'), null);
+  assert.equal(roundFromForma('przetarg pisemny'), 1);
 });
 
 test('priceFrom reads the Cena field as integer PLN', () => {
@@ -92,7 +81,7 @@ test('auctionDateFrom parses dd.mm.yyyy → ISO', () => {
 
 test('areaFrom takes the flat usable area, not the plot or cellar', () => {
   const area = areaFrom(htmlToText(FLAT_NODE));
-  assert.equal(area, 17.75); // not 438 (plot) and not 3.40 (cellar)
+  assert.equal(area, 17.75);
 });
 
 test('addressFrom keys the Adres field', () => {
@@ -135,7 +124,6 @@ test('parseIndexLinks extracts unique /nieruchomosc node URLs', () => {
   ]);
 });
 
-// ---- Land (działka) wiring (HL-1 Bielsko) ----
 import { parseLandNode, plotAreaFrom, parseListingNode } from '../src/cities/bielsko/parse.js';
 import { buildLand } from '../src/core/build-land.js';
 
@@ -164,8 +152,8 @@ test('parseLandNode parses a działka into a parcel-shaped land record', () => {
   const r = parseLandNode(LAND_NODE, 'https://bielsko-biala.pl/nieruchomosc/bukowa-dz');
   assert.ok(r);
   assert.equal(r.kind, 'grunt');
-  assert.equal(r.dzialka_nr, '1922/182'); // not "1922/182 Typ działki: budowlana"
-  assert.equal(r.obreb, 'Lipnik');        // not "Lipnik Księga wieczysta: …"
+  assert.equal(r.dzialka_nr, '1922/182');
+  assert.equal(r.obreb, 'Lipnik');
   assert.equal(r.zoning, 'budowlana');
   assert.equal(r.area_m2, 1234);
   assert.equal(r.starting_price_pln, 670000);
@@ -188,29 +176,20 @@ test('Bielsko land node flows through buildLand into a keyed plot + geoportal li
   assert.ok(plots[0].geoportal_url, 'geoportal_url resolved');
 });
 
-// ---- joint-lot address (the Łukowa 15+17 CI sanity failure) ----
 test('addressFrom keys a joint-lot ("ul. Łukowa 15, Łukowa 17") on the first, clean street', () => {
   const node = '<div><div class="label">Adres:</div><div class="val">ul. Łukowa 15, Łukowa 17</div></div>';
   const a = addressFrom(htmlToText(node));
   assert.ok(a, 'joint-lot still keyed');
-  assert.equal(a.address.street_norm, 'lukowa');   // not "lukowa 15 lukowa"
+  assert.equal(a.address.street_norm, 'lukowa');
   assert.equal(a.address.building, '15');
   assert.ok(!/\d/.test(a.address.street), 'street has no digits → passes the sanity gate');
 });
 
 test('addressFrom drops an address that can only resolve to a junk (digit) street', () => {
   const node = '<div><div class="label">Adres:</div><div class="val">działka 12/3 na terenie</div></div>';
-  // no clean street → null (rather than emit a junk-street record that fails CI)
   assert.equal(addressFrom(htmlToText(node)), null);
 });
 
-// ---- missing-Rodzaj fallback (the silently-dropped-offer bug) ----
-//
-// Live example: ul. Andrzeja Frycza Modrzewskiego 2/5, 768 080 zł — the node
-// carries NO `Rodzaj nieruchomości` field, so classifyKind('') → 'unknown' and
-// the crawl's if/else chain fires no branch → the offer was silently dropped.
-// The body prose ("Lokal mieszkalny…") and the category chip carry the kind, so
-// classifyFallback must recover 'mieszkalny'.
 const FLAT_NODE_NO_RODZAJ = `
 <article class="nieruchomosc">
   <h1>Ogłoszenie o przetargu — ul. Andrzeja Frycza Modrzewskiego 2/5</h1>
@@ -239,12 +218,10 @@ test('classifyFallback reads the category chip even without body prose', () => {
 });
 
 test('classifyFallback falls back to title+body prose when there is no chip', () => {
-  // commercial only in the prose ("lokal użytkowy")
   assert.equal(
     classifyFallback('Przedmiotem przetargu jest lokal użytkowy o powierzchni 45 m2.'),
     'uzytkowy',
   );
-  // house only in the prose ("nieruchomość zabudowana budynkiem")
   assert.equal(
     classifyFallback('Sprzedaż nieruchomości zabudowanej budynkiem mieszkalnym jednorodzinnym.'),
     'zabudowana',
@@ -256,14 +233,11 @@ test('classifyFallback returns unknown when neither chip nor prose carries a kin
 });
 
 test('a missing-Rodzaj flat node is keyable as a listing via the fallback path', () => {
-  // The crawl routes a fallback 'mieszkalny' through parseListingNode (parseNode
-  // would reject it for lack of the Rodzaj field). Confirm it keys + carries the
-  // prose area, not the 512 m² plot.
   const node = parseListingNode(FLAT_NODE_NO_RODZAJ, 'https://bielsko-biala.pl/nieruchomosc/modrzewskiego-2-5', 'mieszkalny');
   assert.ok(node, 'missing-Rodzaj flat still keyed');
   assert.equal(node.kind, 'mieszkalny');
   assert.equal(node.starting_price_pln, 768080);
-  assert.equal(node.area_m2, 130.21); // prose area, not the 512 m² plot
+  assert.equal(node.area_m2, 130.21);
   assert.equal(node.address.building, '2');
   assert.equal(node.address.apt, '5');
   assert.equal(node.auction_date, '2026-07-14');

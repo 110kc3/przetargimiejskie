@@ -1,6 +1,3 @@
-// Crawler for Bielsk Podlaski (bip-umbielsk.podlaskie.eu)
-//
-// Scrapes Podlaskie platform property pages and born-digital PDFs.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

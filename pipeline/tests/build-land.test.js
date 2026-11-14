@@ -89,7 +89,7 @@ test('distinct parcels stay separate; latest-date plot sorts first', () => {
     { dzialka_nr: '20/2', auction_date: '2026-06-01', starting_price_pln: 2 },
   ], 'bielsko');
   assert.equal(plots.length, 2);
-  assert.equal(plots[0].dzialka_nr, '20/2'); // newest first
+  assert.equal(plots[0].dzialka_nr, '20/2');
 });
 
 test('plot area takes the largest seen; missing round derives from order', () => {
@@ -98,7 +98,7 @@ test('plot area takes the largest seen; missing round derives from order', () =>
     { dzialka_nr: '5/5', area_m2: 650, auction_date: '2025-08-01', starting_price_pln: 1 },
   ], 'gliwice');
   assert.equal(plots[0].area_m2, 650);
-  assert.deepEqual(plots[0].listings.map((l) => l.round), [1, 2]); // derived
+  assert.deepEqual(plots[0].listings.map((l) => l.round), [1, 2]);
 });
 
 test('address-fallback keying when no parcel number is present', () => {

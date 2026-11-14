@@ -1,7 +1,3 @@
-// Standardized REKORD SI BIP platform engine.
-// Handles municipalities running REKORD SI BIP (Oświęcim, Stargard, Dąbrowa Górnicza, etc.)
-// which expose server-rendered category boards at /<catId> and documents at /<catId>/dokument/<docId>
-// with attachments at api/download/file?id=<id>.
 
 import { getText } from './fetch.js';
 import { parseAddress } from './normalize.js';

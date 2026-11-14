@@ -1,19 +1,3 @@
-// Kościerzyna parsers.
-//
-// Extracts structured property and auction fields from INTERmedi@ CMS-BIP HTML
-// pages and attached announcement/result documents (text PDFs converted via pdfText,
-// with ocrPdf fallback).
-//
-// Groundtruthed against live fixtures from bip.koscierzyna.gda.pl:
-// - Announcements (per-year cid boards, e.g. 557, 501, 454, 437):
-//   - WGN/4/2026 (id 1912): ul. Sikorskiego 6 m. 7 (52.13 m², 170 000 zł, auction 2026-07-31, round 2)
-//   - WGN/2/2026 (id 1873): ul. Sikorskiego 6 m. 7 (52.13 m², 200 000 zł, auction 2026-05-22, round 1)
-//   - WGN/5/2024 (id 1567): ul. Świętojańska 14 m. 5 (15.94 m², 50 750 zł, auction 2024-09-12, round 1)
-//   - WGN/1/2024 (id 1427): Multi-flat: ul. Sikorskiego 6 m. 7 (47.10 m², 175 000 zł)
-//     + ul. dr. Leona Heykego 1/C/11 (25.63 m², 120 000 zł), auction 2024-04-04, round 2
-// - Results:
-//   - WGN/7/2024 (id 1591): Informacja o wynikach przetargu (Wyniki przetargu PDF)
-//   - WGN/11/2025 (id 1734): Informacja o wynikach przetargu (Wyniki przetargu PDF)
 
 import { parseAddress } from '../../core/normalize.js';
 
@@ -81,19 +65,16 @@ export function cleanAddrStr(raw) {
 
 export function auctionDateFromAnnouncement(text) {
   if (!text) return null;
-  // "przetarg ... odbędzie się w dniu 31 lipca 2026 r." / "przetargi odbędą się w dniu 4 kwietnia 2024 r."
   const m1 = /(?:przetarg|przetargi)\s+(?:odb[ęe]d[ąa]\s+si[ęe]|odb[ęe]dzie\s+si[ęe])\s+(?:w\s+dniu\s+|dnia\s+)?(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(text);
   if (m1) {
     const mon = PL_MONTHS[m1[2].toLowerCase()];
     if (mon) return `${m1[3]}-${mon}-${m1[1].padStart(2, '0')}`;
   }
-  // "data przetargu: 8 grudnia 2026 r." / "termin przetargu: 10 września 2021 r."
   const m2 = /(?:data|termin)\s+przetargu\s*:?\s*(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(text);
   if (m2) {
     const mon = PL_MONTHS[m2[2].toLowerCase()];
     if (mon) return `${m2[3]}-${mon}-${m2[1].padStart(2, '0')}`;
   }
-  // Dotted: "12.09.2024"
   const m3 = /(?:data|termin)\s+przetargu\s*:?\s*(\d{1,2})[.-](\d{1,2})[.-](\d{4})/i.exec(text);
   if (m3) {
     return `${m3[3]}-${m3[2].padStart(2, '0')}-${m3[1].padStart(2, '0')}`;
@@ -103,19 +84,16 @@ export function auctionDateFromAnnouncement(text) {
 
 export function auctionDateFromResult(text) {
   if (!text) return null;
-  // "w dniu 5 marca 2026 roku ... odbył się ... przetarg"
   const m1 = /(?:w\s+dniu\s+|dnia\s+)?(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})\s*r(?:oku)?[\s\S]{0,120}?odby[łl]\s+si[ęe]/i.exec(text);
   if (m1) {
     const mon = PL_MONTHS[m1[2].toLowerCase()];
     if (mon) return `${m1[3]}-${mon}-${m1[1].padStart(2, '0')}`;
   }
-  // "odbył się ... w dniu 5 marca 2026"
   const m2 = /odby[łl]\s+si[ęe][\s\S]{0,120}?(?:w\s+dniu\s+|dnia\s+)(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(text);
   if (m2) {
     const mon = PL_MONTHS[m2[2].toLowerCase()];
     if (mon) return `${m2[3]}-${mon}-${m2[1].padStart(2, '0')}`;
   }
-  // Table column: Data przetargu followed by date e.g. "5 grudnia 2024 r." or "19 września 2025 r."
   const m3 = /(?:Data\s+przetargu[\s\S]{0,40}?)(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(text);
   if (m3) {
     const mon = PL_MONTHS[m3[2].toLowerCase()];
@@ -139,8 +117,6 @@ export function roundFromText(text) {
     r = ROMAN[romanM[1].toLowerCase()] || r;
   }
 
-  // Handle clerical cases in announcements where notice says "pierwszy ... przetarg"
-  // but notes that previous round was negative ("wyznaczony/zaplanowany był na ... i zakończył się wynikiem negatywnym")
   if (
     r === 1 &&
     /(?:zaplanowany|wyznaczony|og[łl]oszony)\s+by[łl]\s+na\s+dzie[ńn][\s\S]{0,80}zako[ńn]czy[łl]\s+si[ęe]\s+wynikiem\s+negatywnym/i.test(
@@ -154,14 +130,10 @@ export function roundFromText(text) {
 
 export function isAnnouncement(title, summary) {
   const combined = `${title || ''} ${summary || ''}`.toLowerCase();
-  // Exclude result documents on board
   if (/wynik|rozstrzyg/i.test(combined)) return false;
 
-  // Must be auction / tender
   if (!/przetarg|licytacj/i.test(combined)) return false;
-  // Must be sale
   if (!/sprzeda[żz]|zbyci/i.test(combined)) return false;
-  // Must target flats / residential property
   const isResidential =
     /lokal\w*\s+miesz/i.test(combined) ||
     /okali\s+miesz/i.test(combined) ||
@@ -170,7 +142,6 @@ export function isAnnouncement(title, summary) {
     /budyn\w*\s+miesz/i.test(combined);
   if (!isResidential) return false;
 
-  // Filter out rentals, leases, land, equipment, and unrelated services
   if (/najem|dzier[żz]aw|konkurs\s+(?:ofert\s+)?na\s+najem/i.test(combined)) return false;
   if (/gara[żz]|boksu|motocykl|reklam/i.test(combined)) return false;
   if (/niezabudowan\w*\s+dzia[łl]k/i.test(combined)) return false;
@@ -181,7 +152,6 @@ export function isAnnouncement(title, summary) {
 
 export function isResultNotice(title, summary) {
   const combined = `${title || ''} ${summary || ''}`.toLowerCase();
-  // Result signals
   const isResult =
     /wynik/i.test(combined) ||
     /rozstrzyg/i.test(combined) ||
@@ -189,9 +159,7 @@ export function isResultNotice(title, summary) {
     /informacja\s+(?:z\s+|o\s+)[\w\s]{0,25}wynik/i.test(combined);
   if (!isResult) return false;
 
-  // Filter out council voting results or elections
   if (/g[łl]osowa[ńn]|wybor/i.test(combined)) return false;
-  // Filter out leases/rentals
   if (/najem|dzier[żz]aw/i.test(combined)) return false;
 
   return true;
@@ -277,7 +245,6 @@ export function addressFromText(text) {
   if (m) {
     return parseAddress(`ul. ${m[1].trim()} ${m[2].trim()}`);
   }
-  // Try pattern with "m." or "lokal"
   const m2 = /ul\.\s+([A-ZŁŚĆĘĄÓŹŻŃa-ząćęłńóśźż.\s-]+?)\s+(\d+[A-Za-z]?)\s*(?:m\.|\/|lokal\s+nr)\s*(\d+[A-Za-z]?)/i.exec(clean);
   if (m2) {
     return parseAddress(`ul. ${m2[1].trim()} ${m2[2].trim()}/${m2[3].trim()}`);
@@ -287,16 +254,12 @@ export function addressFromText(text) {
 
 export function areaFromText(text) {
   if (!text) return null;
-  // Single flat: "Powierzchnia użytkowa lokalu w m² 15,94"
   const m1 = /powierzchnia\s+u[żz]ytkowa\s+lokalu\s+(?:w\s+m[²2]\s+)?(\d+[,.]\d{1,2})/i.exec(text);
   if (m1) return parseArea(m1[1]);
-  // Table section: Powierzchnia użytkowa ... a) 52,13
   const m2 = /Powierzchnia\s+u[żz]ytkowa[\s\S]*?(?:a\)\s*(\d+[,.]\d{1,2})|(\d+[,.]\d{1,2})\s*(?:m|lokalu))/i.exec(text);
   if (m2) return parseArea(m2[1] || m2[2]);
-  // "Pow. w m2 ... lokalu 26,89"
   const m3 = /Pow\.\s*w\s*m2[\s\S]{0,50}?lokalu\s+(\d+[,.]\d{1,2})/i.exec(text);
   if (m3) return parseArea(m3[1]);
-  // "powierzchni użytkowej 52,13 m²"
   const m4 = /powierzchni\s+u[żz]ytkowej\s+(\d+[,.]\d{1,2})/i.exec(text);
   if (m4) return parseArea(m4[1]);
   return null;
@@ -304,10 +267,8 @@ export function areaFromText(text) {
 
 export function startingPriceFromText(text) {
   if (!text) return null;
-  // Prefer "c) łącznie ... 170.000,00"
   const m1 = /c\)\s*[łl][ąa]cznie[\s\S]{0,100}?(\d{1,3}(?:\.\d{3})+,\d{2})/i.exec(text);
   if (m1) return parsePLN(m1[1]);
-  // "Cena wywoławcza ... 85.000,00 zł"
   const m2 = /cena\s+wywo[łl]awcza[\s\S]{0,150}?(\d{1,3}(?:\.\d{3})+,\d{2})/i.exec(text);
   if (m2) return parsePLN(m2[1]);
   return null;
@@ -315,10 +276,8 @@ export function startingPriceFromText(text) {
 
 export function finalPriceFromText(text) {
   if (!text) return null;
-  // "Osiągnięta cena w przetargu w zł 202.000,00" / "cena osiągnięta ... 2.920.000,00"
   const m1 = /(?:osi[ąa]gni[ęe]ta\s+cena|cena\s+osi[ąa]gni[ęe]ta)[\s\S]{0,50}?(\d{1,3}(?:[.,]\d{3})*(?:,\d{2})?)/i.exec(text);
   if (m1) return parsePLN(m1[1]);
-  // "najwyższa cena osiągnięta ... 97 010 zł"
   const m2 = /najwy[żz]sz[ąa]\s+cen[ęe]\s+osi[ąa]gni[ęe]t[ąa][\s\S]{0,40}?(\d{1,3}(?:[.,]\d{3})*(?:,\d{2})?)/i.exec(text);
   if (m2) return parsePLN(m2[1]);
   return null;
@@ -332,7 +291,6 @@ export function parseAnnouncementDetail(detailHtml, docText, context = {}) {
   const published_date = context.published_date || null;
   const detail_url = context.url || null;
 
-  // Extract address block from docText
   const blockM = /(?:Adres lokalu|Położenie i opis lokalu)[\s\S]*?(?=Powierzchnia|Pow\. w m2|Nr księgi|Nr działki)/i.exec(docText || '');
   const addrs = [];
   if (blockM) {
@@ -346,7 +304,6 @@ export function parseAnnouncementDetail(detailHtml, docText, context = {}) {
     }
   }
 
-  // If no addresses found in PDF table, fallback to general address parser or HTML
   if (addrs.length === 0) {
     const fallbackAddr = addressFromText(fullText);
     if (fallbackAddr) addrs.push(fallbackAddr);
@@ -354,9 +311,7 @@ export function parseAnnouncementDetail(detailHtml, docText, context = {}) {
 
   if (addrs.length === 0) return [];
 
-  // Multi-flat announcement handling
   if (addrs.length > 1) {
-    // Extract per-flat areas from docText
     const areas = [];
     const areaSectionM = /(?:Powierzchnia użytkowa|Pow\.\s*w\s*m2)[\s\S]*?(?=Opis lokalu|Nr księgi|działki|Cena wywoławcza)/i.exec(docText || '');
     if (areaSectionM) {
@@ -370,7 +325,6 @@ export function parseAnnouncementDetail(detailHtml, docText, context = {}) {
       }
     }
 
-    // Extract per-flat prices from docText
     const prices = [];
     const priceSectionM = /Cena\s+wywo[łl]awcza[\s\S]*?(?=Wadium)/i.exec(docText || '');
     if (priceSectionM) {
@@ -399,7 +353,6 @@ export function parseAnnouncementDetail(detailHtml, docText, context = {}) {
     }));
   }
 
-  // Single-flat announcement handling
   const address = addrs[0];
   const area_m2 = areaFromText(docText) || areaFromText(fullText);
   const starting_price_pln = startingPriceFromText(docText) || startingPriceFromText(fullText);
@@ -421,11 +374,9 @@ export function parseAnnouncementDetail(detailHtml, docText, context = {}) {
 
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!text) return [];
-  // Guard: must relate to auction results
   if (!/(?:informacja\s+o\s+wynik|wynik|odby[łl]\s+si[ęe]|Burmistrz\s+Miasta\s+Kościerzyna)/i.test(text)) {
     return [];
   }
-  // Must target residential property / flats / mienie
   if (!/lokal\w*\s+miesz|okali\s+miesz|lokal\w*\s+(?:nr|nt|m\.)\s*\d+|budyn\w*\s+miesz|mienia\s+Gminy/i.test(text)) {
     return [];
   }
@@ -438,7 +389,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const starting_price_pln = startingPriceFromText(text);
   const area_m2 = areaFromText(text);
 
-  // Check negative outcome
   const negative =
     /wynik\w*\s+negatywn/i.test(text) ||
     /nikt\s+nie\s+przyst[ąa]pi[łl]/i.test(text) ||

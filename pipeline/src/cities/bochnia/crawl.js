@@ -1,21 +1,3 @@
-// Bochnia crawler — the WordPress "Komunikaty i ogłoszenia" category archive
-// (server-rendered HTML, no OCR). See config.js.
-//
-// The archive is a MIXED, paginated list (107 pages: auctions, results,
-// ostrzeżenia, wykazy, konkursy). Each post is a full HTML article at
-// https://bochnia.eu/<slug>/. We harvest (href,title) pairs from the archive
-// pages, keep only sale announcements + result notices by TITLE, then fetch each
-// article and parse its cs-post-content body.
-//
-// One memoised pass serves both streams (refresh.js calls crawlResultDocs() then
-// crawlActive()). source:'html' ⇒ result refs already carry `.text`.
-//
-// Bounded for CI: a page cap + a wall-clock budget on the index harvest so the
-// 25-min refresh job can't stall on the 107-page archive. Incremental: result
-// pages already committed to data/bochnia are skipped via loadKnownSourceUrls.
-//
-// NOTE (confirm on first CI refresh): the archive markup + pagination depth were
-// inferred from the live pages; the body parsers are groundtruthed.
 
 import { getText } from '../../core/fetch.js';
 import { loadKnownSourceUrls } from '../../core/known-urls.js';
@@ -30,10 +12,6 @@ const FETCH_OPTS = { userAgent: BROWSER_UA };
 const MAX_PAGES = Number(process.env.BOCHNIA_MAX_PAGES) || 40;
 const TIME_BUDGET_MS = Number(process.env.BOCHNIA_TIME_BUDGET_MS) || 120000;
 
-// A post permalink is a single-segment slug: https://bochnia.eu/<slug>/ (no
-// further "/"). Multi-segment paths (/kategorie/…/page/N/, /en/…, /wp-…) are
-// excluded because the slug char class forbids "/". Harvest (href,title) — the
-// thumbnail anchor wraps an <img> (title flattens to empty → dropped).
 const POST_RE = /<a[^>]+href="(https:\/\/bochnia\.eu\/[a-z0-9][a-z0-9-]{15,}\/)"[^>]*>([\s\S]*?)<\/a>/gi;
 
 function harvestLinks(html) {
@@ -47,8 +25,6 @@ function harvestLinks(html) {
   return out;
 }
 
-// Isolate the article body (the WordPress post content div), dropping the
-// surrounding chrome / social / related-posts sections.
 function articleBody(html) {
   const m = /<[^>]*class="cs-post-content"[^>]*>/i.exec(html);
   if (!m) return html;
@@ -63,8 +39,6 @@ async function crawlAll() {
   const known = await loadKnownSourceUrls('bochnia');
   const start = Date.now();
 
-  // 1) Harvest candidate (href,title) across the paginated archive; keep sale
-  //    announcements + result notices by title; dedupe by href.
   const seen = new Set();
   const candidates = [];
   for (let p = 1; p <= MAX_PAGES; p++) {
@@ -77,7 +51,6 @@ async function crawlAll() {
     try {
       html = await getText(url, FETCH_OPTS);
     } catch (err) {
-      // 404 past the last archive page → stop paging.
       if (!/\b404\b/.test(err.message)) {
         console.error(`  bochnia index fetch failed (${url}): ${err.message}`);
       }
@@ -94,7 +67,6 @@ async function crawlAll() {
   }
   console.error(`  bochnia: ${candidates.length} candidate article(s) (announcements + results)`);
 
-  // 2) Fetch + parse each. Skip result pages already committed to data/bochnia.
   const listings = [];
   const land = [];
   const resultRefs = [];
@@ -109,9 +81,6 @@ async function crawlAll() {
     }
     const body = articleBody(html);
     if (c.role === 'result') {
-      // Fold the title into the text so round/kind detection is robust (the
-      // body repeats "o wyniku … przetargu", but the round ordinal is clearest
-      // in the title).
       resultRefs.push({
         text: `${c.title}. ${htmlToText(body)}`,
         pdf_url: c.href, detail_url: c.href, auction_date: null,

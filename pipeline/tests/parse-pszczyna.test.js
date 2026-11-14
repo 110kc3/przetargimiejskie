@@ -1,40 +1,3 @@
-// Pszczyna parser tests. Fixtures are condensed-but-faithful copies of REAL
-// live bip.pszczyna.pl bodies (verified 2026-07-10):
-//   ann Bednarska 21/4 — flat ANNOUNCEMENT, PDF-extracted (the inline HTML
-//     body is EMPTY on this doc — the modern norm, see config.js/crawl.js),
-//     VIII przetarg, cena wywoławcza 47.000 zł, przetarg 09.07.2025. The body
-//     states the WHOLE BUILDING's combined usable area (10 lokali, łączna
-//     powierzchnia użytkowa 508,02 m2) BEFORE this flat's own area
-//     (28,97 m2) — a real trap for a naive first-match area extractor.
-//   ann Rynek 22/3 — flat ANNOUNCEMENT, OLD-style INLINE HTML body (2007),
-//     same building-total-vs-unit-area trap (7 lokali, łączna 401,66 m2,
-//     vs this flat's own 41,06 m2), cena wywoławcza 23.290,00- zł (dash-grosze
-//     format), przetarg 08.11.2007, address via locative "przy Rynku 22"
-//     (normalised to nominative "Rynek").
-//   wynik Korfantego 27/1 — flat RESULT SOLD (structured HTML table),
-//     3 dopuszczona/0 niedopuszczona, 258.000,- zł -> 273.000,- zł, nabywca
-//     "BUDUJE.MY sp. z o.o. z siedzibą w Pszczynie", 28.02.2024.
-//   wynik Szymanowskiego 22/5 — flat RESULT SOLD, II, 250.000,- zł ->
-//     252.500,- zł, nabywca "Justyna i Szymon JENCZURA" (two individuals),
-//     23.07.2025 — also exercises the compound flat-id "22/5" against a
-//     THREE-number street range "Karola Szymanowskiego 20-22-24".
-//   ann Braci Jędrysików — land (niezabudowana) ANNOUNCEMENT, INLINE HTML,
-//     dz. 6602/65 (+ 1/4 udział w dz. 6603/65), 0,0918 ha, cena wywoławcza
-//     126 850,00 zł, przetarg 25.01.2023, I.
-//   wynik dr. Witolda Antesa — land RESULT SOLD, dz. 464/12 (parcel stated
-//     WITHOUT the usual "nr" label — "oznaczonej działką 464/12"),
-//     280.000,00 -> 430.000,00, nabywca "Grzegorz Prokopowicz", 11.09.2024.
-//   wynik ul. Katowicka — land RESULT UNSOLD, 4 parcels joined "nr: A, B i C"
-//     (5959/513, 6228/514, 6238/513, 6240/513), NO table at all — prose-only
-//     "zakończył się wynikiem negatywnym, z braku chętnych na jej nabycie."
-//   lease title — real "…na wydzierżawienie nieruchomości … zabytkowego parku
-//     pszczyńskiego (Dmuchaniec)" — must never reach an active listing.
-//
-// REAL PARSER BUG fixed here (see parse.js header + unitAreaFromText): the
-// shared core/finn-bip.js areaFromText scans left-to-right and would return a
-// multi-unit building's COMBINED total (401,66 / 508,02 m2) instead of the
-// specific flat's own area (41,06 / 28,97 m2) — wrong by 10-14x. Both
-// announcement fixtures below assert the FLAT's own figure wins.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -59,7 +22,6 @@ import {
 } from '../src/cities/pszczyna/parse.js';
 import { searchUrl, harvestSearchItems, pickAttachment } from '../src/cities/pszczyna/crawl.js';
 
-// ---------------------------------------------------------------- title routing
 
 test('title routing: real announcement / result / lease titles', () => {
   assert.equal(
@@ -85,25 +47,20 @@ test('title routing: real announcement / result / lease titles', () => {
     true,
   );
   assert.equal(isResultTitle('Informacja o wyniku przetargu na sprzedaż nieruchomości położonych w Pszczynie przy ul. Katowickiej'), true);
-  // A result title must never also pass the announcement gate.
   assert.equal(
     isAnnouncementTitle('Informacja o wyniku II przetargu na sprzedaż lokalu mieszkalnego nr 22/5 w budynku położonym w Pszczynie przy ul. Karola Szymanowskiego 20-22-24'),
     false,
   );
-  // Real lease title (Dmuchaniec park) — must never reach an active listing.
   const LEASE_TITLE =
     'Ogłoszenie o przetargu ustnym nieograniczonym w formie licytacji na wydzierżawienie nieruchomości położonej w Pszczynie obejmującej część zabytkowego parku pszczyńskiego (Dmuchaniec)';
   assert.equal(isLeaseTitle(LEASE_TITLE), true);
   assert.equal(isAnnouncementTitle(LEASE_TITLE), false);
 });
 
-// ------------------------------------------------------------------ fixtures
 
 const ANN_BEDNARSKA_TITLE =
   'Ogłoszenie o VIII przetargu ustnym nieograniczonym na sprzedaż lokalu mieszkalnego nr 21/4, planowanego do wyodrębnienia w budynkach położonych w Pszczynie przy ul. Bednarskiej 21 i ul. Rynek 3';
 
-// pdftotext -layout output of the real attachment (/zalacznik/80046), condensed
-// to the load-bearing sentences (verified live 2026-07-10).
 const ANN_BEDNARSKA_BODY = `OGŁOSZENIE O PRZETARGU
 BURMISTRZ PSZCZYNY
 Ogłasza VIII przetarg ustny nieograniczony na sprzedaż samodzielnego lokalu mieszkalnego nr 21/4, planowanego do wyodrębnienia w budynkach położonych w Pszczynie przy ul. Bednarskiej 21 i ul. Rynek 3
@@ -120,9 +77,6 @@ Ogłasza VIII przetarg ustny nieograniczony na sprzedaż samodzielnego lokalu mi
 const ANN_RYNEK22_TITLE =
   'Przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 3, w budynku położonym w Pszczynie przy Rynku 22';
 
-// Inline <article class="content"> body (already flattened to text here —
-// parseAnnouncement runs htmlToText on it regardless, which is a harmless
-// no-op on plain text), condensed from the real 2007 announcement.
 const ANN_RYNEK22_BODY = `O G Ł O S Z E N I E O P R Z E T A R G U
 BURMISTRZ PSZCZYNY
 ogłasza przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 3, w budynku położonym w Pszczynie przy Rynku 22.
@@ -161,7 +115,6 @@ const RES_KATOWICKA_HTML =
   'Informacja o wyniku przetargu na sprzedaż nieruchomości położonych w Pszczynie przy ul. Katowickiej. ' +
   '<article class="content">\n\t<h2>Informacja o wyniku przetargu</h2> <p>Burmistrz Pszczyny informuje, że pierwszy przetarg ustny nieograniczony, wyznaczony na dzień <b>11 maja </b><b>2022 r</b>. w Urzędzie Miejskim w Pszczynie, na sprzedaż nieruchomości niezabudowanej, położonej w <b>Pszczynie </b>przy<b> ul. Katowickiej</b>, oznaczonej na arkuszu 1 mapy ewidencyjnej obrębu Pszczyna działkami nr: <b>5959/513, 6228/514, 6238/513 i 6240/513</b>,<b> </b>o łącznej powierzchni 0,2357 ha,<b> </b>dla której Sąd Rejonowy w Pszczynie prowadzi księgę wieczystą oznaczoną KA1P/00033326/8 <strong>zakończył się wynikiem </strong>negatywnym, z braku chętnych na jej nabycie. </p></article>';
 
-// ---------------------------------------------------------------- unit extractors
 
 test('resultTableFromHtml: structured SOLD table (with-zł and plain-decimal cell styles)', () => {
   const t1 = resultTableFromHtml(RES_KORFANTEGO_HTML);
@@ -170,7 +123,7 @@ test('resultTableFromHtml: structured SOLD table (with-zł and plain-decimal cel
     starting_price_pln: 258000, final_price_pln: 273000,
     buyer: 'BUDUJE.MY sp. z o.o. z siedzibą w Pszczynie',
   });
-  const t2 = resultTableFromHtml(RES_ANTESA_HTML); // "280.000,00" cells — no "zł", no ",-"
+  const t2 = resultTableFromHtml(RES_ANTESA_HTML);
   assert.deepEqual(t2, {
     dopuszczona: 2, niedopuszczona: 0,
     starting_price_pln: 280000, final_price_pln: 430000,
@@ -213,21 +166,16 @@ test('flatAddressFromText: compound id drops the street range; bare id combines 
   assert.equal(bednarska.address.building, '21');
   assert.equal(bednarska.address.apt, '4');
 
-  // Bare flat id ("3", no slash) combines with the STREET's own number.
   const rynek = flatAddressFromText(ANN_RYNEK22_TITLE, ANN_RYNEK22_BODY);
-  assert.equal(rynek.address_raw, 'Rynek 22/3'); // "Rynku" (locative) normalised to "Rynek"
+  assert.equal(rynek.address_raw, 'Rynek 22/3');
   assert.equal(rynek.address.street, 'Rynek');
   assert.equal(rynek.address.building, '22');
   assert.equal(rynek.address.apt, '3');
-  // The office's own "Rynek 2" (mentioned later, "w sali Ratusza w Pszczynie,
-  // Rynek 2") must never be picked as the property address.
   assert.notEqual(rynek.address.building, '2');
 });
 
 test('unitAreaFromText: REAL BUG — the flat\'s own area wins over the whole building\'s combined total', () => {
-  // Bednarska 21/4: building total (10 lokali) 508,02 m2 vs this flat 28,97 m2.
   assert.equal(unitAreaFromText(ANN_BEDNARSKA_BODY, '21/4'), 28.97);
-  // Rynek 22/3: building total (7 lokali) 401,66 m2 vs this flat 41,06 m2.
   assert.equal(unitAreaFromText(ANN_RYNEK22_BODY, '3'), 41.06);
 });
 
@@ -235,7 +183,6 @@ test('parcelFromText: labelled "nr", colon-labelled list, and NO-label form ("dz
   assert.equal(parcelFromText('oznaczona jest działką nr 6602/65 o powierzchni 0,0918 ha oraz działką nr 6603/65 o powierzchni 0,0229 ha'), '6602/65, 6603/65');
   assert.equal(parcelFromText('działkami nr: 5959/513, 6228/514, 6238/513 i 6240/513, o łącznej powierzchni'), '5959/513, 6228/514, 6238/513, 6240/513');
   assert.equal(parcelFromText('na sprzedaż nieruchomości położonej w Pszczynie przy ul. dr. Witolda Antesa, oznaczonej działką 464/12, zakończył'), '464/12');
-  // A decimal area figure right after "działki" must never be mis-read as parcel "0".
   assert.equal(parcelFromText('o łącznej powierzchni działki 0,0918 ha'), null);
 });
 
@@ -250,7 +197,6 @@ test('landStreetFromText: property street, never the office ("ul. Rynek 2")', ()
   assert.equal(landStreetFromText('w Urzędzie Miejskim w Pszczynie, przy ul. Rynek 2, budynek A, przy ul. Katowickiej, oznaczonej'), 'Katowickiej');
 });
 
-// -------------------------------------------------------------- extractDetail
 
 test('extractDetail: empty inline content + real "Pliki do pobrania" attachment block -> PDF attachment ref', () => {
   const html =
@@ -262,7 +208,7 @@ test('extractDetail: empty inline content + real "Pliki do pobrania" attachment 
     '<span aria-hidden="true">153 kB</span></p></li></ul>';
   const detail = extractDetail(html);
   assert.equal(detail.title, ANN_BEDNARSKA_TITLE);
-  assert.equal(detail.contentText, ''); // empty inline body — the modern norm
+  assert.equal(detail.contentText, '');
   assert.equal(detail.attachments.length, 1);
   assert.equal(detail.attachments[0].format, 'pdf');
   assert.equal(detail.attachments[0].url, 'https://bip.pszczyna.pl/zalacznik/80046');
@@ -275,9 +221,6 @@ test('extractDetail: returns null for a page with no id="cnt" region (defends th
 });
 
 test('end-to-end (extractDetail -> parseResultDoc), exactly like crawl.js: a full real page shape for Korfantego 27/1', () => {
-  // Mirrors the real page layout: nav/menu chrome would precede id="cnt" on a
-  // live fetch (crawl.js's fetch already returns that); extractDetail scopes
-  // to the id="cnt" region regardless, so a minimal wrapper is sufficient here.
   const fullPage =
     '<html><body><nav>…thousands of unrelated sidebar links…</nav>' +
     `<article id="cnt" class="document"><header><h2>Informacja o wyniku przetargu na sprzedaż lokalu mieszkalnego nr 27/1 w budynku położonym w Pszczynie przy ul. Wojciecha Korfantego 19-35</h2></header>` +
@@ -293,8 +236,6 @@ test('end-to-end (extractDetail -> parseResultDoc), exactly like crawl.js: a ful
   assert.ok(detail);
   assert.match(detail.title, /Korfantego 19-35$/);
   assert.match(detail.contentText, /BUDUJE\.MY/);
-  // The footer's unrelated "Historia dokumentu" <table> must never leak into
-  // contentHtml — resultTableFromHtml would misread it as the price table.
   assert.equal((detail.contentHtml.match(/<table/g) || []).length, 1);
 
   const [rec] = parseResultDoc(`${detail.title}. ${detail.contentHtml}`, null, 'https://bip.pszczyna.pl/informacja-o-wyniku-przetargu-...-korfantego-19-35');
@@ -304,7 +245,6 @@ test('end-to-end (extractDetail -> parseResultDoc), exactly like crawl.js: a ful
   assert.equal(rec.outcome, 'sold');
 });
 
-// ------------------------------------------------------------ announcement parse
 
 test('parseAnnouncement: PDF-extracted flat (Bednarska 21/4) — address, area (not building total), price, date, round VIII', () => {
   const rec = parseAnnouncement(ANN_BEDNARSKA_TITLE, ANN_BEDNARSKA_BODY, 'https://bip.pszczyna.pl/ogloszenie-o-viii-przetargu-...-bednarskiej-21-i-ul-rynek-3');
@@ -351,7 +291,6 @@ test('parseAnnouncement: a lease title never reaches an active listing', () => {
   assert.equal(rec, null);
 });
 
-// ------------------------------------------------------------------ result parse
 
 test('parseResultDoc: flat SOLD — Korfantego 27/1 (the flagship example: 258.000 -> 273.000, nabywca)', () => {
   const [rec] = parseResultDoc(RES_KORFANTEGO_HTML, null, 'https://bip.pszczyna.pl/informacja-o-wyniku-przetargu-...-korfantego-19-35');
@@ -402,7 +341,7 @@ test('parseResultDoc: land UNSOLD — ul. Katowicka, 4 parcels, NO table, prose 
   assert.equal(rec.kind, 'grunt');
   assert.equal(rec.dzialka_nr, '5959/513, 6228/514, 6238/513, 6240/513');
   assert.equal(rec.area_m2, 2357);
-  assert.equal(rec.starting_price_pln, null); // never restated in a negative notice
+  assert.equal(rec.starting_price_pln, null);
   assert.equal(rec.final_price_pln, null);
   assert.equal(rec.outcome, 'unsold');
   assert.equal(rec.unsold_reason, 'wynik negatywny');
@@ -416,7 +355,6 @@ test('parseResultDoc: a lease-ish notice never reaches a result record', () => {
   assert.deepEqual(parseResultDoc('Informacja o wyniku przetargu na wydzierżawienie nieruchomości. wynik negatywny', null, 'x'), []);
 });
 
-// ----------------------------------------------------------- crawl discovery
 
 test('searchUrl: page 1 has no page suffix; page N uses the real four-slash pattern', () => {
   assert.equal(searchUrl('sprzedaż lokalu mieszkalnego', 1), 'https://bip.pszczyna.pl/szukaj//sprzeda%C5%BC+lokalu+mieszkalnego');
@@ -442,6 +380,6 @@ test('pickAttachment: prefers .pdf over .doc(x)', () => {
     { name: 'ogloszenie.pdf', format: 'pdf', url: 'https://bip.pszczyna.pl/zalacznik/2' },
   ];
   assert.equal(pickAttachment(attachments).url, 'https://bip.pszczyna.pl/zalacznik/2');
-  assert.equal(pickAttachment([attachments[0]]).url, 'https://bip.pszczyna.pl/zalacznik/1'); // doc fallback
+  assert.equal(pickAttachment([attachments[0]]).url, 'https://bip.pszczyna.pl/zalacznik/1');
   assert.equal(pickAttachment([]), null);
 });

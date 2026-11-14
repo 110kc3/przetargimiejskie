@@ -1,12 +1,5 @@
 import { createHash } from 'node:crypto';
 
-/**
- * Pure, deterministic analysis for the B2G disposal-performance report.
- *
- * The module deliberately describes only observed, published auction events.
- * It does not estimate property value, infer an optimal price, or treat an
- * archived/active/missing result as a failed auction.
- */
 
 export const B2G_ANALYSIS_SCHEMA_VERSION = 1;
 export const DEFAULT_MINIMUM_DECIDED = 20;
@@ -19,7 +12,6 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 const SOURCE_FIELDS = ['source_pdf', 'source_url', 'detail_url', 'bip_url'];
 const compareText = (left, right) => (left < right ? -1 : left > right ? 1 : 0);
 
-/** Classify only source-stated sold/unsold outcomes as decided. */
 export function classifyOutcome(outcome) {
   const normalized = typeof outcome === 'string' ? outcome.trim().toLowerCase() : '';
   if (normalized === 'sold') return 'sold';
@@ -153,9 +145,6 @@ function roundEvidence(listing) {
     || marker === 'source-stated'
   ) return { value, evidence: 'explicit' };
 
-  // Existing pipeline data often contains history-derived round numbers without
-  // a provenance marker. Keep the value for audit display, but never call it an
-  // explicit statutory round and never use it to build sequences or durations.
   return { value, evidence: 'unverified' };
 }
 
@@ -308,10 +297,6 @@ function selectionRows(properties, assetClass, from, to, excludedOwnerTypes) {
       ...listings.map((listing) => listing?.owner_type),
     ].filter((value) => typeof value === 'string' && value.trim())
       .map((value) => value.trim()))];
-    // Ownership scope describes the asset, while a parser may learn it from
-    // only one announcement in a multi-round timeline. Inherit a single
-    // unambiguous marker across that property; conflicting markers remain
-    // listing-local and are exposed instead of guessed.
     const inheritedOwnerType = propertyOwnerTypes.length === 1 ? propertyOwnerTypes[0] : '';
     for (const listing of listings) {
       stats.inputListingRows++;
@@ -548,8 +533,6 @@ function noDepositAnalysis(events) {
     explicitlyUnsoldWithNoDeposits: noDeposits.length,
     noDepositShareAmongExplicitlyUnsold: ratio(noDeposits.length, explicitlyUnsold.length),
     normalizedReasonCoverageAmongExplicitlyUnsold: ratio(withPublishedReason.length, explicitlyUnsold.length),
-    // Compatibility alias; coverage is deliberately limited to the explicit,
-    // normalized taxonomy above rather than arbitrary non-empty parser tokens.
     reasonCoverageAmongExplicitlyUnsold: ratio(withPublishedReason.length, explicitlyUnsold.length),
     observations: noDeposits.map((event) => ({ propertyKey: event.propertyKey, date: event.date })),
   };
@@ -649,17 +632,6 @@ function readinessAnalysis(counts, provenance, {
   };
 }
 
-/**
- * Analyse one explicit asset class over one inclusive, fixed date range.
- *
- * @param {Array<object>} properties property records containing `listings` arrays
- * @param {{assetClass:string, from:string, to:string, excludedOwnerTypes?:string[], minimumDecided?:number,
- *   minimumEachOutcome?:number, minimumSourceCoverage?:number,
- *   maximumUnknownShare?:number}} options
- * @returns {object} JSON-serializable metrics plus normalized `events` rows for
- *   report/CSV generation. No current date, filesystem, locale, or input order
- *   affects the result.
- */
 export function analyseB2G(properties, options = {}) {
   if (!Array.isArray(properties)) throw new TypeError('properties must be an array');
   const assetClass = typeof options.assetClass === 'string' ? options.assetClass.trim() : '';
@@ -711,9 +683,6 @@ export function analyseB2G(properties, options = {}) {
       dateRange: 'inclusive',
       excludedOwnerTypes: normalizedExcludedOwnerTypes,
     },
-    // Fingerprint the normalized selected inputs (rather than the aggregate), so
-    // an archived→active source change or a same-date duplicate is still visible
-    // even when it remains in the same conservative `unknown` outcome bucket.
     selectedRows: selected.rows.map(({ dateTime, ...row }) => row),
   };
 
@@ -755,5 +724,4 @@ export function analyseB2G(properties, options = {}) {
   };
 }
 
-// US-spelling alias for callers that use `analyze` elsewhere.
 export const analyzeB2G = analyseB2G;

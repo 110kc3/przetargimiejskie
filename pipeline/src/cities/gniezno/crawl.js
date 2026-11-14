@@ -1,38 +1,7 @@
-// Gniezno crawler.
-//
-// TWO sources:
-//
-//   1. BIP (bip.gniezno.eu) — IDcom.pl CMS, server-rendered HTML.
-//      Listing: https://bip.gniezno.eu/wiadomosci/11287/lista/{page}/{year}
-//      Each entry is a <div class="contener"><p class="title"><a href="...">TITLE</a></p></div>.
-//      No date or description inline — just title + URL.
-//      Per-entry page carries PDF attachments (ogłoszenie + wynik per round).
-//      Announcement PDFs (~413 KB each) contain: address, area, KW, cena wywoławcza,
-//      wadium, auction date, round number.  All text-PDF (not scanned).
-//
-//   2. gniezno.eu Aktualności — inline HTML result notices published after each
-//      auction; searched by fetching
-//      https://www.gniezno.eu/wiadomosci/1/lista/przetargi_{year}
-//      (category filtered) or by scanning a category feed.
-//      Each notice is a short article with cena wywoławcza / najwyższa cena /
-//      nabywca / wynik pozytywny|negatywny.
-//
-// crawlActive():
-//   Scrapes BIP pages for the current year + prior year (to catch multi-round
-//   flats whose first round was announced late in the prior year). Yields
-//   { listings:[], wykaz:[], land:[] }.
-//
-// crawlResultDocs():
-//   Fetches gniezno.eu result-notice article texts.  Returns refs with .text
-//   already set so refresh.js passes the text straight to parseResultDoc without
-//   a second fetch.  Falls back to an empty array on failure.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 
-// The source omits its intermediate certificate. The legacy option selects
-// the reviewed host-specific chain in core/source-tls.js with full certificate,
-// expiry and hostname verification; it never disables TLS authentication.
 const FETCH_OPTS = { insecureTLS: true };
 import { pdfText } from '../../core/pdf-text.js';
 import { parseAddress } from '../../core/normalize.js';
@@ -41,18 +10,14 @@ import { parseBipList, pdfAttachmentUrlsFromDetail, parseAnnouncement, parseLand
 const BIP_BASE = 'https://bip.gniezno.eu/wiadomosci/11287/lista';
 const GNIEZNO_RESULT_FEED = 'https://www.gniezno.eu/wiadomosci/1/lista/przetarg_na_sprzedaz_lokalu_mieszkalnego';
 
-// Max pages per year on the BIP listing
 const MAX_BIP_PAGES = 8;
-// Current year + one year back (catches late prior-year announcements)
 function yearsToScrape() {
   const y = new Date().getFullYear();
   return [y, y - 1];
 }
 
-// gniezno.eu result notice links: match article URLs for flat-sale results
 const RESULT_NOTICE_RE = /href="(https?:\/\/(?:www\.)?gniezno\.eu\/wiadomosci\/1\/wiadomosc\/\d+\/[^"]*(?:przetarg|sprzedaz|wynik)[^"]*)"[^>]*>([^<]{10,120})</gi;
 
-// ---- BIP crawl ---------------------------------------------------------------
 
 async function crawlBipYear(year) {
   const items = [];
@@ -76,14 +41,11 @@ async function crawlBipYear(year) {
       added++;
     }
     console.error(`  gniezno BIP ${year} page ${page}: ${pageItems.length} entries (${added} flat-sale)`);
-    // IDcom.pl paginates 10/page; fewer than 10 means last page
     if (pageItems.length < 5) break;
   }
   return items;
 }
 
-// Enrich a BIP entry stub by fetching the per-entry page and parsing the first
-// ogłoszenie PDF attachment.
 async function enrichFromDetailPage(stub) {
   let detailHtml;
   try {
@@ -97,10 +59,6 @@ async function enrichFromDetailPage(stub) {
     console.error(`  gniezno: no PDF attachments on ${stub.detail_url}`);
     return stub;
   }
-  // First PDF is the ogłoszenie o I przetargu; use the most-recent ogłoszenie
-  // (the last odd-indexed file — files alternate ogłoszenie/wynik/ogłoszenie…)
-  // Heuristic: take the LAST file whose name contains "ogloszen" or whose index
-  // is even (0-based). If uncertain, use first.
   const ogloszenieUrl =
     pdfUrls.filter((u) => /ogloszen|oglosz/i.test(u)).at(-1) || pdfUrls[0];
 
@@ -114,8 +72,6 @@ async function enrichFromDetailPage(stub) {
 
   return {
     ...stub,
-    // The ogłoszenie PDF carries the clean "ul. Street N/M" — keep it so
-    // crawlActive can build the join key (the BIP title alone is noisy).
     pdf_address_raw: pdfInfo.address_raw ?? null,
     dzialka_nr: pdfInfo.dzialka_nr ?? null,
     area_m2: pdfInfo.area_m2 ?? null,
@@ -143,7 +99,6 @@ export async function crawlActive() {
   const land = [];
   for (const stub of allStubs) {
     const enriched = await enrichFromDetailPage(stub);
-    // Skip stubs with no data at all (no area, no price, no date)
     if (
       enriched.area_m2 == null &&
       enriched.starting_price_pln == null &&
@@ -160,13 +115,6 @@ export async function crawlActive() {
         round: enriched.round, detail_url: enriched.detail_url });
       continue;
     }
-    // Build the parsed `address` buildCityData keys on — WITHOUT it every
-    // listing was silently dropped (0 unique_properties despite N stubs).
-    // Candidates: the PDF's clean "ul. Street N/M", and the BIP title with its
-    // "Sprzedaż - " prefix + " (WM.6840…)" sygnatura stripped. Take the first
-    // that parses, preferring one that yields an apt — the PDF address sometimes
-    // omits the "/apt" the title carries, and without it two flats in one
-    // building would collide into a single property.
     const titleAddr = (enriched.title || '')
       .replace(/^\s*sprzeda[żz]\s*[-–—]\s*/i, '')
       .replace(/\s*\([^)]*\)\s*$/, '')
@@ -176,9 +124,9 @@ export async function crawlActive() {
     for (const cand of [enriched.pdf_address_raw, titleAddr].filter(Boolean)) {
       const a = parseAddress(cand);
       if (!a) continue;
-      if (!address) { address = a; addrRaw = cand; }              // first parseable wins by default
-      else if (a.apt && !address.apt) { address = a; addrRaw = cand; } // upgrade ONLY if it adds the missing apt
-      if (address.apt) break;                                     // complete key — stop
+      if (!address) { address = a; addrRaw = cand; }
+      else if (a.apt && !address.apt) { address = a; addrRaw = cand; }
+      if (address.apt) break;
     }
     listings.push({
       kind: 'mieszkalny',
@@ -197,14 +145,10 @@ export async function crawlActive() {
   return { listings, wykaz: [], land };
 }
 
-// ---- gniezno.eu result-notice crawl -----------------------------------------
 
-// Fetch result notices from gniezno.eu. The site exposes them in the Aktualności
-// category. We fetch the category page and follow links matching flat-sale results.
 async function fetchResultNoticeUrls() {
   const urls = [];
   const currentYear = new Date().getFullYear();
-  // Fetch the Aktualności category for the last 2 years
   for (const year of [currentYear, currentYear - 1]) {
     const feedUrl = `https://www.gniezno.eu/wiadomosci/1/lista/${year}`;
     let html;
@@ -214,7 +158,6 @@ async function fetchResultNoticeUrls() {
       console.error(`  gniezno gniezno.eu feed ${year} failed: ${err.message}`);
       continue;
     }
-    // Extract links to flat-sale result notices
     const RE = /href="(\/wiadomosci\/1\/wiadomosc\/\d+\/przetarg_na_sprzedaz_lokalu[^"]+)"/gi;
     let m;
     while ((m = RE.exec(html)) !== null) {
@@ -232,7 +175,6 @@ export async function crawlResultDocs() {
   for (const url of noticeUrls) {
     try {
       const html = await getText(url, FETCH_OPTS);
-      // Extract the article body text
       const articleM = /<article[^>]*>([\s\S]*?)<\/article>/i.exec(html);
       const rawText = articleM ? articleM[1] : html;
       const text = rawText

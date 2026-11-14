@@ -1,34 +1,10 @@
-// Lidzbark Warmiński parsers.
-//
-// bip.lidzbarkw.pl's /przetargi/10054/ board (SYSTEMDOBIP.PL / E-LINE)
-// renders each przetarg as ONE table row on /przetargi/10054/status/{0,1}/:
-// Lp / Data ogłoszenia / Data i godzina przetargu / Dotyczy / Cena wywoławcza / Wynik / Załączniki.
-//
-// Like krosno-odrzanskie and wschowa:
-//   - "Cena wywoławcza" is a real inline number
-//   - "Wynik" is populated ("Pozytywny" / "Negatywny")
-//   - Each row carries PDF attachments:
-//       1. Announcement notice ("Ogłoszenie o przetargu ...") with flat area + full spec
-//       2. Result notice ("Informacja o wyniku przetargu ...") with achieved price and outcome
-//
-// Groundtruth fixtures:
-//   - ul. Krucza 4/1a (ID 145): 16.30 m², round 1, cena wyw. 50 100 zł, osiągnięta 84 000 zł (sold)
-//   - ul. Konstytucji 3 Maja 6/1 (ID 141): 15.10 m², round 1, cena wyw. 43 100 zł, osiągnięta 60 000 zł (sold)
-//   - ul. Wiejska 51/3 (ID 94): 57.31 m², round 3, cena wyw. 123 200 zł, osiągnięta 124 440 zł (sold)
-//   - ul. Wiejska 51/3 (ID 83): 57.31 m², round 2, cena wyw. 154 000 zł, wynik Negatywny (unsold)
-//   - ul. Wiejska 51/3 (ID 72): 57.31 m², round 1, cena wyw. 154 000 zł, wynik Negatywny (unsold)
-//   - ul. Dantyszka 11/2 (ID 42): 21.46 m², round 1, cena wyw. 52 900 zł, osiągnięta 53 430 zł (sold)
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
-// ── Money ────────────────────────────────────────────────────────────────────
 
-// Dot or space (regular + NBSP) thousands groups, optional ",NN" grosze tail.
-// Tolerates optional space after comma ("154.000, 00").
 const MONEY = '\\d{1,3}(?:[.\\s\\u00a0]?\\d{3})*(?:,\\s*\\d{1,2})?';
 
-/** "50.100,00" / "154.000, 00" / "84 000,00" -> integer PLN, or null. */
 export function parsePLN(numStr) {
   if (!numStr) return null;
   const cleaned = String(numStr)
@@ -44,7 +20,6 @@ const LABELED_PRICE_RE = new RegExp(
 );
 const BARE_PRICE_RE = new RegExp(`(${MONEY})\\s*z[łl]`, 'i');
 
-/** Starting price ("cena wywoławcza") from text. */
 export function startingPriceFromText(text) {
   const t = text || '';
   const m = LABELED_PRICE_RE.exec(t);
@@ -58,18 +33,15 @@ const ACHIEVED_PRICE_RE = new RegExp(
   'i',
 );
 
-/** Achieved price ("cena osiągnięta"), or null (unstated / unsold). */
 export function achievedPriceFromText(text) {
   const m = ACHIEVED_PRICE_RE.exec(text || '');
   return m ? parsePLN(m[1]) : null;
 }
 
-// ── Area (flats) ─────────────────────────────────────────────────────────────
 
 const FLAT_AREA_RE =
   /pow(?:ierzchni\w*)?\.?\s*u[żz]ytkow\w*(?:\s+lokalu)?\s*[:–-]?\s*(\d+(?:[.,]\d+)?)\s*m/i;
 
-/** Usable floor area (m2) of a flat, or null. */
 export function flatAreaFromText(text) {
   const m = FLAT_AREA_RE.exec(text || '');
   if (!m) return null;
@@ -77,7 +49,6 @@ export function flatAreaFromText(text) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// ── Round ────────────────────────────────────────────────────────────────────
 
 const ROUND_WORDS = {
   pierwsz: 1,
@@ -96,7 +67,6 @@ const ROMAN = {
   v: 5,
 };
 
-/** Round number (1, 2, 3, etc.) from Polish ordinal or Roman numeral. */
 export function roundFromText(text) {
   if (!text) return null;
   const wordRe =
@@ -132,20 +102,13 @@ export function roundFromText(text) {
   return bestMatch;
 }
 
-// ── Address (flats) ──────────────────────────────────────────────────────────
 
 const VENUE_RE = /świętochowsk|parkow/i;
 
-/**
- * Extract a flat address formatted as "ul. <Street> <building>/<apt>".
- * Matches both title prose and document text.
- * Rejects the Urząd Miejski venue (Świętochowskiego).
- */
 export function extractFlatAddress(text) {
   const t = (text || '').replace(/\s+/g, ' ').trim();
   if (!t) return null;
 
-  // Explicit unit number: "lokal(u) [mieszkalnego] [oznaczonego] nr 1a"
   const unitM =
     /lokal\w*\s*(?:mieszkaln\w*)?\s*(?:oznaczon\w*)?\s*nr\.?\s*(\d+[A-Za-z]?)/i.exec(t);
   const apt = unitM ? unitM[1] : null;
@@ -160,7 +123,6 @@ export function extractFlatAddress(text) {
     }
   }
 
-  // Glued property form with "przy ul. ...": "przy ul. Kruczej 4/1a"
   const gluedM =
     /(?:przy\s+budynku\s+)?przy\s+ul(?:\.|\s*icy|\s*ica)?\s+([A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ0-9.\s-]+?)\s+(\d{1,4}[A-Za-z]?)\s*\/\s*(\d{1,4}[A-Za-z]?)(?=\s+(?:w\b|z\b|wraz\b|o\b)|[,.;\n]|$)/iu.exec(
       t,
@@ -169,7 +131,6 @@ export function extractFlatAddress(text) {
     return `ul. ${gluedM[1].trim()} ${gluedM[2]}/${gluedM[3]}`;
   }
 
-  // Bare glued form anywhere: "ul. Kruczej 4/1a"
   const bareGlued =
     /\bul\.\s*([A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ0-9.\s-]+?)\s+(\d{1,4}[A-Za-z]?)\s*\/\s*(\d{1,4}[A-Za-z]?)\b/iu.exec(
       t,
@@ -181,37 +142,30 @@ export function extractFlatAddress(text) {
   return null;
 }
 
-// ── Row / document gating ────────────────────────────────────────────────────
 
-/** True for a LEASE row (najem/dzierżawa/czynsz) — never a municipal SALE. */
 export function isLeaseRow(text) {
   return /najem|dzier[żz]aw|czynsz/i.test(text || '');
 }
 
-/** True when text reads as a flat SALE (not lease, kind === 'mieszkalny'). */
 export function isFlatSaleRow(text) {
   if (isLeaseRow(text)) return false;
   return classifyKind(text) === 'mieszkalny';
 }
 
-/** "2024-08-20 10:00:00" -> "2024-08-20". */
 export function dateOnly(s) {
   if (!s) return null;
   const m = /^(\d{4}-\d{2}-\d{2})/.exec(s);
   return m ? m[1] : null;
 }
 
-// ── Outcome ──────────────────────────────────────────────────────────────────
 
 const NEGATIVE_RE =
   /wynik(?:iem)?\s+negatywn|bez\s+rozstrzygni[ęe]|brak\s+oferent|nie\s+odnotowano\s+wp[łl]at|brak\s+wp[łl]at\w*\s+wadium|nie\s+wp[łl]acono\s+wadium/i;
 
-/** True when the text states a negative (unsold) outcome. */
 export function isNegativeOutcome(text) {
   return NEGATIVE_RE.test(text || '');
 }
 
-/** True when text carries a result signal. */
 export function isResultNotice(text) {
   const t = text || '';
   return (
@@ -224,12 +178,7 @@ export function isResultNotice(text) {
   );
 }
 
-// ── Composed result text ─────────────────────────────────────────────────────
 
-/**
- * Build composed text for parseResultDoc().
- * Combines wynik PDF, announcement PDF, Dotyczy title and Cena wywoławcza cell.
- */
 export function buildResultText(dotyczyText, cenaText, wynikPdf = '', announcementPdf = '') {
   return [
     wynikPdf || '',
@@ -241,16 +190,11 @@ export function buildResultText(dotyczyText, cenaText, wynikPdf = '', announceme
     .join('\n');
 }
 
-/** Fallback composed text for a negative row with no wynik attachment. */
 export function buildNegativeResultText(row) {
   return `${buildResultText(row.dotyczyText, row.cenaText, '', '')}\nPrzetarg zakończył się wynikiem negatywnym.`;
 }
 
-// ── Announcement (crawlActive → listing) ────────────────────────────────────
 
-/**
- * Build an active FLAT listing from a status=0 board row + optional announcement PDF.
- */
 export function parseAnnouncement(row, pdfBody, pdfUrl) {
   const body = pdfBody || '';
   const title = (row && row.dotyczyText) || '';
@@ -283,16 +227,7 @@ export function parseAnnouncement(row, pdfBody, pdfUrl) {
   };
 }
 
-// ── Result (crawlResultDocs → parseResultDoc) ───────────────────────────────
 
-/**
- * Parse a composed result text into concluded FLAT records.
- *
- * @param {string} text Composed result text
- * @param {string|null} [fallbackDate] Auction date from board row
- * @param {string|null} [sourceUrl] Result PDF attachment URL
- * @returns {Array<object>} 0 or 1 record
- */
 export function parseResultDoc(text, fallbackDate = null, sourceUrl = null) {
   if (!text) return [];
   const t = String(text).replace(/\r/g, ' ');

@@ -1,7 +1,3 @@
-// Configuration for Legionowo adapter (bip.legionowo.pl)
-//
-// Gmina Miejska Legionowo (powiat legionowski, mazowieckie)
-// TERC: 1408011
 
 export const CONFIG = {
   id: 'legionowo',

@@ -1,5 +1,3 @@
-// Popup: watching section (top) + currently-active table (bottom).
-// Clicking a star toggles watch; clicking a row opens detail in new tab.
 
 const $status = document.getElementById('status');
 const $table = document.getElementById('active-table');
@@ -17,7 +15,6 @@ const $filterCity = document.getElementById('filter-city');
 const $filterKind = document.getElementById('filter-kind');
 const $filterCount = document.getElementById('filter-count');
 
-// Active-list filters (voivodeship + city + kind), in-memory for the popup session.
 let filterWoj = 'all';
 let filterCity = 'all';
 let filterKind = 'all';
@@ -29,19 +26,13 @@ const KIND_ORDER = ['mieszkalny', 'zabudowana', 'uzytkowy', 'garaz', 'grunt', 'u
 const t = (k, vars) => window.ZGM_I18N.t(k, vars);
 const fmtPLN = (n) =>
   n == null ? '—' : new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 }).format(n) + ' zł';
-// Polish decimal comma ("37,91 m²"), matching archive.js/content.js — the raw
-// JSON number used to render with a dot.
 const fmtArea = (a) =>
   a == null ? '—' : new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 2 }).format(a) + ' m²';
 
-// Escape crawled strings before they land in innerHTML — CSP blocks inline
-// <script>, but attribute breakout and javascript:-style hrefs are still
-// possible on this privileged page.
 const esc = (s) =>
   String(s == null ? '' : s).replace(/[&<>"']/g, (c) =>
     ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]),
   );
-// Allow only http(s) URLs through to hrefs / data-url; else collapse to ''.
 const safeHref = (u) => {
   if (!u) return '';
   try {
@@ -54,39 +45,27 @@ const safeHref = (u) => {
 
 const roundLabel = (n) => (n ? t('chip.round', { r: String(n) }) : null);
 
-// Europe/Warsaw civil date (YYYY-MM-DD). UTC "today" flips at 01:00/02:00
-// local, so around midnight an auction whose date is "today" would still be
-// counted active for an extra hour or two. Mirrors pipeline todayWarsaw().
 const todayWarsaw = () =>
   new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Europe/Warsaw',
     year: 'numeric', month: '2-digit', day: '2-digit',
   }).format(new Date());
 
-// Background.js namespaces property keys as `<city>|...`, so we can recover
-// the city for legacy/orphan watch entries that don't carry one.
 function cityFromKey(key) {
   if (!key || typeof key !== 'string') return null;
   const i = key.indexOf('|');
   return i > 0 ? key.slice(0, i) : null;
 }
 
-// Compact city chip prepended to the Property cell on each row. Style lives
-// in popup.css; color variants come from the city id as a data attribute.
 function cityTagHtml(city) {
   if (!city) return '';
   const label = t('city.' + city);
-  // Fall back to a capitalized id when no translation is registered.
   const display = label === 'city.' + city
     ? city.charAt(0).toUpperCase() + city.slice(1)
     : label;
   return `<span class="zgm-city-tag" data-city="${esc(city)}">${esc(display)}</span> `;
 }
 
-// Drop pre-cutoff historical listings from the prior counts (mirrors
-// content.js withinYearWindow/isPriorHistory). Active / announced / archived
-// rows always pass — they're current postings, not history; sold/unsold
-// respect the saved minHistoryYear. settings.js is optional (defensive ?.).
 const withinYearWindow = (l) => {
   if (
     l.outcome === 'active' ||
@@ -109,14 +88,9 @@ function datesCellHtml(a) {
   return rows.join('<br>');
 }
 
-// Warsaw civil "today" (not the viewer's local midnight) so the urgency flag
-// can't be a day off for a non-Polish-timezone user — mirrors background.js.
 function wadiumCellHtml(date) {
   if (!date) return '—';
   const t0 = Date.parse(date);
-  // A non-ISO date (e.g. "12.07.2026") parses to NaN; NaN<0 and NaN<=7 are both
-  // false, so an urgent deadline would render neutral (and title="NaNd"). Show
-  // the raw value instead of silently dropping the urgency cue.
   if (!Number.isFinite(t0)) return esc(date);
   const daysLeft = Math.round((t0 - Date.parse(todayWarsaw())) / 86400000);
   if (daysLeft < 0) return `<span class="zgm-past">${esc(date)}</span>`;
@@ -138,14 +112,10 @@ function applyStaticI18n() {
 let lastPayload = null;
 let lastWatchlist = {};
 
-// Active-table sort state. Null sortKey = use the default heuristic
 // (most-relisted first, then prior count, then area) — preserves the
-// behaviour the popup had before sortable headers existed.
 let activeSortKey = null;
 let activeSortDir = 'asc';
 
-// Per-column value extractor. Returns null for "missing" so the sorter
-// can park empty cells at the bottom regardless of direction.
 function activeSortValue(item, key) {
   const a = item.a;
   switch (key) {
@@ -182,12 +152,8 @@ function sortActiveItems(items) {
   });
 }
 
-// Direct Google Maps link for a non-land active listing (land has no street address).
 function mapsCell(a) {
   if (a.kind === 'grunt') return '—';
-  // Prefer the structured street + building (mirrors archive.js); fall back to
-  // the raw address with the apartment number stripped. Active listings carry
-  // street/building under `a.address`, not at the top level.
   const ad = a.address || {};
   const base = (ad.street ? `${ad.street}${ad.building ? ' ' + ad.building : ''}`
                           : String(a.address_raw || '').replace(/\s*\/\s*\d+\w*$/, '')).trim();
@@ -240,19 +206,14 @@ function fillFilterSelect($sel, values, labelFn) {
     `<option value="all">${esc(allLabel)}</option>` +
     values.map((v) => `<option value="${esc(v)}">${esc(labelFn(v))}</option>`).join('');
 }
-// Rebuild the city + kind dropdowns from what's actually present in the live
-// active set (only when that set or the language changed), then keep the current
-// selection valid. Hides the bar when there's nothing to show.
 function populateFilters(live) {
   const lang = window.ZGM_I18N.getLang();
-  // Voivodeship dropdown — from the voivodeships actually present in the live set.
   const wojs = [...new Set(live.map((a) => wojOf(cityOf(a))).filter(Boolean))].sort((x, y) =>
     wojLabel(x).localeCompare(wojLabel(y), 'pl'),
   );
   const wsig = lang + '|' + wojs.join('|');
   if (wsig !== _wojOptsSig) { fillFilterSelect($filterWoj, wojs, wojLabel); _wojOptsSig = wsig; }
   if (![...$filterWoj.options].some((o) => o.value === filterWoj)) filterWoj = 'all';
-  // City dropdown — narrowed to the selected voivodeship (so it's not a huge flat list).
   const cityPool = live.filter((a) => filterWoj === 'all' || wojOf(cityOf(a)) === filterWoj);
   const cities = [...new Set(cityPool.map(cityOf).filter(Boolean))].sort((x, y) =>
     cityLabel(x).localeCompare(cityLabel(y), 'pl'),
@@ -267,7 +228,6 @@ function populateFilters(live) {
   $filterWoj.value = filterWoj;
   $filterCity.value = filterCity;
   $filterKind.value = filterKind;
-  // Hide the voivodeship control unless >1 voivodeship is live (else it's noise).
   const wojWrap = $filterWoj.closest('label') || $filterWoj.parentElement;
   if (wojWrap) wojWrap.hidden = wojs.length < 2;
   $filterBar.hidden = live.length === 0;
@@ -279,17 +239,11 @@ function renderActive() {
   const properties = payload.properties?.properties || [];
   const byKey = new Map(properties.map((p) => [p.key, p]));
 
-  // Defensive filter: the Katowice crawler currently dumps every BIP-board
-  // announcement into active.json regardless of date, and the city portal
-  // takes its time archiving past-auction documents (see TODO.md). Drop
-  // anything whose auction date has already passed so "currently active"
-  // means what it says. Proper fix lives in cities/katowice/crawl.js.
   const today = todayWarsaw();
   const liveActive = (payload.active?.listings || []).filter(
     (a) => !a.auction_date || a.auction_date >= today,
   );
 
-  // City + kind filters: populate from the live set, then narrow what we show.
   populateFilters(liveActive);
   const shown = liveActive.filter(
     (a) =>
@@ -304,7 +258,6 @@ function renderActive() {
         : t('popup.filter.count', { shown: shown.length, total: liveActive.length });
   }
 
-  // Per-city median zł/m² for the "deal score" badge (residential only).
   const cityMedians = window.ZGM_DEALSCORE.buildCityMedians(properties);
 
   const items = shown.map((a) => {
@@ -320,13 +273,9 @@ function renderActive() {
   $tbody.innerHTML = items
     .map(({ a, prior, unsold, lastUnsold, key }) => {
       const cityTag = cityTagHtml(a.city || cityFromKey(key));
-      // For houses with both a building area and a plot area, show both
-      // ("· 185 m² · dz. 450 m²") so usable vs plot is distinguishable.
-      const aArea = a.area_m2 ?? a.land_area_m2; // building (or the sole area if that's all we have)
+      const aArea = a.area_m2 ?? a.land_area_m2;
       const addr = cityTag + esc(a.address_raw || '') + (a.share ? ` · ${window.ZGM_I18N.getLang()==='en'?'share':'udział'} ${esc(a.share)}` : '') + (aArea ? ` · ${fmtArea(aArea)}` : '')
         + (a.area_m2 != null && a.land_area_m2 != null ? ` · dz. ${fmtArea(a.land_area_m2)}` : '');
-      // "nowa" (new) only when this really is a first auction with no recorded
-      // history. A 2nd/3rd przetarg is a re-listing, not new — show its round.
       const priorCell =
         prior.length > 0
           ? `<span class="zgm-prior">${t('popup.prior_summary', { n: prior.length, unsold: unsold.length })}</span>`
@@ -360,7 +309,6 @@ function renderActive() {
     })
     .join('');
 
-  // Row click → open detail page (but not when the click was on the star or link).
   for (const tr of $tbody.querySelectorAll('tr[data-url]')) {
     tr.addEventListener('click', (e) => {
       if (e.target.closest('.zgm-star') || e.target.closest('a')) return;
@@ -394,12 +342,9 @@ function renderActive() {
   $table.hidden = false;
 }
 
-// Dedicated 'verify at the source' link cell → the city BIP/ZGM detail page,
-// so the user can confirm any listing first-hand. Blank when no source URL.
 function srcLinkCell(u, bip) {
   const h = safeHref(u);
   const primary = h ? `<a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(h)}">${esc(t('link.verify'))}</a>` : '';
-  // Secondary source: the city BIP page for an auction also listed on ZGM.
   const hb = safeHref(bip);
   const secondary = hb ? `${primary ? ' ' : ''}<a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(hb)}">BIP ↗</a>` : '';
   return primary + secondary;
@@ -472,8 +417,6 @@ function render() {
   renderActive();
   const fetched = new Date(lastPayload.fetched_at);
   const meta = lastPayload.meta || {};
-  // Match the same past-date filter renderActive uses so the count in the
-  // footer is consistent with the number of rows the user sees.
   const today = todayWarsaw();
   const activeCount = (lastPayload.active?.listings || []).filter(
     (a) => !a.auction_date || a.auction_date >= today,
@@ -485,8 +428,6 @@ function render() {
   });
 }
 
-// Theme button: show ☀ in light mode (click → dark) and ☾ in dark mode
-// (click → light). Title is i18n'd so it follows the lang toggle.
 function syncThemeButton() {
   if (!$themeToggle || !window.ZGM_THEME) return;
   const eff = window.ZGM_THEME.getEffective();
@@ -522,10 +463,6 @@ function syncThemeButton() {
   });
   $themeToggle?.addEventListener('click', () => window.ZGM_THEME?.toggle());
 
-  // Sortable column headers on the active table. Date defaults to asc
-  // (soonest first — what the user typically wants); other columns default
-  // to desc (most expensive / most-relisted first). Re-clicking the same
-  // column toggles direction.
   for (const th of $table.querySelectorAll('th[data-sort]')) {
     th.addEventListener('click', () => {
       const k = th.dataset.sort;

@@ -1,11 +1,5 @@
 #!/usr/bin/env node
 
-// Automated batch onboarder for municipal auction adapters.
-//
-// Automatically detects the platform engine (MADKOM, Logonet, BIP Lubelskie, SystemDoBIP, FINN),
-// generates declarative adapters leveraging pipeline/src/core/ engines,
-// creates unit tests, registers the city in pipeline/src/cities/index.js,
-// reconciles spikes/master-cities.json and spike markdown files, and verifies quality gates.
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
@@ -47,7 +41,6 @@ export async function detectCityPlatform(cityMeta, spikeContent = '', options = 
     }
   }
 
-  // Voivodeship-specific regional platforms
   if (cityMeta.voivodeship === 'malopolskie') {
     const cleanSlug = cityMeta.id.replace(/-/g, '');
     const mCandidates = [
@@ -136,7 +129,6 @@ export async function detectCityPlatform(cityMeta, spikeContent = '', options = 
     }
   }
 
-  // Fallback candidate hosts if not in spike
   if (!host) {
     const cleanSlug = cityMeta.id.replace(/-/g, '');
     const baseSlug = cityMeta.id.replace(/-\d+$/, '').replace(/-/g, '');
@@ -176,7 +168,6 @@ export async function detectCityPlatform(cityMeta, spikeContent = '', options = 
 
   if (!host) return null;
 
-  // Detect platform by inspecting HTML and URLs
   let html = '';
   try {
     html = await getText(fullUrl.startsWith('http') ? fullUrl : `https://${host}`, { userAgent: BROWSER_UA, timeoutMs: 3000, retries: 0 });
@@ -184,7 +175,6 @@ export async function detectCityPlatform(cityMeta, spikeContent = '', options = 
 
   const lowerContent = (content + ' ' + html).toLowerCase();
 
-  // 1. MADKOM eBIP
   let isMadkom = lowerContent.includes('madkom') || host.includes('bip.malopolska.pl') || html.includes('data-ng-app="app"') || html.includes('/api/contexts/');
   if (!isMadkom) {
     try {
@@ -218,7 +208,6 @@ export async function detectCityPlatform(cityMeta, spikeContent = '', options = 
     };
   }
 
-  // 2. Logonet eUrząd
   if (lowerContent.includes('logonet') || html.includes('author" content="Logonet') || fullUrl.includes('przetargi-nieruchomosci') || fullUrl.includes('przetarg-nieruchomosci') || html.includes('/przetargi-nieruchomosci/')) {
     let boardUrl = fullUrl.includes('przetarg') ? fullUrl : `https://${host}/przetargi-nieruchomosci/376`;
     const mBoard = html.match(/href="([^"]*\/przetargi-nieruchomosci\/(\d+)[^"]*)"/i) || html.match(/href="([^"]*\/artykuly\/(\d+)\/przetargi[^"]*)"/i);
@@ -236,7 +225,6 @@ export async function detectCityPlatform(cityMeta, spikeContent = '', options = 
     };
   }
 
-  // 3. BIP Lubelskie (DataTables)
   if (host.includes('bip.lubelskie.pl') || lowerContent.includes('bip.lubelskie.pl') || html.includes('action=list-ajax')) {
     let menuId = 413;
     const mMenu = fullUrl.match(/id_menu=(\d+)/) || html.match(/id_menu=(\d+)/);
@@ -252,7 +240,6 @@ export async function detectCityPlatform(cityMeta, spikeContent = '', options = 
     };
   }
 
-  // 4. SystemDoBIP.pl
   if (lowerContent.includes('systemdobip') || lowerContent.includes('e-line') || fullUrl.includes('/przetargi/') && fullUrl.includes('/status/')) {
     let boardId = 361;
     const mBoard = fullUrl.match(/\/przetargi\/(\d+)\//);
@@ -268,7 +255,6 @@ export async function detectCityPlatform(cityMeta, spikeContent = '', options = 
     };
   }
 
-  // 5. FINN-BIP
   if (host.includes('.finn.pl') || lowerContent.includes('finn.pl') || lowerContent.includes('finn eurząd') || lowerContent.includes('/bipkod/')) {
     return {
       engine: 'finn',
@@ -281,7 +267,6 @@ export async function detectCityPlatform(cityMeta, spikeContent = '', options = 
     };
   }
 
-  // 6. WOKISS
   if (host.includes('wokiss.pl') || lowerContent.includes('wokiss') || fullUrl.includes('wokiss.pl')) {
     let boardUrl = fullUrl.includes('/przetarg') ? fullUrl : `https://${host}/bip/przetargi/`;
     return {
@@ -295,7 +280,6 @@ export async function detectCityPlatform(cityMeta, spikeContent = '', options = 
     };
   }
 
-  // 7. BiuletynNet
   if (host.includes('biuletyn.net') || lowerContent.includes('biuletyn.net')) {
     let defaultCid = 70;
     const mCid = fullUrl.match(/cid=(\d+)/) || html.match(/href="[^"]*cid=(\d+)[^"]*"[^>]*>[^<]*przetarg/i);
@@ -311,7 +295,6 @@ export async function detectCityPlatform(cityMeta, spikeContent = '', options = 
     };
   }
 
-  // 8. CONCEPT Intermedia (SAM 3)
   if (lowerContent.includes('sam3.pl') || lowerContent.includes('concept intermedia')) {
     return {
       engine: 'conceptintermedia',
@@ -323,7 +306,6 @@ export async function detectCityPlatform(cityMeta, spikeContent = '', options = 
     };
   }
 
-  // 9. SmartSite (podlaskie.eu)
   if (host.includes('podlaskie.eu') || lowerContent.includes('smartsite') || host.includes('wrotapodlasia.pl')) {
     return {
       engine: 'smartsite',
@@ -335,7 +317,6 @@ export async function detectCityPlatform(cityMeta, spikeContent = '', options = 
     };
   }
 
-  // 10. REKORD SI
   if (lowerContent.includes('rekord') || html.includes('api/download/file') || html.includes('/dokument/')) {
     let board = '/15665';
     const mBoard = fullUrl.match(/\/(\d+)(?:\/|$)/) || html.match(/href="[^"]*\/(\d+)\/dokument\//);
@@ -351,7 +332,6 @@ export async function detectCityPlatform(cityMeta, spikeContent = '', options = 
     };
   }
 
-  // 11. Nefeni BIP2 (bip.net.pl)
   if (host.includes('bip.net.pl') || html.includes('bip.net.pl') || html.includes('/kategorie/')) {
     const categories = [];
     const catMatches = [...(fullUrl + ' ' + html).matchAll(/kategorie\/(\d+-[a-zA-Z0-9_-]+)/gi)];
@@ -400,7 +380,6 @@ export async function onboardCity(cityId, options = {}) {
     ? `Prezydent Miasta ${city.label}`
     : `Burmistrz Miasta ${city.label}`;
 
-  // 1. Write pipeline/src/cities/<city>/index.js
   let adapterContent = '';
   if (platform.engine === 'madkom') {
     adapterContent = `import { makeMadkomCity } from '${platform.engineModule}';
@@ -581,7 +560,6 @@ export default ${camelName};
 
   writeFileSync(join(cityDir, 'index.js'), adapterContent, 'utf8');
 
-  // 2. Write pipeline/tests/parse-<city>.test.js
   const testFile = join(REPO, `pipeline/tests/parse-${city.id}.test.js`);
   const testContent = `import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -598,23 +576,19 @@ test('${city.label} adapter initializes with valid configuration', () => {
 `;
   writeFileSync(testFile, testContent, 'utf8');
 
-  // 3. Register in pipeline/src/cities/index.js if not already present
   let citiesIndex = readFileSync(CITIES_INDEX_PATH, 'utf8');
   if (!citiesIndex.includes(`import ${camelName} from './${city.id}/index.js';`)) {
-    // Add import
     const importStmt = `import ${camelName} from './${city.id}/index.js';\n`;
     const lastImportIdx = citiesIndex.lastIndexOf('import ');
     const endOfLastImport = citiesIndex.indexOf('\n', lastImportIdx) + 1;
     citiesIndex = citiesIndex.slice(0, endOfLastImport) + importStmt + citiesIndex.slice(endOfLastImport);
 
-    // Add to export array
     const closingBracketIdx = citiesIndex.lastIndexOf('];');
     citiesIndex = citiesIndex.slice(0, closingBracketIdx) + `  ${camelName},\n` + citiesIndex.slice(closingBracketIdx);
 
     writeFileSync(CITIES_INDEX_PATH, citiesIndex, 'utf8');
   }
 
-  // 4. Update master-cities.json
   city.status = 'built';
   city.pipeline_id = city.id;
   city.lifecycle = {
@@ -628,7 +602,6 @@ test('${city.label} adapter initializes with valid configuration', () => {
   };
   if (!Array.isArray(city.sources)) city.sources = [];
   const auditIdx = city.sources.findIndex((s) => s.scope === 'source-asset-audit');
-  // 5. Append audit note to spike file if it exists, or create spike
   const powiatSlug = city.official?.powiat
     ? 'powiat-' + city.official.powiat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
     : city.id;
@@ -675,7 +648,6 @@ Adapter built using shared ${platform.engine} platform engine and registered as 
 
   writeFileSync(MASTER_PATH, JSON.stringify(master, null, 2) + '\n', 'utf8');
 
-  // 6. Run test
   execSync(`node --test ${testFile}`, { stdio: 'inherit' });
   console.log(`Successfully onboarded ${city.label} (${city.id})!`);
   return true;

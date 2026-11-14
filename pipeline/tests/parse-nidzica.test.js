@@ -1,5 +1,3 @@
-// Nidzica parser and crawler unit tests.
-// Fixtures are verbatim excerpts from real municipal documents published on bip.nidzica.pl.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -36,7 +34,6 @@ import {
   parseAttachments,
 } from '../src/cities/nidzica/crawl.js';
 
-// ── Verbatim Real Fixtures ───────────────────────────────────────────────────
 
 const FIXTURE_ANN_BRZOZOWA = `
 Nidzica, 02.12.2025r.
@@ -167,7 +164,6 @@ const FIXTURE_ARTICLE_LIST_HTML = `
 </div>
 `;
 
-// ── Tests: Unit Helpers ──────────────────────────────────────────────────────
 
 test('parsePLN parses spaced, dotted, and decimal PLN strings', () => {
   assert.equal(parsePLN('78 000,00 zł'), 78000);
@@ -315,7 +311,6 @@ test('buyerFromText extracts clean buyer name', () => {
   assert.equal(buyerFromText('Nabywca nieruchomości: Brak'), null);
 });
 
-// ── Tests: Groundtruthed Announcements ───────────────────────────────────────
 
 test('parseAnnouncement correctly parses Brzozowa 8/2 (rokowania)', () => {
   const recs = parseAnnouncement(FIXTURE_ANN_BRZOZOWA, {
@@ -401,7 +396,6 @@ test('parseAnnouncement correctly parses Wikno land plot', () => {
   assert.equal(r.auction_date, '2026-10-28');
 });
 
-// ── Tests: Groundtruthed Results ─────────────────────────────────────────────
 
 test('parseResultDoc parses sold land document with buyer and hammer price (Polna 166/26)', () => {
   const recs = parseResultDoc(
@@ -467,7 +461,6 @@ test('parseResultDoc parses sold flat with positive binary signal from module', 
   assert.equal(r.auction_date, '2025-11-06');
 });
 
-// ── Tests: Crawler HTML Parsers ──────────────────────────────────────────────
 
 test('moduleStatusUrl formats page 1 and paginated URLs correctly', () => {
   assert.equal(moduleStatusUrl(0), 'https://bip.nidzica.pl/przetargi/257/status/0/');

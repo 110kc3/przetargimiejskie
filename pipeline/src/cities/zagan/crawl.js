@@ -1,32 +1,3 @@
-// Żagań crawler — ONE board on bip.zagan.pl (SystemDoBIP.pl/E-LINE, same
-// engine as gorzow-wielkopolski and miedzyrzecz), live-verified 2026-07-11:
-//
-//   /przetargi/344/status/0/   ACTIVE (ogłoszone)        — crawlActive()
-//   /przetargi/344/status/1/   RESOLVED (rozstrzygnięte) — crawlResultDocs()
-//   /przetargi/344/status/2/   INVALIDATED (unieważnione) — not crawled
-//     (matching gorzow-wielkopolski/miedzyrzecz's own convention)
-//
-// This is the miedzyrzecz SUB-SHAPE of the SystemDoBIP CMS family, confirmed
-// by view-source, NOT gorzow's: the table itself carries "Cena wywoławcza"
-// AND "Wynik" columns inline on every row (7 columns: Lp / Data ogłoszenia /
-// Data i godzina przetargu / Dotyczy / Cena wywoławcza / Wynik / Załączniki),
-// same <tr class="odd|even"> markup, same td-title-1 (Dotyczy first, Wynik
-// second) positional trick, same pagination shape
-// (/przetargi/344/{page}/status/{n}/, page segment omitted only for page 1) —
-// gorzow's board has NEITHER an inline price/result column NOR this
-// pagination shape (a wholly separate /509/ results archive instead).
-//
-// Board is LAND-HEAVY (10 land parcels on the active board at verification
-// time, zero pending flats — flats cycle in/out per the spike) — this
-// crawler routes each row to `listings` (flats) or `land` (parcels) by
-// classifyKind via parse.js's inScopeKind(), unlike gorzow-wielkopolski/
-// miedzyrzecz which only ever populate `listings` and leave `land: []`.
-//
-// ZERO document fetches anywhere (see parse.js file header for why a
-// Pozytywny/sold row still can't recover an achieved price) — this crawler
-// only ever fetches the board's own HTML pages, never an attachment.
-//
-// See spike: spikes/lubuskie/powiat-zaganski/zagan.md
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -41,25 +12,14 @@ import {
 } from './parse.js';
 
 const ORIGIN = 'https://bip.zagan.pl';
-// Not observed to gate the default bot UA in this spike/build, but a browser
-// UA is used defensively — same convention as gorzow-wielkopolski/miedzyrzecz
-// on the same CMS family.
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
-// Page caps (env-overridable for backfills). Board holds 10 rows/page; the
-// resolved board spans 64 pages of history at verification time (2026-07-11)
-// — bounded well below that by default since a cold run would otherwise cost
-// 64 HTTP round-trips for marginal old-history value (page-level HTML fetches
-// only — cheap, but still bounded per ADAPTER-GUIDE §5.1).
 const MAX_ACTIVE_PAGES = Number(process.env.ZAGAN_MAX_ACTIVE_PAGES) || 3;
 const MAX_RESOLVED_PAGES = Number(process.env.ZAGAN_MAX_RESOLVED_PAGES) || 20;
 const ROWS_PER_PAGE = 10;
-// Wall-clock budget — a safety net matching gorzow-wielkopolski/miedzyrzecz's
-// own, even though this crawler's zero-fetch design rarely approaches it.
 const CRAWL_BUDGET_MS = Number(process.env.ZAGAN_CRAWL_BUDGET_MS) || 10 * 60 * 1000;
 
-// ── HTML helpers ─────────────────────────────────────────────────────────────
 
 function stripTags(s) {
   return (s || '')
@@ -93,23 +53,13 @@ function parseAttachments(rowHtml) {
   return out;
 }
 
-// ── Board ────────────────────────────────────────────────────────────────────
 
-/** Board URL for a given status (0 active, 1 resolved, 2 invalidated) and 1-based page. */
 export function boardUrl(status, page) {
   return page <= 1
     ? `${ORIGIN}/przetargi/344/status/${status}/`
     : `${ORIGIN}/przetargi/344/${page}/status/${status}/`;
 }
 
-/**
- * Parse one board page (status=0 or status=1 — same table shape) into row
- * objects. Both "Dotyczy" and "Wynik" cells share the CSS class "td-title-1"
- * (Dotyczy is first, Wynik second) — extracted positionally, not by class
- * alone (same trick as miedzyrzecz's own parseBoardPage, same CMS engine).
- * @param {string} html
- * @returns {import('./parse.js').BoardRow[]}
- */
 export function parseBoardPage(html) {
   const out = [];
   const rowRe = /<tr class="(?:odd|even)">([\s\S]*?)<\/tr>/gi;
@@ -121,14 +71,13 @@ export function parseBoardPage(html) {
     const d2 = /td-date-2"[^>]*>[\s\S]*?(\d{4}-\d{2}-\d{2}(?:\s+\d{2}:\d{2}:\d{2})?)/.exec(row);
 
     const dotyczyM = /class="td-title-1"[^>]*>[\s\S]*?<a\s+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/.exec(row);
-    if (!dotyczyM) continue; // no detail link — not a real row (defensive)
+    if (!dotyczyM) continue;
     const detailUrl = deamp(dotyczyM[1]);
     const dotyczyText = stripTags(dotyczyM[2]);
 
     const cenaM = /class="td-title-2"[^>]*>([\s\S]*?)<\/td>/.exec(row);
     const cenaText = cenaM ? stripTags(cenaM[1]) : '';
 
-    // Two cells share class "td-title-1": [0] Dotyczy (has the <a>), [1] Wynik.
     const title1All = [...row.matchAll(/class="td-title-1"[^>]*>([\s\S]*?)<\/td>/g)];
     const wynikText = title1All.length > 1 ? stripTags(title1All[1][1]) : '';
 
@@ -145,7 +94,6 @@ export function parseBoardPage(html) {
   return out;
 }
 
-// ── Fetchers ─────────────────────────────────────────────────────────────────
 
 async function fetchPage(url) {
   try {
@@ -156,14 +104,7 @@ async function fetchPage(url) {
   }
 }
 
-// ── crawlActive ──────────────────────────────────────────────────────────────
 
-/**
- * Crawl the ACTIVE board only (status=0). Every field either the flat or the
- * land contract needs is already inline in the row text, so this makes zero
- * PDF/DOCX/OCR fetches — just the board page(s) themselves.
- * @returns {Promise<{ listings: object[], wykaz: [], land: object[] }>}
- */
 export async function crawlActive({ getPage = fetchPage } = {}) {
   const listings = [];
   const land = [];
@@ -198,7 +139,6 @@ export async function crawlActive({ getPage = fetchPage } = {}) {
         if (rec) land.push(rec);
         else allParsed = false;
       } else if (!isLeaseRow(row.dotyczyText)) {
-        // Unsupported assets and unknown prose must remain visible gaps.
         allParsed = false;
       }
     }
@@ -216,16 +156,7 @@ export async function crawlActive({ getPage = fetchPage } = {}) {
   };
 }
 
-// ── crawlResultDocs ──────────────────────────────────────────────────────────
 
-/**
- * Crawl the RESOLVED board (status=1). NEITHER outcome (Negatywny or
- * Pozytywny) ever needs a document fetch on this city's BIP (see parse.js
- * file header) — every ref's `.text` is synthesized straight from the row via
- * buildResultText(). `source:'html'` (config.js) means refresh.js hands each
- * ref's `.text` straight to parseResultDoc — no re-fetch there.
- * @returns {Promise<Array<{text:string, pdf_url:string, detail_url:string, auction_date:string|null}>>}
- */
 export async function crawlResultDocs() {
   const refs = [];
   const seenDetails = new Set();
@@ -261,7 +192,7 @@ export async function crawlResultDocs() {
       });
     }
 
-    if (rows.length < ROWS_PER_PAGE) break; // short page = last page
+    if (rows.length < ROWS_PER_PAGE) break;
   }
 
   if (skippedKnown) console.error(`  zagan: skipped ${skippedKnown} already-known result row(s)`);
@@ -269,7 +200,6 @@ export async function crawlResultDocs() {
   return refs;
 }
 
-// ── Direct-run smoke test (`node src/cities/zagan/crawl.js`) ───────────────
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings, land } = await crawlActive();

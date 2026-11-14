@@ -1,81 +1,3 @@
-// Włocławek parser tests. Fixtures are condensed-but-faithful copies of REAL
-// page/doc text fetched live from bip.wloclawek.eu (verified 2026-07-16 via
-// this Pi, plain bot UA — no insecureTLS/browser-UA needed). Long
-// non-load-bearing boilerplate (the numbered participation-conditions list,
-// the RODO/GDPR-style footer, the repeated "Bliższych informacji..." contact
-// block) is trimmed; every sentence that feeds a parsed field (address, area,
-// price, date, round, kind, outcome, buyer) is kept verbatim, including the
-// real line breaks / spacing quirks the regexes rely on.
-//
-// The notice-page HTML fixtures reproduce the real extranet "BIP w JST" CMS
-// skeleton confirmed live: <h1 class="pageHeader">, the structured inline
-// metadata block of repeated
-//   <div class="cct-page__attribute cct-page__attribute--NNN">
-//     <div class="cct-page__name"> LABEL: </div>
-//     <div class="cct-page__value"> VALUE </div>
-//   </div>
-// pairs (the SAME skeleton as sepolno-krajenskie/bip.gmina-sepolno.pl — this
-// city runs the same CMS vendor), and the /download/attachment/<id>/<name>
-// links.
-//
-// Groundtruth (hand-verified against the live pages/docs, 2026-07-16):
-//   Kilińskiego 12A/1 — lokal mieszkalny nr 1, pow. 40,70 m², udział 407/3568,
-//     KW WL1W/00043190/6, dz. 7/1 KM 45:
-//       announce (III)  /6939  Rodzaj nieruchomości "Lokale mieszkalne", cena
-//                        wyw. 110 270 zł, Data przetargu 24-04-2024, self-report
-//                        "I ... 12 czerwca 2023 ... wynikiem negatywnym. II ...
-//                        13 listopada 2023 ... wynikiem negatywnym."
-//       announce (II)   /3615  Status Realizacji "Nieroztrzygnięte", Data
-//                        przetargu 13-11-2023, NO result attachment (checked
-//                        live — unresolved rounds on this board never carry
-//                        one; see config.js KNOWN LIMITATION).
-//       result          informacja-o-wyniku-przetargu-kilinskiego-12a-m-1.docx
-//                        (the "dokument dostępny cyfrowo" DOCX twin; its PDF
-//                        sibling wynik-przetarg-kilinskiego.pdf turns out to be
-//                        SCANNED too — pdfinfo Creator "RICOH MP 3555", a
-//                        copier; pdftotext yields only \f — the DOCX is the
-//                        ONLY born-digital source for this fixture) — SOLD:
-//                        cena wywoławcza 110 270 zł, wylicytowana 111 380 zł,
-//                        nabywca Pan Adam Kuliński.
-//   Jagiellońska 2/4 — udział 271/350 części zabudowanej budynkiem mieszkalnym
-//     nieruchomości, dz. 53/5 KM 49/1:
-//       announce (III)  /4446  metadata "Rodzaj nieruchomości: Nieruchomości
-//                        niezabudowane" (the CMS's own coarse board-filter
-//                        category is WRONG here — the title clearly reads
-//                        "...zabudowanej budynkiem mieszkalnym..."; classifyKind
-//                        on metadata+title resolves this correctly via its
-//                        BUILT_RE guard), cena wyw. netto 83 250 zł, Data
-//                        przetargu 18-12-2023, self-report "Pierwszy ... 24
-//                        lipca 2023 ... wynikiem negatywnym. Drugi ... 18
-//                        września 2023 ... wynikiem negatywnym."
-//       result          informacja-o-rozstrzygnietym-przetargu-...-dokument-
-//                        dostepny-cyfrowo.pdf — labelled "dostępny cyfrowo" but
-//                        is in fact a SCANNED image PDF (pdftotext -> a single
-//                        \f byte, the documented scanned-PDF gotcha); OCR'd
-//                        (core/ocr-pdf.js, tesseract -l pol) — SOLD: cena
-//                        wywoławcza netto 83 250 zł, wylicytowana netto
-//                        84 100 zł, nabywca "KA-BO Borkowski Spółka
-//                        Komandytowa" (a COMPANY, not "Pan/Pani" — the buyer
-//                        regex must not assume a person). The OCR'd text is
-//                        terse enough ("sprzedaż nieruchomości ... działka nr
-//                        53/5 ... o pow. 0,0209 ha", no "zabudowan"/"udział"
-//                        repeated) that classifyKind() alone reads 'grunt' —
-//                        parseResultDoc's resultKind() override (a resolved
-//                        civic address => not bare land on this board) fixes
-//                        it to 'zabudowana'.
-//       LOAD-BEARING GOTCHA (caught only by testing against these real
-//       fixtures): BOTH result docs mention the auction VENUE's address ("ul.
-//       3 Maja 22") before the property's own address — a naive "first ul."
-//       match grabs the venue (and in Kilińskiego's fixture, with no comma
-//       terminating that clause, swallows the entire following sentence and
-//       fails to parse at all). addressFromResult() anchors on "położonego/
-//       położonej ... przy ul." instead.
-//   Kruszyńska 1A — a LEASE (najem) notice, not a sale: excluded regardless of
-//     kind. Its "Cena wywoławcza" metadata field is repurposed to describe the
-//     WADIUM instead of a price (a real data quirk on this board) — harmless
-//     since the notice never reaches price parsing.
-//   Real board titles (Skarb Państwa land, plain gmina land, dzierżawa) confirm
-//     the Skarb Państwa / grunt / lease exclusions at the title level.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -108,12 +30,7 @@ import {
   parseResultDoc,
 } from '../src/cities/wloclawek/parse.js';
 
-// ------------------------------------------------------------- HTML fixtures
 
-// Build one notice page in the real "BIP w JST" skeleton. `meta` is an ordered
-// array of [label, value]; `attachments` is an ordered array of
-// [attId, filename]; `bodyExtra` is the load-bearing tail of the body prose
-// (area sentence, prior-round self-report).
 function noticeHtml(title, meta, attachments, bodyExtra) {
   const metaHtml = meta
     .map(
@@ -209,8 +126,6 @@ const JAG_III_HTML = noticeHtml(
   'Pierwszy przetarg ustny nieograniczony na sprzedaż przedmiotowej nieruchomości miał miejsce w dniu 24 lipca 2023 r. i zakończył się wynikiem negatywnym. Drugi przetarg ustny nieograniczony na sprzedaż przedmiotowej nieruchomości miał miejsce w dniu 18 września 2023 r. i zakończył się wynikiem negatywnym.',
 );
 
-// A LEASE (najem) notice — NOT a sale; excluded regardless of kind. Its "Cena
-// wywoławcza" field is repurposed to describe the wadium (a real data quirk).
 const KRUSZYNSKA_TITLE =
   'II przetarg ustny nieograniczony na najem lokalu użytkowego, stanowiącego własność Gminy Miasto Włocławek, o powierzchni użytkowej 82,27 m², położonego we Włocławku przy ul. Kruszyńskiej 1A.';
 const KRUSZYNSKA_HTML = noticeHtml(
@@ -227,7 +142,6 @@ const KRUSZYNSKA_HTML = noticeHtml(
   '',
 );
 
-// Real board titles (2026-07-16) confirming exclusions at the title level.
 const SKARB_PANSTWA_TITLE =
   'I przetarg ustny ograniczony na sprzedaż nieruchomości gruntowej, stanowiącej własność Skarbu Państwa, położonej we Włocławku przy ul. Duninowskiej.';
 const DZIERZAWA_TITLE =
@@ -235,11 +149,7 @@ const DZIERZAWA_TITLE =
 const GRUNT_TITLE =
   'I przetarg ustny nieograniczony na sprzedaż nieruchomości niezabudowanej stanowiącej własność Gminy Miasto Włocławek, oznaczonej jako działka ewidencyjna nr 12/9, położonej we Włocławku przy ul. Papieżka.';
 
-// --------------------------------------------------------------- result-doc text
 
-// Kilińskiego 12A/1 result — real DOCX text (word/document.xml unzip, matching
-// core/doc-text.js's own extraction; verbatim except the trailing blank-line
-// run before "KG\nUID: 1171557" is condensed).
 const KIL_RESULT_DOCX = `Włocławek, 8 maja 2024 r.
 
 PREZYDENT MIASTA WŁOCŁAWEK
@@ -258,9 +168,6 @@ Nabywcą nieruchomości został Pan Adam Kuliński.
 KG
 UID: 1171557`;
 
-// Jagiellońska 2/4 result — real OCR text (tesseract -l pol on the 300 DPI
-// raster; verbatim, including the "$ 12"/"Ill przetarg" OCR misreads pdftotext
-// would never produce — proof this really is the OCR path, not pdftotext).
 const JAG_RESULT_OCR = `Włocławek, 27 grudnia 2023 r.
 
 PREZYDENT MIASTA WŁOCŁAWEK
@@ -286,7 +193,6 @@ Cena netto wywoławcza nieruchomości: 83 250,00 zł.
 Wylicytowana cena netto nieruchomości: 84 100,00 zł.
 Nabywcą nieruchomości została - KA-BO Borkowski Spółka Komandytowa.`;
 
-// ------------------------------------------------------------------ unit funcs
 
 test('parsePLN: space-thousands with and without a trailing "zł"', () => {
   assert.equal(parsePLN('110 270,00 zł'), 110270);
@@ -318,7 +224,6 @@ test('polishDateToIso: spelled-out Polish month with diacritics', () => {
   assert.equal(polishDateToIso('18 grudnia 2023'), '2023-12-18');
 });
 
-// ------------------------------------------------------------ HTML structure
 
 test('extractTitle / extractMetadata / extractAttachments: real "BIP w JST" skeleton', () => {
   assert.equal(extractTitle(KIL_III_HTML), KIL_III_TITLE);
@@ -346,7 +251,6 @@ test('pickResultAttachment: no matching attachment -> null (Kilińskiego II roun
   assert.equal(pickResultAttachment(extractAttachments(KIL_II_HTML)), null);
 });
 
-// -------------------------------------------------------------- addressRawFromNotice
 
 test('addressRawFromNotice: "Adres nieruchomości" omits the lokal unit — combined with the title\'s "lokal ... nr N"', () => {
   const meta = extractMetadata(KIL_III_HTML);
@@ -363,13 +267,11 @@ test('addressRawFromNotice: a compound building number ("2/4") already carries a
   assert.equal(addressRawFromNotice(meta, JAG_III_TITLE), 'Jagiellońskiej 2/4');
 });
 
-// ---------------------------------------------------------------- areaFromBody
 
 test('areaFromBody: "o powierzchni 40,70 m², składa się z ..." from the notice body prose', () => {
   assert.equal(areaFromBody(KIL_III_HTML), 40.7);
 });
 
-// -------------------------------------------------------------- parseNotice
 
 test('parseNotice: Kilińskiego 12A/1 III round — flat, price/date/area from metadata+body, address combines Adres+lokal-nr', () => {
   const n = parseNotice(KIL_III_HTML, 'https://bip.wloclawek.eu/6939/726/x.html');
@@ -423,7 +325,6 @@ test('parseNotice: plain gmina land (niezabudowana, no Skarb Państwa) IS a sale
   assert.equal(n.kind, 'grunt');
 });
 
-// ------------------------------------------------------------- parseResultDoc
 
 test('parseResultDoc: Kilińskiego 12A/1 SOLD (docx) — venue address ("ul. 3 Maja 22") correctly skipped in favor of the property\'s own "położonego ... ul." clause', () => {
   const [r] = parseResultDoc(KIL_RESULT_DOCX, '2024-04-24', 'https://bip.wloclawek.eu/download/attachment/14808/informacja-o-wyniku-przetargu-kilinskiego-12a-m-1.docx');

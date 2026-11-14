@@ -1,6 +1,3 @@
-// Full-page archive view. Loads via the same getOrFetch path used by the
-// popup, then renders three summary tiles (median sale price + median PLN/m²
-// per kind) and a filterable + sortable table of every historical record.
 
 const $status = document.getElementById('status');
 const $summary = document.getElementById('summary');
@@ -28,23 +25,16 @@ const t = (k, vars) => window.ZGM_I18N.t(k, vars);
 const nf = new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 });
 const nfArea = new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 2 });
 const fmtPLN = (n) => (n == null ? '—' : nf.format(n) + ' zł');
-// Polish decimal comma ("37,91 m²"), matching content.js's fmtArea — the raw
-// JSON number used to render with a dot ("37.91 m²").
 const fmtArea = (a) => (a == null ? '—' : nfArea.format(a) + ' m²');
 const fmtPerM2 = (price, area) =>
   price == null || area == null || area === 0
     ? '—'
     : nf.format(Math.round(price / area)) + ' zł/m²';
 
-// Escape crawled strings before they go into innerHTML. CSP blocks inline
-// <script>, but unescaped values still allow attribute breakout and
-// javascript:-style hrefs on these privileged pages.
 const esc = (s) =>
   String(s == null ? '' : s).replace(/[&<>"']/g, (c) =>
     ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]),
   );
-// Only allow http(s) URLs through to hrefs; anything else (javascript:, data:)
-// collapses to '' so it can't execute or phish.
 const safeHref = (u) => {
   if (!u) return '';
   try {
@@ -54,26 +44,18 @@ const safeHref = (u) => {
     return '';
   }
 };
-// Polish-fold a search query so it matches the already-folded street_search /
-// folded address text (e.g. typing "Zwycięstwa" matches "zwyciestwa").
 const POLISH_LOWER = (s) =>
   String(s || '')
     .toLowerCase()
     .replace(/[ąàá]/g, 'a').replace(/[ćč]/g, 'c').replace(/[ęè]/g, 'e')
     .replace(/[ł]/g, 'l').replace(/[ńñ]/g, 'n').replace(/[óòô]/g, 'o')
     .replace(/[śš]/g, 's').replace(/[żź]/g, 'z');
-// Europe/Warsaw civil date (YYYY-MM-DD) — UTC "today" flips an hour or two
-// before local midnight, keeping an auction "active" too long. Mirrors the
-// pipeline's todayWarsaw().
 const todayWarsaw = () =>
   new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Europe/Warsaw',
     year: 'numeric', month: '2-digit', day: '2-digit',
   }).format(new Date());
 
-// Drop pre-cutoff historical listings from prior counts (mirrors popup.js
-// withinYearWindow). Active / announced / archived rows always pass — they're
-// current postings, not history. settings.js is optional (defensive ?.).
 const withinYearWindow = (l) => {
   if (
     l.outcome === 'active' ||
@@ -93,7 +75,6 @@ function median(nums) {
   return s.length % 2 === 0 ? Math.round((s[mid - 1] + s[mid]) / 2) : s[mid];
 }
 
-// Compact city chip prepended to property cells (the archive mixes cities).
 function cityTagHtml(city) {
   if (!city) return '';
   const label = t('city.' + city);
@@ -103,8 +84,6 @@ function cityTagHtml(city) {
   return `<span class="zgm-city-tag" data-city="${esc(city)}">${esc(display)}</span> `;
 }
 
-// Display label for a land parcel (no street|building|apt): prefer a street,
-// else the cadastral parcel number (+ obręb), else the raw address.
 function landDisplay(p) {
   if (p.street) return `${p.street}${p.building ? ' ' + p.building : ''}`;
   if (p.dzialka_nr) return `dz. ${p.dzialka_nr}${p.obreb ? ' (' + p.obreb + ')' : ''}`;
@@ -118,8 +97,6 @@ let propByKey = new Map();
 let lastMeta = null;
 let lastFetchedAt = null;
 
-// Active-table sort state (separate from the historical table's sortKey).
-// Null = the default "most-relisted first" heuristic in renderActiveTable.
 let activeSortKey = null;
 let activeSortDir = 'asc';
 
@@ -158,14 +135,9 @@ function sortActiveItems(items) {
   });
 }
 
-// Warsaw civil "today" (not the viewer's local midnight) so the urgency flag
-// can't be a day off for a non-Polish-timezone user — mirrors background.js.
 function wadiumCellHtml(date) {
   if (!date) return '—';
   const t0 = Date.parse(date);
-  // A non-ISO date (e.g. "12.07.2026") parses to NaN; NaN<0 and NaN<=7 are both
-  // false, so an urgent deadline would render neutral (and title="NaNd"). Show
-  // the raw value instead of silently dropping the urgency cue.
   if (!Number.isFinite(t0)) return esc(date);
   const daysLeft = Math.round((t0 - Date.parse(todayWarsaw())) / 86400000);
   if (daysLeft < 0) return `<span class="zgm-past">${esc(date)}</span>`;
@@ -230,9 +202,6 @@ function flatten(payload) {
   const props = payload.properties?.properties || [];
   for (const p of props) {
     for (const l of p.listings) {
-      // 'archived' = a past auction from an announcement-only city (Bytom/
-      // Zabrze) — concluded, achieved price not published. Shown in the
-      // historical table with its starting price.
       if (
         l.outcome === 'sold' ||
         l.outcome === 'unsold' ||
@@ -252,8 +221,6 @@ function flatten(payload) {
           kind: l.kind || p.kind || 'unknown',
           share: l.share ?? p.share ?? null,
           area_m2: l.area_m2 ?? p.area_m2 ?? l.land_area_m2 ?? null,
-          // Plot area only when the building area is ALSO known (so it's genuinely
-          // the plot, not the sole area). Shown in the Działka column for houses.
           plot_area_m2: (l.area_m2 != null && l.land_area_m2 != null) ? l.land_area_m2 : null,
           round: l.round,
           starting_price_pln: l.starting_price_pln,
@@ -267,10 +234,6 @@ function flatten(payload) {
       }
     }
   }
-  // Land (działki/grunty) come from the SEPARATE land.json store (parcel-keyed).
-  // Surface plots with kind 'grunt' so the dedicated property-type filter can
-  // show/hide them. Plot area is shown as-is (zł/m² is plot-based; dealscore
-  // ignores non-residential kinds).
   for (const p of (payload.land?.plots || [])) {
     const disp = landDisplay(p);
     const search = POLISH_LOWER(disp);
@@ -302,7 +265,6 @@ function flatten(payload) {
   records.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 }
 
-// "" = all years; otherwise an exact 4-digit year string.
 function selectedYear() {
   return $filterYear && $filterYear.value ? $filterYear.value : '';
 }
@@ -311,9 +273,7 @@ function matchesYear(r, year) {
   return !!r.date && r.date.slice(0, 4) === year;
 }
 
-// Fill the year dropdown from the distinct auction years present in the data
 // (newest first), with an "All years" option on top. Preserves the current
-// selection across re-populations.
 function populateYears() {
   if (!$filterYear) return;
   const years = [...new Set(
@@ -324,7 +284,6 @@ function populateYears() {
   $filterYear.innerHTML =
     `<option value="">${allLabel}</option>` +
     years.map((y) => `<option value="${y}">${y}</option>`).join('');
-  // restore previous selection if still valid, else default to all years
   $filterYear.value = years.includes(prev) ? prev : '';
 }
 
@@ -342,10 +301,6 @@ function renderSummary() {
       (r) => !r.share && r.outcome === 'sold' && r.final_price_pln != null,
     );
 
-    // Cities with an achieved-price stream (Gliwice) summarise SOLD prices.
-    // Announcement-only cities have no sold records — every row is 'archived' —
-    // so fall back to counting all archived auctions and showing the median
-    // STARTING (wywoławcza) price instead, which is the data that exists.
     let count, prices, m2vals, suffixKey, labelKey;
     if (sold.length) {
       count = sold.length;
@@ -354,7 +309,7 @@ function renderSummary() {
       suffixKey = 'archive.sold_suffix';
       labelKey = 'archive.median';
     } else {
-      count = ofKind.length; // records[] holds only historical rows (no active)
+      count = ofKind.length;
       prices = ofKind.filter((r) => !r.share && r.starting_price_pln != null).map((r) => r.starting_price_pln);
       m2vals = ofKind
         .filter((r) => !r.share && r.area_m2 && r.starting_price_pln != null)
@@ -376,9 +331,6 @@ let sortKey = 'date';
 let sortDir = 'desc';
 
 function getSortValue(r, key) {
-  // Return null (not ''/-1) for missing values so the comparator can park them
-  // at the bottom in BOTH directions, matching the active table. The old ''/-1
-  // sentinels floated dateless/area-less rows to the top in the ascending view.
   switch (key) {
     case 'date': return r.date || null;
     case 'round': return r.round ?? null;
@@ -398,8 +350,6 @@ function renderTable() {
   const city = $filterCity.value;
   const outcome = $filterOutcome.value;
   const year = selectedYear();
-  // Polish-fold the query so it matches the folded street_search (typing
-  // "Zwycięstwa" must find "zwyciestwa").
   const q = POLISH_LOWER($filterSearch.value.trim());
 
   let rows = records.slice();
@@ -414,7 +364,6 @@ function renderTable() {
   rows.sort((a, b) => {
     const av = getSortValue(a, sortKey);
     const bv = getSortValue(b, sortKey);
-    // Missing values always sink to the bottom, regardless of direction.
     if (av == null && bv == null) return 0;
     if (av == null) return 1;
     if (bv == null) return -1;
@@ -446,30 +395,19 @@ function renderTable() {
     .join('');
 }
 
-// A dedicated 'verify at the source' link cell — points straight at the city
-// BIP/ZGM page or result PDF so the user can confirm the listing themselves.
-// Blank when the listing carries no source URL (a small minority).
 function srcLinkCell(u, bip) {
   const h = safeHref(u);
   const primary = h ? `<a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(h)}">${esc(t('link.verify'))}</a>` : '';
-  // Secondary source: the city BIP page for an auction also listed on ZGM.
   const hb = safeHref(bip);
   const secondary = hb ? `${primary ? ' ' : ''}<a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(hb)}">BIP ↗</a>` : '';
   return primary + secondary;
 }
 
-// City-portal "source" link for a land plot — the human listing page the plot
-// was crawled from, distinct from the geoportal MAP link in the Parcel column.
-// Lets users see a plot's source, not only its map. Blank for non-land / no URL.
 function portalLinkCell(u) {
   const h = safeHref(u);
   return h ? ` <a class="zgm-src-link" target="_blank" rel="noopener" href="${esc(h)}">portal ↗</a>` : '';
 }
 
-// Land rows link the parcel to a geoportal (resolved per-city in build-land);
-// non-land rows have no parcel link, so the cell is blank.
-// Direct Google Maps link for non-land listings (flats/houses/commercial/garages).
-// Land plots use the Parcel/geoportal column instead.
 function mapsCell(r) {
   if (r.kind === 'grunt') return '—';
   const base = (r.street ? `${r.street}${r.building ? ' ' + r.building : ''}`
@@ -480,7 +418,6 @@ function mapsCell(r) {
 }
 
 function parcelCell(r) {
-  // Multi-parcel plots ("263/2, 263/6") get one geoportal link per parcel.
   if (r.parcels && r.parcels.length) {
     const links = r.parcels.map((p) => {
       const h = safeHref(p.geoportal_url);
@@ -528,9 +465,6 @@ function renderProvenance() {
 function renderActiveTable() {
   const woj = $filterWoj ? $filterWoj.value : 'all';
   const city = $filterCity.value;
-  // Fold the query AND the address so diacritics match either way (the
-  // active-table search previously compared a folded-or-not query against the
-  // raw, diacritic-bearing address_raw).
   const q = POLISH_LOWER($filterSearch.value.trim());
 
   const today = todayWarsaw();
@@ -546,9 +480,6 @@ function renderActiveTable() {
     })
     .map((a) => {
       const prop = a.address ? propByKey.get(a.address.key) : null;
-      // Same prior-history rule the popup uses (isPrior): exclude live rows
-      // AND respect the saved minHistoryYear — otherwise the two surfaces
-      // disagree on "listed N× before" for the same property.
       const prior = prop
         ? prop.listings.filter(
             (l) =>
@@ -561,8 +492,6 @@ function renderActiveTable() {
       const lastUnsold = unsold[unsold.length - 1];
       return { a, prop, prior, unsold, lastUnsold };
     });
-  // Heuristic by default, user-clickable headers can override (see the
-  // click handlers at the bottom of this file).
   sortActiveItems(items);
 
   $activeTbody.innerHTML = items
@@ -634,7 +563,6 @@ function syncThemeButton() {
   window.ZGM_I18N.onChange(() => {
     applyStaticI18n();
     syncThemeButton();
-    // Re-fill the year dropdown so its "All years" option retranslates
     // (populateYears preserves the current selection).
     populateYears();
     renderAll();
@@ -646,8 +574,6 @@ function syncThemeButton() {
   });
   $themeToggle?.addEventListener('click', () => window.ZGM_THEME?.toggle());
   const onFilterChange = () => { renderSummary(); renderActiveTable(); renderTable(); };
-  // Voivodeship filter: narrow the city dropdown to the chosen voivodeship and
-  // reset the city if it's now hidden, then re-render.
   function syncCityOptions() {
     const woj = $filterWoj ? $filterWoj.value : 'all';
     for (const o of $filterCity.options) {
@@ -669,9 +595,6 @@ function syncThemeButton() {
   for (const th of $table.querySelectorAll('th[data-sort]')) {
     th.addEventListener('click', () => {
       const k = th.dataset.sort;
-      // Historical table: a freshly-picked column starts descending — newest
-      // dates and largest prices/areas first. (Intentionally the opposite of
-      // the active table's date-ascending "soonest auction first" default.)
       if (sortKey === k) sortDir = sortDir === 'asc' ? 'desc' : 'asc';
       else { sortKey = k; sortDir = 'desc'; }
       for (const t2 of $table.querySelectorAll('th[data-sort]')) {
@@ -681,8 +604,6 @@ function syncThemeButton() {
       renderTable();
     });
   }
-  // Sortable headers for the "Currently active" table. Mirrors the popup —
-  // date defaults asc (soonest first), other columns default desc.
   for (const th of $activeTable.querySelectorAll('th[data-sort]')) {
     th.addEventListener('click', () => {
       const k = th.dataset.sort;

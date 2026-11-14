@@ -1,6 +1,3 @@
-// Police crawler (bip.police.pl)
-//
-// Scrapes Logonet real-estate board.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

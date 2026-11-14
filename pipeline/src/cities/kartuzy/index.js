@@ -1,5 +1,3 @@
-// Adapter entry point for Kartuzy (powiat kartuski, Pomorskie)
-// BIP: https://bip.kartuzy.pl
 
 import config from './config.js';
 import { crawlActive, crawlResultDocs, parseResultDoc } from './crawl.js';

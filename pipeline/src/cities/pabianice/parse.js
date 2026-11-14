@@ -1,22 +1,3 @@
-// Pabianice parsers.
-//
-// parseResultDoc() is the one parser called by refresh.js. It receives the
-// pdftotext -layout output of a "Rozstrzygnięcie przetargu" PDF attachment.
-//
-// Active-listing metadata (address, starting price, auction date) comes from
-// the inline HTML table on the list/detail page — no announcement-PDF parser
-// is needed here; crawl.js reads those fields directly.
-//
-// Pabianice result-PDF format (standard Logonet BIP 2.9.0 boilerplate):
-//
-//   INFORMACJA O WYNIKU PRZETARGU
-//   Data i miejsce przetargu: 22 maja 2026 r., sala konferencyjna ...
-//   Przedmiot przetargu: lokal mieszkalny nr 7 przy ul. Pomorskiej 20 w Pabianicach
-//   Cena wywoławcza: 53 000,00 zł
-//   Najwyższa cena osiągnięta w przetargu: 55 000,00 zł
-//   Nabywca: Jan Kowalski ...
-//
-// VALIDATE against real pdftotext output of attachments/download/43139 on first CI run.
 
 import { parseAddress } from '../../core/normalize.js';
 
@@ -26,7 +7,6 @@ const PL_MONTH = {
   października: 10, pazdziernika: 10, listopada: 11, grudnia: 12,
 };
 
-// "53 000,00 zł" / "55.000,00" / "55000" -> integer PLN.
 function parsePLN(numStr) {
   if (!numStr) return null;
   const cleaned = String(numStr).replace(/[\s ]/g, '').replace(/\./g, '').replace(/,\d{2}$/, '');
@@ -34,22 +14,17 @@ function parsePLN(numStr) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// "37,70" / "37.70" -> number (m2).
 function parseArea(numStr) {
   if (numStr == null) return null;
   const n = Number(String(numStr).replace(/[\s ]/g, '').replace(',', '.'));
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// ----------------------------------------------------------------- type gate
 
 export function isResultNotice(text) {
-  // Matches "Informacja o wyniku przetargu" AND
-  // "Informacja o wyniku drugiego/trzeciego/... przetargu"
   return /informacj\w*\s+o\s+wyniku\s+(?:\w+\s+)?przetarg/i.test(text || '');
 }
 
-// ----------------------------------------------------------------- round
 
 const ROUND_WORDS = {
   pierwsz: 1, drug: 2, trzeci: 3, czwart: 4,
@@ -61,7 +36,6 @@ export function roundFromText(text) {
   return ROUND_WORDS[m[1].toLowerCase()] ?? null;
 }
 
-// ----------------------------------------------------------------- dates
 
 export function resultDateFromText(text) {
   const t = text || '';
@@ -84,7 +58,6 @@ export function resultDateFromText(text) {
   return null;
 }
 
-// ----------------------------------------------------------------- prices
 
 export function startingPriceFromText(text) {
   const t = text || '';
@@ -98,23 +71,13 @@ export function achievedPriceFromText(text) {
   return m ? parsePLN(m[1]) : null;
 }
 
-// ----------------------------------------------------------------- address
 
-// The result notice states the property in a line like:
-//   "Przedmiot przetargu: lokal mieszkalny nr 7 przy ul. Pomorskiej 20 w Pabianicach"
-// or in the header sentence:
-//   "... na sprzedaz lokalu mieszkalnego nr 7 przy ul. Pomorskiej 20 ..."
-//
-// Compound units (e.g. "nr 64/65") key on the first number as apt because
-// parseAddress cannot handle triple-slash "ul. X 3/64/65".
 
 export function addressRawFromResultText(text) {
   const t = text || '';
-  // "Przedmiot przetargu: ..." line carries the most reliable address.
   const prefM = /Przedmiot\s+przetargu\s*:\s*([^\n]{5,120})/i.exec(t);
   const source = prefM ? prefM[1] : t;
 
-  // Unit number: "nr 7" / "nr 64/65"
   const unitRawM = /\bnr\s+(\d+(?:\/\d+)?[A-Za-z]?)/i.exec(source);
   let unitNo = null;
   if (unitRawM) {
@@ -122,18 +85,15 @@ export function addressRawFromResultText(text) {
     unitNo = compound ? compound[1] : unitRawM[1];
   }
 
-  // Street + building after "przy ul."
   const streetM = /przy\s+(?:ul|al|os|pl)\.?\s+(.+)/i.exec(source);
   if (!streetM) return null;
 
-  // Strip trailing city name (" w Pabianicach"), clause openers, newlines.
   const streetFull = streetM[1]
     .replace(/[,\n].*$/, '')
     .replace(/\s+wraz\b.*$/i, '')
     .replace(/\s+w\s+[A-ZŻŹĆŁŚĄĘÓŃ]\w+\b.*$/i, '')
     .trim();
 
-  // Building number = last numeric token.
   const bldgM = /^(.+?)\s+(\d+[A-Za-z]?)\s*$/.exec(streetFull);
   if (!bldgM) return null;
 
@@ -145,14 +105,12 @@ export function addressRawFromResultText(text) {
     : `ul. ${streetName} ${building}`;
 }
 
-// ----------------------------------------------------------------- area
 
 export function unitAreaFromText(text) {
   const m = /powierzchni\w*\s+u[żz]ytkow\w*\s+([\d.,]+)\s*m\s*[²2](?!\d)/i.exec(text || '');
   return m ? parseArea(m[1]) : null;
 }
 
-// ----------------------------------------------------------------- result parse
 
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!isResultNotice(text)) return [];

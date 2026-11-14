@@ -1,35 +1,3 @@
-// Tests for pipeline/src/cities/swinoujscie/parse.js + crawl.js
-//
-// Fixtures groundtruthed 2026-06-28 against live BIP bip.um.swinoujscie.pl:
-//
-//   ANNOUNCEMENT (flat, round 3):
-//     https://bip.um.swinoujscie.pl/artykul/1717/39630/ogloszenie-nr-7-2024-s-...
-//     Title: "OGŁOSZENIE nr 7/2024/S" (heading on board) + article title from board index:
-//       "trzeci nieograniczony ustny przetarg na sprzedaż lokalu mieszkalnego nr 4
-//        wraz z pomieszczeniem przynależnym o łącznej powierzchni 90,73 m2 położonego
-//        przy ul. Konstytucji 3 Maja 44 w Świnoujściu"
-//     Blurb: "Przetarg odbędzie się dnia 16 października 2024 r. o godzinie 12:00 ..."
-//     DOC text (OCR-confirmed): cena wywoławcza 428 825,00 zł
-//
-//   ANNOUNCEMENT (flat via udział, round 2):
-//     https://bip.um.swinoujscie.pl/artykul/1718/40232/ogloszenie-nr-15-2024-s-...
-//     Board index title:
-//       "Ogłoszenie nr 15/2024/S drugi nieograniczony ustny przetarg na sprzedaż
-//        udziału w nieruchomości przy ul. Armii Krajowej 7a w Świnoujściu,
-//        w ramach którego przysługuje prawo do wyłącznego korzystania
-//        z lokalu mieszkalnego nr 6"
-//     Blurb: "Przetarg odbędzie się dnia 13 stycznia 2025 r. o godzinie 12:30 ..."
-//
-//   ANNOUNCEMENT (house/zabudowana, round 2):
-//     https://bip.um.swinoujscie.pl/artykul/1717/43678/ogloszenie-nr-2-2026-s
-//     Board index title:
-//       "OGŁOSZENIE nr 2/2026/S"
-//     Body text of article / DOC text:
-//       "drugi, nieograniczony ustny przetarg nieruchomości gruntowej zabudowanej
-//        budynkiem mieszkalnym jednorodzinnym, położonej w Świnoujściu przy ul. Miodowej 8"
-//     DOC: cena wywoławcza 549 000,00 zł, przetarg 18.06.2026
-//
-//   NO RESULT NOTICES — parseResultDoc always returns []
 
 import { strict as assert } from 'node:assert';
 import { describe, it } from 'node:test';
@@ -51,7 +19,6 @@ import {
 
 import { parseArticleList, docAttachmentUrl } from '../src/cities/swinoujscie/crawl.js';
 
-// ----------------------------------------------------------------- parsePLN
 
 describe('parsePLN', () => {
   it('parses space-separated thousands with comma-decimal', () => {
@@ -69,7 +36,6 @@ describe('parsePLN', () => {
   });
 });
 
-// ----------------------------------------------------------------- parseArea
 
 describe('parseArea', () => {
   it('parses comma-decimal area', () => {
@@ -84,7 +50,6 @@ describe('parseArea', () => {
   });
 });
 
-// ----------------------------------------------------------------- roundFromTitle
 
 describe('roundFromTitle', () => {
   it('extracts trzeci (3)', () => {
@@ -118,7 +83,6 @@ describe('roundFromTitle', () => {
   });
 });
 
-// ----------------------------------------------------------------- areaFromTitle
 
 describe('areaFromTitle', () => {
   it('extracts area from "powierzchni 90,73 m2"', () => {
@@ -141,7 +105,6 @@ describe('areaFromTitle', () => {
   });
 });
 
-// ----------------------------------------------------------------- auctionDateFromBlurb
 
 describe('auctionDateFromBlurb', () => {
   it('parses Polish word-form date', () => {
@@ -175,11 +138,9 @@ describe('auctionDateFromBlurb', () => {
   });
 });
 
-// ----------------------------------------------------------------- addressRawFromTitle
 
 describe('addressRawFromTitle', () => {
   it('extracts Konstytucji 3 Maja 4/4 with flat apt from lokal nr 4', () => {
-    // Direct address pattern: "przy ul. Konstytucji 3 Maja 4/4"
     const raw = addressRawFromTitle(
       'trzeci nieograniczony ustny przetarg na sprzedaż lokalu mieszkalnego nr 4 wraz z pomieszczeniem przynależnym o łącznej powierzchni 90,73 m2 położonego przy ul. Konstytucji 3 Maja 4/4 w Świnoujściu',
     );
@@ -195,7 +156,6 @@ describe('addressRawFromTitle', () => {
     assert.ok(raw, 'addressRaw must be non-null');
     assert.match(raw, /Armii Krajowej/i);
     assert.match(raw, /7[aA]/i);
-    // Apt 6 is appended
     assert.match(raw, /6/);
   });
 
@@ -214,7 +174,6 @@ describe('addressRawFromTitle', () => {
   });
 });
 
-// ----------------------------------------------------------------- startingPriceFromDoc
 
 describe('startingPriceFromDoc', () => {
   it('parses from OCR-extracted announcement text', () => {
@@ -242,7 +201,6 @@ Wysokość postąpienia: 5 000,00 zł
   });
 });
 
-// ----------------------------------------------------------------- kindFromTitle
 
 describe('kindFromTitle', () => {
   it('mieszkalny for lokal mieszkalny', () => {
@@ -262,7 +220,6 @@ describe('kindFromTitle', () => {
   });
 });
 
-// ----------------------------------------------------------------- isSkippableTitle
 
 describe('isSkippableTitle', () => {
   it('skips najem announcements', () => {
@@ -279,7 +236,6 @@ describe('isSkippableTitle', () => {
   });
 });
 
-// ----------------------------------------------------------------- isAnnouncementTitle
 
 describe('isAnnouncementTitle', () => {
   it('identifies flat sale przetarg', () => {
@@ -296,7 +252,6 @@ describe('isAnnouncementTitle', () => {
   });
 });
 
-// ----------------------------------------------------------------- parseArticle
 
 describe('parseArticle', () => {
   it('parses Konstytucji 3 Maja 4/4 flat announcement', () => {
@@ -316,7 +271,7 @@ describe('parseArticle', () => {
     assert.ok(rec.address, 'address must be parsed');
     assert.match(rec.address.street_norm, /konstytucji/i);
     assert.equal(rec.detail_url, art.detail_url);
-    assert.equal(rec.starting_price_pln, null); // null until DOC enrichment
+    assert.equal(rec.starting_price_pln, null);
   });
 
   it('parses Armii Krajowej 7a with lokal nr 6 (udział pattern)', () => {
@@ -366,7 +321,6 @@ describe('parseArticle', () => {
   });
 });
 
-// ----------------------------------------------------------------- parseResultDoc
 
 describe('parseResultDoc', () => {
   it('always returns [] (no result notices on BIP)', () => {
@@ -376,10 +330,8 @@ describe('parseResultDoc', () => {
   });
 });
 
-// ----------------------------------------------------------------- parseArticleList (crawl)
 
 describe('parseArticleList', () => {
-  // Reconstructed from live board HTML (bip.um.swinoujscie.pl/artykuly/1717)
   const BOARD_HTML = `
 <div id="main-content">
 <h1>Przetargi na sprzedaż nieruchomości</h1>
@@ -414,7 +366,6 @@ describe('parseArticleList', () => {
   });
 });
 
-// ----------------------------------------------------------------- docAttachmentUrl (crawl)
 
 describe('docAttachmentUrl', () => {
   it('finds .doc attachment URL from article HTML', () => {

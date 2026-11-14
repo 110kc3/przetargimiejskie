@@ -1,23 +1,3 @@
-// One-off offline healer for already-published data/<city>/properties.json,
-// WITHOUT crawling. Fixes the June 2026 bug-review findings that parser fixes
-// alone can't heal, because merge-history re-seeds every previously-committed
-// key (zombie keys):
-//
-//   1. OCR street noise — a stray ";x"/":x" fragment inside a street
-//      ("Jagiellońskiej;j") is stripped and the property is re-keyed; if the
-//      cleaned key already exists, the two are folded together.
-//   2. Street case-variant duplicates — "sportowej|6|2" vs "sportowa|6|2"
-//      holding the SAME auction; folded via healStreetVariants (the same
-//      logic refresh.js runs post-merge).
-//   3. Verified re-keys, cross-city display flips, and verified junk folds —
-//      now defined in core/verified-heals.js and applied both HERE and inside
-//      refresh.js post-merge, so a fresh crawl that re-emits a healed-away key
-//      is re-healed on every CI run, not only when this script is run by hand.
-//
-// Run from anywhere:   node pipeline/scripts/heal-properties.js
-// Then:                node pipeline/scripts/recount-auctions.js
-//
-// (Update unique_properties via recount or the next full refresh.)
 
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
@@ -33,11 +13,6 @@ import {
 
 const DATA_DIR = fileURLToPath(new URL('../../data/', import.meta.url));
 
-// Whole-property sales healed in place: a "mieszkalny"/"unknown" property whose
-// area exceeds any real flat (300 m²) is carrying a plot/building total
-// (Katowice "Chodnikowa 33E" 1 920 m², "Górna 4" 1 049 m²) — move it to
-// land_area_m2 so the archive stops computing zł/m² from a plot. (refresh.js
-// gets the same via build-properties' healPlotAreas inside healStreetVariants.)
 const MAX_FLAT_M2 = 300;
 
 const POLISH_LOWER = (s) =>
@@ -48,8 +23,6 @@ const POLISH_LOWER = (s) =>
 const streetNorm = (street) =>
   POLISH_LOWER(street).replace(/[^\w]+/g, ' ').trim().replace(/\s+/g, ' ');
 
-// Cross-city display evidence (street_norm → display street), built once from
-// the committed corpus. See core/verified-heals.js crossCityDisplay.
 const globalByNorm = buildGlobalStreetDisplay(DATA_DIR);
 
 let touchedCities = 0;
@@ -62,7 +35,6 @@ for (const cityId of readdirSync(DATA_DIR, { withFileTypes: true })
   let props = file.properties || [];
   const before = JSON.stringify(props);
 
-  // (1) strip ;/: OCR noise from streets, re-key, fold onto an existing twin.
   const byKey = new Map(props.map((p) => [p.key, p]));
   for (const p of [...byKey.values()]) {
     const cleanedStreet = stripOcrStreetNoise(p.street);
@@ -85,10 +57,8 @@ for (const cityId of readdirSync(DATA_DIR, { withFileTypes: true })
   }
   props = [...byKey.values()];
 
-  // (1b) verified re-keys from since-fixed parser bugs.
   applyVerifiedRenames(props, cityId);
 
-  // (1c) plot totals masquerading as flat areas → land_area_m2.
   for (const p2 of props) {
     if (p2.area_m2 == null || p2.area_m2 <= MAX_FLAT_M2) continue;
     if (p2.kind !== 'mieszkalny' && p2.kind !== 'unknown') continue;
@@ -99,7 +69,6 @@ for (const cityId of readdirSync(DATA_DIR, { withFileTypes: true })
     console.error(`${cityId}: ${p2.key} area ${a} m² → land_area_m2 (whole-property sale)`);
   }
 
-  // (2) Apply the same durable variant/alias/junk/kind/round sequence used by
   //     both normal and preserve-on-empty refresh paths.
   props = applyDurablePropertyHeals(props, cityId, globalByNorm);
 

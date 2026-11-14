@@ -1,8 +1,4 @@
 #!/usr/bin/env node
-// Read-only B2G readiness audit over committed city data.
-//
-//   node scripts/audit-b2g-readiness.mjs \
-//     --kind mieszkalny --from 2024-08-01 --to 2026-07-31 [--json] [city-id ...]
 
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';

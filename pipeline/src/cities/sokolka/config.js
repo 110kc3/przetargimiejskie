@@ -1,7 +1,3 @@
-// Configuration for Sokółka adapter (bip-umsokolka.podlaskie.eu)
-//
-// Gmina Sokółka (powiat sokólski, podlaskie)
-// TERC: 2011084
 
 export const CONFIG = {
   id: 'sokolka',

@@ -1,13 +1,3 @@
-// Głogów parser tests. Fixtures are REAL captured documents fetched live
-// from glogow.bip.info.pl's /api/fo/ JSON:API (2026-07-19/20, insecure-TLS —
-// the host ships an incomplete cert chain; see crawl.js): each fixture's
-// `title` is the article's own metadata title and `body` is the FULL
-// `pdftotext -layout` output of ONE attachment PDF, fed through
-// parse.buildRecordText() exactly as crawl.js does, so every parser below is
-// groundtruthed against production data. See parse.js's header for the
-// document-structure story these fixtures pin down (multi-LOT announcements
-// vs multi-ATTACHMENT results, word-ordinal rounds, the prior-round-history
-// and zoning-boilerplate decoys).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -74,14 +64,7 @@ test('parseOfficialFallbackPage: keeps only official sale announcement/result ca
   ]);
 });
 
-// --------------------------------------------------------------- real fixtures
 
-// ANNOUNCEMENT, single-lot flat, round III (word ordinal "trzeci") —
-// Rzemieślniczej 21a/9, 345 000 zł, 47,75 m², przetarg 15.09.2026. Carries
-// the prior-round HISTORY decoy in item 16 ("Pierwszy przetarg … odbył się
-// w dniu 31 marca 2026 r., a drugi w dniu 9 czerwca 2026 r.") that the
-// round + date parsers must not trip on, and the EUR-conversion decoy
-// ("tj. 80500,27 euro") right after the price.
 const ANN_RZEMIESLNICZA = {
   title: `PREZYDENT MIASTA GŁOGOWA ogłasza trzeci przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego położonego w Głogowie przy ul. Rzemieślniczej 21a/9.`,
   body: `WRM.DGiGG.6840.5.13.2026
@@ -334,12 +317,6 @@ podania danych:
 `,
 };
 
-// ANNOUNCEMENT, MULTI-LOT (three flats bundled in ONE attachment PDF, each
-// opened by its own "Samodzielny lokal mieszkalny nr N" marker; round I in
-// the PLURAL "pierwsze przetargi ustne"; ONE shared session "Przetargi
-// odbędą się w dniu 6 lipca 2026 r.") — Wały Bolesława Chrobrego 6/13
-// (240 000 zł, 70,49 m²), 6/14 (260 000 zł, 77,42 m²), 6/15 (180 000 zł,
-// 47,47 m²).
 const ANN_CHROBREGO = {
   title: `PREZYDENT MIASTA GŁOGOWA ogłasza pierwsze przetargi ustne nieograniczone na sprzedaż lokali mieszkalnych położonych w Głogowie przy ul. Wały Bolesława Chrobrego 6.`,
   body: `WRM.DGiGG.6840.5.9.2026.JSz
@@ -615,13 +592,6 @@ podania danych:
 `,
 };
 
-// ANNOUNCEMENT, whole tenement house (kind 'zabudowana'), round II —
-// Kamienna Droga 49, dz. 48/7 obręb 3, plot 1055 m², building usable area
-// 182,03 m² (the parser must skip the 131,06 m² "powierzchni zabudowy"
-// footprint), 530 000 zł, przetarg 5.08.2025. Its zoning boilerplate
-// ("… parkingi, miejsca postojowe i garaże") is the live-verified decoy
-// that classify-kind's GARAGE_RE would misroute to 'garaz' if kindFromText
-// classified the FULL body instead of the subject-statement head.
 const ANN_KAMIENNA49 = {
   title: `PREZYDENT MIASTA GŁOGOWA ogłasza drugi przetarg ustny nieograniczony na sprzedaż nieruchomości gruntowej położonej w Głogowie przy ul. Kamienna Droga 49, oznaczonej nr geod. 48/7 obręb 3 „Wyspa Katedralna”, o powierzchni 1055 m2, ujawnionej w księdze wieczystej nr LE1G/00110910/7, zabudowanej budynkiem mieszkalnym, wielorodzinnym, stanowiącej własność Gminy Miejskiej Głogów.`,
   body: `WRM.DGiGG.6840.5.12.2025.JSz
@@ -896,12 +866,6 @@ podania danych:
 `,
 };
 
-// ANNOUNCEMENT, LAND (kind 'grunt', parcel-keyed), round II — ul.
-// Stanisława Kutrzeby, dz. 159/2 obręb 7, 1935 m² (written "1935 m2" — NO
-// space/superscript, the form a m\b regex cannot match), 950 000 zł netto,
-// przetarg 13.05.2025. Its conditions carry the easement decoy parcel
-// ("… murów oporowych bastionu Św. Sebastiana … nr geod. 118 …") that
-// landPlotFromText must NOT collect (subject-statement bounding).
 const ANN_KUTRZEBY = {
   title: `PREZYDENT MIASTA GŁOGOWA ogłasza drugi przetarg ustny nieograniczony na sprzedaż nieruchomości gruntowej niezabudowanej, położonej w Głogowie przy ul. Stanisława Kutrzeby, oznaczonej nr geod. 159/2 obręb 7 „Stare Miasto”`,
   body: `WRM.DGiGG.6840.5.6.2025.JSz
@@ -1152,11 +1116,6 @@ podania danych:
 `,
 };
 
-// RESULT, UNSOLD flat, round I — Wały Bolesława Chrobrego 6/15. First
-// negative phrasing: "Przetarg zakończył się wynikiem negatywnym, gdyż nikt
-// nie przystąpił do przetargu." Starting price in the ACCUSATIVE "cenę
-// wywoławczą ustalono na kwotę 180000,00 zł" — the spelling an ASCII-only
-// cen\w* regex silently fails on (JS \w has no "ę").
 const RES_CHROBREGO_6_15 = {
   title: `INFORMACJA o wyniku przeprowadzonego pierwszego przetargu ustnego nieograniczonego na sprzedaż lokalu mieszkalnego położonego w Głogowie przy ul. Wały Bolesława Chrobrego 6/15.`,
   body: `Głogów, 2026-07-14
@@ -1218,10 +1177,6 @@ Rafael Rokaszewicz
 `,
 };
 
-// RESULT, SOLD flat, round III — Jedności Robotniczej 6a/10 (the spike's
-// reference case, legacy iddok=12143). "Nabywcą lokalu został Rafał
-// Patrzałek za najwyższą zaoferowaną cenę 166650,00 zł"; starting price
-// 165 000 zł.
 const RES_JEDNOSCI = {
   title: `INFORMACJA o wyniku przeprowadzonego trzeciego przetargu ustnego nieograniczonego na sprzedaż lokalu mieszkalnego położonego w Głogowie przy ul. Jedności Robotniczej 6a/10.`,
   body: `Głogów, 2025-03-12
@@ -1287,11 +1242,6 @@ Rafael Rokaszewicz
 `,
 };
 
-// RESULT, UNSOLD flat, round IV — Kamienna Droga 37/8, the FIRST of FOUR
-// separate single-lot attachment PDFs on ONE "INFORMACJE o wynikach …"
-// article whose aggregate title names all four addresses (37/8, 39/2, 39/6,
-// 39/8). The parser must take the address/price/area from THIS attachment's
-// body, never the shared title.
 const RES_KAMIENNA37_8 = {
   title: `INFORMACJE o wynikach przeprowadzonych czwartych przetargów ustnych nieograniczonych na sprzedaż lokali mieszkalnych położonych w Głogowie przy ul. Kamienna Droga nr 37/8, nr 39/2, nr 39/6 i nr 39/8.`,
   body: `Głogów, 2025-05-28
@@ -1351,11 +1301,6 @@ Rafael Rokaszewicz
 `,
 };
 
-// RESULT, UNSOLD whole tenement house (kind 'zabudowana'), round I —
-// Kamienna Droga 49, 550 000 zł. Two parser traps, both live-verified: the
-// address is spelled OUT ("przy ulicy Kamienna Droga 49", not "przy ul."),
-// and the price amount is NOT followed by "zł" ("… ustalono na kwotę
-// 550000,00 (słownie: …" — "zł" only appears inside the parenthetical).
 const RES_KAMIENNA49_HOUSE = {
   title: `INFORMACJA o wyniku przeprowadzonego pierwszego przetargu ustnego nieograniczonego na sprzedaż zabudowanej nieruchomości gruntowej`,
   body: `Głogów, 2025-04-23
@@ -1420,9 +1365,6 @@ Rafael Rokaszewicz
 `,
 };
 
-// RESULT, UNSOLD land, round II — ul. Stanisława Kutrzeby dz. 159/2,
-// 950 000 zł netto. SECOND negative phrasing: "… wynikiem negatywnym, gdyż
-// uczestnik przetargu nie zaoferował postąpienia ponad cenę wywoławczą."
 const RES_KUTRZEBY = {
   title: `INFORMACJA o wyniku przeprowadzonego drugiego przetargu ustnego nieograniczonego na sprzedaż nieruchomości gruntowej niezabudowanej.`,
   body: `Głogów, 2025-05-21
@@ -1484,14 +1426,6 @@ Rafael Rokaszewicz
 `,
 };
 
-// RESULT, UNSOLD flat on a SQUARE, round I — "lokal mieszkalny nr 22 …
-// przy Placu 1000-lecia 10 w Głogowie" (35,29 m², 172.000,00 zł — note the
-// DOT-thousands price form, unique to this doc among the fixtures). The
-// article title is the GENERIC "… na sprzedaż lokalu mieszkalnego." with no
-// address at all, so the body must supply it; the street both uses the
-// "Placu" designator (folded to nominative "Plac …") and OPENS WITH DIGITS
-// ("1000-lecia") — the two traps that silently dropped this flat before the
-// designator/digit support was added.
 const RES_PLAC1 = {
   title: `INFORMACJA o wyniku przeprowadzonego pierwszego przetargu ustnego nieograniczonego na sprzedaż lokalu mieszkalnego.`,
   body: `Głogów, 2025-02-05
@@ -1559,11 +1493,6 @@ Piotr Poznański
 `,
 };
 
-// RESULT, UNSOLD shed-plot ("nieruchomość gruntowa … przy ulicy Spokojnej,
-// … zabudowana budynkiem gospodarczym"), round II — classify-kind calls it
-// 'zabudowana' (built), but there is NO building number ("przy ulicy
-// Spokojnej," straight to the geod. clause), so it cannot be address-keyed:
-// exercises the parcel-keyed fallback (dz. 93, 1256 m², 200.000,00 zł).
 const RES_SPOKOJNA = {
   title: `INFORMACJA o wyniku przeprowadzonego drugiego przetargu ustnego nieograniczonego na sprzedaż nieruchomości gruntowej zabudowanej`,
   body: `Głogów, 2023-05-17
@@ -1632,11 +1561,6 @@ Rafael Rokaszewicz
 `,
 };
 
-// RESULT, UNSOLD ½-share of a VILLAGE estate ("w Witanowicach nr 18, gmina
-// Gaworzyce" — Gmina Miejska Głogów selling an out-of-town property, no
-// Głogów street at all), round I — the second parcel-keyed-fallback shape:
-// no street (address_raw null), dz. 99, 700 m², 50 000 zł ("50000,00
-// (słownie…" — amount not followed by zł).
 const RES_WITANOWICE = {
   title: `INFORMACJA o wyniku przeprowadzonego pierwszego przetargu ustnego nieograniczonego na sprzedaż udziału w zabudowanej nieruchomości gruntowej.`,
   body: `Głogów, 2026-01-28
@@ -1707,8 +1631,6 @@ Rafael Rokaszewicz
 `,
 };
 
-// ANNOUNCEMENT for the same Witanowice ½-share (round I) — exercises the
-// SAME parcel-keyed fallback on the ANNOUNCEMENT path.
 const ANN_WITANOWICE = {
   title: `PREZYDENT MIASTA GŁOGOWA ogłasza pierwszy przetarg ustny nieograniczony na sprzedaż udziału w wysokości ½ części w prawie własności zabudowanej nieruchomości gruntowej położonej w Witanowicach nr 18.`,
   body: `WRM.DGiGG.6840.5.18.2025.JSz
@@ -1943,15 +1865,11 @@ podania danych:
 `,
 };
 
-// Real title of a procedural qualified-bidders-list notice from the SAME
-// board (crawl.js gates these on the TITLE ALONE, before any article fetch —
-// mirrored here by building the blob with no body).
 const QUALIFIED_LIST_TITLE =
   'LISTA OSÓB ZAKWALIFIKOWANYCH do drugiego przetargu ustnego ograniczonego do właścicieli nieruchomości przyległych na sprzedaż nieruchomości gruntowej niezabudowanej, położonej w Głogowie w obrębie 18 „Kopernik”, oznaczonej nr geod. 411/2 o powierzchni 41 m2, ujawnionej w księdze wieczystej nr LE1G/00052132/4, stanowiącej własność Gminy Miejskiej Głogów';
 
 const blob = (f) => buildRecordText(f);
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: no-separator grosze form, defensive space/dot stripping', () => {
   assert.equal(parsePLN('345000,00'), 345000);
@@ -1962,58 +1880,58 @@ test('parsePLN: no-separator grosze form, defensive space/dot stripping', () => 
 });
 
 test('roundFromText: word ordinals, singular + plural, decoy-safe', () => {
-  assert.equal(roundFromText(blob(ANN_RZEMIESLNICZA)), 3); // "trzeci" — beats item 16's "Pierwszy … a drugi …" history
-  assert.equal(roundFromText(blob(ANN_CHROBREGO)), 1); // PLURAL "pierwsze przetargi"
-  assert.equal(roundFromText(blob(ANN_KAMIENNA49)), 2); // "drugi"
-  assert.equal(roundFromText(blob(RES_KAMIENNA37_8)), 4); // genitive "czwartego przetargu"
-  assert.equal(roundFromText(blob(RES_JEDNOSCI)), 3); // "trzeciego"
+  assert.equal(roundFromText(blob(ANN_RZEMIESLNICZA)), 3);
+  assert.equal(roundFromText(blob(ANN_CHROBREGO)), 1);
+  assert.equal(roundFromText(blob(ANN_KAMIENNA49)), 2);
+  assert.equal(roundFromText(blob(RES_KAMIENNA37_8)), 4);
+  assert.equal(roundFromText(blob(RES_JEDNOSCI)), 3);
 });
 
 test('auctionDateFromText: announcement (odbędzie/odbędą się) + result (przeprowadzono)', () => {
-  assert.equal(auctionDateFromText(blob(ANN_RZEMIESLNICZA)), '2026-09-15'); // not 31.03/9.06 (history decoy)
-  assert.equal(auctionDateFromText(blob(ANN_CHROBREGO)), '2026-07-06'); // plural "Przetargi odbędą się"
+  assert.equal(auctionDateFromText(blob(ANN_RZEMIESLNICZA)), '2026-09-15');
+  assert.equal(auctionDateFromText(blob(ANN_CHROBREGO)), '2026-07-06');
   assert.equal(auctionDateFromText(blob(ANN_KUTRZEBY)), '2025-05-13');
   assert.equal(auctionDateFromText(blob(RES_CHROBREGO_6_15)), '2026-07-06');
   assert.equal(auctionDateFromText(blob(RES_KAMIENNA49_HOUSE)), '2025-04-15');
 });
 
 test('startingPriceFromText: nominative announcement + ACCUSATIVE result forms', () => {
-  assert.equal(startingPriceFromText(ANN_RZEMIESLNICZA.body), 345000); // "Cena wywoławcza: 345000,00 zł"
-  assert.equal(startingPriceFromText(RES_CHROBREGO_6_15.body), 180000); // "cenę wywoławczą ustalono na kwotę …" (ę!)
-  assert.equal(startingPriceFromText(RES_JEDNOSCI.body), 165000); // "cenę wywoławczą lokalu ustalono …"
-  assert.equal(startingPriceFromText(RES_KAMIENNA49_HOUSE.body), 550000); // amount NOT followed by "zł"
-  assert.equal(startingPriceFromText(RES_KUTRZEBY.body), 950000); // long "w drugim przetargu … ustalono" gap
+  assert.equal(startingPriceFromText(ANN_RZEMIESLNICZA.body), 345000);
+  assert.equal(startingPriceFromText(RES_CHROBREGO_6_15.body), 180000);
+  assert.equal(startingPriceFromText(RES_JEDNOSCI.body), 165000);
+  assert.equal(startingPriceFromText(RES_KAMIENNA49_HOUSE.body), 550000);
+  assert.equal(startingPriceFromText(RES_KUTRZEBY.body), 950000);
 });
 
 test('achievedPriceFromText: only when a buyer (Nabywcą) is named', () => {
   assert.equal(achievedPriceFromText(RES_JEDNOSCI.body), 166650);
-  assert.equal(achievedPriceFromText(RES_CHROBREGO_6_15.body), null); // unsold
-  assert.equal(achievedPriceFromText(RES_KUTRZEBY.body), null); // unsold
+  assert.equal(achievedPriceFromText(RES_CHROBREGO_6_15.body), null);
+  assert.equal(achievedPriceFromText(RES_KUTRZEBY.body), null);
 });
 
 test('unitAreaFromText: usable area only — skips the zabudowy footprint', () => {
   assert.equal(unitAreaFromText(ANN_RZEMIESLNICZA.body), 47.75);
-  assert.equal(unitAreaFromText(ANN_KAMIENNA49.body), 182.03); // NOT 131,06 (powierzchni zabudowy)
+  assert.equal(unitAreaFromText(ANN_KAMIENNA49.body), 182.03);
   assert.equal(unitAreaFromText(RES_JEDNOSCI.body), 58.26);
 });
 
 test('addressRawFromText: "przy ul." AND spelled-out "przy ulicy"; unit nr appended', () => {
   assert.equal(addressRawFromText(ANN_RZEMIESLNICZA.body), 'Rzemieślniczej 21a/9');
-  assert.equal(addressRawFromText(RES_KAMIENNA49_HOUSE.body), 'Kamienna Droga 49'); // "przy ulicy …", no unit
+  assert.equal(addressRawFromText(RES_KAMIENNA49_HOUSE.body), 'Kamienna Droga 49');
   assert.equal(addressRawFromText(RES_KAMIENNA37_8.body), 'Kamienna Droga 37/8');
 });
 
 test('landStreetFromText + landPlotFromText: subject-bounded parcel/area', () => {
   assert.equal(landStreetFromText(ANN_KUTRZEBY.body), 'Stanisława Kutrzeby');
   const plot = landPlotFromText(ANN_KUTRZEBY.body);
-  assert.equal(plot.dzialka_nr, '159/2'); // NOT '159/2, 118' — easement decoy parcel excluded
-  assert.equal(plot.area_m2, 1935); // "1935 m2" — no \b between m and 2
+  assert.equal(plot.dzialka_nr, '159/2');
+  assert.equal(plot.area_m2, 1935);
   assert.equal(landPlotFromText(RES_KUTRZEBY.body).dzialka_nr, '159/2');
   assert.equal(landPlotFromText(RES_KUTRZEBY.body).area_m2, 1935);
 });
 
 test('kindFromText: subject-statement head beats deep zoning boilerplate', () => {
-  assert.equal(kindFromText(blob(ANN_KAMIENNA49)), 'zabudowana'); // NOT 'garaz' ("… parkingi, miejsca postojowe i garaże")
+  assert.equal(kindFromText(blob(ANN_KAMIENNA49)), 'zabudowana');
   assert.equal(kindFromText(blob(RES_KAMIENNA49_HOUSE)), 'zabudowana');
   assert.equal(kindFromText(blob(ANN_RZEMIESLNICZA)), 'mieszkalny');
   assert.equal(kindFromText(blob(ANN_KUTRZEBY)), 'grunt');
@@ -2033,13 +1951,12 @@ test('gates: stream routing + noise exclusion', () => {
   }
   for (const f of [RES_CHROBREGO_6_15, RES_JEDNOSCI, RES_KAMIENNA37_8, RES_KAMIENNA49_HOUSE, RES_KUTRZEBY]) {
     assert.equal(isResultDoc(blob(f)), true);
-    assert.equal(isAnnouncement(blob(f)), false); // results never carry "ogłasza" — routing order is safe
+    assert.equal(isAnnouncement(blob(f)), false);
     assert.equal(isSaleAuction(blob(f)), true);
     assert.equal(isLease(blob(f)), false);
   }
   assert.equal(isSaleAuction(blob(ANN_RZEMIESLNICZA)), true);
   assert.equal(isLease(blob(ANN_RZEMIESLNICZA)), false);
-  // Qualified-bidders list: title-only blob, exactly as crawl.js gates it.
   const qual = buildRecordText({ title: QUALIFIED_LIST_TITLE });
   assert.equal(isQualifiedBiddersList(qual), true);
   assert.equal(isAnnouncement(qual), false);
@@ -2047,12 +1964,11 @@ test('gates: stream routing + noise exclusion', () => {
 });
 
 test('isNegativeOutcome: both real negative phrasings; false when sold', () => {
-  assert.equal(isNegativeOutcome(blob(RES_CHROBREGO_6_15)), true); // "nikt nie przystąpił"
-  assert.equal(isNegativeOutcome(blob(RES_KUTRZEBY)), true); // "nie zaoferował postąpienia"
-  assert.equal(isNegativeOutcome(blob(RES_JEDNOSCI)), false); // sold
+  assert.equal(isNegativeOutcome(blob(RES_CHROBREGO_6_15)), true);
+  assert.equal(isNegativeOutcome(blob(RES_KUTRZEBY)), true);
+  assert.equal(isNegativeOutcome(blob(RES_JEDNOSCI)), false);
 });
 
-// --------------------------------------------------------------- announcements
 
 test('parseAnnouncement: single-lot flat (Rzemieślniczej 21a/9, round III)', () => {
   const recs = parseAnnouncement(blob(ANN_RZEMIESLNICZA));
@@ -2082,8 +1998,8 @@ test('parseAnnouncement: MULTI-LOT — three flats, per-lot fields, shared sessi
     assert.equal(r.kind, 'mieszkalny');
     assert.equal(r.address.street, 'Wały Bolesława Chrobrego');
     assert.equal(r.address.building, '6');
-    assert.equal(r.auction_date, '2026-07-06'); // shared
-    assert.equal(r.round, 1); // shared
+    assert.equal(r.auction_date, '2026-07-06');
+    assert.equal(r.round, 1);
   }
 });
 
@@ -2112,7 +2028,6 @@ test('parseAnnouncement: land (Kutrzeby dz. 159/2, round II) — parcel-keyed gr
   assert.equal(r.round, 2);
 });
 
-// --------------------------------------------------------------------- results
 
 test('parseResultDoc: UNSOLD flat (Chrobrego 6/15, round I) — clean, no notes', () => {
   const [r] = parseResultDoc(blob(RES_CHROBREGO_6_15), '2026-07-14', 'https://glogow.bip.info.pl/api/fo/files/X/download');
@@ -2123,8 +2038,8 @@ test('parseResultDoc: UNSOLD flat (Chrobrego 6/15, round I) — clean, no notes'
   assert.equal(r.final_price_pln, null);
   assert.equal(r.outcome, 'unsold');
   assert.equal(r.round, 1);
-  assert.equal(r.auction_date, '2026-07-06'); // body's "przeprowadzono w dniu" beats the fallback
-  assert.equal(r.source_pdf, 'https://glogow.bip.info.pl/api/fo/files/X/download'); // the field build-properties persists
+  assert.equal(r.auction_date, '2026-07-06');
+  assert.equal(r.source_pdf, 'https://glogow.bip.info.pl/api/fo/files/X/download');
   assert.deepEqual(r.notes, []);
 });
 
@@ -2142,7 +2057,7 @@ test('parseResultDoc: SOLD flat (Jedności Robotniczej 6a/10, round III)', () =>
 
 test('parseResultDoc: one attachment of a multi-attachment article — body wins over aggregate title', () => {
   const [r] = parseResultDoc(blob(RES_KAMIENNA37_8), '2025-06-02', 'Z');
-  assert.equal(r.address.key, 'kamienna droga|37|8'); // NOT 39/2, 39/6, 39/8 from the shared title
+  assert.equal(r.address.key, 'kamienna droga|37|8');
   assert.equal(r.starting_price_pln, 185000);
   assert.equal(r.area_m2, 78.83);
   assert.equal(r.outcome, 'unsold');
@@ -2173,7 +2088,7 @@ test('parseResultDoc: UNSOLD land (Kutrzeby dz. 159/2, round II) — parcel-keye
   assert.equal(r.outcome, 'unsold');
   assert.equal(r.round, 2);
   assert.equal(r.auction_date, '2025-05-13');
-  assert.equal(r.source_url, 'https://glogow.bip.info.pl/api/fo/files/V/download'); // the field build-land persists
+  assert.equal(r.source_url, 'https://glogow.bip.info.pl/api/fo/files/V/download');
   assert.deepEqual(r.notes, []);
 });
 
@@ -2181,7 +2096,6 @@ test('parseResultDoc: returns [] for a non-result (announcement) blob', () => {
   assert.deepEqual(parseResultDoc(blob(ANN_RZEMIESLNICZA), null, 'x'), []);
 });
 
-// ------------------------------------------- square addresses + parcel fallback
 
 test('addressRawFromText: "przy Placu 1000-lecia 10" — designator folded, digits-first street', () => {
   assert.equal(addressRawFromText(RES_PLAC1.body), 'Plac 1000-lecia 10/22');
@@ -2193,7 +2107,7 @@ test('parseResultDoc: UNSOLD flat on Plac 1000-lecia (round I) — generic title
   assert.equal(r.address.key, 'plac 1000 lecia|10|22');
   assert.equal(r.address.street, 'Plac 1000-lecia');
   assert.equal(r.area_m2, 35.29);
-  assert.equal(r.starting_price_pln, 172000); // dot-thousands "172.000,00 zł"
+  assert.equal(r.starting_price_pln, 172000);
   assert.equal(r.outcome, 'unsold');
   assert.equal(r.round, 1);
   assert.equal(r.auction_date, '2025-01-28');
@@ -2219,7 +2133,7 @@ test('parseResultDoc: village-estate share (Witanowice) — parcel-keyed fallbac
   assert.equal(r.dzialka_nr, '99');
   assert.equal(r.area_m2, 700);
   assert.equal(r.address_raw, null);
-  assert.equal(r.starting_price_pln, 50000); // "50000,00 (słownie…" — no trailing zł
+  assert.equal(r.starting_price_pln, 50000);
   assert.equal(r.outcome, 'unsold');
   assert.equal(r.round, 1);
   assert.equal(r.auction_date, '2026-01-20');
@@ -2230,7 +2144,7 @@ test('parseAnnouncement: Witanowice share — same parcel-keyed fallback on the 
   const recs = parseAnnouncement(blob(ANN_WITANOWICE));
   assert.equal(recs.length, 1);
   const [r] = recs;
-  assert.equal(r.kind, 'grunt'); // routes to land.json
+  assert.equal(r.kind, 'grunt');
   assert.equal(r.dzialka_nr, '99');
   assert.equal(r.area_m2, 700);
   assert.equal(r.starting_price_pln, 50000);

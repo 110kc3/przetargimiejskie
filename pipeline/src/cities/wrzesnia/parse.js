@@ -1,4 +1,3 @@
-// Września parsers — bip.wrzesnia.pl.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -154,7 +153,6 @@ export function parseAnnouncement(text, title = '', url = '') {
   }
 
   let address_raw = null;
-  // Match "ul. Przemysłowa 5A/9" or "przy ul. Harcerskiej 17"
   const mAddr = cleaned.match(/(?:przy\s+ul(?:icy|\.)?|ul\.)\s*([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż\s-]+?\s+\d+[a-zA-Z]?(?:\/\d+)?)\b/i);
   if (mAddr && !/Ratuszow/i.test(mAddr[0])) {
     address_raw = mAddr[0].trim();

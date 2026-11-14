@@ -1,5 +1,3 @@
-// City configuration for Bielsk Podlaski (powiat bielski, Podlaskie)
-// BIP: https://bip-umbielsk.podlaskie.eu
 
 export default {
   id: 'bielsk-podlaski',

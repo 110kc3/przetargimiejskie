@@ -1,10 +1,3 @@
-// Ożarów Mazowiecki crawler.
-// Fetches the primary WordPress board (ozarow-mazowiecki.pl/nieruchomosci-przeznaczone-do-zbycia/)
-// and category archive. For each announcement post, downloads the born-digital
-// "Załącznik nr 1 - Ogłoszenie o przetargu" PDF attachment and extracts its text via pdfText().
-//
-// crawlActive(): returns { listings, wykaz: [], land, valid_empty, valid_empty_land }
-// crawlResultDocs(): returns [] (stub, achieved-price stream not confirmed)
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -26,7 +19,6 @@ async function crawlAll() {
   const candidates = [];
   const seenUrls = new Set();
 
-  // 1. Fetch main board
   try {
     const boardHtml = await getText(BOARD_URL, FETCH_OPTS);
     for (const item of parseIndexPage(boardHtml)) {
@@ -39,7 +31,6 @@ async function crawlAll() {
     console.error(`  ozarow-mazowiecki: board fetch failed (${BOARD_URL}): ${err.message}`);
   }
 
-  // 2. Fetch category archive (page 1) to catch any additional posts
   try {
     const catHtml = await getText(CATEGORY_URL, FETCH_OPTS);
     for (const item of parseIndexPage(catHtml)) {
@@ -54,7 +45,6 @@ async function crawlAll() {
 
   console.error(`  ozarow-mazowiecki: ${candidates.length} candidate post(s) found`);
 
-  // 3. Process each post
   for (const c of candidates) {
     let postHtml;
     try {

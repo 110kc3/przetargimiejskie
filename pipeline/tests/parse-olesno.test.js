@@ -1,26 +1,3 @@
-// Olesno parser tests. Fixtures are condensed-but-faithful copies of REAL
-// page text fetched live from bip.olesno.pl (verified 2026-07-10, from this
-// Pi's Polish residential IP). Long non-load-bearing boilerplate (building
-// construction materials, geodesy disclaimers, notarial-cost warnings) is
-// trimmed; every sentence that feeds a parsed field (address, area, price,
-// date, round, outcome) is kept verbatim.
-//
-// The single groundtruth flat — ul. Małe Przedmieście 1, lokal nr 2, Olesno
-// (14,09 m², udział 142/10000, Wspólnota Mieszkaniowa Małe Przedmieście 1 –
-// Pieloka 11) — recurred across three 2025 rounds:
-//   round I   announce  bip.olesno.pl/12154  cena wywoławcza 55 000 zł
-//   round II  announce  bip.olesno.pl/12535  cena wywoławcza 50 000 zł
-//   round II  result    bip.olesno.pl/12660  UNSOLD (wynikiem negatywnym)
-//   round III announce  bip.olesno.pl/12722  cena wywoławcza 48 000 zł
-//   round III result    bip.olesno.pl/12790  SOLD 48 480 zł netto (nabywca
-//                        "AD-BAU" Artur Świtała, rozstrzygnięcie 2025-10-10)
-// round I's result (bip.olesno.pl/12368) is a PDF-only Google-Docs-viewer
-// iframe with no inline text — parseResultDoc must gracefully return [] for
-// it (residual gap, no PDF-text fallback wired in this build).
-//
-// Announcements state the street as full "Małe Przedmieście"; results
-// abbreviate it "M. Przedmieście" — both must resolve to the SAME
-// address.key for build-properties' round-history merge to join correctly.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -37,14 +14,7 @@ import {
   parsePLN,
 } from '../src/cities/olesno/parse.js';
 
-// --------------------------------------------------------------- fixtures
 
-// Wraps body prose in the real Olesno skyCMS (bip_v4) page skeleton: an
-// empty <div id="webreaderContainer"></div> sits between the heading and the
-// real content on EVERY live page — this is the exact shape that broke a
-// naive id="printArea" brace-counting regex (it stopped at that div's
-// immediate </div>, truncating to just the title). bip-page__footer is the
-// real trailing boundary (Metryczka/attachments), also verified live.
 function pageHtml(title, bodyHtml) {
   return `<!doctype html><html><body>
 <div class="bip-content col-12 col-md-7 col-lg-8 px-0">
@@ -169,10 +139,6 @@ nieruchomości została ustalona firma:</p>
 <p align="center"><strong>Artur Świtała</strong></p>`,
 );
 
-// Round I's real result (bip.olesno.pl/12368) has NO inline text — the body
-// is just a Google-Docs-viewer iframe wrapping a PDF ("Protokół z I
-// przetargu…"). stripTags() strips the iframe tag itself (an attribute, not
-// text content), leaving only the reload button's label.
 const ROUND1_RESULT_TITLE =
   'Informacja o wyniku I przetargu nieograniczonego - lokal nr 2 w budynku wspólnoty mieszkaniowej Małe Przedmieście 1';
 const ROUND1_RESULT_HTML = pageHtml(
@@ -180,9 +146,6 @@ const ROUND1_RESULT_HTML = pageHtml(
   `<p><div><button class="btn btn-primary mb-2" type="button" onclick="window.location.reload()">Załaduj ponownie</button><iframe title="Protokół z I przetargu - sprzedaż lokalu nr 2" class="googleDocAttachment" frameborder="0" src="https://docs.google.com/gview?url=https://bip.olesno.pl/download//65063/protokol.pdf&amp;embedded=true"></iframe></div></p>`,
 );
 
-// A "lokal użytkowy" (commercial) result in the same building family
-// (bip.olesno.pl/12058, 2024 board) — must be excluded from the flat stream
-// by the kind backstop even though its title also mentions "lokal".
 const COMMERCIAL_RESULT_TITLE =
   'Informacja o wyniku I przetargu na sprzedaż lokalu użytkowego 1c w budynku wspólnoty Mieszkaniowej M.Przedmieście 3.';
 const COMMERCIAL_RESULT_HTML = pageHtml(
@@ -194,10 +157,8 @@ przetargu wynosiła: 40.000,00 złotych. W wyniku przeprowadzonego przetargu,
 cena nieruchomości została ustalona na kwotę 40.400,00 zł netto.</p>`,
 );
 
-// Land noise (bip.olesno.pl/12766, 2025 board) — never mentions "lokal".
 const LAND_TITLE = 'Ogłoszenie o I przetargu nieograniczonym na sprzedaż działki nr 46 w Kucobach.';
 
-// Real 2025 board list markup (bip.olesno.pl/12150), condensed to 3 items.
 const LIST_PAGE_HTML = `<div class="pageOnPage"><ul class="pageOnPage">
 <li class="pageOnPageElement pageOnPageElement1"><div class="pageOnPageImg"></div>
 <div class="pageOnPageContent">
@@ -215,7 +176,6 @@ const LIST_PAGE_HTML = `<div class="pageOnPage"><ul class="pageOnPage">
 
 const EXPECTED_KEY = 'male przedmiescie|1|2';
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: dot-thousands (no grosze), dot-thousands+grosze, space-thousands', () => {
   assert.equal(parsePLN('55.000'), 55000);
@@ -270,7 +230,6 @@ test('parseListPage: extracts {title,url} from real pageOnPageHeader markup, abs
   assert.equal(items[2].title, ROUND3_TITLE);
 });
 
-// ------------------------------------------------------------- parseAnnouncement
 
 test('parseAnnouncement: round I (bip.olesno.pl/12154) — 55 000 zł, 2025-03-12', () => {
   const r = parseAnnouncement(ROUND1_ANNOUNCE_HTML, 'https://bip.olesno.pl/12154/x.html');
@@ -303,7 +262,6 @@ test('parseAnnouncement: round III (bip.olesno.pl/12722) — 48 000 zł, 2025-10
   assert.equal(r.round, 3);
 });
 
-// ------------------------------------------------------------- parseResultDoc
 
 test('parseResultDoc: round III (bip.olesno.pl/12790) SOLD 48 480 zł, abbreviated "M. Przedmieście" resolves to the SAME key as the full-form announcements', () => {
   const [r] = parseResultDoc(ROUND3_RESULT_HTML, null, 'https://bip.olesno.pl/12790/x.html');
@@ -344,13 +302,7 @@ test('parseResultDoc: empty input returns []', () => {
   assert.deepEqual(parseResultDoc(null, null, 'x'), []);
 });
 
-// --------------------------------------------------- address fallback (synthetic)
 
-// Synthetic (not a live 2026-07-10 fetch — constructed from the spike's
-// documented Świercz fixture, spikes/opolskie/powiat-oleski/olesno.md §1) to
-// exercise the "przy ul." fallback branch for a simple (non-wspólnota-framed)
-// flat sale, since the groundtruth building always hits the Wspólnoty
-// Mieszkaniowej branch first.
 test('parseAnnouncement: "przy ul." fallback path for a non-wspólnota flat (synthetic, spike-derived)', () => {
   const html = pageHtml(
     'II przetarg ustny nieograniczony na sprzedaż mieszkania',

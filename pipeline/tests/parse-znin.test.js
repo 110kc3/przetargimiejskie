@@ -1,43 +1,3 @@
-// Żnin parser tests. Fixtures are condensed-but-faithful copies of REAL page
-// text fetched live from bip.gminaznin.pl (verified 2026-07-12, from this Pi's
-// Polish residential IP — the bot UA 403s, a browser UA returns full server
-// HTML). Long non-load-bearing chrome (nav, cookie banner, Opis/Położenie prose,
-// the full metadata change-log) is trimmed; every element that feeds a parsed
-// field (H1 title, the "Sprzedaż · <kind> · Przeznaczenie" line, the Cena/Wadium
-// price card, the Powierzchnia/Obręb/Numer-działki/Księga-wieczysta/Tryb field
-// list, the ogłoszenie-PDF attachment link, the "Data publikacji" metadata) is
-// reproduced verbatim in the real System Rada / eSesja container shapes.
-//
-// Two documented Żnin gotchas are baked in as regression fixtures:
-//   1. The LAND fixture keeps the "Powiązane przetargi" related-rounds table,
-//      whose header cell is literally "Data publikacji</th>" (NO colon) — a
-//      loose scan reads it as the publication-date field; extractPublishedDate
-//      requires the colon, so it correctly binds to the real
-//      "Data publikacji:<br> <strong>06 mar 2024 …" in the metadata block.
-//   2. The OCR auction-date fixtures keep the two DECOY dates every ogłoszenie
-//      carries ("… upłynął w dniu <D> r." = the art. 34 prior-claims deadline;
-//      "Wadium należy wpłacić najpóźniej do dnia <D> r.") alongside the real
-//      "Przetarg odbędzie się … w dniu <D> r." — extractAuctionDate anchors on
-//      "odbędzie się" so a decoy can never win.
-//
-// Groundtruth (hand-verified against the live pages / OCR):
-//   FLAT  Jadowniki Rycerskie, budynek 27, lokal mieszkalny nr 4, 56 m²:
-//     round I  /nieruchomosc/…lokalu-mieszkalnego-nr-4…jadown-1
-//              cena wywoławcza 82 000 zł, wadium 10 000 zł, dz. 112,
-//              KW BY1Z/00019004/2, published 2026-05-14, auction 2026-06-18
-//              (auction date is OCR-only — the inline HTML omits it)
-//   LAND  Brzyskorzystew, dz. nr 295/10, 1391 m² (grunt, parcel-keyed):
-//     round I  cena 99 700 zł, wadium 9 000 zł, KW BY1Z/00022073/0,
-//              published 2024-03-06 — rounds I/II/III all live on the board ⇒
-//              rounds I,II are CONFIRMED superseded/unsold
-//   COMMERCIAL  Żnin, ul. Gnieźnieńska 18, lokal niemieszkalny nr 13, 20,50 m²:
-//     round I  cena 18 000 zł, wadium 1 800 zł, dz. 1154/3, KW BY1Z/00014177/0,
-//              published 2025-12-08, auction 2026-01-15 (OCR) — round II live ⇒
-//              round I superseded/unsold (address-keyed result path)
-//   BUILT  Żnin, ul. Kl. Janickiego, dz. nr 1741/3 (zabudowana, NO building no.):
-//     round I  its TITLE never says "zabudowanej" — only the structured
-//              "Nieruchomość zabudowana" label resolves the kind; with no
-//              building number it yields no address and is intentionally dropped
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -56,13 +16,7 @@ import {
   parseResultDoc,
 } from '../src/cities/znin/parse.js';
 
-// --------------------------------------------------------------- fixtures
 
-// Reproduces the real /nieruchomosc/<slug> page skeleton (System Rada / eSesja):
-// <h1 class="my-3 my-md-4">, the "Sprzedaż · <kind> · Przeznaczenie" line, an
-// optional "Powiązane przetargi" table, the Cena/Wadium price card, the
-// list-group field block (Powierzchnia uses <sup>2</sup>), the "Załączniki do
-// pobrania" attachment table, and the "Metadane" boundary + "Data publikacji".
 function pageHtml(o) {
   return `<!doctype html><html><body><main class="sub-page">
 <h1 class="my-3 my-md-4">${o.title}</h1>
@@ -112,9 +66,6 @@ const FLAT_HTML = pageHtml({
   published: '2026-05-14', pubHuman: '14 maj 2026, godz. 13:00',
 });
 
-// The LAND fixture KEEPS the "Powiązane przetargi" related-rounds table (rounds
-// II & III of the same parcel) — a real page has it, and its "Data publikacji"
-// column header (no colon) is the disambiguation regression noted at the top.
 const LAND_RELATED = `<h2 class="h4">Powiązane przetargi</h2>
 <div class="table-responsive-sm"><table class="table table-striped"><thead><tr><th>Tytuł</th><th style="width:200px;">Data publikacji</th></tr></thead><tbody>
 <tr><td><a href="/nieruchomosc/trzeci-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-dzialki-nr-295-10-w-brzyskorzyst">Trzeci przetarg ustny nieograniczony na sprzedaż nieruchomości, działki nr 295/10 w Brzyskorzystwi</a></td><td>2024-10-04 11:30:00</td></tr>
@@ -145,8 +96,6 @@ const COMM_HTML = pageHtml({
   published: '2025-12-08', pubHuman: '08 gru 2025, godz. 13:00',
 });
 
-// Built property whose TITLE omits "zabudowanej" — only the structured label
-// resolves the kind; no building number ⇒ no address.
 const BUILT_TITLE =
   'Pierwszy przetarg ustny nieograniczony na sprzedaż nieruchomości, stanowiącej własność Gminy Żnin, położonej w Żninie przy ul. Kl. Janickiego, oznaczonej geodezyjnie jako działka nr 1741/3';
 const BUILT_HTML = pageHtml({
@@ -159,8 +108,6 @@ const BUILT_HTML = pageHtml({
   published: '2024-01-10', pubHuman: '10 sty 2024, godz. 10:00',
 });
 
-// Condensed-but-verbatim OCR text of the SCANNED ogłoszenie PDFs (pol tesseract,
-// this Pi, 2026-07-12) — keeps the auction sentence plus both decoy dates.
 const FLAT_OCR = `Burmistrz Żnina ogłasza pierwszy przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 4, położonego w Jadownikach Rycerskich w budynku nr 27.
 Cena wywoławcza wynosi 82 000,00 zł (VAT zwolniony), wadium 10 000,00 zł.
 Termin do złożenia wniosku przez osoby, którym przysługuje pierwszeństwo w nabyciu na podstawie art. 34 ust. 1 pkt 1 i 2 ustawy z dnia 21 sierpnia 1997 r. o gospodarce nieruchomościami upłynął w dniu 24 kwietnia 2026 r.
@@ -173,7 +120,6 @@ Termin do złożenia wniosku przez osoby, którym przysługuje pierwszeństwo, u
 Przetarg odbędzie się w Auli Urzędu Miejskiego w Żninie (pokój nr 29) przy ul. 700-lecia 39, w dniu 15 stycznia 2026 r. o godz. 11.
 Wadium należy wpłacić najpóźniej do dnia 12 stycznia 2026 r.`;
 
-// -------------------------------------------------------------- unit funcs
 
 test('parsePLN: space-thousands + PLN/zł tail, and non-numeric → null', () => {
   assert.equal(parsePLN('82 000,00'), 82000);
@@ -193,7 +139,7 @@ test('parseArea: comma and dot separators, integer land areas (already m², no h
 test('parsePolishDate: spelled-out genitive, 3-letter CMS abbreviation, numeric', () => {
   assert.equal(parsePolishDate('18 czerwca 2026'), '2026-06-18');
   assert.equal(parsePolishDate('15 stycznia 2026 r.'), '2026-01-15');
-  assert.equal(parsePolishDate('06 mar 2024'), '2024-03-06'); // abbreviated month
+  assert.equal(parsePolishDate('06 mar 2024'), '2024-03-06');
   assert.equal(parsePolishDate('18.06.2026'), '2026-06-18');
   assert.equal(parsePolishDate('brak daty'), null);
 });
@@ -207,8 +153,8 @@ test('roundFromTitle: Polish ordinal words (Pierwszy…Czwarty), null when absen
 });
 
 test('extractAuctionDate: anchors on "odbędzie się" so the art.34 + wadium decoy dates never win', () => {
-  assert.equal(extractAuctionDate(FLAT_OCR), '2026-06-18'); // NOT 24 kwietnia / 15 czerwca
-  assert.equal(extractAuctionDate(COMM_OCR), '2026-01-15'); // NOT 14 listopada / 12 stycznia
+  assert.equal(extractAuctionDate(FLAT_OCR), '2026-06-18');
+  assert.equal(extractAuctionDate(COMM_OCR), '2026-01-15');
   assert.equal(extractAuctionDate('brak informacji o terminie'), null);
 });
 
@@ -224,7 +170,6 @@ test('extractAddress: village flat (street=obręb, bldg from "budynku nr"), town
   assert.equal(comm.address.building, '18');
   assert.equal(comm.address.apt, '13');
 
-  // "przy ul. Kl. Janickiego … jako działka nr 1741/3" — no building number.
   assert.equal(extractAddress(BUILT_TITLE, 'Żnin').address, null);
 });
 
@@ -246,7 +191,6 @@ test('isCancelled: only an actual odwołanie/unieważnienie title, not a normal 
   assert.equal(isCancelled('Unieważnienie przetargu na sprzedaż działki nr 15/19'), true);
 });
 
-// ------------------------------------------------------------- parseNotice
 
 test('parseNotice: FLAT Jadowniki Rycerskie 27/4 (the lokal mieszkalny) — full field block + title-derived address', () => {
   const n = parseNotice(FLAT_HTML, 'https://bip.gminaznin.pl/nieruchomosc/pierwszy-…-jadown-1');
@@ -265,17 +209,16 @@ test('parseNotice: FLAT Jadowniki Rycerskie 27/4 (the lokal mieszkalny) — full
   assert.equal(n.kw, 'BY1Z/00019004/2');
   assert.equal(n.published_date, '2026-05-14');
   assert.equal(n.pdf_url, 'https://bip.gminaznin.pl/pliki/umznin/zalaczniki/10690/ogloszenie-jadowniki-ryc-4-27-1.pdf');
-  // The auction date is NOT in the inline HTML (OCR-only) — parseNotice must not invent it.
   assert.ok(!('auction_date' in n) || n.auction_date == null);
 });
 
 test('parseNotice: LAND Brzyskorzystew dz. 295/10 — parcel-keyed grunt, related table does not corrupt fields', () => {
   const n = parseNotice(LAND_HTML, 'https://bip.gminaznin.pl/nieruchomosc/pierwszy-…-295-10-w-brzyskorzy');
   assert.equal(n.kind, 'grunt');
-  assert.equal(n.address, null);          // land is parcel-keyed, never address-keyed
+  assert.equal(n.address, null);
   assert.equal(n.dzialka_nr, '295/10');
   assert.equal(n.obreb, 'Brzyskorzystew');
-  assert.equal(n.area_m2, 1391);          // stated directly in m² (no ha conversion)
+  assert.equal(n.area_m2, 1391);
   assert.equal(n.starting_price_pln, 99700);
   assert.equal(n.wadium_pln, 9000);
   assert.equal(n.kw, 'BY1Z/00022073/0');
@@ -299,13 +242,12 @@ test('parseNotice: COMMERCIAL ul. Gnieźnieńska 18/13 (lokal niemieszkalny) →
 
 test('parseNotice: BUILT Kl. Janickiego — classified "zabudowana" from the structured LABEL (title lacks "zabudowanej"), no building ⇒ address null', () => {
   const n = parseNotice(BUILT_HTML, 'https://bip.gminaznin.pl/nieruchomosc/pierwszy-…-kl-janickiego');
-  assert.equal(n.kind, 'zabudowana');     // NOT 'grunt' — the label carries the kind
-  assert.equal(n.address, null);          // no building number in the title
+  assert.equal(n.kind, 'zabudowana');
+  assert.equal(n.address, null);
   assert.equal(n.dzialka_nr, '1741/3');
   assert.equal(n.starting_price_pln, 1000000);
 });
 
-// ----------------------------------------------------------- parseResultDoc
 
 test('parseResultDoc: LAND Brzyskorzystew 295/10 round I forwarded as CONFIRMED-superseded — real parcel/price, unsold, no fabricated hammer price', () => {
   const [r] = parseResultDoc(LAND_HTML, '2024-04-16', 'https://bip.gminaznin.pl/nieruchomosc/pierwszy-…-295-10-w-brzyskorzy');
@@ -319,7 +261,7 @@ test('parseResultDoc: LAND Brzyskorzystew 295/10 round I forwarded as CONFIRMED-
   assert.equal(r.outcome_evidence, 'inferred');
   assert.equal(r.unsold_reason, 'superseded_by_next_round');
   assert.equal(r.round, 1);
-  assert.equal(r.auction_date, '2024-04-16'); // fallbackDate (OCR) — HTML has none
+  assert.equal(r.auction_date, '2024-04-16');
   assert.equal(r.source_url, 'https://bip.gminaznin.pl/nieruchomosc/pierwszy-…-295-10-w-brzyskorzy');
 });
 

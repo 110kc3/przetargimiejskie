@@ -1,30 +1,3 @@
-// Grudziądz parser tests — groundtruthed against REAL fixtures (2026-07-16).
-//
-// Fixtures captured from:
-//   Board:  https://bip.grudziadz.pl/artykul/sprzedaz-nieruchomosci
-//   Announcement 1 (single lot, "złotych" spelled out):
-//     https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwszy-przetarg-ustny-nieograniczony-organizowany-w-dniu-6-maja-1
-//     .doc: https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/30928/4a-ogloszenie-o-i-przetargu.doc
-//   Announcement 2 (two lots in one table, "złotych" spelled out):
-//     https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-pierwsze-przetargi-ustne-nieograniczone-organizowane-w-dniu-29-cze
-//     .doc: https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/31408/2-ogloszenie.doc
-//   Announcement 3 (single lot, abbreviated "zł" + abbreviated "pow. uż." area
-//   label — a DIFFERENT format than 1/2, confirming both variants are handled):
-//     https://bip.grudziadz.pl/artykul/prezydent-grudziadza-oglasza-piaty-przetarg-ustny-nieograniczony-organizowany-w-dniu-2-czerwca
-//     .doc: https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/31211/2-regulamin-przetargu.doc
-//   Result notice (the ONLY result-of-a-concluded-auction notice found across
-//   the ENTIRE ~620-row board archive, 2008-2026 — a scanned PDF, OCR'd via
-//   tesseract -l pol; a negative/unsold outcome, so no achieved-price fixture
-//   exists on this board yet):
-//     https://bip.grudziadz.pl/artykul/informacja-z-przeprowadzonych-przetargow-na-sprzedaz-nieruchomosci-stanowiacych-wlasnosc-skarbu-4
-//     .pdf: https://bip.grudziadz.pl/pliki/grudziadz/zalaczniki/5850/18_09_2024_11_13_52_20240918080804683.pdf
-//
-// The .doc fixtures were converted via `catdoc -a -d utf-8` (core/doc-text.js's
-// exact conversion path) and are embedded here TRUNCATED to a contiguous real
-// prefix (through the operative "odbędzie/odbędą się w dniu" sentence) — the
-// remaining ~200 lines of each real document are generic wadium/procedure
-// boilerplate not read by the parser. The result fixture is the FULL real OCR
-// output (short — one page).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -39,11 +12,6 @@ import {
   areaFromText,
 } from '../src/cities/grudziadz/parse.js';
 
-// ── Board table parser ───────────────────────────────────────────────────────
-//
-// Condensed but structurally faithful copy of the real board HTML (2026-07-16):
-// the site's own markup leaves each row's <a> anchor UNCLOSED (no </a> before
-// </td>) — real, live-verified, not a fixture typo.
 
 const BOARD_HTML = `
 <div>
@@ -103,7 +71,6 @@ test('parseBoardTable: empty/unrelated HTML returns empty array', () => {
   assert.deepEqual(parseBoardTable('<html><body>nic</body></html>'), []);
 });
 
-// ── Row routing predicates ───────────────────────────────────────────────────
 
 test('isCancelled: true for an ODWOŁUJE row', () => {
   assert.equal(
@@ -124,11 +91,6 @@ test('isResultNotice: true for "INFORMACJA Z PRZEPROWADZONYCH PRZETARGÓW"', () 
 });
 
 test('isResultNotice: false for the much more common "kwalifikacji" eligibility notice (real title)', () => {
-  // Real board title — a pre-auction bidder-qualification notice for a
-  // RESTRICTED auction, NOT a result. "przeprowadzonej" here is immediately
-  // followed by "kwalifikacji", never by "przetargu" — this is the exact
-  // wording that must NOT match isResultNotice (21 of these exist on the
-  // board vs. 1 real result notice).
   assert.equal(
     isResultNotice(
       'Informacja z przeprowadzonej kwalifikacji do uczestnictwa w ogłoszonym przez Prezydenta Grudziądza na dzień 30 czerwca 2026 r.',
@@ -137,11 +99,6 @@ test('isResultNotice: false for the much more common "kwalifikacji" eligibility 
   );
 });
 
-// ── attachmentUrlFromDetail ───────────────────────────────────────────────────
-//
-// Real detail-page markup (2026-07-16):
-//   Announcement: <a href="/pliki/grudziadz/zalaczniki/30928/4a-ogloszenie-o-i-przetargu.doc" class="download" id="34161" download="">4a. Ogłoszenie o I przetargu  (DOC, 129.50Kb)</a>
-//   Result:       <a href="/pliki/grudziadz/zalaczniki/5850/18_09_2024_11_13_52_20240918080804683.pdf" class="download" id="7277" download="">18 09 2024 11 13 52 20240918080804683 (PDF, 203.40Kb)</a>
 
 test('attachmentUrlFromDetail: extracts .doc href from an announcement page', () => {
   const html =
@@ -166,16 +123,6 @@ test('attachmentUrlFromDetail: returns null when there is no download link', () 
   assert.equal(attachmentUrlFromDetail(''), null);
 });
 
-// ── Announcement .doc parser: single lot, "złotych" spelled out ─────────────
-//
-// REAL catdoc output (truncated after the operative date sentence — see file
-// header) from ul. Libelta 10A/5's announcement .doc.
-// Ground truth (verified from the document):
-//   address:            'Libelta 10A/5'
-//   area_m2:            45.20   (from "o powierzchni użytkowej 45,20 m2")
-//   starting_price_pln: 109000  (from "109.000,00 złotych")
-//   auction_date:       '2026-05-06'
-//   round:              1       (bare "pierwszy przetarg", no history clause)
 
 const ANN_LIBELTA = `
 
@@ -340,14 +287,6 @@ test('parseAnnouncement: Libelta 10A/5 — round 1 (bare "pierwszy przetarg")', 
   assert.equal(lot.round, 1);
 });
 
-// ── Announcement .doc parser: two lots in one table, "złotych" spelled out ──
-//
-// REAL catdoc output (truncated after the operative date sentence) from the
-// Rybacka 27C announcement covering lokal nr 4 AND lokal nr 6 in one table.
-// Ground truth (verified from the document):
-//   lot 1: Rybacka 27C/4, area 35.00 m², price 70 400 zł
-//   lot 2: Rybacka 27C/6, area 32.20 m², price 58 300 zł
-//   both:  round 1 (plural "pierwsze przetargi"), auction_date 2026-06-29
 
 const ANN_RYBACKA = `
 
@@ -541,14 +480,6 @@ test('parseAnnouncement: Rybacka 27C — auction date 2026-06-29 (plural "odbęd
   assert.equal(lots[1].auction_date, '2026-06-29');
 });
 
-// ── Announcement .doc parser: 5th round, abbreviated "zł" + "pow. uż." ──────
-//
-// REAL catdoc output (truncated after the operative date sentence) from the
-// Żeromskiego 3/5 announcement — a re-listed (5th round) flat, and a DIFFERENT
-// currency/area-label format than the two fixtures above ("zł" not "złotych",
-// "pow. uż." not "powierzchni użytkowej"): both must parse.
-// Ground truth: area 38.46 m² (NOT the 51.51 m² łączna total), price 80 000 zł
-// (NOT the 8 000 zł wadium), round 5, auction_date 2026-06-02.
 
 const ANN_ZEROMSKIEGO = `
 
@@ -715,7 +646,6 @@ test('parseAnnouncement: Żeromskiego 3/5 — auction date 2026-06-02', () => {
   assert.equal(lot.auction_date, '2026-06-02');
 });
 
-// ── parser helper null/empty safety ──────────────────────────────────────────
 
 test('parser helpers: null/empty inputs return null/[] without throwing', () => {
   assert.equal(roundFromText(''), null);
@@ -730,21 +660,6 @@ test('parser helpers: null/empty inputs return null/[] without throwing', () => 
   assert.deepEqual(parseAnnouncement(null), []);
 });
 
-// ── Result-doc parser (OCR'd scanned PDF) ────────────────────────────────────
-//
-// REAL full tesseract -l pol output (core/ocr-pdf.js's exact conversion path)
-// from the ONE result-of-a-concluded-auction notice found on the entire live
-// board (2008-2026). Tolerant of real OCR noise (the price/area table column
-// is largely garbled — "mż" for "m2", stray "©"/"—" glyphs — which is exactly
-// why parseResultDoc does NOT depend on that column for outcome/address/round/
-// date; those come from the clean opening prose sentence).
-// Ground truth (verified against the source PDF via `pdftoppm` + manual read):
-//   address:   'Libelta 10/4'
-//   round:     2      (drugi przetarg)
-//   outcome:   'unsold', unsold_reason 'no_participants'
-//              ("Żadna osoba nie przystąpiła do przetargu")
-//   auction_date: '2024-09-10' (from "w dniu 10 września 2024r.")
-//   final_price_pln: null (negative outcome — no sale)
 
 const RESULT_LIBELTA_OCR = `PREZYDENT GRUCZIĄDZA
 uł. Rstuszawa

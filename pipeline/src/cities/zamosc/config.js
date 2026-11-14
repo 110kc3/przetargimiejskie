@@ -1,7 +1,3 @@
-// Configuration for Zamość adapter (umzamosc.bip.lubelskie.pl)
-//
-// Miasto na prawach powiatu Zamość (lubelskie)
-// TERC: 0664011
 
 export const CONFIG = {
   id: 'zamosc',

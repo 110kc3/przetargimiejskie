@@ -1,16 +1,3 @@
-// Złotów unit tests: parser + crawl helper tests.
-//
-// Groundtruthed against real fixtures from bip.zlotow.pl:
-//   1. 2021: Lokal mieszkalny nr 6 przy ul. Wojska Polskiego 17 (29,14 m², 72 850 zł, przetarg 2025-05-08)
-//   2. 2094: Wynik: Lokal mieszkalny nr 6 przy ul. Wojska Polskiego 17 (sprzedany, 73 580 zł, Patryk Imosa)
-//   3. 2959: Nieruchomości zabudowane: ul. Podolska 4 (95 m², 425 000 zł) oraz ul. Wawrzyniaka 13 (77 m², 430 000 zł)
-//   4. 2994: Działki budowlane (17/1, 15/6+17/3, 24/15, 24/21, 24/26) przy ul. Chojnickiej
-//   5. 1249: Wynik: Lokal mieszkalny nr 3 przy ul. Mikołaja Kopernika 1 (sprzedany, 161 600 zł)
-//   6. 904:  Wynik: Lokal mieszkalny nr 5 przy al. Mickiewicza 13a (sprzedany, 61 000 zł)
-//   7. 906:  Wynik: Lokal mieszkalny nr 3 przy ul. ks. dr B. Domańskiego 16 (sprzedany, 40 400 zł)
-//   8. 2606: Wynik negatywny (brak wpłaty wadium, dz. 97/2 i in. przy ul. Domańskiego)
-//   9. 2930: Wynik pozytywny (działka nr 68/2, ENEA OPERATOR Sp. z o.o.)
-//  10. 2095: Wyniki wielopozycyjne (działki 18/7, 15/6+17/3)
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -40,7 +27,6 @@ import {
   parseResultDoc,
 } from '../src/cities/zlotow/parse.js';
 
-// ── Config tests ─────────────────────────────────────────────────────────────
 
 test('zlotow config contract', () => {
   assert.equal(config.id, 'zlotow');
@@ -52,7 +38,6 @@ test('zlotow config contract', () => {
   assert.equal(config.source, 'html');
 });
 
-// ── Numeric & String helpers ──────────────────────────────────────────────────
 
 test('parsePLN handles formatted currency strings', () => {
   assert.equal(parsePLN('72.850 zł'), 72850);
@@ -83,7 +68,6 @@ test('cleanAddressString normalizes prefixes and apartment designations', () => 
   assert.equal(cleanAddressString(null), null);
 });
 
-// ── Address extraction ───────────────────────────────────────────────────────
 
 test('addressFromText extracts flats and street addresses', () => {
   const addr1 = addressFromText(
@@ -140,7 +124,6 @@ test('addressFromText extracts flats and street addresses', () => {
   assert.equal(addressFromText('brak adresu'), null);
 });
 
-// ── Dates, Rounds, Area, Prices ──────────────────────────────────────────────
 
 test('auctionDateFromText parses spelled-out Polish months and dotted dates', () => {
   assert.equal(
@@ -242,7 +225,6 @@ test('outcomeFromText classifies sold vs unsold', () => {
   );
 });
 
-// ── Document splitting ───────────────────────────────────────────────────────
 
 test('splitNumberedItems splits multi-property announcement into items', () => {
   const text = `OGŁOSZENIE O PRZETARGU USTNYM NIEOGRANICZONYM
@@ -278,7 +260,6 @@ Burmistrz Miasta Złotowa podaje do publicznej wiadomości wyniki przetargów z 
   assert.ok(sections[1].includes('działka nr 15/6 i nr 17/3'));
 });
 
-// ── Classification & Filters ─────────────────────────────────────────────────
 
 test('category classifiers filter announcements, results and wykazy', () => {
   assert.equal(
@@ -317,7 +298,6 @@ test('category classifiers filter announcements, results and wykazy', () => {
   );
 });
 
-// ── Full announcement doc parsing ────────────────────────────────────────────
 
 test('parseAnnouncementDoc extracts multi-property residential announcement', () => {
   const text = `OGŁOSZENIE O PRZETARGU USTNYM NIEOGRANICZONYM
@@ -377,7 +357,6 @@ Przetarg odbędzie się w dniu 8 maja 2025 roku o godz. 11:00.`;
   assert.equal(listings[0].round, 1);
 });
 
-// ── Full result doc parsing ──────────────────────────────────────────────────
 
 test('parseResultDoc extracts sold flat result (fixture 2094)', () => {
   const text = `INFORMACJA
@@ -478,7 +457,6 @@ Burmistrz Miasta Złotowa podaje do publicznej wiadomości wyniki przetargów us
   assert.equal(results[1].area_m2, 938);
 });
 
-// ── List & Detail HTML parsers ────────────────────────────────────────────────
 
 test('parseListPage extracts articles and dates from Nefeni category HTML', () => {
   const html = `

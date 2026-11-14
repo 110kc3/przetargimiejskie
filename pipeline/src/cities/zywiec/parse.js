@@ -1,6 +1,3 @@
-// Parser for Żywiec auction notices and results (www.bip.zywiec.pl)
-//
-// Handles bespoke server-rendered HTML articles from Żywiec BIP.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';

@@ -1,7 +1,3 @@
-// Oświęcim parser test — MULTI-PROPERTY. Fixture is a condensed-but-faithful copy
-// of the REAL notice (verified 2026-06-26): 3 lokale Mały Rynek 9/4–9/6, II
-// przetarg, cena 120.792 / 78.304 / 71.056 zł, przetarg 08.11.2011. Each item's
-// usable area is taken (not the cellar "piwnica").
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { isResidentialAuctionHtml } from '../src/cities/oswiecim/crawl.js';
@@ -26,7 +22,7 @@ test('parseAnnouncement: 3 lokale — keys, usable areas, prices, shared round +
   assert.equal(recs.length, 3);
   assert.equal(recs[0].kind, 'mieszkalny');
   assert.equal(recs[0].address.key, 'maly rynek|9|4');
-  assert.equal(recs[0].area_m2, 61.19); // usable, not the 19,98 cellar
+  assert.equal(recs[0].area_m2, 61.19);
   assert.equal(recs[0].starting_price_pln, 120792);
   assert.equal(recs[0].round, 2);
   assert.equal(recs[0].auction_date, '2011-11-08');
@@ -57,12 +53,6 @@ test('valid-empty candidate detection excludes a residential wykaz but keeps auc
   assert.equal(isResidentialAuctionHtml('Informacja o wyniku przetargu lokalu mieszkalnego'), true);
 });
 
-// --- Result notices (parseResultDoc) ----------------------------------------
-// Fixture: verbatim OCR text (tesseract 5.3+pol) of attachment 52547 on
-// dokument 52545 — "Informacja o wyniku przetargu - ul. Dąbrowskiego 46/14",
-// fetched + OCR'd live 2026-07-18. Note the OCR quirks this parser must
-// survive: "m”" for m², spaced thousands, and Oświęcim's "Cena uzyskana"
-// (not "cena osiągnięta") template wording.
 import { parseResultDoc } from '../src/cities/oswiecim/parse.js';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';

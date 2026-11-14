@@ -1,9 +1,3 @@
-// Unit tests for Słubice adapter parsers and crawl helpers.
-//
-// Groundtruthed against real BIP announcements and OCR fixtures from bip.slubice.pl:
-// - File 2622: II przetarg, ul. Żeromskiego 18/8 (43.68 m², 165 000 zł, wadium 15 000 zł, auction 2026-07-16)
-// - File 2625: II przetarg, ul. Daszyńskiego 20/3 (37.44 m², 145 000 zł, wadium 14 000 zł, auction 2026-07-17)
-// - File 2626: II przetarg, ul. Wojska Polskiego 53/3 (30.49 m², 115 000 zł, wadium 10 000 zł, auction 2026-07-17)
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -32,7 +26,6 @@ import {
   parseResultDoc,
 } from '../src/cities/slubice/parse.js';
 
-// Helper to load OCR cache fixture or fallback
 function loadOcrFixture(id, hash) {
   const file = new URL(`../ocr-cache/${id}.${hash}.txt`, import.meta.url);
   if (fs.existsSync(file)) {
@@ -41,7 +34,6 @@ function loadOcrFixture(id, hash) {
   throw new Error(`Fixture not found: ${id}.${hash}.txt`);
 }
 
-// ── Config ───────────────────────────────────────────────────────────────────
 
 test('config: exports correct municipal metadata', () => {
   assert.equal(config.id, 'slubice');
@@ -53,7 +45,6 @@ test('config: exports correct municipal metadata', () => {
   assert.equal(config.teryt, '080505_4');
 });
 
-// ── Crawl URL helpers ────────────────────────────────────────────────────────
 
 test('crawl urls: constructs correct board pagination URLs', () => {
   assert.equal(
@@ -70,7 +61,6 @@ test('crawl urls: constructs correct board pagination URLs', () => {
   );
 });
 
-// ── Helpers ──────────────────────────────────────────────────────────────────
 
 test('cleanHtml: strips tags and normalizes whitespace', () => {
   assert.equal(
@@ -115,7 +105,6 @@ test('roundFromText: extracts ordinal and roman rounds', () => {
   assert.equal(roundFromText('brak informacji o turze'), null);
 });
 
-// ── Filters ──────────────────────────────────────────────────────────────────
 
 test('isAnnouncement: identifies flat sale auction announcements', () => {
   assert.equal(
@@ -136,7 +125,6 @@ test('isAnnouncement: identifies flat sale auction announcements', () => {
     ),
     true,
   );
-  // Rejects result notices
   assert.equal(
     isAnnouncement(
       'Informacja o wyniku przetargu ustnego na sprzedaż lokalu mieszkalnego',
@@ -147,7 +135,6 @@ test('isAnnouncement: identifies flat sale auction announcements', () => {
     isAnnouncement('Wynik przetargu na sprzedaż lokalu mieszkalnego nr 8'),
     false,
   );
-  // Rejects rentals and leases
   assert.equal(
     isAnnouncement('Przetarg na najem lokalu użytkowego przy ul. Kościuszki'),
     false,
@@ -156,7 +143,6 @@ test('isAnnouncement: identifies flat sale auction announcements', () => {
     isAnnouncement('Przetarg ustny na dzierżawę nieruchomości'),
     false,
   );
-  // Rejects non-residential
   assert.equal(
     isAnnouncement('Przetarg ustny nieograniczony na sprzedaż nieruchomości gruntowej'),
     false,
@@ -183,19 +169,16 @@ test('isResultNotice: identifies flat sale result notices', () => {
     ),
     true,
   );
-  // Rejects announcement
   assert.equal(
     isResultNotice(
       'Ogłoszenie o drugim przetargu na sprzedaż lokalu mieszkalnego - Słubice, ul. Żeromskiego 18/8',
     ),
     false,
   );
-  // Rejects lease/rental results
   assert.equal(isResultNotice('Wynik przetargu na najem lokalu'), false);
   assert.equal(isResultNotice('Wynik przetargu na dzierżawę gruntu'), false);
 });
 
-// ── List-page parser ─────────────────────────────────────────────────────────
 
 test('parseListPage: extracts articles from HTML links and RSC flight chunks', () => {
   const sampleHtml = `
@@ -236,7 +219,6 @@ test('parseListPage: handles Next.js RSC flight stream chunks', () => {
   );
 });
 
-// ── Attachment extractor ─────────────────────────────────────────────────────
 
 test('attachmentPdfFromDetail: resolves API and document attachment links', () => {
   const html1 = '<a href="/api/attachments/2622">Żeromskiego 18-8.pdf</a>';
@@ -261,12 +243,10 @@ test('attachmentPdfFromDetail: resolves API and document attachment links', () =
   assert.equal(attachmentPdfFromDetail(null), null);
 });
 
-// ── Real Fixture 1: ul. Żeromskiego 18/8 (File 2622) ─────────────────────────
 
 test('fixture 2622: ul. Żeromskiego 18/8 extracted accurately', () => {
   const ocrText = loadOcrFixture('2622', '18aadb01');
 
-  // Address
   const addr = addressFromText(ocrText);
   assert.ok(addr);
   assert.equal(addr.street, 'Żeromskiego');
@@ -274,21 +254,18 @@ test('fixture 2622: ul. Żeromskiego 18/8 extracted accurately', () => {
   assert.equal(addr.apt, '8');
   assert.equal(addr.key, 'zeromskiego|18|8');
 
-  // Table fields
   const table = extractTableFields(ocrText);
   assert.ok(table);
   assert.equal(table.area_m2, 43.68);
   assert.equal(table.starting_price_pln, 165000);
   assert.equal(table.wadium_pln, 15000);
 
-  // Field helpers
   assert.equal(areaFromText(ocrText), 43.68);
   assert.equal(startingPriceFromText(ocrText), 165000);
   assert.equal(auctionDateFromText(ocrText), '2026-07-16');
   assert.equal(publishedDateFromText(ocrText), '2026-06-11');
   assert.equal(roundFromText(ocrText), 2);
 
-  // Full announcement detail parse
   const context = {
     title: 'Ogłoszenie o drugim przetargu na sprzedaż lokalu mieszkalnego - Słubice, ul. Żeromskiego 18/8',
     url: 'https://bip.slubice.pl/kategorie/193-sprzedaz-mienia-przetargi/artykuly/1629-ogloszenie-zeromskiego',
@@ -307,12 +284,10 @@ test('fixture 2622: ul. Żeromskiego 18/8 extracted accurately', () => {
   assert.equal(rec.detail_url, context.url);
 });
 
-// ── Real Fixture 2: ul. Daszyńskiego 20/3 (File 2625) ─────────────────────────
 
 test('fixture 2625: ul. Daszyńskiego 20/3 extracted accurately', () => {
   const ocrText = loadOcrFixture('2625', 'c394b22d');
 
-  // Address
   const addr = addressFromText(ocrText);
   assert.ok(addr);
   assert.equal(addr.street, 'Daszyńskiego');
@@ -320,21 +295,18 @@ test('fixture 2625: ul. Daszyńskiego 20/3 extracted accurately', () => {
   assert.equal(addr.apt, '3');
   assert.equal(addr.key, 'daszynskiego|20|3');
 
-  // Table fields
   const table = extractTableFields(ocrText);
   assert.ok(table);
   assert.equal(table.area_m2, 37.44);
   assert.equal(table.starting_price_pln, 145000);
   assert.equal(table.wadium_pln, 14000);
 
-  // Field helpers
   assert.equal(areaFromText(ocrText), 37.44);
   assert.equal(startingPriceFromText(ocrText), 145000);
   assert.equal(auctionDateFromText(ocrText), '2026-07-17');
   assert.equal(publishedDateFromText(ocrText), '2026-06-11');
   assert.equal(roundFromText(ocrText), 2);
 
-  // Full announcement detail parse
   const context = {
     title: 'Ogłoszenie o drugim przetargu na sprzedaż lokalu mieszkalnego - Słubice, ul. Daszyńskiego 20/3',
     url: 'https://bip.slubice.pl/kategorie/193-sprzedaz-mienia-przetargi/artykuly/1632-ogloszenie-daszynskiego',
@@ -352,12 +324,10 @@ test('fixture 2625: ul. Daszyńskiego 20/3 extracted accurately', () => {
   assert.equal(rec.round, 2);
 });
 
-// ── Real Fixture 3: ul. Wojska Polskiego 53/3 (File 2626) ─────────────────────
 
 test('fixture 2626: ul. Wojska Polskiego 53/3 extracted accurately', () => {
   const ocrText = loadOcrFixture('2626', '519da691');
 
-  // Address
   const addr = addressFromText(ocrText);
   assert.ok(addr);
   assert.equal(addr.street, 'Wojska Polskiego');
@@ -365,21 +335,18 @@ test('fixture 2626: ul. Wojska Polskiego 53/3 extracted accurately', () => {
   assert.equal(addr.apt, '3');
   assert.equal(addr.key, 'wojska polskiego|53|3');
 
-  // Table fields
   const table = extractTableFields(ocrText);
   assert.ok(table);
   assert.equal(table.area_m2, 30.49);
   assert.equal(table.starting_price_pln, 115000);
   assert.equal(table.wadium_pln, 10000);
 
-  // Field helpers
   assert.equal(areaFromText(ocrText), 30.49);
   assert.equal(startingPriceFromText(ocrText), 115000);
   assert.equal(auctionDateFromText(ocrText), '2026-07-17');
   assert.equal(publishedDateFromText(ocrText), '2026-06-11');
   assert.equal(roundFromText(ocrText), 2);
 
-  // Full announcement detail parse
   const context = {
     title: 'Ogłoszenie o drugim przetargu na sprzedaż lokalu mieszkalnego - Słubice, ul. Wojska Polskiego 53/3',
     url: 'https://bip.slubice.pl/kategorie/193-sprzedaz-mienia-przetargi/artykuly/1633-ogloszenie-wojska-polskiego',
@@ -397,7 +364,6 @@ test('fixture 2626: ul. Wojska Polskiego 53/3 extracted accurately', () => {
   assert.equal(rec.round, 2);
 });
 
-// ── Result Doc Parser ────────────────────────────────────────────────────────
 
 test('parseResultDoc: parses sold outcome with hammer price and buyer', () => {
   const resultText = `

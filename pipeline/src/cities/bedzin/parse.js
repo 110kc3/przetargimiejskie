@@ -1,20 +1,3 @@
-// Będzin parsers.
-//
-// Gmina Będzin (Urząd Miejski w Będzinie) sells municipal flats, buildings
-// and land at `przetarg ustny nieograniczony` and publishes them on the
-// bip.info.pl hosted CMS at bedzin.bip.info.pl — server-rendered HTML with
-// attached documents (PDF/ODT).
-//
-// Announcements are published in:
-//   - idmp=943 ("Ogłoszenia przetargowe" — buildings, land, commercial properties)
-//   - idmp=35  ("Informacje i ogłoszenia" — municipal flat auctions)
-// Results are published in:
-//   - idmp=484 ("Archiwum - Przetargi Nieruchomości" — post-auction notices)
-//   - idmp=945 ("Informacje o wynikach ogłoszonych przetargów")
-//
-// crawl.js extracts the document text (from HTML content-main and/or PDF/ODT
-// attachments) and pairs it with the board link text (TITLE), assembled into
-// ONE labelled blob via buildRecordText().
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -27,7 +10,6 @@ const PL_MONTH = {
 
 const ROMAN = { I: 1, V: 5, X: 10, L: 50 };
 
-/** Roman numeral (I..XXXIX range) -> int, or null. */
 function romanToInt(s) {
   const up = String(s).toUpperCase();
   if (!/^[IVXL]+$/.test(up)) return null;
@@ -40,12 +22,6 @@ function romanToInt(s) {
   return total > 0 && total < 40 ? total : null;
 }
 
-/**
- * Parse PLN string: dot or space thousands separator, optional space before
- * punctuation, optional grosze tail (e.g. "506.000,00", "424 .000,00", "143 000 , 00").
- * @param {string|number} numStr
- * @returns {number|null}
- */
 export function parsePLN(numStr) {
   if (!numStr) return null;
   const cleaned = String(numStr)
@@ -57,16 +33,13 @@ export function parsePLN(numStr) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/** Parse numeric area (comma or dot decimal). */
 export function parseNum(numStr) {
   if (numStr == null) return null;
   const n = Number(String(numStr).replace(/\s+/g, '').replace(',', '.'));
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// ------------------------------------------------------------- record text blob
 
-/** Collapse an HTML fragment to a clean plain-text string. */
 export function stripHtml(s) {
   if (!s) return '';
   return String(s)
@@ -83,11 +56,6 @@ export function stripHtml(s) {
     .trim();
 }
 
-/**
- * Assemble the labelled text blob read by all parsers.
- * @param {{title?:string, body?:string}} f
- * @returns {string}
- */
 export function buildRecordText(f = {}) {
   return [
     `TITLE: ${stripHtml(f.title)}`,
@@ -95,13 +63,11 @@ export function buildRecordText(f = {}) {
   ].join('\n');
 }
 
-/** Read a labelled line's value from the blob. */
 function field(text, label) {
   const m = new RegExp(`^${label}:[ \\t]*(.*)$`, 'im').exec(text || '');
   return m ? m[1].trim() : '';
 }
 
-/** TITLE + BODY concatenated. */
 function whole(text) {
   const fTitle = field(text, 'TITLE');
   const fBody = field(text, 'BODY');
@@ -109,7 +75,6 @@ function whole(text) {
   return String(text || '').trim();
 }
 
-/** Clean spaced letter artifacts that occur in BIP OCR/HTML text. */
 function cleanSpacedText(text) {
   return text
     .replace(/\bPlac\s+u\b/gi, 'Placu')
@@ -122,21 +87,17 @@ function cleanSpacedText(text) {
     .trim();
 }
 
-// ----------------------------------------------------------------- doc-type gates
 
-/** True when this notice is a cancellation ("Odwołanie ...", "ODWOŁUJE ..."). TITLE-scoped. */
 function isCancellation(text) {
   const title = field(text, 'TITLE') || text;
   return /odwo[łl](?:an|uj)/i.test(title);
 }
 
-/** True when this notice is a lease (dzierżawa / najem / stawka czynszu), not a sale. */
 export function isLease(text) {
   const t = whole(text);
   return /dzier[żz]aw|\bnajem\b|stawk[ęe]\s+czynszu|czynsz\s+dzier|z[łl]\s+miesi[ęe]cznie/i.test(t);
 }
 
-/** True when this notice is a property SALE auction. */
 export function isSaleAuction(text) {
   if (isCancellation(text)) return false;
   if (isLease(text)) return false;
@@ -145,22 +106,18 @@ export function isSaleAuction(text) {
   return /przetarg/i.test(t) && /sprzeda[żz]/i.test(t);
 }
 
-/** True when this notice is a result doc ("wynik przetargu"). */
 export function isResultDoc(text) {
   if (isCancellation(text)) return false;
   const t = whole(text);
   return /informacj\w*\s+o\s+wyniku|dotycz[ąa]?\w*\s+wyniku|przeprowadzon\w*\s+zosta[łl]|zosta[łl]\s+przeprowadzon\w*|osi[ąa]gni[ęe]t/i.test(t);
 }
 
-/** True when the notice records an unsold/negative outcome. */
 export function isNegativeOutcome(text) {
   const t = whole(text);
   return /wynik\w*\s+(?:jest\s+)?negatywn\w*|nikt\s+nie\s+przyst[ąa]pi|nie\s+przyst[ąa]pi|brak\s+ofert|uniewa[żz]ni|nie\s+odnotowano|nie\s+wp[łl]acono\s+wadium/i.test(t);
 }
 
-// ----------------------------------------------------------------- round
 
-/** Auction round from Roman or Polish word numerals. */
 export function roundFromText(text) {
   const t = whole(text);
   const mRoman = /\b([IVXL]{1,5})\s+przetarg/i.exec(t);
@@ -180,7 +137,6 @@ export function roundFromText(text) {
   return null;
 }
 
-// ----------------------------------------------------------------- date
 
 function toIso(dd, mm, yyyy) {
   return `${yyyy}-${String(mm).padStart(2, '0')}-${String(dd).padStart(2, '0')}`;
@@ -198,7 +154,6 @@ function parseDatePhrase(phrase) {
   return null;
 }
 
-/** Auction date -> ISO string (YYYY-MM-DD) or null. */
 export function auctionDateFromText(text) {
   const t = cleanSpacedText(whole(text));
   let m = /w\s+dniu\s+([\s\S]{0,30}?)(?:\s+r(?:oku|\.)?)?\s+o\s+godz/i.exec(t);
@@ -214,25 +169,20 @@ export function auctionDateFromText(text) {
   return null;
 }
 
-// ----------------------------------------------------------------- prices
 
-/** Starting price (PLN integer) or null. */
 export function startingPriceFromText(text) {
   const t = whole(text);
   const m = /cena\s+wywo[łl]awcz\w*[^0-9]{0,30}?(\d[\d. ]*(?:,\s*\d{2})?)\s*(?:z\s*[łl]|PLN)/i.exec(t);
   return m ? parsePLN(m[1]) : null;
 }
 
-/** Achieved (hammer) price (PLN integer) or null. */
 export function achievedPriceFromText(text) {
   const t = whole(text);
   const m = /cena\s+(?:nieruchomo[sś]ci\s+)?osi[ąa]gni[ęe]t\w*\s+w\s+przetargu\s+wynosi\s*[-—–:]?\s*(\d[\d. ]*(?:,\s*\d{2})?)\s*(?:z\s*[łl]|PLN)/i.exec(t);
   return m ? parsePLN(m[1]) : null;
 }
 
-// ----------------------------------------------------------------- kind
 
-/** Classify property kind (mieszkalny, zabudowana, uzytkowy, garaz, grunt). */
 export function kindFromText(text) {
   const kTitle = classifyKind(field(text, 'TITLE'));
   if (kTitle !== 'unknown') return kTitle;
@@ -242,9 +192,7 @@ export function kindFromText(text) {
   return 'unknown';
 }
 
-// ----------------------------------------------------------------- address
 
-/** Exclude office / administrative addresses from being identified as property address. */
 function isExcludedOfficeAddress(street, bldg) {
   const s = street.toLowerCase();
   if (/11\s+listopada/i.test(s) && bldg === '20') return true;
@@ -252,14 +200,12 @@ function isExcludedOfficeAddress(street, bldg) {
   return false;
 }
 
-/** Unit number from "lokal(u) (nie)mieszkaln... nr <N>". */
 function unitNoFromText(text) {
   const t = whole(text);
   const m = /lokal\w*\s+(?:nie)?mieszkaln\w*\s+(?:nr\s+)?(\d+[A-Za-z]?)/i.exec(t);
   return m ? m[1] : null;
 }
 
-/** Property address (street + bldg [/apt]) for flats and buildings. */
 export function addressRawFromText(text) {
   const t = cleanSpacedText(whole(text));
   const propRe =
@@ -278,7 +224,6 @@ export function addressRawFromText(text) {
   return null;
 }
 
-/** Land street / location name from "w rejonie ulicy..." or "przy ul...". */
 export function landStreetFromText(text) {
   const t = cleanSpacedText(whole(text));
   const m =
@@ -288,13 +233,11 @@ export function landStreetFromText(text) {
   return m ? m[1].trim() : null;
 }
 
-/** Usable floor area of a flat (m²). */
 export function unitAreaFromText(text) {
   const m = /pow\w*\.?\s+(?:u[żz]ytkow\w+\s+)?(\d+[.,]\d+)\s*m\s*[²2”"]/i.exec(whole(text));
   return m ? parseNum(m[1]) : null;
 }
 
-/** Parcel numbers and total plot area for land and buildings. */
 export function landPlotFromText(text) {
   const t = whole(text);
   const parcels = [];
@@ -334,13 +277,7 @@ export function landPlotFromText(text) {
   return { dzialka_nr: parcels.length ? parcels.join(', ') : null, area_m2 };
 }
 
-// ------------------------------------------------------------- announcement parse
 
-/**
- * Parse one ANNOUNCEMENT blob into an active record (or null).
- * @param {string} text
- * @returns {object|null}
- */
 export function parseAnnouncement(text) {
   if (!text) return null;
   const kind = kindFromText(text);
@@ -383,15 +320,7 @@ export function parseAnnouncement(text) {
   };
 }
 
-// ------------------------------------------------------------------ result parse
 
-/**
- * Parse one CONCLUDED result doc blob into a result record array.
- * @param {string} text
- * @param {string|null} fallbackDate
- * @param {string} sourceUrl
- * @returns {Array<object>}
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!isResultDoc(text)) return [];
   const notes = [];

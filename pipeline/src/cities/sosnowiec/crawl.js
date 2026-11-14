@@ -1,4 +1,3 @@
-// Sosnowiec crawler
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -80,14 +79,6 @@ export async function crawlActive() {
     }
   }
 
-  // Title-confident classes (decidable from the title alone):
-  //   flat        — "lokal(u) mieszkalny(ego)" / co-op with the full phrase
-  //   commercial  — "lokal(u) użytkowy(ego)"            → property record, kind 'uzytkowy'
-  //   building    — "nieruchomość zabudowana"           → property record, kind 'zabudowana'
-  //   land        — "niezabudowana / działka / grunt"   → land record(s)
-  // Anything else that still looks like a sale auction (a truncated co-op title,
-  // or a generic "…na sprzedaż nieruchomości…") is ambiguous and resolved from
-  // the body below, so no sale announcement is silently dropped.
   const flatRefs = refs.filter((r) => isFlatAuction(r.title));
   const commercialRefs = refs.filter((r) => !isFlatAuction(r.title) && isCommercialAuction(r.title));
   const buildingRefs = refs.filter(
@@ -101,10 +92,6 @@ export async function crawlActive() {
       isLandAuction(r.title),
   );
   const classified = new Set([...flatRefs, ...commercialRefs, ...buildingRefs, ...landRefs]);
-  // Sale auctions the title alone couldn't classify: a truncated co-op title
-  // ("…prawo do lokalu poł. przy…", lokal present but no "mieszkalny/użytkowy") or
-  // a generic "…na sprzedaż nieruchomości…". Both carry the disambiguator only in
-  // the body, so they get one body fetch and are routed from there.
   const ambiguousRefs = refs.filter(
     (r) =>
       !classified.has(r) &&
@@ -129,7 +116,6 @@ export async function crawlActive() {
     }
   };
 
-  // Property record (flat / commercial / building) → listings (properties.json).
   const pushProperty = (r, parsed) => {
     if (!parsed) {
       console.error(`  sosnowiec WARN: unkeyable ${parsed?.kind || 'property'} auction ${r.id} (${r.title.slice(0, 60)})`);
@@ -152,7 +138,6 @@ export async function crawlActive() {
     return true;
   };
 
-  // Land record(s) → land (land.json).
   const pushLand = (r, content) => {
     let records;
     try {
@@ -193,18 +178,17 @@ export async function crawlActive() {
     pushLand(r, article.content || '');
   }
 
-  // Body-driven pass for ambiguous sale auctions (truncated co-op / generic).
   for (const r of ambiguousRefs) {
     const article = await fetchArticle(r, 'sale');
     if (!article) continue;
     const content = article.content || '';
     const body = htmlToText(content);
     if (isFlatAuction(r.title, body)) {
-      pushProperty(r, parseAnnouncement(r.title, content)); // co-op flat → mieszkalny
+      pushProperty(r, parseAnnouncement(r.title, content));
     } else if (isCommercialAuction(r.title)) {
       pushProperty(r, parsePropertyAnnouncement(r.title, content, 'uzytkowy'));
     } else if (isLandAuction(r.title, body)) {
-      pushLand(r, content); // generic sale with a działka in the body → land
+      pushLand(r, content);
     } else if (/(?<!nie)zabudowan/i.test(body)) {
       pushProperty(r, parsePropertyAnnouncement(r.title, content, 'zabudowana'));
     } else {
@@ -247,8 +231,6 @@ export async function crawlResultDocs() {
     }
   }
 
-  // Keep flat, commercial and built-property sale results (parseResultDoc stamps
-  // the kind); lease/land results are excluded by isSaleResult.
   const saleRefs = refs.filter((r) => isSaleResult(r.title));
   console.error(`  sosnowiec results: ${refs.length} notices, ${saleRefs.length} sale result(s)`);
 

@@ -1,6 +1,3 @@
-// Brzesko crawler — www.brzesko.pl
-//
-// Crawls https://www.brzesko.pl/blog/5,ogloszenia-nieruchomosci for announcements and results.
 
 import { getText } from '../../core/fetch.js';
 import { loadKnownSourceUrls } from '../../core/known-urls.js';

@@ -1,15 +1,3 @@
-// Downloads an RTF and extracts plain text with a small pure-JS decoder (no
-// external binary — `unrtf`/`pandoc` aren't dependable on the CI runner, and
-// pandoc 2.x can't even read RTF). Caching mirrors pdf-text.js / doc-text.js.
-// Used by cities whose auction announcements are RTF attachments — e.g. Rybnik
-// (ZGM publishes each "OGŁOSZENIE …" as an RTF). The committed cache
-// (pipeline/rtf-text-cache/) also doubles as a retention store.
-//
-// These are simple Word-generated RTFs (\ansicpg1250). The decoder: drops the
-// font/stylesheet/info groups and any \*-prefixed destination, decodes \'xx
-// (cp1250) and \uN (Unicode) characters, turns \par/\line into breaks, strips
-// the remaining control words and braces. Validated against a real ZGM
-// announcement (price/area/date extracted cleanly).
 
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -21,8 +9,6 @@ import { urlCacheKey } from './hash.js';
 
 const CACHE_DIR = fileURLToPath(new URL('../../rtf-text-cache/', import.meta.url));
 
-// cp1250 high-byte → Unicode for the Polish letters (+ superscript ²) that
-// appear in these announcements.
 const CP1250 = {
   0xa3: 'Ł', 0xa5: 'Ą', 0x8c: 'Ś', 0x8f: 'Ź', 0xaf: 'Ż',
   0xb2: '²', 0xb3: 'ł', 0xb9: 'ą', 0xbf: 'ż',
@@ -31,22 +17,19 @@ const CP1250 = {
   0x9c: 'ś', 0x9f: 'ź', 0xa0: ' ', // nbsp (thousands separator)
 };
 
-// Brace-aware removal of `{\fonttbl …}`-style groups. Word-generated tables
-// NEST groups (`{\fonttbl{\f0 …Calibri;}{\f1 …;}}`) — a lazy `[\s\S]*?\}`
-// stopped at the first inner `}` and leaked font names into the text.
 function stripGroups(s) {
   const re = /\{\\(?:fonttbl|colortbl|stylesheet|info|\*)/g;
   let out = '';
   let last = 0;
   let m;
   while ((m = re.exec(s)) !== null) {
-    if (m.index < last) continue; // opener inside a group we already removed
+    if (m.index < last) continue;
     out += s.slice(last, m.index);
     let depth = 0;
     let i = m.index;
     for (; i < s.length; i++) {
       const ch = s[i];
-      if (ch === '\\') { i++; continue; } // skip escaped char (incl. \{ \})
+      if (ch === '\\') { i++; continue; }
       if (ch === '{') depth++;
       else if (ch === '}') {
         depth--;
@@ -60,12 +43,9 @@ function stripGroups(s) {
   return out + s.slice(last);
 }
 
-/** Decode an RTF string (read as latin1) to plain text. */
 export function rtfToText(raw) {
   if (!raw) return '';
   let s = stripGroups(
-    // raw CR/LF in an RTF file are insignificant formatting (a value like
-    // "180\r\n 000,00" must read as "180 000,00"); real breaks come from \par.
     raw.replace(/[\r\n]+/g, ' '),
   )
     // \uN first, CONSUMING its fallback — either "?" or a \'xx byte. Decoding
@@ -91,12 +71,6 @@ export function rtfToText(raw) {
   return s.replace(/[ \t]+/g, ' ').replace(/\s*\n\s*/g, '\n').trim();
 }
 
-/**
- * Download an RTF and return its extracted text, cached on disk.
- * @param {string} rtfUrl
- * @param {{ userAgent?: string, insecureTLS?: boolean }} [opts]
- * @returns {Promise<string>}
- */
 export async function rtfText(rtfUrl, opts = {}) {
   await mkdir(CACHE_DIR, { recursive: true });
   const cachePath = join(CACHE_DIR, urlCacheKey(rtfUrl) + '.txt');

@@ -1,13 +1,3 @@
-// Chrzanów crawler. The city portal www.chrzanow.pl is the server-rendered
-// enumeration layer; each item links a bip.malopolska.pl/umchrzanow article whose
-// body is a JS SPA. Fetch its anonymous public article JSON instead: Chromium
-// can finish loading the SPA shell before the notice arrives. See config.js.
-//
-// Live-verified 19 October 2026 against article 2950984, including its combined
-// three-parcel sale table; public API verified 20 October. If fetching fails,
-// last-good data remains subject to refresh's preservation rules.
-// Result notices ("Wyniki przetargów") are not yet
-// ingested; source/asset coverage is explicitly partial.
 
 import { getText } from '../../core/fetch.js';
 import { parseAnnouncement } from './parse.js';
@@ -48,10 +38,6 @@ export async function crawlAll({ fetchText = getText } = {}) {
   const seen = new Set();
   const articles = [];
 
-  // The board listing pages carry only LOCAL article-stub links; the actual
-  // bip.malopolska.pl/umchrzanow article URL lives one level deeper, inside each
-  // stub page. So: (1) harvest stub URLs from the boards, (2) fetch each stub and
-  // harvest its BIP article URL. (Two-level structure confirmed live 2026-06-27.)
   const LOCAL_STUB_RE = /href="(\/zbycie-nieruchomosci\/ogloszenia-o-przetargach\/[^"]+,\d+)"/gi;
   const stubs = new Set();
   for (const board of BOARDS) {
@@ -65,7 +51,6 @@ export async function crawlAll({ fetchText = getText } = {}) {
     for (const u of harvestArticles(stubHtml)) if (!seen.has(u)) { seen.add(u); articles.push(u); }
   }
   console.error(`  chrzanow: ${articles.length} BIP article(s) to fetch`);
-  // These rolling boards cannot prove that the municipality has no stock.
   if (!articles.length) throw new Error('Chrzanów boards yielded no BIP articles');
 
   for (const url of articles) {

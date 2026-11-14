@@ -1,34 +1,7 @@
-// Warszawa parsers — ETO category/165 list + dzielnica detail pages.
-//
-// TWO announcement types on ETO /category/165/:
-//
-//   A. CITY-OWNED items — ETO item links to <dzielnica>.um.warszawa.pl/-/<slug>
-//      The dzielnica article body contains flat number, address, area, auction date.
-//      No DOCX attachment observed on current live samples (2026-06-29).
-//      Starting price NOT in article body (wykaz phase only).
-//
-//   B. AMW items — ETO item links to eto.um.warszawa.pl/category/165/announcement/<id>
-//      PDF attachment at /announcement/attachment/<eto-id>/<att-id>.
-//      The PDF is a scanned image; pdftotext returns empty; ocrPdf (tesseract) is used.
-//      parseAmwPdfText() extracts starting_price_pln, area_m2, auction_date, address.
-//
-// AMW PDF OCR structure (groundtruthed 2026-06-29, items 153692 + 154506 + 258223):
-//   Page 1: "na sprzedaz lokalu mieszkalnego nr NR, przy ul. STREET BLDG,"
-//           table row "Powierzchnia lokalu | X,XX m2"
-//   Page 2: oglosenie: "NNN 000,00 zt netto" near "Cena wywolawcza" label
-//           wykaz:     "6 Cena NNN 000,00 zl" (no wywoławcza/netto nearby)
-//   Page 3: oglosenie only: "Przetarg odbedzie sie w dniu DD.MM.YYYY r."
-//   OCR artefacts: zt/zl for zl, m* for m2.
-//
-// Groundtruthed on live fixtures fetched 2026-06-29:
-//   LIST:   https://eto.um.warszawa.pl/category/165/announcement (11 items)
-//   DETAIL: https://srodmiescie.um.warszawa.pl/-/marszalkowska-81-m-19-...
-//   AMW:    https://eto.um.warszawa.pl/category/165/announcement/153692
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
-// ---- helpers ----------------------------------------------------------------
 
 const PL_MONTHS = {
   stycznia: 1, styczen: 1,
@@ -90,8 +63,6 @@ const ROMAN_PRE_RE = /(?:\b(I{1,3}|IV|VI{0,3}|IX|X)\s+przetarg|\((I{1,3}|IV|VI{0
 const ROMAN_MAP = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8, IX: 9, X: 10 };
 
 export function roundFromText(text) {
-  // Operative declaration precedes any prior-round recap, whose Roman I
-  // must not override an OCR-damaged '(li)' on the announced second round.
   const declaration=/og[łl]asza[\s\S]{0,120}?przetarg/i.exec(text || '')?.[0];
   const t = declaration ? declaration.replace(/\([^)]{1,5}\)/g, ' ') : (text || '');
   const rm = ROMAN_PRE_RE.exec(t);
@@ -111,7 +82,6 @@ export function roundFromText(text) {
   return null;
 }
 
-// ---- ETO list page parser ---------------------------------------------------
 
 export function parseEtoListPage(html) {
   const out = [];
@@ -152,20 +122,11 @@ export function parseEtoListPage(html) {
   return out;
 }
 
-// ---- result notice title check ----------------------------------------------
 
 export function isResultNoticeTitle(title) {
   return /informacja\s+o\s+wyniku\s+przetargu/i.test(title || '');
 }
 
-// ---- dzielnica article text parser -----------------------------------------
-// Handles three input forms:
-//   A. Article body text from dzielnica portal (primary)
-//      e.g. "...wykaz lokalu mieszkalnego nr 19 polozonego przy ul. Marszalkowskiej 81,..."
-//   B. ETO list title for dzielnica items (fallback when article fetch fails)
-//      e.g. "Marszalkowska 81 m 19 - lokal mieszkalny przeznaczony do sprzedazy..."
-//   C. AMW ETO list title (fallback for AMW items when PDF parse misses address)
-//      e.g. "...lokalu mieszkalnego nr 78, ul. Grocjecka 66 w Dzielnicy..."
 
 export function parseDetailText(text) {
   if (!text) {
@@ -180,7 +141,6 @@ export function parseDetailText(text) {
   let address = null;
   let address_raw = null;
 
-  // Form A: "przy ul. STREET BLDG[,]" — article body narrative
   const addrNarrM = /przy\s+(?:ul|ulicy|al|pl|os)\.?\s+([A-ZŻŹĆŁŚĄĘÓŃa-zżźćłśąęóń .]+?)\s+(\d+[A-Za-z]?)(?=[,\s.]|$)/i.exec(t);
   if (addrNarrM) {
     const streetRaw = addrNarrM[1].trim().replace(/\s+/g, ' ');
@@ -189,8 +149,6 @@ export function parseDetailText(text) {
     address = parseAddress(address_raw);
   }
 
-  // Form B: ETO title "STREET BLDG m APT - lokal mieszkalny..."
-  // Only runs when Form A did not match (i.e. input is a title string, not article body).
   if (!address) {
     const titleAptM = /^([A-ZŻŹĆŁŚĄĘÓŃa-zżźćłśąęóń.][A-ZŻŹĆŁŚĄĘÓŃa-zżźćłśąęóń .]*?)\s+(\d+[A-Za-z]?)\s+m\.?\s+(\d+[A-Za-z]?)\s*(?:-|$)/i.exec(t);
     if (titleAptM) {
@@ -202,8 +160,6 @@ export function parseDetailText(text) {
     }
   }
 
-  // Form C: "ul. STREET BLDG w Dzielnicy / w Warszawie" — AMW title or body
-  // Matches bare "ul." without "przy" prefix.
   if (!address) {
     const ulM = /(?:ul|ulicy|al|pl|os)\.?\s+([A-ZŻŹĆŁŚĄĘÓŃa-zżźćłśąęóń .]+?)\s+(\d+[A-Za-z]?)(?:\s+w\s|\s*,)/i.exec(t);
     if (ulM) {
@@ -236,9 +192,6 @@ export function parseDetailText(text) {
   return { apt, address, address_raw, area_m2, auction_date, round };
 }
 
-// ---- attachment URL from ETO detail page ------------------------------------
-// Live ETO pages (2026-06-29) use absolute https:// URLs; test fixtures use
-// relative /announcement/attachment/... paths. Handle both.
 
 export function attachmentUrlFromEtoDetail(html) {
   if (!html) return null;
@@ -249,17 +202,6 @@ export function attachmentUrlFromEtoDetail(html) {
   return 'https://eto.um.warszawa.pl' + relM[1];
 }
 
-// ---- AMW PDF OCR text parser ------------------------------------------------
-// AMW PDFs are scanned (200 dpi JPEG); pdftotext returns empty; caller must
-// use ocrPdf() first. This function is pure text -> structured data.
-//
-// Groundtruthed on:
-//   153692 / 255542 (Andersa 20 m 62):  466 000 zl, 20.76 m2, auction 2026-08-10
-//   154506 / 256690 (Smocza 4 m 13):    340 000 zl, 19.60 m2, auction 2026-07-24
-//   155716 / 258223 (Grojecka 66 m 78): 536 000 zl, 26.02 m2, wykaz (no auction date)
-//
-// OCR quirks: zt/zl for zl, m*/m? for m2, Cena label may follow price number.
-// Wykaz PDFs: price row is "6 Cena NNN 000,00 zl" — no wywoławcza/netto nearby.
 
 export function parseAmwPdfText(ocrText) {
   if (!ocrText) {
@@ -268,20 +210,6 @@ export function parseAmwPdfText(ocrText) {
   }
   const t = ocrText;
 
-  // Price: scan all "NNN 000,00 zl/zt/zł" patterns and select the one most
-  // likely to be the asking price.
-  //
-  // AMW ogloszenie PDFs (Andersa, Smocza): price appears BEFORE the
-  //   "Cena wywoławcza" row label, preceded by "netto" on same line.
-  //   e.g. "466 000,00 zl netto\nCena wywolawcza | sprzedazy."
-  //
-  // AMW wykaz PDFs (Grojecka 258223, Smocza 255012): price appears in a table
-  //   row labelled "6 Cena" with no "wywoławcza" or "netto" nearby.
-  //   e.g. "6 Cena 536 000,00 zl\nnieruchomosci + ..."
-  //
-  // Strategy: prefer a price within 300 chars of "Cena wywo..." / "netto";
-  // if none qualify, fall back to any price within 150 chars of a bare "Cena"
-  // label (wykaz table row "N Cena NNN,NN zl") that is not "Cena nabycia".
   let starting_price_pln = null;
   const allPriceRe = /([\d][\d\s]{1,12}[\d][.,][\d]{2})\s*z[tlł]/gi;
   let pm;
@@ -296,10 +224,6 @@ export function parseAmwPdfText(ocrText) {
       if (/cena\s+wywo[tlł]/i.test(ctx) || /netto/i.test(ctx)) {
         primaryCandidates.push(n);
       } else {
-        // Wykaz-format: "N Cena NNN zl" table row.
-        // Check only the text BEFORE the price for the bare "Cena" label and
-        // confirm "Cena nabycia" (a different row) does NOT appear before the match.
-        // "Cena nabycia" may appear AFTER the price in the next row — that's fine.
         const lo2 = Math.max(0, pm.index - 150);
         const ctxBefore = t.slice(lo2, pm.index);
         if (/\bcena\b/i.test(ctxBefore) && !/cena\s+nabycia/i.test(ctxBefore)) {
@@ -311,19 +235,15 @@ export function parseAmwPdfText(ocrText) {
   if (primaryCandidates.length) starting_price_pln = primaryCandidates[0];
   else if (fallbackCandidates.length) starting_price_pln = fallbackCandidates[0];
 
-  // Prefer the labelled unit row or the explicit flat description. A generic
-  // "o powierzchni" may refer to the cellar before the unit description.
   const areaRe1 = /powierzchni\w*\s+lokalu\s*[|:]?\s*([\d]+[.,][\d]+)\s*m/i;
   const areaRe2 = /lokal\w*\s+(?:mieszkaln\w+\s+)?(?:nr\s+\d+\w*\s+)?[o0]\s+powierzchni\s+([\d]+[.,][\d]+)\s*m/i;
   const areaM = areaRe1.exec(t) || areaRe2.exec(t);
   const area_m2 = areaM ? parseArea(areaM[1]) : null;
 
-  // Auction date: "Przetarg odbedzie sie w dniu DD.MM.YYYY r."
   const amwDateRe = /przetarg\s+odb[eęé]dzie\s+si[eę]\s+w\s+dniu\s+(\d{1,2})\.(\d{1,2})\.(\d{4})\s*r/i;
   const amwDateM = amwDateRe.exec(t);
   const auction_date = amwDateM ? iso(amwDateM[3], amwDateM[2], amwDateM[1]) : null;
 
-  // Address: try table header "Warszawa, ul. STREET BLDG m. APT" first
   let address = null;
   let address_raw = null;
   let apt = null;
@@ -339,7 +259,6 @@ export function parseAmwPdfText(ocrText) {
   }
 
   if (!address) {
-    // Narrative: "przy ul. STREET BLDG," with apt nearby
     const addrRe = /przy\s+ul\.\s+([A-Za-z\u00C0-\u017E][A-Za-z\u00C0-\u017E\s.]*?)\s+(\d+[A-Za-z]?)\s*[,\n]/i;
     const addrM = addrRe.exec(t);
     if (addrM) {
@@ -357,23 +276,11 @@ export function parseAmwPdfText(ocrText) {
   return { starting_price_pln, area_m2, auction_date, address, address_raw, apt, round };
 }
 
-// ---- Liferay article text extractor ----------------------------------------
-// Two Liferay HTML variants observed:
-//   OLD (pre-2026): class="journal-content-article" is on the <article> tag itself.
-//   NEW (live 2026-06-29): class is on an outer <div>; bare <article> is a child.
-//
-// Strategy: find the first occurrence of the class string, then walk back to the
-// opening '<' of that element, then search forward for the first <article>...</article>
-// pair. Works for both variants:
-//   - OLD: walk back lands on the <article> tag itself; regex matches it directly.
-//   - NEW: walk back lands on the outer <div>; the <article> child is found in the
-//          substring that follows.
 
 export function articleTextFromHtml(html) {
   if (!html) return '';
   const jcaIdx = html.search(/journal-content-article/i);
   if (jcaIdx < 0) return '';
-  // Walk back to the opening '<' so we include the full tag, not just its attributes.
   const tagStart = html.lastIndexOf('<', jcaIdx);
   const artM = /<article\b[^>]*>([\s\S]*?)<\/article>/i.exec(
     tagStart >= 0 ? html.slice(tagStart) : html.slice(jcaIdx),
@@ -381,7 +288,6 @@ export function articleTextFromHtml(html) {
   return artM ? stripHtml(artM[1]) : '';
 }
 
-// ---- result notice parsers --------------------------------------------------
 
 export function isResultNotice(text) {
   return /informacja\s+o\s+wyniku\s+przetargu/i.test(text || '');

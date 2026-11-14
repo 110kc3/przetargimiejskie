@@ -1,15 +1,3 @@
-// Złotów parsers — handles Nefeni BIPv2 HTML pages and PDF notices.
-//
-// Groundtruthed against real notices from bip.zlotow.pl:
-// - 2021: Lokal mieszkalny nr 6 przy ul. Wojska Polskiego 17 (29,14 m², 72 850 zł, przetarg 2025-05-08)
-// - 2094: Wynik: Lokal mieszkalny nr 6 przy ul. Wojska Polskiego 17 (sprzedany, 73 580 zł, Patryk Imosa)
-// - 2959: Nieruchomości zabudowane: ul. Podolska 4 (95 m², 425 000 zł) oraz ul. Wawrzyniaka 13 (77 m², 430 000 zł)
-// - 2994: Działki budowlane (17/1, 15/6+17/3, 24/15, 24/21, 24/26) przy ul. Chojnickiej
-// - 1249: Wynik: Lokal mieszkalny nr 3 przy ul. Mikołaja Kopernika 1 (sprzedany, 161 600 zł)
-// - 904:  Wynik: Lokal mieszkalny nr 5 przy al. Mickiewicza 13a (sprzedany, 61 000 zł)
-// - 906:  Wynik: Lokal mieszkalny nr 3 przy ul. ks. dr B. Domańskiego 16 (sprzedany, 40 400 zł)
-// - 2606: Wynik negatywny (brak wpłaty wadium, dz. 97/2 i in. przy ul. Domańskiego)
-// - 2930: Wynik pozytywny (działka nr 68/2, ENEA OPERATOR Sp. z o.o.)
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -55,7 +43,6 @@ export function parseArea(s) {
   if (s == null) return null;
   const str = String(s).trim().replace(/\s+/g, '');
   const noUnits = str.replace(/(?:m[2²]|ha).*$/i, '');
-  // Thousands separator with dot: '6.176' or '1.291'
   if (/^\d{1,3}\.\d{3}$/.test(noUnits)) {
     return Number(noUnits.replace('.', ''));
   }
@@ -78,13 +65,9 @@ export function cleanAddressString(raw) {
   return s.trim();
 }
 
-/**
- * Extract address from text or title.
- */
 export function addressFromText(text, fallbackTitle = '') {
   const combined = `${text || ''} ${fallbackTitle || ''}`;
 
-  // 1. Apartment pattern: lokal ... nr <Apt> ... przy (ul.|al.) <Street> [nr] <Bldg>
   const mApt = /lokal\w*\s+(?:mieszkaln\w*\s+)?(?:nr|Nr\.?)\s*(\d+[A-Za-z]?)[\s\S]{0,120}?przy\s+(?:ul\.|al\.|pl\.|os\.)\s*([A-ZŁŚĆĘĄÓŹŻŃ][a-ząćęłńóśźżA-ZŁŚĆĘĄÓŹŻŃ\s.-]+?)\s*(?:\bnr\.?\s*|\bNr\.?\s*)?(\d+[A-Za-z]?)(?:\s*(?:w\s+Z[łl]otowie|\/|\b))/i.exec(combined);
   if (mApt) {
     const apt = mApt[1].trim();
@@ -94,7 +77,6 @@ export function addressFromText(text, fallbackTitle = '') {
     if (parsed) return parsed;
   }
 
-  // 2. Street pattern: (?:ul\.|al\.) <Street> [nr] <Bldg>[/<Apt>]
   const mStreet = /(?:przy\s+)?(?:ul\.|al\.|pl\.|os\.)\s*([A-ZŁŚĆĘĄÓŹŻŃ][a-ząćęłńóśźżA-ZŁŚĆĘĄÓŹŻŃ\s.-]+?)\s*(?:\bnr\.?\s*|\bNr\.?\s*)?(\d+[A-Za-z]?(?:\/\d+[A-Za-z]?)?)/i.exec(combined);
   if (mStreet) {
     const street = mStreet[1].trim().replace(/\s+/g, ' ');
@@ -103,7 +85,6 @@ export function addressFromText(text, fallbackTitle = '') {
     if (parsed) return parsed;
   }
 
-  // 3. Fallback title apartment pattern
   if (fallbackTitle) {
     const mTitleApt = /lokal\w*\s+(?:mieszkaln\w*\s+)?(?:nr|Nr\.?)\s*(\d+[A-Za-z]?)[\s\S]{0,80}?przy\s+(?:ul\.|al\.|pl\.|os\.)\s*([A-ZŁŚĆĘĄÓŹŻŃ][a-ząćęłńóśźżA-ZŁŚĆĘĄÓŹŻŃ\s.-]+?)\s*(?:\bnr\.?\s*|\bNr\.?\s*)?(\d+[A-Za-z]?)/i.exec(fallbackTitle);
     if (mTitleApt) {
@@ -115,33 +96,26 @@ export function addressFromText(text, fallbackTitle = '') {
   return null;
 }
 
-/**
- * Extract auction date from announcement or result text.
- */
 export function auctionDateFromText(text) {
   if (!text) return null;
 
-  // Pattern with spelled out Polish month
   const mWord = /(?:w\s+dniu|na\s+dzie[ńn]|termin\s+przetargu|odby[łl]\s+si[ęe]|odb[ęe]dzie\s+si[ęe]|zaplanowan\w+)[\s\S]{0,60}?(?:w\s+dniu|na\s+dzie[ńn])?\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(text);
   if (mWord) {
     const mon = PL_MONTHS[mWord[2].toLowerCase()];
     if (mon) return `${mWord[3]}-${mon}-${mWord[1].padStart(2, '0')}`;
   }
 
-  // Pattern with numeric date
   const mNum = /(?:w\s+dniu|na\s+dzie[ńn]|termin\s+przetargu|odby[łl]\s+si[ęe]|odb[ęe]dzie\s+si[ęe]|zaplanowan\w+)[\s\S]{0,60}?(?:w\s+dniu|na\s+dzie[ńn])?\s+(\d{1,2})[.-](\d{1,2})[.-](\d{4})/i.exec(text);
   if (mNum) {
     return `${mNum[3]}-${mNum[2].padStart(2, '0')}-${mNum[1].padStart(2, '0')}`;
   }
 
-  // Spelled out date anywhere: "dnia DD miesiąc YYYY"
   const mDniaWord = /dnia\s+(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})\s*r/i.exec(text);
   if (mDniaWord) {
     const mon = PL_MONTHS[mDniaWord[2].toLowerCase()];
     if (mon) return `${mDniaWord[3]}-${mon}-${mDniaWord[1].padStart(2, '0')}`;
   }
 
-  // Dotted date anywhere: "dnia DD.MM.YYYY r." or "z dnia DD.MM.YYYY r."
   const mDniaNum = /(?:dnia|z\s+dnia)\s+(\d{1,2})[.-](\d{1,2})[.-](\d{4})/i.exec(text);
   if (mDniaNum) {
     return `${mDniaNum[3]}-${mDniaNum[2].padStart(2, '0')}-${mDniaNum[1].padStart(2, '0')}`;
@@ -150,9 +124,6 @@ export function auctionDateFromText(text) {
   return null;
 }
 
-/**
- * Extract tender round from text or title.
- */
 export function roundFromText(text) {
   if (!text) return 1;
   const roman = /\b(i{1,3}|iv|vi{0,3}|ix|x)\s+przetarg/i.exec(text);
@@ -168,9 +139,6 @@ export function roundFromText(text) {
   return 1;
 }
 
-/**
- * Extract starting price from announcement or result text.
- */
 export function startingPriceFromText(text) {
   if (!text) return null;
   const m = /Cena\s+wywo[łl]awcza(?:[^\n\r\d]*)([\d][\d\s.,]*)(?:,\d{2})?\s*(?:z[łl]|PLN|\+)/i.exec(text);
@@ -181,9 +149,6 @@ export function startingPriceFromText(text) {
   return null;
 }
 
-/**
- * Extract final achieved price from result text.
- */
 export function finalPriceFromText(text) {
   if (!text) return null;
   if (/nie\s+ustalono\s+nabywcy|odst[aą]pi[łl]|brak\s+wp[łl]aty\s+wadium|nikt\s+si[ęe]|wynik\s+negatywny/i.test(text)) {
@@ -197,25 +162,19 @@ export function finalPriceFromText(text) {
   return null;
 }
 
-/**
- * Extract usable area in m² from text.
- */
 export function areaFromText(text) {
   if (!text) return null;
 
-  // 1. Usable area (lokal / budynek): "powierzchni użytkowej lokalu 29,14 m2", "o powierzchni użytkowej około 95 m2"
   const mLocal = /(?:lokal(?:u)?:\s*|powierzchni(?:a)?\s+u[żz]ytkow\w*\s*(?:lokalu|budynku)?\s*(?:wynosi\s*|oko[łl]o\s*)?)([\d.,]+)\s*m/i.exec(text);
   if (mLocal) {
     return parseArea(mLocal[1]);
   }
 
-  // 2. General area in m2
   const mPow = /pow(?:ierzchnia|ierzchni)?(?:\s+u[żz]ytkowa)?\s*[:\-–]?\s*(?:oko[łl]o\s*)?([\d.,]+)\s*m[2²]/i.exec(text);
   if (mPow) {
     return parseArea(mPow[1]);
   }
 
-  // 3. Land area in ha
   const mHa = /pow(?:ierzchni)?\.?\s*([\d.,]+)\s*ha/i.exec(text);
   if (mHa) {
     const ha = parseArea(mHa[1]);
@@ -225,27 +184,18 @@ export function areaFromText(text) {
   return null;
 }
 
-/**
- * Extract parcel numbers for land.
- */
 export function parcelFromText(text) {
   if (!text) return null;
   const m = /(?:dzia[łl]k[ai]|dzia[łl]ek|nr)\s+(?:nr\.?\s*)?(\d+(?:\/\d+)?(?:\s*(?:,|i|oraz)\s*(?:nr\s*)?\d+(?:\/\d+)?)*)/i.exec(text);
   return m ? m[1].replace(/\bnr\s*/gi, '').trim() : null;
 }
 
-/**
- * Extract cadastral precinct (obręb).
- */
 export function obrebFromText(text) {
   if (!text) return null;
   const m = /obr[eę]b(?:ie)?(?:\s+ewidencyjn[ym]+)?[:\s]+([A-ZŁŚĆĘĄÓŹŻŃ\d]+)/i.exec(text);
   return m ? m[1].trim() : null;
 }
 
-/**
- * Extract auction outcome (sold vs unsold).
- */
 export function outcomeFromText(text) {
   if (!text) return { outcome: 'unsold', unsold_reason: 'no_buyer' };
   const isUnsold = /nie\s+ustalono\s+nabywcy|odst[aą]pi[łl]|brak\s+wp[łl]aty\s+wadium|nikt\s+si[ęe]|nierozstrzygni[ęe]t|wynikiem\s+negatywnym|cena\s+uzyskana[^\n]*\b[0O]\s*z[łl]/i.test(text);
@@ -259,9 +209,6 @@ export function outcomeFromText(text) {
   return { outcome: 'unsold', unsold_reason: 'no_buyer' };
 }
 
-/**
- * Split multi-item announcement document into separate item texts.
- */
 export function splitNumberedItems(text) {
   if (!text) return [];
   const parts = text.split(/\n(?=\d+\.\s*(?:ul\.|godz\.|rejon|obr|dzia|lokal|nr\b))/i);
@@ -271,9 +218,6 @@ export function splitNumberedItems(text) {
   return [text];
 }
 
-/**
- * Split multi-item result notice into separate item sections with preamble attached.
- */
 export function splitResultSections(text) {
   if (!text) return [];
   const parts = text.split(/\n(?=-\s*(?:dzia[łl]k[ai]|lokal|nieruchomo[śs][ćc]))/i);
@@ -302,9 +246,6 @@ export function isWykaz(title, summary = '') {
   return /wykaz/i.test(combined) && !/przetarg|wynik/i.test(combined);
 }
 
-/**
- * Extract article entries from Nefeni category list HTML.
- */
 export function parseListPage(html, origin = 'https://bip.zlotow.pl') {
   if (!html) return [];
   const entries = [];
@@ -319,7 +260,6 @@ export function parseListPage(html, origin = 'https://bip.zlotow.pl') {
     const afterHref = m[5];
     const linkText = m[6].replace(/<[^>]+>/g, '').trim();
 
-    // Skip navigation/system articles
     if (path.includes('podstawowe-informacje') || path.includes('pomoc') || path.includes('deklaracja-dostepnosci')) {
       continue;
     }
@@ -345,9 +285,6 @@ export function parseListPage(html, origin = 'https://bip.zlotow.pl') {
   return entries;
 }
 
-/**
- * Extract detail information (title, date, attachment URLs) from article HTML.
- */
 export function parseDetailPage(html, pageUrl = '') {
   if (!html) return { title: null, publishedDate: null, attachments: [] };
 
@@ -379,14 +316,10 @@ export function parseDetailPage(html, pageUrl = '') {
   return { title, publishedDate, attachments };
 }
 
-/**
- * Parse an announcement document (from PDF text or HTML title fallback) into listings and land records.
- */
 export function parseAnnouncementDoc(docText, title, publishedDate, detailUrl, sourcePdf) {
   const listings = [];
   const land = [];
 
-  // Exclude lease / tenancy
   if (/dzier[żz]aw|najem/i.test(title) && !/sprzeda[żz]/i.test(title)) {
     return { listings, land };
   }
@@ -441,9 +374,6 @@ export function parseAnnouncementDoc(docText, title, publishedDate, detailUrl, s
   return { listings, land };
 }
 
-/**
- * Parse a result document (PDF text) into result records.
- */
 export function parseResultDoc(text, fallbackDate, sourcePdf) {
   if (!text || text.trim().length < 20) return [];
   if (/dzier[żz]aw/i.test(text) && !/sprzeda[żz]/i.test(text)) return [];

@@ -1,6 +1,3 @@
-// Będzin parser tests.
-// Fixtures are faithful captures of REAL notice TITLE + BODY texts fetched live
-// from bedzin.bip.info.pl. Each fixture feeds buildRecordText() exactly as crawl.js does.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -27,7 +24,6 @@ import {
 } from '../src/cities/bedzin/parse.js';
 import { parseBoardPage, extractDocBody, extractAttachmentLinks } from '../src/cities/bedzin/crawl.js';
 
-// ----------------------------------------------------------------- fixtures
 
 const MALACHOWSKIEGO_16_ACTIVE = {
   title: 'Ogłoszenie o przetargu na sprzedaż lokalu mieszkalnego',
@@ -166,7 +162,6 @@ const LEASE_KSAWERA = {
     'Prezydent Miasta Będzina ogłasza przetarg ustny ograniczony na stawkę czynszu za dzierżawę gruntu...',
 };
 
-// ----------------------------------------------------------------- tests
 
 test('parsePLN: parses dot, spaced, and grosze variations in Będzin notices', () => {
   assert.equal(parsePLN('506.000,00'), 506000);
@@ -284,7 +279,6 @@ test('gates: distinguishes sale auctions, leases, cancellations, and results', (
   assert.equal(isNegativeOutcome(buildRecordText(PROSTA_1863_RESULT_SOLD)), false);
 });
 
-// -------------------------------------------------------- full record parsing
 
 test('parseAnnouncement: active flat Małachowskiego 35/16', () => {
   const rec = parseAnnouncement(buildRecordText(MALACHOWSKIEGO_16_ACTIVE));
@@ -396,7 +390,6 @@ test('parseResultDoc: returns empty array for cancellations and announcements', 
   assert.deepEqual(parseResultDoc(buildRecordText(SOBIESKIEGO_1_ACTIVE), null, 'x'), []);
 });
 
-// ------------------------------------------------------------- board HTML parsing
 
 test('parseBoardPage: extracts iddok, url, and title from BIP table markup', () => {
   const html = `

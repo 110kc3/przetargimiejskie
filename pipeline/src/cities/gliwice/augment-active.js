@@ -1,9 +1,3 @@
-// Gliwice-specific enrichment: backfills the wadium (deposit) deadline and the
-// viewing date for each active listing by fetching its detail page once and
-// caching the result in pipeline/detail-cache/.
-//
-// Extracted verbatim from refresh.js — this is a per-city concern, not a
-// shared one, because the regexes and detail-page shape are Gliwice-specific.
 
 import { readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -20,11 +14,6 @@ const WADIUM_RE =
 const VIEWING_RE =
   /(?:Termin\s+udost[ęe]pnienia|udost[ęe]pnienia\s+lokalu)[^.]*?(\d{1,2})\.(\d{1,2})\.(\d{4})/i;
 
-/**
- * Mutates each active listing in place, adding `wadium_deadline` and
- * `viewing_date` (ISO date strings or null).
- * @param {Array} active
- */
 export async function augmentActiveWithWadium(active) {
   let upgraded = 0;
   for (const a of active) {

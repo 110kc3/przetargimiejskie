@@ -1,6 +1,3 @@
-// Parser for Działdowo auction notices and results (bip.dzialdowo.eu)
-//
-// Handles BIPLO CMS articles and born-digital text PDFs from /attachments/download/<id>.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';

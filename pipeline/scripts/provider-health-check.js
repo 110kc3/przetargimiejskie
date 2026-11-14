@@ -1,5 +1,3 @@
-// Read-only sanity/freshness gate for data/providers. Kept separate from the
-// city health checker so a provider can never be mistaken for a municipality.
 
 import { readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';

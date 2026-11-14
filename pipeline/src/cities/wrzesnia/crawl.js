@@ -1,8 +1,3 @@
-// Września crawler — bip.wrzesnia.pl.
-//
-// Board: https://bip.wrzesnia.pl/?bip=1&cid=216&bsc=N (Sprzedaż nieruchomości i gruntów)
-// Pagination: ?bip=2&cid=216&pg={0,1,2...}
-// Bot User-Agent required by BitNinja WAF.
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -50,14 +45,12 @@ export async function extractDetailContent(detailUrl) {
   try {
     const html = await getText(detailUrl, FETCH_OPTS);
 
-    // Extract inline text from aktualnosci-tresc
     let inlineText = '';
     const mText = html.match(/<div class="aktualnosci-tresc">([\s\S]*?)<\/div>/i);
     if (mText) {
       inlineText = mText[1].replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
     }
 
-    // Extract PDF attachment under fls/bip_pliki/
     let pdfUrl = null;
     const mPdf = html.match(/href="([^"]*fls\/bip_pliki\/[^"]*\.pdf)"/i);
     if (mPdf) {

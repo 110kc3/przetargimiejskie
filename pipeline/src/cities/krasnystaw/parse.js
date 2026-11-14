@@ -1,6 +1,3 @@
-// Parser for Krasnystaw auction notices and results (umkrasnystaw.bip.lubelskie.pl)
-//
-// Handles documents from the lubelskie.pl BIP platform.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';

@@ -1,28 +1,3 @@
-// Bydgoszcz parser tests. Fixtures are condensed-but-faithful copies of the REAL
-// extracted text of LIVE attachments (fetched from bip.um.bydgoszcz.pl 2026-07-06):
-//   attachments/download/32143 flat ANNOUNCEMENT .doc via catdoc — ul. Henryka
-//     Sienkiewicza 37 lokal nr 2, VII przetarg 09.07.2026, 94,29 m2, 299 000,-
-//     (article /artykul/1208/10271/…);
-//   attachments/download/32401 flat ANNOUNCEMENT .doc — ul. Grunwaldzkiej 90
-//     lokal nr 3, I przetarg 31.07.2026, 38,04 m2, 250 000,- (article
-//     /artykul/1208/10367/…);
-//   attachments/download/32667 flat RESULT .docx via unzip word/document.xml —
-//     ul. Chodkiewicza 2 lokal nr 1, VI przetarg 26.06.2026, wywoławcza
-//     135.000,- zł, UNSOLD (article /artykul/1208/10466/…);
-//   attachments/download/32640 land RESULT .docx — ul. ks. Augusta
-//     Szamarzewskiego dz. 9/6, 25.06.2026, grunt → no address-keyed record
-//     (article /artykul/1208/10455/…).
-// The SOLD result fixture is the real Chodkiewicza DOCX with the outcome lines
-// swapped to the sold form of the same template (no sold flat was live on
-// 2026-07-06) — the label wording "Najwyższa cena osiągnięta w przetargu – …"
-// and "Nabywca nieruchomości – …" is verbatim from the live unsold DOCX.
-//
-// Traps that MUST hold:
-//   * the auction VENUE "przy ul. Jezuickiej 2" and the WMG office
-//     "ul. Grudziądzka 9-15" appear in every document — never the property address;
-//   * catdoc wraps the announcement price cell across a newline ("299\n000,-");
-//   * result notices use DOT thousands ("135.000,- zł");
-//   * plot areas are integers ("pow.778 m 2", "322m2") — flat area is decimal.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -49,10 +24,7 @@ import {
   pubDateFromHtml,
 } from '../src/cities/bydgoszcz/crawl.js';
 
-// ---------------------------------------------------------------------- fixtures
 
-// attachments/download/32143 (catdoc -a -d utf-8), condensed; layout-critical
-// spans (line-wrapped price cell, plot "m 2", venue clause) are verbatim.
 const ANN_SIENKIEWICZA = `PREZYDENT MIASTA BYDGOSZCZY
 
 ogłasza VII przetarg ustny nieograniczony na sprzedaż lokalu
@@ -118,7 +90,6 @@ informacji na tablicy ogłoszeń Referatu Lokali i Wspólnot
 Mieszkaniowych w Wydziale Mienia i Geodezji Urzędu Miasta Bydgoszczy
 przy ul. Grudziądzkiej 9-15, budynek „C".`;
 
-// attachments/download/32401 (catdoc), condensed the same way.
 const ANN_GRUNWALDZKA = `PREZYDENT MIASTA BYDGOSZCZY
 
 ogłasza I przetarg ustny nieograniczony na sprzedaż lokalu
@@ -173,9 +144,6 @@ Przetarg odbędzie się w Urzędzie Miasta Bydgoszczy przy ul.
 Jezuickiej 2 w Sali Łochowskiego (parter) w dniu 31 lipca 2026 r.
 o godzinie 10.00`;
 
-// attachments/download/33133 (catdoc), condensed. This live August 2026
-// commercial announcement introduced both the explicit "Lokal użytkowy"
-// board-title qualifier and the letter-led unit identifier U1.
 const ANN_KAPUSCISKA_COMMERCIAL = `PREZYDENT MIASTA BYDGOSZCZY
 
 ogłasza I przetarg ustny nieograniczony na sprzedaż lokalu użytkowego
@@ -192,7 +160,6 @@ Opis lokalu użytkowego
 Przetarg odbędzie się w Urzędzie Miasta Bydgoszczy przy ul. Jezuickiej 2
 w dniu 15 września 2026 r. o godzinie 10.00`;
 
-// attachments/download/32667 (unzip word/document.xml), near-verbatim.
 const RES_CHODKIEWICZA_UNSOLD = `
 PREZYDENT  MIASTA  BYDGOSZCZY
 
@@ -213,8 +180,6 @@ Niniejsza informacja zostaje podana do publicznej wiadomości poprzez zamieszcze
 na okres 7 dni, tj.
 od dnia 03.07.2026r.do dnia 10.07.2026 r.`;
 
-// attachments/download/32640 (unzip word/document.xml), near-verbatim. Land —
-// spelled-out round ("trzecim") + spelled month with doubled spaces.
 const RES_LAND_SZAMARZEWSKIEGO = `
                      WMG-II.6840.5.14.2025.GD
 
@@ -234,8 +199,6 @@ Cena wywoławcza nieruchomości: 340.000,- zł netto*
 Najwyższa cena osiągnięta w przetargu – brak
 Nabywca nieruchomości – III przetarg zakończył się wynikiem negatywnym`;
 
-// SOLD variant of the real Chodkiewicza template (outcome lines swapped to the
-// sold form; label wording verbatim from the live DOCX).
 const RES_SOLD_TEMPLATE = `
 PREZYDENT  MIASTA  BYDGOSZCZY
 
@@ -249,7 +212,6 @@ Cena wywoławcza nieruchomości: 135.000,- zł
 Najwyższa cena osiągnięta w przetargu – 142.000,- zł
 Nabywca nieruchomości – osoba fizyczna`;
 
-// ---------------------------------------------------------------- unit helpers
 
 test('romanToInt: I, VI, VII, XIV', () => {
   assert.equal(romanToInt('I'), 1);
@@ -267,8 +229,8 @@ test('roundFromText: uppercase Roman before "przetarg…", conjunction "i" never
 });
 
 test('parsePLN: newline/space/dot thousands, ",-" suffix, grosze tail', () => {
-  assert.equal(parsePLN('299\n000'), 299000);   // catdoc-wrapped table cell
-  assert.equal(parsePLN('135.000'), 135000);    // result-notice dot thousands
+  assert.equal(parsePLN('299\n000'), 299000);
+  assert.equal(parsePLN('135.000'), 135000);
   assert.equal(parsePLN('450 000,00'), 450000);
   assert.equal(parsePLN('250 000,-'), 250000);
 });
@@ -279,42 +241,36 @@ test('isResultNotice: result header vs announcement', () => {
 });
 
 test('date extractors: venue clause spanned, prior-round recap skipped, no-space "r."', () => {
-  // ~84 chars of venue text between "odbędzie się" and "w dniu" (live format):
   assert.equal(auctionDateFromAnn(ANN_SIENKIEWICZA), '2026-07-09');
-  // recap "odbył się w dniu 28.02.2025" must NOT be picked:
   assert.equal(auctionDateFromAnn('W dniu 28.02.2025 r. odbył się I przetarg ustny'), null);
-  // "26.06.2026r." with no space before "r." (live result DOCX):
   assert.equal(resultDateFromText(RES_CHODKIEWICZA_UNSOLD), '2026-06-26');
-  // spelled month + doubled spaces (live land result DOCX):
   assert.equal(resultDateFromText(RES_LAND_SZAMARZEWSKIEGO), '2026-06-25');
 });
 
 test('price extractors on live formats', () => {
   assert.equal(startingPriceFromText(RES_CHODKIEWICZA_UNSOLD), 135000);
-  assert.equal(startingPriceFromText(ANN_SIENKIEWICZA), 299000); // "299\n000,-" before wadium "30 000,-"
+  assert.equal(startingPriceFromText(ANN_SIENKIEWICZA), 299000);
   assert.equal(startingPriceFromText(ANN_GRUNWALDZKA), 250000);
-  assert.equal(achievedPriceFromText(RES_CHODKIEWICZA_UNSOLD), null); // "– brak"
+  assert.equal(achievedPriceFromText(RES_CHODKIEWICZA_UNSOLD), null);
   assert.equal(achievedPriceFromText(RES_SOLD_TEMPLATE), 142000);
 });
 
 test('unitAreaFromText: decimal flat area, integer plot + piwnica skipped', () => {
-  assert.equal(unitAreaFromText(ANN_SIENKIEWICZA), 94.29);  // not plot 778 m 2, not piwnica 6,27
-  assert.equal(unitAreaFromText(ANN_GRUNWALDZKA), 38.04);   // "38,04m2", not wc/piwnica/komórka
-  assert.equal(unitAreaFromText(RES_CHODKIEWICZA_UNSOLD), 53.27); // "o pow. 53,27m2", not plot 322m2
+  assert.equal(unitAreaFromText(ANN_SIENKIEWICZA), 94.29);
+  assert.equal(unitAreaFromText(ANN_GRUNWALDZKA), 38.04);
+  assert.equal(unitAreaFromText(RES_CHODKIEWICZA_UNSOLD), 53.27);
 });
 
 test('addressRawFromText: anchored on "położon…" — venue ul. Jezuickiej never wins', () => {
   assert.equal(addressRawFromText(ANN_SIENKIEWICZA), 'ul. Henryka Sienkiewicza 37/2');
   assert.equal(addressRawFromText(ANN_GRUNWALDZKA), 'ul. Grunwaldzkiej 90/3');
   assert.equal(addressRawFromText(RES_CHODKIEWICZA_UNSOLD), 'ul. Chodkiewicza 2/1');
-  // venue-only text (no "położon…" anchor) yields nothing:
   assert.equal(
     addressRawFromText('Przetarg odbędzie się w Urzędzie Miasta Bydgoszczy przy ul. Jezuickiej 2 w Sali Łochowskiego'),
     null,
   );
 });
 
-// ------------------------------------------------------------ announcement parse
 
 test('parseAnnouncement: Sienkiewicza 37/2 — VII przetarg, 94,29 m2, 299 000,-', () => {
   const rec = parseAnnouncement(ANN_SIENKIEWICZA);
@@ -349,7 +305,6 @@ test('parseAnnouncement: live commercial Kapuściska 8/U1 — letter-led unit re
   assert.equal(rec.starting_price_pln, 110000);
 });
 
-// ------------------------------------------------------------------ result parse
 
 test('parseResultDoc: Chodkiewicza 2/1 unsold — VI przetarg, wywoławcza 135.000,-', () => {
   const [rec, ...rest] = parseResultDoc(
@@ -387,8 +342,6 @@ test('parseResultDoc: announcement text is rejected by the gate', () => {
   assert.deepEqual(parseResultDoc(ANN_SIENKIEWICZA, null, 'x'), []);
 });
 
-// ----------------------------------------------------------------- crawl helpers
-// Markup excerpts verbatim from the LIVE board/article pages (2026-07-06).
 
 const INDEX_HTML = `<div class="list general">
 <article><header><h2>
@@ -473,7 +426,6 @@ test('pubDateFromHtml: metryczka <time datetime>', () => {
   assert.equal(pubDateFromHtml('<p>no metryczka</p>'), null);
 });
 
-// Real result attachment 33647: catdoc separates participant counts with tabs.
 test('result table participant counts cannot glue onto the starting price', async () => {
   const { readFileSync } = await import('node:fs');
   const text = readFileSync(new URL('../doc-text-cache/33647.07944cfb.txt', import.meta.url), 'utf8');

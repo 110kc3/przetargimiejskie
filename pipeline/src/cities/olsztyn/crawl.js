@@ -1,29 +1,3 @@
-// Olsztyn crawler.
-//
-// The BIP (bip.olsztyn.eu) publishes two server-rendered HTML index tables:
-//
-//   RESULTS INDEX (kategoria/188) — result notices (informacja o wynikach)
-//     Default view shows only "Aktualny" (currently 1 land result).
-//     Archived flat-sale results are at:
-//       ?VInformacjaSearch%5Barchiwum%5D=1
-//     Each row: <tr data-key="ID"> with a link href="/ID/...slug...html"
-//
-//   ANNOUNCEMENTS INDEX (kategoria/187) — active and archived announcements
-//     Same structure; archived flat announcements at the same archiwum param.
-//     Active flat announcements: title contains "lokalu mieszkalnego".
-//
-// crawlResultDocs():
-//   1. Fetches both the "Aktualny" and "Archiwalny" results index pages
-//      (no pagination observed; all results fit in one page per filter).
-//   2. Keeps only rows whose title contains "lokal mieszkaln".
-//   3. Fetches each kept detail page, strips HTML → plain text.
-//   4. Returns { text, auction_date, pdf_url } objects for parseResultDoc().
-//
-// crawlActive():
-//   1. Fetches both aktualny and archiwalny announcements index.
-//   2. Keeps rows with "lokal mieszkaln" in the title.
-//   3. Fetches each announcement detail page, calls parseActiveDoc().
-//   4. Returns { listings, wykaz: [], land: [] }.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -34,9 +8,6 @@ const RESULTS_INDEX = `${BASE}/kategoria/188/informacja-o-wynikach-przetargow-ni
 const ACTIVE_INDEX = `${BASE}/kategoria/187/informacja-o-przetargach-nieruchomosci.html`;
 const ARCHIVED_PARAM = 'VInformacjaSearch%5Barchiwum%5D=1';
 
-// Row pattern in both index tables:
-//   <tr data-key="ID"><td...><td...DATE...</td><td...>
-//     <a href="/ID/slug.html">TITLE</a></td><td...>STATUS</td></tr>
 export function parseIndexPage(html) {
   const rows = [];
   const rowRe = /<tr\s+data-key="(\d+)">([\s\S]*?)<\/tr>/gi;
@@ -61,7 +32,6 @@ function isFlatSaleResult(title) {
 }
 
 function isFlatAnnouncement(title) {
-  // "Ogłoszenie o przetargu ustnym nieograniczonym na sprzedaż lokalu mieszkalnego"
   return /sprzeda[żz]\s+lokalu\s+mieszkaln/i.test(title) ||
          /lokalu\s+mieszkaln/i.test(title);
 }
@@ -78,9 +48,7 @@ async function fetchIndexRows(baseUrl, filter) {
   return parseIndexPage(html);
 }
 
-// Extracts the article body text from a detail page HTML
 function extractBodyText(html) {
-  // The content lives in <article class="post">...</article>
   const artM = /<article[^>]*class="[^"]*post[^"]*"[^>]*>([\s\S]*?)<\/article>/i.exec(html);
   return stripTags(artM ? artM[1] : html);
 }
@@ -89,7 +57,6 @@ export async function crawlResultDocs() {
   const seen = new Set();
   const refs = [];
 
-  // Fetch both aktualny (default) and archiwalny pages
   for (const filter of [null, ARCHIVED_PARAM]) {
     const rows = await fetchIndexRows(RESULTS_INDEX, filter);
     for (const r of rows) {

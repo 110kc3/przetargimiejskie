@@ -1,4 +1,3 @@
-// Swietochlowice crawler.
 import { existsSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -181,15 +180,6 @@ export async function crawlActive() {
     console.error(`  swietochlowice ${sibPath}: ${announcements.length} announcement(s) (of ${sibEntries.length} links)`);
 
     for (const e of announcements) {
-      // The sibling boards mix houses, land and commercial, and the city titles
-      // most land sales tersely ("…na sprzedaż nieruchomości – ul. X") with no
-      // niezabudowanej/zabudowanej/działka word — classifyKind(title) returns
-      // `unknown`, and the loop previously had no branch for that, so every
-      // terse land auction (e.g. ul. Lotnicza 11,98 ha; Krokusów/Chrobrego) was
-      // dropped and land.json stayed empty. Fix: fetch the body once (every kept
-      // kind needs it) and, when the title alone is `unknown`, re-classify on
-      // title + body — the body always carries the disambiguating word — then
-      // route grunt → parseLandAnnouncement and house/commercial → listings[].
       let bodyText = '';
       try {
         bodyText = htmlToText(await attachmentText(e.url));
@@ -214,8 +204,6 @@ export async function crawlActive() {
       }
 
       if (kind === 'zabudowana' || kind === 'uzytkowy') {
-        // Address from the title, then the body as a fallback — a terse house
-        // title may carry no street, but the body does.
         const addr = addressFrom(e.title, bodyText);
         if (!addr) {
           console.error(`  swietochlowice WARN: unkeyable ${kind} announcement (${e.title.slice(0, 70)})`);
@@ -236,8 +224,6 @@ export async function crawlActive() {
         continue;
       }
 
-      // Still unresolved after the body fallback: log so a future board change
-      // surfaces in the refresh output rather than silently disappearing.
       console.error(`  swietochlowice WARN: unclassified auction dropped (${e.title.slice(0, 70)})`);
     }
   }

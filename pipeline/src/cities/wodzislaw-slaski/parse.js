@@ -1,17 +1,3 @@
-// Wodzisław Śląski parser.
-//
-// Extracts residential flats, houses, commercial premises, and land from
-// municipal property auction announcements (IAG-Opost) and result notices (NWP)
-// published via FINN.pl eUrząd.
-//
-// Text is extracted from born-digital PDFs.
-// Key nuances handled:
-//   - Multi-lot flat notices (e.g. PCK 16/11 + os. 1 Maja 35/19 in one PDF).
-//   - Numbered streets ("ul. 26 Marca") and estate names ("os. 1 Maja").
-//   - Municipal office venue ("ul. Bogumińska 4A/4B") is guarded against matching
-//     as property address.
-//   - Staircase notation on os. 1 Maja ("27/I/1" / "27/1/1" -> building 27, apt 1).
-//   - Achieved price, buyer, and negative outcome parsing for results.
 
 import { parseAddress } from '../../core/normalize.js';
 import {
@@ -29,12 +15,10 @@ const PL_MONTHS = {
 
 const ROMAN = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8, IX: 9, X: 10 };
 
-/** Is this document a result notice ("Informacja o wyniku przetargu")? */
 export function isResultNotice(text) {
   return /informacj\w*\s+o\s+wyniku\s+przetarg|wynik\w*\s+przetarg/i.test(text || '');
 }
 
-/** Is this an open sale auction announcement? Drops rentals, tenant-purchases, and cancellations. */
 export function isSaleAnnouncement(title, text = '') {
   const t = (title || '').toLowerCase();
   if (isResultNotice(t)) return false;
@@ -46,7 +30,6 @@ export function isSaleAnnouncement(title, text = '') {
   return /sprzeda|zbyci/i.test(t) || /sprzeda|zbyci/i.test(text || '');
 }
 
-/** Resolve kind: 'mieszkalny' | 'grunt' | 'zabudowana' | 'uzytkowy' | 'garaz' | 'unknown' */
 export function classifyAssetKind(title, text = '') {
   const combined = `${title || ''} ${text || ''}`;
   if (/lokal\w*\s+mieszkaln|sp[óo][łl]dzielcz\w*\s+w[łl]asno[śs]ciow\w*\s+praw\w*\s+do\s+lokalu/i.test(combined)) {
@@ -67,7 +50,6 @@ export function classifyAssetKind(title, text = '') {
   return classifyKind(combined);
 }
 
-/** Extract round from text/title. */
 export function roundFromText(text) {
   const t = text || '';
   if (/pierwsz(?:y|ego|ym)?\s+przetarg/i.test(t) || /\bI\s+przetarg/i.test(t)) return 1;
@@ -81,12 +63,10 @@ export function roundFromText(text) {
   return /przetarg/i.test(t) ? 1 : null;
 }
 
-/** Announcement auction date. */
 export function announcementDateFromText(text) {
   return auctionDateFromText(text);
 }
 
-/** Result notice auction date. Anchored on "został przeprowadzony ... w dniu <date>". */
 export function resultDateFromText(text) {
   const t = text || '';
   const m =
@@ -105,19 +85,16 @@ export function resultDateFromText(text) {
   return auctionDateFromText(t);
 }
 
-/** Starting price from text. */
 export function startingPriceFromText(text) {
   const m = /cen[aąęy]\s+wywo[łl]awcz[aąeyj]*(?:\s+nieruchomo[śs]ci)?(?:\s+(?:netto|brutto))?[\s\S]{0,140}?([\d][\d.,\s\u00a0-]*?)\s*z[łl]/i.exec(text || '');
   return m ? parsePLN(m[1]) : null;
 }
 
-/** Achieved (hammer) price from result text. */
 export function achievedPriceFromText(text) {
   const m = /najwy[żz]sza\s+cena\s+osi[ąa]gni[ęe]ta[\s\S]{0,140}?([\d][\d.,\s\u00a0-]*?)\s*z[łl]/i.exec(text || '');
   return m ? parsePLN(m[1]) : null;
 }
 
-/** Outcome and unsold reason. */
 export function outcomeFromText(text) {
   const t = text || '';
   if (/zako[ńn]czony\s+wynikiem\s+pozytywnym/i.test(t)) {
@@ -137,7 +114,6 @@ export function outcomeFromText(text) {
   return { outcome: null, unsold_reason: null };
 }
 
-/** Buyer name from result notice. */
 export function buyerFromText(text) {
   const m =
     /(?:Nabywc[aą]\s+(?:przedmiotowej\s+)?nieruchomo[śs]ci|Nabywcą\s+(?:przedmiotowej\s+)?nieruchomo[śs]ci\s+zosta[łl]|Nabywca)\s*:\s*([^.\n\r]+)/i.exec(text || '');
@@ -146,12 +122,10 @@ export function buyerFromText(text) {
   return b.length > 2 && b.length < 100 ? b : null;
 }
 
-/** Area of flat or house in m². */
 export function areaFromText(text) {
   return finnAreaFromText(text);
 }
 
-/** Clean source text of town hall venue references. */
 function stripVenue(text) {
   return (text || '')
     .replace(/w\s+siedzibie\s+Urz[ęe]du\s+Miasta[^\n.]*przy\s+ul\.\s+Bogumi[ńn]skiej\s+[\w/]+/gi, ' ')
@@ -160,26 +134,14 @@ function stripVenue(text) {
     .replace(/przy\s+ul\.\s+Bogumi[ńn]skiej\s+4[ABab]/gi, ' ');
 }
 
-/**
- * Extract keyed address from title and text.
- * Specialised for Wodzisław Śląski:
- *   - "os. 1 Maja 27/I/1" / "os. 1 Maja 27/1/1" -> "os. 1 Maja 27/1"
- *   - "ul. 26 Marca 29/15" -> "ul. 26 Marca 29/15"
- *   - "ul. kard. Stefana Wyszyńskiego 26/14"
- *   - "ul. PCK 16/11"
- *   - "ul. Leonida Teligi 69" (house)
- *   - "ul. Chrobrego 229" (house)
- */
 export function addressFromText(title, text) {
   const cleanText = stripVenue(text || '');
 
-  // Look in text first when text is a scoped part, then fallback to title
   const sources = cleanText ? [cleanText, title || ''] : [title || ''];
 
   for (const src of sources) {
     if (!src) continue;
 
-    // Pattern 1: os. 1 Maja variations
     const m1a = /lokal\w*\s+mieszkaln\w*\s+nr\s+(\d+)(?:\/([IVX\d]+))?\/(\d+)[\s\S]{0,100}?os\.\s*1\s+Maja/i.exec(src);
     if (m1a) {
       const bldg = m1a[1];
@@ -223,11 +185,9 @@ export function addressFromText(title, text) {
       if (parsed) return { address_raw: raw, address: parsed };
     }
 
-    // Official designation check: "1. Oznaczenie nieruchomości ... lokalu mieszkalnego nr <apt>"
     const s1Unit = /1\.\s*Oznaczenie[\s\S]{0,220}?lokalu\s+mieszkalnego\s+(?:nr\.?\s*)?(\d+(?:\/\d+)?)/i.exec(src);
     const officialApt = s1Unit ? s1Unit[1] : null;
 
-    // Pattern 2: przy ul. <Street> <bldg>/<apt>
     const m2 = /(?:przy\s+)?(?:ul\.|ulicy)\s*([0-9A-ZŻŹĆŁŚĄĘÓŃ][A-Za-z0-9żźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)\s+(\d+[A-Za-z]?)(?:\/(\d+[A-Za-z]?))\b/i.exec(src);
     if (m2 && !/Bogumi[ńn]sk/i.test(m2[1])) {
       const street = m2[1].replace(/\s+/g, ' ').trim();
@@ -243,7 +203,6 @@ export function addressFromText(title, text) {
       if (parsed) return { address_raw: raw, address: parsed };
     }
 
-    // Pattern 3: street + separate flat <apt>
     const aptMatch = /lokal\w*\s+mieszkaln\w*\s+(?:o\s+numerze|numer|nr\.?)\s*(\d+[A-Za-z]?(?:\/\d+[A-Za-z]?)?)/i.exec(src);
     const aptVal = officialApt || (aptMatch ? aptMatch[1] : null);
 
@@ -258,7 +217,6 @@ export function addressFromText(title, text) {
       }
     }
 
-    // Pattern 4: przy ul. <Street> <bldg> [apt]
     const m4 = /(?:przy\s+)?(?:ul\.|ulicy)\s*([0-9A-ZŻŹĆŁŚĄĘÓŃ][A-Za-z0-9żźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)\s+(?:nr\s+)?(\d+[A-Za-z]?)\b/i.exec(src);
     if (m4 && !/Bogumi[ńn]sk/i.test(m4[1])) {
       const street = m4[1].replace(/\s+/g, ' ').trim();
@@ -273,16 +231,13 @@ export function addressFromText(title, text) {
   return null;
 }
 
-/** Extract land parcel, obręb, area, and street. */
 export function landFieldsFromText(title, text) {
   const combined = `${title || ''}\n\n${text || ''}`;
   const clean = stripVenue(combined);
 
-  // Obręb
   const obrebM = /obr[eę]b[u]?\s+(?:nr\.?\s*)?(\d{4}|[A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zżźćłśąęóńŻŹĆŁŚĄĘÓŃ\s-]{1,30}?)(?=[,.;\n]|\s+arkusz|\s+mapa|$)/i.exec(clean);
   const obreb = obrebM ? obrebM[1].replace(/\s+/g, ' ').trim() : null;
 
-  // Cadastral parcel(s): prefer Section 1 if present
   let dzialka_nr = null;
   const s1 = /1\.\s*Oznaczenie[\s\S]{0,140}?(?:jako\s+dzia[łl]k[ai]|dzia[łl]k\w*)\s*[:\s]\s*([\s\S]{0,300}?)(?=\n\s*\n|2\.|\bopisane\b|\barkusz\b|$)/i.exec(clean);
   if (s1) {
@@ -300,7 +255,6 @@ export function landFieldsFromText(title, text) {
     }
   }
 
-  // Street
   let street = null;
   let address_raw = null;
   const streetM = /(?:po[łl]o[żz]on\w*\s+(?:w\s+Wodzisławiu\s+Śl[ąa]skim\s+)?przy\s+ul(?:\.|icy)?|przy\s+ul(?:\.|icy)?)\s*([0-9A-ZŻŹĆŁŚĄĘÓŃ][A-Za-z0-9żźćłśąęóńŻŹĆŁŚĄĘÓŃ.\- ]+?)(?=[,.;\n]|\s+o\s+pow|\s+dzialka|\s+działka|$)/i.exec(clean);
@@ -313,7 +267,6 @@ export function landFieldsFromText(title, text) {
     }
   }
 
-  // Plot area
   let area_m2 = null;
   const areaM = /(?:o\s+powierzchni|o\s+[łl][ąa]cznej\s+powierzchni)\s+([\d.,\s]+)\s*m\s*[²2]/i.exec(clean);
   if (areaM) {
@@ -331,18 +284,9 @@ export function landFieldsFromText(title, text) {
   return { dzialka_nr, obreb, area_m2, street, address_raw };
 }
 
-/**
- * Parse one announcement PDF text into an array of listings or land records.
- * Supports multi-lot documents (splits by "przetarg ustny nieograniczony na sprzedaż").
- * @param {string} title
- * @param {string} text  PDF extracted text
- * @param {string} url   Detail / document URL
- * @returns {Array<object>}
- */
 export function parseAnnouncement(title, text, url) {
   if (!isSaleAnnouncement(title, text)) return [];
 
-  // Check if multiple auctions are bundled in one announcement PDF
   const splitRe = /(?=(?:pierwszy|drugi|trzeci|czwarty|piąty|I|II|III|IV|V)\s+przetarg\s+ustny\s+nieograniczony\s+na\s+sprzeda)/gi;
   const rawParts = text.split(splitRe).filter((p) => /przetarg\s+ustny\s+nieograniczony/i.test(p));
   const parts = rawParts.length > 1 ? rawParts : [text];
@@ -396,14 +340,6 @@ export function parseAnnouncement(title, text, url) {
   return results;
 }
 
-/**
- * Parse one RESULT document ("Informacja o wyniku przetargu").
- * Returns an array of concluded auction records (0 or 1).
- * @param {string} text
- * @param {string|null} fallbackDate
- * @param {string} sourceUrl
- * @returns {Array<object>}
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!isResultNotice(text)) return [];
   if (/\bnajem\b|najmu|dzier[żz]aw|czynsz/i.test(text)) return [];

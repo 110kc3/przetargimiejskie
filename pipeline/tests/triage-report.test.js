@@ -1,6 +1,3 @@
-// Unit tests for the triage classifier + issue rendering. Fixture logs mirror
-// what refresh.js / sanity-check.js actually print in CI (including the
-// machine-readable TRIAGE lines), one per classification branch.
 
 import test from 'node:test';
 import assert from 'node:assert/strict';

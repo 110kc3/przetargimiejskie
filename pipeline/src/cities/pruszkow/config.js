@@ -1,7 +1,3 @@
-// Configuration for Pruszków adapter (bip.um.pruszkow.pl)
-//
-// Gmina Miasto Pruszków (powiat pruszkowski, mazowieckie)
-// TERC: 1421021
 
 export const CONFIG = {
   id: 'pruszkow',

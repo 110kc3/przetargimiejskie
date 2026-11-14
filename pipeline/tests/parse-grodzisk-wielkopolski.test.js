@@ -1,10 +1,3 @@
-// Grodzisk Wielkopolski parser unit tests.
-// Tests groundtruthed against real municipal auction documents fetched from bip.grodzisk.wlkp.pl:
-//   - Announcement 23474: II przetarg on ul. Kolejowa 9/2 (67.80 m²) & ul. 27 Stycznia 8/2 (35.49 m²)
-//   - Result 23548: 18.05.2026 results (ul. Kolejowa 9/2 SOLD, ul. 27 Stycznia 8/2 UNSOLD)
-//   - Result 23054: 03.09.2025 mixed notice (3 land plots skipped, 3 flats parsed: Kolejowa 9/2, 27 Stycznia 8/2, os. Wojska Polskiego 24/24A)
-//   - Result 22375: 22.04.2024 mixed notice (2 land plots skipped, 1 flat parsed: Kąkolewo 189/1 SOLD)
-//   - Result 23784: Land-only result notice (correctly skipped, 0 flat records)
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -31,7 +24,6 @@ const FIXTURES_PATH = fileURLToPath(
 );
 const fixtures = JSON.parse(readFileSync(FIXTURES_PATH, 'utf8'));
 
-// ------------------------------------------------------------- 1. Config & contract
 
 test('config exports valid city metadata', () => {
   assert.equal(config.id, 'grodzisk-wielkopolski');
@@ -50,7 +42,6 @@ test('adapter exports full contract interface', () => {
   assert.equal(typeof adapter.parseResultDoc, 'function');
 });
 
-// ------------------------------------------------------------- 2. Helper primitives
 
 test('cleanHtml unescapes entities and collapses whitespace', () => {
   assert.equal(
@@ -114,7 +105,6 @@ test('isFlatNotice filters flat vs land / transport / procurement notices', () =
     isFlatNotice('Przetarg na sprzedaż nieruchomości', '<p>przetarg na lokal mieszkalny nr 2</p>'),
     true,
   );
-  // Pure land / transport notices must be rejected:
   assert.equal(
     isFlatNotice('Ogłoszenie o przetargu ustnym ograniczonym na sprzedaż nieruchomości rolnej'),
     false,
@@ -151,7 +141,6 @@ test('extractAnnouncementAddress extracts normalized street, building and apartm
   assert.equal(res2.address.apt, '2');
 });
 
-// ------------------------------------------------------------- 3. Announcement parsing
 
 test('parseAnnouncement extracts both flats from Fixture 23474', () => {
   const f = fixtures['23474'];
@@ -190,7 +179,6 @@ test('parseAnnouncement extracts both flats from Fixture 23474', () => {
   assert.equal(l2.kind, 'mieszkalny');
 });
 
-// ------------------------------------------------------------- 4. Result document parsing
 
 test('parseResultDoc extracts sold and unsold flats from Fixture 23548 (auction 18.05.2026)', () => {
   const f = fixtures['23548'];
@@ -200,7 +188,6 @@ test('parseResultDoc extracts sold and unsold flats from Fixture 23548 (auction 
 
   const byKey = Object.fromEntries(results.map((r) => [r.address.key, r]));
 
-  // Flat 1: ul. Kolejowa 9/2 — SOLD for 202 000 zł
   const r1 = byKey['kolejowa|9|2'];
   assert.ok(r1, 'kolejowa|9|2 must be present');
   assert.equal(r1.auction_date, '2026-05-18');
@@ -212,7 +199,6 @@ test('parseResultDoc extracts sold and unsold flats from Fixture 23548 (auction 
   assert.equal(r1.unsold_reason, null);
   assert.equal(r1.kind, 'mieszkalny');
 
-  // Flat 2: ul. 27 Stycznia 8/2 — UNSOLD (no bids)
   const r2 = byKey['27 stycznia|8|2'];
   assert.ok(r2, '27 stycznia|8|2 must be present');
   assert.equal(r2.auction_date, '2026-05-18');
@@ -229,12 +215,10 @@ test('parseResultDoc extracts 3 flats and skips 3 land plots from Fixture 23054 
   const f = fixtures['23054'];
   const results = parseResultDoc(f.content, null, `https://bip.grodzisk.wlkp.pl/${f.link}`);
 
-  // Exactly 3 flat records (land plots 268/8, 268/9, 268/10 must be skipped)
   assert.equal(results.length, 3);
 
   const byKey = Object.fromEntries(results.map((r) => [r.address.key, r]));
 
-  // 1. Kolejowa 9/2 (unsold, no wadium)
   const r1 = byKey['kolejowa|9|2'];
   assert.ok(r1);
   assert.equal(r1.auction_date, '2025-09-03');
@@ -244,7 +228,6 @@ test('parseResultDoc extracts 3 flats and skips 3 land plots from Fixture 23054 
   assert.equal(r1.outcome, 'unsold');
   assert.equal(r1.unsold_reason, 'no_wadium');
 
-  // 2. 27 Stycznia 8/2 (unsold, no wadium)
   const r2 = byKey['27 stycznia|8|2'];
   assert.ok(r2);
   assert.equal(r2.auction_date, '2025-09-03');
@@ -254,7 +237,6 @@ test('parseResultDoc extracts 3 flats and skips 3 land plots from Fixture 23054 
   assert.equal(r2.outcome, 'unsold');
   assert.equal(r2.unsold_reason, 'no_wadium');
 
-  // 3. os. Wojska Polskiego 24/24A (unsold, no wadium)
   const r3 = byKey['wojska polskiego|24|24A'];
   assert.ok(r3);
   assert.equal(r3.auction_date, '2025-09-03');
@@ -269,7 +251,6 @@ test('parseResultDoc extracts flat in village and skips land from Fixture 22375 
   const f = fixtures['22375'];
   const results = parseResultDoc(f.content, null, `https://bip.grodzisk.wlkp.pl/${f.link}`);
 
-  // Exactly 1 flat record (land plots 3569/1 and 3589/11 must be skipped)
   assert.equal(results.length, 1);
 
   const r = results[0];

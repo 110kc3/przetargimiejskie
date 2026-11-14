@@ -1,7 +1,3 @@
-// Configuration for Rawicz adapter (bip.rawicz.pl)
-//
-// Gmina Rawicz (powiat rawicki, wielkopolskie)
-// TERC: 3022054
 
 export const CONFIG = {
   id: 'rawicz',

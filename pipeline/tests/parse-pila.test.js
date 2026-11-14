@@ -1,26 +1,3 @@
-// Piła parser + crawl-helper tests.
-//
-// Fixtures groundtruthed against LIVE data (2026-06-27):
-//
-// ANNOUNCEMENT PDF (single flat, 2026):
-//   https://bip.pila.pl/files/file_add/download/11503_ogloszenieoprzetargulokalmieszkalny.pdf
-//   Article: bip.pila.pl/prezydent-miasta-pily-oglasza-pierwszy-przetarg-ustny-
-//     nieograniczony-na-sprzedaz-prawa-wlasnoscinieruchomosci-lokalowej-lokalu-
-//     mieszkalnego-nr-8-polozonego-w-pile-przy-ul-11-listopada-39-termin-przetargu-17072026.html
-//   ul. 11 Listopada 39/8, area 47,40 m², cena wywoławcza 167 000,00 zł,
-//   wadium 33 400 zł, przetarg 17 LIPCA 2026, round 1 (pierwszy).
-//
-// RESULT NOTICE (inferred structure — VALIDATE on first CI run):
-//   Post-auction result PDF added to the same article page as a "wyniki" attachment.
-//   Standard Polish municipal result wording confirmed by spike + analog cities
-//   (Tarnowskie Góry, Wejherowo). Groundtruthed phrasing TBD on live run.
-//
-// LIST PAGE (live, 2026-06-27):
-//   https://bip.pila.pl/542-aktualne-przetargi-na-nieruchomosci.html
-//   5 entries visible; 1 flat (lokal mieszkalny) entry confirmed.
-//
-// JOIN KEY: announcement + result both key on `11 listopada|39|8` (after
-// normalize.js POLISH_LOWER + strip-diacritics). Round=1 matches both sides.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -45,7 +22,6 @@ import {
   parseArticleAttachments,
 } from '../src/cities/pila/crawl.js';
 
-// ─── isSkippableTitle ──────────────────────────────────────────────────────────
 
 test('isSkippableTitle: skips najem (lease)', () => {
   assert.equal(isSkippableTitle('Prezydent Miasta Piły ogłasza przetargi na najem lokali użytkowych'), true);
@@ -67,7 +43,6 @@ test('isSkippableTitle: does NOT skip mixed batch with lokal mieszkalny', () => 
   assert.equal(isSkippableTitle('PREZYDENT ogłasza przetargi na sprzedaż lokali mieszkalnych'), false);
 });
 
-// ─── isFlatAnnouncementTitle ──────────────────────────────────────────────────
 
 test('isFlatAnnouncementTitle: detects "lokal mieszkalny"', () => {
   assert.equal(isFlatAnnouncementTitle('PREZYDENT MIASTA PIŁY ogłasza pierwszy przetarg na sprzedaż lokalu mieszkalnego nr 8'), true);
@@ -81,7 +56,6 @@ test('isFlatAnnouncementTitle: false for land', () => {
   assert.equal(isFlatAnnouncementTitle('ogłasza przetarg na sprzedaż nieruchomości gruntowej'), false);
 });
 
-// ─── roundFromText ────────────────────────────────────────────────────────────
 
 test('roundFromText: "pierwszy przetarg" → 1', () => {
   assert.equal(roundFromText('ogłasza pierwszy przetarg ustny nieograniczony na sprzedaż'), 1);
@@ -100,13 +74,10 @@ test('roundFromText: bare "przetarg" with no ordinal → 1', () => {
 });
 
 test('roundFromText: null/empty → null or 1', () => {
-  // empty text has no "przetarg" → null
   assert.equal(roundFromText(''), null);
   assert.equal(roundFromText(null), null);
 });
 
-// ─── auctionDateFromText ──────────────────────────────────────────────────────
-// Groundtruthed against the live 2026-07-17 announcement (pdftotext output).
 
 test('auctionDateFromText: CAPS "PRZETARG ODBĘDZIE SIĘ 17 LIPCA 2026 R."', () => {
   const text = 'PRZETARG ODBĘDZIE SIĘ 17 LIPCA 2026 R. O GODZ. 9:00 W SIEDZIBIE URZĘDU MIASTA PIŁY';
@@ -129,11 +100,8 @@ test('auctionDateFromText: null/empty → null, no throw', () => {
   assert.equal(auctionDateFromText('brak daty'), null);
 });
 
-// ─── startingPriceFromText ────────────────────────────────────────────────────
-// Live fixture: "167 000,00 zł" (space-thousands, comma-grosze).
 
 test('startingPriceFromText: "167 000,00 zł" → 167000', () => {
-  // Simulates the PDF table column which has "Cena wywoławcza" header then value
   assert.equal(startingPriceFromText('Cena wywoławcza\n167 000,00 zł'), 167000);
 });
 
@@ -150,7 +118,6 @@ test('startingPriceFromText: null/missing → null, no throw', () => {
   assert.equal(startingPriceFromText('brak ceny'), null);
 });
 
-// ─── achievedPriceFromText ────────────────────────────────────────────────────
 
 test('achievedPriceFromText: "osiągnięta w przetargu: 170 000,00 zł"', () => {
   assert.equal(achievedPriceFromText('Cena osiągnięta w przetargu: 170 000,00 zł'), 170000);
@@ -165,12 +132,6 @@ test('achievedPriceFromText: no achieved price → null', () => {
   assert.equal(achievedPriceFromText(null), null);
 });
 
-// ─── unitAreaFromText ─────────────────────────────────────────────────────────
-// Live fixture: "lokal o powierzchni użytkowej 47,40 m2 składający się z:
-//   2 pokoi (16,50 m2, 12,50 m2), kuchni (7,50 m2), łazienki (1,60 m2),
-//   WC (1,00 m2), przedpokoju (8,30 m2) oraz pomieszczenia przynależnego,
-//   tj. piwnicy (1,80 m2), razem powierzchnia użytkowa 49,20 m2"
-// Must return 47.40, NOT 49.20 (total with cellar) or 1.80 (cellar alone).
 
 test('unitAreaFromText: "lokal o powierzchni użytkowej 47,40 m2" → 47.4', () => {
   const text = 'lokal o powierzchni użytkowej 47,40 m2 składający się z: 2 pokoi (16,50 m2, 12,50 m2), kuchni (7,50 m2), łazienki (1,60 m2), WC (1,00 m2), przedpokoju (8,30 m2) oraz pomieszczenia przynależnego, tj. piwnicy (1,80 m2), razem powierzchnia użytkowa 49,20 m2';
@@ -186,8 +147,6 @@ test('unitAreaFromText: null/empty → null, no throw', () => {
   assert.equal(unitAreaFromText(''), null);
 });
 
-// ─── addressFromPdfText ───────────────────────────────────────────────────────
-// Live fixture (form a): "Piła, ul. 11 Listopada 39/8" → key `11 listopada|39|8`
 
 test('addressFromPdfText: "Piła, ul. 11 Listopada 39/8" → correct key', () => {
   const addr = addressFromPdfText('Piła, ul. 11 Listopada 39/8\nlokal mieszkalny nr 8 w budynku przy ul. 11 Listopada 39');
@@ -225,7 +184,6 @@ test('addressFromPdfText: null/empty → null, no throw', () => {
   assert.equal(addressFromPdfText('brak adresu'), null);
 });
 
-// ─── splitPdfIntoRows ─────────────────────────────────────────────────────────
 
 test('splitPdfIntoRows: single-flat PDF → 1 chunk', () => {
   const text = 'PREZYDENT MIASTA PIŁY\n\nPiła, ul. 11 Listopada 39/8\nlokal mieszkalny nr 8\n\nPRZETARG ODBĘDZIE SIĘ 17 LIPCA 2026';
@@ -254,11 +212,6 @@ test('splitPdfIntoRows: no "Piła," anchor → returns whole text', () => {
   assert.equal(rows[0], text);
 });
 
-// ─── parseAnnouncementPdf (full fixture) ──────────────────────────────────────
-//
-// Condensed-but-faithful reconstruction of the real pdftotext -layout output
-// from bip.pila.pl/files/file_add/download/11503_ogloszenieoprzetargulokalmieszkalny.pdf
-// (fetched live 2026-06-27 and verified field-by-field).
 
 const ANN_SINGLE = `                                                                                                  PREZYDENT MIASTA PIŁY
 
@@ -303,7 +256,6 @@ test('parseAnnouncementPdf: single flat — kind/address/area/price/date/round',
   assert.equal(r.address.building, '39');
   assert.equal(r.address.apt, '8');
   assert.ok(/listopada/i.test(r.address.street_norm));
-  // JOIN KEY used by build-properties to link result→announcement:
   assert.equal(r.address.key, '11 listopada|39|8');
   assert.equal(r.area_m2, 47.4, 'usable area 47,40 m², NOT 49,20 total or cellar 1,80');
   assert.equal(r.starting_price_pln, 167000);
@@ -316,8 +268,6 @@ test('parseAnnouncementPdf: null/empty → empty array', () => {
   assert.deepEqual(parseAnnouncementPdf(''), []);
 });
 
-// Multi-flat batch fixture — condensed faithful reconstruction of a batch like
-// the confirmed 16.05.2025 (Wawelska 53 + Aleja Powstańców 105) structure.
 
 const ANN_MULTI = `PREZYDENT MIASTA PIŁY
 
@@ -362,7 +312,6 @@ test('parseAnnouncementPdf: multi-flat — second flat Powstańców 105/5', () =
   assert.equal(pow.auction_date, '2025-05-16');
 });
 
-// ─── isResultNotice ───────────────────────────────────────────────────────────
 
 test('isResultNotice: "Informacja o wyniku przetargu" → true', () => {
   assert.equal(isResultNotice('Informacja o wyniku przetargu ustnego nieograniczonego'), true);
@@ -381,10 +330,6 @@ test('isResultNotice: null/empty → false', () => {
   assert.equal(isResultNotice(''), false);
 });
 
-// ─── parseResultDoc ───────────────────────────────────────────────────────────
-//
-// Inferred from spike data + Piła standard municipal Polish wording.
-// VALIDATE on first live CI run against actual pdftotext output.
 
 const RESULT_SOLD = `
 Informacja o wyniku pierwszego przetargu ustnego nieograniczonego
@@ -435,7 +380,6 @@ test('parseResultDoc: SOLD — outcome=sold, final_price_pln set', () => {
 test('parseResultDoc: SOLD — address keys match the announcement JOIN KEY', () => {
   const recs = parseResultDoc(RESULT_SOLD, null, 'https://example.com');
   assert.ok(recs[0].address, 'address must be set');
-  // Must produce the same key as the announcement: `11 listopada|39|8`
   assert.equal(recs[0].address.key, '11 listopada|39|8');
   assert.equal(recs[0].round, 1, 'same round as the announcement');
 });
@@ -483,10 +427,6 @@ test('parseResultDoc: fallbackDate used when body has no recognisable date', () 
   );
 });
 
-// ─── parseListPage (crawl helper) ─────────────────────────────────────────────
-//
-// Condensed faithful copy of the real /542 page structure (2026-06-27).
-// The CMS uses "Kliknij aby przejść do <TITLE>." link text pattern.
 
 const LIST_HTML = `
 <table class="registry">
@@ -541,13 +481,6 @@ test('parseListPage: empty HTML returns []', () => {
   assert.deepEqual(parseListPage('<html><body></body></html>'), []);
 });
 
-// ─── parseArticleAttachments (crawl helper) ───────────────────────────────────
-//
-// Confirmed live structure from the 11 Listopada 39 article (2026-06-27):
-//   ref_84: DRZWI_OTWARTE_LOKAL_MIESZKALNY.pdf → other
-//   ref_87: ogloszenie_o_przetargu_lokal_mieszkalny.pdf → announcement
-//   ref_90: Klauzula_informacyjna_zalacznik_nr_1.pdf → other
-//   ref_93: mapa_242_44.pdf → other
 
 const ARTICLE_HTML = `
 <div class="attachments">

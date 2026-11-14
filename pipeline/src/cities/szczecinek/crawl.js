@@ -1,34 +1,3 @@
-// Szczecinek crawler — server-rendered Logonet BIP (no SPA, no OCR, no TLS
-// workaround; see config.js). Two independent board families:
-//
-//   ZBYCIE (announcements + wykazy): board 336's own page lists YEAR
-//   sub-boards (645=2026, 595=2025, 547=2024, …), discovered live so a new
-//   year needs no code change. Each year board is paginated 10/page.
-//
-//   RESULTS (achieved-price stream): board 338, its OWN separate pagination
-//   (7 pages / ~65 items as of the build) — never interleaved with the
-//   zbycie boards, so it's crawled independently.
-//
-//   LIST:    /artykuly/<catId>/<page>/<perPage>/<slug>
-//   ARTICLE: /artykul/<catId>/<docId>/<slug>
-//   FILE:    /attachments/download/<fileId>   (a born-digital PDF, when present)
-//
-// Announcements are parsed straight from the HTML body (extractBodyText) —
-// verified live that the inline text already carries every field, so no PDF
-// fetch is needed for the active/wykaz stream (unlike TG/KK, which are
-// PDF-only). Results are different: a solo lokal-mieszkalny result is
-// published as a bare STUB (no PDF, no price anywhere — confirmed live,
-// repeat-fetch byte-identical), while a land/mixed-batch result carries a PDF
-// with a per-parcel table. So for board 338 we always fetch the article HTML
-// first; when it links a PDF attachment we ALSO fetch+extract that (pdfText)
-// and prefer its text (it's where the achieved price actually lives),
-// falling back to the HTML stub text when there's no attachment.
-//
-// source:'html' ⇒ result refs always carry `.text` directly; refresh.js's
-// OCR/pdf-text dispatch is bypassed (see refresh.js: it still reads
-// `ref.pdf_url` for logging/provenance even under source:'html', so every ref
-// carries a `pdf_url` — the real PDF URL when one exists, else the article's
-// own page URL as a never-null fallback).
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -48,9 +17,6 @@ const ORIGIN = 'https://bip.szczecinek.pl';
 const ZBYCIE_ROOT = { id: 336, slug: 'nieruchomosci-przeznaczone-do-zbycia' };
 const RESULTS_BOARD = { id: 338, slug: 'informacja-o-wynikach-przetargow-na-sprzedaz-nieruchomosci' };
 
-// Known year sub-boards as of the build — used ONLY if live discovery from
-// the 336 root page ever comes back empty (defensive fallback; see
-// discoverYearBoards). Verified live 2026-07-10.
 const FALLBACK_YEAR_BOARDS = [
   { id: 645, slug: '2026' },
   { id: 595, slug: '2025' },
@@ -58,15 +24,11 @@ const FALLBACK_YEAR_BOARDS = [
 ];
 
 const PER_PAGE = 10;
-// CI-budget bound (ADAPTER-GUIDE §5.1): real boards are 2-3 pages (zbycie
-// years) / 7 pages (results) today; this leaves generous headroom without
-// letting a future archive run unbounded.
 const MAX_PAGES = 40;
 
 const listUrl = (catId, page, slug) => `${ORIGIN}/artykuly/${catId}/${page}/${PER_PAGE}/${slug}`;
 const articleUrl = (catId, docId, slug) => `${ORIGIN}/artykul/${catId}/${docId}/${slug}`;
 
-/** Article refs {id, slug, url} from one board-listing page's HTML. */
 export function parseListingPage(html, catId) {
   if (!html) return [];
   const out = [];
@@ -82,9 +44,6 @@ export function parseListingPage(html, catId) {
   return out;
 }
 
-/** Walk one board's pages (bounded by MAX_PAGES), collecting article refs.
- *  Stops when a page yields no NEW ref (past the last page, or a pagination
- *  loop) or returns fewer than a full page. */
 async function listBoardAllPages(catId, slug) {
   const refs = [];
   const seen = new Set();
@@ -103,15 +62,11 @@ async function listBoardAllPages(catId, slug) {
       seen.add(r.id);
       refs.push(r);
     }
-    if (pageRefs.length < PER_PAGE) break; // short page ⇒ last page
+    if (pageRefs.length < PER_PAGE) break;
   }
   return refs;
 }
 
-/** Year sub-boards under the zbycie root (336), discovered live from that
- *  page's own subcategory links so a newly added year needs no code change.
- *  Falls back to FALLBACK_YEAR_BOARDS if discovery ever comes back empty
- *  (layout change / transient fetch failure). */
 async function discoverYearBoards() {
   try {
     const html = await getText(`${ORIGIN}/artykuly/${ZBYCIE_ROOT.id}/${ZBYCIE_ROOT.slug}`);
@@ -136,7 +91,6 @@ async function discoverYearBoards() {
   return FALLBACK_YEAR_BOARDS;
 }
 
-/** First PDF attachment URL on an article page, or null. */
 function firstAttachmentUrl(html) {
   const m =
     /<a[^>]*id="attachments-title"[^>]*href="([^"]+)"/i.exec(html || '') ||
@@ -144,7 +98,6 @@ function firstAttachmentUrl(html) {
   return m ? m[1] : null;
 }
 
-// One memoised pass over both board families — see the file header.
 let crawlPromise = null;
 
 async function crawlZbycie() {
@@ -156,7 +109,7 @@ async function crawlZbycie() {
     console.error(`  szczecinek board ${board.id} (${board.slug}): ${refs.length} article(s)`);
     for (const ref of refs) {
       if (isSkippableTitle('', ref.slug)) continue;
-      if (isResultTitle('', ref.slug)) continue; // results live on board 338, never here
+      if (isResultTitle('', ref.slug)) continue;
       let html;
       try {
         html = await getText(ref.url);
@@ -166,7 +119,7 @@ async function crawlZbycie() {
       }
       const text = extractBodyText(html);
       if (!text) continue;
-      if (isResultNotice(text)) continue; // defensive: body says result despite slug/board
+      if (isResultNotice(text)) continue;
       const rec = parseAnnouncement(text);
       if (!rec) {
         if (isAnnouncementTitle('', ref.slug)) {
@@ -199,7 +152,7 @@ async function crawlResults() {
 
     const pdfUrl = firstAttachmentUrl(html);
     let text = bodyText;
-    let pdf_url = ref.url; // never-null fallback provenance (stub results have no PDF)
+    let pdf_url = ref.url;
     if (pdfUrl) {
       pdf_url = pdfUrl;
       try {
@@ -222,13 +175,11 @@ async function crawlAll() {
   return { listings, land, resultRefs };
 }
 
-/** Result documents (achieved-price stream, board 338). */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resultRefs;
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, land } = await crawlPromise;

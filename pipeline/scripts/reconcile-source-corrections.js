@@ -1,5 +1,3 @@
-// Apply reviewed historical corrections without a crawl or a freshness advance.
-// Default is read-only; use --write after inspecting the source-backed rules.
 import { readFileSync, statSync, writeFileSync, renameSync, unlinkSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
@@ -96,7 +94,6 @@ for (const city of cities) {
   });
 }
 
-// Seller migrations retain the provider's source timestamp and do not run its crawler.
 for (const id of new Set(LEDGER_REPAIRS.filter(r=>cities.includes(r.city)&&r.provider).map(r=>r.provider.id))) {
   const rules=LEDGER_REPAIRS.filter(r=>cities.includes(r.city)&&r.provider?.id===id);
   let counts;

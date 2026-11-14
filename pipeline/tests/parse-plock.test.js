@@ -1,33 +1,3 @@
-// Płock (ARS Sp. z o.o.) parser tests. Fixtures are condensed-but-faithful
-// copies of REAL data fetched live from ars.plock.pl (2026-07-18, from this
-// Pi's Polish residential IP):
-//   - BOARD LIST: the exact `<div class="listing">` / `pagingPanel` markup of
-//     the "Ogłoszenia o przetargach" board (page 1).
-//   - ANNOUNCEMENT PDFs: `pdftotext -layout` of the born-digital
-//     Ogloszenie.pdf for the Synagogalna 13 lokal 9 flat (GetAttachment/569),
-//     and OCR (tesseract -l pol) of the SCANNED Ogloszenie.pdf for the
-//     Sienkiewicza 64 building (GetAttachment/538, Producer "KONICA MINOLTA
-//     bizhub C458" — no text layer).
-//   - RESULT PROTOCOLS: `pdftotext -layout` of the born-digital protokol.pdf
-//     for the Synagogalna 13 lokal 9 SOLD auction (GetAttachment/573), and
-//     OCR of the SCANNED protokol.pdf for the Sienkiewicza 64 building's SOLD
-//     (but OCR-garbled) auction (GetAttachment/543) and a rental's UNSOLD
-//     auction (GetAttachment/562, used only for the low-level outcome-
-//     function checks — its real title has no "sprzeda" and is correctly
-//     gated out by isSaleTitle before any adapter code would touch its PDF).
-//
-// Groundtruth (hand-verified against the live pages/PDFs):
-//   Synagogalna 13, lokal mieszkalny nr 9 (announce id 140 / result id 135 +
-//   142): cena wywoławcza 299 130 zł, auction 2026-04-29, area 46,02 m²,
-//   wadium deadline 2026-04-28. Result: SOLD to ASTORGA MED Sp. z o.o. for
-//   299 630 zł (both the id-135 and id-142 result notices point at the SAME
-//   protocol text; id 142's title omits "nr 9" — the unit number is
-//   backfilled from the protocol body, see unitNoFromText).
-//   Sienkiewicza 64, nieruchomość gruntowa zabudowana (announce id 119 /
-//   result id 123): cena wywoławcza 1 150 000 zł, auction 2025-08-28, plot
-//   0,12431 ha = 1243 m². Result: SOLD (a winner NIP/REGON letterhead survives
-//   after "Podpis wygrywającego przetarg:") but the achieved-price line itself
-//   OCR'd to noise — final_price_pln stays null with an explanatory note.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -58,10 +28,7 @@ import {
   parseResultDoc,
 } from '../src/cities/plock/parse.js';
 
-// --------------------------------------------------------------- fixtures
 
-// Condensed real excerpt of ogloszenia_p1.html (fetched live 2026-07-18):
-// two SALE items, one RENTAL item, and the real pagingPanel (8 pages).
 const BOARD_LIST_HTML = `
 <div class="listing">
     <div class="listing-title"><a href="/pl/przetargi/141/Publiczny-przetarg-ustny-na-wynajem-lokalu-uzytkowego-nr-4-zlokalizowanego-w-budynku-Tumska-13-w-Plocku">Publiczny przetarg ustny na wynajem lokalu użytkowego nr 4 zlokalizowanego w budynku Tumska 13 w Płocku</a></div>
@@ -101,7 +68,6 @@ const BOARD_LIST_HTML = `
     <a href="/pl/przetargi/ogloszenia-o-przetargach/2">następna &#187;</a></div>
 `;
 
-// Real detail-page markup (id 140 — Ogloszenia.pdf + Regulamin.pdf attachments).
 const DETAIL_140_HTML = `
 <h2 class="standard">Publiczny przetarg ustny na sprzedaż lokalu mieszkalnego nr 9, położonego w budynku mieszkalnym  zlokalizowanym w Płocku przy ul. Synagogalna 13.</h2>
 
@@ -124,11 +90,6 @@ const DETAIL_140_HTML = `
 </div>
 `;
 
-// pdftotext -layout of the born-digital Ogloszenie.pdf, GetAttachment/569
-// (Synagogalna 13 lokal 9 flat announcement) — verbatim load-bearing
-// sentences (room-by-room areas kept, to prove the labelled-area pattern is
-// tried BEFORE the bare "o powierzchni" fallback that would otherwise catch
-// a room's own area).
 const PDF_569_FLAT_ANNOUNCE = `
 ogłasza publiczny przetarg ustny na sprzedaż lokalu mieszkalnego nr 9, położonego w budynku mieszkalnym
 zlokalizowanym w Płocku przy ul. Synagogalna 13.
@@ -153,9 +114,6 @@ Wszelkie informacje dotyczące przedmiotu przetargu i regulaminu można uzyskać
    w godz. 8.00 – 15.00,
 `;
 
-// OCR (tesseract -l pol) of the SCANNED Ogloszenie.pdf, GetAttachment/538
-// (Sienkiewicza 64 building announcement) — verbatim load-bearing sentences
-// from pages 1 and 6-7 of the real 8-page scan.
 const OCR_538_BUILDING_ANNOUNCE = `
 ogłasza publiczny przetarg ustny na sprzedaż nieruchomości gruntowej zabudowanej, położonej w Płocku przy
 ul. Sienkiewicza 64, na działce o numerze ewidencyjnym 230 o powierzchni 0,12431ha, stanowiącą własność
@@ -178,10 +136,6 @@ Przetarg odbędzie się w siedzibie Spółki w Płocku, przy Pl. Stary Rynek 5 l
 Bielskiej) - sala konferencyjna w dniu 28.08.2025r. o godz. 13:00
 `;
 
-// pdftotext -layout of the born-digital protokol.pdf, GetAttachment/573 —
-// FULL real text (Synagogalna 13 lokal 9, SOLD to ASTORGA MED Sp. z o.o. for
-// 299 630 zł). Note clause 6's negative boilerplate is printed regardless —
-// see parse.js header note.
 const PROTOKOL_573_FLAT_SOLD = `
                                          PROTOKÓŁ
                                       z dn.29.04.2026r.
@@ -212,9 +166,6 @@ Podpis wygrywającego przetarg:
 / - / Waldemar Królak
 `;
 
-// OCR of the SCANNED protokol.pdf, GetAttachment/543 (Sienkiewicza 64
-// building, a genuine SOLD auction whose achieved-price line OCR'd to noise —
-// only the winner's registration-block letterhead survived cleanly).
 const OCR_543_BUILDING_SOLD_GARBLED = `
 PROTOKÓŁ
 z dn.28.08.2025r.
@@ -235,12 +186,6 @@ Karol Wiśniew
 NIP 774-24-70-489, REGON 611318918
 `;
 
-// OCR of the SCANNED protokol.pdf, GetAttachment/562 — a RENTAL auction
-// result (Grodzka 8 lok. 3, "wynajem lokalu użytkowego"). Its real board title
-// ("Protokołu z licytacji Grodzka 8 lok 3") has no "sprzeda" and is correctly
-// gated out by isSaleTitle before any adapter code touches this text — used
-// here only to groundtruth the low-level outcome functions against a genuine
-// UNSOLD (blank clause 5) protocol.
 const OCR_562_RENTAL_UNSOLD = `
 PROTOKÓŁ
 z dn.16.03.2026 r.
@@ -253,7 +198,6 @@ Za stawkę netto ..................... zł (słownie................ 0 ZZOZ PACK
 6/ Przetarg zakończył się wynikiem negatywnym z uwagi na brak uczestników przetargu.*
 `;
 
-// --------------------------------------------------------------- board list
 
 test('parseListItems: extracts title, absolute detail_url, and Dodano date', () => {
   const items = parseListItems(BOARD_LIST_HTML);
@@ -285,7 +229,6 @@ test('bodyTextFromDetail + attachmentsFromDetail on the real id-140 detail page'
   assert.match(atts[1].name, /Regulamin/i);
 });
 
-// --------------------------------------------------------------- basic numeric parsers
 
 test('parsePLN: dot-thousands, space-thousands, and a plain integer', () => {
   assert.equal(parsePLN('299.130,00'), 299130);
@@ -301,7 +244,6 @@ test('parseArea: comma and dot decimals', () => {
   assert.equal(parseArea(null), null);
 });
 
-// --------------------------------------------------------------- sale-title gate
 
 test('isSaleTitle: real sale titles pass', () => {
   assert.equal(
@@ -340,13 +282,9 @@ test('isSaleTitle: rentals and construction/procurement noise are excluded', () 
   );
   assert.equal(isSaleTitle('Protokół z licytacji najmu lokalu użytkowego nr 4 zlokalizowanego w budynku przy ul. Tumskiej 13 w Płocku'), false);
   assert.equal(isSaleTitle('Protokołu z licytacji na wynajem lokalu użytkowego Tumska 13 lok 4'), false);
-  // Ambiguous real title with neither "sprzeda" nor a lease word (confirmed
-  // live to be the Grodzka 8 lok. 3 RENTAL result) — correctly excluded
-  // (false negatives over false positives for a low-volume city).
   assert.equal(isSaleTitle('Protokołu z licytacji Grodzka 8 lok 3'), false);
 });
 
-// --------------------------------------------------------------- address extraction
 
 test('streetBuildingFromTitle: "ul." form and the letter-suffix building', () => {
   assert.deepEqual(streetBuildingFromTitle('... przy ul. Synagogalna 13.'), { street: 'Synagogalna', building: '13' });
@@ -376,12 +314,11 @@ test('addressRawFromTitle: combines street/building with a backfilled unit numbe
   assert.equal(addressRawFromTitle('no street here', '9'), null);
 });
 
-// --------------------------------------------------------------- price / date / area
 
 test('startingPriceFromText: "Cena wywoławcza ... wynosi" (announcement) and the protocol restatement', () => {
   assert.equal(startingPriceFromText(PDF_569_FLAT_ANNOUNCE), 299130);
   assert.equal(startingPriceFromText(OCR_538_BUILDING_ANNOUNCE), 1150000);
-  assert.equal(startingPriceFromText(PROTOKOL_573_FLAT_SOLD), 299130); // "kwocie wywoławczej ... w wysokości"
+  assert.equal(startingPriceFromText(PROTOKOL_573_FLAT_SOLD), 299130);
 });
 
 test('auctionDateFromText: "w dniu ... o godz", not the wadium/document deadline', () => {
@@ -407,7 +344,6 @@ test('plotAreaHaFromText: hectares -> m2', () => {
   assert.equal(plotAreaHaFromText(OCR_538_BUILDING_ANNOUNCE), 1243);
 });
 
-// --------------------------------------------------------------- result outcome
 
 test('achievedPriceFromResult: a filled clause 5 ("za cenę brutto ... zł")', () => {
   assert.equal(achievedPriceFromResult(PROTOKOL_573_FLAT_SOLD), 299630);
@@ -420,16 +356,15 @@ test('achievedPriceFromResult: null on a blank clause 5 (dots) or OCR-garbled no
 
 test('hasWinnerRegistrationBlock: a real NIP/REGON letterhead after the signature line', () => {
   assert.equal(hasWinnerRegistrationBlock(OCR_543_BUILDING_SOLD_GARBLED), true);
-  assert.equal(hasWinnerRegistrationBlock(PROTOKOL_573_FLAT_SOLD), false); // personal signature, no company block
+  assert.equal(hasWinnerRegistrationBlock(PROTOKOL_573_FLAT_SOLD), false);
   assert.equal(hasWinnerRegistrationBlock(OCR_562_RENTAL_UNSOLD), false);
 });
 
 test('isNegativeResult: the boilerplate clause 6 is printed unconditionally (informational only)', () => {
-  assert.equal(isNegativeResult(PROTOKOL_573_FLAT_SOLD), true); // genuinely SOLD despite this
+  assert.equal(isNegativeResult(PROTOKOL_573_FLAT_SOLD), true);
   assert.equal(isNegativeResult(OCR_562_RENTAL_UNSOLD), true);
 });
 
-// --------------------------------------------------------------- parseAnnouncement (crawlActive)
 
 test('parseAnnouncement: flat (Synagogalna 13/9) — full real fixture', () => {
   const rec = parseAnnouncement({
@@ -447,7 +382,7 @@ test('parseAnnouncement: flat (Synagogalna 13/9) — full real fixture', () => {
   assert.equal(rec.starting_price_pln, 299130);
   assert.equal(rec.auction_date, '2026-04-29');
   assert.equal(rec.wadium_deadline, '2026-04-28');
-  assert.equal(rec.land_area_m2, undefined); // flats never carry a plot area
+  assert.equal(rec.land_area_m2, undefined);
 });
 
 test('parseAnnouncement: whole building sale (Sienkiewicza 64) — kind zabudowana, land_area_m2', () => {
@@ -462,7 +397,7 @@ test('parseAnnouncement: whole building sale (Sienkiewicza 64) — kind zabudowa
   assert.ok(rec);
   assert.equal(rec.kind, 'zabudowana');
   assert.equal(rec.address.key, 'sienkiewicza|64|');
-  assert.equal(rec.area_m2, null); // building floor area not extracted; see plot area instead
+  assert.equal(rec.area_m2, null);
   assert.equal(rec.land_area_m2, 1243);
   assert.equal(rec.starting_price_pln, 1150000);
   assert.equal(rec.auction_date, '2025-08-28');
@@ -479,7 +414,6 @@ test('parseAnnouncement: rentals and unrecognised-kind titles return null', () =
   );
 });
 
-// --------------------------------------------------------------- parseResultDoc (crawlResultDocs)
 
 test('parseResultDoc: flat SOLD, title carries the unit number (id 135)', () => {
   const title = 'Protokół: Sprzedaż lokalu mieszkalnego nr 9 w budynku przy ul. Synagogalnej 13 w Płocku o powierzchni 46,02 m2';
@@ -488,7 +422,7 @@ test('parseResultDoc: flat SOLD, title carries the unit number (id 135)', () => 
   assert.equal(recs.length, 1);
   const r = recs[0];
   assert.equal(r.kind, 'mieszkalny');
-  assert.equal(r.address.key, 'synagogalnej|13|9'); // coalesced with the nominative key by build-properties
+  assert.equal(r.address.key, 'synagogalnej|13|9');
   assert.equal(r.outcome, 'sold');
   assert.equal(r.final_price_pln, 299630);
   assert.equal(r.starting_price_pln, 299130);
@@ -502,7 +436,7 @@ test('parseResultDoc: flat SOLD, title OMITS the unit number — backfilled from
   const text = `TYTUL: ${title}\n\n${PROTOKOL_573_FLAT_SOLD}`;
   const recs = parseResultDoc(text, null, 'http://www.ars.plock.pl/pl/przetargi/142/x');
   assert.equal(recs.length, 1);
-  assert.equal(recs[0].address.key, 'synagogalnej|13|9'); // "9" backfilled, same key as id 135
+  assert.equal(recs[0].address.key, 'synagogalnej|13|9');
   assert.equal(recs[0].outcome, 'sold');
   assert.equal(recs[0].final_price_pln, 299630);
 });
@@ -516,7 +450,7 @@ test('parseResultDoc: building SOLD but achieved-price line OCR-garbled — infe
   assert.equal(r.kind, 'zabudowana');
   assert.equal(r.address.key, 'sienkiewicza|64|');
   assert.equal(r.outcome, 'sold');
-  assert.equal(r.final_price_pln, null); // unrecoverable — see the note
+  assert.equal(r.final_price_pln, null);
   assert.equal(r.auction_date, '2025-08-28');
   assert.ok(r.notes.some((n) => /winner registration block/.test(n)));
 });

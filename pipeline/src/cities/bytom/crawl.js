@@ -1,26 +1,3 @@
-// Bytom crawler (v2) -- primary source is the city BIP's server-rendered sales
-// list; the i-BIIP catalog supplies price/area enrichment AND is the sole source
-// for land (grunty niezabudowane / zabudowane) because the BIP list items for
-// land carry no parseable inline data.
-//
-//   PRIMARY:  https://www.bytom.pl/bip/zbycie-nieruchomosci-bytom/nieruchomosci-wszystkie
-//   CATALOG:  https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html
-//
-// Why this layout (see SPIKE-WAVE2.md):
-//   - The BIP list is NOT a JS SPA. It's plain server-rendered HTML, paginated
-//     `?strona=N` (~10 items/page, ~4 pages), each item a
-//     `<li class="aktualnosc__item">` with a publication date, a title link to
-//     a real per-property page and a one-line description stating the round.
-//   - BIP list/detail pages carry NO inline price or area; we still read the
-//     i-BIIP catalog and join by address key to fill those fields.
-//   - Bytom publishes NO achieved sale prices -- crawlResultDocs() stays [].
-//
-// IMPORTANT: bytom.pl serves an EMPTY body to the default bot User-Agent.
-// We pass a browser-like UA for all fetches.
-//
-// LAND (grunty niezabudowane / zabudowane): parsed exclusively from the i-BIIP
-// catalog via parseCatalogLand(). crawlActive() returns { listings, wykaz, land }
-// so refresh.js partitions grunt records into data/bytom/land.json.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -35,11 +12,10 @@ const BIP_BASE =
 const CATALOG_URL =
   'https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html';
 
-// A real browser UA -- bytom.pl gates the default bot UA to an empty body.
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
-const MAX_PAGES = 10; // safety cap; real list is ~4 pages
+const MAX_PAGES = 10;
 
 function stripTags(s) {
   return s
@@ -62,8 +38,6 @@ function parseArea(numStr) {
   return Number.isFinite(n) ? n : null;
 }
 
-// Polish ordinal in the LIST-ITEM TITLE -> round number. Bare "przetarg"
-// (no ordinal) is the first auction.
 function roundFromText(txt) {
   const t = (txt || '').toLowerCase();
   if (/\bpierwsz(?!e[nn])/.test(t)) return 1;
@@ -75,12 +49,6 @@ function roundFromText(txt) {
   return null;
 }
 
-// Announcement description -> property kind, or null to skip (land etc.).
-// A garage-plot sale ("…na sprzedaż działki gruntu pod garażem…") carries
-// neither "mieszkaln" nor "niemieszkaln"; it's recognised by "garaż" and
-// emitted as a garage (an address-keyed kind), so it survives the dz./działka
-// address guard in parseBipList. Plain land sales ("…gruntowej niezabudowanej…")
-// still return null here -- they come from the i-BIIP catalog, not this list.
 function kindFromText(txt) {
   const t = (txt || '').toLowerCase();
   if (/niemieszkaln/.test(t)) return 'uzytkowy';
@@ -89,17 +57,10 @@ function kindFromText(txt) {
   return null;
 }
 
-// Joint-lot sales list TWO addresses in one title. Key on the FIRST address.
 function primaryAddress(addrRaw) {
   return addrRaw.split(/\s+i\s+(?:ul|al|pl|os)\.\s+/i)[0].trim();
 }
 
-// Garage-plot sales title the property with a street + a parcel and NO building
-// number ("ul. Reja (działka gruntu nr 2237/14)"), so parseAddress() returns
-// null on the raw title and the dz./działka guard would drop it. Pull the street
-// (text before the parcel) and the parcel, then let parseAddress key the
-// synthesized "<street> <num>/<den>" form (→ street_norm|num|den) so two plots
-// on one street stay distinct. Returns null if no parcel is found.
 function garagePlotAddress(addrRaw) {
   const noLead = addrRaw.replace(/^\s*(?:ul|al|pl|os)\.?\s+/i, '');
   const parcel = /(\d+\/\d+)/.exec(noLead)?.[1] ?? null;
@@ -129,12 +90,6 @@ export function parseCatalog(html) {
     const chunk = html.slice(starts[i], starts[i + 1] ?? html.length);
     const text = stripTags(chunk);
     const addrRaw = CAT.adres.exec(text)?.[1]?.trim();
-    // This map feeds flat/commercial enrichment and, when the BIP list is
-    // temporarily empty, becomes the listing fallback.  Parcel syntax used to
-    // be the only land guard, but catalog land can also be keyed by ordinary
-    // building addresses (for example two buildings on pl. Sikorskiego).  Gate
-    // on the source's explicit type so those rows stay exclusively in
-    // parseCatalogLand() and cannot become bogus residential properties.
     const typ = /TYP\s*:\s*([\s\S]*?)\s*(?:ETAP|$)/i.exec(text)?.[1]?.trim() ?? '';
     if (!addrRaw || !/\blokal\b/i.test(typ)) continue;
     const address = parseAddress(primaryAddress(addrRaw));
@@ -166,22 +121,16 @@ export function parseCatalogLand(html) {
       const addrRaw = CAT.adres.exec(text)?.[1]?.trim();
       if (!addrRaw) continue;
 
-      // TYP field sits between "TYP :" and "ETAP"
       const typM = /TYP\s*:\s*([\s\S]*?)\s*(?:ETAP|$)/i.exec(text);
       const typ = typM?.[1]?.trim() ?? '';
-      // The catalog TYP is always "grunty niezabudowane" or "grunty zabudowane".
-      // classifyKind("grunty zabudowane") returns 'zabudowana' (not 'grunt'),
-      // so we gate on the source word "grunt" directly instead.
       if (!/\bgrunty?\b/i.test(typ)) continue;
 
-      // Parcel: "Alfonsa Zgrzebnioka dz. 1922/182" -> dzialka_nr = "1922/182"
       const dzM = /dz\.?\s+([\d/,\s]+)/.exec(addrRaw);
       const dzialka_nr = dzM ? dzM[1].replace(/\s+/g, '').replace(/,$/, '') : null;
       const streetRaw = dzM
         ? addrRaw.slice(0, dzM.index).replace(/[;,]+\s*$/, '').trim()
         : addrRaw.trim();
 
-      // Round from ETAP SPRZEDAZY ("I Przetarg" -> 1, "III Przetarg" -> 3)
       const etapM = /ETAP\s+SPRZEDA[ŻZ]Y\s*:\s*([\s\S]*?)\s*(?:TERMIN|$)/i.exec(text);
       const etap = etapM?.[1]?.trim() ?? '';
       const round = (() => {
@@ -196,13 +145,11 @@ export function parseCatalogLand(html) {
       const starting_price_pln = parsePLN(CAT.cena.exec(text)?.[1]);
       const area_m2 = parseArea(CAT.powierzchnia.exec(text)?.[1]);
 
-      // Detail URL: BIP /idn: page or .doc announcement
       const linkHrefM = /href="([^"]+(?:\.doc|idn:\d+)[^"]*)"/i.exec(chunk);
       const detail_url = linkHrefM
         ? linkHrefM[1].replace(/&amp;/gi, '&')
         : null;
 
-      // Geoportal link (sitplan.um.bytom.pl) supplied by the catalog itself
       const geoM = /href="(https:\/\/sitplan\.um\.bytom\.pl[^"]+)"/i.exec(chunk);
       const geoportal_url = geoM ? geoM[1].replace(/&amp;/gi, '&') : null;
 
@@ -232,10 +179,6 @@ export function parseCatalogLand(html) {
   return land;
 }
 
-// A page can be non-empty while containing no address-keyed listings relevant
-// to this adapter.  In September 2026 page 1 became ten land-only rows while
-// pages 2-5 still held all 14 flat/commercial listings.  Pagination must stop
-// on an empty SOURCE page, not on an empty filtered parse result.
 export function bipListItemCount(html) {
   return [...String(html || '').matchAll(/<li[^>]*class="[^"]*aktualnosc__item[^"]*"/gi)].length;
 }
@@ -256,9 +199,6 @@ export function parseBipList(html) {
 
     const kind = kindFromText(desc);
     if (!kind) continue;
-    // Garages carry a parcel in the title and thus trip the dz./działka guard;
-    // build their address from street+parcel and bypass the guard. Everything
-    // else with a parcel in the address is land (catalog-sourced) -> skip here.
     let address;
     if (kind === 'garaz') {
       address = garagePlotAddress(addrRaw);
@@ -310,19 +250,8 @@ async function crawlBipList() {
   return items;
 }
 
-// Real estate is never priced below this; a parsed value under it is a source
-// slip -- missing thousands ("550" for "550 000"), a "0,00"/placeholder, or a
-// stray column fragment -- not a real opening price. Kept in sync with
-// sanity-check.js MIN_PLN so the crawler never emits a price the gate rejects.
 const MIN_REAL_PLN = 1000;
 
-// After the .doc repair has had its chance, force any STILL-implausible price to
-// null. A null price is "unknown" (the sanity gate skips it and the UI shows no
-// price), whereas a sub-threshold NUMBER is provably wrong and hard-fails the
-// gate, blocking the WHOLE city's data commit over a single not-yet-priced
-// listing (e.g. a flat the i-BIIP catalog lists at 0,00). Mutates in place;
-// returns how many prices were nulled. Otherwise side-effect-free, so it is
-// unit-tested directly (crawlActive/enrichActive are network-bound).
 export function nullImplausiblePrices(records) {
   let nulled = 0;
   for (const r of records) {
@@ -338,9 +267,6 @@ export async function crawlActive() {
   let catByKey = new Map();
   let land = [];
   try {
-    // Browser UA: the i-BIIP host (like bytom.pl) intermittently serves an empty
-    // body to the default bot UA, which silently zeroed out land (see refresh.js
-    // empty-land guard for the durable backstop).
     const catHtml = await getText(CATALOG_URL, { userAgent: BROWSER_UA });
     catByKey = parseCatalog(catHtml);
     land = parseCatalogLand(catHtml);
@@ -386,11 +312,6 @@ export async function crawlActive() {
     }
   }
 
-  // Repair the rare implausible catalog price (a missing-thousands data slip,
-  // e.g. Piekarska 26 listed as "550") from the authoritative sale-announcement
-  // .doc. Gated on a suspect price (< 1000 zł — impossible for real estate) so we
-  // fetch only a handful of docs per refresh. Fully defensive: a .doc fetch/parse
-  // failure leaves the catalog value untouched.
   const suspect = [...listings, ...land].filter(
     (r) => r.starting_price_pln != null && r.starting_price_pln < MIN_REAL_PLN,
   );
@@ -412,10 +333,6 @@ export async function crawlActive() {
     }
   }
 
-  // Backstop: anything the .doc repair could not lift above the floor (no doc,
-  // an unreachable host, or a 0/placeholder in the source) is nulled here so a
-  // single not-yet-priced listing can't hard-fail the sanity gate and block the
-  // whole city's refresh. See nullImplausiblePrices.
   const nulled = nullImplausiblePrices([...listings, ...land]);
   if (nulled) {
     console.error(
@@ -477,9 +394,6 @@ export async function enrichActive(active) {
     }
   }
 
-  // A .doc carrying a 0/placeholder price (priceFromText returns 0) must not slip
-  // a sub-floor value back in past the catalog backstop; clear it before the
-  // empty-listing sweep below (which then drops any now-data-less listing).
   nullImplausiblePrices(active);
 
   const before = active.length;

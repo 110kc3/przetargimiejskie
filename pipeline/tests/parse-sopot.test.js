@@ -1,23 +1,3 @@
-// Sopot parser tests. Fixtures are REAL text (condensed to the load-bearing
-// sentences, boilerplate letterhead/footer trimmed) fetched live 2026-07-18
-// from bip.sopot.pl's JSON API:
-//   - id 58541 (announcement .doc): "(ZAKOŃCZONY) I publiczny przetarg ustny
-//     nieograniczony na sprzedaż lokalu mieszkalnego nr 1 ... Armii Krajowej
-//     61 w Sopocie" — attachment "przetarg I Armii Krajowej 61 lokal
-//     mieszkalny 1.doc".
-//   - id 59208 (result .doc, SAME property, NEGATIVE — no wadium paid):
-//     attachment "Informacja o wyniku I przetargu nieograniczonego ...".
-//   - id 55644 (result .doc, Wybickiego 45/4, SOLD): attachment "Wybickiego
-//     45 4 informacja o wyniku przetargu.doc" — carries a real catdoc-noise
-//     run (stray control-char lines from the legacy .doc binary) between two
-//     real sentences, kept here to prove the regexes tolerate it.
-//   - id 17712 (INLINE result article `content`, Fiszera 2, 2016 era,
-//     NEGATIVE) — no attachment at all, the whole result lives in the
-//     article's HTML content field.
-//   - id 19871 (garage announcement title, no street building number):
-//     "I publiczny przetarg ustny nieograniczony na sprzedaż garażu nr 16
-//     położonego przy ul. Traugutta w Sopocie wraz z prawem własności
-//     działki nr 50/3".
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -81,8 +61,6 @@ Cena wywoławcza lokalu mieszkalnego nr 1 wraz z udziałem w prawie
 własności gruntu wynosiła  -  900.000,00 zł.
 Z uwagi na brak wadium - przetarg zakończył się wynikiem negatywnym.`;
 
-// Real catdoc noise (stray control-char lines from the .doc binary) kept
-// between two real sentences to prove the regexes tolerate it.
 const RESULT_POSITIVE_TEXT = `GN.6840.WYB.45.4.2025.KJ
 Sopot, 22 maja 2025r.
 INFORMACJA  O  WYNIKU  PRZETARGU
@@ -122,7 +100,6 @@ Z uwagi na brak wpłaty wadium w zakreślonym w ogłoszeniu terminie przetarg za
 const GARAGE_TITLE =
   'I publiczny przetarg ustny nieograniczony na sprzedaż garażu nr 16 położonego przy ul. Traugutta w Sopocie wraz z prawem własności działki nr 50/3';
 
-// ---- title-level filters -----------------------------------------------------
 
 test('title filters: out-of-scope / cancelled', () => {
   assert.equal(isOutOfScopeTitle('Pisemny przetarg nieograniczony na najem lokalu użytkowego'), true);
@@ -157,8 +134,6 @@ test('titleInScopeKind: flat / commercial / garage / land(null)', () => {
 
 test('isSaleAnnouncementTitle / isResultStandaloneTitle', () => {
   assert.equal(isSaleAnnouncementTitle(ANNOUNCEMENT_TITLE), true);
-  // "na najem" (rental) has no "sprzedaż" — isOutOfScopeTitle is what drops
-  // rentals; this title-shape check alone correctly says "not a sale" too.
   assert.equal(isSaleAnnouncementTitle('Pisemny przetarg nieograniczony na najem garażu nr 358'), false);
   assert.equal(
     isResultStandaloneTitle(
@@ -170,13 +145,12 @@ test('isSaleAnnouncementTitle / isResultStandaloneTitle', () => {
   assert.equal(isResultStandaloneTitle(ANNOUNCEMENT_TITLE), false);
 });
 
-// ---- text-level classification ----------------------------------------------
 
 test('isAnnouncementText / isResultText distinguish the two attachment roles', () => {
   assert.equal(isAnnouncementText(ANNOUNCEMENT_TEXT), true);
   assert.equal(isResultText(ANNOUNCEMENT_TEXT), false);
   assert.equal(isResultText(RESULT_NEGATIVE_TEXT), true);
-  assert.equal(isAnnouncementText(RESULT_NEGATIVE_TEXT), false); // has "cena wywoławcza" too, but result wins
+  assert.equal(isAnnouncementText(RESULT_NEGATIVE_TEXT), false);
   assert.equal(isResultText(RESULT_POSITIVE_TEXT), true);
   assert.equal(isResultText(RESULT_INLINE_OLD_TEXT), true);
 });
@@ -190,10 +164,9 @@ test('isNegativeResultText / achievedPriceFromText / buyerFromText', () => {
   assert.equal(unsoldReasonFromText(RESULT_NEGATIVE_TEXT), 'no_wadium');
 });
 
-// ---- round --------------------------------------------------------------------
 
 test('roundFrom: Roman + "publiczny", bare Roman, word forms, "l" typo', () => {
-  assert.equal(roundFrom(ANNOUNCEMENT_TITLE), 1); // "(ZAKOŃCZONY) I publiczny przetarg ..."
+  assert.equal(roundFrom(ANNOUNCEMENT_TITLE), 1);
   assert.equal(roundFrom('II przetarg ustny nieograniczony na sprzedaż nieruchomości'), 2);
   assert.equal(
     roundFrom('II publiczny przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 6'),
@@ -210,7 +183,6 @@ test('roundFrom: Roman + "publiczny", bare Roman, word forms, "l" typo', () => {
   );
 });
 
-// ---- garage address -------------------------------------------------------------
 
 test('garageAddressFrom: no building number (bare garage court)', () => {
   const addr = garageAddressFrom(GARAGE_TITLE);
@@ -221,7 +193,6 @@ test('garageAddressFrom: no building number (bare garage court)', () => {
   assert.equal(addr.address.key, 'traugutta|0|garaz-16');
 });
 
-// ---- result date ------------------------------------------------------------------
 
 test('resultDateFromText: "W dniu ... odbył się" (modern) and "Termin przetargu:" (2016 era)', () => {
   assert.equal(resultDateFromText(RESULT_NEGATIVE_TEXT), '2026-07-16');
@@ -229,7 +200,6 @@ test('resultDateFromText: "W dniu ... odbył się" (modern) and "Termin przetarg
   assert.equal(resultDateFromText(RESULT_INLINE_OLD_TEXT), '2016-09-29');
 });
 
-// ---- record builders --------------------------------------------------------------
 
 test('buildAnnouncementRecord: Armii Krajowej 61/1, round 1, area/price/date', () => {
   const rec = buildAnnouncementRecord(ANNOUNCEMENT_TITLE, ANNOUNCEMENT_TEXT, 'https://bip.sopot.pl/a,24962,x.html');
@@ -262,9 +232,6 @@ test('buildResultRecord: SOLD (Wybickiego 45/4) — final price + buyer note', (
   const rec = buildResultRecord(RESULT_POSITIVE_TEXT, 'https://bip.sopot.pl/a,23848,x.html');
   assert.ok(rec);
   assert.equal(rec.kind, 'uzytkowy');
-  // "Gen." is expanded to "Generała" (see STREET_PREFIX_NORMALIZATIONS) so
-  // this property keys identically to an announcement that spells the street
-  // in full — observed live: id 23848 used "Generała Józefa Wybickiego".
   assert.equal(rec.address.key, 'generala jozefa wybickiego|45|4');
   assert.equal(rec.area_m2, 40.76);
   assert.equal(rec.starting_price_pln, 400000);

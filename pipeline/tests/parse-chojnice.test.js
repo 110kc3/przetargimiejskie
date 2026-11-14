@@ -1,11 +1,3 @@
-// Chojnice parser unit tests.
-// Fixtures groundtruthed against real announcements and results from miastochojnice.pl:
-// - Plac Jagielloński 6/5 (lokal mieszkalny: announcement, sold result, and negative result)
-// - ul. Drzymały 1C/7 (spółdzielcze własnościowe prawo do lokalu mieszkalnego)
-// - ul. Młodzieżowa 7 (lokal użytkowy U2)
-// - ul. Szymborskiej/Żeromskiego (działka niezabudowana 3024/6)
-// - ul. Żeromskiego (działki niezabudowane 49/11 i 51/12)
-// - ul. Zakładowa (multi-offer land notice)
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -30,7 +22,6 @@ import {
 
 import { extractAttachmentUrl } from '../src/cities/chojnice/crawl.js';
 
-// ----------------------------------------------------------------- title routing
 
 test('title routing: sale announcement vs result notice vs noise', () => {
   assert.equal(
@@ -50,7 +41,6 @@ test('title routing: sale announcement vs result notice vs noise', () => {
     true,
   );
 
-  // Result notices must NOT match announcement
   assert.equal(
     isAnnouncementTitle('31.03.2026 – Wyniki przetargu na zbycie lokalu mieszkalnego – Pl. Jagielloński 6/5'),
     false,
@@ -68,7 +58,6 @@ test('title routing: sale announcement vs result notice vs noise', () => {
     true,
   );
 
-  // Lease / rental / non-sale noise must be excluded
   assert.equal(
     isAnnouncementTitle('26.03.2025 – wyniku przetargu ustnego ograniczonego na najem trzech miejsc przeznaczonych na ogródki gastronomiczne'),
     false,
@@ -83,7 +72,6 @@ test('title routing: sale announcement vs result notice vs noise', () => {
   );
 });
 
-// --------------------------------------------------------------- unit extractors
 
 test('date extraction from announcement and result text', () => {
   assert.equal(
@@ -233,7 +221,6 @@ test('address extraction: flats and commercial units', () => {
   assert.equal(a3.address.key, 'mlodziezowa|7|');
 });
 
-// ---------------------------------------------------------------------- fixtures
 
 const FIXTURE_ANN_JAGIELLONSKI = `     BURMISTRZ MIASTA
             CHOJNICE
@@ -313,7 +300,6 @@ const FIXTURE_ANN_SZYMBORSKIEJ = `     BURMISTRZ MIASTA
          Zjazd z ulicy Żeromskiego. Przeznaczenie: teren zabudowy mieszkaniowej jednorodzinnej i usług.
 Przetarg ustny nieograniczony odbędzie się w dniu 20 października 2026 r. o godz. 10.00 w sali nr 408 Urzędu Miejskiego w Chojnicach.`;
 
-// ----------------------------------------------------------- parseAnnouncement tests
 
 test('parseAnnouncement: Plac Jagielloński flat — address, area, price, round, auction date', () => {
   const [rec] = parseAnnouncement(
@@ -357,7 +343,6 @@ test('parseAnnouncement: Szymborskiej/Żeromskiego land plot', () => {
   assert.equal(rec.round, 1);
 });
 
-// ------------------------------------------------------------- parseResultDoc tests
 
 test('parseResultDoc: Plac Jagielloński SOLD — achieved price, buyer, round 4', () => {
   const [rec] = parseResultDoc(
@@ -397,7 +382,6 @@ test('parseResultDoc: Plac Jagielloński UNSOLD — negative outcome, no final p
   assert.equal(rec.notes.length, 0);
 });
 
-// --------------------------------------------------------- attachment link extraction
 
 test('extractAttachmentUrl: prefers primary auction document over auxiliary files', () => {
   const sampleHtml = `
@@ -417,7 +401,6 @@ test('extractAttachmentUrl: prefers primary auction document over auxiliary file
   assert.equal(url, 'https://miastochojnice.pl/sample/?aid=101680&sa=0');
 });
 
-// ------------------------------------------------ additional real fixtures tests
 
 const FIXTURE_ANN_DRZYMALY = `                                                                                                                                                                                                    Chojnice, dn. 16 lipca 2024r.
 GN.6840.1.14.2024

@@ -1,7 +1,3 @@
-// Dzierżoniów parser tests. Every fixture is the REAL `pdftotext -layout`
-// output of a document fetched live 2026-07-21 from bip.um.dzierzoniow.pl's
-// JSON HTTP API + its attachment PDFs (see crawl.js), embedded verbatim so the
-// parser is groundtruthed against production data. Node's built-in test runner.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -21,10 +17,7 @@ import {
   parseResultDoc,
 } from '../src/cities/dzierzoniow/parse.js';
 
-// ---- real fixtures ---------------------------------------------------------
 
-// ANNOUNCEMENT — "Ogłoszenie nr 32/PN/2026", Krasickiego 47/17, round IV
-// (3 prior rounds listed), termin 9.09.2026, cena wywoławcza 115 000 zł.
 const ANN_KRASICKIEGO = ` Ogłoszenie nr 32/PN/2026
 
   Burmistrz Dzierżoniowa ogłasza przetarg ustny nieograniczony na sprzedaż
@@ -100,13 +93,9 @@ uzasadnionych przyczyn.
 
  Dzierżoniów, 29 czerwca 2026
 \f`;
-// The flat article's own TITLE (from menu 1838) — full given name, matches the
-// result PDFs' spelling.
 const ANN_KRASICKIEGO_TITLE =
   'Lokal mieszkalny nr 17 w budynku przy ul. Ignacego Krasickiego 47 w Dzierżoniowie.';
 
-// RESULT day 2025-11-26 — 3 flats (Kopernika 27/2 SOLD, Krasickiego 47/17
-// UNSOLD, Mostowa 8/5 UNSOLD) + 1 land plot (skipped).
 const RES_2025_11_26 = `                                                                 Dzierżoniów, 4 grudnia 2025
 
 
@@ -139,8 +128,6 @@ Rynek 1, odbyły się ustne przetargi na sprzedaż niżej wymienionych nieruchom
       z uwagi na brak oferentów.
 \f`;
 
-// RESULT day 2025-11-19 — 4 flats (Nowowiejska 6/7 SOLD, Nowowiejska 164/2
-// UNSOLD, Pocztowa 11a/1 SOLD, Spacerowa 15/2 UNSOLD).
 const RES_2025_11_19 = `                                                               Dzierżoniów, 27 listopada 2025
 
 
@@ -175,11 +162,6 @@ Rynek 1, odbyły się ustne przetargi na sprzedaż niżej wymienionych nieruchom
       zakończył się wynikiem negatywnym z uwagi na brak oferentów.
 \f`;
 
-// RESULT day 2025-05-14 — item 1 is a lokal UŻYTKOWY (must be skipped) + 5
-// flats. Exercises: the "nieruchomości : " space-colon sold phrasing
-// (Ząbkowicka 60a/3), the "M. Kopernika" / "J. Kilińskiego" abbreviated given
-// names (must key to the same surname as the full-name docs), and the "łączna
-// powierzchnia lokalu 31,09 m2" combined-area rule (Garncarska 11/5).
 const RES_2025_05_14 = `                                                                   Dzierżoniów, 22 maja 2025
 
 
@@ -228,7 +210,6 @@ Rynek 1 odbyły się ustne przetargi na sprzedaż niżej wymienionych nieruchomo
        Przetarg zakończył się wynikiem negatywnym z uwagi na brak oferentów.
 \f`;
 
-// ---- primitives ------------------------------------------------------------
 
 test('parsePLN strips spaced thousands + grosze tail', () => {
   assert.equal(parsePLN('149 480,00'), 149480);
@@ -247,7 +228,7 @@ test('stripGivenName folds initials and curated full given names', () => {
   assert.equal(stripGivenName('Mikołaja Kopernika'), 'Kopernika');
   assert.equal(stripGivenName('J. Kilińskiego'), 'Kilińskiego');
   assert.equal(stripGivenName('Ignacego Krasickiego'), 'Krasickiego');
-  assert.equal(stripGivenName('Mostowej'), 'Mostowej'); // single word untouched
+  assert.equal(stripGivenName('Mostowej'), 'Mostowej');
 });
 
 test('titleAuctionDate parses the Polish-month result title', () => {
@@ -267,7 +248,6 @@ test('extractFlatAddressRaw normalises across name-spelling variants', () => {
   );
 });
 
-// ---- announcement ----------------------------------------------------------
 
 test('announcement table row: area + cena wywoławcza + wadium', () => {
   assert.deepEqual(announcementTableRow(ANN_KRASICKIEGO), {
@@ -277,7 +257,7 @@ test('announcement table row: area + cena wywoławcza + wadium', () => {
 
 test('announcement termin + round', () => {
   assert.equal(announcementTermin(ANN_KRASICKIEGO), '2026-09-09');
-  assert.equal(announcementRound(ANN_KRASICKIEGO), 4); // 3 prior rounds + 1
+  assert.equal(announcementRound(ANN_KRASICKIEGO), 4);
 });
 
 test('parseAnnouncement builds a full active-listing record', () => {
@@ -291,7 +271,6 @@ test('parseAnnouncement builds a full active-listing record', () => {
   assert.equal(r.detail_url, 'https://bip.um.dzierzoniow.pl/a,29322,x.html');
 });
 
-// ---- results ---------------------------------------------------------------
 
 test('result 2025-11-26: 3 flats parsed, land skipped', () => {
   const recs = parseResultDoc(RES_2025_11_26, '2025-11-26', 'PDF');
@@ -325,24 +304,20 @@ test('result 2025-11-19: two sold, two unsold', () => {
 });
 
 test('result 2025-05-14: lokal użytkowy skipped, 5 flats + edge cases', () => {
-  assert.equal(splitResultItems(RES_2025_05_14).length, 6); // 6 numbered items total
+  assert.equal(splitResultItems(RES_2025_05_14).length, 6);
   const recs = parseResultDoc(RES_2025_05_14, '2025-05-14', 'PDF');
-  assert.equal(recs.length, 5); // item 1 (użytkowy) dropped
+  assert.equal(recs.length, 5);
   const by = Object.fromEntries(recs.map((r) => [r.address.key, r]));
 
-  // space-colon sold phrasing "Uzyskana cena ze sprzedaży nieruchomości : …"
   const zab = by['zabkowickiej|60A|3'];
   assert.equal(zab.outcome, 'sold');
   assert.equal(zab.final_price_pln, 69690);
 
-  // "M. Kopernika" keys to the same surname as the full-name docs
   assert.ok(by['kopernika|27|2']);
   assert.equal(by['kopernika|27|2'].outcome, 'unsold');
 
-  // "łączna powierzchnia lokalu 31,09 m2" wins over the room area 24,23
   assert.equal(by['garncarskiej|11|5'].area_m2, 31.09);
 
-  // no lokal użytkowy leaked in
   assert.ok(!recs.some((r) => /świdnick/i.test(r.address_raw)));
 });
 

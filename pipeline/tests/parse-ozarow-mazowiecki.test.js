@@ -1,6 +1,3 @@
-// Unit tests for Ożarów Mazowiecki adapter parsers.
-// Fixtures are grounded in REAL announcements from ozarow-mazowiecki.pl
-// and attached born-digital PDFs.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -20,9 +17,6 @@ import {
   parseResultDoc,
 } from '../src/cities/ozarow-mazowiecki/parse.js';
 
-// ---------------------------------------------------------------------------
-// 1. Helpers & Routing
-// ---------------------------------------------------------------------------
 
 test('isSaleAuction: identifies sale auctions and rejects non-auctions', () => {
   assert.equal(
@@ -140,9 +134,6 @@ test('parcelFromOzarowText, obrebFromOzarowText, plotAreaFromOzarowText: land pa
   assert.equal(plotAreaFromOzarowText(textM2), 386);
 });
 
-// ---------------------------------------------------------------------------
-// 2. Single Flat Fixture — Floriana 3/22 (Notice 2)
-// ---------------------------------------------------------------------------
 
 const FLORIANA_22_POST = `<!doctype html>
 <html>
@@ -186,9 +177,6 @@ test('parseAnnouncement: single flat (Floriana 3/22)', () => {
   assert.equal(r.detail_url, url);
 });
 
-// ---------------------------------------------------------------------------
-// 3. Single Flat Fixture — Floriana 3/34 (Notice 3, second round)
-// ---------------------------------------------------------------------------
 
 const FLORIANA_34_POST = `<!doctype html>
 <html>
@@ -223,9 +211,6 @@ test('parseAnnouncement: single flat II round with typo in PDF date (Floriana 3/
   assert.equal(r.wadium_deadline, '2026-09-25');
 });
 
-// ---------------------------------------------------------------------------
-// 4. Multi-Unit Fixture — Poznańska 171 (Notice 4)
-// ---------------------------------------------------------------------------
 
 const POZNANSKA_171_POST = `<!doctype html>
 <html>
@@ -273,9 +258,6 @@ test('parseAnnouncement: multi-unit (Poznańska 171 lok. 13 and 14)', () => {
   assert.equal(u2.auction_date, '2026-10-02');
 });
 
-// ---------------------------------------------------------------------------
-// 5. Multi-Unit Fixture — Fabryczna 5 IV przetarg (Notice 1)
-// ---------------------------------------------------------------------------
 
 const FABRYCZNA_5_POST = `<!doctype html>
 <html>
@@ -328,9 +310,6 @@ test('parseAnnouncement: multi-unit IV round (Fabryczna 5, 7 flats)', () => {
   assert.equal(apt11.starting_price_pln, 353000);
 });
 
-// ---------------------------------------------------------------------------
-// 6. Land Fixture — SHR Płochocin (Notice 5)
-// ---------------------------------------------------------------------------
 
 const SHR_POST = `<!doctype html>
 <html><body>
@@ -360,9 +339,6 @@ test('parseAnnouncement: land plot (SHR Płochocin)', () => {
   assert.equal(r.wadium_deadline, '2026-09-22');
 });
 
-// ---------------------------------------------------------------------------
-// 7. Land Fixture — dz. 167/11 i 167/12 (Notice 12)
-// ---------------------------------------------------------------------------
 
 const DZ_167_POST = `<!doctype html>
 <html><body>
@@ -390,9 +366,6 @@ test('parseAnnouncement: land plot (dz. 167/11 i 167/12)', () => {
   assert.equal(r.auction_date, '2025-11-07');
 });
 
-// ---------------------------------------------------------------------------
-// 8. Result doc stub
-// ---------------------------------------------------------------------------
 
 test('parseResultDoc: returns [] for stubs', () => {
   assert.deepEqual(parseResultDoc(), []);

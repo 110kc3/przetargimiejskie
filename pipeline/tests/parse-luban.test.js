@@ -1,12 +1,3 @@
-// Lubań parser tests.
-// Fixtures reproduce real announcements from the Lubań spike (luban.pl/1333):
-//   - ul. Zawidowska 32/6 (II przetarg, 88 000 zł, 33.34 m², auction 2026-06-09)
-//   - ul. Warszawska 4/8 (III przetarg, 130 000 zł, 59.44 m², auction 2026-05-26)
-//   - ul. Leśna 11/4 (III przetarg, 75 000 zł, 28.90 m², auction 2026-04-27)
-//   - ul. Warszawska 3/2 (I przetarg, 104 000 zł, 35.71 m², auction 2026-11-30)
-//   - Plac 3 Maja 6/4 (I przetarg, 150 000 zł, 53.30 m², auction 2026-11-20)
-//   - ul. Leśna 44D/5 (II przetarg, 88 000 zł, 35.00 m², auction 2026-07-15)
-//   - Land: ul. Na Skarpie (działki 41, 40/2, 120 000 zł, 718 m², auction 2026-11-23)
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -29,9 +20,6 @@ import {
 
 import { harvestIndexItems } from '../src/cities/luban/crawl.js';
 
-// ---------------------------------------------------------------------------
-// Real fixtures from luban.pl
-// ---------------------------------------------------------------------------
 
 const FIXTURE_ZAWIDOWSKA_32_6 = `
 <div class="description">
@@ -200,9 +188,6 @@ const FIXTURE_INDEX_SNIPPET = `
 </div>
 `;
 
-// ---------------------------------------------------------------------------
-// Tests: Flat announcements from the spike
-// ---------------------------------------------------------------------------
 
 test('parseAnnouncement: ul. Zawidowska 32/6 (II przetarg)', () => {
   const url = 'https://luban.pl/artykul/126171/przetarg-na-mieszkanie-przy-ul-zawidowskiej';
@@ -296,9 +281,6 @@ test('parseAnnouncement: ul. Leśna 44D/5 (II przetarg)', () => {
   assert.equal(rec.address.key, 'lesna|44D|5');
 });
 
-// ---------------------------------------------------------------------------
-// Tests: Land announcements
-// ---------------------------------------------------------------------------
 
 test('parseAnnouncement: land — ul. Na Skarpie (działki 41, 40/2)', () => {
   const url = 'https://luban.pl/artykul/126953/do-sprzedania-dzialki-pod-budowe';
@@ -330,9 +312,6 @@ test('parseAnnouncement: land — ul. Zawidowska (działka 1/31, IV przetarg)', 
   assert.equal(rec.auction_date, '2026-05-04');
 });
 
-// ---------------------------------------------------------------------------
-// Tests: Exclusions
-// ---------------------------------------------------------------------------
 
 test('isSaleAnnouncement: filters non-auction posts correctly', () => {
   assert.equal(isSaleAnnouncement('Komunikat o wykazie nieruchomości', 'Zgodnie z art. 35 podano do wiadomości wykaz'), false);
@@ -350,9 +329,6 @@ test('parseAnnouncement: returns null for out-of-scope non-sale documents', () =
   assert.equal(parseAnnouncement('Nieruchomości bezprzetargowe', bezprzHtml, 'https://luban.pl/artykul/127012/x'), null);
 });
 
-// ---------------------------------------------------------------------------
-// Tests: Unit helpers
-// ---------------------------------------------------------------------------
 
 test('roundFromAnnouncement: parses Polish ordinals and spaced letters', () => {
   assert.equal(roundFromAnnouncement('Burmistrz Miasta Lubań ogłasza pierwszy przetarg', ''), 1);
@@ -360,7 +336,6 @@ test('roundFromAnnouncement: parses Polish ordinals and spaced letters', () => {
   assert.equal(roundFromAnnouncement('Burmistrz Miasta Lubań ogłasza trzeci przetarg', ''), 3);
   assert.equal(roundFromAnnouncement('Burmistrz Miasta Lubań ogłasza czwarty przetarg', ''), 4);
   assert.equal(roundFromAnnouncement('II przetarg - ul. Piramowicza 6', ''), 2);
-  // Spaced "o g ł a s z a" in body
   assert.equal(roundFromAnnouncement('Przetarg na mieszkanie', 'BURMISTRZ o g ł a s z a drugi przetarg ustny'), 2);
   assert.equal(roundFromAnnouncement('Do sprzedania mieszkanie', 'B U R M I S T R Z o g ł a s z a trzeci przetarg ustny'), 3);
   assert.equal(roundFromAnnouncement('Ogłoszenie', 'ogłasza pierwszy przetarg ustny nieograniczony'), 1);

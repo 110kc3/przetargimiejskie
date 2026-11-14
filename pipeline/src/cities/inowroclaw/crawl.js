@@ -1,6 +1,3 @@
-// Crawler for Inowrocław (bip.inowroclaw.pl)
-//
-// Walks property boards and search results on BIPLO CMS.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -45,7 +42,6 @@ export async function crawlActive() {
       const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
       const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').trim() : 'Ogłoszenie o przetargu';
 
-      // Find attachment links
       const attMatches = [...html.matchAll(/href=[\"'](https:\/\/bip\.inowroclaw\.pl\/attachments\/download\/(\d+))[\"']/gi)];
       if (attMatches.length > 0) {
         for (const m of attMatches) {

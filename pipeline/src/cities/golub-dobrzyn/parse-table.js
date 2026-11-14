@@ -1,11 +1,6 @@
-// Golub's nine-column municipal flat-sale tables. Ordinary OCR reads columns
-// in the wrong order; use source word positions to keep every row together.
 import { parseAddress } from '../../core/normalize.js';
 import { auctionDateFromText, roundFromText, parseNum, parsePLN } from './parse.js';
 
-// Column interiors, measured against the official landscape table. Cropping
-// excludes vertical grid lines. Other layouts must fail rather than associate
-// one row's basement or deposit with another flat.
 export const TABLE_COLUMNS = [[0.076, 0.178], [0.278, 0.359], [0.559, 0.625]];
 
 export function isMunicipalFlatTable(text) {
@@ -52,8 +47,6 @@ export function parseMunicipalFlatTable(pages, context) {
       const addresses = [...location.matchAll(/\bul\.?\s*([\p{L}][\p{L}. -]*?\s+\d+[A-Za-z]?)(?=\s|$)/giu)];
       const addressMatch = addresses.length === 1 ? addresses[0] : null;
       const unit = /nr\.?\s+(\S+)\s+o\s+pow\.?\s*([\d]+[.,][\d]+)\s*m/i.exec(description);
-      // Cropping can turn 1 into l or 5 into $. Corroborate the number in
-      // the original page's same cell; never substitute a guessed digit.
       const originalUnit = /nr\.?\s+(\d+[A-Za-z]?)\s+o\s+pow\.?/i.exec(originalDescription);
       const unitNumber = unit && (/^\d+[A-Za-z]?$/.test(unit[1]) ? unit[1] : originalUnit?.[1]);
       const prices = [...priceCell.matchAll(/([\d][\d .]*[,][\d]{2})/g)];

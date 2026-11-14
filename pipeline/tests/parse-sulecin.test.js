@@ -1,9 +1,3 @@
-// Sulęcin parser tests — REAL fixtures: cached born-digital + OCR PDF text,
-// live-fetched from bip.sulecin.pl 2026-07-11. Groundtruth hand-verified against
-// the source PDFs (see src/cities/sulecin/parse.js header for the six document
-// pairs and their confirmed figures). NOTE: the lease (dzierżawa) gate is tested
-// against a synthetic title built from Sulęcin's own real phrasing (no live
-// dzierżawa listing existed on the board at build time) — flagged inline below.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {

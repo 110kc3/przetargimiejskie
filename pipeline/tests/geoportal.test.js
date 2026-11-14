@@ -25,8 +25,6 @@ test('fallback search includes parcel + obręb + city', () => {
 });
 
 test('fallback search includes the street for addr-only plots (no parcel number)', () => {
-  // Regression: an addr-only plot used to collapse to the obreb code + city,
-  // dropping the street it has. The street must survive into the query.
   const u = geoportalUrl(
     { street: 'Orła Białego', address_raw: 'ul. Orła Białego', obreb: '0005 Krasowy' },
     { label: 'Mysłowice' },
@@ -46,8 +44,8 @@ import { nationalGeoportalUrl } from '../src/core/geoportal.js';
 
 test('nationalGeoportalUrl: identifyParcel link for a full TERYT id, null otherwise', () => {
   assert.ok(nationalGeoportalUrl('246101_1.0032.290/96').startsWith('https://mapy.geoportal.gov.pl/imap/?identifyParcel='));
-  assert.ok(nationalGeoportalUrl('247801_1.0012.AR_14.6089/50')); // identifier with an arkusz (AR_)
-  assert.equal(nationalGeoportalUrl('Lipnik 290/96'), null);      // not a TERYT id
+  assert.ok(nationalGeoportalUrl('247801_1.0012.AR_14.6089/50'));
+  assert.equal(nationalGeoportalUrl('Lipnik 290/96'), null);
   assert.equal(nationalGeoportalUrl(null), null);
 });
 

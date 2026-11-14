@@ -1,30 +1,7 @@
-// Torun parsers.
-// Polish diacritics used freely in comments and string values.
-// Regex literals use only ASCII character classes (Node v22 compatibility).
-//
-// Two responsibilities:
-//   1. parseXmlFeed  — BIP XML export (/przetargi-nieruchomosci/xml/1/{per_page})
-//   2. parseResultDoc — DOCX result notices (one per concluded auction date)
-//
-// DOCX layout (groundtruthed 2026-06-27 on IDs 55913, 58022, 59378):
-//   Table rows are extracted as tab-separated lines with embedded \n for
-//   paragraph breaks inside cells. Each data record spans 2-3 lines:
-//     e.g. "ul. Slusarska 5 \tNr 5A 23,87m2\t104/2 ob. 17"
-//          "\t\tTO1T/...\t\tbrak\t175.000,00 zl\t-\t0/0\t"
-//   Strategy: group consecutive lines into per-record blocks (new block starts
-//   when line begins with a street address), flatten \n to \t within each block,
-//   then anchor from the RIGHT using the X/Y count column.
-//
-//   Right-anchored layout:
-//     count_idx - 2 = Cena wywolawcza  (starting price)
-//     count_idx - 1 = Cena wylicytowana (achieved price or "-")
-//     count_idx     = X/Y count
-//     count_idx + 1+ = Nabywca (may absorb signature lines, that's OK)
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
 
-// Polish month names (genitive).
 const PL_MONTH = {
   stycznia: 1, lutego: 2, marca: 3, kwietnia: 4, maja: 5, czerwca: 6,
   lipca: 7, sierpnia: 8, wrzesnia: 9, pazdziernika: 10, listopada: 11, grudnia: 12,
@@ -34,11 +11,7 @@ function iso(y, m, d) {
   return `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
 }
 
-// ---------------------------------------------------------------------------
-// Public XML helpers
-// ---------------------------------------------------------------------------
 
-/** "08     .09     .2026  godz. 10:00" -> "2026-09-08" */
 export function parseDateField(raw) {
   if (!raw) return null;
   const s = raw.replace(/\s+/g, '');
@@ -47,34 +20,16 @@ export function parseDateField(raw) {
   return iso(m[3], m[2], m[1]);
 }
 
-/**
- * "140.000,00 zl; wadium 14.000,00 zl" -> 140000
- * "od 585.000,00 zl do 760.000,00 zl"  -> null  (range)
- * "90.000,-zł; wadium 9.000,00 zł"     -> 90000  (dash-decimal cena wywoławcza)
- * Handles both ASCII "zl" and real Unicode zl character (U+0142).
- *
- * ROOT CAUSE FIX (2026-06-28): The BIP XML for some listings uses the Polish
- * shorthand "90.000,-zł" (dash instead of "00") for the cena wywoławcza while
- * the wadium uses the standard "9.000,00 zł" form.  The old regex
- * /([\d][\d .,]*)[\s]*z[łl]/ stopped at the "-" in ",-zł", so only the
- * wadium was matched, yielding 9 000 instead of 90 000 zł.
- * Fix: allow an optional ",-" suffix in the price token before "zł".
- */
 export function parsePriceField(raw) {
   if (!raw) return null;
   const s = raw.trim();
   if (/\bod\b.*\bdo\b/i.test(s)) return null;
-  // The price field can omit currency before the deposit (90.000,00, wadium …).
-  // Parse the labelled first amount, never substitute the deposit.
   if (/wadium/i.test(s)) {
     const pricePart = s.split(/wadium/i)[0].trim().replace(/[,;]\s*$/, '');
     if (/^\d[\d .,-]*(?:z[łl])?$/i.test(pricePart)) {
       return _parsePLN(pricePart.replace(/z[łl]$/i, '').trim().replace(/,-$/, ''));
     }
   }
-  // Match a price token: digits (with optional space/dot/comma grouping separators),
-  // optionally followed by ",-" (Polish dash-decimal shorthand), then optional
-  // whitespace, then the zł/zl currency marker.
   const priceRe = /([\d][\d .,]*),?-?[\s]*z[łl]/gi;
   const hits = [];
   let m;
@@ -87,7 +42,6 @@ export function parsePriceField(raw) {
   return null;
 }
 
-/** "140.000,00" / "194.930,00" / "138 000" -> integer PLN (or null). */
 function _parsePLN(numStr) {
   if (!numStr) return null;
   const s = String(numStr).replace(/\s/g, '');
@@ -98,10 +52,6 @@ function _parsePLN(numStr) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/**
- * Determine auction round from the <przetarg-na> text.
- * Returns null when no "przetarg" word is present (unknown, not first).
- */
 export function roundFromText(text) {
   const t = (text || '').toLowerCase();
   if (/kolejn/i.test(t)) return null;
@@ -114,14 +64,10 @@ export function roundFromText(text) {
   return null;
 }
 
-/** "lokal sprzedany" / "lokale sprzedane" -> resolved. */
 export function isResolved(text) {
   return /lokal\w*\s+sprzeda[ny]/i.test(text || '');
 }
 
-// ---------------------------------------------------------------------------
-// XML feed parser
-// ---------------------------------------------------------------------------
 
 function _xmlText(xml, tag) {
   const m = new RegExp(`<${tag}>([\\s\\S]*?)<\\/${tag}>`).exec(xml);
@@ -130,11 +76,6 @@ function _xmlText(xml, tag) {
     : '';
 }
 
-/**
- * Parse the BIP XML export into raw listing records.
- * @param {string} xml  raw XML from /przetargi-nieruchomosci/xml/1/{per_page}
- * @returns {Array<object>}
- */
 export function parseXmlFeed(xml) {
   if (!xml) return [];
   const out = [];
@@ -175,16 +116,11 @@ export function parseXmlFeed(xml) {
   return out;
 }
 
-// ---------------------------------------------------------------------------
-// Result notice (DOCX) parser
-// ---------------------------------------------------------------------------
 
-/** Is this text a Torun result notice? */
 export function isResultNotice(text) {
   return /INFORMACJA\s+O\s+WYNIK/i.test(text || '');
 }
 
-// "przeprowadzonych w dniu 19 maja 2026r." -> "2026-05-19"
 function _resultDate(text) {
   const m =
     /przeprowadzon\w+\s+w\s+dniu\s+(\d{1,2})\s+([a-z]+)\s+(\d{4})/i.exec(text || '');
@@ -193,11 +129,8 @@ function _resultDate(text) {
   return mo ? iso(m[3], mo, m[1]) : null;
 }
 
-// Column-header keywords — used to skip the header line.
 const _HDR = /Pol[oa][zz]enie|Lokal.*pow|Dzia[ll]ka|Ksiega|MPZP|Cena\s+wywo|Cena\s+wylic|Ilos[cc]|Nabywca/i;
 
-// A data record begins with a street address.
-// Matches: "ul. Foo 5 ..." or "Wielkie Garbary 5 ..."
 const _STARTS_RECORD = /^(ul\.|[A-Za-z][a-zA-Z]+\s+[A-Za-z]?[a-zA-Z]*\s*\d)/;
 
 function _startsRecord(line) {
@@ -209,49 +142,22 @@ function _extractArea(s) {
   return m ? parseFloat(m[1].replace(',', '.')) : null;
 }
 
-// ---------------------------------------------------------------------------
-// Detail-page area extractor
-// ---------------------------------------------------------------------------
 
-/**
- * Extract the unit floor area (m²) from a Toruń BIP detail page HTML.
- *
- * The CMS renders the area in the first substantial paragraph, always before
- * any plot/land reference:
- *   "…o łącznej powierzchni użytkowej 50,30 m2…"
- *   "…o powierzchni użytkowej 23,87 m2…"
- *   "…o powierzchni 61,08 m2…"
- *
- * Strategy: find the first occurrence of a decimal number (comma separator)
- * followed by "m2" in the page text.  The flat area is always the first such
- * value; land-plot areas come later and use "ha" or a much larger number.
- * Returns null when no match is found.
- *
- * @param {string} html  raw detail page HTML
- * @returns {number|null}
- */
 export function areaFromDetailHtml(html) {
   if (!html) return null;
-  // Strip tags so we don't match numbers buried in attribute values.
   const text = html.replace(/<[^>]+>/g, ' ');
-  // First decimal-comma number followed by m2 (with optional space/whitespace).
   const m = /(\d+[,.]\d+)\s*m2/i.exec(text);
   if (!m) return null;
   return parseFloat(m[1].replace(',', '.'));
 }
 
-/**
- * Parse one grouped record block (2-3 lines joined by \n).
- */
 function _parseBlock(block, auctionDate, sourceUrl) {
-  // Flatten embedded paragraph breaks to tabs.
   const flat = block.replace(/\n/g, '\t');
   const cols = flat.split('\t');
 
   const loc = (cols[0] || '').trim();
   if (!loc || _HDR.test(loc)) return null;
 
-  // Find count anchor (X/Y) scanning from the right.
   let ci = -1;
   for (let i = cols.length - 1; i >= 2; i--) {
     if (/^\d+\/\d+$/.test(cols[i].trim())) { ci = i; break; }
@@ -262,7 +168,6 @@ function _parseBlock(block, auctionDate, sourceUrl) {
   const achievedRaw = cols[ci - 1].trim();
   const buyer       = cols.slice(ci + 1).map((c) => c.trim()).filter(Boolean).join(' ');
 
-  // Unit number and area from col[1] (and possibly col[2] for split cells).
   const unitRaw = (cols[1] || '').trim();
   const areaRaw = (cols[2] || '').trim();
   const unitM   = /Nr\s+(\d+)(?:\s*([A-Za-z])(?!\d))?/i.exec(unitRaw);
@@ -278,7 +183,6 @@ function _parseBlock(block, auctionDate, sourceUrl) {
   const address = parseAddress(address_raw);
   if (!address) return null;
 
-  // Prices — regex handles both "zl" and real zl glyph (U+0142).
   const startM          = /([\d][\d .,]*)[\s]*z[łl]/i.exec(startingRaw);
   const starting_price_pln = startM ? _parsePLN(startM[1]) : null;
 
@@ -303,13 +207,6 @@ function _parseBlock(block, auctionDate, sourceUrl) {
   };
 }
 
-/**
- * Parse one result-notice DOCX text into concluded auction records.
- * @param {string|null} text         extracted DOCX text (doc-text.js)
- * @param {string|null} fallbackDate ISO date from crawl ref
- * @param {string}      sourceUrl    attachment URL (provenance)
- * @returns {Array<object>}
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!isResultNotice(text)) return [];
 
@@ -342,7 +239,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   return out;
 }
 
-/** Split an explicitly enumerated multi-flat notice using its own unit paragraphs. */
 export function splitMultiFlatNotice(record, html) {
   const units = [...record.address_raw.matchAll(/(?:m\.\s*nr|i\s+nr)\s*(\d+[A-Za-z]?)/gi)].map((m) => m[1]);
   if (units.length < 2) return [record];

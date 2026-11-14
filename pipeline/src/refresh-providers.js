@@ -1,6 +1,3 @@
-// Institutional seller pipeline. Its row-based output is deliberately separate
-// from data/<city>: provider auctions must never change municipal medians, city
-// health counts, or the extension's city contract.
 
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';

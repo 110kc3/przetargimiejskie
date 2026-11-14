@@ -1,15 +1,3 @@
-// Drawsko Pomorskie parser tests.
-//
-// Fixtures are the REAL JSON-LD NewsArticle nodes captured live 2026-07-05 from
-// drawsko.pl/aktualnosci-2/33-nieruchomosci/ (verbatim headline + datePublished
-// + articleBody). Each is wrapped back into a <script type="application/ld+json">
-// page so the test exercises the full path: extractArticleBody -> parse*.
-//
-//   ANNOUNCEMENT ann  - ul. Ratuszowa 7/2: 47.30 m2, 75 900 zl, I przetarg, 2025-07-10
-//   ANNOUNCEMENT ann2 - ul. Gen. Wl. Sikorskiego 21/4: 11.60 m2, 24 400 zl, 2025-07-10
-//   RESULT res  - ul. Gen. Wl. Sikorskiego 4/4: II przetarg 2025-01-23, 79 000 -> 79 790 zl, Tomasz Noga
-//   RESULT res2 - Borne 1/1 (share 640/100): II przetarg 2021-09-02, 28 700 -> 29 000 zl
-//   RESULT res3 - ul. 11 Pulku Piechoty 59/1: III przetarg 2023-11-23, 55 000 -> 77 050 zl
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -44,7 +32,6 @@ function resOf(key) {
   return recs[0];
 }
 
-// ---- scalar helpers -------------------------------------------------------
 
 test('parsePLN: Polish money formats', () => {
   assert.equal(parsePLN('75.900,00'), 75900);
@@ -84,7 +71,6 @@ test('parseListingLinks: in-section articles only, pagination skipped', () => {
   assert.ok(!links.some((l) => /strona-/.test(l.slug)));
 });
 
-// ---- announcements --------------------------------------------------------
 
 test('announcement ann - ul. Ratuszowa 7/2', () => {
   const r = annOf('ann');
@@ -108,7 +94,6 @@ test('announcement ann2 - ul. Gen. Wl. Sikorskiego 21/4', () => {
   assert.equal(r.auction_date, '2025-07-10');
 });
 
-// ---- results --------------------------------------------------------------
 
 test('result res - ul. Gen. Wl. Sikorskiego 4/4 (sold)', () => {
   const r = resOf('res');

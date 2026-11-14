@@ -1,6 +1,3 @@
-// Parser for Nowy Dwór Mazowiecki auction notices and results (bip.nowydwormaz.pl)
-//
-// Parses Logonet IntraBIP notice listings and attached PDFs.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -74,25 +71,20 @@ export function parseAnnouncement(item, docText = '') {
   const text = cleanText(`${item.title || ''} ${docText}`);
   const title = (item.title || '').trim();
 
-  // Auction date
   const dateMatch = text.match(/(?:w\s+dniu|dnia|termin przetargu)\s+([^\n.]+?(?:20\d{2}))/i);
   const auctionDate = dateMatch ? parsePlDate(dateMatch[1]) : parsePlDate(item.date);
 
-  // Price
   const priceMatch =
     text.match(/(?:cena wywoławcza|cena)\s*(?:netto|brutto)?\s*[:\-]?\s*([\d\s]+(?:,\d{2})?\s*(?:z[łl]|PLN))/i) ||
     text.match(/(?:cena wywoławcza|wywoławcza)[\s\S]{1,150}?\b([\d]{1,3}(?:\s+\d{3})+(?:,\d{2})?)\b/i);
   const price = priceMatch ? parsePrice(priceMatch[1].includes('zł') ? priceMatch[1] : `${priceMatch[1]} zł`) : null;
 
-  // Deposit (wadium)
   const depositMatch = text.match(/wadium[^\d]{1,30}([\d\s]+(?:,\d{2})?\s*(?:z[łl]|PLN))/i);
   const deposit = depositMatch ? parsePrice(depositMatch[1]) : null;
 
-  // Parcel / plot number
   const parcelMatch = text.match(/\bdz(?:\.|iałk[aieę])\s*(?:nr\s*)?(\d+(?:\/\d+)?)/i);
   const parcel = parcelMatch ? parcelMatch[1] : null;
 
-  // Land area
   const areaMatch =
     text.match(/powierzchni[a-ząćęłńóśźż\s]{0,25}(?:w\s*m2|w\s*ha|ogólnej|użytkowej)?[:\s\-]{1,15}([\d\s]+(?:,\d{1,4})?)\s*(m2|m²|ha)/i) ||
     text.match(/(?:powierzchnia\s+w\s+ha)[\s\S]{1,150}?\b(\d+,\d{2,4})\b/i);
@@ -106,12 +98,10 @@ export function parseAnnouncement(item, docText = '') {
     }
   }
 
-  // Address
   const addrMatch = text.match(/(?:przy\s+ul\.?|ulicy|położon[a-z]*\s+w\s+Nowym\s+Dworze\s+Mazowieckim[,\s]+(?:przy\s+ul\.?)?)\s+([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż\s\d\/-]+?)(?:w\s+obrębie|\.|,|dla)/i);
   const rawAddress = addrMatch ? `ul. ${addrMatch[1].trim()}` : 'Nowy Dwór Mazowiecki';
   const address = parseAddress(rawAddress, 'Nowy Dwór Mazowiecki');
 
-  // KW
   const kwMatch = text.match(/\b(WA1N\/\d{8}\/\d)\b/i) || text.match(/KW\s+(?:Nr\s+)?([A-Z0-9\/]+)/i);
   const landRegistry = kwMatch ? kwMatch[1].toUpperCase() : null;
 

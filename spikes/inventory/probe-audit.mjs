@@ -39,7 +39,6 @@ async function probeCity(city) {
 
       const lower = html.toLowerCase();
 
-      // Check for MADKOM
       if (lower.includes('madkom') || html.includes('/api/contexts/')) {
         return { city: city.id, host, engine: 'madkom' };
       }
@@ -50,17 +49,14 @@ async function probeCity(city) {
         }
       } catch (e) {}
 
-      // Check for REKORD SI
       if (lower.includes('rekord') || html.includes('api/download/file') || html.includes('/dokument/')) {
         return { city: city.id, host, engine: 'rekordsi' };
       }
 
-      // Check for Logonet
       if (lower.includes('logonet') || html.includes('/przetargi-nieruchomosci/')) {
         return { city: city.id, host, engine: 'logonet' };
       }
 
-      // Check for BIP.NET.PL
       if (host.includes('bip.net.pl') || html.includes('bip.net.pl') || html.includes('/kategorie/')) {
         const m = html.match(/href="([^"]*(?:przetarg|zbycie|nieruchom)[^"]*)"/i);
         if (m) {
@@ -68,7 +64,6 @@ async function probeCity(city) {
         }
       }
 
-      // Check for active auction links in general HTML
       const auctionMatch = html.match(/href="([^"]*(?:przetargi-nieruchomosci|przetarg-nieruchomosci|sprzedaz-nieruchomosci)[^"]*)"/i);
       if (auctionMatch) {
         return { city: city.id, host, engine: 'custom-auction', link: auctionMatch[1] };

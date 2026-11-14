@@ -82,8 +82,6 @@ test('TLS compatibility rejects untrusted, wrong-host and expired certificates',
   }
   const server = await start(cert);
   await assert.rejects(request(server, productionAgent), { code: 'DEPTH_ZERO_SELF_SIGNED_CERT' });
-  // Trust the ephemeral test CA only inside this test, keeping production's
-  // verification options unchanged so hostname/expiry checks can be exercised.
   const testAgent = new https.Agent({ ...productionAgent.options, ca: [...productionAgent.options.ca, cert] });
   t.after(() => testAgent.destroy());
   await request(server, testAgent);

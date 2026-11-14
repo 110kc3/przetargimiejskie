@@ -1,7 +1,3 @@
-// Configuration for Sejny adapter (bip-umsejny.podlaskie.eu)
-//
-// Gmina Miejska Sejny (powiat sejneński, podlaskie)
-// TERC: 2009011
 
 export const CONFIG = {
   id: 'sejny',

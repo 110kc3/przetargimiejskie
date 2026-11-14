@@ -1,5 +1,3 @@
-// City configuration for Krasnystaw (powiat krasnostawski, Lubelskie)
-// BIP: https://umkrasnystaw.bip.lubelskie.pl
 
 export default {
   id: 'krasnystaw',

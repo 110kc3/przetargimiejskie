@@ -1,20 +1,3 @@
-// Grodzisk Wielkopolski parsers.
-//
-// Burmistrz Grodziska Wielkopolskiego publishes auction announcements and results
-// in BIP menu 512 ("Przetargi"). Both types of notices contain inline HTML tables
-// in the article `content`.
-//
-// ANNOUNCEMENT TABLE FORMAT:
-//   Header cell: "[I|II|III] PRZETARG USTNY NIEOGRANICZONY na sprzedaż nieruchomości..."
-//   Columns: Lp | Przedmiot sprzedaży | Opis lokalu | Opis gruntu | Forma sprzedaży | Cena wywoławcza netto | Wadium
-//   Address info is in "Przedmiot sprzedaży" ("Lokal mieszkalny nr 2 ... przy ul. Kolejowej 9 ...").
-//   Area is in "Opis lokalu" ("Powierzchnia użytkowa lokalu wynosi 67,80 m²").
-//   Date & wadium deadline are in post-table prose ("Przetarg odbędzie się w dniu 18.05.2026r. ...").
-//
-// RESULT TABLE FORMAT:
-//   Header: "INFORMACJA O WYNIKACH PRZETARGU ... który odbył się w dniu 18.05.2026r."
-//   Columns: Lokale mieszkalne | Pow. użytkowa | Nr KW lokalu | Wadium | Cena wywoławcza | Cena wylicytowana w zł brutto | Liczba osób dopuszczonych | Imię i nazwisko nabywcy
-//   Mixed notices carry land plots first, then a subheader "Lokale mieszkalne".
 
 import { parseAddress, nominativeStreetDisplay } from '../../core/normalize.js';
 
@@ -26,11 +9,6 @@ const ROMAN_ROUNDS = {
   I: 1,
 };
 
-/**
- * Clean HTML markup, unescape entities, and collapse whitespace.
- * @param {string} s
- * @returns {string}
- */
 export function cleanHtml(s) {
   if (!s) return '';
   return s
@@ -52,12 +30,6 @@ export function cleanHtml(s) {
     .trim();
 }
 
-/**
- * Parse Polish currency amount in PLN to integer.
- * e.g. "200.000,00 zł", "125.000 zł", "202 000 zł" -> 200000, 125000, 202000
- * @param {string} s
- * @returns {number|null}
- */
 export function parsePLN(s) {
   if (!s) return null;
   const str = cleanHtml(String(s)).replace(/[\s\u00a0]/g, '').replace(/z[łl].*$/i, '');
@@ -67,12 +39,6 @@ export function parsePLN(s) {
   return Number(m[1].replace(/[.,]/g, ''));
 }
 
-/**
- * Parse comma-decimal number.
- * e.g. "67,80" -> 67.8, "35.49" -> 35.49
- * @param {string} s
- * @returns {number|null}
- */
 export function parseNum(s) {
   if (!s) return null;
   const str = cleanHtml(String(s));
@@ -81,11 +47,6 @@ export function parseNum(s) {
   return Number(m[1] + '.' + (m[2] || '0'));
 }
 
-/**
- * Extract date in ISO format YYYY-MM-DD from Polish date strings like "18.05.2026r." or "18.05. 2026".
- * @param {string} s
- * @returns {string|null}
- */
 export function extractDate(s) {
   if (!s) return null;
   const m = /(\d{2})[.\s/]+(\d{2})[.\s/]+(\d{4})/.exec(s);
@@ -93,11 +54,6 @@ export function extractDate(s) {
   return `${m[3]}-${m[2]}-${m[1]}`;
 }
 
-/**
- * Extract round numeral (1-5) from text.
- * @param {string} text
- * @returns {number}
- */
 export function extractRound(text) {
   const m = /\b(V|IV|III|II|I)\s+PRZETARG/i.exec(text || '');
   if (m) {
@@ -107,13 +63,6 @@ export function extractRound(text) {
   return 1;
 }
 
-/**
- * Check if an announcement or result article relates to residential flats.
- * Filters out pure land, commercial, lease, or vehicle tenders.
- * @param {string} title
- * @param {string} [html]
- * @returns {boolean}
- */
 export function isFlatNotice(title, html) {
   const t = (title || '').toLowerCase();
   if (/dow[óo]z|siwz|zam[óo]wie[ńn]|sto[łl][óo]wek|remont/i.test(t)) return false;
@@ -122,18 +71,10 @@ export function isFlatNotice(title, html) {
   if (/lokal/i.test(t)) return true;
 
   const body = (html || '');
-  // Match genuine flat nouns, avoiding word stems like "zlokalizowany" or "lokalizacji"
   return /\blokal(u|e|i|em|om|ach)?\s+mieszkaln/i.test(body) ||
          /\bnieruchomo[śs]ci\s+lokal/i.test(body);
 }
 
-/**
- * Extract flat address from an announcement cell's text description.
- * e.g. "Lokal mieszkalny nr 2 ... przy ul. Kolejowej 9 i w prawie..."
- * -> "Kolejowa 9/2"
- * @param {string} text
- * @returns {{ address_raw: string, address: object|null }|null}
- */
 export function extractAnnouncementAddress(text) {
   const cleaned = cleanHtml(text);
   const aptM = /\blokal\w*\s+(?:mieszkaln\w*\s+)?nr\s*(\d+[a-zA-Z]?)/i.exec(cleaned);
@@ -154,12 +95,6 @@ export function extractAnnouncementAddress(text) {
   };
 }
 
-/**
- * Parse an announcement article (HTML) into flat listing records.
- * @param {string} html
- * @param {{ title: string, detail_url: string }} meta
- * @returns {Array<object>}
- */
 export function parseAnnouncement(html, { title, detail_url }) {
   if (!html || !isFlatNotice(title, html)) return [];
 
@@ -189,7 +124,6 @@ export function parseAnnouncement(html, { title, detail_url }) {
     const priceStr = cells[5];
     const wadiumStr = cells[6];
 
-    // Must be a flat subject
     if (!/\blokal\w*\s+mieszkaln/i.test(subject)) continue;
 
     const parsedAddr = extractAnnouncementAddress(subject);
@@ -219,14 +153,6 @@ export function parseAnnouncement(html, { title, detail_url }) {
   return listings;
 }
 
-/**
- * Parse a result document (HTML or text) into flat result records.
- * Concluded records feed the achieved-price stream.
- * @param {string} html
- * @param {string|null} [fallbackDate]
- * @param {string} [sourceUrl]
- * @returns {Array<object>}
- */
 export function parseResultDoc(html, fallbackDate = null, sourceUrl = '') {
   if (!html) return [];
 
@@ -254,12 +180,10 @@ export function parseResultDoc(html, fallbackDate = null, sourceUrl = '') {
       inFlatsSection = false;
     }
 
-    // Skip table header rows
     if (/Nr KW|Pow\.|Wadium|Cena wywo/i.test(joined) && /Cena wylicyt/i.test(joined)) {
       continue;
     }
 
-    // Decide if row represents a flat
     const isFlatRow =
       inFlatsSection ||
       /lokal\s+mieszkaln/i.test(cells[0]) ||
@@ -268,7 +192,6 @@ export function parseResultDoc(html, fallbackDate = null, sourceUrl = '') {
 
     if (!isFlatRow) continue;
 
-    // Clean address cell
     let rawAddr = cells[0]
       .replace(/Grodzisk\s+Wlkp\.?/gi, '')
       .replace(/Lokal\s+mieszkalny\s+/gi, '')

@@ -1,7 +1,3 @@
-// Malbork parser tests.
-// Every fixture is real text extracted from live municipal announcement and result PDFs
-// on bip.malbork.pl (see spikes/pomorskie/powiat-malborski/malbork.md).
-// Node built-in test runner.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -21,9 +17,7 @@ import {
   parseResultDoc,
 } from '../src/cities/malbork/parse.js';
 
-// ---- Real Fixtures ---------------------------------------------------------
 
-// ANNOUNCEMENT 1: ul. Mickiewicza 36/2 (III przetarg, 2026-08-31, 120.66 m², 518 479 zł)
 const ANN_MICKIEWICZA = `                    BURMISTRZ MIASTA MALBORKA
                    82-200 Malbork, Plac Słowiański 5
                    tel. 55 629 04 12
@@ -60,7 +54,6 @@ l.p.          adres                Pow.          Nr       pow. działki      udz
        a) wadium w kwocie 50 000 zł (pięćdziesiąt tysięcy złotych) płatne najpóźniej
           do 20 sierpnia 2026 r. przelewem na konto depozytowe Miasta Malborka`;
 
-// ANNOUNCEMENT 2: ul. 17 Marca 21 (multi-flat: 21/4 and 21/6, III przetarg, 2026-06-10)
 const ANN_17_MARCA_21 = `                    BURMISTRZ MIASTA MALBORKA
                    82-200 Malbork, Plac Słowiański 5
                    tel. 55 629 04 12
@@ -90,7 +83,6 @@ na sprzedaż nieruchomości lokalowych, stanowiących własność Miasta Malbork
            najpóźniej do 05 czerwca 2026 r. przelewem na konto depozytowe Miasta
            Malborka prowadzone w PKO BP SA Nr 60 1020 1811 0000 0402 0339 9631.`;
 
-// ANNOUNCEMENT 3: ul. Grunwaldzka 22-23 (IV przetarg, 2026-06-10, 216.03 m², 590 000 zł)
 const ANN_GRUNWALDZKA = `                    BURMISTRZ MIASTA MALBORKA
                    82-200 Malbork, Plac Słowiański 5
                    tel. 55 629 04 12
@@ -117,7 +109,6 @@ na sprzedaż nieruchomości lokalowej, stanowiącej własność Miasta Malborka
 \f                   BURMISTRZ MIASTA MALBORKA
            do 05 czerwca 2026 r. przelewem na konto depozytowe Miasta Malborka`;
 
-// ANNOUNCEMENT 4: ul. Poczty Gdańskiej 20/2 (split-line table row, I przetarg, 2026-11-30, 126.38 m², 542 029 zł)
 const ANN_POCZTY_GDANSKIEJ = `                    BURMISTRZ MIASTA MALBORKA
                    82-200 Malbork, Plac Słowiański 5
                    tel. 55 629 04 12
@@ -143,7 +134,6 @@ przy ul. Poczty Gdańskiej 20, KW GD1M/00061360/5.
 3. Warunki nabycia nieruchomości
        a) wadium w kwocie 55 000 zł płatne najpóźniej do 26 listopada 2026 r.`;
 
-// RESULT 1: ul. 17 Marca 21 (2026-03-27: 4 flats, 2 sold with buyer and price, 2 unsold)
 const RES_17_MARCA_21 = `                            INFORMACJA O WYNIKACH PRZETARGU
 
 przeprowadzonego w dniu 27 marca 2026 r. na          sprzedaż    nieruchomości lokalowej
@@ -167,7 +157,6 @@ l.p.         adres             Pow.        Nr        pow.         udział     Ce
 Na czynności związane z przeprowadzeniem przetargu przysługuje skarga, którą należy złożyć
 w terminie 7 dni od daty przetargu do Burmistrza Miasta Malborka.`;
 
-// RESULT 2: ul. Mickiewicza 36/2 (2026-08-31: negative outcome, 0 participants)
 const RES_MICKIEWICZA = `                     INFORMACJA O WYNIKACH PRZETARGU
 
 przeprowadzonego w dniu 31 sierpnia 2026 r. na sprzedaż nieruchomości lokalowej,
@@ -186,7 +175,6 @@ stanowiącej własność Miasta Malborka
 3. Do przetargu nie przystąpił żaden uczestnik.
 4. W wyniku przetargu nie wyłoniono nabywcy nieruchomości`;
 
-// RESULT 3: ul. 17 Marca 22/3 (2026-02-23: sold, achieved bid price 353 800 zł)
 const RES_17_MARCA_22_3 = `                      INFORMACJA O WYNIKACH PRZETARGU
 
 przeprowadzonego w dniu 23.02.2026 r. na            sprzedaż nieruchomości lokalowej,
@@ -205,7 +193,6 @@ stanowiącej własność Miasta Malborka
    22/3 – Arkadiusz Kisiel wylicytował lokal za cenę 353 800 zł po udzieleniu bonifikaty w
    kwocie 70% na wniosek zainteresowanego, cena sprzedaży wynosi 106 140 zł.`;
 
-// RESULT 4: ul. 17 Marca 22 (2026-01-15: 2 flats in table, 22/2 sold for 350 970 zł, 22/3 unsold)
 const RES_17_MARCA_22_MULTI = `                     INFORMACJA O WYNIKACH PRZETARGU
 
 przeprowadzonego w dniu 15.01.2026 r. na           sprzedaż nieruchomości lokalowych,
@@ -225,7 +212,6 @@ stanowiącej własność Miasta Malborka
    22/2 – Arkadiusz Kisiel wylicytował lokal za cenę 350 970zł po udzieleniu bonifikaty w
    kwocie 70% na wniosek zainteresowanego, cena sprzedaży wynosi 105 291 zł.`;
 
-// RESULT 5: ul. Wiosenna 31/2 (2026-09-28: negative outcome, 0 participants)
 const RES_WIOSENNA = `                     INFORMACJA O WYNIKACH PRZETARGU
 
 przeprowadzonego w dniu 28 września 2026 r. na sprzedaż nieruchomości lokalowej,
@@ -243,7 +229,6 @@ stanowiącej własność Miasta Malborka
 3. Do przetargu nie przystąpił żaden uczestnik.
 4. W wyniku przetargu nie wyłoniono nabywcy nieruchomości:`;
 
-// ---- Tests -----------------------------------------------------------------
 
 test('utility functions: parsePLN, parseNum, parsePolishDate', () => {
   assert.equal(parsePLN('909 080 zł'), 909080);

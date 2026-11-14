@@ -1,8 +1,3 @@
-// Opole parsers (SISCO BIP, server-rendered articles). Reuses core/finn-bip.js
-// (htmlToText, parsePLN, priceFromText, auctionDateFromText, roundFromText) +
-// classifyKind; flat area ("o łącznej pow. 68,38m2") + the office-safe address
-// (anchored after "na sprzedaż") are Opole-specific. Groundtruthed against the
-// real article (flat nr 2, ul. Rynek 3, 624.000,00 zł, przetarg 28.01.2026).
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -10,9 +5,6 @@ import { htmlToText, parsePLN, priceFromText, auctionDateFromText, roundFromText
 
 export { htmlToText };
 
-// Everything after "na sprzedaż" — the office "Rynek 1A" / "Plac Wolności 7-8"
-// addresses appear later but are never "przy ul.", so a "przy ul." match in this
-// clause is the property.
 function saleClause(text) { const m = /na\s+sprzeda[zż]\s*([\s\S]+)/i.exec(text || ''); return m ? m[1] : (text || ''); }
 
 export function isSaleAnnouncement(text) {
@@ -22,13 +14,6 @@ export function isSaleAnnouncement(text) {
   return /og[łl]asza/.test(t) && /przetarg/.test(t) && /sprzeda/.test(t);
 }
 
-// Flat usable area: "o łącznej pow. 68,38m2" / "o pow. 68,38 m2" (m², not ha).
-// Flat usable area: "o łącznej pow. 95,38m2" / "o powierzchni użytkowej 47,00 m2".
-// Takes the LARGEST plausible (>=8 m2) "pow … N m2" that is NOT a land-share /
-// grunt / common area — a flat is always bigger than its cellar/komórka, so the
-// ancillary (which caused cellar-area + insane-m2 errors) can never win. Land
-// share is in ha (skipped); if no plausible flat area is found, returns null
-// (a missing area is a WARN, never the cellar).
 export function flatAreaFromText(text) {
   const t = text || '';
   const re = /pow(?:ierzchni)?\w*\.?\s+(?:[a-ząćęłńóśźż]+\s+){0,2}(\d+(?:[.,]\d+)?)\s*m\s*[²2](?!\w)/gi;
@@ -42,7 +27,6 @@ export function flatAreaFromText(text) {
   }
   return cands.length ? Math.max(...cands) : null;
 }
-// Plot parcel + obręb + ha area (land).
 export function parcelFromText(text) { const m = /dz(?:ia[łl]k\w*)?\.?\s+nr\s+(\d+(?:\/\d+)?(?:\s*(?:,|i)\s*\d+(?:\/\d+)?)*)/i.exec(text || ''); if (!m) return null; const nums = m[1].split(/\s*(?:,|i)\s*/).map((x) => x.trim()).filter((x) => /^\d+(?:\/\d+)?$/.test(x)); return nums.length ? nums.join(', ') : null; }
 export function obrebFromText(text) { const m = /obr[ęe]b\w*\s+([A-ZŻŹĆŁŚĄĘÓŃ][a-zżźćłśąęóń-]+(?:\s+[A-ZŻŹĆŁŚĄĘÓŃ][a-zżźćłśąęóń-]+)?)/.exec(text || ''); return m ? m[1].trim() : null; }
 export function haAreaFromText(text) { const m = /([\d][\d.,\s]*)\s*ha\b/i.exec(text || ''); if (!m) return null; const ha = Number(m[1].replace(/\s/g, '').replace(',', '.')); return ha > 0 ? Math.round(ha * 10000) : null; }

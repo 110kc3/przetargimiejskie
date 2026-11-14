@@ -1,5 +1,3 @@
-// City configuration for Kartuzy (powiat kartuski, Pomorskie)
-// BIP: https://bip.kartuzy.pl
 
 export default {
   id: 'kartuzy',

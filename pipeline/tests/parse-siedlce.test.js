@@ -1,37 +1,3 @@
-// Siedlce parser tests. Fixtures are condensed-but-faithful copies of REAL
-// live siedlce.pl article bodies (fetched + verified 2026-07-18), covering all
-// 3 rounds of BOTH real multi-round properties seen live:
-//   ann Sobieskiego 5/58 — flat ANNOUNCEMENT, bare/I przetarg (no ordinal in
-//     title), 38,38 m², cena wywoławcza 260 000 zł, przetarg 11.07.2024;
-//   ann Piłsudskiego 96/16 — flat ANNOUNCEMENT, II przetarg (ordinal IS in the
-//     title), 50,37 m², cena wywoławcza 340 000 zł, przetarg 04.07.2024 — body
-//     ALSO cites the prior "I przetarg … odbył się w dniu 24 kwietnia 2024 r."
-//     (negative), using the SAME "w dniu <date>" phrasing as the upcoming
-//     auction — the auction date must resolve to the future 2024-07-04, never
-//     the past 2024-04-24;
-//   ann Świętojańska 4, round III — built-property/office ANNOUNCEMENT
-//     (zabudowana, not a lokal mieszkalny), 850,71 m², cena wywoławcza
-//     3 900 000 zł, przetarg 29.07.2026 — title carries NO ordinal at all
-//     ("Przetarg nieograniczony (licytacja) na sprzedaż zabudowanej
-//     nieruchomości miejskiej…" — same generic wording for every round); body
-//     cites TWO prior negative rounds (2025-12-19, 2026-04-09) via the same
-//     "odbył się w dniu" phrasing, positioned AFTER the operative sentence;
-//   ann Świętojańska 4, round I — title "Przetarg na sprzedaż nieruchomości
-//     miejskiej przy ulicy Świętojańskiej 4" (again no ordinal), cena
-//     wywoławcza 4 300 000 zł, przetarg 19.12.2025;
-//   ann Świętojańska 4, round II — title "Przetarg na sprzedaż nieruchomości
-//     przy ulicy Świętojańskiej 4" (again no ordinal), cena wywoławcza
-//     4 300 000 zł, przetarg 09.04.2026.
-//
-// Reuses core/finn-bip.js body helpers. Siedlce-specific deviations under
-// test: the apartment-number merge (detached "oznaczony Nr <n>" phrasing);
-// the future-tense auction-date anchor (never let a narrated PRIOR round
-// win); and the round detector (a title with NO ordinal must fall through to
-// the body's "ogłasza <ordinal> przetarg" sentence — the first live refresh
-// silently collapsed all 3 Świętojańska rounds to round 1 before this was
-// fixed, because the shared finn-bip roundFromTitle defaults to 1 as soon as
-// "przetarg" appears anywhere in the title, so a plain `?? ` fallback chain
-// never actually reached the body).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -44,7 +10,6 @@ import {
   parseResultDoc,
 } from '../src/cities/siedlce/parse.js';
 
-// ---------------------------------------------------------------- title routing
 
 test('title routing: sale announcement vs result notice vs noise', () => {
   assert.equal(
@@ -57,35 +22,30 @@ test('title routing: sale announcement vs result notice vs noise', () => {
     isAnnouncementTitle('Przetarg nieograniczony (licytacja) na sprzedaż zabudowanej nieruchomości miejskiej, położonej w Siedlcach przy ulicy Świętojańskiej 4'),
     true,
   );
-  assert.equal(isAnnouncementTitle('Przetarg nieograniczony na wydzierżawienie gruntów komunalnych'), false); // dzierżawa, not sprzedaż
-  assert.equal(isAnnouncementTitle('Ogłoszenie-przetarg na wynajem powierzchni reklamowych na wiatach przystankowych'), false); // najem
-  assert.equal(isAnnouncementTitle('Przetarg na Centrum Przesiadkowe ogłoszony'), false); // no "sprzedaż" — infra procurement noise
+  assert.equal(isAnnouncementTitle('Przetarg nieograniczony na wydzierżawienie gruntów komunalnych'), false);
+  assert.equal(isAnnouncementTitle('Ogłoszenie-przetarg na wynajem powierzchni reklamowych na wiatach przystankowych'), false);
+  assert.equal(isAnnouncementTitle('Przetarg na Centrum Przesiadkowe ogłoszony'), false);
   assert.equal(isResultTitle('Informacja o wyniku I przetargu nieograniczonego na sprzedaż lokalu mieszkalnego'), true);
   assert.equal(isResultTitle('Prezydent Miasta Siedlce ogłasza przetarg nieograniczony(licytację) na sprzedaż lokalu mieszkalnego'), false);
 });
 
-// ------------------------------------------------------------- date deviation
 
 test('auctionDateFromText: future "odbędzie się … w dniu" wins over a narrated prior "odbył się … w dniu" round', () => {
-  // Prior round mentioned FIRST (Piłsudskiego shape).
   const before =
     'I przetarg nieograniczony na w/w nieruchomość, który odbył się w dniu 24 kwietnia 2024 r. zakończył się wynikiem negatywnym. ' +
     'Przetarg odbędzie się w siedzibie Urzędu Miasta Siedlce, Skwer Niepodległości 2 w sali 144 w dniu 4 lipca 2024r. o godz. 10.00.';
   assert.equal(auctionDateFromText(before), '2024-07-04');
 
-  // Prior rounds mentioned AFTER the operative sentence (Świętojańska shape) — still correct.
   const after =
     'Przetarg odbędzie się w siedzibie Urzędu Miasta Siedlce, Skwer Niepodległości 2 w sali nr 144, w dniu 29 lipca 2026 r. o godz. 9:00. ' +
     'Pierwszy przetarg nieograniczony na sprzedaż przedmiotowej nieruchomości odbył się w dniu 19 grudnia 2025 r. i zakończył się wynikiem negatywnym, ' +
     'drugi przetarg odbył się w dniu 9 kwietnia 2026 r. i również zakończył się wynikiem negatywnym.';
   assert.equal(auctionDateFromText(after), '2026-07-29');
 
-  // No prior-round narration at all (Sobieskiego shape) — shared fallback still works.
   const plain = 'Przetarg odbędzie się w siedzibie Urzędu Miasta Siedlce, Skwer Niepodległości 2 w sali 144 w dniu 11 lipca 2024 r. o godz. 9.00.';
   assert.equal(auctionDateFromText(plain), '2024-07-11');
 });
 
-// ---------------------------------------------------------------------- fixtures
 
 const ANN_SOBIESKIEGO_TITLE =
   'Prezydent Miasta Siedlce ogłasza przetarg nieograniczony(licytację) na sprzedaż lokalu mieszkalnego położonego w Siedlcach przy ulicy Jana III Sobieskiego 5 oznaczonego Nr 58 z udziałem we współwłasności części domu oraz urządzeń, które nie służą do wyłącznego użytku właścicieli poszczególnych lokali oraz ułamkową częścią gruntu służącego do racjonalnego korzystania z budynku';
@@ -111,9 +71,6 @@ const ANN_PILSUDSKIEGO_BODY = `
 <p><strong>Przetarg odbędzie się w siedzibie Urzędu Miasta Siedlce, Skwer Niepodległości 2 w sali 144 w dniu 4 lipca 2024r. o godz. 10.00.</strong></p>
 `;
 
-// REAL title (search-result/h2 heading) — deliberately carries NO ordinal and
-// no "Prezydent Miasta Siedlce ogłasza" prefix, unlike the flat titles above.
-// The ordinal ("III") only appears in the body's operative opening sentence.
 const ANN_SWIETOJANSKA_TITLE =
   'Przetarg nieograniczony (licytacja) na sprzedaż zabudowanej nieruchomości miejskiej, położonej w Siedlcach przy ulicy Świętojańskiej 4';
 
@@ -127,8 +84,6 @@ const ANN_SWIETOJANSKA_BODY = `
 <p>Nieruchomość zabudowana jest dwukondygnacyjnym budynkiem o funkcji biurowej o powierzchni użytkowej 850,71 m<sup>2</sup>. Budynek wyposażony jest w instalację elektroenergetyczną, wodociągową, gazową, ciepłowniczą, kanalizację sanitarną i deszczową.</p>
 `;
 
-// Round I (first-ever notice for this property, published Nov 2025). Same
-// generic no-ordinal title shape as round III above.
 const ANN_SWIETOJANSKA_R1_TITLE = 'Przetarg na sprzedaż nieruchomości miejskiej przy ulicy Świętojańskiej 4';
 
 const ANN_SWIETOJANSKA_R1_BODY = `
@@ -137,7 +92,6 @@ const ANN_SWIETOJANSKA_R1_BODY = `
 <p><strong>Przetarg odbędzie się w siedzibie Urzędu Miasta Siedlce, Skwer Niepodległości 2 w sali nr 53, w dniu 19 grudnia 2025 r. o godz. 9:00.</strong></p>
 `;
 
-// Round II (published Mar 2026). Again a generic no-ordinal title.
 const ANN_SWIETOJANSKA_R2_TITLE = 'Przetarg na sprzedaż nieruchomości przy ulicy Świętojańskiej 4';
 
 const ANN_SWIETOJANSKA_R2_BODY = `
@@ -146,7 +100,6 @@ const ANN_SWIETOJANSKA_R2_BODY = `
 <p><strong>Przetarg odbędzie się w siedzibie Urzędu Miasta Siedlce, Skwer Niepodległości 2 w sali nr 144, w dniu 9 kwietnia 2026 r. o godz. 9:00.</strong></p>
 `;
 
-// ------------------------------------------------------------ announcement parse
 
 test('parseAnnouncement: flat, bare/I przetarg — address (street+bldg+apt merge), area, price, auction date, round 1', () => {
   const rec = parseAnnouncement(ANN_SOBIESKIEGO_TITLE, ANN_SOBIESKIEGO_BODY, 'https://siedlce.pl/aktualnosci/2024/aktualnosci-06-2024/...-sobieskiego-5-oznaczonego-nr-58...');
@@ -171,7 +124,7 @@ test('parseAnnouncement: flat, II przetarg — apt merge, area, price, auction d
   assert.equal(rec.address.apt, '16');
   assert.equal(rec.area_m2, 50.37);
   assert.equal(rec.starting_price_pln, 340000);
-  assert.equal(rec.auction_date, '2024-07-04'); // NOT '2024-04-24' (the prior negative I przetarg)
+  assert.equal(rec.auction_date, '2024-07-04');
   assert.equal(rec.round, 2);
 });
 
@@ -184,8 +137,8 @@ test('parseAnnouncement: built/office property (zabudowana, not mieszkalny), rou
   assert.equal(rec.address.apt, null);
   assert.equal(rec.area_m2, 850.71);
   assert.equal(rec.starting_price_pln, 3900000);
-  assert.equal(rec.auction_date, '2026-07-29'); // NOT either narrated-negative prior round
-  assert.equal(rec.round, 3); // NOT 1 — regression check for the title-has-no-ordinal bug
+  assert.equal(rec.auction_date, '2026-07-29');
+  assert.equal(rec.round, 3);
 });
 
 test('parseAnnouncement: same property, round I — no-ordinal title, no prior-round narration in body', () => {
@@ -203,10 +156,9 @@ test('parseAnnouncement: same property, round II — no-ordinal title, round rea
   assert.equal(rec.kind, 'zabudowana');
   assert.equal(rec.starting_price_pln, 4300000);
   assert.equal(rec.auction_date, '2026-04-09');
-  assert.equal(rec.round, 2); // NOT 1 — this is exactly the bug the first live refresh hit
+  assert.equal(rec.round, 2);
 });
 
-// ------------------------------------------------------------------ result parse
 
 test('parseResultDoc: no online achieved-price stream — always returns []', () => {
   assert.deepEqual(parseResultDoc('anything', null, 'https://siedlce.pl/x'), []);

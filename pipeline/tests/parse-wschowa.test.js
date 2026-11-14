@@ -1,34 +1,3 @@
-// Wschowa parser tests. Fixtures are faithful copies of REAL board-row field
-// values + REAL extracted result-attachment text, fetched live from
-// bip.gminawschowa.pl (verified 2026-07-11). The WYNIK fixtures were captured
-// by running the actual core docText/pdfText extractors against the live
-// attachment URLs (not paraphrased), exactly like parse-naklo-nad-notecia.test.js.
-//
-//   Lp10  ul. Dworcowej 1/5   — PENDING flat, status=1 row whose Wynik is
-//         genuinely "Brak wyniku" even though the auction date (2025-08-18)
-//         is long past — this board leaves some rows unresolved; treated as
-//         still-pending, matches the spike's Dworcowa 1/5 figures exactly
-//         (60.88 m², 144 000 zł)
-//   Lp28  ul. Bocznej 1a/15   — SOLD (Pozytywny), fetched DOCX
-//         (INFORMACJA_Boczna.docx via core/doc-text.js): 130 000 zł wywoławcza
-//         -> 135 000 zł osiągnięta, explicit "wynikiem pozytywnym"
-//   Lp71  ul. Kilińskiego 11/4 — SOLD (Pozytywny), fetched born-digital PDF
-//         (INFORMACJA_O_WYNIKACH_PRZETARGU-_Kilinskiego_11.pdf via
-//         core/pdf-text.js): 11 100 zł -> 11 220 zł. This document NEVER
-//         states "wynikiem pozytywnym" at all — outcome is inferred from the
-//         achieved price + nabywca, same convention as braniewo/
-//         gorzow-wielkopolski.
-//   Lp44  ul. Bocznej 1a/15   — UNSOLD (Negatywny), built straight from the
-//         board row (no fetch — same no-fetch-negative convention as
-//         miedzyrzecz): 150 000 zł wywoławcza, no achieved price.
-//   Lp1   ul. Cisowa/Jodłowa/Czereśniowa — LAND, status=0 (Ogłoszone), the
-//         ONLY live ACTIVE row as of 2026-07-11: a 9-parcel bundle inside one
-//         "Cena wywoławcza" cell. Embedded below as the exact raw HTML row
-//         (byte-for-byte, incl. its real embedded newlines between lots).
-//   Lp2   ul. Łaziennej 10 — LEASE (najem lokalu użytkowego), not a sale;
-//         must never reach listings/land/results.
-//
-// See spike: spikes/lubuskie/powiat-wschowski/wschowa.md
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -52,10 +21,7 @@ import {
 } from '../src/cities/wschowa/parse.js';
 import { parseBoardPage, boardUrl } from '../src/cities/wschowa/crawl.js';
 
-// --------------------------------------------------------------- real fixtures
 
-// Lp10, status=1 (Rozstrzygnięte), page 1 — matches the spike's Dworcowa 1/5
-// figures exactly (60.88 m², 144 000 zł).
 const DWORCOWA_1_5_PENDING = {
   detailUrl: 'https://bip.gminawschowa.pl/przetargi/29/114/160725_2/',
   dotyczyText:
@@ -72,7 +38,6 @@ const DWORCOWA_1_5_PENDING = {
   ],
 };
 
-// Lp2, status=1, page 1 — a rental (najem lokalu użytkowego), never a sale.
 const LAZIENNA_10_LEASE = {
   detailUrl: 'https://bip.gminawschowa.pl/przetargi/29/130/1_/',
   dotyczyText: 'Przetarg ustny nieograniczony na najem lokalu użytkowego położonego przy ul. Łaziennej 10 we Wschowie',
@@ -83,7 +48,6 @@ const LAZIENNA_10_LEASE = {
   attachments: [],
 };
 
-// Lp44, status=1, page 5 — Negatywny, single clean flat, no bundling.
 const BOCZNA_1A_15_NEGATIVE_ROW = {
   detailUrl:
     'https://bip.gminawschowa.pl/przetargi/29/82/O_G_L_O_S_Z_E_N_I_E_Burmistrz_Miasta_i_Gminy_Wschowa_Oglasza_II_przetarg_ustny_nieograniczony_ul__Bo/',
@@ -96,17 +60,9 @@ const BOCZNA_1A_15_NEGATIVE_ROW = {
   attachments: [],
 };
 
-// Lp28, status=1, page 3 — Pozytywny; real DOCX text extracted live via
-// core/doc-text.js from
-// https://bip.gminawschowa.pl/system/pobierz.php?plik=INFORMACJA_Boczna.docx&id=c3115a63a9e35fea6f450ea804b188fa
 const BOCZNA_1A_15_WYNIK_DOCX =
   'Wschowa, dnia 17 kwietnia 2025 rokuNa podstawie § 12 Rozporządzenia Rady Ministrów z dnia 14 września 2004 r.w sprawie sposobu i trybu przeprowadzania przetargów oraz rokowań na zbycie nieruchomości ( Dz. U. z 2021 r. poz. 2213 ), podaję do publicznej wiadomości:Informację o wyniku przetargu na zbycie nieruchomości lokalowej Gminy Wschowa, który odbył się w dniu 15 kwietnia 2025 r. w siedzibie Urzędu Miasta i Gminy Wschowa ul. Rynek 1, 67-400 Wschowa: 1.IV przetarg ustny nieograniczony na sprzedaż spółdzielczego własnościowego prawa do lokalu mieszkalnego nr 15 o powierzchni użytkowej 27,98 m2, położonego przy ul. Bocznej 1a we Wschowie.Księga wieczysta dla nieruchomości: ZG1W/00028052/3. Cena wywoławcza: 130 000,00 złotych - Przetarg zakończył się wynikiem pozytywnym.- najwyższa cena osiągnięta w przetargu – 135 000,00 zł.,- liczba osób dopuszczonych do uczestnictwa w przetargu – 3,- 3 osoby przybyły na przetarg ,- liczba osób niedopuszczonych do przetargu – 0,- nabywcy lokalu mieszkalnego – Dorota Barbara Kidziak, Mariusz Kidziak,- przetarg zakończył się wynikiem pozytywnym. Zastępca Burmistrza Miasta i Gminy Wschowa /-/ Marek Kraśny';
 
-// Lp71, status=1, page 8 — Pozytywny; real born-digital-PDF text extracted
-// live via core/pdf-text.js from
-// https://bip.gminawschowa.pl/system/pobierz.php?plik=INFORMACJA_O_WYNIKACH_PRZETARGU-_Kilinskiego_11.pdf&id=2b6303a8878a6dff54d9f4c17788b834
-// NOTE: this document never states "wynikiem pozytywnym" — outcome must be
-// inferred from the achieved price ("Cena osiągnięta w przetargu") + nabywca.
 const KILINSKIEGO_11_4_WYNIK_PDF = `                                   Wschowa, dnia 12 kwietnia 2023 roku
 
 
@@ -130,10 +86,6 @@ Cena osiągnięta w przetargu: 11 220,00 złotych
 
 Nabywca: Urszula, Marek Szczepaniak`;
 
-// Lp1, status=0 (Ogłoszone) — the ONLY live ACTIVE row as of 2026-07-11.
-// Exact raw HTML, byte-for-byte (incl. the cell's real embedded newlines
-// between the 9 bundled parcels), from
-// https://bip.gminawschowa.pl/przetargi/29/status/0/
 const CISOWA_LAND_BUNDLE_ROW_HTML = `<tr class="odd">
 			<td class="td-no"><span>Lp: </span>1</td>
 			<td class="td-date-1"><div>Data ogłoszenia</div>2026-04-27 00:00:00</td>
@@ -168,13 +120,12 @@ Cena wywoławcza nieruchomości: 123.000,00 zł brutto (100.000,00 zł netto)</t
 	</td>
 		</tr>`;
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: dot-thousands, space-thousands, and unseparated amounts', () => {
   assert.equal(parsePLN('70.343,00'), 70343);
   assert.equal(parsePLN('144 000,00'), 144000);
-  assert.equal(parsePLN('150000,00'), 150000); // no thousands separator at all (real live data)
-  assert.equal(parsePLN('10000'), 10000); // no separator, no grosze
+  assert.equal(parsePLN('150000,00'), 150000);
+  assert.equal(parsePLN('10000'), 10000);
   assert.equal(parsePLN('brak'), null);
 });
 
@@ -202,10 +153,9 @@ test('parcelNoFromText', () => {
 
 test('roundFromText: roman numeral anchored on "<numeral> przetarg", traps rejected', () => {
   assert.equal(roundFromText('IV przetarg ustny nieograniczony na sprzedaż'), 4);
-  assert.equal(roundFromText('odbył się: II-gi         przetarg ustny ograniczony'), 2); // PDF layout spacing + "-gi" ordinal suffix
+  assert.equal(roundFromText('odbył się: II-gi         przetarg ustny ograniczony'), 2);
   assert.equal(roundFromText('I przetarg ustny ograniczony do mieszkańców wspólnoty'), 1);
   assert.equal(roundFromText('DO OGŁOSZENIA BURMISTRZA MIASTA I GMINY WSCHOWA IV PRZETARGU USTNEGO NIEOGRANICZONEGO'), 4);
-  // traps: a bare roman numeral NOT immediately followed by "przetarg" must not match
   assert.equal(roundFromText('składający się z pokoju położonym na II piętrze przy ul. Kilińskiego nr 11'), null);
   assert.equal(roundFromText('II WYCIĄG z dnia 12.03.2025 r. DO OGŁOSZENIA'), null);
   assert.equal(roundFromText('Sprzedaż lokalu mieszkalnego Nr 5 położonego przy ul. Dworcowej 1'), null);
@@ -228,7 +178,6 @@ test('extractFlatAddress: direct "ul. X N", "ul. X nr N", budynek-nr fallback, m
     ),
     'Kilińskiego 11/4',
   );
-  // "budynku nr N przy ul. <street with no number>" fallback (Rynek/Kostki phrasing)
   assert.equal(
     extractFlatAddress(
       '1.Lokal mieszkalny nr 1 o powierzchni 49,95 m2, położony na parterze budynku nr 9 przy ul. Rynek we Wschowie - 70.343,00 zł + VAT (zwolniony).',
@@ -241,9 +190,6 @@ test('extractFlatAddress: direct "ul. X N", "ul. X nr N", budynek-nr fallback, m
     ),
     'Księdza Kostki 32A/2',
   );
-  // no explicit "lokal … nr N" -> unkeyable, returns null (a real bundled-item
-  // shape seen live: the Kilińskiego 3 item in a 2020 3-lot bundle never
-  // states a lokal number)
   assert.equal(
     extractFlatAddress('Lokal mieszkalny o powierzchni 55,45 m2, położony przy ul. Kilińskiego nr  3 we Wschowie - 88.418,00 zł'),
     null,
@@ -251,8 +197,6 @@ test('extractFlatAddress: direct "ul. X N", "ul. X nr N", budynek-nr fallback, m
 });
 
 test('extractFlatAddress: a wynik document preamble naming the AUCTION VENUE must not win over the flat address', () => {
-  // The real Boczna 1a/15 wynik DOCX names "ul. Rynek 1" (Urząd Miasta i
-  // Gminy Wschowa's address) BEFORE ever mentioning the flat itself.
   assert.equal(extractFlatAddress(BOCZNA_1A_15_WYNIK_DOCX), 'Bocznej 1A/15');
 });
 
@@ -260,7 +204,7 @@ test('isLeaseRow / isFlatSaleRow', () => {
   assert.equal(isLeaseRow(LAZIENNA_10_LEASE.dotyczyText), true);
   assert.equal(isFlatSaleRow(LAZIENNA_10_LEASE.dotyczyText), false);
   assert.equal(isFlatSaleRow(DWORCOWA_1_5_PENDING.dotyczyText), true);
-  assert.equal(isFlatSaleRow('II przetarg … sprzedaż nieruchomości … Cisowej, Jodłowej, Czereśniowej'), false); // land, not a flat
+  assert.equal(isFlatSaleRow('II przetarg … sprzedaż nieruchomości … Cisowej, Jodłowej, Czereśniowej'), false);
 });
 
 test('splitNumberedItems: bundled cell vs single-item cell', () => {
@@ -274,7 +218,6 @@ test('splitNumberedItems: bundled cell vs single-item cell', () => {
   assert.deepEqual(splitNumberedItems(''), []);
 });
 
-// ------------------------------------------------------------- active listings
 
 test('recordsFromActiveRow: pending flat (Dworcowa 1/5) — no bundling, address from Dotyczy, price bare in Cena cell', () => {
   const { listings, land } = recordsFromActiveRow(DWORCOWA_1_5_PENDING);
@@ -322,7 +265,6 @@ test('recordsFromActiveRow: land bundle (Cisowa/Jodłowa/Czereśniowa, 9 parcels
     land.map((l) => l.dzialka_nr),
     ['138/1', '138/4', '138/7', '138/8', '138/5', '138/2', '138/6', '138/9', '138/3'],
   );
-  // every lot shares the row's own round/date (a bundled cell doesn't restate them per-item)
   assert.ok(land.every((l) => l.round === 2 && l.auction_date === '2026-07-15'));
 });
 
@@ -332,7 +274,6 @@ test('recordsFromActiveRow: lease-skip (Łaziennej 10, najem lokalu użytkowego)
   assert.equal(land.length, 0);
 });
 
-// ----------------------------------------------------------------- result records
 
 test('parseResultDoc: SOLD via DOCX with explicit "wynikiem pozytywnym" (Boczna 1a/15)', () => {
   const out = parseResultDoc(
@@ -428,7 +369,6 @@ test('parseResultDoc: land and non-flat text never produce a record (flats-only 
   assert.deepEqual(parseResultDoc(null), []);
 });
 
-// ----------------------------------------------------------- board + pagination
 
 test('boardUrl: page 1 omits the page segment, page >1 inserts it before /status/', () => {
   assert.equal(boardUrl(0, 1), 'https://bip.gminawschowa.pl/przetargi/29/status/0/');
@@ -445,10 +385,8 @@ test('parseBoardPage: real raw HTML row — dates, Dotyczy/Wynik label stripped,
   assert.equal(row.announcedDate, '2026-04-27 00:00:00');
   assert.equal(row.auctionDateRaw, '2026-07-15 00:00:00');
   assert.match(row.dotyczyText, /Cisowej, Jodłowej, Czereśniowej/);
-  // the "Wynik" label itself must NOT leak into the cell value
   assert.equal(row.wynikText, 'Negatywny');
   assert.equal(row.attachments.length, 3);
   assert.equal(row.attachments[2].filename, 'WYNIK_PRZETARGU_15.07.2026.pdf');
-  // the bundled cell's real embedded newlines must survive board parsing
   assert.equal(splitNumberedItems(row.cenaText).length, 9);
 });

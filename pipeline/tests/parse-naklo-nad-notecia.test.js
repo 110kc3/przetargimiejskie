@@ -1,34 +1,3 @@
-// Nakło nad Notecią parser tests. Fixtures are faithful copies of REAL XML
-// field values + REAL extracted result-attachment text, fetched live from
-// bip.gmina-naklo.pl (verified 2026-07-10). The WYNIK fixtures were captured
-// by running the actual core pdfText/docText extractors against the live
-// attachment URLs (not paraphrased), so the parsers are groundtruthed against
-// production data exactly like parse-chelmno.test.js.
-//
-//   record 7659  ul. gen. H. Dąbrowskiego 29/15 — PENDING, round III (Trzeci),
-//                80 945 zł, przetarg 31.07.2026 (dates/price cross-checked
-//                against the spike file)
-//   record 7213  ul. gen. H. Dąbrowskiego 44/6  — UNSOLD (wynikiem
-//                negatywnym), round I (Pierwszy), 115 625 zł — WYNIK is a
-//                .docx (content-type verified: OOXML wordprocessingml)
-//   record 7418  ul. Działkowa 8/29, Potulice   — SOLD via II rokowania,
-//                176 738 zł wywoławcza → 177 000 zł achieved (rokowania
-//                phrasing: "w wysokości X zł", NOT Chełmno's "za cenę X zł")
-//                — WYNIK is a text PDF
-//   record 1570  Działki 1554/5 i in., obręb Paterek — LAND, SOLD via plain
-//                przetarg/licytacja, 2 302 240 zł wywoławcza → 2 326 240 zł
-//                achieved (plain-przetarg phrasing: "za cenę X złotych",
-//                space-thousands + spelled-out "złotych")
-//   record 4401  dz. ewid. nr 317, Lubaszcz — NAJEM (lease) of a garage,
-//                "800,00 zł/brutto/rocznie" → skipped, never reaches parse
-//   record 7789  dz. ewid. nr 2564/17, ul. Młyńska — LAND, PENDING (przetarg
-//                03.09.2026)
-//
-// Nakło's <tresc> is always empty (verified across every record fetched) —
-// the free-text body lives entirely in <przetarg-na>, which opens DIRECTLY
-// with the round ordinal (no "ogłasza" preamble, no prior-round-history trap
-// like Chełmno's tresc) and does NOT restate "Cena wywoławcza wynosi" inline
-// — starting price comes from the structured cena-wywolawcza field instead.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -49,7 +18,6 @@ import {
 } from '../src/cities/naklo-nad-notecia/parse.js';
 import { parseBoardPage, resultAttachmentUrl } from '../src/cities/naklo-nad-notecia/crawl.js';
 
-// --------------------------------------------------------------- real fixtures
 
 const DABROWSKIEGO_29_15_PENDING = {
   adres: 'ul. gen. H. Dąbrowskiego 29/15, Nakło nad Notecią',
@@ -72,8 +40,6 @@ const DABROWSKIEGO_44_6_UNSOLD = {
   przetargNa:
     'Pierwszy przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 6 położonego przy ulicy gen. H. Dąbrowskiego 44 w Nakle nad Notecią wraz z udziałem we własności nieruchomości wspólnej wynoszącym 120/1000. Lokal mieszkalny o pow. użytkowej 34,06 m2, składa się z jednego pokoju 20,27 m2, kuchni 6,65 m2, łazienki 7,14 m2, do lokalu przynależy pomieszczenie gospodarcze 9,35 m2 zlokalizowane w budynku gospodarczym położonym na tej samej działce.Lokal znajduje się na pierwszym piętrze-poddasze budynku mieszkalnego (2 kondygnacji). Wyposażony jest w instalację elektryczną, wodno-kanalizacyjną, gaz, ogrzewanie: było etażowe (wymontowany piec i grzejniki); posadzki: płyty wiórowe, płytki ceramiczne, okna PCV; stolarka: drzwi wewnętrznych brak. Lokal jest wolny od obciążeń i zobowiązań.',
   tresc: '',
-  // real .docx text, extracted live via core/doc-text.js from
-  // attachments/download/15054 ("Informacja o przetargu Dąbrowskiego 44-6.docx")
   wynik:
     'Nakło nad Notecią, dnia 24 marca 2026 roku\n\nINFORMACJA\n\nz planowanego przeprowadzonego pierwszego przetargu ustnego nieograniczonego                     na sprzedaż lokalu mieszkalnego nr 6 zlokalizowanego na pierwszym piętrze budynku mieszkalnego przy ul. gen. H. Dąbrowskiego 44 w Nakle nad Notecią, składającego                                    się z jednego pokoju, kuchni i w.c. o łącznej pow. użytkowej 34,06 m² do lokalu przynależy pomieszczenie gospodarcze o pow. 9,35 m² wraz z udziałem wynoszącym 120/1000                                we własności działki i w częściach wspólnych nieruchomości oznaczonej numerem ewidencyjnym 2198, o pow. 0,0827 ha uregulowanej w księdze wieczystej                                                    nr BY1N/00008217/9 prowadzonej przez Sąd Rejonowy w Nakle nad Notecią IV Wydział Ksiąg Wieczystych.\n W dniu 17 marca 2026 roku planowano przeprowadzić pierwszy przetarg ustny nieograniczony na sprzedaż wyżej wymienionego lokalu mieszkalnego. Komisja przetargowa powołana Zarządzeniem Nr 47/2026 Burmistrza Miasta i Gminy Nakło nad Notecią                                z dnia 13 marca 2026 r., stwierdziła, że nie zostało wpłacone w określonej wysokości                           i terminie wadium na kupno opisanego wyżej lokalu mieszkalnego, a więc przetarg zakończył                           się wynikiem negatywnym. \nWobec powyższego Komisja przetargowa wnioskowała o przeznaczenie przedmiotowej nieruchomości do sprzedaży w drodze II przetargu ustnego nieograniczonego.',
 };
@@ -87,8 +53,6 @@ const DZIALKOWA_8_29_SOLD_ROKOWANIA = {
   przetargNa:
     'Drugie rokowania po pierwszych rokowaniach zakończonych wynikiem negatywnym na sprzedaż lokalu mieszkalnego nr 29 położonego w miejscowości Potulice przy ul. Działkowej 8 wraz z udziałem we własności wspólnej wynoszącym 327/10000. Lokal mieszkalny o powierzchni użytkowej 67,80 m2, składa się z dwóch pokoi 29,65 m2 i 11,34 m2, kuchni 12,82 m2, łazienki 3,63 m2, WC 1,30 m2 i przedpokoju 9,06 m2; z przynależną piwnicą o powierzchni 3,70 m2, znajduje się na drugim piętrze budynku. Nie posiada balkonu. Wyposażony jest w instalację elektryczną, wodno-kanalizacyjną, ogrzewanie: CO z lokalnej kotłowni, grzejniki konwektorowe; posadzki: wykładzina podłogowa, płytki ceramiczne, okna z PCV.Lokal posiada świadectwa charakterystyki energetycznej. Lokal wolny jest od obciążeń i zobowiązań.',
   tresc: '',
-  // real text PDF, extracted live via core/pdf-text.js from
-  // attachments/download/15285 ("Informacja o wyniku rokowań")
   wynik:
     'Nakło nad Notecią, dnia 22 kwietnia 2026 roku\n\n\n\n\n                                      Informacja\n                               o wyniku drugich rokowań\n\n\n       Burmistrz Miasta i Gminy Nakło nad Notecią na podstawie art. 39 ust. 2 ustawy\nz dnia 21 sierpnia 1997 r. o gospodarce nieruchomościami (Dz. U. z 2026 r. poz. 399)\noraz § 25 rozporządzenia Rady Ministrów z dnia 14 września 2004 r. w sprawie\nsposobu i trybu przeprowadzania przetargów oraz rokowań na zbycie nieruchomości\n(Dz. U. z 2021 r. poz. 2213), informuje, że w dniu 15 kwietnia 2026 r. w Urzędzie Miasta\ni Gminy w Nakle nad Notecią przeprowadzone zostały II rokowania, na sprzedaż lokalu\nmieszkalnego nr 29 zlokalizowanego na drugim piętrze budynku mieszkalnego\nprzy ul. Działkowej 8 w Potulicach, składającego się z dwóch pokoi, kuchni łazienki, WC\noraz przedpokoju o łącznej pow. użytkowej 67,80 m² z przynależną piwnicą o pow. 3,70 m²\nwraz z udziałem wynoszącym 327/10000 we własności działki i w częściach wspólnych\nnieruchomości oznaczonej numerem ewidencyjnym 13/56 o pow. 0,3621 ha uregulowanej\nw Księdze Wieczystej nr BY1N/00019912/1 prowadzonej przez Sąd Rejonowy w Nakle\nnad Notecią IV Wydział Ksiąg Wieczystych.\n\nDo rokowań przystąpił 1 oferent.\nOsób niedopuszczonych do uczestnictwa w przetargu nie było.\nCena wywoławcza nieruchomości – 176.738,00 zł.\nW wyniku przeprowadzonych rokowań nabywcą nieruchomości została: Wiktoria Sobiech\nktóra zaproponowała cenę nabycia przedmiotowej nieruchomości w wysokości 177.000,00 zł.\n\n\n\n\n                                                                  Z up. Burmistrza\n                                                                 mgr Angelika Szachta\n                                                                   Dyrektor Wydziału',
 };
@@ -103,8 +67,6 @@ const PATEREK_LAND_SOLD = {
   przetargNa:
     'Z zasobu nieruchomości, stanowiących własność Gminy Nakło nad Notecią przeznacza się do sprzedaży niezabudowane nieruchomości gruntowe, położone w obrębie Paterek, przy ulicy Nadnotecki Park Przemysłowy, oznaczone w ewidencji gruntów jako działki nr: 1554/5 o pow. 0,3501 ha, 1554/16 o pow. 0,6500 ha, dla których Sąd Rejonowy w Nakle nad Notecią - IV Wydział Ksiąg Wieczystych prowadzi księgę wieczystą KW nr BY1N/00033048/7; 1554/17 o pow. 2,3354 ha, dla której Sąd Rejonowy w Nakle nad Notecią- IV Wydział Ksiąg Wieczystych prowadzi księgę wieczystą Kw nr BY1N/00014776/0; 1554/6 o pow. 1,0003 ha, dla której Sąd Rejonowy w Nakle nad Notecią - IV Wydział Ksiąg Wieczystych prowadzi księgę wieczystą nr Kw nr BY1N/00032540/9; 98/22 o pow. 0,5381 ha, 98/20 o pow. 0,0071 ha i 98/11 o pow. 0,0356 ha, dla których Sąd Rejonowy w Nakle nad Notecią - IV Wydział Ksiąg Wieczystych prowadzi księgę wieczystą Kw nr BY1N/00013360/4. Przetarg obejmuje przedmiotowe nieruchomości jako jeden kompleks.',
   tresc: '',
-  // real text PDF, extracted live via core/pdf-text.js from
-  // attachments/download/3411 ("Informacja o wyniku przetargu")
   wynik:
     'Nakło nad Notecią, dnia 6 grudnia 2021 roku Informacja o wyniku przetargu ustnego nieograniczonego Burmistrz Miasta i Gminy Nakło nad Notecią stosownie do § 12 Rozporządzenia Rady Ministrów z dnia 14 września 2004 r. w sprawie sposobu i trybu przeprowadzenia przetargów oraz rokowań na zbycie nieruchomości (Dz. U. z 2014 r. poz. 1490) informuje, że w dniu 26 listopada 2021 r. w Urzędzie Miasta i Gminy w Nakle nad Notecią przeprowadzony został pierwszy przetarg ustny nieograniczony, na sprzedaż niezabudowanych nieruchomości gruntowych, oznaczonych w ewidencji gruntów jako działki nr: - 1554/5 o pow. 0,3501 ha, 1554/16 o pow. 0,6500 ha, dla których Sąd Rejonowy w Nakle nad Notecią - IV Wydział Ksiąg Wieczystych prowadzi księgę wieczystą Kw nr BY1N/00033048/7 - 1554/17 o pow. 2,3354 ha, dla której Sąd Rejonowy w Nakle nad Notecią - IV Wydział Ksiąg Wieczystych prowadzi księgę wieczystą Kw nr BY1N/00014776/0 - 1554/6 o pow. 1,0003 ha, dla której Sąd Rejonowy w Nakle nad Notecią - IV Wydział Ksiąg Wieczystych prowadzi księgę wieczystą Kw nr BY1N/00032540/9 - 98/22 o pow. 0,5381 ha , 98/20 o pow. 0,0071 ha i 98/11 o pow. 0,0356 ha, dla których Sąd Rejonowy w Nakle nad Notecią - IV Wydział Ksiąg Wieczystych prowadzi księgę wieczystą Kw nr BY1N/00013360/4. Do przetargu przystąpił 1 oferent. Osób niedopuszczonych do uczestnictwa w przetargu nie było. Cena wywoławcza nieruchomości – 2 302 240,00 złotych. W wyniku licytacji nabywcą nieruchomości został: Przedsiębiorstwo Handlowo-Produkcyjne Eksport-Import Włodzimierz Kawczyński, za cenę 2 326 240,00 złotych.',
 };
@@ -131,7 +93,6 @@ const LUBASZCZ_GARAGE_LEASE = {
   tresc: '',
 };
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: dot-thousands, space-thousands, grosze tail', () => {
   assert.equal(parsePLN('80.945,00'), 80945);
@@ -142,23 +103,20 @@ test('parsePLN: dot-thousands, space-thousands, grosze tail', () => {
 });
 
 test('roundFromText: ordinal anchored at the START of przetarg-na (no "ogłasza" preamble)', () => {
-  assert.equal(roundFromText(buildRecordText(DABROWSKIEGO_29_15_PENDING)), 3); // Trzeci
-  assert.equal(roundFromText(buildRecordText(DABROWSKIEGO_44_6_UNSOLD)), 1); // Pierwszy
-  assert.equal(roundFromText(buildRecordText(DZIALKOWA_8_29_SOLD_ROKOWANIA)), 2); // Drugie rokowania
-  assert.equal(roundFromText(buildRecordText(MLYNSKA_LAND_PENDING)), 1); // Pierwszy
+  assert.equal(roundFromText(buildRecordText(DABROWSKIEGO_29_15_PENDING)), 3);
+  assert.equal(roundFromText(buildRecordText(DABROWSKIEGO_44_6_UNSOLD)), 1);
+  assert.equal(roundFromText(buildRecordText(DZIALKOWA_8_29_SOLD_ROKOWANIA)), 2);
+  assert.equal(roundFromText(buildRecordText(MLYNSKA_LAND_PENDING)), 1);
 });
 
 test('auctionDateFromText: the spaced-dot data-przetargu field, cross-checked against the spike', () => {
-  // spike: "Dąbrowskiego 29/15 ... przetarg 31.07.2026"
   assert.equal(auctionDateFromText(buildRecordText(DABROWSKIEGO_29_15_PENDING)), '2026-07-31');
   assert.equal(auctionDateFromText(buildRecordText(DABROWSKIEGO_44_6_UNSOLD)), '2026-03-17');
-  // spike: "Działkowa 8/29, Potulice — rokowania, 176 738 zł, 15.04.2026"
   assert.equal(auctionDateFromText(buildRecordText(DZIALKOWA_8_29_SOLD_ROKOWANIA)), '2026-04-15');
   assert.equal(auctionDateFromText(buildRecordText(PATEREK_LAND_SOLD)), '2021-11-26');
 });
 
 test('startingPriceFromText: from the structured cena-wywolawcza field', () => {
-  // spike: "Dąbrowskiego 29/15 ... cena wywoławcza 80 945 zł"
   assert.equal(startingPriceFromText(buildRecordText(DABROWSKIEGO_29_15_PENDING)), 80945);
   assert.equal(startingPriceFromText(buildRecordText(DABROWSKIEGO_44_6_UNSOLD)), 115625);
   assert.equal(startingPriceFromText(buildRecordText(DZIALKOWA_8_29_SOLD_ROKOWANIA)), 176738);
@@ -167,11 +125,8 @@ test('startingPriceFromText: from the structured cena-wywolawcza field', () => {
 });
 
 test('achievedPriceFromText: two phrasings — plain-przetarg "za cenę X złotych" and rokowania "w wysokości X zł"', () => {
-  // rokowania phrasing: "... zaproponowała cenę nabycia ... w wysokości 177.000,00 zł."
   assert.equal(achievedPriceFromText(buildRecordText(DZIALKOWA_8_29_SOLD_ROKOWANIA)), 177000);
-  // plain-przetarg phrasing: "... za cenę 2 326 240,00 złotych."
   assert.equal(achievedPriceFromText(buildRecordText(PATEREK_LAND_SOLD)), 2326240);
-  // unsold: no buyer named ⇒ no achieved price
   assert.equal(achievedPriceFromText(buildRecordText(DABROWSKIEGO_44_6_UNSOLD)), null);
 });
 
@@ -191,7 +146,6 @@ test('gates: hasResolution, isLease, isNegativeOutcome', () => {
   assert.equal(isNegativeOutcome(buildRecordText(DZIALKOWA_8_29_SOLD_ROKOWANIA)), false);
 });
 
-// ------------------------------------------------------------- active listings
 
 test('parseAnnouncement: PENDING flat (real fixture, Dąbrowskiego 29/15) → active listing', () => {
   const rec = parseAnnouncement(buildRecordText(DABROWSKIEGO_29_15_PENDING));
@@ -217,12 +171,9 @@ test('parseAnnouncement: land (niezabudowana, real fixture Młyńska) → kind g
 });
 
 test('parseAnnouncement: lease (najem, Lubaszcz garage) never reaches an active listing', () => {
-  // crawl.js's isLease() gate skips these before parseAnnouncement is ever
-  // called on them — asserted directly against the real fixture here.
   assert.equal(isLease(buildRecordText(LUBASZCZ_GARAGE_LEASE)), true);
 });
 
-// ----------------------------------------------------------------- result records
 
 test('parseResultDoc: Dąbrowskiego 44/6 UNSOLD (round I, wynikiem negatywnym)', () => {
   const [r] = parseResultDoc(
@@ -271,7 +222,6 @@ test('parseResultDoc: returns [] for a pending (no result attachment) record', (
   assert.deepEqual(parseResultDoc(buildRecordText(DABROWSKIEGO_29_15_PENDING), null, 'x'), []);
 });
 
-// ----------------------------------------------------------- board + attachment XML
 
 test('parseBoardPage: extracts record ids + urls from real board XML shape', () => {
   const xml = `
@@ -285,7 +235,6 @@ test('parseBoardPage: extracts record ids + urls from real board XML shape', () 
 });
 
 test('resultAttachmentUrl: picks the "Informacja o wyniku ..." attachment, ignores others', () => {
-  // shape mirrors record 7213's real <zalaczniki> (2 non-result + 1 result)
   const xml = `
     <zalacznik><url>https://bip.gmina-naklo.pl/attachments/download/14659</url><nazwa>Ogłoszenie Burmistrza Miasta i Gminy Nakło nad Notecią, z dnia 7 stycznia 2026 r.</nazwa></zalacznik>
     <zalacznik><url>https://bip.gmina-naklo.pl/attachments/download/14660</url><nazwa>Regulamin i Warunki Pierwszego przetargu ustnego nieograniczonego</nazwa></zalacznik>
@@ -294,7 +243,6 @@ test('resultAttachmentUrl: picks the "Informacja o wyniku ..." attachment, ignor
 });
 
 test('resultAttachmentUrl: returns null when no result attachment exists yet (still pending)', () => {
-  // shape mirrors record 7659's real <zalaczniki> (announcement + regulamin only)
   const xml = `
     <zalacznik><url>https://bip.gmina-naklo.pl/attachments/download/15509</url><nazwa>Ogłoszenie Burmistrza Miasta i Gminy Nakło nad Notecią, z dnia 11 maja 2026 r.</nazwa></zalacznik>
     <zalacznik><url>https://bip.gmina-naklo.pl/attachments/download/15510</url><nazwa>Regulamin i Warunki Trzeciego Przetragu Nieograniczonego</nazwa></zalacznik>`;

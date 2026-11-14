@@ -1,69 +1,5 @@
-// Pisz parser tests. Fixtures are the REAL title + podtytul + body (crawl.js's
-// extractDetail() output) fetched live from bip.pisz.hi.pl on 2026-07-10, so
-// every parser is groundtruthed against production data exactly like
-// parse-zgorzelec.test.js / parse-naklo-nad-notecia.test.js.
-//
-//   wiad 29472  Pisz, ul. Klementowskiego 6/4 — FLAT announcement, round II
-//               (word ordinal "drugi"), 235 000 zł, przetarg 14.10.2025
-//               (decoy: "2. Pierwszy przetarg ... został przeprowadzony w
-//               dniu 16 czerwca 2025 r." — past round history, must lose).
-//   wiad 28368  Pisz, ul. Klementowskiego 6/3 — FLAT wykaz, GENUINE
-//               pre-auction (closes "8. Sprzedaż nieruchomości nastąpi w
-//               drodze przetargu.", no bonifikata/najemca language anywhere)
-//               -> kept in crawlActive().wykaz.
-//   wiad 29789  Klementowskiego 6/4 — FLAT result, UNSOLD ("wynikiem
-//               negatywnym ponieważ nikt nie przystąpił do przetargu").
-//   wiad 30881  obręb Karwik, dz. 69/4 — LAND announcement, round II, 70 000
-//               zł, przetarg 24.06.2026.
-//   wiad 31101  obręb Karwik, dz. 69/4 — LAND result, UNSOLD (same parcel,
-//               later round).
-//   wiad 29371  obręb Pisz 2, dz. 450/34 i 450/38 — LAND result, SOLD via a
-//               RESTRICTED ("ograniczony") tender: 12 700 zł wywoławcza ->
-//               100 000 zł achieved. TWO groundtruthed traps: (a) a WADIUM
-//               amount ("wadium w wysokości 2.500,00 zł") is stated BEFORE
-//               the real achieved-price clause ("najwyższej zaoferowanej
-//               ceny w wysokości 100.000,00 zł") — achievedPriceFromText
-//               must not grab the wadium; (b) the parcel count is stated as
-//               genitive-plural "działek" (not "działka/działki"), which the
-//               SHARED core/classify-kind.js LAND_RE (anchored on literal
-//               "dzia[łl]k", i.e. "k" directly after "ł") does NOT match —
-//               kindFromText has a local gap-patch fallback for this (see
-//               parse.js LAND_FALLBACK_RE).
-//   wiad 30743  obręb Pisz 1, dz. 1886/24 — LAND announcement, round I,
-//               RESTRICTED tender ("ograniczony do współwłaścicieli"). Trap:
-//               the restricted-eligibility clause names the ADJACENT
-//               co-owner's parcel too ("...oznaczonej numerem działki 1886/8
-//               przyległa do nieruchomości oznaczonej numerem 1886/24") —
-//               landPlotsFromText must return ONLY 1886/24, not both.
-//   wiad 31080  Pisz, ul. Lipowa 9/26 — FLAT wykaz that LOOKS genuine by
-//               title ("Wykaz nieruchomości przeznaczonych do sprzedaży
-//               (lokal - ul. Lipowa)", same shape as 28368) but the body
 //               states "Lokal mieszkalny jest przedmiotem sprzedaży NA RZECZ
-//               NAJEMCY ... bonifikaty 95%" — a BEZPRZETARGOWO (non-auction,
-//               to-the-sitting-tenant) sale. THE classification challenge on
-//               this board: title alone cannot distinguish this from 28368.
-//   wiad 31191  "Wykaz nieruchomości przeznaczonej do wydzierżawienia (Pisz
-//               1, cz. dz. nr 1886/25)" — LEASE wykaz, skipped.
-//   wiad 30531  "Ogłoszenie o VI przetargu publicznym" / podtytul "na
-//               sprzedaż samochodu osobowego marki Skoda ..." — the board's
-//               occasional CAR-sale notices share the round/title shape with
-//               real estate announcements but its <tresc> is empty (PDF-only
-//               attachment, not extracted by this html-source adapter); the
-//               "nieruchomo..." requirement in isSaleAuction keeps it out.
-//
-// Two real parser bugs were found groundtruthing these fixtures and fixed:
-//   * \w* is ASCII-only in JS regex (does not match "ł") — "przeprowadzi\w*"
-//     stopped dead before the real inflection "przeprowadziła" (feminine,
-//     agreeing with "komisja"), so the required "\s+" after it never matched
-//     and auctionDateFromText/isResultDoc silently missed every RESULT doc's
-//     date. Fixed to \S* (isResultDoc, auctionDateFromText,
-//     achievedPriceFromText — the last defensively, for "cenę").
-//   * landPlotsFromText's comma-continuation ("...(?:i|,|oraz)...") absorbed
-//     the NEXT enumerated line's leading digit ("2. Numer działki – 232/8,
 //     3. Numer KW – ..." parsed as parcels "232/8" AND "3"), and a global
-//     scan (not just the first match) folded in the restricted-tender
-//     neighboring-parcel decoy above. Fixed: single match, "i"/"oraz"
-//     word-boundary joins only (never a bare comma).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -95,7 +31,6 @@ import {
 } from '../src/cities/pisz/parse.js';
 import { parseBoardPage, discoverYearBoards, extractDetail, boardDateToIso } from '../src/cities/pisz/crawl.js';
 
-// --------------------------------------------------------------- real fixtures
 
 const FLAT_KLEMENTOWSKIEGO_6_4_II = {
   title: 'Ogłoszenie o drugim przetargu na sprzedaż nieruchomości (Klementowskiego 6/4)',
@@ -159,7 +94,6 @@ const CAR_SALE_VI = {
 
 const b = (f) => buildRecordText(f);
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: dot-thousands+grosze, space-thousands (no grosze)', () => {
   assert.equal(parsePLN('235.000,00'), 235000);
@@ -172,9 +106,9 @@ test('parsePLN: dot-thousands+grosze, space-thousands (no grosze)', () => {
 test('doc-type gates: isSaleAuction requires przetarg + sprzedaż + nieruchomo (excludes the car notice)', () => {
   assert.equal(isSaleAuction(b(FLAT_KLEMENTOWSKIEGO_6_4_II)), true);
   assert.equal(isSaleAuction(b(LAND_KARWIK_69_4_ANNOUNCE)), true);
-  assert.equal(isSaleAuction(b(LAND_DZ1886_24_RESTRICTED_ANNOUNCE)), true); // "ograniczony" is still a sale
-  assert.equal(isSaleAuction(b(FLAT_KLEMENTOWSKIEGO_6_3_WYKAZ)), true); // wykaz text also says przetarg+sprzedaż
-  assert.equal(isSaleAuction(b(CAR_SALE_VI)), false); // no "nieruchomo..." anywhere (empty tresc)
+  assert.equal(isSaleAuction(b(LAND_DZ1886_24_RESTRICTED_ANNOUNCE)), true);
+  assert.equal(isSaleAuction(b(FLAT_KLEMENTOWSKIEGO_6_3_WYKAZ)), true);
+  assert.equal(isSaleAuction(b(CAR_SALE_VI)), false);
 });
 
 test('hasScheduledDate: true for announcements, false for results/wykaz', () => {
@@ -193,31 +127,25 @@ test('isResultDoc: past-tense "komisja przetargowa przeprowadziła w dniu", not 
 
 test('isWykazNotice: genuine pre-auction wykaz, title-anchored', () => {
   assert.equal(isWykazNotice(b(FLAT_KLEMENTOWSKIEGO_6_3_WYKAZ)), true);
-  assert.equal(isWykazNotice(b(BEZPRZETARGOWO_LIPOWA)), true); // same TITLE shape — isBezprzetargowo is what excludes it
-  assert.equal(isWykazNotice(b(FLAT_KLEMENTOWSKIEGO_6_4_II)), false); // a real announcement, not a wykaz
+  assert.equal(isWykazNotice(b(BEZPRZETARGOWO_LIPOWA)), true);
+  assert.equal(isWykazNotice(b(FLAT_KLEMENTOWSKIEGO_6_4_II)), false);
 });
 
 test('THE classification challenge: isLease / isBezprzetargowo / isExchange skip gates', () => {
-  // LEASE wykaz ("do wydzierżawienia") — never a sale.
   assert.equal(isLease(b(LEASE_WYKAZ_1886_25)), true);
   assert.equal(isLease(b(FLAT_KLEMENTOWSKIEGO_6_4_II)), false);
   assert.equal(isLease(b(FLAT_KLEMENTOWSKIEGO_6_3_WYKAZ)), false);
-  // BEZPRZETARGOWO (to-the-sitting-tenant, 95% bonifikata) — same TITLE shape
-  // as a genuine wykaz ("Wykaz nieruchomości przeznaczonych do sprzedaży
-  // (lokal - ul. X)"), only the BODY ("na rzecz najemcy" / "bonifikaty 95%")
-  // tells them apart. This is the main challenge on this board.
   assert.equal(isBezprzetargowo(b(BEZPRZETARGOWO_LIPOWA)), true);
-  assert.equal(isBezprzetargowo(b(FLAT_KLEMENTOWSKIEGO_6_3_WYKAZ)), false); // genuine — "w drodze przetargu"
+  assert.equal(isBezprzetargowo(b(FLAT_KLEMENTOWSKIEGO_6_3_WYKAZ)), false);
   assert.equal(isBezprzetargowo(b(FLAT_KLEMENTOWSKIEGO_6_4_II)), false);
   assert.equal(isBezprzetargowo(b(LAND_KARWIK_69_4_ANNOUNCE)), false);
   assert.equal(isExchange(b(FLAT_KLEMENTOWSKIEGO_6_4_II)), false);
 });
 
 test('roundFromText: word ordinal anchored on "ogłasza <word>", prior-round history ignored', () => {
-  assert.equal(roundFromText(b(FLAT_KLEMENTOWSKIEGO_6_4_II)), 2); // "ogłasza drugi ... przetarg"
+  assert.equal(roundFromText(b(FLAT_KLEMENTOWSKIEGO_6_4_II)), 2);
   assert.equal(roundFromText(b(LAND_KARWIK_69_4_ANNOUNCE)), 2);
-  assert.equal(roundFromText(b(LAND_DZ1886_24_RESTRICTED_ANNOUNCE)), 1); // "ogłasza pierwszy"
-  // wykaz/result docs never restate the round.
+  assert.equal(roundFromText(b(LAND_DZ1886_24_RESTRICTED_ANNOUNCE)), 1);
   assert.equal(roundFromText(b(FLAT_KLEMENTOWSKIEGO_6_3_WYKAZ)), null);
   assert.equal(roundFromText(b(FLAT_KLEMENTOWSKIEGO_6_4_RESULT_NEG)), null);
 });
@@ -226,9 +154,6 @@ test('auctionDateFromText: future "odbędzie się dnia" / result "przeprowadził
   assert.equal(auctionDateFromText(b(FLAT_KLEMENTOWSKIEGO_6_4_II)), '2025-10-14');
   assert.equal(auctionDateFromText(b(LAND_KARWIK_69_4_ANNOUNCE)), '2026-06-24');
   assert.equal(auctionDateFromText(b(LAND_DZ1886_24_RESTRICTED_ANNOUNCE)), '2026-05-27');
-  // RESULT docs: the feminine past-tense "przeprowadziła" inflection (a real
-  // parser bug: \w* is ASCII-only and does not match "ł", so a naive
-  // "przeprowadzi\w*\s+w\s+dniu" silently missed every result's date).
   assert.equal(auctionDateFromText(b(FLAT_KLEMENTOWSKIEGO_6_4_RESULT_NEG)), '2025-10-14');
   assert.equal(auctionDateFromText(b(LAND_KARWIK_69_4_RESULT_NEG)), '2026-06-24');
   assert.equal(auctionDateFromText(b(LAND_PISZ2_450_RESULT_SOLD)), '2025-07-23');
@@ -237,18 +162,14 @@ test('auctionDateFromText: future "odbędzie się dnia" / result "przeprowadził
 test('startingPriceFromText: short dash form (announcement/wykaz) and long "ustalona na kwotę" form (result)', () => {
   assert.equal(startingPriceFromText(b(FLAT_KLEMENTOWSKIEGO_6_4_II)), 235000);
   assert.equal(startingPriceFromText(b(LAND_KARWIK_69_4_ANNOUNCE)), 70000);
-  assert.equal(startingPriceFromText(b(LAND_DZ1886_24_RESTRICTED_ANNOUNCE)), 19500); // "+ 23% podatku VAT" tail not absorbed
+  assert.equal(startingPriceFromText(b(LAND_DZ1886_24_RESTRICTED_ANNOUNCE)), 19500);
   assert.equal(startingPriceFromText(b(FLAT_KLEMENTOWSKIEGO_6_4_RESULT_NEG)), 235000);
   assert.equal(startingPriceFromText(b(LAND_PISZ2_450_RESULT_SOLD)), 12700);
 });
 
 test('achievedPriceFromText: only when a buyer is named, and skips an earlier WADIUM-amount decoy', () => {
-  // Real bug: a bare "w wysokości X zł" match would have grabbed the wadium
-  // ("wadium w wysokości 2.500,00 zł") stated BEFORE the real achieved-price
-  // clause ("najwyższej zaoferowanej ceny w wysokości 100.000,00 zł").
-  // Requiring "cen..." immediately before "w wysokości" fixes it.
   assert.equal(achievedPriceFromText(b(LAND_PISZ2_450_RESULT_SOLD)), 100000);
-  assert.equal(achievedPriceFromText(b(FLAT_KLEMENTOWSKIEGO_6_4_RESULT_NEG)), null); // negative outcome, no buyer
+  assert.equal(achievedPriceFromText(b(FLAT_KLEMENTOWSKIEGO_6_4_RESULT_NEG)), null);
   assert.equal(achievedPriceFromText(b(LAND_KARWIK_69_4_RESULT_NEG)), null);
 });
 
@@ -259,9 +180,9 @@ test('isNegativeOutcome', () => {
 });
 
 test('unitAreaFromText: FLAT usable area, not the whole-building-plot "Powierzchnia nieruchomości" decoy', () => {
-  assert.equal(unitAreaFromText(b(FLAT_KLEMENTOWSKIEGO_6_4_II)), 91.35); // NOT 440 (the plot area)
+  assert.equal(unitAreaFromText(b(FLAT_KLEMENTOWSKIEGO_6_4_II)), 91.35);
   assert.equal(unitAreaFromText(b(FLAT_KLEMENTOWSKIEGO_6_3_WYKAZ)), 109.83);
-  assert.equal(unitAreaFromText(b(LAND_KARWIK_69_4_ANNOUNCE)), null); // land has no flat unit
+  assert.equal(unitAreaFromText(b(LAND_KARWIK_69_4_ANNOUNCE)), null);
 });
 
 test('landAreaFromText: LAND plot area only (never called for flats in parseAnnouncement/parseResultDoc)', () => {
@@ -276,12 +197,8 @@ test('obrebFromText: cadastral district name (announcement dash form + result "w
 });
 
 test('landPlotsFromText: multi-parcel "i"-joined list, and the restricted-tender neighboring-parcel decoy', () => {
-  // Genuine multi-parcel sale (both in ONE "numerami działek X i Y" clause).
   assert.deepEqual(landPlotsFromText(b(LAND_PISZ2_450_RESULT_SOLD)), ['450/34', '450/38']);
   // Real bug: a global scan across the whole doc folded in the LATER,
-  // unrelated "oznaczonej numerem działki 1886/8" mention (the restricted
-  // tender's adjacent co-owner parcel, not part of this sale) as a second
-  // parcel. Only the FIRST ("Numer działki – 1886/24") must be returned.
   assert.deepEqual(landPlotsFromText(b(LAND_DZ1886_24_RESTRICTED_ANNOUNCE)), ['1886/24']);
   assert.deepEqual(landPlotsFromText(b(LAND_KARWIK_69_4_ANNOUNCE)), ['69/4']);
 });
@@ -289,14 +206,6 @@ test('landPlotsFromText: multi-parcel "i"-joined list, and the restricted-tender
 test('kindFromText: LAND_FALLBACK_RE gap-patch for the genitive plural "działek"', () => {
   assert.equal(kindFromText(b(FLAT_KLEMENTOWSKIEGO_6_4_II)), 'mieszkalny');
   assert.equal(kindFromText(b(LAND_KARWIK_69_4_ANNOUNCE)), 'grunt');
-  // Real bug: shared core/classify-kind.js's LAND_RE is anchored on literal
-  // "dzia[łl]k" (matches działka/działki/działką — "k" directly follows
-  // "ł"), which does NOT match the genitive plural "działek" (a
-  // fleeting-vowel inflection). This result doc names its parcels only as
-  // "numerami działek 450/34 i 450/38" with no "niezabudowan..." anywhere
-  // else, so classifyKind() returns 'unknown' at all three tiers and
-  // pisz-local LAND_FALLBACK_RE must patch it to 'grunt' (core/ is shared
-  // and was not edited).
   assert.equal(kindFromText(b(LAND_PISZ2_450_RESULT_SOLD)), 'grunt');
 });
 
@@ -304,10 +213,9 @@ test('addressRawFromText: announcement/wykaz structured field vs. result-doc "pr
   assert.equal(addressRawFromText(b(FLAT_KLEMENTOWSKIEGO_6_4_II)), 'Klementowskiego 6/4');
   assert.equal(addressRawFromText(b(FLAT_KLEMENTOWSKIEGO_6_3_WYKAZ)), 'Klementowskiego 6/3');
   assert.equal(addressRawFromText(b(FLAT_KLEMENTOWSKIEGO_6_4_RESULT_NEG)), 'Klementowskiego 6/4');
-  assert.equal(addressRawFromText(b(LAND_KARWIK_69_4_ANNOUNCE)), null); // land has no street
+  assert.equal(addressRawFromText(b(LAND_KARWIK_69_4_ANNOUNCE)), null);
 });
 
-// ------------------------------------------------------------- active listings
 
 test('parseAnnouncement: PENDING flat sale (real fixture, Klementowskiego 6/4, round II) -> active listing', () => {
   const r = parseAnnouncement(b(FLAT_KLEMENTOWSKIEGO_6_4_II));
@@ -338,7 +246,6 @@ test('parseAnnouncement: the car-sale notice never produces a record (no address
   assert.equal(parseAnnouncement(b(CAR_SALE_VI)), null);
 });
 
-// ------------------------------------------------------------------- wykaz
 
 test('parseWykaz: GENUINE pre-auction flat wykaz (Klementowskiego 6/3) -> address-keyed wykaz record', () => {
   const w = parseWykaz(b(FLAT_KLEMENTOWSKIEGO_6_3_WYKAZ), '2025-01-10');
@@ -349,11 +256,6 @@ test('parseWykaz: GENUINE pre-auction flat wykaz (Klementowskiego 6/3) -> addres
 });
 
 test('BEZPRZETARGOWO wykaz (Lipowa 9/26) never reaches an active/wykaz record — the gate SKIPS it', () => {
-  // crawl.js checks isLease/isExchange/isBezprzetargowo BEFORE ever routing
-  // to parseAnnouncement/parseWykaz — asserted directly against the real
-  // fixture here, same convention as parse-naklo-nad-notecia.test.js's lease
-  // assertion. Title alone is indistinguishable from a genuine wykaz (see
-  // isWykazNotice assertion above); only isBezprzetargowo tells them apart.
   assert.equal(isBezprzetargowo(b(BEZPRZETARGOWO_LIPOWA)), true);
 });
 
@@ -361,7 +263,6 @@ test('LEASE wykaz (Pisz 1, cz. dz. nr 1886/25) never reaches an active/wykaz rec
   assert.equal(isLease(b(LEASE_WYKAZ_1886_25)), true);
 });
 
-// ----------------------------------------------------------------- result records
 
 test('parseResultDoc: FLAT Klementowskiego 6/4 UNSOLD (wynikiem negatywnym)', () => {
   const [r] = parseResultDoc(
@@ -410,7 +311,6 @@ test('parseResultDoc: returns [] for a pending announcement (not yet a result)',
   assert.deepEqual(parseResultDoc(b(FLAT_KLEMENTOWSKIEGO_6_4_II), null, 'x'), []);
 });
 
-// ----------------------------------------------------------- board HTML parsing
 
 test('parseBoardPage: extracts id/title/podtytul/date from a real <article class="zajawka"> row', () => {
   const html = `

@@ -1,11 +1,3 @@
-// Trzebinia parsers.
-//
-// Closest analog: the FINN-BIP HTML cities (Bytom / Świętochłowice / Mysłowice).
-// Reuses core/finn-bip.js helpers (htmlToText, parsePLN, classifyKind,
-// areaFromText, addressFrom). Deviations groundtruthed against the REAL live
-// article bodies (verified 2026-06-26): the announcement carries cena wywoławcza
-// + termin przetargu in a TABLE; the result notice is prose. The OFFICE "ulica
-// Narutowicza 10" appears in every doc and is never the property street.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';

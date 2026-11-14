@@ -1,9 +1,3 @@
-// Gliwice city-BIP (bip.gliwice.eu) parser tests. crawl-bip.js reads the
-// Prezydent Miasta sale board — clean server-rendered HTML, distinct from the
-// ZGM Elementor board. Fixtures reproduce the real June/July 2026 markup
-// (verified against the live pages): a bundled multi-lokal announcement, a
-// single-lokal Skarb-Państwa page (title-only address), and działka pages
-// (now each emit one 'grunt' LAND record routed to build-land.js).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -12,9 +6,6 @@ import { parseBipSaleDoc, stripBip, foldBipDuplicates } from '../src/cities/gliw
 import { parseAddress } from '../src/core/normalize.js';
 import { landKey } from '../src/core/build-land.js';
 
-// A bundled announcement: header date in word form, two lokale + one garaż.
-// `m&sup2;` and `m<sup>2</sup>` both appear in the wild — exercise both, plus a
-// genitive street name ("Świętojańskiej") and the missing-grosze price form.
 const BUNDLE_HTML = `
 <html><head><title>SPRZEDA&Zdot; – przetarg 6.07.2026 - ul. ŚWIĘTOJAŃSKA 39/3 - BIP Gliwice</title></head>
 <body>
@@ -42,7 +33,6 @@ const BUNDLE_HTML = `
 <p>CENA WYWOŁAWCZA NIERUCHOMOŚCI: 150 000,00 zł</p>
 </body></html>`;
 
-// Single lokal: address lives only in the title, price has no grosze.
 const SINGLE_HTML = `
 <html><head><title>SPRZEDAŻ – lokal mieszkalny przy ul. Chodkiewicza 12/11(własność Skarbu Państwa) - BIP Gliwice</title></head>
 <body>
@@ -52,9 +42,6 @@ const SINGLE_HTML = `
 <p>Cena wywoławcza brutto za prawo własności nieruchomości: 180 557 zł</p>
 </body></html>`;
 
-// A działka (land) page — sale of "prawa własności nieruchomości" obejmującej a
-// "(nie)zabudowaną działkę nr …", NO lokal. Emits one 'grunt' record (parcel +
-// obręb + address from the title; price/round from the body) for build-land.js.
 const DZIALKA_HTML = `
 <html><head><title>SPRZEDAŻ – działka nr 736, obręb Sikornik, ul. Czajki 7 - BIP Gliwice</title></head>
 <body>
@@ -63,10 +50,6 @@ const DZIALKA_HTML = `
 <p>Cena wywoławcza nieruchomości (brutto): 691 100,00 zł</p>
 </body></html>`;
 
-// The live BIP-only plot the MSIP export misses (slug "sprzedaz-dz-nr-722-…",
-// so isBipDetailUrl in crawl-land.js — which only matches "sprzedaz-dzialka-" —
-// skips it). Title uses "dz. nr 72/2"; a prior attempt date (17 marca) must NOT
-// win over the scheduled "rozpocznie się 14 lipca 2026".
 const DZ722_HTML = `
 <html><head><title>SPRZEDAŻ – dz. nr 72/2, obręb Nowe Gliwice, ul. Pszczyńska 204 - BIP Gliwice</title></head>
 <body>
@@ -88,7 +71,6 @@ test('bundled announcement → one listing per lokal, with figures and rounds', 
   const out = parseBipSaleDoc(BUNDLE_HTML, 'https://bip.gliwice.eu/sprzedaz-przetarg-6072026-x', 'SPRZEDAŻ – przetarg 6.07.2026 - x');
   assert.equal(out.length, 4);
 
-  // "przy Al. Przyjaźni 9" (aleja, capitalised) must be captured, not dropped.
   const przy = out.find((l) => l.address.key === 'przyjazni|9|5');
   assert.ok(przy, 'al. Przyjaźni flat parsed');
   assert.equal(przy.starting_price_pln, 150000);
@@ -98,7 +80,7 @@ test('bundled announcement → one listing per lokal, with figures and rounds', 
   assert.equal(dasz.kind, 'mieszkalny');
   assert.equal(dasz.auction_date, '2026-07-06');
   assert.equal(dasz.round, 3);
-  assert.equal(dasz.area_m2, 51.59); // lokal area, NOT the 7,38 m² basement
+  assert.equal(dasz.area_m2, 51.59);
   assert.equal(dasz.starting_price_pln, 214080);
   assert.equal(dasz.detail_url, 'https://bip.gliwice.eu/sprzedaz-przetarg-6072026-x');
 
@@ -120,9 +102,9 @@ test('single-lokal page → title address + integer (no-grosze) price', () => {
   const l = out[0];
   assert.equal(l.address.key, 'chodkiewicza|12|11');
   assert.equal(l.kind, 'mieszkalny');
-  assert.equal(l.auction_date, '2026-06-22'); // from "rozpocznie się 22 czerwca 2026", not the 1997 statute
+  assert.equal(l.auction_date, '2026-06-22');
   assert.equal(l.round, 1);
-  assert.equal(l.area_m2, 24.34); // użytkowej area, not the 2,13 piwnica
+  assert.equal(l.area_m2, 24.34);
   assert.equal(l.starting_price_pln, 180557);
   assert.equal(l.owner_type, 'state_treasury');
 });
@@ -160,10 +142,9 @@ test('BIP-only działka (dz. nr 72/2, Pszczyńska 204) → grunt the MSIP export
   assert.equal(g.obreb, 'Nowe Gliwice');
   assert.equal(g.address_raw, 'ul. Pszczyńska 204');
   assert.equal(g.starting_price_pln, 601000);
-  assert.equal(g.auction_date, '2026-07-14'); // scheduled date, not the 17 marca prior attempt
+  assert.equal(g.auction_date, '2026-07-14');
   assert.equal(g.round, 2);
   assert.equal(g.source, 'bip');
-  // build-land.js keys on dz|<obreb>|<parcel> → folds with the MSIP twin if present.
   assert.equal(landKey(g), 'dz|nowe gliwice|72/2');
 });
 
@@ -184,8 +165,8 @@ test('foldBipDuplicates: BIP twin of a ZGM auction becomes bip_url, not a row', 
     bipRow,
   ]);
   assert.equal(out.length, 1, 'duplicate folded, not doubled');
-  assert.equal(out[0].detail_url, 'https://zgm-gliwice.pl/swietojanska-39-3'); // ZGM stays primary
-  assert.equal(out[0].bip_url, 'https://bip.gliwice.eu/sprzedaz-x');           // BIP as secondary
+  assert.equal(out[0].detail_url, 'https://zgm-gliwice.pl/swietojanska-39-3');
+  assert.equal(out[0].bip_url, 'https://bip.gliwice.eu/sprzedaz-x');
   assert.equal(out[0].round, 4);
   assert.equal(out[0].round_source, 'explicit');
 });
@@ -214,5 +195,5 @@ test('foldBipDuplicates: same unit but different date stays a separate auction',
     zgm('Lompy 7/7', '2026-03-23', 'https://zgm-gliwice.pl/l'),
     bip('LOMPY 7/7', '2026-06-22', 'https://bip.gliwice.eu/l2'),
   ]);
-  assert.equal(out.length, 2); // different dates → two real auctions
+  assert.equal(out.length, 2);
 });

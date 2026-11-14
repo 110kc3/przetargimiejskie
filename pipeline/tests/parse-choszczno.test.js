@@ -1,22 +1,3 @@
-// Choszczno parser tests. Fixtures are condensed-but-faithful copies of REAL
-// pdftotext(-layout) output fetched live from bip.choszczno.pl PDF attachments
-// (verified 2026-07-10), plus real <h1>/board-row title text. Trimmed only the
-// generic legal-citation boilerplate (identical on every ogłoszenie, unused by
-// any regex) — every line a parser actually reads is verbatim, including the
-// OCR degradation ("Pizetarg" for "Przetarg", "powieizchni" for "powierzchni")
-// and the field-table layout pdftotext -layout produces.
-//
-//   ul. Rycerska 2/4  round V   — SOLD 2026-03-06, 230 000 -> 236 900 zł
-//     (buyer clause "Magdalena i Przemysław małż. Pieśkiewicz." — the "małż."
-//     abbreviation's internal period is a trap for a naive buyer regex)
-//   ul. Rycerska 2/4  round IV  — UNSOLD 2025-05-12 (niestawiennictwo oferenta)
-//     (also used, address-stripped, to exercise the OGLOSZENIE-missing ->
-//     TITLE/INFORMACJA fallback path)
-//   ul. Fabryczna 5   round I   — SOLD 2026-03-13, 177 000 -> 178 770 zł, a
-//     HOUSE not a flat ("Budynek mieszkalny..."); its Opis nieruchomości states
-//     TWO areas (house 460,89 m2, THEN outbuildings 97,00 m2) — a trap for a
-//     naive "last match" area regex. Its INFORMACJA never restates the street
-//     address at all (only obręb/parcel) — address must come from OGLOSZENIE.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -47,7 +28,6 @@ import {
 } from '../src/cities/choszczno/crawl.js';
 import { parseAddress } from '../src/core/normalize.js';
 
-// --------------------------------------------------------------- real fixtures
 
 const RYCERSKA_R5_TITLE =
   'Burmistrz Choszczna ogłasza piąty przetarg ustny nieograniczony na sprzedaż nieruchomości ' +
@@ -98,7 +78,6 @@ const RYCERSKA_R4_TITLE =
   'Burmistrz Choszczna ogłasza czwarty przetarg ustny nieograniczony na sprzedaż nieruchomości ' +
   'stanowiących własność Gminy Choszczno - Choszczno, ul. Rycerska 2/4';
 
-// Real fixture — note the OCR-dropped period: "ul Rycerska" not "ul. Rycerska".
 const RYCERSKA_R4_OGLOSZENIE =
   'OGŁASZA Czwarty przetarg ustny nieograniczony na spizedaz nieruchomości stanowiących\n' +
   'własność Gminy Choszczno:\n\n' +
@@ -179,17 +158,6 @@ const FABRYCZNA_INFORMACJA =
   'Nabywcą ustalone zostało Przedsiębiorstwo Usługowo Handlowe Transport Eksport - Import\n' +
   'Roman Kaczmarczyk.\n';
 
-// A THIRD real record, found by the live crawl check (not part of the task's
-// two required fixtures, but kept — it caught two more real bugs): ul.
-// Poziomkowa 4, round II, SOLD 2023-06-13, 140 000 -> 141 400 zł. Its
-// INFORMACJA reverses the word order of BOTH the achieved-price clause
-// ("cena ustalona została na kwotę…" instead of "ustalono cenę…") and the
-// buyer clause ("Nabywcą został ustalony…" instead of "Nabywcą ustalony
-// został…") relative to the Rycerska/Fabryczna fixtures above — a different
-// clerk/year's phrasing. Its OGŁOSZENIE (share-in-building sale, a THIRD
-// wording again) also has an extra qualifier word between "użytkowej" and the
-// area figure ("pow. użytkowej wynoszącej 126,87 m2") that neither of the
-// other two OGŁOSZENIE fixtures has.
 const POZIOMKOWA_TITLE =
   'Burmistrz Choszczna ogłasza II przetarg ustny nieograniczony na sprzedaż nieruchomości - ul. Poziomkowa 4';
 
@@ -234,10 +202,9 @@ function blob({ title, ogloszenie = '', informacja = '' }) {
 const R5_SOLD = blob({ title: RYCERSKA_R5_TITLE, ogloszenie: RYCERSKA_R5_OGLOSZENIE, informacja: RYCERSKA_R5_INFORMACJA });
 const R4_UNSOLD = blob({ title: RYCERSKA_R4_TITLE, ogloszenie: RYCERSKA_R4_OGLOSZENIE, informacja: RYCERSKA_R4_INFORMACJA });
 const FABRYCZNA_SOLD = blob({ title: FABRYCZNA_TITLE, ogloszenie: FABRYCZNA_OGLOSZENIE, informacja: FABRYCZNA_INFORMACJA });
-const R5_PENDING = blob({ title: RYCERSKA_R5_TITLE, ogloszenie: RYCERSKA_R5_OGLOSZENIE }); // informacja not yet published
+const R5_PENDING = blob({ title: RYCERSKA_R5_TITLE, ogloszenie: RYCERSKA_R5_OGLOSZENIE });
 const POZIOMKOWA_SOLD = blob({ title: POZIOMKOWA_TITLE, ogloszenie: POZIOMKOWA_OGLOSZENIE, informacja: POZIOMKOWA_INFORMACJA });
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: dot-thousands, space-thousands, grosze tail', () => {
   assert.equal(parsePLN('230.000,00'), 230000);
@@ -251,14 +218,13 @@ test('section: splits the labelled blob on TITLE/OGLOSZENIE/INFORMACJA, tolerate
   assert.ok(section(R5_SOLD, 'OGLOSZENIE').includes('Cena wywoławcza (brutto)        230.000,00 zł'));
   assert.ok(section(R5_SOLD, 'INFORMACJA').includes('ustalono cenę 236.900,00 zł'));
   assert.equal(section(R5_PENDING, 'INFORMACJA'), '');
-  // OGLOSZENIE must not leak into TITLE nor INFORMACJA.
   assert.ok(!section(R5_SOLD, 'TITLE').includes('Cena wywoławcza'));
 });
 
 test('gates: hasResolution, isLease, isNegativeOutcome', () => {
   assert.equal(hasResolution(R5_SOLD), true);
   assert.equal(hasResolution(R5_PENDING), false);
-  assert.equal(hasResolution(R4_UNSOLD), true); // a negative outcome IS a resolution
+  assert.equal(hasResolution(R4_UNSOLD), true);
   assert.equal(isNegativeOutcome(R4_UNSOLD), true);
   assert.equal(isNegativeOutcome(R5_SOLD), false);
   assert.equal(
@@ -291,12 +257,8 @@ test('auctionDateFromText: falls back to INFORMACJA "w dniu" when OGLOSZENIE is 
 });
 
 test('auctionDateFromText: "Termin i miejsce ... przetargu" label (older/free-prose OGŁOSZENIE templates)', () => {
-  // Real fixture text (Ogłoszenie 2243/23, ul. Ogrodowa, 2023 — free-prose
-  // land template, colon-labelled, same line as the date).
   const ogrodowaOgl = 'Termin i miejsce przetargu: 18 września 2023 r. o godz. 10:00 w sali narad Urzędu Miejskiego';
   assert.equal(auctionDateFromText(blob({ title: 'x', ogloszenie: ogrodowaOgl })), '2023-09-18');
-  // Real fixture text (ul. Wolności 58/4, 2021 — "Adres i oznaczenie
-  // nieruchomości" template, no colon, date wraps to the next line).
   const wolnosciOgl =
     'Termin i miejsce części jawnej przetargu\n' +
     '   21 października 2021 r.               godz. 10:00                         sala narad (pokój nr -3P)';
@@ -325,8 +287,6 @@ test('buyerFromText: the internal "małż." abbreviation period does not truncat
 });
 
 test('buyerFromText: a buyer name that wraps onto a second physical line is still captured whole', () => {
-  // Real fixture: "...Transport Eksport - Import\nRoman Kaczmarczyk." — the
-  // sentence's real terminator is two lines down, not the embedded " - ".
   assert.equal(buyerFromText(FABRYCZNA_SOLD), 'Przedsiębiorstwo Usługowo Handlowe Transport Eksport - Import Roman Kaczmarczyk');
 });
 
@@ -339,8 +299,8 @@ test('buyerFromText: reversed word order ("Nabywcą został ustalony Pan X") is 
 });
 
 test('unitAreaFromText: flat area, tolerant of the powierzchni->powieizchni OCR slip', () => {
-  assert.equal(unitAreaFromText(R5_SOLD), 53.73); // OCR "powieizchni"
-  assert.equal(unitAreaFromText(R4_UNSOLD), 53.73); // clean "powierzchni"
+  assert.equal(unitAreaFromText(R5_SOLD), 53.73);
+  assert.equal(unitAreaFromText(R4_UNSOLD), 53.73);
 });
 
 test('unitAreaFromText: house area takes the FIRST figure, not the later outbuilding figure', () => {
@@ -362,7 +322,6 @@ test('kindFromText: flat vs house vs lease', () => {
 
 test('kindFromText: falls back to INFORMACJA prose when OGLOSZENIE is unavailable', () => {
   const infoOnly = blob({ title: RYCERSKA_R4_TITLE, informacja: RYCERSKA_R4_INFORMACJA });
-  // INFORMACJA says "sprzedaż prawa własności lokalu mieszkalnego położonego..."
   assert.equal(kindFromText(infoOnly), 'mieszkalny');
 });
 
@@ -386,7 +345,6 @@ test('addressRawFromText: a land/obręb-only title (no street token) yields null
   assert.equal(addressRawFromText(blob({ title: landTitle })), null);
 });
 
-// ------------------------------------------------------------- result records
 
 test('parseResultDoc: Rycerska 2/4 round V SOLD', () => {
   const [r] = parseResultDoc(R5_SOLD, null, 'https://bip.choszczno.pl/pliki/choszczno/zalaczniki/379333/informacja-o-wyborze-nabywcy.pdf');
@@ -422,7 +380,7 @@ test('parseResultDoc: Fabryczna 5 round I SOLD — a HOUSE, not a flat', () => {
   const [r] = parseResultDoc(FABRYCZNA_SOLD, null, 'https://bip.choszczno.pl/pliki/choszczno/zalaczniki/379346/informacja-o-wylonionym-nabywcy.pdf');
   assert.equal(r.kind, 'zabudowana');
   assert.equal(r.address.key, 'fabryczna|5|');
-  assert.equal(r.area_m2, 460.89); // not 97.00 (outbuildings)
+  assert.equal(r.area_m2, 460.89);
   assert.equal(r.starting_price_pln, 177000);
   assert.equal(r.final_price_pln, 178770);
   assert.equal(r.outcome, 'sold');
@@ -446,7 +404,6 @@ test('parseResultDoc: Poziomkowa 4 round II SOLD — reversed-word-order INFORMA
 });
 
 test('parseResultDoc: falls back to the fallbackDate param when no date is derivable from the text', () => {
-  // Strip both the OGLOSZENIE date clause and the INFORMACJA date clause.
   const noDateOgl = RYCERSKA_R5_OGLOSZENIE.replace(/Pizetarg odbędzie się w dniu[^\n]*/, 'Pizetarg odbędzie się.');
   const noDateInfo = RYCERSKA_R5_INFORMACJA.replace(/iż w dniu[^\n]*/, 'iż');
   const noDate = blob({ title: RYCERSKA_R5_TITLE, ogloszenie: noDateOgl, informacja: noDateInfo });
@@ -458,7 +415,6 @@ test('parseResultDoc: returns [] for a still-pending (no INFORMACJA) case', () =
   assert.deepEqual(parseResultDoc(R5_PENDING, null, 'x'), []);
 });
 
-// ----------------------------------------------------------- active listings
 
 test('parseAnnouncement: pending flat (no INFORMACJA yet) -> active listing', () => {
   const rec = parseAnnouncement(R5_PENDING);
@@ -484,11 +440,8 @@ test('parseAnnouncement: no text -> null', () => {
   assert.equal(parseAnnouncement(null), null);
 });
 
-// ----------------------------------------------------------- crawl.js helpers
 
 test('parseListRows: extracts href/title/published_at despite the missing closing </a>', () => {
-  // Verbatim shape of the real "Lista artykułów" board table (bip.choszczno.pl
-  // /artykul/przetargi-2008, captured live 2026-07-10) — note </a> is absent.
   const html = `
     <table class="table table-striped lista_artykuly" width="100%">
       <thead><tr><th>Tytuł</th><th style="width: 25%">Data publikacji</th></tr></thead>
@@ -523,7 +476,6 @@ test('parseYearLinks: extracts year -> url, newest first', () => {
 });
 
 test('findPrzetargiHref: locates the row titled exactly "Przetargi" among year-page sub-boards', () => {
-  // Verbatim shape of /artykul/ogloszenia-2026-r's own list table.
   const html = `
     <tbody>
       <tr><td><a href="/artykul/lowiectwo-11">Łowiectwo</td><td>2026-01-14 14:29:14</td></tr>
@@ -535,7 +487,6 @@ test('findPrzetargiHref: locates the row titled exactly "Przetargi" among year-p
 });
 
 test('parseAttachments: routes on the download-link table, filename recoverable for informacja/ogloszenie routing', () => {
-  // Verbatim shape of the Rycerska round V article's "Załączniki do pobrania" table.
   const html = `
     <table class="table table-striped " width="100%">
       <tbody>

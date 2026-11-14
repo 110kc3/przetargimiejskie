@@ -1,45 +1,3 @@
-// Ząbkowice Śląskie parser tests. Fixtures are condensed-but-faithful copies of
-// REAL data fetched live from bip.zabkowiceslaskie.pl (Logonet eUrząd estate
-// module), verified 2026-07-11 from this Pi's Polish residential IP:
-//   - ANNOUNCEMENTS: the exact "Szczegóły" HTML field table of the notice detail
-//     page (Adres / Przetarg na / Typ / Rodzaj / Cena wywoławcza / Data przetargu),
-//     values verbatim from the live pages.
-//   - RESULTS: the OCR text of the scanned "INFORMACJA O WYNIKU PRZETARGU" PDFs
-//     (Producer "KONICA MINOLTA bizhub 554e" — no text layer; OCR'd with
-//     core/ocr-pdf.js, tesseract -l pol). Letterhead / wywieszenie-boilerplate /
-//     signature lines are trimmed; every sentence that feeds a parsed field
-//     (address, parcel, area, price, date, round, kind, outcome) is kept verbatim.
-//
-// Groundtruth (hand-verified against the live pages/PDFs):
-//   Sulisławice 52B, lokal mieszkalny nr 2 (id 10794 announce / 15268 result):
-//     announce  Przetarg ustny nieograniczony, cena wywoławcza 50 000 zł,
-//               auction 2026-08-12 — address key sulislawice|52B|2. The flat's
-//               USABLE area is NOT in the HTML (only the udział/działka ha), so
-//               area_m2 is null (acceptable; build-properties tolerates it).
-//     result    OCR: "I przetarg … nie odbył się … z powodu braku nabywców" →
-//               round 1, outcome unsold, no final price. SAME key sulislawice|52B|2
-//               → the result JOINS this announcement (note the OCR spells the
-//               building "52 B" with a space — normalised to "52B").
-//   Ząbkowice Śląskie, ul. Kłodzka 6, lokal mieszkalny nr 5 (id 2109 / 4120):
-//     announce  cena wywoławcza 60 000 zł, pow. użytkowa 76,85 m², key
-//               klodzkiej|6|5 (street stored genitive "Kłodzkiej", as the prose
-//               writes it — same on both announce + result, so they join).
-//     result    OCR: "VII przetarg … nie odbył się z uwagi na brak nabywców" →
-//               round 7 (ROMAN numeral, the Ząbkowice form — NOT a word ordinal),
-//               unsold. SAME key klodzkiej|6|5 → JOINS.
-//   Ząbkowice Śląskie, ul. Ziębicka 21, lokal użytkowy (id 10793):
-//     announce  A COMMERCIAL unit: "Rodzaj nieruchomości" mis-labels it
-//               "nieruchomość zabudowana", but classifyKind on the "Przetarg na"
-//               BODY ("sprzedaż lokalu użytkowego …") correctly yields 'uzytkowy'.
-//               pow. 29,56 m², cena 85 000 zł, przetarg ustny OGRANICZONY.
-//   Ząbkowice Śląskie, działka nr 21/65, ob. Osiedle Wschód (id 10765):
-//     announce  LAND (kind 'grunt' → land.json): parcel 21/65, obręb Osiedle
-//               Wschód, 0,1474 ha = 1474 m², cena 160 000 zł, auction 2026-07-30.
-//   Stolec, działka nr 399/6 AM-3 obręb Stolec (id 7081 / result 15994):
-//     result    OCR SOLD: "odbył się I przetarg … Cena wywoławcza … wynosiła
-//               15 000,00 zł, a cena osiągnięta w tym przetargu wyniosła
-//               15 150,00 zł … nabywcą … został Jakub Kwit" → round 1, starting
-//               15 000, final 15 150, outcome sold, auction 2022-10-12.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -55,11 +13,7 @@ import {
   parseResultDoc,
 } from '../src/cities/zabkowice-slaskie/parse.js';
 
-// --------------------------------------------------------------- fixtures
 
-// Real Logonet "Szczegóły" detail-table skeleton (confirmed live 2026-07-11):
-// each field is a <tr><th scope="row">LABEL</th><td>VALUE</td></tr>; Data
-// przetargu wraps an ISO <time datetime="…">.
 function detailHtml({ adres, przetargNa, typ, rodzaj, cena, dateIso }) {
   return `<!doctype html><html><body>
 <div id="main-content" class="contents estates box">
@@ -99,8 +53,6 @@ const KLODZKA_ANN = detailHtml({
   dateIso: '2017-05-22T09:00:00',
 });
 
-// Commercial unit — the "Rodzaj" field says "nieruchomość zabudowana", but the
-// BODY says "lokalu użytkowego" → must classify 'uzytkowy'.
 const ZIEBICKA_ANN = detailHtml({
   adres: 'Ząbkowice Śląskie lokal położony przy ul. Ziębickiej 21 o pow. 29,56 m2',
   przetargNa:
@@ -121,7 +73,6 @@ const LAND_ANN = detailHtml({
   dateIso: '2026-07-30T09:00:00',
 });
 
-// OCR text of the scanned result PDFs — condensed, field sentences verbatim.
 const SULISLAWICE_RESULT = `INFORMACJA O WYNIKU PRZETARGU
 
 Burmistrz Ząbkowic Śląskich informuje, że I przetarg ustny nieograniczony na sprzedaż
@@ -154,7 +105,6 @@ przedmiotowej nieruchomości wynosiła 15 000,00 zł, a cena osiągnięta w tym 
 W wyniku przeprowadzonego I przetargu nieograniczonego nabywcą w/w nieruchomości
 położonej w Stolcu został Jakub Kwit.`;
 
-// -------------------------------------------------------------- unit funcs
 
 test('parsePLN: spaced thousands, grosze, an embedded "zł" label', () => {
   assert.equal(parsePLN('50 000,00'), 50000);
@@ -192,7 +142,6 @@ test('extractFields: real Logonet "Szczegóły" table → fields (ISO auction da
   assert.ok(f.przetargNa.startsWith('sprzedaż lokalu mieszkalnego nr 2'));
 });
 
-// ------------------------------------------------------ parseAnnouncement (flats/commercial)
 
 test('parseAnnouncement: Sulisławice 52B nr 2 (id 10794) — rural village+number address, classified a flat from the BODY', () => {
   const r = parseAnnouncement(extractFields(SULISLAWICE_ANN), 'https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/10794/x');
@@ -229,7 +178,6 @@ test('parseAnnouncement: ul. Ziębicka 21 (id 10793) — commercial, classified 
   assert.equal(r.starting_price_pln, 85000);
 });
 
-// ---------------------------------------------------------- parseAnnouncement (land)
 
 test('parseAnnouncement: działka nr 21/65 (id 10765) — LAND (grunt), parcel-keyed, ha→m², no address', () => {
   const r = parseAnnouncement(extractFields(LAND_ANN), 'https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/10765/x');
@@ -237,21 +185,20 @@ test('parseAnnouncement: działka nr 21/65 (id 10765) — LAND (grunt), parcel-k
   assert.equal(r.address, undefined);
   assert.equal(r.dzialka_nr, '21/65');
   assert.equal(r.obreb, 'Osiedle Wschód');
-  assert.equal(r.area_m2, 1474); // 0,1474 ha × 10000
+  assert.equal(r.area_m2, 1474);
   assert.equal(r.starting_price_pln, 160000);
   assert.equal(r.auction_date, '2026-07-30');
 });
 
-// --------------------------------------------------------------- parseResultDoc
 
 test('parseResultDoc: Sulisławice 52B nr 2 result (OCR, brak nabywców) — round 1, unsold; JOINS the announcement key sulislawice|52B|2', () => {
   const [r] = parseResultDoc(SULISLAWICE_RESULT, '2022-06-23', 'https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/6731/x');
   assert.equal(r.kind, 'mieszkalny');
-  assert.equal(r.address.key, 'sulislawice|52B|2'); // OCR "52 B" (space) normalised → joins the announcement
+  assert.equal(r.address.key, 'sulislawice|52B|2');
   assert.equal(r.round, 1);
   assert.equal(r.outcome, 'unsold');
   assert.equal(r.final_price_pln, null);
-  assert.equal(r.auction_date, '2022-06-23'); // HTML fallback date is authoritative
+  assert.equal(r.auction_date, '2022-06-23');
   assert.equal(r.source_pdf, 'https://bip.zabkowiceslaskie.pl/przetarg-nieruchomosci/6731/x');
 });
 
@@ -269,7 +216,7 @@ test('parseResultDoc: Stolec działka 399/6 result (OCR, SOLD) — round 1, star
   assert.equal(r.kind, 'grunt');
   assert.equal(r.dzialka_nr, '399/6');
   assert.equal(r.obreb, 'Stolec');
-  assert.equal(r.area_m2, 2800); // 0.2800 ha × 10000
+  assert.equal(r.area_m2, 2800);
   assert.equal(r.round, 1);
   assert.equal(r.starting_price_pln, 15000);
   assert.equal(r.final_price_pln, 15150);

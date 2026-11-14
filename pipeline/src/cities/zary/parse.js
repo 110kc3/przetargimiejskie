@@ -1,4 +1,3 @@
-// Żary parsers — bip.zary.pl (SystemDoBIP CMS).
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -157,18 +156,15 @@ export function parseAnnouncement(text, title = '', url = '') {
   }
 
   let auction_date = null;
-  // Look for date in title e.g. "Przetarg - 02.12.2026 r" or body
   const mDate = cleaned.match(/(?:Przetarg\s*-\s*|odbędzie\s+się|termin\s+przetargu|przeprowadzenia\s+dnia|w\s+dniu)[^\d]*?([0-3]?\d[\s.][a-ząćęłńóśźż0-9]+[\s.]202\d)/i);
   if (mDate) {
     auction_date = parseDate(mDate[1]);
   }
 
   let address_raw = null;
-  // Match "ul. Śródmiejska 21" or "ul. Śródmiejska 21/5"
   const mAddr = cleaned.match(/(?:przy\s+ul(?:icy|\.)?|ul\.)\s*([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż\s-]+?\s+\d+[a-zA-Z]?(?:\/\d+)?)\b/i);
   if (mAddr && !/Ratuszow/i.test(mAddr[0])) {
     address_raw = mAddr[0].trim();
-    // Check if flat number exists: "Lokal mieszkalny nr 5"
     const mFlat = cleaned.match(/Lokal\s+mieszkalny\s+nr\s+(\d+)/i);
     if (mFlat && !address_raw.includes('/')) {
       address_raw = `${address_raw}/${mFlat[1]}`;

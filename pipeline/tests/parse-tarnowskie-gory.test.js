@@ -1,12 +1,3 @@
-// Tarnowskie Góry parser tests. Fixtures are condensed-but-faithful copies of
-// the REAL `pdftotext -layout` output of live articles (verified 2026-06-17):
-//   flat announcement + its sold/unsold result notices — article 101179 (flat
-//   Pokoju 10 nr 5), 101732 (sold, round II), 100411 (unsold, round I);
-//   building announcement — article 100288 (Rymera 8, nieruchomość zabudowana);
-//   land announcement — article 101322 (two parcels, obręb Bobrowniki Śląskie).
-// The join key the first real refresh must confirm: the flat announcement and
-// both result notices all key on `pokoju|10|5` (round distinguishes the
-// attempts), so build-properties folds them into one property's history.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -26,7 +17,6 @@ import {
 } from '../src/cities/tarnowskie-gory/parse.js';
 import { config as tgConfig, TG_OBREB_MAP, tgObrebCode } from '../src/cities/tarnowskie-gory/config.js';
 
-// ---------------------------------------------------------------- title routing
 
 test('isSkippableTitle: rentals, wykazy, lists, corrections, cancellations, rokowania', () => {
   assert.equal(isSkippableTitle('Burmistrz Miasta ogłasza przetarg ustny (licytację) ograniczony do branży na najem lokali użytkowych', ''), true);
@@ -36,7 +26,6 @@ test('isSkippableTitle: rentals, wykazy, lists, corrections, cancellations, roko
   assert.equal(isSkippableTitle('Lista osób zakwalifikowanych do uczestnictwa w drugim przetargu', ''), true);
   assert.equal(isSkippableTitle('OGŁOSZENIE BURMISTRZA O ODWOŁANIU PRZETARGÓW NA SPRZEDAŻ', ''), true);
   assert.equal(isSkippableTitle('BURMISTRZ MIASTA ogłasza rokowania na sprzedaż nieruchomości', ''), true);
-  // a real sale announcement is NOT skippable
   assert.equal(isSkippableTitle('Burmistrz Miasta Tarnowskie Góry ogłasza drugi przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego', ''), false);
 });
 
@@ -51,7 +40,6 @@ test('isAnnouncementTitle: catches "ogłasza", "Ogłoszenie o", bare ordinal, zb
   assert.equal(isAnnouncementTitle('Ogłoszenie o pierwszym przetargu pisemnym nieograniczonym na sprzedaż nieruchomości gruntowej', ''), true);
   assert.equal(isAnnouncementTitle('Pierwszy przetarg ustny nieograniczony na sprzedaż nieruchomości gruntowej niezabudowanej', ''), true);
   assert.equal(isAnnouncementTitle('Burmistrz Miasta ogłasza I przetarg ... na zbycie lokalu mieszkalnego', ''), true);
-  // letter-spaced title with the asset word truncated — the slug carries it:
   assert.equal(
     isAnnouncementTitle(
       'Burmistrz Miasta Tarnowskie Góry o g ł a s z a   II  przetarg ustny nieograniczony (licytacja)',
@@ -61,7 +49,6 @@ test('isAnnouncementTitle: catches "ogłasza", "Ogłoszenie o", bare ordinal, zb
   );
 });
 
-// -------------------------------------------------------------- shared extractors
 
 test('roundFromText: word ordinal qualifying "przetarg"', () => {
   assert.equal(roundFromText('ogłasza drugi przetarg ustny nieograniczony na sprzedaż'), 2);
@@ -73,25 +60,19 @@ test('roundFromText: word ordinal qualifying "przetarg"', () => {
 test('auctionDateFromText: future "będzie DD miesiąc YYYY", not the prior-round line', () => {
   const body =
     'Drugi przetarg ustny nieograniczony będzie w Urzędzie Miejskim w Tarnowskich Górach przy ulicy Sienkiewicza 2, pokój numer 39, 14 kwietnia 2026 r. o godz. 13.00. Pierwszy przetarg odbył się 15 grudnia 2025 r.';
-  assert.equal(auctionDateFromText(body), '2026-04-14'); // not 2025-12-15
+  assert.equal(auctionDateFromText(body), '2026-04-14');
   assert.equal(auctionDateFromText('Przetarg będzie 13 stycznia 2026 r. o godzinie 12:00'), '2026-01-13');
-  assert.equal(auctionDateFromText('Przetarg będzie 21 kwietnia 2026r. o godzinie 12:00'), '2026-04-21'); // "2026r." no space
-  // Regression (przetarg pisemny): the open-bids date reads "Część jawna przetargu
-  // odbędzie się DD <miesiąc> YYYY". "się" ends in ę (a non-word char), so a \b
-  // after the anchor never matched and silently dropped EVERY such date — the
-  // anchor must be followed by \s, not \b.
+  assert.equal(auctionDateFromText('Przetarg będzie 21 kwietnia 2026r. o godzinie 12:00'), '2026-04-21');
   assert.equal(auctionDateFromText('Część jawna przetargu odbędzie się 9 maja 2025 r. o godzinie 13:00'), '2025-05-09');
   assert.equal(auctionDateFromText('Przetarg odbędzie się 7 kwietnia 2025 r. o godzinie 12:00'), '2025-04-07');
 });
 
 test('resultDateFromText: "DD miesiąc YYYY r.[,] [w] Urząd Miejski"', () => {
   assert.equal(resultDateFromText('14 kwietnia 2026 r. Urząd Miejski Tarnowskie Góry ul. Sienkiewicza 2, drugi przetarg'), '2026-04-14');
-  assert.equal(resultDateFromText('15 kwietnia 2026 r., Urząd Miejski w Tarnowskich Górach ul. Sienkiewicza 2'), '2026-04-15'); // comma + "w"
-  // the rozporządzenie citation must NOT be picked up
+  assert.equal(resultDateFromText('15 kwietnia 2026 r., Urząd Miejski w Tarnowskich Górach ul. Sienkiewicza 2'), '2026-04-15');
   assert.equal(resultDateFromText('na podstawie Rozporządzenia Rady Ministrów z dnia 14 września 2004 roku'), null);
 });
 
-// ------------------------------------------------------- flat announcement (real)
 
 const ANN_FLAT = `                               Burmistrz Miasta Tarnowskie Góry
 
@@ -121,16 +102,15 @@ test('parseAnnouncement: flat — address/usable area/price/date/round/kind=mies
   const r = parseAnnouncement(ANN_FLAT);
   assert.ok(r, 'a record is returned');
   assert.equal(r.kind, 'mieszkalny');
-  assert.equal(r.address.key, 'pokoju|10|5'); // ← the result→announcement JOIN KEY
+  assert.equal(r.address.key, 'pokoju|10|5');
   assert.equal(r.address_raw, 'ul. Pokoju 10/5');
   assert.equal(r.area_m2, 37.7, 'flat usable area, NOT the 6,20 m² cellar');
-  assert.equal(r.starting_price_pln, 159000); // spaced thousands "159 000,00"
-  assert.equal(r.auction_date, '2026-04-14'); // future date, not the 15.12.2025 prior round
+  assert.equal(r.starting_price_pln, 159000);
+  assert.equal(r.auction_date, '2026-04-14');
   assert.equal(r.round, 2);
   assert.equal(r.land_area_m2, undefined, 'a flat has a usable area, so no land_area_m2 fallback');
 });
 
-// --------------------------------------------------- building announcement (real)
 
 const ANN_BUILDING = `                       Burmistrz Miasta Tarnowskie Góry
    ogłasza drugi przetarg ustny nieograniczony na sprzedaż nieruchomości gruntowej
@@ -157,7 +137,6 @@ test('parseAnnouncement: building — kind=zabudowana, plot ha→land_area_m2 (n
   assert.equal(r.round, 2);
 });
 
-// ------------------------------------------------------- land announcement (real)
 
 const ANN_LAND = `                        Burmistrz Miasta Tarnowskie Góry
 ogłasza pierwszy przetarg ustny nieograniczony na sprzedaż prawa własności
@@ -177,14 +156,13 @@ test('parseAnnouncement: land (board 5216) — kind=grunt, both parcels, summed 
   assert.equal(r.kind, 'grunt');
   assert.equal(r.dzialka_nr, '1118/153, 3817/153');
   assert.equal(r.area_m2, 686, '0,0267 + 0,0419 ha summed (no łączna line) → 686 m²');
-  assert.equal(r.obreb, 'Bobrowniki Śląskie'); // two-word obręb
-  assert.equal(r.address_raw, 'ul. Józefa Korola'); // street with no building number
+  assert.equal(r.obreb, 'Bobrowniki Śląskie');
+  assert.equal(r.address_raw, 'ul. Józefa Korola');
   assert.equal(r.starting_price_pln, 123000);
   assert.equal(r.auction_date, '2026-04-21');
   assert.equal(r.round, 1);
 });
 
-// --------------------------------------------------------- result notices (real)
 
 const RESULT_SOLD = `                                        INFORMACJA
 
@@ -218,7 +196,7 @@ test('parseResultDoc: SOLD — achieved price, sold flag, and the join key match
   assert.equal(s.kind, 'mieszkalny');
   assert.equal(s.area_m2, 37.7);
   assert.equal(s.starting_price_pln, 176900);
-  assert.equal(s.final_price_pln, 178000); // "Cena osiągnięta w przetargu"
+  assert.equal(s.final_price_pln, 178000);
   assert.equal(s.outcome, 'sold');
   assert.equal(s.unsold_reason, null);
   assert.equal(s.source_pdf, 'https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=122941');
@@ -257,48 +235,30 @@ test('parseResultDoc / isResultNotice: an announcement is not a result notice', 
   assert.deepEqual(parseResultDoc(ANN_FLAT, null, 'u'), []);
 });
 
-// --------------------------------------------------------------- price + area
-//
-// PDF field extraction for TG announcements — phrasings groundtruthed against
-// the cached announcement PDFs (pdf-text-cache/). A regression here silently
-// drops an active listing's starting price / usable area on the next crawl.
 
 test('startingPriceFromText: label + connector variants, dotted/dash grosze, bare amount', () => {
   const nbsp = String.fromCharCode(0xA0);
-  // pre-existing forms still work (no regression)
   assert.equal(startingPriceFromText('cena wywoławcza za lokal mieszkalny nr 5 wynosi 159 000,00 zł'), 159000);
   assert.equal(startingPriceFromText('Cena wywoławcza: 176 900,00 złotych'), 176900);
   assert.equal(startingPriceFromText('cena wywoławcza - 86 000,00 zł netto'), 86000);
-  // NBSP thousands separator (used in some PDFs)
   assert.equal(startingPriceFromText('cena wywoławcza wynosi 159' + nbsp + '000,00 zł'), 159000);
-  // "wynosi ogółem" (extra word between "wynosi" and the amount)
   assert.equal(startingPriceFromText('cena wywoławcza za lokal mieszkalny nr 2 przy ulicy Słoneczników 49 wynosi ogółem 168 300,00 zł'), 168300);
-  // "wynosi:" (colon), amount on the next line
   assert.equal(startingPriceFromText('cena wywoławcza za przedmiotową nieruchomość zabudowaną wynosi:\n420 000,00 złotych'), 420000);
-  // amount runs straight into "(słownie …)" with no trailing zł
   assert.equal(startingPriceFromText('cena wywoławcza wynosi 490 000,00 (słownie: czterysta dziewięćdziesiąt tysięcy złotych)'), 490000);
-  // older dotted thousands + dash grosze, both ",-" and ".-"
   assert.equal(startingPriceFromText('Cena wywoławcza: 136.000,- zł'), 136000);
   assert.equal(startingPriceFromText('Cena wywoławcza: 94.000.- zł'), 94000);
   assert.equal(startingPriceFromText('cena wywoławcza wynosi 2.200.000,00 zł'), 2200000);
-  // "cena wywoławcza do przetargu …" (no "wynosi")
   assert.equal(startingPriceFromText('Cena wywoławcza do przetargu 105.000,- zł'), 105000);
 
-  // must NOT fire on the genitive postąpienie boilerplate; null for a written
-  // tender that states an "oferowana cena" instead of a starting price
   assert.equal(startingPriceFromText('Wysokość postąpienia nie może wynosić mniej niż 1% ceny wywoławczej.'), null);
   assert.equal(startingPriceFromText('3. Oferowana cena: ...................... zł'), null);
 });
 
 test('unitAreaFromText: "o powierzchni użytkowej" + leading-label phrasings; excludes cellar/building/plot', () => {
-  // pre-existing "lokal nr N o powierzchni użytkowej X" form; attached cellar not taken
   assert.equal(unitAreaFromText('Lokal mieszkalny nr 5 o powierzchni użytkowej 37,70 m2 wraz z piwnicą o powierzchni użytkowej 6,20 m2'), 37.7);
-  // leading label "Powierzchnia użytkowa lokalu … wynosi X m2"
   assert.equal(unitAreaFromText('przy ulicy Górniczej 34 w Tarnowskich Górach. Powierzchnia użytkowa lokalu mieszkalnego wynosi 51,58 m2.'), 51.58);
-  // colon form, no "wynosi", no space before m2
   assert.equal(unitAreaFromText('- powierzchnia użytkowa lokalu: 96,89m2'), 96.89);
 
-  // never take a cellar / whole-building / plot area as the unit floor area
   assert.equal(unitAreaFromText('piwnicy o powierzchni użytkowej 6,20 m2'), null);
   assert.equal(unitAreaFromText('Łączna powierzchnia użytkowa budynku głównego wraz z oficyną wynosi 405 m2'), null);
   assert.equal(unitAreaFromText('działka numer 98 o powierzchni 0,0573 ha'), null);
@@ -329,6 +289,5 @@ test('TG obreb mapping: maps precinct names to official 4-digit codes and builds
     'https://mapy.geoportal.gov.pl/imap/?identifyParcel=241304_1.0019.2046%2F32'
   );
 
-  // Address-only or missing dzialka_nr returns null so fallback can handle
   assert.equal(tgConfig.geoportal({ obreb: 'Sowice', dzialka_nr: null }), null);
 });

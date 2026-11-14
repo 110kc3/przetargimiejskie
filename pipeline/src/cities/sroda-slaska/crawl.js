@@ -1,8 +1,3 @@
-// Środa Śląska crawler — bip.srodaslaska.pl (e-bip.eu platform).
-//
-// Property board: https://bip.srodaslaska.pl/index.php?id=173
-// DataTables JSON: /index.php?id=173&akcja=pobierz_dokumenty_ajax&chwila=1
-// Attachments: PDF and scanned JPG documents under /upload/pliki/
 
 import { mkdtemp, readFile, rm, writeFile, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';

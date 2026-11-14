@@ -1,17 +1,3 @@
-// Prudnik parsers — announcement PDFs and result notice PDFs from bip.prudnik.pl.
-//
-// Both announcement and result documents are born-digital text-extractable PDFs
-// attached to BIP articles in /gospodarka-przestrzenna/przetargi-na-zbycie-nieruchomosci-i-lokali.
-//
-// Multi-lot announcements bundle several properties (land, commercial, flats);
-// each flat lot is delineated by "Lokal mieszkalny" descriptions and ends with
-// its own "Cena wywoławcza".
-//
-// Paired "Informacja o wynikach przetargów" documents contain a table with:
-// - Oznaczenie nieruchomości (describing the lot, address, floor, and KW)
-// - Cena wywoławcza (starting price)
-// - Najwyższa cena osiągnięta w przetargu (achieved price)
-// - Imię i nazwisko osoby ustalonej jako nabywca (or "wynik negatywny")
 
 import { parseAddress } from '../../core/normalize.js';
 
@@ -140,7 +126,6 @@ export function extractAddressFromLot(lotText, detailContext = '') {
   const lotStart = t.search(/lokal\s+mieszkaln/i);
   const targetText = lotStart !== -1 ? t.slice(lotStart) : t;
 
-  // Strip table column row numbers and build a clean first-column representation
   const lines = targetText.split('\n').map((l) => l.trim()).filter(Boolean);
   let colDesc = '';
   for (const line of lines) {
@@ -156,7 +141,6 @@ export function extractAddressFromLot(lotText, detailContext = '') {
     const unitM = /lokal\s+mieszkaln\w*\s+nr\s+(\d+[a-zA-Z]?)/i.exec(search);
     if (unitM) unit = unitM[1];
 
-    // 1. "przy ul. X N/M" or "przy [7.] ul. X N/M"
     const comboM =
       /przy\s+(?:\d+\.\s+)?(?:ul\.|placu|pl\.)\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń-]+(?:\s+[A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń-]+)*)\s+(\d+[a-zA-Z]?)\/(\d+[a-zA-Z]?)/i.exec(
         search,
@@ -168,7 +152,6 @@ export function extractAddressFromLot(lotText, detailContext = '') {
       }
     }
 
-    // 2. "w klatce schodowej Piastowska 21"
     const klatkaM =
       /w\s+klatce\s+schodowej\s+(?:przy\s+ul\.\s+)?([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń]+)\s+(\d+[a-zA-Z]?)/i.exec(
         search,
@@ -177,7 +160,6 @@ export function extractAddressFromLot(lotText, detailContext = '') {
       return `ul. ${klatkaM[1].trim()} ${klatkaM[2]}/${unit}`;
     }
 
-    // 3. "przy ul. Street [nr] Building"
     const streetM =
       /przy\s+(?:\d+\.\s+)?(?:ul\.|placu|pl\.)\s*([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń-]+(?:\s+[A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń-]+)*)\s+(?:nr\s+)?(\d+[a-zA-Z]?(?:\/\d+[a-zA-Z]?)?)\b/i.exec(
         search,
@@ -197,7 +179,6 @@ export function extractAddressFromLot(lotText, detailContext = '') {
       }
     }
 
-    // 4. Fallback for "przy ul. Rynek w Prudniku"
     const rynekM = /przy\s+ul\.\s+Rynek\s+w\s+Prudniku/i.exec(search);
     if (rynekM) {
       const bldgCtx = /(?:Rynek|rynek)[-\s]+(\d+)/i.exec(
@@ -217,7 +198,6 @@ export function parseAnnouncement(text, detailUrl = '', sourceUrl = '') {
   const t = text.replace(/\r/g, '');
   const auction_date = auctionDateFromText(t);
 
-  // Match each flat lot without crossing over to adjacent flat lots
   const re =
     /(Lokal\s+mieszkaln[\s\S]+?Cena\s+wywo[łl]awcza[^\n]*?[\d. ]+,\d{2}\s*z[łl][\s\S]*?(?=Po[łl]o[żz]enie|PRZETARG[IY]?\s+PO\s+RAZ|\n\s*(?:(?:\d+|[IVX]+)\.\s+)?(?:Ksi[eę]ga|Lokal\s+mieszkaln\w*\s+nr)|Przetargi\s+przeprowadza|Szczeg[oó][łl]owych\s+informacji|$))/gi;
   const lots = [];

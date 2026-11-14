@@ -1,6 +1,3 @@
-// Parser for Zamość auction notices and results (umzamosc.bip.lubelskie.pl)
-//
-// Handles documents from the lubelskie.pl BIP platform.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -75,27 +72,22 @@ export function parseAnnouncement(item, docText = '') {
   const text = cleanText(`${item.title || item.tresc || ''} ${docText}`);
   const title = (item.title || item.tresc || '').trim();
 
-  // Date
   const dateMatch =
     text.match(/(?:odbędzie się dnia|odbędzie się w dniu|termin przetargu|w dniu)\s+([0-9]{1,2}\s+[a-ząćęłńóśźż]+\s+20\d{2})/i) ||
     text.match(/(?:odbędzie się dnia|odbędzie się w dniu|termin przetargu|w dniu)\s+([0-9]{1,2}\.[0-9]{2}\.20\d{2})/i);
   const auctionDate = dateMatch ? parsePlDate(dateMatch[1]) : parsePlDate(item.data_utworzenia);
 
-  // Price
   const priceMatch =
     text.match(/(?:cena wywoławcza|cena)\s*(?:netto|brutto)?\s*[:\-]?\s*(?:wynosi\s*)?([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i) ||
     text.match(/cena wywoławcza[^\d]{1,60}([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i);
   const price = priceMatch ? parsePrice(priceMatch[1]) : null;
 
-  // Deposit
   const depositMatch = text.match(/(?:wadium|wysokość wadium)[^\d]{1,40}([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i);
   const deposit = depositMatch ? parsePrice(depositMatch[1]) : null;
 
-  // Parcel
   const parcelMatch = text.match(/\b(?:działk[aieę]|działce|dz\.)\s*(?:ewidencyjn[a-z]*\s*)?(?:nr\s*)?(\d+(?:\/\d+)?)/i);
   const parcel = parcelMatch ? parcelMatch[1] : null;
 
-  // Area
   const areaMatch =
     text.match(/pow(?:ierzchni|\.)[^\d]{1,25}([\d\s.]+(?:,\d{1,4})?)\s*(m2|m²|ha)/i) ||
     text.match(/pow(?:ierzchnia|\.)\s*(?:w\s*)?(m2|m²|m\s*2|ha)[:\s\-]{1,10}([\d\s.]+(?:,\d{1,4})?)/i);
@@ -110,12 +102,10 @@ export function parseAnnouncement(item, docText = '') {
     }
   }
 
-  // Address
   const addrMatch = text.match(/(?:przy\s+ul\.?|ulicy|ul\.)\s+([A-ZĄĆĘŁŃÓŚŹŻ0-9][a-ząćęłńóśźż\s\d\/-]+?)(?:w\s+Zamościu|\.|,|KW)/i);
   const rawAddress = addrMatch ? `ul. ${addrMatch[1].trim()}` : 'Zamość';
   const address = parseAddress(rawAddress, 'Zamość');
 
-  // KW
   const kwMatch = text.match(/\b(ZA1Z\/\d{8}\/\d|[A-Z0-9]{4}\/\d{8}\/\d)\b/i) || text.match(/KW[-:\s]+([A-Z0-9\/]+)/i);
   const landRegistry = kwMatch ? kwMatch[1].toUpperCase() : null;
 

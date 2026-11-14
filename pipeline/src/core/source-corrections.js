@@ -1,5 +1,3 @@
-// Historical parser repairs, guarded by source URL, date and the observed old
-// value. A source reparse never rewrites an unrelated auction or newer value.
 import { SOURCE_CORRECTIONS } from './source-corrections-data.js';
 
 export function applySourceCorrections(properties, cityId) {

@@ -1,34 +1,3 @@
-// Augustów crawler — bip.um.augustow.pl SmartSite BIP boards.
-//
-// Two boards to walk (both paginated with ?page=N pattern):
-//   ACTIVE:  /przetargi/sprzedaz-dzierzawa-i-najem-nieruchomosci/ogloszenia-aktualne/
-//   ARCHIVE: /przetargi/sprzedaz-dzierzawa-i-najem-nieruchomosci/ogloszenia-nieaktualne/
-//
-// Page 1 = bare board URL.
-// Page N = <board>/ogloszenia-aktualne.html?page=N
-// Stop: page returns no <li class="component-item clearfix"> items.
-//
-// Both boards carry BOTH flat auction announcements AND result notices
-// ("Informacja o wynikach…"). We separate them by title keyword:
-//   - Flat announcements → crawlActive() listings
-//   - Result notices     → crawlResultDocs() refs
-//
-// RESULT NOTICE PATTERN (Augustów-specific):
-//   The HTML body of a result notice page contains ONLY a heading and a PDF
-//   attachment. The achieved price is in the PDF — not inline HTML. So
-//   crawlResultDocs() must:
-//     1. Collect result-notice detail URLs from the board pages.
-//     2. Fetch each detail page to find the PDF attachment URL.
-//     3. Extract text from the PDF (pdfText).
-//     4. Return refs with .text set (source:'html' contract).
-//
-// Volume: ~2–5 flat auctions/year across 19 archive pages + 2 active pages.
-// No bot-block, no CAPTCHA, plain HTTPS.
-//
-// Groundtruthed against live fixtures 2026-06-29:
-//   - Announcement: Rynek Zygmunta Augusta 16 (lokal 1 & 3), published 2024-08-08
-//   - Result notice: lokal nr 1 at Rynku Zygmunta Augusta 16, published 2024-09-17
-//     PDF: /resource/26697/Infromacja+o+wynikach+-+lokal+Nr+1.pdf
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -42,21 +11,18 @@ import {
 
 const ORIGIN = 'https://bip.um.augustow.pl';
 
-// Board base URLs (page 1)
 const ACTIVE_BASE =
   `${ORIGIN}/przetargi/sprzedaz-dzierzawa-i-najem-nieruchomosci/ogloszenia-aktualne/`;
 const ARCHIVE_BASE =
   `${ORIGIN}/przetargi/sprzedaz-dzierzawa-i-najem-nieruchomosci/ogloszenia-nieaktualne/`;
 
-// Paged URL: page 1 = bare base; page N = base + "ogloszenia-aktualne.html?page=N"
 function pageUrl(base, n) {
   return n === 1 ? base : `${base}ogloszenia-aktualne.html?page=${n}`;
 }
 
-const MAX_PAGES_ACTIVE = 5;   // active board: 2 pages as of 2026-06-29; safety cap
-const MAX_PAGES_ARCHIVE = 25; // archive: 19 pages as of 2026-06-29; safety cap
+const MAX_PAGES_ACTIVE = 5;
+const MAX_PAGES_ARCHIVE = 25;
 
-// One memoised crawl for the whole pipeline run.
 let crawlPromise = null;
 
 async function crawlBoard(base, maxPages, label) {
@@ -75,24 +41,17 @@ async function crawlBoard(base, maxPages, label) {
       break;
     }
 
-    // Stop when page is empty (beyond last real page — Augustów serves empty body,
-    // NOT a redirect to page 1, so no wrap-detection needed).
     if (!/<li[^>]*class="[^"]*component-item[^"]*clearfix/i.test(html)) {
       console.error(`  augustow ${label}: empty page ${page} — stopping`);
       break;
     }
 
-    // ---- flat announcement listings ----------------------------------------
     const items = parseListPage(html, ORIGIN);
     let newFlats = 0;
     for (const it of items) {
       const key = it.detail_url;
       if (seenKeys.has(key)) continue;
       seenKeys.add(key);
-      // Placeholder: address/area/price/date are filled by the detail-page
-      // enrichment pass in crawlAll() (parseAnnouncementDetail). If enrichment
-      // fails for a listing this null-filled object is kept as-is so the drop is
-      // visible in buildCityData's WARN rather than silently vanishing.
       listings.push({
         kind: it.kind,
         address_raw: null,
@@ -107,13 +66,11 @@ async function crawlBoard(base, maxPages, label) {
       newFlats++;
     }
 
-    // ---- result notice links -----------------------------------------------
     const titleLinkRe = /<h2[^>]*>[\s\S]*?<a[^>]+href="([^"]+)"(?:[^>]*title="([^"]*)")?[^>]*>([\s\S]*?)<\/a>/gi;
     let rm;
     while ((rm = titleLinkRe.exec(html)) !== null) {
       const title = stripHtml(rm[2] || rm[3]);
       if (!isResultNoticeTitle(title)) continue;
-      // Only collect result notices that mention "lokal mieszkalny" — skip land/house results.
       if (!/lokal\s+mieszkaln/i.test(title)) continue;
       let href = rm[1].replace(/&amp;/gi, '&');
       if (href.startsWith('/')) href = ORIGIN + href;
@@ -141,7 +98,6 @@ async function crawlAll() {
     crawlBoard(ARCHIVE_BASE, MAX_PAGES_ARCHIVE, 'nieaktualne'),
   ]);
 
-  // Merge, deduplicating by detail_url
   const seenUrls = new Set();
   const listings = [];
   for (const l of [...active.listings, ...archive.listings]) {
@@ -158,11 +114,6 @@ async function crawlAll() {
     resultRefs.push(r);
   }
 
-  // ---- enrich flat announcements from their detail pages ---------------------
-  // The list title carries no address/area/price — those live in the detail body.
-  // Each announcement expands into N per-lokal records (see parseAnnouncementDetail).
-  // On fetch/parse failure we keep the original null-filled listing so the
-  // buildCityData "dropped … no parsed .address" WARN reflects the real gap.
   const enrichedListings = [];
   for (const l of listings) {
     let detailHtml;
@@ -182,7 +133,6 @@ async function crawlAll() {
     enrichedListings.push(...recs);
   }
 
-  // ---- fetch result notice PDFs (second pass) --------------------------------
   const resolvedRefs = [];
   for (const ref of resultRefs) {
     let detailHtml;
@@ -221,17 +171,12 @@ async function crawlAll() {
   return { listings: enrichedListings, resolvedRefs };
 }
 
-/** Active flat auction listings. */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings } = await crawlPromise;
   return { listings, wykaz: [] };
 }
 
-/**
- * Result notice refs with .text pre-extracted from PDF.
- * refresh.js (source:'html') feeds ref.text → city.parseResultDoc().
- */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resolvedRefs;

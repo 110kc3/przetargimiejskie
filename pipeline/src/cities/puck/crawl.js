@@ -1,6 +1,3 @@
-// Crawler for Puck (bip.miastopuck.pl)
-//
-// Scrapes Alfa CMS disposal tables and born-digital text PDFs.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

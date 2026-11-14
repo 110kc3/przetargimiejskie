@@ -1,6 +1,3 @@
-// Downloads a PDF, rasterizes pages to PNG at 300 DPI, runs Polish-language
-// tesseract, and caches the combined text on disk so we OCR each PDF exactly
-// once across the entire history.
 
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -14,7 +11,6 @@ import { urlCacheKey } from './hash.js';
 
 const CACHE_DIR = fileURLToPath(new URL('../../ocr-cache/', import.meta.url));
 
-/** Custom TESSDATA_PREFIX support for environments without system tessdata. */
 const TESS_ENV = process.env.TESSDATA_PREFIX
   ? { ...process.env, TESSDATA_PREFIX: process.env.TESSDATA_PREFIX }
   : process.env;
@@ -47,7 +43,6 @@ export async function ocrPdf(pdfUrl, opts = {}) {
   return text;
 }
 
-/** Word geometry for source tables whose column association plain OCR loses. */
 export async function ocrPdfWords(pdfUrl, opts = {}) {
   await mkdir(CACHE_DIR, { recursive: true });
   const psm = opts.psm || 3;
@@ -72,7 +67,6 @@ export function parseTesseractTsv(tsv) {
   };
 }
 
-/** Fetch, rasterize, OCR; no cache. @param {string} pdfUrl */
 async function ocrPdfFresh(pdfUrl, opts = {}) {
   const bytes = await getBytes(pdfUrl, {
     userAgent: opts.userAgent,
@@ -82,7 +76,6 @@ async function ocrPdfFresh(pdfUrl, opts = {}) {
   try {
     const pdfPath = join(work, 'in.pdf');
     await writeFile(pdfPath, bytes);
-    // pdftoppm renders pages as <prefix>-1.png, <prefix>-2.png, ...
     const prefix = join(work, 'page');
     execFileSync('pdftoppm', ['-r', '300', pdfPath, prefix, '-png'], {
       stdio: ['ignore', 'ignore', 'inherit'],
@@ -114,8 +107,6 @@ async function ocrPdfFresh(pdfUrl, opts = {}) {
           const x = Math.ceil(geometry.width * left);
           const width = Math.floor(geometry.width * (right - left));
           const columnOut = join(work, `column-${pageNumber}-${columnIndex}`);
-          // Render a source column directly from the PDF. Removing adjacent
-          // cells and grid borders improves OCR without changing source bytes.
           execFileSync('pdftoppm', ['-r', '300', '-f', pageNumber, '-l', pageNumber,
             '-singlefile', '-x', String(x), '-W', String(width), pdfPath, columnOut, '-png'],
           { stdio: ['ignore', 'ignore', 'pipe'] });

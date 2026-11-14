@@ -1,29 +1,3 @@
-// Gostyń parser tests. Fixtures are condensed-but-faithful copies of REAL
-// content fetched live from biuletyn.gostyn.pl (verified 2026-07-11, from this
-// Pi). Long non-load-bearing boilerplate (RODO paragraph, wadium/notarial
-// procedure, zoning-study prose) is trimmed; every field-bearing sentence
-// (parcel, area, price, date, round, buyer) is kept VERBATIM.
-//
-// The only property article live on the BIP at build time is artykul/280/12356
-// — a 2022 auction of three land plots (działki 107/2, 107/5, 107/7) in
-// Sikorzyn (gmina Gostyń). It bundles TWO documents, both MULTI-PROPERTY:
-//   * the ANNOUNCEMENT terms as a born-digital .docx (attachments/download/19049)
-//     — BURMISTRZ_ANNOUNCE below (extracted via core/doc-text.js at crawl time);
-//   * the RESULT notice as a SCANNED .pdf (attachments/download/19214) — the
-//     WYNIK_OCR fixture below is the ACTUAL tesseract -l pol output (OCR quirks
-//     kept verbatim: "$ 12" for "§ 12", "Kw POLY", "BUGMISTRZ") so the parser is
-//     proven against real OCR, not clean text.
-//
-// Groundtruth (hand-verified against the two documents):
-//   działka 107/2  0,1010 ha=1010 m²  wywoławcza 52 000  → osiągnięto 55 000  (Krzysztof Wojtkowiak)
-//   działka 107/5  0,1002 ha=1002 m²  wywoławcza 51 000  → osiągnięto 51 600  (Monika Kubiak)
-//   działka 107/7  0,0975 ha= 975 m²  wywoławcza 50 000  → osiągnięto 57 200  (Krzysztof Wojtkowiak)
-//   round II (ustny nieograniczony), auction held 2022-06-22, all SOLD.
-//
-// No lokal-mieszkalny (flat) auction was live anywhere on the BIP, so the flat
-// path is exercised only as a UNIT test of the ported helpers (streetFromHeader
-// / addressRawFromText) on a generic Polish address form — NOT a Gostyń
-// groundtruth claim; classifyKind on the BODY remains the authority.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -51,10 +25,7 @@ import {
   parseResultDoc,
 } from '../src/cities/gostyn/parse.js';
 
-// --------------------------------------------------------------- fixtures
 
-// Born-digital .docx (attachments/download/19049): three announcement blocks,
-// each headed "BURMISTRZ GOSTYNIA\nogłasza II przetarg …".
 const BURMISTRZ_ANNOUNCE = `BURMISTRZ GOSTYNIA
 ogłasza II przetarg ustny nieograniczony
 na sprzedaż prawa własności do nieruchomości położonej w Sikorzynie gmina Gostyń, oznaczonej w ewidencji gruntów i budynków jako działka nr 107/2 o powierzchni 0,1010 ha, zapisanej w księdze wieczystej KW PO1Y/00022485/3 wraz z udziałem 1/7 części w działkach nr 107/3 i nr 107/8 o łącznej powierzchni 0,0742 ha, zapisanej w księdze wieczystej KW PO1Y/00045131/4
@@ -74,8 +45,6 @@ Cena wywoławcza: 50.000,00 zł netto
 wadium: 8.000,00 zł
 Przetarg odbędzie się w dniu 22 czerwca 2022 roku o godz. 1030 w siedzibie Urzędu Miejskiego w Gostyniu przy ul. Wrocławskiej 256 (salka narad – piwnica).`;
 
-// tesseract -l pol output of the SCANNED result .pdf (attachments/download/19214):
-// three "INFORMACJA … osiągnięto cenę …" blocks (real order 107/2, 107/7, 107/5).
 const WYNIK_OCR = `INFORMACJA
 
 Na podstawie $ 12 Rozporządzenia Rady Ministrów z dnia 14 września 2004 roku
@@ -131,8 +100,6 @@ Nabywcą przedmiotowej nieruchomości został: Monika Kubiak.
 
 BURMISTRZ GOSTYNIA`;
 
-// Real article HTML skeleton (artykul/280/12356): <h1 id="content-header">, a
-// <section id="attachments"> with a .pdf then a .docx, each with its type label.
 const ARTICLE_HTML = `<div id="main-content" class="contents">
 <h1 id="content-header">II przetarg ustny nieograniczony (wyniki przetargu)</h1>
 <section class="wysiwyg" aria-labelledby="content-header"><div><p>na sprzedaż prawa własności do nieruchomości położonych w Sikorzynie działki:</p></div></section>
@@ -149,8 +116,6 @@ const ARTICLE_HTML = `<div id="main-content" class="contents">
 </section>
 </div>`;
 
-// Real XML board feed (/artykuly/xml/280/1/1) — the malformed "<?phpxml" prolog
-// is kept to prove the parser ignores it.
 const XML_FEED = `<?phpxml version="1.0" encoding="UTF-8"?><biuletyn.gostyn.pl>
 <oferty-miasta>
 <strona>1</strona>
@@ -167,7 +132,6 @@ const XML_FEED = `<?phpxml version="1.0" encoding="UTF-8"?><biuletyn.gostyn.pl>
 </oferty-miasta>
 </biuletyn.gostyn.pl>`;
 
-// -------------------------------------------------------------- unit funcs
 
 test('parsePLN: dotted thousands (Gostyń form) + grosze tail', () => {
   assert.equal(parsePLN('52.000,00'), 52000);
@@ -211,30 +175,26 @@ test('parcelFromText: main "działka nr 107/2 o powierzchni 0,1010 ha", NOT the 
     'jako działka nr 107/2 o powierzchni 0,1010 ha, zapisanej w księdze wieczystej KW PO1Y/00022485/3 wraz z udziałem 1/7 części w działkach nr 107/3 i nr 107/8 o łącznej powierzchni 0,0742 ha',
   );
   assert.equal(p.dzialka_nr, '107/2');
-  assert.equal(p.area_m2, 1010); // 0,1010 ha × 10000 — NOT the 742 m² udział
+  assert.equal(p.area_m2, 1010);
 });
 
 test('localityFromText: "położonej w Sikorzynie gmina Gostyń" -> "Sikorzynie"', () => {
   assert.equal(localityFromText('nieruchomości położonej w Sikorzynie gmina Gostyń'), 'Sikorzynie');
 });
 
-// -------------------------------------------------------------- title routing
 
 test('title routing: results vs announcements vs skip vs board-232 planning noise', () => {
   assert.equal(isResultTitle('II przetarg ustny nieograniczony (wyniki przetargu)'), true);
   assert.equal(isAnnouncementTitle('I przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego'), true);
   assert.equal(isResultTitle('I przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego'), false);
-  // najem/dzierżawa + wykaz are skipped outright
   assert.equal(isSkippableTitle('I przetarg ustny nieograniczony na dzierżawę gruntu'), true);
   assert.equal(isSkippableTitle('Wykaz nieruchomości przeznaczonych do sprzedaży'), true);
-  // a REAL board-232 planning notice: neither an announcement nor a result
   const planning = 'Obwieszczenie Burmistrza Gostynia o ustaleniu lokalizacji inwestycji celu publicznego RGM.PP.6733.18.2025';
   assert.equal(isSkippableTitle(planning), false);
   assert.equal(isResultTitle(planning), false);
   assert.equal(isAnnouncementTitle(planning), false);
 });
 
-// --------------------------------------------------------- XML + HTML extraction
 
 test('parseArticleList: ignores the malformed <?phpxml prolog, DD.MM.YYYY -> ISO', () => {
   const { pages, items } = parseArticleList(XML_FEED);
@@ -256,7 +216,6 @@ test('extractTitle / extractAttachments: <h1 id="content-header"> + typed downlo
   assert.equal(atts[1].ext, 'docx');
 });
 
-// ------------------------------------------------ parseAnnouncement (land, multi)
 
 test('parseAnnouncement: the .docx yields THREE land records (one per działka) with real prices/areas', () => {
   const recs = parseAnnouncement(BURMISTRZ_ANNOUNCE);
@@ -281,7 +240,6 @@ test('parseAnnouncement: returns [] on RESULT text (never books a wynik notice a
   assert.deepEqual(parseAnnouncement(WYNIK_OCR), []);
 });
 
-// ------------------------------------------------------ parseResultDoc (land, multi)
 
 test('parseResultDoc: the OCR yields THREE sold land results with cena wywoławcza + osiągnięta', () => {
   const recs = parseResultDoc(WYNIK_OCR, null, 'https://biuletyn.gostyn.pl/attachments/download/19214');
@@ -308,11 +266,8 @@ test('parseResultDoc: returns [] on ANNOUNCEMENT text (isResultNotice guard)', (
   assert.deepEqual(parseResultDoc(BURMISTRZ_ANNOUNCE, null, 'x'), []);
 });
 
-// ------------------------------------------- ported flat helpers (unit, not live)
 
 test('flat helpers (ported from analog; no live Gostyń flat existed): street + "ul. …/apt" address', () => {
-  // Generic Polish "przy ul. <street> <bldg> w Gostyniu" — a UNIT test of the
-  // ported helper shape, NOT a groundtruth claim about a specific Gostyń flat.
   const h = streetFromHeader('lokalu mieszkalnego nr 7 w budynku przy ul. Powstańców Wielkopolskich 8 w Gostyniu');
   assert.equal(h.street, 'Powstańców Wielkopolskich');
   assert.equal(h.building, '8');

@@ -1,9 +1,3 @@
-// Rybnik city-BIP land parser tests.
-//
-// The live city BIP (bip.um.rybnik.eu) cannot be reached from CI sandboxes, so
-// we exercise the parsers against fixtures derived from real RTF output observed
-// in June 2026. Real column order in the list table:
-//   [publish_date, title, auction_date, "Sprzedaz", Pokaz-link]
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -23,9 +17,7 @@ import {
   parseFlatRtf,
 } from '../src/cities/rybnik/crawl-land.js';
 
-// --- Fixtures ---
 
-// Real column order (observed June 2026): publish_date | title | auction_date | category | link
 const LIST_HTML = `
 <table><tbody>
   <tr>
@@ -69,7 +61,6 @@ const DETAIL_HTML = `<html><body>
   <span><a href="Download.ashx?id=3501867" title="Pobierz">ogłoszenie ul. Gotartowicka</a> [rtf - 92 KB]</span>
 </body></html>`;
 
-// Decoded RTF text for Gotartowicka V przetarg (from real rtfToText() output)
 const GOTARTOWICKA_TEXT = `ESOD: 2026-119890
 Prezydent Miasta Rybnika
 ogłasza pi ąty przetarg ustny nieograniczony
@@ -83,7 +74,6 @@ Warunki przetargu:
 1.
 Przetarg rozpocznie się w dniu 17 września 2026 r. o godzinie 9:30.`;
 
-// Decoded RTF text for Rajska II przetarg
 const RAJSKA_TEXT = `ESOD: 2026-113126
 Prezydent Miasta Rybnika
 ogłasza drugi przetarg ustny nieograniczony
@@ -97,13 +87,12 @@ Warunki przetargu:
 1.
 Przetarg rozpocznie się w dniu 17 września 2026 r. o godzinie 9:00.`;
 
-// --- List page parser ---
 
 test('parseListPage: extracts 4 unique rows from 5 table rows (dedupes history-log)', () => {
   const rows = parseListPage(LIST_HTML);
   assert.equal(rows.length, 4);
   assert.equal(rows[0].detailId, '104073');
-  assert.equal(rows[0].listDate, '2026-09-17');  // auction date (last date cell), not publish date
+  assert.equal(rows[0].listDate, '2026-09-17');
   assert.ok(rows[0].title.includes('Gotartowickiej'));
   assert.equal(rows[1].detailId, '103998');
   assert.ok(rows[1].title.includes('Rajskiej'));
@@ -111,7 +100,6 @@ test('parseListPage: extracts 4 unique rows from 5 table rows (dedupes history-l
 
 test('parseListPage: title is the text cell, not the date', () => {
   const rows = parseListPage(LIST_HTML);
-  // Title must NOT be a bare date string
   for (const r of rows) {
     assert.ok(!/^\d{4}-\d{2}-\d{2}$/.test(r.title), `title should not be a date: "${r.title}"`);
   }
@@ -125,11 +113,10 @@ test('parseListPage: deduplicates repeated Ids from the history-log section', ()
 
 test('parseListPage: listDate is the auction date (last date cell), not the publish date', () => {
   const rows = parseListPage(LIST_HTML);
-  assert.equal(rows[0].listDate, '2026-09-17');  // auction date, not 2026-06-10 (publish)
-  assert.equal(rows[2].listDate, '2026-06-09');  // Jozefa auction date
+  assert.equal(rows[0].listDate, '2026-09-17');
+  assert.equal(rows[2].listDate, '2026-06-09');
 });
 
-// --- Detail page parser ---
 
 test('parseDetailPage: extracts absolute RTF URL', () => {
   const url = parseDetailPage(DETAIL_HTML);
@@ -142,7 +129,6 @@ test('parseDetailPage: returns null when no RTF link present', () => {
   assert.equal(parseDetailPage('<html><body>Brak pliku</body></html>'), null);
 });
 
-// --- RTF field parsers ---
 
 test('landPriceFromText: parses unseparated price with RTF space artefact (208600)', () => {
   assert.equal(landPriceFromText(GOTARTOWICKA_TEXT), 208600);
@@ -223,7 +209,6 @@ test('landRoundFromText: bare "przetarg" -> 1 (fallback)', () => {
   assert.equal(landRoundFromText('oglasza przetarg ustny na sprzedaz dzialki'), 1);
 });
 
-// --- Full record assembly ---
 
 test('parseLandRtf: full record for Gotartowicka V przetarg', () => {
   const rec = parseLandRtf(
@@ -271,21 +256,11 @@ test('parseLandRtf: listDate fallback when RTF body has no date', () => {
     'https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=99999',
     'https://bip.um.rybnik.eu/Download.ashx?id=9999',
   );
-  // No spelled/numeric date in this RTF -> auction_date is null
   assert.equal(rec.auction_date, null);
-  // Caller applies listDate as fallback
   if (!rec.auction_date) rec.auction_date = '2026-03-05';
   assert.equal(rec.auction_date, '2026-03-05');
 });
 
-// --- Round-2 history-clause date guard (the real Rajska Id=103998 RTF) ---
-//
-// A re-listed plot's RTF states BOTH the failed earlier round and the operative
-// future date, in that order:
-//   "Przetarg przeprowadzony w dniu 26 marca 2026 r. zakończony został wynikiem
-//    negatywnym. Przetarg rozpocznie się w dniu 17 września 2026 r. …"
-// A first-match scan grabbed 2026-03-26 (past) → the plot was wrongly stamped
-// 'archived' even though its round-2 auction (2026-09-17) is in the future.
 const RAJSKA_HISTORY_TEXT = `ESOD: 2026-113126
 Prezydent Miasta Rybnika
 ogłasza drugi przetarg ustny nieograniczony
@@ -297,7 +272,6 @@ Przetarg przeprowadzony w dniu 26 marca 2026 r. zakończony został wynikiem neg
 Przetarg rozpocznie się w dniu 17 września 2026 r. o godzinie 9:00.`;
 
 test('landAuctionDateFromText: skips the history-clause date, returns the operative round-2 date', () => {
-  // BUG was: returned 2026-03-26 (the failed round-1 date in the history clause)
   assert.equal(landAuctionDateFromText(RAJSKA_HISTORY_TEXT), '2026-09-17');
 });
 
@@ -312,9 +286,6 @@ test('landAuctionDateFromText: numeric history-then-operative also picks operati
 });
 
 test('landAuctionDateFromText: history-only RTF still yields a date (fallback)', () => {
-  // When every "w dniu" hit is a history clause, fall back to the first one
-  // rather than null — buildLand will then stamp it archived (correct: round
-  // concluded, no future date stated).
   assert.equal(
     landAuctionDateFromText('Przetarg przeprowadzony w dniu 11.03.2026 r. zakonczony wynikiem negatywnym.'),
     '2026-03-11',
@@ -329,17 +300,11 @@ test('parseLandRtf: Rajska II with history clause -> future operative date (not 
     'https://bip.um.rybnik.eu/Download.ashx?id=3499886',
   );
   assert.equal(rec.round, 2);
-  assert.equal(rec.auction_date, '2026-09-17'); // future -> buildLand keeps it active
+  assert.equal(rec.auction_date, '2026-09-17');
   assert.equal(rec.dzialka_nr, '3698/3694');
   assert.equal(rec.starting_price_pln, 631000);
 });
 
-// --- Flat (lokal mieszkalny) announcements on Page=339 ---
-//
-// ZGM's flat auctions live on this SAME register; their list titles carry the
-// address inline ("Przetarg 9 czerwca br. ul. św. Józefa 18/47") and the RTF
-// body is "lokal mieszkalny" + price/area/date. Fixture mirrors the real Id
-// 103647 (św. Józefa) RTF body output observed June 2026.
 const JOZEFA_FLAT_TEXT = `PREZYDENT MIASTA RYBNIKA
 ogłasza
 pierwszy publiczny ustny nieograniczony przetarg na sprzedaż spółdzielczego własnościowego prawa do lokalu mieszkalnego położonego w Rybniku przy ul. św. Józefa 18/47 .
@@ -370,17 +335,15 @@ test('parseListPage: extracts flat-announcement rows (address-bearing titles)', 
   assert.equal(rows.length, 2);
   assert.equal(rows[0].detailId, '103647');
   assert.ok(rows[0].title.includes('św. Józefa 18/47'));
-  assert.equal(rows[0].listDate, '2026-06-09'); // auction date (last date cell)
+  assert.equal(rows[0].listDate, '2026-06-09');
   assert.equal(rows[1].detailId, '103642');
 });
 
 test('addressFromTitle: strips "Przetarg <date>" prefix, keeps "ul." address', () => {
   assert.equal(addressFromTitle('Przetarg 9 czerwca br. ul. św. Józefa 18/47').address.key, 'sw jozefa|18|47');
   assert.equal(addressFromTitle('Przetarg 9.06.2026 ul. Zgrzebnioka 7b/6').address.key, 'zgrzebnioka|7B|6');
-  // hand-typed " <bldg> <letter>" spacing is normalised: "6 a/3" -> "6A/3"
   assert.equal(addressFromTitle('Przetarg 9 .06.2026 ul. Cierpioła 6 a/3').address.key, 'cierpiola|6A|3');
   assert.equal(addressFromTitle('Przetarg 9.06.2026 ul. gen. Janke Waltera 5 b/2').address.key, 'gen janke waltera|5B|2');
-  // trailing " r." after the date, plus spaced building letter
   assert.equal(addressFromTitle('Przetarg 9.06.2026 r. ul. Kilińskiego 28 a/17').address.key, 'kilinskiego|28A|17');
 });
 
@@ -399,7 +362,7 @@ test('parseFlatRtf: full flat record from a Page=339 announcement', () => {
   assert.equal(rec.kind, 'mieszkalny');
   assert.equal(rec.address.key, 'sw jozefa|18|47');
   assert.equal(rec.starting_price_pln, 230000);
-  assert.equal(rec.area_m2, 45.9); // flat area, not the 1,95 m² cellar
+  assert.equal(rec.area_m2, 45.9);
   assert.equal(rec.auction_date, '2026-06-09');
   assert.equal(rec.round, 1);
   assert.equal(rec.detail_url, 'https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=103647');

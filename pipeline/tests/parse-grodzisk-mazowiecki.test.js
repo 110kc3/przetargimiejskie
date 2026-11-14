@@ -1,20 +1,3 @@
-// Grodzisk Mazowiecki parser tests — groundtruthed against REAL fixtures.
-//
-// Fixture sources:
-// 1. ANNOUNCEMENTS:
-//    - Wólczyńska 10A/11: III przetarg, 34 m2, 335 000 zł, auction 2026-11-10
-//    - Dworska 1/24: I przetarg, 35.48 m2, 351 000 zł, KW WA1G/00083838/6, auction 2026-10-13
-//    - T. Bairda 4/28: I przetarg, 34.80 m2, 310 000 zł, KW WA1G/00042594/4, auction 2026-03-10
-//    - Kilińskiego 6: I przetarg, zabudowana nieruchomość
-//    - Suwalska: I przetarg, grunt, dz. 139/2, 0.0393 ha (393 m2), 265 000 zł, auction 2026-10-08
-//    - Sadowa 11/2: wykaz (pre-auction designation)
-//
-// 2. RESULTS:
-//    - Dworska 1/24: I przetarg, sold 418 000 zł, auction 2026-10-13
-//    - Bałtycka 10/26: II przetarg, unsold (brak oferentów), starting 545 000 zł, auction 2026-10-06
-//    - T. Bairda 4/28: III przetarg, sold 375 000 zł, auction 2026-09-22
-//    - Pileckiego 4/8: IV przetarg, sold 323 300 zł, starting 300 000 zł, auction 2026-04-28
-//    - Suwalska: I przetarg, grunt dz. 139/2, sold 320 000 zł, starting 265 000 zł, auction 2026-10-08
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -38,9 +21,6 @@ import {
   parseResultDoc,
 } from '../src/cities/grodzisk-mazowiecki/parse.js';
 
-// ---------------------------------------------------------------------------
-// Helpers & Field Parsers
-// ---------------------------------------------------------------------------
 
 test('parseDate: parses dotted, hyphenated and spelled-out dates', () => {
   assert.equal(parseDate('13.10.2026'), '2026-10-13');
@@ -133,9 +113,6 @@ test('isAnnouncement, isResult, isWykaz gates', () => {
   assert.equal(isWykaz('III przetarg ustny nieograniczony na sprzedaż lokalu'), false);
 });
 
-// ---------------------------------------------------------------------------
-// Announcement Fixtures
-// ---------------------------------------------------------------------------
 
 const WOLCZYNSKA_ANN_TEXT = `
 BURMISTRZ GRODZISKA MAZOWIECKIEGO OGŁASZA:
@@ -276,9 +253,6 @@ test('parseAnnouncement: Sadowa 11/2 (wykaz designation)', () => {
   assert.equal(rec.starting_price_pln, null);
 });
 
-// ---------------------------------------------------------------------------
-// Result Fixtures
-// ---------------------------------------------------------------------------
 
 const DWORSKA_RES_TEXT = `
 Grodzisk Mazowiecki, dnia 20.10.2026 r.

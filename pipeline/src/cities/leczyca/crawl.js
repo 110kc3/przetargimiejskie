@@ -1,8 +1,3 @@
-// Łęczyca crawler — harvests municipal property auction notices from
-// the WordPress REST API at leczyca.info.pl/wp-json/wp/v2/posts.
-//
-// Both crawlActive() and crawlResultDocs() are served by a single memoised
-// pass (crawlAll) to respect rate limits and keep refresh runtime fast.
 
 import { getText } from '../../core/fetch.js';
 import { parsePost, decodeEntities } from './parse.js';
@@ -50,7 +45,6 @@ async function crawlAll() {
   const resultRefs = [];
 
   for (const [, post] of postsMap) {
-    // Check if post is a result notice
     const title = post.title?.rendered || '';
     const bodyHtml = post.content?.rendered || '';
     const bodyText = decodeEntities(bodyHtml);

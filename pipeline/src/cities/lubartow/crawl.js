@@ -1,6 +1,3 @@
-// Crawler for Lubartów (umlubartow.bip.lubelskie.pl)
-//
-// Queries DataTables ajax endpoint on lubelskie.pl BIP platform.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

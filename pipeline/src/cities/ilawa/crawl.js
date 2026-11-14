@@ -1,18 +1,3 @@
-// Iława crawler — bip.umilawa.pl (systemdobip.pl platform).
-//
-// BOARD:
-//   Primary section: https://bip.umilawa.pl/77/Przetargi_-_mienie_komunalne/
-//   Clean server-rendered HTML listing with pagination (/77/Przetargi_-_mienie_komunalne/{page}/).
-//   Announcements and result notices are published on the same section board.
-//
-// FORMAT & ATTACHMENTS:
-//   Each notice page links downloadable attachments via /system/pobierz.php?...
-//   Municipal notices consistently carry .docx or .doc attachments alongside
-//   signed scan PDFs. docText extracts clean digital text directly; pdfText
-//   and ocrPdf serve as fallbacks when only PDF is provided.
-//
-// BOT USER-AGENT:
-//   bip.umilawa.pl requires a standard browser User-Agent in HTTP headers.
 
 import { pathToFileURL } from 'node:url';
 
@@ -39,7 +24,6 @@ export const MAX_RESULT_DOCS = Number(process.env.ILAWA_MAX_RESULT_DOCS) || 200;
 export const CRAWL_BUDGET_MS = Number(process.env.ILAWA_CRAWL_BUDGET_MS) || 12 * 60 * 1000;
 export const RESULT_MIN_YEAR = Number(process.env.ILAWA_RESULT_MIN_YEAR) || 2020;
 
-// ── URL & HTML helpers ──────────────────────────────────────────────────────
 
 export function boardUrl(page = 1) {
   return page <= 1 ? `${ORIGIN}${BOARD_PATH}` : `${ORIGIN}${BOARD_PATH}${page}/`;
@@ -92,7 +76,6 @@ export function extractAttachmentUrls(html) {
     }
   }
 
-  // Filter out maps, photos, sketches
   const main = attachments.filter(
     (a) => !/mapa|zdj[ęe]cie|foto|ortofoto|wyrys|geodezyjn/i.test(a.label + ' ' + a.href),
   );
@@ -121,7 +104,6 @@ export function extractInlineText(html) {
 }
 
 export async function extractAttachmentText(docUrl, pdfUrl, detailHtml = '') {
-  // 1. Prefer doc / docx (pristine native text)
   if (docUrl) {
     try {
       const text = await docText(docUrl, FETCH_OPTS);
@@ -131,7 +113,6 @@ export async function extractAttachmentText(docUrl, pdfUrl, detailHtml = '') {
     }
   }
 
-  // 2. Try pdfText
   if (pdfUrl) {
     try {
       const text = await pdfText(pdfUrl, FETCH_OPTS);
@@ -140,7 +121,6 @@ export async function extractAttachmentText(docUrl, pdfUrl, detailHtml = '') {
       console.error(`  ilawa: pdfText failed for ${pdfUrl}: ${err.message}`);
     }
 
-    // 3. Fall back to OCR for scanned PDFs
     try {
       const text = await ocrPdf(pdfUrl, FETCH_OPTS);
       if (text && text.trim().length > 30) return text;
@@ -149,11 +129,9 @@ export async function extractAttachmentText(docUrl, pdfUrl, detailHtml = '') {
     }
   }
 
-  // 4. Fallback to inline article text
   return extractInlineText(detailHtml);
 }
 
-// ── Main crawl logic (memoized) ─────────────────────────────────────────────
 
 let crawlPromise = null;
 
@@ -289,7 +267,6 @@ export async function crawlActive() {
   return { listings, wykaz, land, valid_empty, valid_empty_land };
 }
 
-// ── CLI harness ─────────────────────────────────────────────────────────────
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const active = await crawlActive();

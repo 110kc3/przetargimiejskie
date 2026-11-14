@@ -1,6 +1,3 @@
-// Parser for Milicz auction notices and results (bip.milicz.pl)
-//
-// Handles MADKOM eBIP HTML content and attachments.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -84,27 +81,22 @@ export function parseAnnouncement(article, fullHtml = '') {
   const text = cleanText(fullHtml || article.content || article.title);
   const title = (article.title || '').trim();
 
-  // Date
   const dateMatch =
     text.match(/(?:odbędzie się w dniu|w dniu|termin przetargu)\s+([0-9]{1,2}\s+[a-ząćęłńóśźż]+\s+20\d{2})/i) ||
     text.match(/(?:odbędzie się w dniu|w dniu|termin przetargu)\s+([0-9]{1,2}\.[0-9]{2}\.20\d{2})/i);
   const auctionDate = dateMatch ? parsePlDate(dateMatch[1]) : parsePlDate(article.date);
 
-  // Price
   const priceMatch =
     text.match(/(?:cena wywoławcza|cena)\s*(?:netto|brutto)?\s*(?:w\s*zł)?[:\-]?\s*(?:wynosi\s*)?([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i) ||
     text.match(/cena wywoławcza[^\d]{1,60}([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i);
   const price = priceMatch ? parsePrice(priceMatch[1]) : null;
 
-  // Deposit
   const depositMatch = text.match(/(?:wadium|wysokość wadium)[^\d]{1,40}([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i);
   const deposit = depositMatch ? parsePrice(depositMatch[1]) : null;
 
-  // Parcel
   const parcelMatch = text.match(/\b(?:działk[aieę]|działce|dz\.|nr\s+działki)\s*(?:nr)?[:\s\-]{1,10}(\d+(?:\/\d+)?)/i);
   const parcel = parcelMatch ? parcelMatch[1] : null;
 
-  // Area
   const areaMatch =
     text.match(/pow(?:ierzchni|\.)[^\d]{1,25}([\d\s.]+(?:,\d{1,4})?)\s*(m2|m²|ha)/i) ||
     text.match(/pow(?:ierzchnia|\.)\s*(?:w\s*)?(m2|m²|m\s*2|ha)[:\s\-]{1,10}([\d\s.]+(?:,\d{1,4})?)/i);
@@ -119,12 +111,10 @@ export function parseAnnouncement(article, fullHtml = '') {
     }
   }
 
-  // Address
   const addrMatch = text.match(/(?:przy\s+ul\.?|ulicy|ul\.)\s+([A-ZĄĆĘŁŃÓŚŹŻ0-9][a-ząćęłńóśźż\s\d\/-]+?)(?:w\s+Miliczu|\.|,|KW|przeznaczon)/i);
   const rawAddress = addrMatch ? `ul. ${addrMatch[1].trim()}` : 'Milicz';
   const address = parseAddress(rawAddress, 'Milicz');
 
-  // KW
   const kwMatch = text.match(/\b(WR1M\/\d{8}\/\d+)\b/i) || text.match(/KW[-:\s]+([A-Z0-9\/]+)/i);
   const landRegistry = kwMatch ? kwMatch[1].toUpperCase() : null;
 

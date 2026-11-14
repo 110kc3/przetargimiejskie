@@ -1,33 +1,3 @@
-// Tomaszów Mazowiecki adapter tests. Fixtures are REAL board/item HTML
-// fragments + REAL PDF text (pdftotext -layout) live-fetched from
-// bip.tomaszow.miasta.pl on 2026-07-19:
-//   - BOARD_FRAGMENT — the real "Zbycie - Aktualne ogłoszenia o przetargach"
-//     board (?id=144386) content area, 3 live items: ul. Zielona 38-40 (I),
-//     ul. Środkowa 3 (IV), ul. Spalska 42 (IV) — each a SUB-PAGE link
-//     (`?id=`, class "nazwa_pliku nourl"), not a file.
-//   - ITEM_ATTACHMENTS_FRAGMENT — the real ul. Zielona 38-40 sub-page
-//     (?id=239781) content area: 6 attachments (mapa, regulamin, 2x
-//     oświadczenie, the real "Ogłoszenie o przetargu ul. Zielona 38-40.pdf",
-//     klauzula) — proves pickAnnouncementFile() finds the real announcement
-//     among decoys.
-//   - RESULTS_BOARD_FRAGMENT — 2 real rows from the results board
-//     (?id=148898): ul. Parkowa (direct getFile link, dated 2026-06-17) and
-//     ul. Mireckiego 62 V przetarg (dated 2026-06-05) — proves
-//     fileItemsFromBoard() reads a direct-file board row + its
-//     udostepnil_data date.
-//   - ZIELONA_TEXT — full real pdftotext of the Zielona 38-40 announcement
-//     PDF (getFile?id=624378): LAND (2 combined parcels 522/3 + 525/1, obr.
-//     24, 442 m² total), I przetarg ustny nieograniczony, "cena WYJŚCIOWA"
-//     (not wywoławcza) 110 000,00 zł, auction 2026-08-12.
-//   - PARKOWA_TEXT — full real pdftotext of a results-board PDF
-//     (getFile?id=623585): LAND (parcel 1121/2, obr. 13, 717 m²), I przetarg,
-//     cena wywoławcza 123 000,00 zł, UNSOLD ("przetarg zakończył się wynikiem
-//     negatywnym" — no wadium received), auction 2026-06-08.
-//   - KOSCIUSZKI_TEXT — full real pdftotext of a results-board PDF
-//     (getFile?id=558829): FLAT, Plac Kościuszki 23 (genitive "Placu
-//     Kościuszki" in the source) lokal mieszkalny nr 9, 63,30 m², unnumbered/
-//     round-1 przetarg, cena wywoławcza 35 000,00 zł, SOLD at 35 350,00 zł,
-//     auction 2022-08-19.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -223,7 +193,6 @@ const RESULTS_BOARD_FRAGMENT = `<li class="element_podkategorii">
                         </div>
                     </li>`;
 
-// Full real pdftotext -layout of getFile?id=624378 (Ogłoszenie o przetargu ul. Zielona 38-40.pdf).
 const ZIELONA_TEXT = `
                       Prezydent Miasta Tomaszowa Mazowieckiego
                         Ogłasza I przetarg ustny nieograniczony
@@ -250,7 +219,6 @@ bankowy Gminy Miasto Tomaszów Mazowiecki Nr 58 1050 1461 1000 0023 6464 4415
 najpóźniej do dnia 05 sierpnia 2026r.
 `;
 
-// Full real pdftotext -layout of getFile?id=623585 (Informacja o wynikach przetargu ul. Parkowa.pdf).
 const PARKOWA_TEXT = `
                                       Informacja
                      Prezydenta Miasta Tomaszowa Mazowieckiego
@@ -278,7 +246,6 @@ przetargów oraz rokowań na zbycie nieruchomości (t.j. Dz.U. z 2021 r. Nr 2213
 4. w związku z powyższym przetarg zakończył się wynikiem negatywnym.
 `;
 
-// Full real pdftotext -layout of getFile?id=558829 (Informacja ... lokalu mieszkalnego nr 9 ... Placu Kościuszki nr 23).
 const KOSCIUSZKI_TEXT = `
                                    INFORMACJA
                        Prezydenta Miasta Tomaszowa Mazowieckiego
@@ -319,7 +286,6 @@ const KOSCIUSZKI_TEXT = `
   Mariusz Sobański w Tomaszowie Mazowieckim.
 `;
 
-// ---------------------------------------------------------------------- crawl.js board parsing
 
 test('announcementItemsFromBoard reads the 3 live sub-page rows', () => {
   const items = announcementItemsFromBoard(BOARD_FRAGMENT);
@@ -357,7 +323,6 @@ test('fileItemsFromBoard reads direct-linked results-board rows + publish dates'
   assert.equal(items[1].date, '2026-06-05');
 });
 
-// ---------------------------------------------------------------------- parse.js discriminators
 
 test('isAnnouncement/isResultNotice gate correctly on the 3 real fixtures', () => {
   assert.equal(isAuctionSaleDoc(ZIELONA_TEXT), true);
@@ -370,7 +335,6 @@ test('isAnnouncement/isResultNotice gate correctly on the 3 real fixtures', () =
   assert.equal(isResultNotice(KOSCIUSZKI_TEXT), true);
 });
 
-// ---------------------------------------------------------------------- field extractors
 
 test('landFields extracts parcel + obręb + area for both land fixtures', () => {
   const zielona = landFields(ZIELONA_TEXT);
@@ -397,8 +361,8 @@ test('builtAreaM2 reads the "o łącznej pow.63,30 m2" flat-area idiom', () => {
 });
 
 test('startingPriceFrom handles both "cena wywoławcza" and "cena wyjściowa" labels', () => {
-  assert.equal(startingPriceFrom(ZIELONA_TEXT), 110000); // "cena wyjściowa"
-  assert.equal(startingPriceFrom(PARKOWA_TEXT), 123000); // "cena wywoławcza"
+  assert.equal(startingPriceFrom(ZIELONA_TEXT), 110000);
+  assert.equal(startingPriceFrom(PARKOWA_TEXT), 123000);
   assert.equal(startingPriceFrom(KOSCIUSZKI_TEXT), 35000);
 });
 
@@ -419,10 +383,9 @@ test('auctionDateFromText reads both future-tense (announcement) and past-tense 
 test('roundFromAnnouncement/roundFromResult read the Roman numeral, default to 1 when unnumbered', () => {
   assert.equal(roundFromAnnouncement(ZIELONA_TEXT), 1);
   assert.equal(roundFromResult(PARKOWA_TEXT), 1);
-  assert.equal(roundFromResult(KOSCIUSZKI_TEXT), 1); // unnumbered "przetargu" -> default round 1
+  assert.equal(roundFromResult(KOSCIUSZKI_TEXT), 1);
 });
 
-// ---------------------------------------------------------------------- top-level parsers
 
 test('parseAnnouncement(ZIELONA_TEXT) -> a LAND record with all fields', () => {
   const rec = parseAnnouncement(ZIELONA_TEXT, { url: 'https://bip.tomaszow.miasta.pl/public/getFile?id=624378' });

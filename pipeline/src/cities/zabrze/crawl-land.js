@@ -1,13 +1,3 @@
-// Zabrze LAND (działki/grunty) crawler — document-list board 555, the municipal
-// land sale-auction board ("Ogłoszenie Prezydenta Miasta Zabrze o … ustnym …
-// przetargu na sprzedaż nieruchomości niezabudowanej"). Found by probing the
-// document-list API (549 = flats; 544 = land wykazy; 555 = land auctions). Each
-// announcement's attachment is single-parcel prose parsed by parseLandAttachment.
-// Emits kind:'grunt' so refresh.js routes the records into data/zabrze/land.json.
-//
-// Defensive throughout: a failed list/doc/attachment fetch is logged and skipped;
-// crawlLand() returns [] rather than throwing, so a land outage never affects the
-// flats stream (index.js wraps it in try/catch too).
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -22,8 +12,6 @@ const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA, insecureTLS: true };
 
-/** All /attachment/<id> URLs referenced on a /doc page (a notice may carry the
- *  sale announcement plus GDPR/annex PDFs — we try each until one parses). */
 export function attachmentUrlsFromDoc(html) {
   const out = [];
   const seen = new Set();
@@ -36,7 +24,6 @@ export function attachmentUrlsFromDoc(html) {
   return out;
 }
 
-/** Crawl board 555 → parcel-shaped land records (kind 'grunt'). */
 export async function crawlLand() {
   let json;
   try {
@@ -71,7 +58,6 @@ export async function crawlLand() {
       } catch {
         try { text = await docText(attUrl, FETCH_OPTS); } catch { continue; }
       }
-      // Skip the GDPR / data-processing annex (no parcel in it).
       if (/INFORMACJA\s+O\s+PRZETWARZANIU/i.test(text) && !/dzia[łl]k/i.test(text)) continue;
       const parsed = parseLandAttachment(text);
       if (parsed && (parsed.dzialka_nr || parsed.address_raw)) {

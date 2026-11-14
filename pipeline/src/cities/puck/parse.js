@@ -1,6 +1,3 @@
-// Parser for Puck auction notices and results (bip.miastopuck.pl)
-//
-// Handles Alfa CMS articles and attached text PDFs.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';

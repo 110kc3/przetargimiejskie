@@ -1,6 +1,3 @@
-// Oława parser — bip.um.olawa.pl
-//
-// Extracts listing, land, and result records from MADKOM eBIP JSON + PDF documents.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -162,14 +159,12 @@ export function parseAnnouncement(text, title, url) {
   const parcels = extractParcels(combined);
   const kw = extractKw(combined);
 
-  // Address: położonej w Oławie przy ulicy Rybackiej 36/1
   let address = null;
   const mAddr = combined.match(/(?:przy\s+(?:ulicy|ul\.|al\.|alei)|położon[a-ząćęłńóśźż]+\s+w\s+Oławie\s+przy\s+(?:ulicy|ul\.|al\.|alei)?)\s*([A-ZĄĆĘŁŃÓŚŹŻ0-9][a-ząćęłńóśźż0-9\.\s\/-]+?)(?:\s+w\s+Oławie)?(?:,|\.|\s+o\s+pow|\s+\(|\s+dla\s+której|\s+stanowiąc)/i);
   if (mAddr) {
     address = parseAddress(mAddr[1].trim(), 'Oława');
   }
 
-  // Area: powierzchni użytkowej 65,34 metra
   let area_m2 = null;
   const mArea = combined.match(/(?:powierzchni(?:i|a)?\s+użytkowej|pow\.\s*użytkow[a-z]*|o\s+pow(?:ierzchni)?)\s*:?\s*([\d\s,.]+)\s*(?:m2|m²|metra)/i);
   if (mArea) {
@@ -182,7 +177,6 @@ export function parseAnnouncement(text, title, url) {
     }
   }
 
-  // Price: 150 000,00 w kolumnie lub po Cena wywoławcza
   let price = null;
   const mPrice = combined.match(/(?:Cena\s+wywoławcza[^\n\r:]*(?:netto)?|Cena\s+wywoławcza\s+nieruchomości\s+netto\s*\(złotych\))\s*:?\s*([\d\s,.]+)\s*(?:zł|pln|\n|$)/i);
   if (mPrice) {
@@ -192,7 +186,6 @@ export function parseAnnouncement(text, title, url) {
     if (mPriceSimple) price = parsePLN(mPriceSimple[1]);
   }
 
-  // Date
   let auction_date = null;
   const mDate = combined.match(/(?:odbędzie\s+się[^\n\r]*w\s+dniu|przetarg[^\n\r]*w\s+dniu|termin\s+przetargu:?)\s*(\d{1,2}\s+[a-ząćęłńóśźż]+\s+\d{4}|\d{1,2}\.\d{1,2}\.\d{4}|\d{4}-\d{2}-\d{2})/i);
   if (mDate) {

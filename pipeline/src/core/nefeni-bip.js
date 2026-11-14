@@ -1,7 +1,3 @@
-// Standardized Nefeni BIP2 / bip.net.pl platform engine.
-// Handles municipalities running Nefeni BIP2 (Zgierz, Piekary Śląskie, Kowal, Nekla, etc.)
-// which expose Next.js server-rendered HTML at /kategorie/<catSlug>?size=<N>&page=<P>&lang=PL
-// with embedded schema.org JSON-LD and attachments at /api/attachments/<id>.
 
 import { getText } from './fetch.js';
 import { parseAddress } from './normalize.js';

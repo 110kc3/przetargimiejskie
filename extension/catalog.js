@@ -1,4 +1,3 @@
-// Shared, dependency-free catalogue search used by the extension and website.
 (function(root){
   const STATUS={pl:{monitored:'Monitorowane',unavailable:'Tymczasowo niedostępne — zachowane dane',empty:'Brak bieżących aukcji w sprawdzonym źródle',unknown:'Stan źródła nieznany',unresearched:'Jeszcze niezbadane',not_monitored:'Brak aktywnego monitoringu'},en:{monitored:'Monitored',unavailable:'Temporarily unavailable — retained data',empty:'No current auctions in the checked source',unknown:'Source status unknown',unresearched:'Not yet researched',not_monitored:'Monitoring not enabled'}};
   const fold=s=>String(s||'').normalize('NFD').replace(/\p{M}/gu,'').replace(/ł/g,'l').toLowerCase();

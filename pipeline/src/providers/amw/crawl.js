@@ -25,8 +25,6 @@ export async function crawlAmw(_previous = []) {
   for (const row of results.rows) {
     if (row.outcome !== 'sold' || !row.result_url) continue;
     try {
-      // ocrPdf is content-addressed, so this is instant after the first run.
-      // Re-parse cached text every day so parser fixes repair committed rows.
       const text = await ocrPdf(row.result_url, { userAgent: BROWSER_UA });
       Object.assign(row, parseAmwResultText(text));
     } catch (error) {

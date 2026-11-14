@@ -1,31 +1,3 @@
-// Żnin crawler — `bip.gminaznin.pl` ("System Rada"/eSesja BIP, browser-UA gated).
-//
-// DISCOVERY. GET the dedicated board `/nieruchomosci` (with a browser UA — the
-// bot UA 403s) and harvest its REAL server-rendered `<a href="/nieruchomosc/
-// <slug>">` rows (34 live; no JS/DataTables pagination crawl needed — every row
-// is in the server HTML). Fetch each notice, parse the inline LABELLED field
-// block (parse.js parseNotice), and — best-effort — read the auction date out of
-// the SCANNED ogłoszenie PDF (pdfText first; its "\f" tiny-junk empty output ⇒
-// ocrPdf). Any PDF failure (older attachment ids 403; occasional broken file)
-// leaves auction_date null and the inline-HTML listing still ships.
-//
-// EMITTABLE RECORDS. A record is kept only if it can be KEYED downstream: land
-// (kind 'grunt') needs a parcel number; every other kind needs a parsed street
-// address. The board's land + the one flat + the ul.-Gnieźnieńska commercial unit
-// key cleanly; the Kościuszki units and the Kl. Janickiego / pl. Działowy built
-// properties state a street/parcel but NO building number, so they carry no
-// address and are dropped (build-properties tolerates an occasional unkeyable
-// row; parcel-less commercial can't live in land.json either).
-//
-// ACHIEVED-PRICE STREAM — UNSOLD-ONLY (see parse.js header). No result document
-// is published; crawlResultDocs() groups the crawled notices by subject (address
-// key for units, parcel+obręb for land) and forwards every round that a LATER
-// round supersedes — round K's own HTML — so parseResultDoc emits round K's real
-// price/subject as outcome:'unsold' (no hammer price exists here).
-//
-// discoverAll() is memoized so crawlActive() and crawlResultDocs() (each called
-// once per refresh.js run) share one fetch+OCR pass. One request/second (enforced
-// by core/fetch.js). NEVER modifies core/.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -40,16 +12,9 @@ const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
 
-// Board is ~34 rows; a generous cap bounds the crawl for the CI wall-clock budget
-// even if the gmina grows the board.
 const MAX_NOTICES = 90;
 
-// ---------------------------------------------------------------------------
-// Board → notice URLs
-// ---------------------------------------------------------------------------
 
-/** Harvest distinct `/nieruchomosc/<slug>` links (real server anchors) from the
- *  board HTML, in document order. @param {string} html @returns {string[]} */
 export function parseBoard(html) {
   const seen = new Set();
   const out = [];
@@ -62,14 +27,10 @@ export function parseBoard(html) {
   return out;
 }
 
-// A pdfText result is "real" only if it has meaningful content — the scanned
-// Żnin PDFs return a lone form-feed ("\f\n"), the "tiny \f junk" that means OCR.
 function hasRealText(t) {
   return Boolean(t) && t.replace(/[\s\f]+/g, '').length >= 20;
 }
 
-/** Best-effort auction date from the ogłoszenie PDF. Born-digital → pdfText;
- *  scanned (the Żnin case) → ocrPdf. Every failure path returns null. */
 async function auctionDateFromPdf(pdfUrl) {
   if (!pdfUrl) return null;
   let text = '';
@@ -89,13 +50,9 @@ async function auctionDateFromPdf(pdfUrl) {
   return extractAuctionDate(text);
 }
 
-// ---------------------------------------------------------------------------
-// Shared fetch-and-parse pass (memoized per process run)
-// ---------------------------------------------------------------------------
 
 let _cache = null;
 
-/** @returns {Promise<Array<object>>} emittable notice records (with `.html`). */
 async function discoverAll() {
   if (_cache) return _cache;
 
@@ -124,7 +81,6 @@ async function discoverAll() {
     if (n.cancelled) { console.error(`  znin: cancelled, skip: ${url}`); continue; }
     if (isRental(n.title)) { console.error(`  znin: rental, skip: ${url}`); continue; }
 
-    // Keep only records that can be keyed downstream (see file header).
     const emittable = n.kind === 'grunt' ? Boolean(n.dzialka_nr) : Boolean(n.address);
     if (!emittable) { console.error(`  znin: unkeyable (kind=${n.kind}), skip: ${url}`); continue; }
 
@@ -137,7 +93,6 @@ async function discoverAll() {
   return records;
 }
 
-/** Per-run grouping key: address for address-kinds, parcel(+obręb) for land. */
 function subjectKey(r) {
   if (r.kind === 'grunt') {
     return r.dzialka_nr ? `dz|${toAscii(r.obreb || '')}|${r.dzialka_nr}` : null;
@@ -145,11 +100,7 @@ function subjectKey(r) {
   return r.address ? r.address.key : null;
 }
 
-// ---------------------------------------------------------------------------
-// crawlActive
-// ---------------------------------------------------------------------------
 
-/** @returns {Promise<{ listings: Array<object>, wykaz: Array, land: Array }>} */
 export async function crawlActive() {
   const records = await discoverAll();
   const listings = records.map((r) => ({
@@ -166,21 +117,10 @@ export async function crawlActive() {
     published_date: r.published_date,
   }));
   console.error(`  znin active: ${listings.length} listing(s)`);
-  // No wykaz board in scope, and land rides `listings` (refresh partitions it).
   return { listings, wykaz: [], land: [] };
 }
 
-// ---------------------------------------------------------------------------
-// crawlResultDocs
-// ---------------------------------------------------------------------------
 
-/**
- * Confirmed-superseded rounds only: round K's own html, forwarded because a round
- * K+1 for the SAME subject also exists. Contract mirrors the wolow analog —
- * {text, pdf_url, auction_date}: source:'html' ⇒ refresh.js hands `text` to
- * parseResultDoc, with `pdf_url` as sourceUrl and `auction_date` as fallbackDate.
- * @returns {Promise<Array<{text:string, pdf_url:string, auction_date:string|null}>>}
- */
 export async function crawlResultDocs() {
   const records = await discoverAll();
 
@@ -195,7 +135,6 @@ export async function crawlResultDocs() {
 
   const refs = [];
   for (const group of groups.values()) {
-    // Collapse same-round republishes before the round-order arithmetic.
     const byRound = new Map();
     for (const r of group) if (!byRound.has(r.round)) byRound.set(r.round, r);
     const rounds = [...byRound.keys()].sort((a, b) => a - b);
@@ -211,9 +150,6 @@ export async function crawlResultDocs() {
 // Re-exported so index.js can wire the registry contract from one module.
 export { parseResultDoc };
 
-// ---------------------------------------------------------------------------
-// CLI harness (manual: node crawl.js [active|results|board])
-// ---------------------------------------------------------------------------
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const mode = process.argv[2] ?? 'active';
   if (mode === 'board') {

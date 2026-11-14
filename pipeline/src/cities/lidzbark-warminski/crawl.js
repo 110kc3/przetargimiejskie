@@ -1,17 +1,3 @@
-// Lidzbark Warmiński crawler — BIP at bip.lidzbarkw.pl, SYSTEMDOBIP.PL / E-LINE:
-//
-//   /przetargi/10054/status/0/   ACTIVE (ogłoszone)        — crawlActive()
-//   /przetargi/10054/status/1/   RESOLVED (rozstrzygnięte) — crawlResultDocs()
-//
-// Pagination puts the page number before the status segment:
-//   /przetargi/10054/{page}/status/{n}/ (10 rows/page).
-// Both boards render the same 7-column table:
-//   Lp / Data ogłoszenia / Data i godzina przetargu / Dotyczy / Cena wywoławcza / Wynik / Załączniki
-//
-// The BIP gates the default bot UA (HTTP 403); a browser UA is required.
-// Attachments are born-digital text PDFs served via /system/pobierz.php.
-//
-// See spike: spikes/warminsko-mazurskie/powiat-lidzbarski/lidzbark-warminski.md
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -37,7 +23,6 @@ const MAX_RESOLVED_PAGES = Number(process.env.LIDZBARK_WARMINSKI_MAX_RESOLVED_PA
 const ROWS_PER_PAGE = 10;
 const CRAWL_BUDGET_MS = Number(process.env.LIDZBARK_WARMINSKI_CRAWL_BUDGET_MS) || 10 * 60 * 1000;
 
-// ── HTML helpers ─────────────────────────────────────────────────────────────
 
 function stripTags(s) {
   return (s || '')
@@ -72,19 +57,13 @@ function parseAttachments(rowHtml) {
   return out;
 }
 
-// ── Board ────────────────────────────────────────────────────────────────────
 
-/** Board URL for a given status (0 active, 1 resolved) and 1-based page. */
 export function boardUrl(status, page) {
   return page <= 1
     ? `${ORIGIN}/przetargi/${BOARD_ID}/status/${status}/`
     : `${ORIGIN}/przetargi/${BOARD_ID}/${page}/status/${status}/`;
 }
 
-/**
- * Parse one board page into row objects.
- * @param {string} html
- */
 export function parseBoardPage(html) {
   const out = [];
   const rowRe = /<tr class="(?:odd|even)">([\s\S]*?)<\/tr>/gi;
@@ -124,7 +103,6 @@ export function parseBoardPage(html) {
   return out;
 }
 
-// ── Attachment picking ───────────────────────────────────────────────────────
 
 const isPdf = (a) => /\.pdf(?:$|[?&])/i.test(a.filename || a.url);
 const NOISE_RE = /map|rzut|formularz|zg[łl]oszen|\.jpe?g|\.png|\.gif|piwnic/i;
@@ -149,7 +127,6 @@ export function pickResultAttachment(attachments) {
   );
 }
 
-// ── Fetchers ─────────────────────────────────────────────────────────────────
 
 async function fetchPage(url) {
   try {
@@ -182,12 +159,7 @@ async function extractPdf(att, expectResult = false) {
   return hasText(text) ? text : null;
 }
 
-// ── crawlActive ──────────────────────────────────────────────────────────────
 
-/**
- * Crawl the ACTIVE board (status=0), flats only.
- * @returns {Promise<{ listings: object[], wykaz: [], land: [], valid_empty: boolean, valid_empty_land: boolean }>}
- */
 export async function crawlActive() {
   const listings = [];
   const seenDetails = new Set();
@@ -238,12 +210,7 @@ export async function crawlActive() {
   };
 }
 
-// ── crawlResultDocs ──────────────────────────────────────────────────────────
 
-/**
- * Crawl the RESOLVED board (status=1), flats only.
- * @returns {Promise<Array<{ text: string, pdf_url: string, detail_url: string, auction_date: string|null }>>}
- */
 export async function crawlResultDocs() {
   const refs = [];
   const seenDetails = new Set();
@@ -311,7 +278,6 @@ export async function crawlResultDocs() {
   return refs;
 }
 
-// ── live smoke test (`node crawl.js`) ───────────────────────────────────────
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings, valid_empty } = await crawlActive();

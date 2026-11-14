@@ -1,16 +1,3 @@
-// Builds data/index.json from the city registry + each city's committed
-// data/<city>/meta.json — standalone so the CI aggregate job can rebuild the
-// index AFTER the per-city matrix jobs have each committed their own
-// data/<city>/ directory. The single publisher also overlays each shard's
-// signed-off outcome so a failed attempt is visible without replacing the
-// city's last-good data files.
-//
-// Disk-based is equivalent to refresh.js's in-memory build: refreshCity
-// writes meta.json on success and leaves the previous meta.json in place on
-// failure/outage — exactly the stale-fallback main() applies. A city with no
-// meta.json on disk gets zero counts, same as before.
-//
-// Run with:  node src/build-index.js   (from pipeline/)
 
 import { mkdir, readFile, writeFile, rename } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -131,7 +118,6 @@ export async function buildIndexFromDisk({ outcomes = [], preserveGeneratedAt = 
   return index;
 }
 
-// CLI entry (node src/build-index.js).
 if (process.argv[1] && process.argv[1].endsWith('build-index.js')) {
   const outcomePath = process.env.CITY_OUTCOMES_PATH;
   const outcomes = outcomePath

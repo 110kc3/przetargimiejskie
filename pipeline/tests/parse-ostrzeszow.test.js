@@ -1,8 +1,3 @@
-// Unit tests for Ostrzeszów adapter (ostrzeszow).
-//
-// Groundtruthed against real documents from:
-// - ostrzeszow.nowoczesnagmina.pl (Burmistrz MiG Ostrzeszów)
-// - bip.zgm-ostrzeszow.pl (Zakład Gospodarki Mieszkaniowej Sp. z o.o.)
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -36,11 +31,7 @@ import {
   parseResultDoc,
 } from '../src/cities/ostrzeszow/parse.js';
 
-// ---------------------------------------------------------------------------
-// Real fixtures from live BIP documents
-// ---------------------------------------------------------------------------
 
-// Burmistrz MiG Ostrzeszów — ul. Poprzeczna 1/4, II przetarg announcement (file 24280 / art 13281)
 const POPRZECZNA_II_ANN = `
 BURMISTRZ MIASTA I GMINY OSTRZESZÓW
 WGN.7145.1.2020.2021
@@ -59,7 +50,6 @@ Przetarg odbędzie się w dniu 10 marca 2021 r. o godz. 10:00, w lokalu Urzędu 
 Wadium: 17.000,00 zł.
 `;
 
-// Burmistrz MiG Ostrzeszów — ul. Poprzeczna 1/4, II przetarg result (file 24486 / art 13281)
 const POPRZECZNA_II_RESULT = `
 BURMISTRZ MIASTA I GMINY OSTRZESZÓW
 WGN.7145.1.2020.2021
@@ -74,7 +64,6 @@ INFORMACJĘ o wyniku II przetargu ustnego nieograniczonego na sprzedaż wolnego 
 5. Najwyższa cena osiągnięta w przetargu nie została osiągnięta ze względu na brak oferentów. Przetarg zakończył się wynikiem negatywnym.
 `;
 
-// ZGM Ostrzeszów — ul. 21 Stycznia 1a/2, I przetarg announcement (file 183 / art 60)
 const STYCZNIA_ANN = `
 Zakład Gospodarki Mieszkaniowej Sp. z o.o.
 63-500 Ostrzeszów, ul. Sportowa 2A
@@ -90,7 +79,6 @@ Wadium zostało określone na kwotę: 38 500,00 zł.
 Warunkiem przystąpienia do przetargu jest uiszczenie wadium w pieniądzu w wyżej określonej wysokości 38.500,00 zł nie później do dnia 16.06.2026 r. do godz. 24:00.
 `;
 
-// ZGM Ostrzeszów — Szklarka Przygodzicka 89, I przetarg announcement (file 180 / art 59)
 const SZKLARKA_ANN = `
 Zakład Gospodarki Mieszkaniowej Sp. z o.o.
 PREZES ZARZĄDU ZAKŁADU GOSPODARKI MIESZKANIOWEJ SPÓŁKA Z O.O. W OSTRZESZOWIE
@@ -104,7 +92,6 @@ Wadium: 12 400,00 zł.
 Warunkiem przystąpienia do przetargu jest uiszczenie wadium nie później do dnia 16.06.2026 r. do godz. 24:00.
 `;
 
-// ZGM Ostrzeszów — Turze dz. 15/13, 15/14 land announcement (file 243 / art 77)
 const TURZE_ANN = `
 Zakład Gospodarki Mieszkaniowej Sp. z o.o.
 ogłasza I przetarg ustny nieograniczony na sprzedaż nieruchomości gruntowych niezabudowanych w trybie przetargu ustnego nieograniczonego
@@ -116,7 +103,6 @@ Wadium: 10 800,00 zł.
 I Przetarg ustny nieograniczony odbędzie się w dniu 25.11.2026 r. o godz. 10:00, w siedzibie Spółki przy ul. Sportowej nr 2a w Ostrzeszowie.
 `;
 
-// ZGM Ostrzeszów — ul. Kościuszki 23A result document (file 110 / art 41)
 const KOSCIUSZKI_RESULT = `
 ZAKŁAD GOSPODARKI MIESZKANIOWEJ SPÓŁKA Z O.O. W OSTRZESZOWIE
 Ostrzeszów, dnia 03.06.2025r.
@@ -131,7 +117,6 @@ INFORMACJĘ o wyniku II przetargu ustnego nieograniczonego na sprzedaż zabudowa
 6. Przetarg zakończył się wynikiem negatywnym z powodu braku oferentów na przetargu.
 `;
 
-// Burmistrz MiG Ostrzeszów — Rojów dz. 996/51 land result document (file 33611 / art 18272)
 const ROJOW_RESULT = `
 BURMISTRZ MIASTA I GMINY OSTRZESZÓW
 WGN.6840.3.2025/26
@@ -145,7 +130,6 @@ INFORMACJĘ o wyniku II przetargu ustnego nieograniczonego na sprzedaż nierucho
 5. Najwyższa cena w przetargu nie została osiągnięta ze względu na brak oferentów w niniejszym przetargu. Przetarg zakończył się wynikiem negatywnym.
 `;
 
-// Synthetic successful auction result for test coverage
 const SOLD_RESULT_MOCK = `
 ZAKŁAD GOSPODARKI MIESZKANIOWEJ SPÓŁKA Z O.O. W OSTRZESZOWIE
 INFORMACJĘ o wyniku I przetargu ustnego nieograniczonego na sprzedaż nieruchomości lokalowej nr 2 położonej w Ostrzeszowie przy ul. 21 Stycznia 1A.
@@ -154,7 +138,6 @@ INFORMACJĘ o wyniku I przetargu ustnego nieograniczonego na sprzedaż nieruchom
 5. Przetarg zakończył się wynikiem pozytywnym. Nabywcą nieruchomości za cenę 392 500,00 zł został Jan Kowalski.
 `;
 
-// HTML table snippet from article 1752 (Niedźwiedź land auction)
 const NIEDZWIEDZ_HTML = `
 <div>
   <h2>I przetarg ustny nieograniczony w sprawie sprzedaży nieruchomości gruntowej we wsi Niedźwiedź</h2>
@@ -178,9 +161,6 @@ const NIEDZWIEDZ_HTML = `
 </div>
 `;
 
-// ---------------------------------------------------------------------------
-// Unit tests
-// ---------------------------------------------------------------------------
 
 test('stripTags cleans HTML and entities', () => {
   assert.equal(stripTags('<p>Lokal &amp; mieszkanie&nbsp;nr 4</p>'), 'Lokal & mieszkanie nr 4');
@@ -272,7 +252,6 @@ test('isSkippableEntryText correctly identifies noise to drop', () => {
   assert.equal(isSkippableEntryText('Wykaz lokalu w trybie bezprzetargowym na rzecz najemcy'), true);
   assert.equal(isSkippableEntryText('Sprostowanie do zaproszenia do złożenia oferty'), true);
 
-  // Legitimate sales must not be skipped
   assert.equal(isSkippableEntryText('ogłasza II przetarg ustny nieograniczony na sprzedaż wolnego lokalu mieszkalnego'), false);
   assert.equal(isSkippableEntryText('ogłasza I przetarg ustny nieograniczony na sprzedaż nieruchomości lokalowej 21 Stycznia 1a'), false);
   assert.equal(isSkippableEntryText('ogłasza I przetarg ustny nieograniczony na sprzedaż nieruchomości gruntowych niezabudowanych'), false);
@@ -310,7 +289,6 @@ test('streetBuildingFromText extracts valid addresses and excludes municipal off
   const v = streetBuildingFromText('w miejscowości Szklarka Przygodzicka 89, stanowiącej');
   assert.deepEqual(v, { street: 'Szklarka Przygodzicka', building: '89' });
 
-  // Exclude office addresses
   const office1 = streetBuildingFromText('w siedzibie Urzędu przy ul. Zamkowej 31 w Ostrzeszowie');
   assert.equal(office1, null);
 
@@ -337,9 +315,6 @@ test('classifyEntryKind detects correct categories', () => {
   assert.equal(classifyEntryKind('sprzedaż zabudowanej nieruchomości o pow. 0,0928 ha'), 'zabudowana');
 });
 
-// ---------------------------------------------------------------------------
-// Announcement document parsing tests (crawlActive)
-// ---------------------------------------------------------------------------
 
 test('parseAnnouncementDoc handles Poprzeczna 1/4 flat auction', () => {
   const rec = parseAnnouncementDoc(POPRZECZNA_II_ANN, 'https://ostrzeszow.nowoczesnagmina.pl/?a=13281', false);
@@ -424,9 +399,6 @@ test('wykazRecordFromEntry extracts wykaz entries correctly', () => {
   assert.equal(rec2.kind, 'grunt');
 });
 
-// ---------------------------------------------------------------------------
-// Result document parsing tests (parseResultDoc)
-// ---------------------------------------------------------------------------
 
 test('parseResultDoc handles Poprzeczna 1/4 flat result (unsold)', () => {
   const results = parseResultDoc(POPRZECZNA_II_RESULT, null, 'https://ostrzeszow.nowoczesnagmina.pl/?p=document&id=24486');
@@ -491,9 +463,6 @@ test('parseResultDoc handles successful auction (sold)', () => {
   assert.equal(r.auction_date, '2026-06-18');
 });
 
-// ---------------------------------------------------------------------------
-// Adapter contract export tests
-// ---------------------------------------------------------------------------
 
 test('adapter exports all required registry properties', () => {
   assert.equal(ostrzeszowAdapter.id, 'ostrzeszow');

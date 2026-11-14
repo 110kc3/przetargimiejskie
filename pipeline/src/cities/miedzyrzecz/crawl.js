@@ -1,47 +1,3 @@
-// Międzyrzecz crawler — one board on bip.miedzyrzecz.pl, live-verified
-// 2026-07-10:
-//
-//   /przetargi/0/status/0/   ACTIVE (ogłoszone)      — crawlActive()
-//   /przetargi/0/status/1/   RESOLVED (rozstrzygnięte) — crawlResultDocs()
-//   /przetargi/0/status/2/   INVALIDATED (unieważnione) — not crawled (see below)
-//
-// Pagination puts the page number BEFORE the status segment, same shape as
-// gorzow-wielkopolski: /przetargi/0/{page}/status/{n}/. Both boards render the
-// SAME 7-column HTML table (Lp / Data ogłoszenia / Data i godzina przetargu /
-// Dotyczy / Cena wywoławcza / Wynik / Załączniki), 30 rows/page.
-//
-// UNLIKE Gorzów (whose /przetargi/320/ engine carries announcements only, with
-// results on a wholly separate /509/ archive), Międzyrzecz's ONE table is both
-// engines at once — a resolved row already states "Cena wywoławcza" and
-// "Wynik" (Pozytywny/Negatywny) inline. So:
-//   * crawlActive() reads status=0 rows ONLY — status=1 rows are results, not
-//     announcements, and must never be double-counted as active listings.
-//   * crawlResultDocs() reads status=1 rows and only does an HTTP+OCR/DOCX
-//     fetch for POSITIVE (Pozytywny/sold) rows, which are the only rows with
-//     an achieved price to recover; a NEGATIVE row's result record is built
-//     straight from its own list-row text (see parse.buildNegativeResultText).
-//   * status=2 (unieważnione — cancelled auctions, not a sold/unsold outcome)
-//     is left uncrawled, matching gorzow-wielkopolski's own convention of
-//     excluding "unieważn…" rows from the data entirely.
-//
-// The board gates the default bot UA (HTTP 403); a browser UA is required —
-// confirmed live, same as gorzow-wielkopolski.
-//
-// Attachments: a row's "wynik" doc is sometimes a born-digital DOCX (older
-// listings, e.g. Kursko 28a/1, WGM.6840.31.2016/2021) and sometimes a SCANNED
-// PDF with no text layer (recent listings, e.g. Mieszka I 88/5,
-// WGM.6840.11.2025/2025 — Canon iR-ADV / RICOH scanner output). DOCX is
-// preferred when both exist; PDF falls back to OCR (psm 1 — verified clean on
-// a real Międzyrzecz scan; Gorzów's rotated-scan rationale for psm 1 applies
-// here defensively even though this scan wasn't visibly rotated).
-//
-// MTBS (bip.mtbs.miedzyrzecz.pl/przetargi/29/, same CMS/engine, confirmed live
-// 2026-07-10) is a secondary flat-seller (Międzyrzeckie TBS) the spike flags
-// as a low-volume bonus source. NOT crawled here — out of scope for this
-// build; a future agent can add it as a second announcer id on this same
-// engine with minimal new code.
-//
-// See spike: spikes/lubuskie/powiat-miedzyrzecki/miedzyrzecz.md
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -60,21 +16,14 @@ import {
 } from './parse.js';
 
 const ORIGIN = 'https://bip.miedzyrzecz.pl';
-// The BIP 403s the default bot UA (confirmed live); a browser UA is reliable.
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
-// Page caps (env-overridable for backfills). Boards hold 30 rows/page; the
-// resolved board currently spans 12 pages of history.
 const MAX_ACTIVE_PAGES = Number(process.env.MIEDZYRZECZ_MAX_ACTIVE_PAGES) || 3;
 const MAX_RESOLVED_PAGES = Number(process.env.MIEDZYRZECZ_MAX_RESOLVED_PAGES) || 12;
 const ROWS_PER_PAGE = 30;
-// Wall-clock budget for the result-document fetch/extract loop (only positive
-// rows fetch a document, so this rarely matters, but it's the same safety net
-// gorzow-wielkopolski uses for a cold first run).
 const CRAWL_BUDGET_MS = Number(process.env.MIEDZYRZECZ_CRAWL_BUDGET_MS) || 10 * 60 * 1000;
 
-// ── HTML helpers ─────────────────────────────────────────────────────────────
 
 function stripTags(s) {
   return (s || '')
@@ -108,23 +57,13 @@ function parseAttachments(rowHtml) {
   return out;
 }
 
-// ── Board ────────────────────────────────────────────────────────────────────
 
-/** Board URL for a given status (0 active, 1 resolved, 2 invalidated) and 1-based page. */
 export function boardUrl(status, page) {
   return page <= 1
     ? `${ORIGIN}/przetargi/0/status/${status}/`
     : `${ORIGIN}/przetargi/0/${page}/status/${status}/`;
 }
 
-/**
- * Parse one board page (status=0 or status=1 — same table shape) into row
- * objects. Both "Dotyczy" and "Wynik" cells share the CSS class "td-title-1"
- * (Dotyczy is first, Wynik second) — extracted positionally, not by class
- * alone.
- * @param {string} html
- * @returns {import('./parse.js').BoardRow[]}
- */
 export function parseBoardPage(html) {
   const out = [];
   const rowRe = /<tr class="(?:odd|even)">([\s\S]*?)<\/tr>/gi;
@@ -136,14 +75,13 @@ export function parseBoardPage(html) {
     const d2 = /td-date-2"[^>]*>[\s\S]*?(\d{4}-\d{2}-\d{2}(?:\s+\d{2}:\d{2}:\d{2})?)/.exec(row);
 
     const dotyczyM = /class="td-title-1"[^>]*>[\s\S]*?<a\s+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/.exec(row);
-    if (!dotyczyM) continue; // no detail link — not a real row (defensive)
+    if (!dotyczyM) continue;
     const detailUrl = deamp(dotyczyM[1]);
     const dotyczyText = stripTags(dotyczyM[2]);
 
     const cenaM = /class="td-title-2"[^>]*>([\s\S]*?)<\/td>/.exec(row);
     const cenaText = cenaM ? stripTags(cenaM[1]) : '';
 
-    // Two cells share class "td-title-1": [0] Dotyczy (has the <a>), [1] Wynik.
     const title1All = [...row.matchAll(/class="td-title-1"[^>]*>([\s\S]*?)<\/td>/g)];
     const wynikText = title1All.length > 1 ? stripTags(title1All[1][1]) : '';
 
@@ -160,7 +98,6 @@ export function parseBoardPage(html) {
   return out;
 }
 
-/** Prefer a DOCX "wynik" attachment (born-digital); fall back to its PDF twin. */
 function pickWynikAttachment(attachments) {
   const wynikLinks = (attachments || []).filter((a) => /wynik/i.test(a.filename || a.url));
   const docx = wynikLinks.find((a) => /\.docx(?:$|[?&])/i.test(a.filename || a.url));
@@ -168,7 +105,6 @@ function pickWynikAttachment(attachments) {
   return wynikLinks.find((a) => /\.pdf(?:$|[?&])/i.test(a.filename || a.url)) || wynikLinks[0] || null;
 }
 
-// ── Fetchers ─────────────────────────────────────────────────────────────────
 
 async function fetchPage(url) {
   try {
@@ -179,12 +115,6 @@ async function fetchPage(url) {
   }
 }
 
-/**
- * Extract a wynik attachment's text: DOCX (born-digital, preferred) or PDF
- * (pdftotext first, OCR fallback for scans — Międzyrzecz mixes both eras).
- * @param {{url:string, filename:string}} att
- * @returns {Promise<string|null>}
- */
 async function extractAttachment(att) {
   if (/\.docx(?:$|[?&])/i.test(att.filename || att.url)) {
     try {
@@ -203,10 +133,6 @@ async function extractAttachment(att) {
   }
   if (text && isResultNotice(text)) return text;
   try {
-    // psm 1 (auto + orientation detection) — verified clean on a real
-    // Międzyrzecz scan (informacja o wyniku, Mieszka I 88/5); kept as the
-    // default the same defensive way gorzow-wielkopolski does for its own
-    // rotated EZD scans.
     const ocr = await ocrPdf(att.url, { userAgent: BROWSER_UA, psm: 1 });
     if (ocr) return ocr;
   } catch (err) {
@@ -215,14 +141,7 @@ async function extractAttachment(att) {
   return text || null;
 }
 
-// ── crawlActive ──────────────────────────────────────────────────────────────
 
-/**
- * Crawl the ACTIVE board only (status=0). Every field an active listing needs
- * is already inline in the row text, so this makes zero PDF/DOCX/OCR fetches
- * — just the board page(s) themselves.
- * @returns {Promise<{ listings: object[], wykaz: [], land: [] }>}
- */
 export async function crawlActive() {
   const listings = [];
   const seenDetails = new Set();
@@ -242,23 +161,14 @@ export async function crawlActive() {
       if (rec) listings.push(rec);
     }
 
-    if (rows.length < ROWS_PER_PAGE) break; // short page = last page
+    if (rows.length < ROWS_PER_PAGE) break;
   }
 
   console.error(`  miedzyrzecz crawlActive: ${listings.length} flat listing(s)`);
   return { listings, wykaz: [], land: [] };
 }
 
-// ── crawlResultDocs ──────────────────────────────────────────────────────────
 
-/**
- * Crawl the RESOLVED board (status=1). Negative rows become result refs
- * straight from their own list-row text (no fetch); positive rows fetch the
- * "wynik" attachment (DOCX preferred, PDF+OCR fallback) to recover the
- * achieved price. `source:'html'` (config.js) means refresh.js hands each
- * ref's `.text` straight to parseResultDoc — no re-fetch there.
- * @returns {Promise<Array<{text:string, pdf_url:string, detail_url:string, auction_date:string|null}>>}
- */
 export async function crawlResultDocs() {
   const refs = [];
   const seenDetails = new Set();
@@ -295,7 +205,7 @@ export async function crawlResultDocs() {
         });
         continue;
       }
-      if (!isPositiveOutcome(row.wynikText)) continue; // "Brak wyniku" — shouldn't occur on status=1, skip defensively
+      if (!isPositiveOutcome(row.wynikText)) continue;
 
       const wynikAtt = pickWynikAttachment(row.attachments);
       if (!wynikAtt) {
@@ -320,7 +230,7 @@ export async function crawlResultDocs() {
       });
     }
 
-    if (rows.length < ROWS_PER_PAGE) break; // short page = last page
+    if (rows.length < ROWS_PER_PAGE) break;
   }
 
   if (skippedKnown) console.error(`  miedzyrzecz: skipped ${skippedKnown} already-known result doc(s)`);

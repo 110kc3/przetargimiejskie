@@ -1,14 +1,3 @@
-// Mogilno crawler.
-//
-// Source: bip.mogilno.pl — Nefeni Sp. z o.o. server-rendered HTML BIP.
-//
-// Boards:
-//   Sales & designations: https://bip.mogilno.pl/kategorie/98-zbycie-nieruchomosci
-//   Results (property):   https://bip.mogilno.pl/kategorie/101-informacja-o-wynikach-przetargow
-//   Results (general):    https://bip.mogilno.pl/kategorie/265-rozstrzygniete
-//
-// Attachments are hosted on bip-api.mogilno.pl/api/attachments/<id>.
-// Most formal notices and result notices in Mogilno are scanned PDFs (OCR required).
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -37,9 +26,6 @@ export function buildCategoryUrl(catSlug, page = 0, size = 100) {
   return `${ORIGIN}/kategorie/${catSlug}?size=${size}&page=${page}&lang=PL`;
 }
 
-/**
- * Harvest all article entries from a paginated category board.
- */
 export async function harvestCategoryEntries(catSlug, catId) {
   const entries = [];
   const seen = new Set();
@@ -74,10 +60,6 @@ export async function harvestCategoryEntries(catSlug, catId) {
   return { entries, verified };
 }
 
-/**
- * Extract text from an attachment URL, trying born-digital pdfText first,
- * then falling back to ocrPdf for scanned notices.
- */
 export async function extractAttachmentText(url) {
   if (!url) return '';
   let text = '';
@@ -87,7 +69,6 @@ export async function extractAttachmentText(url) {
     // pdfText error, proceed to OCR
   }
 
-  // If pdftotext returned nothing or negligible whitespace/page-break characters
   if (!text || text.trim().length < 50) {
     try {
       text = await ocrPdf(url);
@@ -99,9 +80,6 @@ export async function extractAttachmentText(url) {
   return text || '';
 }
 
-/**
- * Crawl active listings, designations (wykaz), and land parcels.
- */
 export async function crawlActive() {
   const { entries, verified } = await harvestCategoryEntries('98-zbycie-nieruchomosci', SALES_CAT);
   console.error(`  mogilno: crawled ${entries.length} entry/entries from zbycie-nieruchomosci`);
@@ -123,12 +101,10 @@ export async function crawlActive() {
     const title = detail.title || entry.title;
     const publishedDate = detail.publishedDate || entry.published_date;
 
-    // Skip rentals/leases
     if (/dzier[żz]aw|najem/i.test(title) && !/sprzeda[żz]/i.test(title)) {
       continue;
     }
 
-    // Find first PDF attachment
     const pdfAtt = detail.attachments.find((a) => /\.pdf(?:$|\?)/i.test(a.url) || /\.pdf/i.test(a.name)) ||
       detail.attachments[0];
     const pdfUrl = pdfAtt ? pdfAtt.url : null;
@@ -202,9 +178,6 @@ export async function crawlActive() {
   };
 }
 
-/**
- * Crawl result documents from results boards.
- */
 export async function crawlResultDocs() {
   const resultCats = [
     { slug: '101-informacja-o-wynikach-przetargow', id: RESULTS_CAT_PROPERTY },
@@ -240,7 +213,6 @@ export async function crawlResultDocs() {
     const publishedDate = detail.publishedDate || entry.published_date;
 
     for (const att of detail.attachments) {
-      // Must be a document (PDF)
       if (!/\.pdf(?:$|\?)/i.test(att.url) && !/\.pdf/i.test(att.name) && !/informacja|wynik|przetarg/i.test(att.name)) {
         continue;
       }
@@ -248,7 +220,6 @@ export async function crawlResultDocs() {
       const text = await extractAttachmentText(att.url);
       if (!text || text.trim().length < 20) continue;
 
-      // Verify that parseResultDoc finds at least one valid record
       const recs = parseResultDoc(text, publishedDate, att.url);
       if (recs && recs.length > 0) {
         refs.push({

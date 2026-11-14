@@ -1,24 +1,3 @@
-// Zgierz unit tests: parser + crawl helper tests.
-//
-// Groundtruthed against real fixtures from zgierz.bip.net.pl (2026-10-22):
-//   1. ACTIVE RESIDENTIAL ANNOUNCEMENTS:
-//      - Session 2026-11-16 (attachment 5056): 5 flats (Dubois 29/48, Dubois 31/21,
-//        pl. Kilińskiego 7/28, 3 Maja 34/6, ks. Sz. Rembowskiego 6/7).
-//      - Session 2026-11-16 (attachment 5055): 3 flats (K. Baczyńskiego 1/95,
-//        Długa 75/7, 1 Maja 73/7).
-//      - MPGM session (attachment 3612): Koszarowa 9/9, 47,80 m², 150 000 zł.
-//   2. ACTIVE LAND ANNOUNCEMENTS:
-//      - Session 2026-10-26 (attachment 4955): ul. Wandy Chotomskiej 7, 309 000 zł.
-//      - Session 2026-10-26 (attachment 4956): obręb 0010 Dzierżązna, dz. 332/4, 85 000 zł.
-//   3. SOLD RESIDENTIAL RESULT:
-//      - Attachment 4188: 1 Maja 73/14, 2026-04-08, 250 000 zł -> 253 000 zł, sold.
-//   4. UNSOLD RESIDENTIAL RESULTS:
-//      - Attachment 4965: pl. Kilińskiego 7/28, 2026-09-21, 231 000 zł, unsold (no_bids).
-//      - Attachment 4962: 3 Maja 34/6, 2026-09-21, 265 000 zł, unsold (no_bids).
-//   5. LAND RESULTS:
-//      - Attachment 4895: dz. 347/2 ul. Jabłoniowa, 2026-09-07, 97 000 zł -> 98 000 zł, sold.
-//      - Attachment 4953: Aleksandrowska 41, dz. 31, 2026-09-14, 610 000 zł, unsold.
-//      - Attachment 4896: dz. 332/4 Dzierżązna, 2026-09-07, 90 000 zł, unsold.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -45,7 +24,6 @@ import {
   parseResultDoc,
 } from '../src/cities/zgierz/parse.js';
 
-// ── Config tests ─────────────────────────────────────────────────────────────
 
 test('zgierz config contract', () => {
   assert.equal(config.id, 'zgierz');
@@ -57,7 +35,6 @@ test('zgierz config contract', () => {
   assert.equal(config.source, 'html');
 });
 
-// ── Numeric & String helpers ──────────────────────────────────────────────────
 
 test('parsePLN handles spaced and dot-separated amounts', () => {
   assert.equal(parsePLN('269 000,00 zł'), 269000);
@@ -124,7 +101,6 @@ test('cleanAddressString & formatAddress normalize Zgierz street names to canoni
   assert.equal(addr6.key, 'koszarowa|9|9');
 });
 
-// ── HTML list and detail parser tests ────────────────────────────────────────
 
 const FIXTURE_CATEGORY_HTML = `
 <ul>
@@ -176,7 +152,6 @@ test('parseDetailPage extracts title, publishedDate, and attachment URLs', () =>
   assert.equal(detail.attachments[0].name, 'Ogłoszenie o przetargu.pdf');
 });
 
-// ── Active announcement tests ────────────────────────────────────────────────
 
 const FIXTURE_ANNOUNCEMENT_5056 = `
 OGŁOSZENIE O PRZETARGU
@@ -304,7 +279,6 @@ test('parseAnnouncementLand parses active land announcement', () => {
   assert.equal(land.round, 3);
 });
 
-// ── Result notice tests ──────────────────────────────────────────────────────
 
 const FIXTURE_RESULT_SOLD_FLAT_4188 = `
 Zgierz, dn. 16 kwietnia 2026 r.

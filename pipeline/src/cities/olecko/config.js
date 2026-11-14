@@ -1,7 +1,3 @@
-// Configuration for Olecko adapter (bip.olecko.pl)
-//
-// Gmina Olecko (powiat olecki, warmińsko-mazurskie)
-// TERC: 2813044
 
 export const CONFIG = {
   id: 'olecko',

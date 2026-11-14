@@ -1,40 +1,3 @@
-// Kętrzyn crawler — bip.miastoketrzyn.pl (modern gov.pl-style card BIP).
-//
-// BOARD (server-rendered HTML, live-verified 2026-07-11, bot UA not gated):
-//   https://bip.miastoketrzyn.pl/nieruchomosci/przetargi[?page=N]   (N = 2..5)
-//   Each auction is a card:
-//     <li class="group list-none …">
-//       <a href="/nieruchomosci/przetargi/<slug>">…<h3>Title</h3>…
-//         Status: <span>ogłoszony|rozstrzygnięty|…</span>
-//         Cena wywoławcza: <span>50 400,00 zł</span>
-//         Termin przetargu: <span>28.05.2026 09:00</span>
-//         Data wytworzenia|publikacji: 20.04.2026
-//     </li>
-//
-// DETAIL page → the auction's documents. Two publishing patterns:
-//   (a) born-digital text PDFs under /przetargi/<slug>/<file>.pdf — the
-//       announcement (any name) plus, once concluded, an
-//       "informacj[ae]-o-wyniku-przetargu-*.pdf" result. pdfText() extracts
-//       them (no OCR needed; if pdftotext ever returned empty the record is
-//       dropped, never OCR-guessed, and no \f-only junk is committed).
-//   (b) a standalone "Informacja o wyniku przetargu" card whose result text is
-//       inline in the detail HTML (no PDF) — extractArticleText() feeds it to
-//       the same parseResultDoc().
-//
-// ROUTING is by CONTENT + DATE, not the card Status (which is observably stale:
-// a concluded, sold flat still showed Status "ogłoszony"). An entry yields an
-// ACTIVE listing only when its announcement's own auction_date is in the
-// future; it yields a RESULT when a result doc/inline notice is present.
-//
-// KIND is decided in parse.js on the document body — the crawler only skips
-// rentals (dzierżawa/najem) by card title.
-//
-// POLITENESS / CI budget: core/fetch.js throttles to 1 req/s and retries 429/5xx
-// with backoff (the spike's rate-limit caveat). crawlResultDocs additionally
-// skips URLs already in committed data (loadKnownSourceUrls) and is bounded by a
-// wall-clock budget + a doc cap, so a cold run cannot blow the 25-min CI job.
-//
-// See config.js for source/scope/analog notes.
 
 import { pathToFileURL } from 'node:url';
 
@@ -55,12 +18,10 @@ const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const UA = { userAgent: BROWSER_UA };
 
-// Caps / budget (env-overridable for backfills). Board holds ~10 cards/page.
 const MAX_PAGES = Number(process.env.KETRZYN_MAX_PAGES) || 10;
 const MAX_RESULT_DOCS = Number(process.env.KETRZYN_MAX_RESULT_DOCS) || 200;
 const CRAWL_BUDGET_MS = Number(process.env.KETRZYN_CRAWL_BUDGET_MS) || 12 * 60 * 1000;
 
-// ── HTML helpers ─────────────────────────────────────────────────────────────
 
 function stripTags(s) {
   return String(s || '')
@@ -75,7 +36,6 @@ function stripTags(s) {
 
 const deamp = (u) => String(u || '').replace(/&amp;/g, '&');
 
-/** Absolute URL from a root-relative or absolute href. */
 export function resolveUrl(href) {
   try {
     return new URL(deamp(href), ORIGIN).toString();
@@ -84,23 +44,15 @@ export function resolveUrl(href) {
   }
 }
 
-/** Board URL for a 1-based page (page 1 has no query). */
 export function boardUrl(page) {
   return page <= 1 ? `${ORIGIN}${BOARD_PATH}` : `${ORIGIN}${BOARD_PATH}?page=${page}`;
 }
 
-/** "28.05.2026 09:00" / "20.04.2026" → ISO "2026-05-28", else null. */
 export function dmyToIso(s) {
   const m = /(\d{1,2})\.(\d{1,2})\.(\d{4})/.exec(String(s || ''));
   return m ? `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}` : null;
 }
 
-/**
- * Parse one board page into card metadata.
- * @param {string} html
- * @returns {Array<{detailUrl:string, title:string, status:string,
- *   cena:string|null, terminIso:string|null, dataIso:string|null}>}
- */
 export function parseBoardCards(html) {
   const out = [];
   const parts = String(html || '').split(/<li class="group list-none/i);
@@ -132,13 +84,6 @@ export function parseBoardCards(html) {
   return out;
 }
 
-/**
- * Split a detail page's PDF attachments into result vs announcement docs.
- * Result PDFs are named "informacj[ae]…wynik…"; everything else is the
- * announcement (map/annex PDFs are rare here and harmlessly parse to null).
- * @param {string} html
- * @returns {{ announcePdfs:string[], resultPdfs:string[] }}
- */
 export function extractPdfLinks(html) {
   const announcePdfs = [];
   const resultPdfs = [];
@@ -156,7 +101,6 @@ export function extractPdfLinks(html) {
   return { announcePdfs, resultPdfs };
 }
 
-/** Plain-text of the detail page's main article region (inline result notices). */
 export function extractArticleText(html) {
   const src = String(html || '');
   const m = /<article\b[\s\S]*?<\/article>/i.exec(src) || /<main\b[\s\S]*?<\/main>/i.exec(src);
@@ -164,12 +108,10 @@ export function extractArticleText(html) {
   return stripTags(region);
 }
 
-/** True when a card title is a rental (dzierżawa/najem) — never a sale. */
 export function isRentalTitle(title) {
   return /dzierzaw|najem|najm|wynaj|u[żz]ytkowanie|u[żz]yczenie/.test(fold(title));
 }
 
-// ── fetch + discovery ────────────────────────────────────────────────────────
 
 async function fetchPage(url) {
   try {
@@ -182,7 +124,6 @@ async function fetchPage(url) {
 
 let _cards = null;
 
-/** Paginate the board (cap + stop-on-no-new) and return all cards (memoized). */
 async function discoverCards() {
   if (_cards) return _cards;
   const cards = [];
@@ -192,7 +133,7 @@ async function discoverCards() {
     if (!html) break;
     const pageCards = parseBoardCards(html);
     const fresh = pageCards.filter((c) => !seen.has(c.detailUrl));
-    if (fresh.length === 0) break; // ran out / server re-served last page
+    if (fresh.length === 0) break;
     for (const c of fresh) {
       seen.add(c.detailUrl);
       cards.push(c);
@@ -203,14 +144,7 @@ async function discoverCards() {
   return cards;
 }
 
-// ── crawlActive ──────────────────────────────────────────────────────────────
 
-/**
- * Active auctions: cards whose auction is still upcoming. The announcement's
- * OWN body auction_date (from the PDF) is authoritative; the card Termin is a
- * pre-filter + fallback.
- * @returns {Promise<{ listings:object[], wykaz:[], land:[] }>}
- */
 export async function crawlActive() {
   const cards = await discoverCards();
   const today = new Date().toISOString().slice(0, 10);
@@ -219,8 +153,8 @@ export async function crawlActive() {
 
   const upcoming = cards.filter((c) => {
     if (isRentalTitle(c.title)) return false;
-    if (c.terminIso) return c.terminIso >= today; // has a date → must be future
-    return /ogloszony|otwart/.test(fold(c.status)); // dateless → trust "open" status
+    if (c.terminIso) return c.terminIso >= today;
+    return /ogloszony|otwart/.test(fold(c.status));
   });
 
   for (const c of upcoming) {
@@ -242,7 +176,7 @@ export async function crawlActive() {
         fallbackAuctionDate: c.terminIso,
       });
       if (!rec || rec.cancelled) continue;
-      if (!rec.auction_date || rec.auction_date < today) continue; // genuinely upcoming only
+      if (!rec.auction_date || rec.auction_date < today) continue;
       listings.push({
         kind: rec.kind,
         address_raw: rec.address_raw,
@@ -264,14 +198,7 @@ export async function crawlActive() {
   return { listings, wykaz: [], land: [] };
 }
 
-// ── crawlResultDocs ──────────────────────────────────────────────────────────
 
-/**
- * Concluded auctions: fetch each result PDF (or inline result-notice HTML) and
- * return refs with `.text` already extracted (source:'html' → refresh.js hands
- * ref.text straight to parseResultDoc). Skips URLs already in committed data.
- * @returns {Promise<Array<{text:string, pdf_url:string, auction_date:string|null}>>}
- */
 export async function crawlResultDocs() {
   const cards = await discoverCards();
   const today = new Date().toISOString().slice(0, 10);
@@ -286,7 +213,7 @@ export async function crawlResultDocs() {
     const s = fold(c.status);
     if (/rozstrzygni|nierozstrzygni|uniewazni|negatywn/.test(s)) return true;
     if (/informacj\w*\s+o\s+wyniku/.test(fold(c.title))) return true;
-    return c.terminIso ? c.terminIso < today : false; // past-dated → concluded
+    return c.terminIso ? c.terminIso < today : false;
   });
 
   for (const c of concluded) {
@@ -320,7 +247,6 @@ export async function crawlResultDocs() {
         refs.push({ text, pdf_url: pdf, auction_date: resultDate(text) || c.terminIso || null });
       }
     } else if (/informacj\w*\s+o\s+wyniku/.test(fold(c.title))) {
-      // Standalone inline-HTML result notice (no PDF attachment).
       if (seen.has(c.detailUrl)) continue;
       seen.add(c.detailUrl);
       const text = extractArticleText(html);
@@ -334,7 +260,6 @@ export async function crawlResultDocs() {
   return refs;
 }
 
-// ── CLI harness (manual: node crawl.js [active|results]) ─────────────────────
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const mode = process.argv[2] ?? 'active';
   if (mode === 'results') {

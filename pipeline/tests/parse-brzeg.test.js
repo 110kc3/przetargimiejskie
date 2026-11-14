@@ -1,33 +1,3 @@
-// Brzeg parser tests — groundtruthed against REAL fixtures (2026-06-27).
-//
-// Fixture sources (live-verified):
-//
-//   LISTING PAGE (brzeg.pl/gminne-nieruchomosci-do-sprzedazy/):
-//     Three active flat entries confirmed on 2026-06-27 (stale from 2024 but
-//     still published):
-//       nr 1 at 3 Maja 1 — 97 000 zł, I przetarg, 18.09.2024
-//       nr 2 at 3 Maja 1 — 99 000 zł, I przetarg, 18.09.2024
-//       nr 4 at 3 Maja 1 — 220 000 zł, I przetarg, 18.09.2024
-//     BIP links: bip.brzeg.pl/przetargi,9_1-2024-7_72 / _73 / _74
-//
-//   BIP ITEM PAGE (bip.brzeg.pl/przetargi,9_1-2024-7_72):
-//     Title: "I ustny przetarg nieograniczony na sprzedaż lokalu mieszkalnego
-//             nr1 przy ulicy 3 Maja 1"
-//     Attachments (verified via read_page 2026-06-27):
-//       /uploaded_files/serwis_files/attachments/przetargi/72/82c0ff4b0b18f6fc.pdf
-//         → "Ogłoszenie I-ego przetargu -3 Maja 1-1" (305 KB)
-//       /uploaded_files/serwis_files/attachments/przetargi/72/e05fe2a15b3fca80.pdf
-//         → "Informacja o wyniku I-go przetargu - 3 Maja 1-1" (200 KB)
-//     Metadata: Data wytworzenia: 01.07.2024
-//
-//   BIP MONTH INDEX (bip.brzeg.pl/przetargi,9_1-2026-4 — April 2026):
-//     8 flat items listed; all linked to /archiwum,7_5_NNN (already archived)
-//     Jan 2026 similarly archived. May 2026 has only działki.
-//     Active (non-archived) items appear as /przetargi,9_1-YYYY-M_NNN.
-//
-//   RESULT PDF TEXT: Not fetched live (PDF behind MegaBIP attachment URL).
-//   parseResultDoc is tested against a synthetic fixture matching the standard
-//   Polish "Informacja o wynikach przetargu" template.  VALIDATE on first CI run.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -42,9 +12,6 @@ import {
   parseResultDoc,
 } from '../src/cities/brzeg/parse.js';
 
-// ---------------------------------------------------------------------------
-// parsePLN
-// ---------------------------------------------------------------------------
 
 test('parsePLN: "97 000,00 zł" → 97000', () => {
   assert.equal(parsePLN('97 000,00'), 97000);
@@ -63,9 +30,6 @@ test('parsePLN: null/empty → null', () => {
   assert.equal(parsePLN(''), null);
 });
 
-// ---------------------------------------------------------------------------
-// parseDateText
-// ---------------------------------------------------------------------------
 
 test('parseDateText: "18.09. 2024" (space after dot) → 2024-09-18', () => {
   assert.equal(parseDateText('18.09. 2024 r., godz. 9.00'), '2024-09-18');
@@ -84,9 +48,6 @@ test('parseDateText: null → null', () => {
   assert.equal(parseDateText(''), null);
 });
 
-// ---------------------------------------------------------------------------
-// roundFromTitle
-// ---------------------------------------------------------------------------
 
 test('roundFromTitle: "I ustny…" → 1', () => {
   assert.equal(roundFromTitle('I ustny przetarg nieograniczony na sprzedaż lokalu…'), 1);
@@ -105,12 +66,7 @@ test('roundFromTitle: empty → 1 (default)', () => {
   assert.equal(roundFromTitle(null), 1);
 });
 
-// ---------------------------------------------------------------------------
-// parseListingPage — fixture from live brzeg.pl page 2026-06-27
-// ---------------------------------------------------------------------------
 
-// Minimal HTML reproducing the structure of the live WordPress page.
-// Three entries confirmed live on 2026-06-27.
 const LISTING_HTML = `
 <div class="entry-content">
 <h2>Lokal mieszkalny nr 1 przy ulicy 3 Maja 1</h2>
@@ -198,13 +154,7 @@ test('parseListingPage: empty HTML returns empty array', () => {
   assert.deepEqual(parseListingPage('<html><body>nothing</body></html>'), []);
 });
 
-// ---------------------------------------------------------------------------
-// parseBipIndexMonth — BIP month-index page (2026-01 structure live-verified)
-// ---------------------------------------------------------------------------
 
-// Minimal HTML reproducing the active-item link structure.
-// Active items: href="/przetargi,9_1-YYYY-M_NNN"
-// Archived items: href="/archiwum,7_5_NNN"  (must be excluded)
 const BIP_MONTH_HTML = `
 <div class="content">
   <!-- Active item (should be collected) -->
@@ -250,12 +200,7 @@ test('parseBipIndexMonth: empty HTML → empty array', () => {
   assert.deepEqual(parseBipIndexMonth(''), []);
 });
 
-// ---------------------------------------------------------------------------
-// parseBipItemPage — BIP item page (live-verified structure 2026-06-27)
-// ---------------------------------------------------------------------------
 
-// Minimal HTML reproducing the real structure of bip.brzeg.pl/przetargi,9_1-2024-7_72
-// (verified via read_page + get_page_text on 2026-06-27).
 const BIP_ITEM_HTML = `<!DOCTYPE html><html><body>
 <nav>
   <a href="/przetargi,9">Przetargi</a>
@@ -337,13 +282,7 @@ test('parseBipItemPage: item without Informacja o wyniku PDF → resultPdf is nu
   assert.ok(r.announcementPdf?.includes('abc123.pdf'));
 });
 
-// ---------------------------------------------------------------------------
-// parseResultDoc — synthetic fixture matching Polish result-notice template.
-// NOTE: not verified against a live PDF — validate on first CI refresh.
-// ---------------------------------------------------------------------------
 
-// Standard Polish "Informacja o wynikach przetargu" text template.
-// Modelled after: bip.brzeg.pl przetargi ID 72 result PDF (200 KB, attached).
 const RESULT_TEXT_SOLD = `
 Burmistrz Miasta Brzegu informuje, że w dniu 18 września 2024 roku
 o godz. 9.00 w siedzibie Urzędu Miasta w Brzegu odbył się
@@ -403,7 +342,6 @@ test('parseResultDoc (sold): source_pdf is the PDF URL', () => {
   assert.equal(recs[0].source_pdf, RESULT_URL_SOLD);
 });
 
-// Unsold / wynik negatywny
 const RESULT_TEXT_UNSOLD = `
 Burmistrz Miasta Brzegu informuje, że w dniu 10.04.2026 roku
 o godz. 10.00 odbył się II ustny przetarg nieograniczony na sprzedaż
@@ -460,7 +398,6 @@ test('parseResultDoc: empty/null → empty array', () => {
   assert.deepEqual(parseResultDoc(null, null, 'https://example.com'), []);
 });
 
-// Land result notices must be filtered out (Brzeg also sells działki on the same BIP board)
 test('parseResultDoc: grunt/działka result → empty array', () => {
   const gruntyText = `
   Burmistrz informuje, że w dniu 20 maja 2026 roku odbył się przetarg
@@ -471,6 +408,5 @@ test('parseResultDoc: grunt/działka result → empty array', () => {
   informacja o wyniku przetargu.
   `;
   const recs = parseResultDoc(gruntyText, '2026-05-20', 'https://example.com');
-  // Grunt results are excluded — only flat results are within adapter scope
   assert.equal(recs.length, 0, 'grunt result should be filtered out');
 });

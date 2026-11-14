@@ -1,32 +1,3 @@
-// Pisz crawler — server-rendered bip.pisz.hi.pl BIP (hi.pl/PUBLIKATOR-style),
-// consumed as plain HTML (no SPA, no OCR, no TLS workaround — chain verified
-// OK 2026-07-10). See config.js for the host/CMS write-up.
-//
-// ONE query-string article scheme walks TWO boards:
-//   CURRENT (rolling, undated breadcrumb):  index.php?k=84         ("Ogłoszenia")
-//   PREVIOUS YEAR (sidebar-discovered):     index.php?k={N}        ("Rok NNNN")
-// Confirmed live: neither board paginates (a full year's ~170-390 articles
-// render on one page — no "strona="/next-page markup found), so this is a
-// two-board walk, not a page-cursor loop. Each board <article id="zajawka-N">
-// row links to the full-text detail page index.php?wiad=N, whose
-// <div id="tresc"> is the ONLY body source (no attachment/PDF observed for
-// property notices — a few unrelated car-auction notices ARE PDF-only, but
-// they never reach an address-bearing parse; see parse.js).
-//
-// Routing (after fetching each detail page's TITLE + PODTYTUL + BODY blob):
-//   isLease / isExchange / isBezprzetargowo  -> skipped entirely
-//   isResultDoc                              -> crawlResultDocs() resultRefs
-//   isSaleAuction && hasScheduledDate         -> parseAnnouncement -> listings/land
-//   isWykazNotice                            -> parseWykaz -> wykaz (address-keyed only)
-//   else                                     -> skipped (procurement/admin/car notices)
-// A board-list PRE-filter (boardHintsSkip, title+podtytul only) drops the
-// majority lease/loan-for-use/exchange noise WITHOUT a detail fetch — the
-// spike counted 89+ "do wydzierżawienia" wykazy on the current board alone —
-// which is what keeps ~600 raw board rows (current + 1 prior year) within a
-// bounded MAX_DETAIL_FETCHES budget at the core fetcher's 1 req/sec throttle.
-//
-// source:'html' ⇒ result refs already carry `.text` (the built blob), which
-// refresh.js hands straight to parseResultDoc.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -46,20 +17,12 @@ import {
 } from './parse.js';
 
 const ORIGIN = 'https://bip.pisz.hi.pl';
-const ANNOUNCE_K = 84; // "Ogłoszenia" — rolling current-year board (no "Rok NNNN" in its own breadcrumb)
+const ANNOUNCE_K = 84;
 
-// A browser UA — harmless if unneeded; the safe default for municipal WAFs.
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
 
-// Bounds: current board (k=84) + the single most-recent "Rok NNNN" archive
-// (chodziez's "current + previous year" convention), with a hard cap on
-// DETAIL fetches so a future layout change (e.g. the lease pre-filter
-// stops matching) can't blow the CI wall-clock budget. Observed volume
-// 2026-07-10: 174 rows on k=84 + 388 on the 2025 archive, the large majority
-// of which are pre-filtered lease/loan-for-use wykazy before any detail
-// fetch — post-filter counts comfortably clear this cap.
 const MAX_YEAR_BOARDS = 1;
 const MAX_DETAIL_FETCHES = 260;
 
@@ -71,7 +34,6 @@ const PL_MONTH_ABBR = {
   'paź': 10, paz: 10, lis: 11, gru: 12,
 };
 
-/** Board-list date ("czwartek,  9 lip 2026 09:06") -> ISO date, or null. */
 export function boardDateToIso(raw) {
   const m = /(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(raw || '');
   if (!m) return null;
@@ -80,13 +42,6 @@ export function boardDateToIso(raw) {
   return `${m[3]}-${String(mo).padStart(2, '0')}-${String(m[1]).padStart(2, '0')}`;
 }
 
-/**
- * Board-list rows from one <article id="zajawka-N" class="zajawka"> board
- * page. Split-on-marker rather than one big regex so minor whitespace
- * variance between rows can't break the match.
- * @param {string} html
- * @returns {Array<{id:string, title:string, podtytul:string, dateRaw:string, url:string}>}
- */
 export function parseBoardPage(html) {
   const out = [];
   const chunks = String(html || '').split('<article id="zajawka-').slice(1);
@@ -108,14 +63,6 @@ export function parseBoardPage(html) {
   return out;
 }
 
-/**
- * Prior-year archive boards from the current board's sidebar ("Menu" list of
- * "Rok NNNN" links, e.g. `<a href="index.php?k=1398" ...>Rok 2025</a>`; the
- * oldest entry is a range, "Rok 2015 - 2019" — its leading 4-digit year still
- * sorts correctly). Self-updating across year rollovers (no hardcoded k=).
- * @param {string} html  the k=84 board's HTML
- * @returns {Array<{k:string, label:string, year:number}>}
- */
 export function discoverYearBoards(html) {
   const out = [];
   const re = /<a href="index\.php\?k=(\d+)" class="list-group-item">Rok\s+([^<]+)<\/a>/g;
@@ -128,10 +75,6 @@ export function discoverYearBoards(html) {
   return out;
 }
 
-/** Detail-page TITLE (h2.wiadomosc-tytul) + PODTYTUL (div.podtytul) + BODY
- *  (div.tresc — the only body region; no nested <div> ever observed inside
- *  it, verified across 40+ live fixtures, so a plain indexOf-to-next-</div>
- *  slice is safe). */
 export function extractDetail(html) {
   const src = String(html || '');
   const titleM = /wiadomosc-tytul">([\s\S]*?)<\/h2>/.exec(src);
@@ -149,10 +92,6 @@ export function extractDetail(html) {
   };
 }
 
-/** Cheap board-list pre-filter (title+podtytul only, no detail fetch): drops
- *  the lease/loan-for-use/exchange majority before it ever costs a request.
- *  Bezprzetargowo sale-wykazy are NOT pre-filterable (title indistinguishable
- *  from a genuine wykaz — see parse.js) so those still cost a detail fetch. */
 function boardHintsSkip(item) {
   const t = `${item.title} ${item.podtytul}`;
   return /dzier[żz]aw|u[żz]yczeni|w\s+drodze\s+zamiany/i.test(t);
@@ -170,10 +109,10 @@ async function fetchBoardHtml(k) {
 let crawlPromise = null;
 
 async function crawlAll() {
-  const listings = []; // address-keyed active records (flats + commercial units)
-  const land = [];     // kind:'grunt' active records → land.json
-  const wykaz = [];    // genuine pre-auction address-keyed designations
-  const resultRefs = []; // { text, source_url, auction_date }
+  const listings = [];
+  const land = [];
+  const wykaz = [];
+  const resultRefs = [];
 
   const currentHtml = await fetchBoardHtml(ANNOUNCE_K);
   const boards = [{ k: ANNOUNCE_K, html: currentHtml }];
@@ -236,13 +175,11 @@ async function crawlAll() {
   return { listings, land, wykaz, resultRefs };
 }
 
-/** Concluded records (achieved-price stream). source:'html' ⇒ refs carry `.text`. */
 export async function crawlResultDocs() {
   crawlPromise ??= crawlAll();
   return (await crawlPromise).resultRefs;
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
 export async function crawlActive() {
   crawlPromise ??= crawlAll();
   const { listings, wykaz, land } = await crawlPromise;

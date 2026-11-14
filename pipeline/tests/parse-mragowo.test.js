@@ -1,30 +1,3 @@
-// Mrągowo parser tests. Fixtures are condensed-but-faithful copies of REAL
-// article bodies fetched live from bipmragowo.warmia.mazury.pl (verified
-// 2026-07-10), trimmed of boilerplate legal citations but keeping every
-// load-bearing sentence (round/address/area/price/date clauses) verbatim.
-//
-//   article 8288  ul. Mrongowiusza 31/5   — ANNOUNCEMENT round I, 210 000 zł
-//   article 8340  ul. Mrongowiusza 31/5   — RESULT round I, UNSOLD (result of 8288)
-//   article 8499  ul. Mrongowiusza 31/5   — RESULT round III, UNSOLD, 160 000 zł
-//   article 6841  ul. Królewiecka 16/5    — ANNOUNCEMENT round I, 75 000 zł (2022)
-//   article 8080  ul. Wolności 20D/12     — ANNOUNCEMENT round IV + prior-round
-//                                            history recap (the round/date trap)
-//   article 7859  ul. Wolności 20D/12     — RESULT round I, UNSOLD, "braku oferentów"
-//   article 8113  ul. Wolności 20D/12     — RESULT round IV, UNSOLD, "braku uczestników przetargu"
-//   article 5099  ul. Mrongowiusza 75/1   — ANNOUNCEMENT round II (Roman), 2016-era
-//                                            format, split użytkowanie-wieczyste price
-//   article 8512  ul. Niedźwiedzia (grunt) — ANNOUNCEMENT, land, dz. 40/10
-//   article 8545  ul. Niedźwiedzia (grunt) — RESULT, land, SOLD 185 000 -> 187 000
-//   article 8544  ul. Niedźwiedzia (grunt) — RESULT, land, UNSOLD ("braku postąpienia")
-//
-// No flat SOLD result was found live in this research pass (every flat result
-// discovered — 3 rounds across 2 addresses — was unsold); the FLAT_SOLD
-// fixture below is explicitly a constructed composite: the real
-// announcement/result header clause from article 8340 combined with the
-// real, verbatim achieved-price clause verified on land results 8545/8536/8112
-// ("Najwyższa cena osiągnięta w przetargu: N złotych" — the same
-// rozporządzenie-mandated phrase, kind-independent). This is flagged, not
-// presented as a single live capture.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -54,7 +27,6 @@ import {
 } from '../src/cities/mragowo/parse.js';
 import { parseIndexPage } from '../src/cities/mragowo/crawl.js';
 
-// --------------------------------------------------------------- real fixtures
 
 const MRONGOWIUSZA_31_5_ANN = `OGŁOSZENIE
 Na podstawie art. 37 ust. 1 ustawy z dnia 21 sierpnia 1997 r. o gospodarce nieruchomościami oraz zarządzenia Burmistrza Miasta Mrągowa Nr 566/2025 z dnia 19 listopada 2025 r.,
@@ -86,10 +58,6 @@ Cena wywoławcza nieruchomości wynosi 75.000 zł (słownie: siedemdziesiąt pi�
 Wadium wynosi 20 % ceny wywoławczej, tj. kwotę 15.000 zł (słownie: piętnaście tysięcy złotych) .
 PRZETARG ODBĘDZIE SIĘ W DNIU 15 marca 2022 r. w Urzędzie Miejskim w Mrągowie przy ul. Królewieckiej 60A, w sali nr 1 o godzinie 10.00.`;
 
-// Round IV announcement carrying a prior-round HISTORY RECAP — the same trap
-// chełmno/braniewo guard against: round/date must come from the "ogłasza
-// czwarty" / "ODBĘDZIE SIĘ" anchors, never from the recap's "przeprowadzono"
-// sentences (different verb: "przeprowadzono" vs "został przeprowadzony").
 const WOLNOSCI_20D_12_ANN_R4 = `OGŁOSZENIE
 BURMISTRZ MIASTA MRĄGOWA
 ogłasza czwarty przetarg ustny nieograniczony na sprzedaż gminnego lokalu mieszkalnego nr 12 położonego w budynku przy ul. Wolności 20D w Mrągowie wraz ze sprzedażą części udziału w działce gruntu, stanowiącego własność Gminy Miasto Mrągowo .
@@ -112,10 +80,6 @@ W dniu 24 czerwca 2025 r. w Urzędzie Miejskim w Mrągowie został przeprowadzon
 Cena wywoławcza nieruchomości wynosiła 150.000 zł (słownie: sto pięćdziesiąt tysięcy złotych).
 Z powodu braku uczestników przetargu, przetarg zakończył się wynikiem negatywnym.`;
 
-// 2016-era format: Roman round ("II"), comma after the apt number, no-space
-// area token ("63,25m2"), and a SPLIT użytkowanie-wieczyste price breakdown
-// where the aggregate ("90.000 zł") — not either sub-amount — is the
-// starting price.
 const MRONGOWIUSZA_75_1_ANN_2016 = `O G Ł O S Z E N I E
 Na podstawie art. 37 ust. 1 ustawy z dnia 21 sierpnia 1997r. o gospodarce nieruchomościami, zarządzenia Burmistrza Miasta Mrągowo Nr 629/2016 z dnia 8.08.2016r.
 BURMISTRZ MIASTA MRĄGOWO
@@ -150,14 +114,12 @@ Do uczestnictwa w przetargu dopuszczono 1 osobę.
 Cena wywoławcza nieruchomości wynosiła 185.000 złotych (słownie: sto osiemdziesiąt pięć tysięcy złotych) + 23% podatku VAT.
 Z powodu braku postąpienia przez uczestnika przetargu, przetarg zakończył się wynikiem negatywnym.`;
 
-// Constructed composite (see file header) — validates the flat SOLD path.
 const FLAT_SOLD_CONSTRUCTED = `Informacja o wyniku przetargu
 W dniu 8 stycznia 2026 r. w Urzędzie Miejskim w Mrągowie został przeprowadzony pierwszy przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 5 położonego w budynku przy ul. Mrongowiusza 31 w Mrągowie wraz z udziałem wynoszącym 44/1000 części prawa własności w działce gruntu.
 Cena wywoławcza nieruchomości wynosiła 210.000 zł (słownie: dwieście dziesięć tysięcy złotych).
 Najwyższa cena osiągnięta w przetargu: 215.000 złotych (słownie: dwieście piętnaście tysięcy złotych).
 Nabywcą nieruchomości został: Jan Kowalski.`;
 
-// ------------------------------------------------------------------- unit funcs
 
 test('stripTags: drops tags, decodes nbsp/oacute/sect/minus/plus entities', () => {
   assert.equal(
@@ -209,9 +171,6 @@ test('resultDateFromText: "W dniu ... został przeprowadzony" (r. and roku forms
 });
 
 test('resultDateFromText: not fooled by the "od dnia/do dnia" publication window', () => {
-  // MRONGOWIUSZA_31_5_RESULT_R1 also contains "od dnia 16.01.2026 r. do dnia
-  // 23.01.2026 r." (a different preposition, "od/do dnia" not "w dniu") —
-  // the session date (2026-01-08) must win, not the publication window.
   assert.equal(resultDateFromText(MRONGOWIUSZA_31_5_RESULT_R1), '2026-01-08');
 });
 
@@ -222,7 +181,6 @@ test('startingPriceFromText: present tense (announcement) and past tense "wynosi
 });
 
 test('startingPriceFromText: aggregate wins over a split użytkowanie-wieczyste breakdown', () => {
-  // 90.000 total, NOT 51.876 (lokal share) or 38.124 (grunt share).
   assert.equal(startingPriceFromText(MRONGOWIUSZA_75_1_ANN_2016), 90000);
 });
 
@@ -241,10 +199,10 @@ test('achievedPriceFromText: UNSOLD — no achieved-price clause present at all'
 });
 
 test('isNegativeOutcome: three different real reason-clause wordings, one shared suffix', () => {
-  assert.equal(isNegativeOutcome(MRONGOWIUSZA_31_5_RESULT_R1), true); // "braku uczestników"
-  assert.equal(isNegativeOutcome(WOLNOSCI_20D_12_RESULT_R1), true); // "braku oferentów"
-  assert.equal(isNegativeOutcome(WOLNOSCI_20D_12_RESULT_R4), true); // "braku uczestników przetargu,"
-  assert.equal(isNegativeOutcome(NIEDZWIEDZIA_40_25_RESULT_UNSOLD), true); // "braku postąpienia przez uczestnika"
+  assert.equal(isNegativeOutcome(MRONGOWIUSZA_31_5_RESULT_R1), true);
+  assert.equal(isNegativeOutcome(WOLNOSCI_20D_12_RESULT_R1), true);
+  assert.equal(isNegativeOutcome(WOLNOSCI_20D_12_RESULT_R4), true);
+  assert.equal(isNegativeOutcome(NIEDZWIEDZIA_40_25_RESULT_UNSOLD), true);
   assert.equal(isNegativeOutcome(NIEDZWIEDZIA_40_26_RESULT_SOLD), false);
 });
 
@@ -255,9 +213,9 @@ test('isResultNotice: plain and negatywny headers, both title-cased and lowercas
 });
 
 test('unitAreaFromText: usable area, spaced/unspaced/single-decimal m² forms', () => {
-  assert.equal(unitAreaFromText(MRONGOWIUSZA_31_5_ANN), 35.45); // "35,45 m 2"
-  assert.equal(unitAreaFromText(KROLEWIECKA_16_5_ANN), 29.2); // "29,2 m 2"
-  assert.equal(unitAreaFromText(MRONGOWIUSZA_75_1_ANN_2016), 63.25); // "63,25m2" no space
+  assert.equal(unitAreaFromText(MRONGOWIUSZA_31_5_ANN), 35.45);
+  assert.equal(unitAreaFromText(KROLEWIECKA_16_5_ANN), 29.2);
+  assert.equal(unitAreaFromText(MRONGOWIUSZA_75_1_ANN_2016), 63.25);
   assert.equal(unitAreaFromText(WOLNOSCI_20D_12_ANN_R4), 28.75);
 });
 
@@ -270,7 +228,7 @@ test('flatHeaderFromText / flatAddressRawFromText: apt+street+building in one sh
   assert.equal(flatAddressRawFromText(MRONGOWIUSZA_31_5_ANN), 'ul. Mrongowiusza 31/5');
   assert.deepEqual(flatHeaderFromText(WOLNOSCI_20D_12_ANN_R4), { apt: '12', street: 'Wolności', building: '20D' });
   assert.equal(flatAddressRawFromText(MRONGOWIUSZA_75_1_ANN_2016), 'ul. Mrongowiusza 75/1');
-  assert.equal(flatHeaderFromText(NIEDZWIEDZIA_40_10_ANN), null); // land text never matches the flat header
+  assert.equal(flatHeaderFromText(NIEDZWIEDZIA_40_10_ANN), null);
 });
 
 test('landStreetFromText / obrebFromText / landPlotFromText', () => {
@@ -280,7 +238,6 @@ test('landStreetFromText / obrebFromText / landPlotFromText', () => {
   assert.deepEqual(landPlotFromText(NIEDZWIEDZIA_40_26_RESULT_SOLD), { dzialka_nr: '40/26', area_m2: 1008 });
 });
 
-// ----------------------------------------------------------------- title routing
 
 test('isSkippableTitle: bezprzetargowo (direct-to-tenant sale) is not an auction', () => {
   assert.equal(
@@ -338,7 +295,6 @@ test('isLeaseNotice: rental body (no "sprzedaż") vs a genuine sale body', () =>
   assert.equal(isLeaseNotice(MRONGOWIUSZA_31_5_ANN), false);
 });
 
-// ------------------------------------------------------------- announcement parse
 
 test('parseAnnouncement: Mrongowiusza 31/5 — round I, 35.45 m², 210 000 zł, 2026-01-08', () => {
   const rec = parseAnnouncement(MRONGOWIUSZA_31_5_ANN);
@@ -396,7 +352,6 @@ test('parseAnnouncement: empty/null input returns null without throwing', () => 
   assert.equal(parseAnnouncement(null), null);
 });
 
-// ------------------------------------------------------------------ result parse
 
 test('parseResultDoc: Mrongowiusza 31/5 round I — UNSOLD, matches its own announcement', () => {
   const [r] = parseResultDoc(MRONGOWIUSZA_31_5_RESULT_R1, '2026-01-16', 'https://bipmragowo.warmia.mazury.pl/8340/x.html');
@@ -476,7 +431,6 @@ test('parseResultDoc: empty/null input returns [] without throwing', () => {
   assert.deepEqual(parseResultDoc(null, null, 'https://example.com'), []);
 });
 
-// ----------------------------------------------------------------- board index
 
 test('parseIndexPage: extracts id/title/detailUrl/published_date from real row markup', () => {
   const html = `<tr data-key="8545"><td scope="row" data-col-count>5</td><td data-col-date>03-07-2026</td><td class="text-justify" data-col-main><a href="/8545/informacja-o-wyniku-przetargu.html" data-pjax="0">informacja o wyniku przetargu</a></td><td data-col-select>Gospodarka nieruchomościami</td><td data-col-select>Aktualny</td></tr>

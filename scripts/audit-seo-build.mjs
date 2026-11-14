@@ -1,12 +1,5 @@
 #!/usr/bin/env node
-// Fail a deploy when the generated sitemap promises an HTML page that is not
-// actually indexable. This checks the assembled output (not just the template),
-// so it covers generated city/property/month pages and hand-written site pages.
-//
-// Usage: node scripts/audit-seo-build.mjs [outDir]
 
-// No dependencies: this runs on the same plain Node installation as the SEO
-// builder in build-site.sh.
 
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve, sep } from 'node:path';

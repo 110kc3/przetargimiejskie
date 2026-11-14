@@ -1,16 +1,3 @@
-// Unit tests for Otwock adapter parsers and crawl helpers.
-//
-// Groundtruthed against live BIP pages and OCR texts from bip.otwock.pl:
-// - Announcements:
-//   - ID 30906: III przetarg, ul. Stanisława Wyspiańskiego 6/27 (49.42 m², 440 000 zł, auction 2026-12-08)
-//   - ID 30905: III przetarg, ul. gen. Władysława Sikorskiego 1/13 (56.00 m², 470 000 zł, auction 2026-12-03)
-//   - ID 21975: Multi-flat announcement, ul. Poniatowskiego 29G (lokale nr 1, 5, 9, auction 2021-09-10)
-// - Results:
-//   - ID 30005: IV przetarg, ul. Józefa Ignacego Kraszewskiego 76/17 (sold, final 97 010 zł, starting 89 000 zł, auction 2026-03-05)
-//   - ID 26313: I przetarg, ul. Marii Dąbrowskiej 17/9 (sold, final 550 800 zł, starting 540 000 zł, auction 2023-12-07)
-//   - ID 30743: II przetarg, ul. Stanisława Wyspiańskiego 6/27 (unsold, nikt nie przystąpił, auction 2026-07-30)
-//   - ID 28862: I przetarg, ul. Józefa Ignacego Kraszewskiego 76/17 (unsold, wadium po terminie, auction 2025-06-26)
-//   - ID 30008: II przetarg, ul. Marii Skłodowskiej-Curie 11/10 (unsold, nikt nie przystąpił, auction 2026-03-05)
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -39,7 +26,6 @@ import {
   parseResultDoc,
 } from '../src/cities/otwock/parse.js';
 
-// ── Config ───────────────────────────────────────────────────────────────────
 
 test('config: exports correct municipal metadata', () => {
   assert.equal(config.id, 'otwock');
@@ -51,7 +37,6 @@ test('config: exports correct municipal metadata', () => {
   assert.equal(config.teryt, '141702_1');
 });
 
-// ── Crawl URL helpers ────────────────────────────────────────────────────────
 
 test('crawl urls: constructs correct board pagination URLs', () => {
   assert.equal(announcementBoardUrl(0), 'https://bip.otwock.pl/?bip=1&cid=1018&pg=0');
@@ -60,7 +45,6 @@ test('crawl urls: constructs correct board pagination URLs', () => {
   assert.equal(resultBoardUrl(3), 'https://bip.otwock.pl/?bip=1&cid=1039&pg=3');
 });
 
-// ── List-page parser ─────────────────────────────────────────────────────────
 
 const SAMPLE_LIST_HTML = `
 <div class="artykuly">
@@ -108,10 +92,8 @@ test('parseListPage: handles empty or invalid HTML gracefully', () => {
   assert.deepEqual(parseListPage('<div>brak wyników</div>'), []);
 });
 
-// ── Routing filters ──────────────────────────────────────────────────────────
 
 test('isAnnouncement: identifies flat sale notices and rejects rentals/land', () => {
-  // Flat sales - true
   assert.equal(
     isAnnouncement(
       'III ustny przetarg nieograniczony na sprzedaż lokalu mieszkalnego nr 27 znajdującego się w budynku przy ul. Stanisława Wyspiańskiego 6 w Otwocku',
@@ -134,7 +116,6 @@ test('isAnnouncement: identifies flat sale notices and rejects rentals/land', ()
     true,
   );
 
-  // Land sales - false
   assert.equal(
     isAnnouncement(
       'IX ustny przetarg nieograniczony na sprzedaż nieruchomości gruntowej stanowiącej własność Miasta Otwocka dz. ew. 45',
@@ -143,7 +124,6 @@ test('isAnnouncement: identifies flat sale notices and rejects rentals/land', ()
     false,
   );
 
-  // Leases / rentals - false
   assert.equal(
     isAnnouncement(
       'Ogłoszenie o konkursie na najem garażu usytuowanego w zespole boksów garażowych przy ul. Johna Lennona 2 w Otwocku',
@@ -159,7 +139,6 @@ test('isAnnouncement: identifies flat sale notices and rejects rentals/land', ()
     false,
   );
 
-  // Results - false
   assert.equal(
     isAnnouncement(
       'Informacja o wynikach przetargów na najem lokali',
@@ -170,7 +149,6 @@ test('isAnnouncement: identifies flat sale notices and rejects rentals/land', ()
 });
 
 test('isResultNotice: identifies flat result notices and rejects other notices', () => {
-  // Flat results - true
   assert.equal(
     isResultNotice(
       'Wynik II ustanego przetargu nieograniczonego na sprzedaż lokalu mieszkalnego nr 10',
@@ -200,7 +178,6 @@ test('isResultNotice: identifies flat result notices and rejects other notices',
     true,
   );
 
-  // Land results - false
   assert.equal(
     isResultNotice(
       'Informacja',
@@ -209,7 +186,6 @@ test('isResultNotice: identifies flat result notices and rejects other notices',
     false,
   );
 
-  // Service tenders - false
   assert.equal(
     isResultNotice(
       'Protokół z otwarcia ofert cenowych na zadanie pt.: Opróżnianie lokali',
@@ -219,7 +195,6 @@ test('isResultNotice: identifies flat result notices and rejects other notices',
   );
 });
 
-// ── Attachment extraction ────────────────────────────────────────────────────
 
 test('attachmentPdfFromDetail: extracts pdf and docx links', () => {
   const htmlPdf = `
@@ -245,7 +220,6 @@ test('attachmentPdfFromDetail: extracts pdf and docx links', () => {
   assert.equal(attachmentPdfFromDetail('<div>brak załączników</div>'), null);
 });
 
-// ── Field extractors ─────────────────────────────────────────────────────────
 
 test('parsePLN: parses various Polish currency string representations', () => {
   assert.equal(parsePLN('440 000,00 zł'), 440000);
@@ -351,7 +325,6 @@ test('addressFromText: parses diverse Otwock address formats with apt', () => {
   assert.equal(addr5.apt, '10');
 });
 
-// ── Announcement detail parsing ──────────────────────────────────────────────
 
 const ANNOUNCEMENT_DETAIL_30906 = `
 <div class="aktualnosci-tresc">
@@ -457,7 +430,6 @@ test('parseAnnouncementDetail: multi-flat announcement (ID 21975 fixture)', () =
   assert.equal(records[2].round, 1);
 });
 
-// ── Result document parsing ──────────────────────────────────────────────────
 
 const RESULT_OCR_KRASZEWSKIEGO_SOLD = `
 PREZYDENT MIASTA OTWOCKA

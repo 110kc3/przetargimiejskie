@@ -1,54 +1,3 @@
-// Tczew parser + crawl helper tests.
-//
-// Fixtures groundtruthed against LIVE pages (2026-06-27):
-//
-// LIST PAGE (archiwum/3, board "Przetargi"):
-//   https://bip.tczew.pl/wiadomosci/archiwum/3/lista/1/przetargi
-//   3 entries (all 2026):
-//     - "Ogłoszenie o I przetargu ustnym nieograniczonym na najem lokalów handlowo-usługowych …"
-//       → NOT a flat-sale entry (najem, not sprzedaż lokal mieszkalny)
-//     - "Ogłoszenie o wyniku I przetargu ustnego nieograniczonego na sprzedaż lokalu
-//       mieszkalnego nr 5, położonego w Tczewie przy ul. Elżbiety 4 …" (result notice)
-//     - "Ogłoszenie o I przetargu ustnym nieograniczonym na sprzedaż lokalu mieszkalnego
-//       nr 5, położonego w Tczewie przy ul. Elżbiety 4 …" (announcement)
-//   URL pattern: https://bip.tczew.pl/wiadomosci/archiwum/3/wiadomosc/{ID}/{slug}
-//
-// ANNOUNCEMENT DETAIL (ID 865130):
-//   https://bip.tczew.pl/wiadomosci/archiwum/3/wiadomosc/865130/ogloszenie_o_i_przetargu_ustnym_...
-//   PDF attachment: https://bip-v1-files.idcom-jst.pl/sites/3051/wiadomosci/865130/files/
-//                   ogloszenie_i_przetargu_elzbiety_4_5_bip.pdf
-//   Data wytworzenia dokumentu: 02-02-2026
-//
-// RESULT NOTICE DETAIL (ID 871415):
-//   https://bip.tczew.pl/wiadomosci/archiwum/3/wiadomosc/871415/ogloszenie_o_wyniku_i_przetargu_...
-//   PDF attachment: https://bip-v1-files.idcom-jst.pl/sites/3051/wiadomosci/871415/files/
-//                   ogloszenie_o_wyniku_przetargu.pdf (472 KB)
-//   Data wytworzenia dokumentu: 10-03-2026
-//
-// RESULT PDF TEXT (actual pdftotext -layout output, confirmed live 2026-06-27):
-//   Tczew, dnia 10-03-2026 r.
-//
-//                                     OGŁOSZENIE
-//
-//   Prezydent Miasta Tczewa informuje, że dnia 10-03-2026 r. o godz. 1000 w Urzędzie
-//   Miejskim w Tczewie odbył się pierwszy przetarg nieograniczony na sprzedaż lokalu
-//   mieszkalnego nr 5, położonego w Tczewie przy ul. Elżbiety 4 z udziałem w nieruchomości
-//   wspólnej.
-//
-//    Oznaczenie nieruchomości          dz. 26/11, pow. 1431 m2, obr. 7
-//    Udział                            836/10000
-//    Położenie lokalu                  Tczew, ul. Elżbiety 4/5
-//    Powierzchnia lokalu i pomieszczeń pow. lokalu -     33,09 m2
-//    przynależnych                     pow. piwnicy -     7,41 m2
-//    Cena wywoławcza                   150.000,00 zł
-//    Liczba osób dopuszczonych do przetargu  0
-//    Liczba osób niedopuszczonych do przetargu  0
-//    Najwyższa cena osiągnięta w przetargu    ---
-//    Imię, nazwisko albo nazwa lub firma osoby  Nie wpłynęło wadium, w związku z tym
-//    ustalonej jako nabywca nieruchomości        przetarg zakończył się wynikiem negatywnym
-//
-// NEEDS-LIVE-VERIFY: sold-outcome fixture (no successful auction confirmed yet in 2026).
-// The sold price regex follows the same table pattern — validate on first CI hit.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -89,10 +38,6 @@ import {
   parseResultDoc,
 } from '../src/cities/tczew/parse.js';
 
-// ── List-page parser ──────────────────────────────────────────────────────────
-//
-// Condensed but structurally faithful copy of the real IDcom.pl list HTML
-// (bip.tczew.pl, confirmed 2026-06-27).
 
 const LIST_HTML = `
 <div class="wiadomosci ajaxContener">
@@ -133,9 +78,6 @@ test('parseListPage: empty / garbled HTML returns empty array', () => {
   assert.deepEqual(parseListPage('<html><body>nic</body></html>'), []);
 });
 
-// ── Detail-page helpers ───────────────────────────────────────────────────────
-//
-// Structure from live fetch of ID 865130 (announcement) and 871415 (result).
 
 const DETAIL_HTML_ANNOUNCE = `
 <div class="ContentBox2 rejestrZmian">
@@ -207,7 +149,6 @@ test('attachmentPdfFromDetail: returns null when no PDF href', () => {
   assert.equal(attachmentPdfFromDetail(''), null);
 });
 
-// ── roundFromTitle ────────────────────────────────────────────────────────────
 
 test('roundFromTitle: Roman numerals in title', () => {
   assert.equal(roundFromTitle('Ogłoszenie o I przetargu ustnym nieograniczonym na sprzedaż lokalu mieszkalnego'), 1);
@@ -220,11 +161,6 @@ test('roundFromTitle: returns null for unrecognised/empty', () => {
   assert.equal(roundFromTitle('przetarg bez cyfry'), null);
 });
 
-// ── addressFromTitle ──────────────────────────────────────────────────────────
-//
-// Live title: "Ogłoszenie o I przetargu ustnym nieograniczonym na sprzedaż lokalu
-//   mieszkalnego nr 5, położonego w Tczewie przy ul. Elżbiety 4, będącego…"
-// Expected: address key "elzbiety|4|5"
 
 test('addressFromTitle: extracts Elżbiety 4/5 from live title', () => {
   const title =
@@ -241,10 +177,6 @@ test('addressFromTitle: returns null for garbled / no address', () => {
   assert.equal(addressFromTitle('Ogłoszenie bez adresu przetargu'), null);
 });
 
-// ── Result PDF text parsers ───────────────────────────────────────────────────
-//
-// Exact pdftotext -layout output from the live fixture (2026-06-27):
-// URL: bip-v1-files.idcom-jst.pl/…/871415/files/ogloszenie_o_wyniku_przetargu.pdf
 
 const RESULT_PDF_NEGATIVE = `                                                                                                                Tczew, dnia 10-03-2026 r.
 
@@ -280,8 +212,6 @@ nieruchomości (tj. Dz.U. z 2021 r. poz. 2213), podaje się do publicznej wiadom
 wytworzyła: Anna Łazarska
 `;
 
-// Simulated sold-outcome result PDF (same table layout, different outcome row).
-// VALIDATE on first successful auction result in live CI.
 const RESULT_PDF_SOLD = `                                                                                                                Tczew, dnia 15-05-2025 r.
 
                                                           OGŁOSZENIE
@@ -377,7 +307,6 @@ test('addressFromResultText: null for empty text', () => {
   assert.equal(addressFromResultText('no address'), null);
 });
 
-// ── parseResultDoc ────────────────────────────────────────────────────────────
 
 const PDF_URL = 'https://bip-v1-files.idcom-jst.pl/sites/3051/wiadomosci/871415/files/ogloszenie_o_wyniku_przetargu.pdf';
 
@@ -419,7 +348,6 @@ test('parseResultDoc: empty/garbled text → []', () => {
 test('parseResultDoc: uses fallbackDate when PDF has no parseable date', () => {
   const textNoDate = RESULT_PDF_NEGATIVE.replace(/dnia\s+\d{2}-\d{2}-\d{4}\s+r\./g, '');
   const results = parseResultDoc(textNoDate, '2026-03-11', PDF_URL);
-  // Should still return a result; date falls back to fallbackDate
   if (results.length > 0) {
     assert.equal(results[0].auction_date, '2026-03-11');
   }

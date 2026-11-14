@@ -1,14 +1,4 @@
-// Upgrade each data/<city>/land.json plot's geoportal link from a parcel-SEARCH
-// fallback to a PRECISE national-geoportal "identifyParcel" deep-link, by
-// resolving the parcel's full TERYT id from its obręb name + number via ULDK
-// (uldk.gugik.gov.pl). Idempotent + cached (pipeline/uldk-cache/<city>.json) so
-// CI resolves each parcel once. Source-provided map links (e.g. Bytom's SIP) are
 // preserved — only the search-fallback links get upgraded; the parcel's resolved
-// `dzialka_id` is recorded on every plot it can resolve.
-//
-//   node scripts/enrich-land-geoportal.js            (all cities)
-//   CITY=gliwice node scripts/enrich-land-geoportal.js
-//
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -37,21 +27,17 @@ async function enrichCity(city) {
   if (existsSync(cachePath)) { try { cache = JSON.parse(await readFile(cachePath, 'utf8')); } catch { /* fresh */ } }
 
   // Flush cache + data periodically so a timeout (or interrupt) preserves
-  // progress and a re-run resumes (resolved parcels are cached; enriched plots
-  // already carry dzialka_id and are skipped).
   const flush = async () => {
     await writeFile(cachePath, JSON.stringify(cache, null, 2) + '\n');
     await writeFile(landPath, JSON.stringify(data, null, 2) + '\n');
   };
   let resolved = 0, fromCache = 0, links = 0, since = 0;
   for (const p of plots) {
-    // Resolve EACH parcel of the plot ("263/2, 263/6" → two links). Older
-    // land.json may predate the `parcels` field — derive it from dzialka_nr.
     const parcels = (p.parcels && p.parcels.length) ? p.parcels : splitParcels(p.dzialka_nr);
     if (!parcels.length || !p.obreb) continue;
     let touched = false;
     for (const parcel of parcels) {
-      if (parcel.dzialka_id && parcel.geoportal_url) continue; // already resolved
+      if (parcel.dzialka_id && parcel.geoportal_url) continue;
       const ck = `${p.obreb}|${parcel.nr}`;
       let id;
       if (ck in cache) { id = cache[ck]; fromCache++; }
@@ -66,8 +52,6 @@ async function enrichCity(city) {
       touched = true;
     }
     p.parcels = parcels;
-    // Back-compat: keep a top-level dzialka_id + geoportal_url (first resolved
-    // parcel) so any consumer not reading `parcels` still gets a precise link.
     const first = parcels.find((x) => x.dzialka_id);
     if (first) {
       p.dzialka_id = first.dzialka_id;

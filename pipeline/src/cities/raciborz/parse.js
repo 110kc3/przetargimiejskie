@@ -1,21 +1,3 @@
-// Racibórz parsers.
-//
-// Every announcement on the sprzedaz board is a SINGLE-property text PDF issued
-// by Prezydent Miasta Raciborz. The standard structure (verified against live PDF
-// ogloszenie I_1549955.pdf, komunikat 43779639, Stalmacha 7a/10, 2026-06-27):
-//
-//   header:   "oglasza pierwszy, publiczny, przetarg ustny, nieograniczony na sprzedaz
-//              lokalu mieszkalnego polozonego w Raciborzu przy ul. Stalmacha nr 7a/10"
-//   section 1 Lokalizacja: "47-400 Raciborz, ul. Stalmacha nr 7a/10"
-//   section 3 Opis: "Lokal mieszkalny nr 5 ... o powierzchni uzytkowej 58,25 m2"
-//   section 6 Cena wywolawcza: "281 000,00 zl, z czego 2 % stanowi cena skladnika gruntowego."
-//   section 7 Termin: "Przetarg odbedzie sie w dniu 15 lipca 2026r. o godzinie 1200"
-//
-// Result notices (verified against live PDF 43891507, Teczowej/Odrodzenia, 2026-06-27):
-//   Informacja o wyniku przetargu (letter-spaced header)
-//   negative outcome: "zakonczyl sie wynikiem negatywnym, ze wzgledu na brak uczestnikow"
-//
-// All regexes groundtruthed against real PDFs fetched 2026-06-27.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -39,9 +21,7 @@ function parseArea(numStr) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// ----------------------------------------------------------------- title routing
 
-/** True for items to skip: najem, dzierzawa, wykaz, odwolanie, uniewaznienie. */
 export function isSkippableTitle(title) {
   const s = (title || '');
   return (
@@ -52,12 +32,10 @@ export function isSkippableTitle(title) {
   );
 }
 
-/** True when the title is a RESULT notice ("Informacja o wyniku ..."). */
 export function isResultTitle(title) {
   return /informacj\w*\s+o\s+wynik/i.test(title || '');
 }
 
-/** True when the title looks like a municipal SALE announcement. */
 export function isAnnouncementTitle(title) {
   const s = (title || '');
   if (/przetarg/i.test(s) && /sprzeda/i.test(s)) return true;
@@ -65,21 +43,15 @@ export function isAnnouncementTitle(title) {
   return false;
 }
 
-/** Is this PDF text a result notice?
- *  Matches plain and letter-spaced "I n f o r m a c j a o wyniku". */
 export function isResultNotice(text) {
   return /I\s*n\s*f\s*o\s*r\s*m\s*a\s*c\s*j\s*a\s+o\s+wyniku/i.test(text || '');
 }
 
-// ----------------------------------------------------------------- shared fields
 
 const ROUND_ORDINALS = {
   pierwsz: 1, drug: 2, trzeci: 3, czwart: 4,
 };
 
-/** Round from ordinal + "przetarg" or from "Rokowania" (rounds 5-6 uncommon; add if needed).
- *  Racibórz uses "pierwszy, publiczny, przetarg" (comma-separated).
- *  Pattern (?:[,\s]\s*\w+)*?[,\s]\s* bridges the commas between ordinal and "przetarg". */
 export function roundFromText(text) {
   const s = text || '';
   const m = /\b(pierwsz|drug|trzeci|czwart)\w*(?:[,\s]\s*\w+)*?[,\s]\s*przetarg/i.exec(s);
@@ -88,17 +60,13 @@ export function roundFromText(text) {
   return null;
 }
 
-/** Auction date from announcement ("w dniu 15 lipca 2026r.") or result ("zaplanowany na 18 czerwca 2026 r.").
- *  GUARD: result notices contain "z dnia 14 wrzesnia 2004 r." (rozporzadzenie) — ignored via yr>=2020. */
 export function auctionDateFromText(text) {
   const s = text || '';
-  // Primary: anchored on date-introduction phrases
   const m = /(?:w\s+dniu|zaplanowany\s+na|odbedzie\s+sie\s+(?:w\s+dniu\s+)?|na\s+dzien\s+|odbędzie\s+się\s+(?:w\s+dniu\s+)?)(\d{1,2})\s+([a-zA-Ząęóśżźćłń]+)\s+(\d{4})\s*r?\.?/i.exec(s);
   if (m) {
     const mo = PL_MONTH[m[2].toLowerCase()];
     if (mo) return `${m[3]}-${String(mo).padStart(2, '0')}-${m[1].padStart(2, '0')}`;
   }
-  // Fallback: first date with year >= 2020
   const dateRe = /(\d{1,2})\s+([a-zA-Ząęóśżźćłń]{4,})\s+(\d{4})\s*r?\.?/gi;
   let m2;
   while ((m2 = dateRe.exec(s)) !== null) {
@@ -111,14 +79,10 @@ export function auctionDateFromText(text) {
   return null;
 }
 
-/** Starting price from the section-6 label. Two live forms:
- *  - Przetarg:  "Cena wywolawcza nieruchomosci:\n    281 000,00 zl"
- *  - Rokowania: "Cena wywolawcza do rokowan:\n    nie nizsza niz 130 000 zl" (floor price). */
 export function startingPriceFromText(text) {
   const s = text || '';
   let m = /cena\s+wywo[łl]awcza\s+nieruchomo[śs]ci\s*[:\n\r\s]+(\d[\d\s.,]*?)\s*z[łl]/i.exec(s);
   if (m) return parsePLN(m[1]);
-  // Rokowania (negotiations): "Cena wywoławcza do rokowań:\n  nie niższa niż 130 000 zł".
   m = /cena\s+wywo[łl]awcza\s+do\s+rokowa[ńn]\s*[:\n\r\s]+(?:nie\s+ni[żz]sza\s+ni[żz]\s+)?(\d[\d\s.,]*?)\s*z[łl]/i.exec(s);
   if (m) return parsePLN(m[1]);
   m = /wynosi\s+(\d[\d\s.,]*?)\s*z[łl]/i.exec(s);
@@ -128,7 +92,6 @@ export function startingPriceFromText(text) {
   return null;
 }
 
-/** Achieved price from result notice (validate on first live flat result). */
 export function achievedPriceFromText(text) {
   const s = text || '';
   let m = /cena\s+(?:osi[ąa]gni[ęe]ta|naby[wt]\w+)\s*(?:w\s+przetargu)?\s*[:\-–]?\s*(\d[\d\s.,]*?)\s*z[łl]/i.exec(s);
@@ -140,11 +103,9 @@ export function achievedPriceFromText(text) {
   return null;
 }
 
-// Address: "47-400 Raciborz, ul. Stalmacha nr 7a/10" or "przy ul. Stalmacha nr 7a/10"
 const ADDR_RE =
   /(?:Racib[oó]rz\s*,\s*ul\.\s*|przy\s+ul\.\s*)([A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.''\- ]+?)\s+nr\s+(\d+[A-Za-z]?)(?:\/(\d+[A-Za-z]?))?/i;
 
-/** Raw address "ul. <street> <bldg>[/<apt>]" from section 1 or header. */
 export function addressRawFromText(text) {
   const m = ADDR_RE.exec(text || '');
   if (!m) return null;
@@ -154,11 +115,9 @@ export function addressRawFromText(text) {
   return apt ? `ul. ${street} ${bldg}/${apt}` : `ul. ${street} ${bldg}`;
 }
 
-// Usable floor area: "o powierzchni uzytkowej 58,25 m2"
 const AREA_RE = /(?:lokal\w*|mieszkani\w*)\s.*?powierzchni\s+u[żz]ytkow\w+\s+([\d,. ]+?)\s*m\s*[²2]/i;
 const AREA_RE2 = /powierzchni\s+u[żz]ytkow\w+\s+([\d,. ]+?)\s*m\s*[²2]/i;
 
-/** Usable floor area (m2) of the flat/unit, or null. */
 export function unitAreaFromText(text) {
   const s = text || '';
   let m = AREA_RE.exec(s);
@@ -166,13 +125,10 @@ export function unitAreaFromText(text) {
   return m ? parseArea(m[1]) : null;
 }
 
-// Parcel numbers from land result notice: "dzialki oznaczone ewidencyjnie\nnr 537/2, 537/4, ..."
-// Newline between "ewidencyjnie" and "nr" bridged by [\s\S]{0,20}?.
 const PARCEL_MULTI_RE =
   /dzia[łl]k[ięa]\s+oznaczon\w+\s+ewidencyjnie[\s\S]{0,20}?nr\s+([\d/]+(?:\s*,\s*[\d/]+)*(?:\s+i\s+[\d/]+)?)/i;
 const PARCEL_SINGLE_RE = /dzia[łl]k[ęa]\s+gruntu\s+oznaczon\w+\s+nr\s+([\d/]+)/i;
 
-/** Parcel numbers (comma-joined), or null. */
 export function parcelsFromText(text) {
   const s = text || '';
   let m = PARCEL_MULTI_RE.exec(s);
@@ -181,9 +137,6 @@ export function parcelsFromText(text) {
   return m[1].replace(/\s+i\s+/g, ', ').replace(/\s+/g, '').trim() || null;
 }
 
-// Kind classification.
-// For announcements the asset word is in the first ~500 chars.
-// For result notices the boilerplate header takes >400 chars; scan full text as fallback.
 function kindFromHeader(text) {
   const t = text || '';
   const fromShort = classifyKind(t.slice(0, 500));
@@ -191,13 +144,7 @@ function kindFromHeader(text) {
   return classifyKind(t);
 }
 
-// ------------------------------------------------------------- announcement parse
 
-/**
- * Parse one ANNOUNCEMENT PDF text into a listing record.
- * @param {string} text  pdftotext -layout output
- * @returns {object|null}
- */
 export function parseAnnouncement(text) {
   if (!text) return null;
   const t = text.replace(/\r/g, '');
@@ -221,20 +168,7 @@ export function parseAnnouncement(text) {
   };
 }
 
-// ------------------------------------------------------------------ result parse
 
-/**
- * Parse one RESULT notice PDF text ("Informacja o wyniku przetargu").
- *
- * Verified against live land result 43891507 (Teczowej/Odrodzenia, 2026-06-27):
- *   negative outcome, round 2, date 2026-06-18, kind grunt.
- * Flat result format not yet observed live; parsed defensively. Validate on first CI refresh.
- *
- * @param {string} text         pdftotext -layout output
- * @param {string|null} fallbackDate  ISO date used when body has no parseable date
- * @param {string} sourceUrl    PDF URL (provenance)
- * @returns {Array<object>}     0 or 1 record
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!isResultNotice(text)) return [];
   const t = text.replace(/\r/g, '');
@@ -276,7 +210,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     ];
   }
 
-  // Flat / garage result.
   const address_raw = addressRawFromText(t);
   if (!address_raw) return [];
   const address = parseAddress(address_raw);

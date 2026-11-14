@@ -41,8 +41,6 @@ function isResidentialSale(card, categoryList) {
 }
 
 function parseArea(value) {
-  // Strip the unit first: htmlText turns m<sup>2</sup> into "m2", and feeding
-  // that trailing 2 to the generic numeric parser would turn 77,77 into 77,772.
   const numeric = /-?\d[\d\s.]*(?:,\d+)?/.exec(String(value))?.[0];
   const area = parsePlNumber(numeric);
   if (area == null) return null;

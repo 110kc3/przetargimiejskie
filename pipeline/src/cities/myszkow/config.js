@@ -1,5 +1,3 @@
-// City configuration for Myszków (powiat myszkowski, Śląskie)
-// BIP: https://bip.miastomyszkow.pl
 
 export default {
   id: 'myszkow',

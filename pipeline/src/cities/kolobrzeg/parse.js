@@ -1,7 +1,3 @@
-// Kołobrzeg parsers.
-//
-// Extracts property records from BIP announcements, wykazy, and result protocols
-// published by Urząd Miasta Kołobrzeg (Prezydent Miasta Kołobrzeg).
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -18,12 +14,10 @@ const ROUND_MAP = {
   szósty: 6, szosty: 6, siódmy: 7, siodmy: 7, ósmy: 8, osmy: 8,
 };
 
-/** Normalize whitespace */
 export function normalizeWs(s) {
   return (s == null ? '' : String(s)).replace(/\s+/g, ' ').trim();
 }
 
-/** Parse Polish date string into ISO YYYY-MM-DD */
 export function parsePolishDate(str) {
   if (!str) return null;
   const dm = /(\d{1,2})\.(\d{1,2})\.(\d{4})/.exec(str);
@@ -36,7 +30,6 @@ export function parsePolishDate(str) {
   return null;
 }
 
-/** Parse Polish currency string to integer PLN */
 export function parsePLN(str) {
   if (str == null) return null;
   const cleaned = String(str)
@@ -48,24 +41,20 @@ export function parsePLN(str) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/** Parse decimal number to float */
 export function parseNum(str) {
   if (str == null) return null;
   const n = Number(String(str).replace(/[\s\u00a0]/g, '').replace(',', '.'));
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/** Check if text relates to residential premises */
 export function isFlat(text) {
   return /lokal\w*\s+mieszkaln|nieruchomo[śs]c\w*\s+lokalow/i.test(text || '');
 }
 
-/** Check if text relates to land plots */
 export function isLand(text) {
   return /(?:niezabudowan\w*|dzia[łl]k\w*)/i.test(text || '');
 }
 
-/** Check if item is explicitly skippable (leases, non-property announcements) */
 export function isSkippable(text) {
   const t = String(text || '').toLowerCase();
   return (
@@ -74,7 +63,6 @@ export function isSkippable(text) {
   );
 }
 
-/** Extract auction round */
 export function extractRound(text) {
   if (!text) return null;
   const rm =
@@ -88,7 +76,6 @@ export function extractRound(text) {
   return null;
 }
 
-/** Extract auction date */
 export function extractAuctionDate(text, fallbackDate = null) {
   if (!text) return fallbackDate;
   const norm = normalizeWs(text);
@@ -107,7 +94,6 @@ export function extractAuctionDate(text, fallbackDate = null) {
   return fallbackDate;
 }
 
-/** Extract wadium deadline */
 export function extractWadiumDeadline(text) {
   if (!text) return null;
   const norm = normalizeWs(text);
@@ -117,21 +103,17 @@ export function extractWadiumDeadline(text) {
   return wm ? parsePolishDate(wm[1]) : null;
 }
 
-/** Extract property address from document or hint */
 export function extractAddress(text, hintTitle = '') {
-  // Check attachment metadata or hint title first
   const attM = /\[ATTACHMENT:\s*([^\]]+)\]/i.exec(text);
   const candidateTexts = [attM?.[1], hintTitle, text].filter(Boolean);
 
   for (const candidate of candidateTexts) {
-    // 1. Check for: ul. Street Building/Apt
     const directM = /ul\.\s*([A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż\s\.\d-]+?\s+\d+[a-zA-Z]?\s*\/\s*\d+[a-zA-Z]?)/i.exec(candidate);
     if (directM && !/ratuszow/i.test(directM[1])) {
       const p = parseAddress('ul. ' + directM[1].trim());
       if (p) return p;
     }
 
-    // 2. Check for: ul. Street Building and lokal nr Apt
     const stM = /ul\.\s*([A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż\s\.\d-]+?\s+\d+[a-zA-Z]?)/i.exec(candidate);
     const aptM = /lokal\w*\s+mieszkaln\w*\s+(?:nr\s+)?(\d+[a-zA-Z]?)/i.exec(candidate);
     if (stM && aptM && !/ratuszow/i.test(stM[1])) {
@@ -140,7 +122,6 @@ export function extractAddress(text, hintTitle = '') {
     }
   }
 
-  // 3. Fallback to clean document body (ignoring municipal seat Ratuszowa 13)
   const bodyClean = text.replace(/ul\.\s*Ratuszow\w*\s*\d+/gi, '');
   const bodyDirect = /ul\.\s*([A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż\s\.\d-]+?\s+\d+[a-zA-Z]?\s*\/\s*\d+[a-zA-Z]?)/i.exec(bodyClean);
   if (bodyDirect) {
@@ -158,7 +139,6 @@ export function extractAddress(text, hintTitle = '') {
   return null;
 }
 
-/** Extract unit area in m2 */
 export function extractArea(text) {
   if (!text) return null;
   const norm = normalizeWs(text);
@@ -169,7 +149,6 @@ export function extractArea(text) {
   return am ? parseNum(am[1]) : null;
 }
 
-/** Extract starting price */
 export function extractStartingPrice(text) {
   if (!text) return null;
   const norm = normalizeWs(text);
@@ -180,10 +159,8 @@ export function extractStartingPrice(text) {
   return spM ? parsePLN(spM[1]) : null;
 }
 
-/** Extract wadium amount */
 export function extractWadium(text, startingPrice = null) {
   if (!text) return null;
-  // In Kołobrzeg tables: "... (Dz. U. ...)\t<WADIUM>\t<POSTĄPIENIE>\n\nPrzetarg odbędzie"
   const tabM = /(\d{1,3}[.\s]\d{3},\d{2})\s*\t\s*\d{1,3}[.\s]\d{3},\d{2}\s*\n+Przetarg odb/i.exec(text);
   if (tabM) {
     const val = parsePLN(tabM[1]);
@@ -194,26 +171,18 @@ export function extractWadium(text, startingPrice = null) {
     const val = parsePLN(wm[1]);
     if (val && (!startingPrice || val < startingPrice)) return val;
   }
-  // Standard 10% default if indicated in text
   if (startingPrice && /wadium.*10%/i.test(text)) {
     return Math.round(startingPrice * 0.1);
   }
   return null;
 }
 
-/** Extract wykaz reference number */
 export function extractWykazNo(text) {
   if (!text) return null;
   const m = /GN\.6840\.[0-9a-zA-Z\.\/-]+/i.exec(text) || /Nr\s+(\d+\/\d+)/i.exec(text);
   return m ? m[0].trim() : null;
 }
 
-/**
- * Parse one announcement document (.doc / .pdf text).
- * @param {string} text Extracted document text
- * @param {object} meta Metadata: { title, publishDate, detail_url, source_url }
- * @returns {Array<object>} Parsed listing records
- */
 export function parseAnnouncement(text, meta = {}) {
   const combined = `${meta.title || ''}\n${text || ''}`;
   const titleKind = meta.title ? classifyKind(meta.title) : 'unknown';
@@ -271,12 +240,6 @@ export function parseAnnouncement(text, meta = {}) {
   ];
 }
 
-/**
- * Parse one wykaz designation item.
- * @param {string} text Extracted document text
- * @param {object} meta Metadata: { title, publishDate, detail_url, source_url }
- * @returns {Array<object>}
- */
 export function parseWykazItem(text, meta = {}) {
   const address = extractAddress(text, meta.title || '');
   if (!address) return [];
@@ -292,18 +255,10 @@ export function parseWykazItem(text, meta = {}) {
   ];
 }
 
-/**
- * Framework entry point: parse one result notice document into result records.
- * @param {string} text pdftotext/OCR text of the result notice
- * @param {string|null} fallbackDate fallback ISO auction date
- * @param {string} sourceUrl the PDF / attachment URL
- * @returns {Array<object>}
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!text) return [];
   const norm = normalizeWs(text);
 
-  // Guard: must be a result notice
   if (!/informacja\s+o\s+wyniku|rozstrzygni[eę]cie|protok[óo][łl]\s+z\s+przetargu/i.test(norm)) {
     return [];
   }
@@ -316,13 +271,11 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
   let starting_price_pln = extractStartingPrice(text);
   const area_m2 = extractArea(text);
 
-  // Outcome detection
   const isNegative =
     /brak\s+ofert|nie\s+wy[łl]oniono\s+nabywcy|brak\s+uczestnik[óo]w|nie\s+przyst[ąa]pi[łl]|wynikiem\s+negatywnym|\bbrak\b/i.test(
       norm,
     ) || /[-–=]\s+[-–=]\s+[-–=]/.test(text);
 
-  // Sold detection: buyer statement or achieved price
   let buyer = null;
   const buyerM = /(?:Pan|Pani|Sp\.|Sp[óo][łl]ka)\s+([A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż\s-]+?)(?:\n|\r|\.|$)/i.exec(text);
   if (buyerM) {
@@ -343,7 +296,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
 
   let final_price_pln = null;
 
-  // 1. Two consecutive prices in table row: e.g. "500.000,00 505.000,00 1 - Pan Rafał"
   const rowPricesM = /(\d{2,3}[.\s]\d{3},\d{2})\s+(\d{2,3}[.\s]\d{3},\d{2})/i.exec(text);
   if (rowPricesM) {
     const p1 = parsePLN(rowPricesM[1]);
@@ -354,7 +306,6 @@ export function parseResultDoc(text, fallbackDate, sourceUrl) {
     }
   }
 
-  // 2. Explicit "Cena wylicytowana" or "wylicytował"
   if (!final_price_pln) {
     const soldPriceM =
       /Cena\s+wylicytowana[^\n]*\n[^\n]*?(\d{2,3}[.\s]\d{3},\d{2})/i.exec(text) ||

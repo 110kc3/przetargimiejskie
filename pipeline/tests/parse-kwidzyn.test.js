@@ -1,36 +1,3 @@
-// Kwidzyn parser tests. Fixtures are condensed-but-faithful copies of the REAL
-// tesseract OCR text of live scanned notice PDFs fetched from bip.kwidzyn.pl
-// (verified 2026-07-11 from this Pi's Polish residential IP; the exact OCR is
-// committed under pipeline/ocr-cache/). Long non-load-bearing boilerplate (the
-// wadium-procedure, RODO, cudzoziemcy, and rekompensata paragraphs) is trimmed;
-// every OCR sentence that feeds a parsed field (address, area, price, date,
-// round, kind, outcome) is kept EXACTLY as tesseract produced it — including its
-// quirks, which the parser must survive:
-//   - the m² superscript OCRs as "m?" / 'm"' (never rely on the ² glyph);
-//   - zero grosze print as a dash: "400.000,- zł" and the spaced "74.300, - zł";
-//   - the property street sits in the body ("przy ul. Chopina 34"), while the
-//     auction VENUE ("ul. Warszawska 19") and the flat-VIEWING date ("16 marca
-//     2026") are decoys the extractors must not pick;
-//   - the standing "Zastrzega się prawo odwołania przetargu" clause is on every
-//     announcement and must NOT read as a cancellation.
-//
-// Groundtruth (hand-verified against the live scans):
-//   ul. Chopina 34/8  (lokal mieszkalny nr 8, 116,70 m², dz. 289/5), round I:
-//     announce  att 129340  cena wyw. 400.000 zł, auction 2026-03-27
-//     result R1 att 129767  UNSOLD — "wynikiem negatywnym, z uwagi na brak
-//                           chętnych"; no achieved price (art. 43604)
-//     result R2 att 130620  round II, auction 2026-06-12, again UNSOLD
-//   ul. Malborska 59/3 (lokal mieszkalny nr 3, 32,10 m², dz. 149/2), round I:
-//     announce  att 129341  cena wyw. 74.300 zł, auction 2026-03-27
-//     result    att 129766  SOLD — osiągnięta 75.050 zł, nabywca named
-//                           (art. 43605) — the announce ("Malborskiej 59") and
-//                           result ("Malborskiej 59") key IDENTICALLY off the
-//                           body, so build-properties can merge them
-//   ul. Graniczna  (nieruchomość gruntowa niezabudowana, obręb 0005), round I:
-//     announce  att 129921  grunt; auction 2026-05-29 (from "Przetarg odbędzie
-//                           się w dniu …", the land date form). Its parcels sit
-//                           in an OCR-mangled scan table → dzialka_nr resolves to
-//                           null by design (a garbled parcel is never emitted).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -135,7 +102,6 @@ test('older linked years and unparsed result PDFs keep achieved-price coverage i
   assert.equal(unsupported.complete, false);
 });
 
-// --------------------------------------------------------------- fixtures
 
 const CHOPINA_ANNOUNCE = `Burmistrz Miasta Kwidzyna
 
@@ -275,13 +241,12 @@ w wysokości 125/1000 w częściach wspólnych budynku oraz w działce nr 289/5 
 
 Wywieszono w dniu:`;
 
-// -------------------------------------------------------------- unit funcs
 
 test('parsePLN: dot-thousands, space-thousands, and the dash-grosze OCR form', () => {
-  assert.equal(parsePLN('400.000,-'), 400000);   // dash grosze
+  assert.equal(parsePLN('400.000,-'), 400000);
   assert.equal(parsePLN('74.300'), 74300);
   assert.equal(parsePLN('75.050'), 75050);
-  assert.equal(parsePLN('150 000'), 150000);      // land, space thousands
+  assert.equal(parsePLN('150 000'), 150000);
   assert.equal(parsePLN('320.800,00'), 320800);
   assert.equal(parsePLN(''), null);
 });
@@ -315,7 +280,6 @@ test('isCancellation: the standing "prawo odwołania przetargu" clause is NOT a 
   assert.equal(isCancellation('Ogłoszenie o odwołaniu przetargu na sprzedaż lokalu przy ul. Chopina'), true);
 });
 
-// ------------------------------------------------------- parseAnnouncement (flats)
 
 test('parseAnnouncement: Chopina 34/8 round I — address from BODY (not venue "Warszawska"), OCR "m?" area, dash-grosze price, auction date not the viewing date', () => {
   const r = parseAnnouncement(CHOPINA_ANNOUNCE, 'Ogłoszenie o przetargu nieograniczonym na sprzedaż lokalu mieszkalnego przy ul. Chopina 34/8 w Kwidzynie', 'https://bip.kwidzyn.pl/e,pobierz,get.html?id=129340');
@@ -326,7 +290,7 @@ test('parseAnnouncement: Chopina 34/8 round I — address from BODY (not venue "
   assert.equal(r.address.key, 'chopina|34|8');
   assert.equal(r.area_m2, 116.7);
   assert.equal(r.starting_price_pln, 400000);
-  assert.equal(r.auction_date, '2026-03-27'); // NOT 2026-03-16 (viewing) / 2026-01-20 (pre-emption)
+  assert.equal(r.auction_date, '2026-03-27');
   assert.equal(r.round, 1);
 });
 
@@ -336,24 +300,22 @@ test('parseAnnouncement: Malborska 59/3 round I — genitive body street ("Malbo
   assert.equal(r.address.street, 'Malborskiej');
   assert.equal(r.address.building, '59');
   assert.equal(r.address.apt, '3');
-  assert.equal(r.address.key, 'malborskiej|59|3'); // must match the SOLD result's key below
+  assert.equal(r.address.key, 'malborskiej|59|3');
   assert.equal(r.area_m2, 32.1);
   assert.equal(r.starting_price_pln, 74300);
   assert.equal(r.auction_date, '2026-03-27');
   assert.equal(r.round, 1);
 });
 
-// -------------------------------------------------------- parseAnnouncement (land)
 
 test('parseAnnouncement: Graniczna round I — LAND classifies "grunt", land date form ("Przetarg odbędzie się w dniu"), OCR-table parcel resolves to null (never a garbled dz. nr)', () => {
   const r = parseAnnouncement(GRANICZNA_LAND_ANNOUNCE, 'ogłoszenie … o sprzedaży … przy ul. Granicznej', 'https://bip.kwidzyn.pl/e,pobierz,get.html?id=129921');
   assert.equal(r.kind, 'grunt');
   assert.equal(r.round, 1);
-  assert.equal(r.auction_date, '2026-05-29'); // NOT 2026-05-25 (wadium deadline)
-  assert.equal(r.address, null);              // land is parcel-keyed, no street address
+  assert.equal(r.auction_date, '2026-05-29');
+  assert.equal(r.address, null);
 });
 
-// ----------------------------------------------------------------- parseResultDoc
 
 test('parseResultDoc: Malborska 59/3 SOLD — osiągnięta 75.050 zł, body-keyed IDENTICALLY to its announcement, outcome sold', () => {
   const [r] = parseResultDoc(MALBORSKA_RESULT_SOLD, null, 'https://bip.kwidzyn.pl/e,pobierz,get.html?id=129766');

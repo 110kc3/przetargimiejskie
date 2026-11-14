@@ -1,9 +1,3 @@
-// Szydłowiec crawler — bip.szydlowiec.pl (SystemDoBIP platform).
-//
-// Board: https://bip.szydlowiec.pl/44/Komunikaty_i_ogloszenia/
-// Mixed board containing announcements, wykazy, and result notices.
-// Pages: /44/Komunikaty_i_ogloszenia/{page}/
-// Bot User-Agent is required to avoid 403 on bip.szydlowiec.pl.
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -55,7 +49,6 @@ export function harvestItemsFromHtml(html) {
       if (aM) url = resolveUrl(aM[1]);
     }
 
-    // Extract inline paragraph text
     const paragraphs = [];
     const pRegex = /<div class="paragraph">([\s\S]*?)<\/div>/gi;
     let pm;
@@ -64,7 +57,6 @@ export function harvestItemsFromHtml(html) {
     }
     const inlineText = paragraphs.join('\n');
 
-    // Extract attachments
     const attachments = [];
     const attRegex = /<a[^>]+href="([^"]*pobierz\.php[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi;
     let am;
@@ -87,7 +79,6 @@ export function harvestItemsFromHtml(html) {
       }
     }
 
-    // Date from metadata if available
     let date_published = null;
     const dateM = /Data (?:wprowadzenia do BIP|wytworzenia informacji): <em>([0-9]{4}-[0-9]{2}-[0-9]{2})/i.exec(block);
     if (dateM) {
@@ -203,7 +194,6 @@ export async function crawlActive() {
       }
     }
 
-    // Check pagination
     if (!html.includes(`/44/Komunikaty_i_ogloszenia/${page + 1}/`)) {
       break;
     }

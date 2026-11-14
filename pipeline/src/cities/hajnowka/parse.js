@@ -1,6 +1,3 @@
-// Parser for Hajnówka auction notices and results (bip.hajnowka.pl)
-//
-// Handles Siteor CMS articles and attached PDF documents.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';

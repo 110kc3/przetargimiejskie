@@ -1,5 +1,3 @@
-// Unit tests for issue-sync's lifecycle decisions against a fake `gh` runner —
-// create vs quiet repeat vs edit vs close, and the health-scope anti-flap rule.
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -124,7 +122,6 @@ test('refresh sync SKIPS closing a health-owned issue while the city is still em
   const ops = syncIssues(new Map(), ['busko-zdroj'],
     { source: 'refresh', runUrl: RUN_URL, run, uniqueForCity: () => 0 });
   assert.deepEqual(ops.map((o) => `${o.op}:${o.city}`), ['skip-close:busko-zdroj']);
-  // a missing/unreadable meta (null) is treated as still-empty → also skipped
   const gh2 = fakeGh({ 'busko-zdroj': [healthOwned] });
   const ops2 = syncIssues(new Map(), ['busko-zdroj'],
     { source: 'refresh', runUrl: RUN_URL, run: gh2.run, uniqueForCity: () => null });
@@ -140,8 +137,6 @@ test('refresh sync still closes a refresh-owned issue regardless of unique count
 });
 
 test('health stays quiet on a refresh-owned incident across daily runs', () => {
-  // refresh-owned issue (no health-check label) with a stale title; health is
-  // now also failing the city. It must neither comment nor flip the title.
   const refreshOwned = { number: 9, title: '[city-broken] gdansk: old refresh headline', labels: [{ name: 'city-broken' }] };
   const { run, calls } = fakeGh({ gdansk: [refreshOwned] });
   for (let day = 0; day < 7; day++) {
@@ -178,7 +173,6 @@ test('daily recheck ages and failed-attempt timestamps do not repeat issue updat
     const failures = new Map([['demo', { failure: { headline: newHeadline }, bodyPath: '/tmp/body.md' }]]);
     const { run, calls } = fakeGh({ demo: [issue] });
     const opts = { source: 'health', runUrl: RUN_URL, run };
-    // First run migrates the legacy title once, without adding a comment.
     assert.deepEqual(syncIssues(failures, [], opts).map((o) => o.op), ['edit']);
     const edit = calls.find((c) => c[1] === 'edit');
     issue.title = edit[edit.indexOf('--title') + 1];

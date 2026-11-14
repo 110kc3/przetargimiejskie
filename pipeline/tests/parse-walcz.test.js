@@ -26,7 +26,6 @@ import {
   parseResultDoc,
 } from '../src/cities/walcz/parse.js';
 
-// ------------------------------------------------------------- Config tests
 
 test('walcz config exports expected metadata', () => {
   assert.equal(config.id, 'walcz');
@@ -45,7 +44,6 @@ test('adapter default export conforms to pipeline contract', () => {
   assert.equal(typeof walczAdapter.parseResultDoc, 'function');
 });
 
-// ------------------------------------------------------------- Basic helper tests
 
 test('cleanText strips tags, unescapes entities, collapses spaces', () => {
   assert.equal(cleanText('  <p>Drugi &amp; <b>przetarg</b>&nbsp;</p> '), 'Drugi & przetarg');
@@ -77,7 +75,6 @@ test('polishDateToIso parses numeric and word dates to ISO', () => {
   assert.equal(polishDateToIso(null), null);
 });
 
-// ------------------------------------------------------------- Round & date extraction
 
 test('extractRound recognizes Roman and Polish word rounds', () => {
   assert.equal(extractRound('Pierwszy ustny przetarg nieograniczony'), 1);
@@ -109,7 +106,6 @@ test('extractAuctionDate extracts dates from title and body text', () => {
   assert.equal(extractAuctionDate('', 'brak terminu'), null);
 });
 
-// ------------------------------------------------------------- Financial & deadline extraction
 
 test('extractStartingPrice extracts cena wywoławcza', () => {
   const text1 = 'Cena wywoławcza nieruchomości – 45.000,00 zł – cena obniżona o 40%.';
@@ -137,7 +133,6 @@ test('extractWadiumDeadline extracts payment deadline date', () => {
   assert.equal(extractWadiumDeadline('Brak terminu'), null);
 });
 
-// ------------------------------------------------------------- Area & parcel extraction
 
 test('extractFlatArea extracts unit area in lead paragraph', () => {
   const t1 = 'Burmistrz Miasta Wałcz ogłasza drugi przetarg... o powierzchni 25,50 m2.\nLokal składa się...';
@@ -167,7 +162,6 @@ test('extractParcels extracts single and multi-parcel numbers from land notices'
   assert.equal(extractParcels('Ogłoszenie o sprzedaży lokalu', ''), null);
 });
 
-// ------------------------------------------------------------- Address extraction
 
 test('extractAddress parses residential flat addresses with street, bldg, apt', () => {
   const a1 = extractAddress('Drugi ustny przetarg nieograniczony na sprzedaż spółdzielczego własnościowego prawa do lokalu mieszkalnego przy ulicy Chełmińskiej 29 lok. nr 31, termin przetargu 18.11.2026 r.', '');
@@ -232,7 +226,6 @@ test('extractLandStreet parses street from land title or text', () => {
   );
 });
 
-// ------------------------------------------------------------- Board & attachment extraction
 
 const REAL_BOARD_HTML = `
 <table class="com-govarticle-category__table category table table-striped table-bordered table-hover">
@@ -307,7 +300,6 @@ test('extractAttachments extracts download attachments and filters out generic f
   assert.equal(picked, 'https://bip.walcz.pl/nieruchomosci?task=article.downloadAttachment&id=7092&version=11435');
 });
 
-// ------------------------------------------------------------- Announcement notice parsing
 
 const FLAT_PDF_FIXTURE = `
                           BURMISTRZ MIASTA WAŁCZ
@@ -405,7 +397,6 @@ test('parseAnnouncementNotice parses land notice fixture into active land record
   assert.equal(record.outcome, 'active');
 });
 
-// ------------------------------------------------------------- Result doc parsing
 
 const RESULT_SOLD_FIXTURE = `
                               INFORMACJA O WYNIKU PRZETARGU

@@ -1,10 +1,3 @@
-// Żary crawler — bip.zary.pl (SystemDoBIP CMS).
-//
-// Boards:
-//   Announcements: https://bip.zary.pl/312/Przetargi/
-//   Wykaz:         https://bip.zary.pl/313/Wyznaczone_do_sprzedazy/
-//   Results:       https://bip.zary.pl/837/Wyniki_przetargow/
-// Standard browser User-Agent required.
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -84,7 +77,6 @@ export async function crawlActive() {
   const land = [];
   const wykaz = [];
 
-  // Crawl announcements
   for (let page = 1; page <= MAX_PAGES; page++) {
     const pageUrl = page === 1 ? ANNOUNCE_BOARD : `${ANNOUNCE_BOARD}${page}/`;
     let html;
@@ -117,7 +109,6 @@ export async function crawlActive() {
     }
   }
 
-  // Crawl wykaz
   try {
     const wykazHtml = await getText(WYKAZ_BOARD, FETCH_OPTS);
     const wykazItems = harvestBoardItems(wykazHtml);

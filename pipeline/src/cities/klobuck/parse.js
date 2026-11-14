@@ -1,49 +1,3 @@
-// Kłobuck parsers — main town CMS `gminaklobuck.pl` (a bespoke server-rendered
-// PHP portal; NOT the IntraCOM BIP mirror). Both streams are plain inline HTML —
-// no PDF, no OCR, no JS rendering, no bot gate (the default przetargimiejskie-bot
-// UA returns the full body; verified live 2026-07-13).
-//
-// PAGE SHAPE (confirmed live): every notice detail page at
-// `/ogloszenie/<slug>-<id>` renders its whole legal text inside a single
-// `<div class="content mb-5"> … </div>`. Two kinds of pollution live inside or
-// right after it and MUST be stripped before classifyKind / field extraction:
-//   1. Microsoft-Word paste garbage — a `<!-- [if gte mso 9]><xml><w:WordDocument>
-//      …</xml><![endif]-->` block whose element TEXT ("Normal 0 21 false false
-//      false PL X-NONE X-NONE") otherwise leaks into the flattened body.
-//   2. a trailing/inline `<div class="page__shortcuts"><section …section-news><svg>
-//      <path …/></svg>…` "Na skróty" table-of-contents nav, full of multi-KB SVG
-//      path data. On single-notice pages it is a SIBLING after the content div
-//      (excluded by the div-balance walk); on the rolling multi-notice container
-//      pages it nests INSIDE, so it is stripped explicitly too.
-//
-// KŁOBUCK FIELD GRAMMAR (differs from the kolbuszowa analog this borrows its
-// shape from — groundtruthed on REAL live bodies, see tests/parse-klobuck.test.js):
-//   - round:  ANNOUNCEMENTS spell it out ("ogłasza pierwszy/drugi/trzeci/czwarty
-//             przetarg ustny nieograniczony"); RESULTS use a Roman numeral
-//             ("o wyniku III przetargu ustnego"). roundFromText handles both.
-//   - price:  BOTH thousands separators occur — flats use a DOT ("220.000,00 zł"),
-//             land/results use a SPACE ("170 000,00 zł"); parsePLN eats both. The
-//             label varies: "Cena wywoławcza wynosi …" (flat), "Cena wywoławcza
-//             nieruchomości: …" (land ann), "Cenę wywoławczą … ustalono na kwotę …"
-//             / "… wynosiła …" (result).
-//   - final:  SOLD result → "…osiągniętą w przetargu cenę w kwocie 222.200,00 zł"
-//             (NOT the "cena osiągnięta" phrasing kolbuszowa uses).
-//   - date:   ANNOUNCEMENT auction date is SPELLED ("Przetarg odbędzie się w dniu
-//             4 czerwca 2024 r."); RESULT auction date is NUMERIC, anchored on
-//             "…zorganizowanego przez Burmistrza Kłobucka (w dniu|dnia)
-//             04.06.2024 r." (so it is never the numeric PUBLICATION date
-//             "Kłobuck, 21.01.2026 r." that also appears on a result).
-//   - flat address: anchored on "…budynku wielorodzinn… przy ul. <Street> Nr <n>"
-//             so it can never grab the OFFICE address "…przy ul. 11 Listopada 6"
-//             (which also starts with "przy ul." but with a digit, not a Street);
-//             the apartment comes SEPARATELY from "lokal mieszkalny Nr <n>".
-//
-// KIND is decided by core/classifyKind on the cleaned document text, NEVER the
-// URL slug (crawl.js title-routes ann/result/lease on the slug, but the asset
-// kind is always classified on the body). A "nieruchomość gruntowa zabudowana"
-// (a built/developed plot with a street address — e.g. Libidza, Pokrzyńskiego 80)
-// classifies as 'zabudowana' → address-keyed; only an UNbuilt "gruntowa
-// niezabudowana" (e.g. Srebrna) is 'grunt' → parcel-keyed → land.json.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -51,9 +5,6 @@ import { classifyKind } from '../../core/classify-kind.js';
 const PL_UP = 'A-ZĄĆĘŁŃÓŚŹŻ';
 const PL_LOW = 'a-ząćęłńóśźż';
 
-// ---------------------------------------------------------------------------
-// Shared text helpers
-// ---------------------------------------------------------------------------
 
 function stripTags(s) {
   return (s || '')
@@ -71,10 +22,6 @@ function stripTags(s) {
     .trim();
 }
 
-// Polish-diacritic-safe lowercase-and-fold, so keyword regexes can use plain
-// ASCII literals instead of tripping over JS's ASCII-only \w on Polish
-// declensions. Length-preserving (1:1 char replacement), so a search index into
-// the folded string maps back onto the original string.
 export function toAscii(s) {
   return (s || '')
     .toLowerCase()
@@ -83,9 +30,6 @@ export function toAscii(s) {
     .replace(/ś/g, 's').replace(/ź/g, 'z').replace(/ż/g, 'z');
 }
 
-// Polish price string -> integer PLN. Handles BOTH "220.000,00" (dot-thousands,
-// flats) and "170 000,00" (space-thousands, land/results), "1 200,00 zł", plain
-// "88500". Ported from the kolbuszowa/olesno family.
 export function parsePLN(s) {
   if (!s) return null;
   const cleaned = String(s).replace(/[\s ]/g, '');
@@ -96,7 +40,6 @@ export function parsePLN(s) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// "0,1525" / "45,64" / "0.0552" -> Number
 export function parseArea(s) {
   if (s == null) return null;
   const n = Number(String(s).replace(/\s/g, '').replace(',', '.'));
@@ -115,7 +58,6 @@ function iso(y, m, d) {
   return `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
 }
 
-// Spelled-out Polish date inside an ALREADY-ASCII-FOLDED slice: "4 czerwca 2024".
 function spelledDate(tFolded) {
   const m = /(\d{1,2})\s+([a-z]+)\s+(\d{4})/.exec(tFolded || '');
   if (!m) return null;
@@ -125,7 +67,6 @@ function spelledDate(tFolded) {
   return iso(m[3], mon, day);
 }
 
-// Numeric date "04.06.2024" / "14-01-2026".
 function numericDate(t) {
   const m = /(\d{1,2})[.\-/](\d{1,2})[.\-/](\d{4})/.exec(t || '');
   if (!m) return null;
@@ -135,30 +76,21 @@ function numericDate(t) {
   return iso(m[3], mon, day);
 }
 
-// ---------------------------------------------------------------------------
-// 1. Body / title extraction from a gminaklobuck.pl detail page
-// ---------------------------------------------------------------------------
 
-/** Strip Word-XML paste garbage, SVG nav icons, scripts/styles and the
- *  "Na skróty" shortcuts widget from a content-div fragment, then flatten. */
 function cleanFragment(frag) {
   return stripTags(
     (frag || '')
-      .replace(/<!--[\s\S]*?-->/g, ' ')                                        // HTML + Word conditional comments
-      .replace(/<xml[\s\S]*?<\/xml>/gi, ' ')                                   // stray Word <xml> blocks
-      .replace(/<svg[\s\S]*?<\/svg>/gi, ' ')                                   // SVG "Na skróty" icons (multi-KB path data)
+      .replace(/<!--[\s\S]*?-->/g, ' ')
+      .replace(/<xml[\s\S]*?<\/xml>/gi, ' ')
+      .replace(/<svg[\s\S]*?<\/svg>/gi, ' ')
       .replace(/<style[\s\S]*?<\/style>/gi, ' ')
       .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-      .replace(/<section\b[^>]*section-news[\s\S]*?<\/section>/gi, ' ')        // shortcuts widget when nested
+      .replace(/<section\b[^>]*section-news[\s\S]*?<\/section>/gi, ' ')
   );
 }
 
-/** The notice body text: the `<div class="content mb-5">` region, div-balanced
- *  so a single-notice page's trailing `page__shortcuts` sibling is excluded, and
- *  scrubbed of Word/SVG/nav pollution. @returns {string} */
 export function extractBodyText(html) {
   if (!html) return '';
-  // Prefer the notice container `content mb-5`; fall back to a bare `content`.
   const open = /<div class="content mb-5">/i.exec(html) || /<div class="content[^"]*">/i.exec(html);
   if (!open) return '';
   const start = open.index + open[0].length;
@@ -172,7 +104,6 @@ export function extractBodyText(html) {
     if (depth === 0) { inner = html.slice(start, tm.index); break; }
   }
   if (inner == null) {
-    // Unbalanced (malformed) — cut defensively at the first trailing widget.
     const rest = html.slice(start);
     const cut = rest.search(/<div class="page__(?:shortcuts|share|footer)"|<footer\b/i);
     inner = cut >= 0 ? rest.slice(0, cut) : rest.slice(0, 40000);
@@ -180,7 +111,6 @@ export function extractBodyText(html) {
   return cleanFragment(inner);
 }
 
-/** Page headline ("<h1 …>TITLE</h1>", falling back to <title>). @returns {string} */
 export function extractTitle(html) {
   if (!html) return '';
   const h1 = /<h1[^>]*>([\s\S]*?)<\/h1>/i.exec(html);
@@ -189,8 +119,6 @@ export function extractTitle(html) {
   return t ? stripTags(t[1]).replace(/\s*[-–|]\s*Gmina K[łl]obuck\s*$/i, '').trim() : '';
 }
 
-/** Best-effort notice-issue date from the body's "Kłobuck, dnia <date>" stamp
- *  (spelled or numeric). Not load-bearing — null when absent. @returns {string|null} */
 export function extractPublishedDate(html) {
   const body = extractBodyText(html);
   const s = /K[łl]obuck,?\s+(?:dnia\s+)?(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(body);
@@ -202,15 +130,10 @@ export function extractPublishedDate(html) {
   return n ? iso(n[3], Number(n[2]), Number(n[1])) : null;
 }
 
-// ---------------------------------------------------------------------------
-// 2. Round / date / cancellation
-// ---------------------------------------------------------------------------
 
 const ORDINAL = { pierwsz: 1, drug: 2, trzec: 3, czwart: 4, piat: 5, szost: 6, siodm: 7 };
 const ROMAN = { i: 1, ii: 2, iii: 3, iv: 4, v: 5, vi: 6, vii: 7 };
 
-/** Auction round from spelled-out ordinal (announcements) OR Roman numeral
- *  (results), each anchored to a following "przetarg"/"rokowania". */
 export function roundFromText(text) {
   const t = toAscii(text || '');
   const sp = /\b(pierwsz|drug|trzec|czwart|piat|szost|siodm)\w*\s+(?:ustn\w+\s+)?(?:publiczn\w+\s+)?(?:przetarg|rokowan)/.exec(t);
@@ -219,12 +142,6 @@ export function roundFromText(text) {
   return rm ? ROMAN[rm[1]] ?? null : null;
 }
 
-/**
- * Auction date. ANNOUNCEMENT: spelled "…odbędzie się … w dniu 4 czerwca 2024 r.".
- * RESULT: numeric, anchored on "…zorganizowanego przez Burmistrza Kłobucka
- * (w dniu|dnia) 04.06.2024" (never the numeric publication stamp).
- * @returns {string|null}
- */
 export function extractAuctionDate(text) {
   const t = toAscii(text || '');
   const ann = /odb[ee]dzie\s+si[ee]/.exec(t);
@@ -238,21 +155,14 @@ export function extractAuctionDate(text) {
     const d = numericDate(res[1]);
     if (d) return d;
   }
-  // Last resort (dateless-notice safety): first numeric, else first spelled.
   return numericDate(t) || spelledDate(t) || null;
 }
 
-// Cancellation/invalidation — title-scoped ("Informacja … w sprawie odwołania
-// … przetargu"). The standing body clause "zastrzega sobie prawo odwołania" is
-// NOT a cancellation, so this is only ever run on the title.
 export function isCancelled(title) {
   const t = toAscii(title || '');
   return /\bodwolan|uniewazni|\bodwoluj/.test(t);
 }
 
-// ---------------------------------------------------------------------------
-// 3. Title routing (used by crawl.js on the listing slug)
-// ---------------------------------------------------------------------------
 
 export function isResultTitle(title) {
   const t = toAscii(title || '');
@@ -272,37 +182,21 @@ export function isAnnouncementTitle(title) {
   return /(?:przetarg|rokowan)\w*/.test(t) && /sprzeda/.test(t);
 }
 
-// ---------------------------------------------------------------------------
-// 4. Subject extraction (address / parcel)
-// ---------------------------------------------------------------------------
 
-// Flat address, anchored on "…budynku wielorodzinn… przy ul(icy)? <Street> Nr <n>"
-// (see file header — the anchor makes the office "przy ul. 11 Listopada 6"
-// impossible to capture; that street starts with a digit anyway).
 const FLAT_ADDR_RE = new RegExp(
   'budynku\\s+wielorodzinn\\w*[\\s\\S]{0,60}?przy\\s+ul(?:icy|\\.)?\\s+' +
-  // The optional 2nd street word must NOT be "Nr" — real stock writes "ul. Rómmla
-  // Nr 4", where "Nr" is the building-number label, not part of the street name.
   `([${PL_UP}][${PL_LOW}]+(?:\\s+(?!Nr\\b)[${PL_UP}0-9][${PL_LOW}0-9]*)?)\\s+(?:Nr\\.?\\s*)?(\\d+[A-Za-z]?)`,
   'i',
 );
 
-// A generic "przy ul. <Street> <n>" for developed non-flat kinds (zabudowana /
-// uzytkowy / garaz). NOT case-insensitive: the required uppercase-initial Street
-// excludes the office "przy ul. 11 Listopada 6" (digit-initial).
 const STREET_ADDR_RE = new RegExp(
   `przy\\s+ul(?:icy|\\.)?\\s+([${PL_UP}][${PL_LOW}]+(?:\\s+[${PL_UP}][${PL_LOW}]+)?)\\s+(\\d+[A-Za-z]?)`,
 );
 
-// "(Samodzielny )?lokal mieszkalny Nr N" — the apartment number, taken
-// separately from the street/building.
 const LOKAL_NR_RE = /\blokal\w*\s+mieszkaln\w*\s+nr\.?\s*(\d+[A-Za-z]?)/i;
 
-// Parcel number(s): "…ewidencyjnie nr 5500/21…" / "…nr ewid. 291/1…" /
-// "…działki nr 4350/37…", incl. an "i/,/oraz" list.
 const DZIALKA_RE = /(?:ewidencyjn\w*\s+nr\.?|nr\.?\s+ewid\w*\.?|dzia[łl]\w*\s+(?:nr|oznaczon)\w*)\s*:?\s*(\d+\/\d+(?:\s*(?:i|,|oraz)\s*\d+\/\d+)*)/i;
 
-// obręb/village name after "obręb …".
 const OBREB_RE = new RegExp(`obr[ęe]b\\w*\\s+(?:ewidencyjn\\w*\\s+)?([${PL_UP}][${PL_LOW}]+(?:\\s+[${PL_UP}][${PL_LOW}]+)?)`);
 
 function extractFlatAddress(body) {
@@ -333,19 +227,12 @@ export function extractObreb(body) {
   return m ? m[1].trim() : null;
 }
 
-/** Land's own street/place label, for a grunt record's address_raw. */
 function extractLandStreet(body) {
   const m = new RegExp(`przy\\s+ul(?:icy|\\.)?\\s+([${PL_UP}][${PL_LOW}]+(?:\\s+[${PL_UP}][${PL_LOW}]+)?)`).exec(body || '');
   return m ? m[1].trim() : null;
 }
 
-// ---------------------------------------------------------------------------
-// 5. Area / price extraction
-// ---------------------------------------------------------------------------
 
-/** Area, kind-aware. Flats: "o powierzchni użytkowej 45,64 m 2" (note the space
- *  before the superscript). Land: "o powierzchni 0,1525 ha" (×10000 → m²).
- *  @returns {number|null} */
 export function extractAreaM2(body, kind) {
   const t = body || '';
   if (kind === 'grunt') {
@@ -359,14 +246,11 @@ export function extractAreaM2(body, kind) {
   return bare ? parseArea(bare[1]) : null;
 }
 
-// Grab the first PLN amount inside `region` (a slice starting at a price label).
 function plnFromRegion(region) {
   const m = /([\d][\d\s .,]*(?:,\d{2})?)\s*z[łl]/i.exec(region || '');
   return m ? parsePLN(m[1]) : null;
 }
 
-/** "Cena wywoławcza (wynosi|nieruchomości:|… ustalono na kwotę) 220.000,00 zł".
- *  Takes the total (first amount after the label). @returns {number|null} */
 export function extractStartingPrice(body) {
   const t = toAscii(body || '');
   const idx = t.search(/cen[aey]\s+wywolawcz/);
@@ -374,14 +258,10 @@ export function extractStartingPrice(body) {
   const region = (body || '').slice(idx, idx + 240);
   const zl = plnFromRegion(region);
   if (zl != null) return zl;
-  // Amount NOT followed by "zł" (rare) — first grosze-bearing figure.
   const m = /(\d{1,3}(?:[.\s ]\d{3})+,\d{2}|\d+,\d{2})/.exec(region);
   return m ? parsePLN(m[1]) : null;
 }
 
-/** SOLD-result achieved price: "…osiągniętą w przetargu cenę w kwocie
- *  222.200,00 zł" (Kłobuck phrasing), or a generic "cena osiągnięta … zł".
- *  @returns {number|null} */
 export function extractFinalPrice(text) {
   const t = toAscii(text || '');
   let m = /osiagni\w*[\s\S]{0,60}?w\s+kwocie\s+([\d][\d\s .,]*(?:,\d{2})?)\s*z[łl]/.exec(t);
@@ -390,13 +270,8 @@ export function extractFinalPrice(text) {
   return m ? parsePLN(m[1]) : null;
 }
 
-// Prose unsold markers ("wynikiem negatywnym" / "nikt nie przystąpił" / "nie
-// pojawił się żaden" / "brak oferentów").
 const UNSOLD_RE = /wynik\w*\s+negatywn|zako[ńn]czy[łl]\w*\s+si[ęe][\s\S]{0,30}negatywn|nikt\s+nie\s+(?:przyst[ąa]pi|wp[łl]aci|z[łl]o[żz])|nie\s+pojawi[łl]\s+si[ęe]\s+[żz]aden|brak\s+(?:oferent|uczestnik|nabywc|ch[ęe]tn|wp[łl]at|wadium)/i;
 
-// Buyer name after "Nabywcą … został(a) (p.|Pan|Państwo) <Name>". The declension
-// suffixes use a Polish-letter class, NOT \w — JS \w is ASCII-only, so "Nabywcą"
-// (…cą) / "została" (…ł) would otherwise stop the match dead at the diacritic.
 function extractBuyer(text) {
   const m = new RegExp(
     `nabywc[${PL_LOW}]*\\s+(?:nieruchomo[śs]ci\\s+[${PL_LOW}]+\\s+)?(?:zosta[łl][${PL_LOW}]*\\s+)?(?:p\\.?\\s*|pan[${PL_LOW}]*\\s+|pa[nń]stwo\\s+)?([${PL_UP}][^.,;(\\n]{2,60})`,
@@ -405,16 +280,7 @@ function extractBuyer(text) {
   return m ? m[1].trim().replace(/\s+/g, ' ') : null;
 }
 
-// ---------------------------------------------------------------------------
-// 6. Top-level parsers
-// ---------------------------------------------------------------------------
 
-/**
- * Parse one inline-HTML announcement page.
- * @param {string} html   full detail-page HTML
- * @param {string} url    provenance (stored as detail_url)
- * @returns {object}
- */
 export function parseAnnouncement(html, url) {
   const body = extractBodyText(html);
   const title = extractTitle(html);
@@ -448,15 +314,6 @@ export function parseAnnouncement(html, url) {
   };
 }
 
-/**
- * Parse one "Informacja o wyniku przetargu" result. `text` is the crawl-supplied
- * body text (crawl.js already ran extractBodyText); a raw HTML string is also
- * tolerated defensively.
- * @param {string} text
- * @param {string|null} fallbackDate  auction date carried on the ref
- * @param {string} sourceUrl          detail-page URL of the result notice
- * @returns {Array<object>}
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!text || !String(text).trim()) return [];
   let t = String(text);

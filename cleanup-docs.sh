@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
-# One-off cleanup — run on your machine (the dev sandbox cannot git mv/rm).
-# Review with `git status` / `git diff` before committing; everything is reversible.
 set -e
 cd "$(dirname "$0")"
 
-# 1) Remove individual NO-BUILD spike docs (now consolidated in spikes/NO-BUILD.md)
 git rm -q "spikes/dolnoslaskie/powiat-olesnicki/olesnica.md" 2>/dev/null || true
 git rm -q "spikes/kujawsko-pomorskie/powiat-brodnicki/brodnica.md" 2>/dev/null || true
 git rm -q "spikes/kujawsko-pomorskie/powiat-inowroclawski/inowroclaw.md" 2>/dev/null || true
@@ -50,14 +47,10 @@ git rm -q "spikes/wielkopolskie/leszno/leszno.md" 2>/dev/null || true
 git rm -q "spikes/wielkopolskie/powiat-ostrowski/ostrow-wielkopolski.md" 2>/dev/null || true
 git rm -q "spikes/zachodniopomorskie/koszalin/koszalin.md" 2>/dev/null || true
 
-# 2) Move standalone legacy/marketing docs out of the repo root
 mkdir -p docs
 for f in GTM.md GTM-SPRINT.md REPORTS.md BUGCHECK-2026-06-25.md WEB_STORE_LISTING.md; do
   [ -f "$f" ] && git mv "$f" docs/ || true
 done
 
-# NOTE: the legacy SPIKE-WAVE1/2 / SPIKE-NEIGHBORS / SPIKE-COVERAGE / SPIKE-HOUSES-LAND /
-# SPIKE-TARNOWSKIE-GORY / SPIKE.md and EXPANSION.md / PLAN.md are cross-linked from the
-# per-city spike stubs + PROJECT-OVERVIEW; move them only with a link-fix pass (ask Claude).
 
 echo "Cleanup staged. Review: git status; git diff --staged. Then: git commit -m \"chore: consolidate NO-BUILD docs + tidy root\""

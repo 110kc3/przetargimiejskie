@@ -1,46 +1,3 @@
-// Biała Podlaska — ZGL Biała Podlaska Sp. z o.o. (zglbp.pl), the city-owned
-// housing-manager company, publishes "przetarg ustny (aukcja) w trybie
-// Kodeksu cywilnego" (a civil-code auction — ZGL is a sp. z o.o., not the
-// gmina itself, so it doesn't use the ustawa o gospodarce nieruchomościami
-// procedure) on ITS OWN SITE, not the city BIP. See
-// spikes/lubelskie/biala-podlaska/biala-podlaska.md (live-verified 2026-06-27).
-//
-// Source shape (live-verified): plain server-rendered HTML (netcoding.pl /
-// Drimo CMS), no auth, no bot blocks, no JS required.
-//   LIST:   https://www.zglbp.pl/przetargi?filtruj=1&rodzaj=sprzedaz_nieruchomosci
-//           (paginated /przetargi/page,N?filtruj=1&rodzaj=sprzedaz_nieruchomosci)
-//           — the `rodzaj` filter narrows the board to property SALES only,
-//           dropping the procurement noise (usługi/dostawy/roboty budowlane
-//           etc.) that also lives on /przetargi. Each row: seq, published
-//           date, auction/deadline date ("Termin" on the detail page — the
-//           two agree exactly, verified against 3 samples), title link,
-//           status (w toku / zakończone / unieważnione), pdf icon.
-//   DETAIL: the title link's own page — a "Status / Rodzaj zamówienia /
-//           Zamawiający / Znak sprawy / Termin / Miejsce / Ogłoszono dnia /
-//           Ogłoszono przez" meta box, followed by the full announcement
-//           prose INLINE in the HTML. No PDF/DOC attachment was observed on
-//           any sprzedaz_nieruchomosci row in the crawled window (all show
-//           "no_pdf.png" on the list) — so `source: 'html'` and this adapter
-//           never calls pdfText/ocrPdf/docText.
-//
-// Volume is LOW (~1-3 open flat auctions/yr; verified: two 2025 auctions for
-// Kopernika 7 lok. 9, 330 000 zł). The filtered list is newest-first and
-// small (~54 rows total since ~2011, but only ~20 fall in/after MIN_ROW_YEAR
-// — everything older lives on page,2+ and is dropped by the early-stop below,
-// bounding both the page count and the number of detail fetches per run).
-//
-// No achieved-price stream exists on-site (auction pages show "zakończone"
-// but never a "cena osiągnięta"/wynik notice) — this is announcement-only.
-// crawlResultDocs() returns [] and final_price_pln always stays null; every
-// listing's outcome ('active' vs 'archived') is derived from its date vs.
-// today by build-properties.js, not from a published result.
-//
-// A titled "... nieruchomości gruntowej ..." (land) row is NOT reliably empty
-// land — see parse.js kindFromText: one verified example (Brzeska 36) turned
-// out, per its own body prose, to carry two commercial buildings on the
-// parcel. Kind is reclassified from title+body once the detail page is
-// fetched; a sparse/attachment-only detail body (observed for Narutowicza 30)
-// falls back to the title-only classification ('grunt').
 
 import { getText } from '../../core/fetch.js';
 import { classifyKind, LAND_KIND } from '../../core/classify-kind.js';
@@ -58,19 +15,8 @@ const HOST = 'https://www.zglbp.pl';
 const LIST_BASE = `${HOST}/przetargi`;
 const FILTER_QS = 'filtruj=1&rodzaj=sprzedaz_nieruchomosci';
 
-// Safety cap on list pages (the real filtered list is currently 6 pages / ~54
-// rows total since ~2011) — MIN_ROW_YEAR below stops us long before this in
-// practice; this is just the hard backstop for a CI job's wall clock.
 const MAX_LIST_PAGES = 8;
-// Once every row on a page predates this year, stop paginating (the list is
-// newest-first, so once we're this deep we're past the window this project's
-// pipeline cares about for a fresh adapter — see refresh.js
-// PIPELINE_MIN_HISTORY_YEAR, which floors result-doc records at 2020 anyway).
 const MIN_ROW_YEAR = 2019;
-// Budget cap on detail-page fetches (price/area/kind-refinement) per run —
-// the whole filtered MIN_ROW_YEAR+ window is ~20 rows, comfortably under
-// this. Keeps a live run polite (per-fetch throttle is enforced by
-// core/fetch.js) and bounds wall-clock even if the site's volume grows.
 const MAX_DETAIL_FETCHES = 40;
 
 function stripTags(html) {
@@ -115,7 +61,6 @@ async function fetchListPage(page) {
   return parseListRows(html);
 }
 
-/** Fetch + tag-strip one detail page's body, then pull price/area/dzialka. */
 async function fetchDetailFields(url) {
   let html;
   try {
@@ -134,9 +79,6 @@ async function fetchDetailFields(url) {
   };
 }
 
-/** Collect recent (>= MIN_ROW_YEAR) sprzedaz_nieruchomosci rows across the
- *  filtered, paginated list — bounded by MAX_LIST_PAGES and an early stop
- *  once a whole page predates the window (the list is newest-first). */
 async function crawlListRows() {
   const rows = [];
   const seenHrefs = new Set();
@@ -162,7 +104,7 @@ async function crawlListRows() {
       }
     }
     console.error(`  biala-podlaska list page ${page}: ${pageRows.length} row(s), ${rows.length} recent total so far`);
-    if (!anyRecent) break; // every row on this page predates MIN_ROW_YEAR — stop paginating
+    if (!anyRecent) break;
   }
   return rows;
 }
@@ -196,11 +138,6 @@ export async function crawlActive() {
         area_m2 = d.area_m2;
         dzialka_nr = d.dzialka_nr;
         kind = kindFromText(r.title, d.bodyText);
-        // landAreaFromText fires on ANY "działka ... powierzchni" clause,
-        // including the boilerplate a FLAT's own announcement uses to name
-        // the building's underlying plot (e.g. Kopernika 7/9 — see parse.js).
-        // Only meaningful for whole-property (grunt/zabudowana) records; a
-        // single flat/commercial unit never gets a land_area_m2.
         if (kind === LAND_KIND || kind === 'zabudowana') land_area_m2 = d.land_area_m2;
       }
     }
@@ -230,9 +167,6 @@ export async function crawlActive() {
   return { listings, wykaz: [], land: [] };
 }
 
-// No machine-readable results stream exists on zglbp.pl (see file header) —
-// every listing stays outcome 'active'/'archived' (by date), never
-// 'sold'/'unsold'. parseResultDoc (parse.js) is a stub, never invoked.
 export async function crawlResultDocs() {
   return [];
 }

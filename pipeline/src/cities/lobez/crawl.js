@@ -1,7 +1,3 @@
-// Łobez crawler — bip.lobez.pl
-//
-// Walks year subcategories (/1508-2026.html, /1286-2025.html) of /342-zbycie.html.
-// Downloads e-signed text-PDF attachments and extracts text via pdfText().
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -66,7 +62,6 @@ async function crawlAll() {
         continue;
       }
 
-      // Collect attachments
       const pdfRe = /<a[^>]+href="([^"]*files\/file_add\/download\/[^"]*\.pdf)"[^>]*>([\s\S]*?)<\/a>/gi;
       let pm;
       const pdfs = [];

@@ -1,7 +1,3 @@
-// Configuration for Miechów adapter (bip.malopolska.pl/ugimmiechow)
-//
-// Gmina i Miasto Miechów (powiat miechowski, małopolskie)
-// TERC: 1208054
 
 export const CONFIG = {
   id: 'miechow',

@@ -1,35 +1,3 @@
-// Jarocin parser tests. Fixtures are condensed-but-faithful copies of the
-// REAL born-digital text extracted (pdftotext -layout) from live PDFs on
-// bip2.wokiss.pl/jarocin, fetched 2026-07-11 from this Pi's Polish
-// residential IP. Long non-load-bearing boilerplate (the multi-paragraph
-// legal-basis preamble, RODO clause, wadium-handling procedure, notarial-cost
-// warnings) is trimmed; every line that feeds a parsed field (round, address /
-// parcel, area, cena wywoławcza, cena osiągnięta, nabywca, date, outcome) is
-// kept VERBATIM, including the source's own spacing and "netto + 23% VAT" /
-// "zł brutto" tails.
-//
-// Groundtruth (hand-verified against the live PDFs):
-//   Flat ANNOUNCE — ogloszenie-przetarg-lokal-konstytucji-17.03.2025.pdf
-//     (bip2.wokiss.pl/jarocin ...przetargi-w-roku-2025.html?pid=21054):
-//     Os. Konstytucji 3 Maja 20/17, lokal mieszkalny nr 17, 68,30 m²,
-//     round III (word "TRZECI"), cena wywoławcza 320.800,00 zł,
-//     auction 8 maja 2025 (word-month date). [The 3rd przetarg was later
-//     ODWOŁANY — that cancellation is a separate pid the crawler skips by
-//     title, so it never reaches the parser.]
-//   Result SOLD — wynik-przetargu-dz.-592-42-jarocin.pdf (?pid=21132):
-//     Jarocin, ul. St. Mikołajczyka, dz. nr 592/42, 0,0188 ha (=188 m²),
-//     round I (word "pierwszy"), cena wywoławcza 23.000, cena osiągnięta
-//     23.230 (named buyer → sold), auction 20.03.2025 (numeric date).
-//   Result UNSOLD — informacja-o-wyniku... Witaszyce (?pid=21612):
-//     Witaszyce, ul. Słoneczna, dz. nr 1267/7, 0,2000 ha (=2000 m²),
-//     round I, cena wywoławcza 251.300, "zakończył się wynikiem negatywnym"
-//     (jedno wadium, niewstawienie się oferenta → unsold, no hammer price),
-//     auction 29.05.2025.
-//
-// KIND is decided by classifyKind(BODY): the flat body carries "lokal
-// mieszkalny nr 17" → mieszkalny (address-keyed); the two results carry
-// "działka nr ..." → grunt (parcel-keyed). Neither the URL slug nor the title
-// is trusted for kind.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -110,15 +78,10 @@ test('a street name before a table must not consume its parcel as a flat address
   assert.equal(record.address, null);
 });
 
-// --------------------------------------------------------------- fixtures
 
 const FLAT_ANN_TITLE =
   'Ogłoszenie trzeciego przetargu nieograniczonego na sprzedaż nieruchomości lokalowej położonej w Jarocinie Os. Konstytucji 3 Maja 20/17';
 
-// pdftotext -layout output (condensed). The flat states its price as a bare
-// table "Cena / <amount> zł brutto" (no "cena wywoławcza" label), its area as
-// "Powierzchnia lokalu 68,30 m²", and its auction date on the "odbędzie się
-// dnia" line with a Polish month word.
 const FLAT_ANN_TEXT = `                                                 OGŁOSZENIE O PRZETARGU
 
 Burmistrz Jarocina działając na podstawie art. 30 ust. 2 pkt 2 i 3 ustawy z dnia 8 marca 1990 r. o samorządzie gminnym
@@ -178,7 +141,6 @@ oferenta na przetargu, przetarg na w/w nieruchomość zakończył się wynikiem 
 
 Jarocin, dnia 06.06.2025 r.`;
 
-// -------------------------------------------------------------- unit funcs
 
 test('parsePLN: dot-thousands + comma-grosze, space-thousands, million, junk', () => {
   assert.equal(parsePLN('320.800,00'), 320800);
@@ -207,9 +169,8 @@ test('roundFromText: Polish ORDINAL words (dominant) and Roman fallback', () => 
   assert.equal(roundFromText('przeprowadzony został pierwszy przetarg ustny'), 1);
   assert.equal(roundFromText('Ogłoszenie o drugim przetargu ustnym'), 2);
   assert.equal(roundFromText('o wyniku czwartego przetargu'), 4);
-  assert.equal(roundFromText('Informacja o wyniku I przetargu ustnego'), 1); // Roman
-  assert.equal(roundFromText('Informacja o wyniku III przetargu'), 3);       // Roman
-  // The Polish conjunction "i" (and) must NOT be misread as Roman 1.
+  assert.equal(roundFromText('Informacja o wyniku I przetargu ustnego'), 1);
+  assert.equal(roundFromText('Informacja o wyniku III przetargu'), 3);
   assert.equal(roundFromText('sprzedaż gruntów i nieruchomości gminnych'), null);
 });
 
@@ -219,7 +180,6 @@ test('isCancellation: only an "odwołanie" notice is a cancellation', () => {
   assert.equal(isCancellation(RESULT_SOLD_TITLE), false);
 });
 
-// ------------------------------------------------------- parseAnnouncement
 
 test('parseAnnouncement: flat Os. Konstytucji 3 Maja 20/17 — mieszkalny from BODY, round III (word), bare "zł brutto" price, "Powierzchnia lokalu" area, word-month date', () => {
   const r = parseAnnouncement(FLAT_ANN_TEXT, FLAT_ANN_TITLE, 'https://bip2.wokiss.pl/jarocin/zasoby/przetargi/ogloszenie-przetarg-lokal-konstytucji-17.03.2025.pdf');
@@ -235,7 +195,6 @@ test('parseAnnouncement: flat Os. Konstytucji 3 Maja 20/17 — mieszkalny from B
   assert.equal(r.dzialka_nr, null);
 });
 
-// --------------------------------------------------------- parseResultDoc
 
 test('parseResultDoc: SOLD land result (ul. St. Mikołajczyka dz. 592/42) — grunt/parcel-keyed, round I (word), cena wywoławcza + achieved price, numeric date, obręb de-inflected Jarocinie→Jarocin', () => {
   const [r] = parseResultDoc(RESULT_SOLD_TEXT, null, 'https://bip2.wokiss.pl/jarocin/zasoby/przetargi/wynik-przetargu-dz.-592-42-jarocin.pdf');
@@ -243,7 +202,7 @@ test('parseResultDoc: SOLD land result (ul. St. Mikołajczyka dz. 592/42) — gr
   assert.equal(r.address, null);
   assert.equal(r.dzialka_nr, '592/42');
   assert.equal(r.obreb, 'Jarocin');
-  assert.equal(r.area_m2, 188); // 0,0188 ha × 10000
+  assert.equal(r.area_m2, 188);
   assert.equal(r.starting_price_pln, 23000);
   assert.equal(r.final_price_pln, 23230);
   assert.equal(r.outcome, 'sold');
@@ -258,7 +217,7 @@ test('parseResultDoc: UNSOLD land result (Witaszyce dz. 1267/7) — "wynikiem ne
   assert.equal(r.kind, 'grunt');
   assert.equal(r.dzialka_nr, '1267/7');
   assert.equal(r.obreb, 'Witaszyce');
-  assert.equal(r.area_m2, 2000); // 0,2000 ha × 10000
+  assert.equal(r.area_m2, 2000);
   assert.equal(r.starting_price_pln, 251300);
   assert.equal(r.final_price_pln, null);
   assert.equal(r.outcome, 'unsold');

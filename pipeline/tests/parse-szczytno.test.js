@@ -24,7 +24,6 @@ import {
   parseResultDoc,
 } from '../src/cities/szczytno/parse.js';
 
-// ------------------------------------------------------------------ Title routing
 
 test('isSkippableTitle: lease, rental, cancellation, rokowania, announcements', () => {
   assert.equal(
@@ -39,7 +38,6 @@ test('isSkippableTitle: lease, rental, cancellation, rokowania, announcements', 
   assert.equal(isSkippableTitle('Lista osób zakwalifikowanych do przetargów'), true);
   assert.equal(isSkippableTitle('UCHWAŁA Nr XXII/197/04 Rady Miejskiej w Szczytnie'), true);
 
-  // Real sale announcements are NOT skippable
   assert.equal(
     isSkippableTitle('Ogłoszenie o I przetargu ustnym nieograniczonym na zbycie nieruchomości lokalowej przy ul. Żeromskiego 3/4 w Szczytnie'),
     false,
@@ -69,7 +67,6 @@ test('isBezprzetargowyTitle: tenant sales and non-auction conveyances', () => {
   );
 });
 
-// ------------------------------------------------------------------ Number & Area parsing
 
 test('parsePLN: space and dot thousands with grosze', () => {
   assert.equal(parsePLN('135.370,00 zł'), 135370);
@@ -92,7 +89,6 @@ test('parseAreaNum: comma and dot decimals', () => {
   assert.equal(parseAreaNum(null), null);
 });
 
-// ------------------------------------------------------------------ Round & Date extraction
 
 test('roundFromText: roman and word forms, vendor typos', () => {
   assert.equal(roundFromText('ogłoszenie o I przetargu ustnym nieograniczonym'), 1);
@@ -115,7 +111,6 @@ test('auctionDateFromText: Polish genitive months and dot dates', () => {
   assert.equal(auctionDateFromText('w dniu 15.09.2026r.'), '2026-09-15');
 });
 
-// ------------------------------------------------------------------ Kind resolution
 
 test('resolveKind: accurately routes flats, buildings, commercial, and land', () => {
   assert.equal(resolveKind('zbycie nieruchomości lokalowej przy ul. Żeromskiego 3/4'), 'mieszkalny');
@@ -127,7 +122,6 @@ test('resolveKind: accurately routes flats, buildings, commercial, and land', ()
   assert.equal(resolveKind('zbycie nieruchomości niezabudowanej przy ul. Norwida w Szczytnie, działka 516/4'), 'grunt');
 });
 
-// ------------------------------------------------------------------ Address & Venue protection
 
 test('extractAddress: protects City Hall venue from becoming property address', () => {
   const textWithVenue =
@@ -160,7 +154,6 @@ test('extractAddress: parses complex building and unit numbers', () => {
   assert.equal(a5.parsed.key, 'lipperta|8|');
 });
 
-// ------------------------------------------------------------------ Board Table Parser
 
 test('parseBoardTable: parses CMS rows with unclosed anchor tags', () => {
   const tableHtml = `
@@ -190,7 +183,6 @@ test('parseBoardTable: parses CMS rows with unclosed anchor tags', () => {
   assert.equal(items[1].date, '2025-08-21 08:31:01');
 });
 
-// ------------------------------------------------------------------ Real Fixtures Groundtruth
 
 test('FIXTURE 1: Flat announcement — Żeromskiego 3/4 (.doc)', () => {
   const docText = `

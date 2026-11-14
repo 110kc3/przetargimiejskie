@@ -1,18 +1,3 @@
-// Kluczbork parser.
-//
-// Extracts residential flats and land plots auctioned by Gmina Kluczbork
-// (Extranet bip.net v7.33 CMS).
-//
-// Document types:
-// 1. Announcements (board 452) — "OGŁOSZENIE o przetargu ustnym nieograniczonym...",
-//    typically a multi-lot document with Roman-numeral round sections (I, II, III...)
-//    and numbered property items.
-// 2. Results (board 690) — "Informacja o wyniku przetargu...", standard § 12
-//    Rozporządzenia RM format with items headed by "[0-9lI]. Oznaczenie nieruchomości...".
-//
-// Character artifacts:
-// - Extracted text often has letter 'l' (lowercase L) or 'I' (capital i) instead of digit '1'.
-// - Polish diacritics may be dropped in PDF text layer (e.g. wywolawcza, osignita).
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -40,7 +25,6 @@ const WORD_ROUNDS = [
   [/^dziesi[ąa]t/i, 10],
 ];
 
-/** Parse PLN monetary string into integer. */
 export function parsePLN(numStr) {
   if (!numStr) return null;
   const withoutGrosze = String(numStr).trim().replace(/[.,]\d{2}$/, '');
@@ -49,14 +33,12 @@ export function parsePLN(numStr) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/** Parse decimal number string. */
 export function parseNum(numStr) {
   if (numStr == null) return null;
   const n = Number(String(numStr).replace(/[\s\u00a0]/g, '').replace(',', '.'));
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-/** Strip HTML/PDF formatting artifacts. */
 export function stripHtml(s) {
   if (!s) return '';
   return String(s)
@@ -71,14 +53,13 @@ export function stripHtml(s) {
     .replace(/&bdquo;|&rdquo;|&ldquo;|&quot;/g, '"')
     .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
     .replace(/&[a-z#0-9]+;/gi, ' ')
-    .replace(/\u00ad/g, '') // soft hyphen
-    .replace(/(\d)\(\)(\d)/g, '$10$2') // font artifact 2()23 -> 2023
-    .replace(/\(\),/g, '0,') // font artifact (),1401 -> 0,1401
+    .replace(/\u00ad/g, '')
+    .replace(/(\d)\(\)(\d)/g, '$10$2')
+    .replace(/\(\),/g, '0,')
     .replace(/\s+/g, ' ')
     .trim();
 }
 
-/** Build standard record text. */
 export function buildRecordText(f = {}) {
   return [`TITLE: ${stripHtml(f.title)}`, `BODY: ${stripHtml(f.body)}`].join('\n');
 }
@@ -91,27 +72,23 @@ export function whole(text) {
     .replace(/\(\),/g, '0,');
 }
 
-/** Is this a concluded result notice? */
 export function isResultDoc(text) {
   const t = whole(text);
   if (/lista\s+os[oó]b\s+zakwalifikowanych/i.test(t)) return false;
   return /informacj\w*\s+o\s+wynik\w*\s+przetargu|wynik\w*\s+przetargu|wynik\w*\s+rokowa[ńn]|odby[łl]\s+si[ęe]\s+w\s+dniu/i.test(t);
 }
 
-/** Is this a lease tender rather than sale? */
 export function isLease(text) {
   const t = whole(text);
   if (/sprzeda[żz]/i.test(t)) return false;
   return /dzier[żz]aw|najm|6845/i.test(t);
 }
 
-/** Is this a real-estate sale tender? */
 export function isSaleAuction(text) {
   const t = whole(text);
   return /sprzeda[żz]|6840/i.test(t);
 }
 
-/** Is this an auction cancellation notice? */
 export function isCancellation(text) {
   const t = whole(text);
   return /odwo[łl]ani\w*[\s\S]{0,60}?przetarg|odwo[łl]uj[ęe]\s*[:\s]+[-–\s]*(?:I|II|III|IV|V)?\s*przetarg|uniewa[żz]nieni\w*[\s\S]{0,60}?przetarg/i.test(t);
@@ -121,11 +98,9 @@ function toIso(dd, mm, yyyy) {
   return `${yyyy}-${String(mm).padStart(2, '0')}-${String(dd).padStart(2, '0')}`;
 }
 
-/** Extract auction date in ISO YYYY-MM-DD. */
 export function auctionDateFromText(text) {
   const t = whole(text);
 
-  // 1. Scheduled future auction date in announcement: "Przetarg odbędzie się w dniu 30 listopada 2023r."
   const futureWordM = /odb[ęe]dzie\s+si[ęe][\s\S]{0,100}?(?:w\s+dniu|dnia)\s*(\d{1,2})\s+([a-ząćęłńóśźż]+)\s+(\d{4})/i.exec(t);
   if (futureWordM) {
     const mo = PL_MONTH[futureWordM[2].toLowerCase()];
@@ -134,7 +109,6 @@ export function auctionDateFromText(text) {
   const futureNumM = /odb[ęe]dzie\s+si[ęe][\s\S]{0,100}?(?:w\s+dniu|dnia)\s*(\d{1,2})[\.\s]+(\d{1,2})[\.\s]+(\d{4})/i.exec(t);
   if (futureNumM) return toIso(futureNumM[1], futureNumM[2], futureNumM[3]);
 
-  // 2. Concluded auction date in result: "odbył się w dniu 29.09.2026r." / "przeprowadzonym w dniu..."
   const pastNumM = /(?:odby[łl]\s+si[ęe]|przeprowadzon\w*)[\s\S]{0,100}?(?:w\s+dniu|dnia)\s*(\d{1,2})[\.\s]+(\d{1,2})[\.\s]+(\d{4})/i.exec(t);
   if (pastNumM) return toIso(pastNumM[1], pastNumM[2], pastNumM[3]);
 
@@ -144,14 +118,12 @@ export function auctionDateFromText(text) {
     if (mo) return toIso(pastWordM[1], mo, pastWordM[3]);
   }
 
-  // 3. Title termin: "termin przetargu: 29.09.2026r."
   const termM = /termin\s+przetargu\s*:?\s*(\d{1,2})[\.\s]+(\d{1,2})[\.\s]+(\d{4})/i.exec(t);
   if (termM) return toIso(termM[1], termM[2], termM[3]);
 
   return null;
 }
 
-/** Parse round number from text (e.g. "I przetarg" -> 1). */
 export function roundFromText(text) {
   const t = whole(text);
   const mRoman = /\b([IVX]+)\s+przetarg\s+ustny/i.exec(t);
@@ -170,20 +142,15 @@ export function roundFromText(text) {
 
 const AMOUNT_RE = String.raw`(\d{1,3}(?:[.\s\u00a0]\d{3})*(?:,\d{2})?)`;
 
-/** Starting price from item text. */
 export function startingPriceFromText(text) {
-  // Line bulleted with hyphen/dash: "- cena wywoławcza: 187 400,00 zł"
   const mBullet = new RegExp(String.raw`[-–]\s*cena\s+wywo[łl]awcz\w*[^\n\r]*?[:–\-]?\s*${AMOUNT_RE}\s*(?:z[łlt]|xl)`, 'i').exec(text);
   if (mBullet) return parsePLN(mBullet[1]);
 
-  // General pattern: "Cena wywoławcza ... 187 400,00 zł"
   const mGen = new RegExp(String.raw`cena\s+wywo[łl]awcz\w*[\s\S]{0,120}?(?:brutto\s*[:\-]?)?\s*${AMOUNT_RE}\s*(?:z[łlt]|xl)`, 'i').exec(text);
   return mGen ? parsePLN(mGen[1]) : null;
 }
 
-/** Achieved price from result item text. */
 export function achievedPriceFromText(text) {
-  // Line: "- najwyższa cena osiągnięta w przetargu: 35 000,00 zł."
   const m = /[-–]\s*najwy[żz]sza\s+cena\s+osi[ąa]gni[ęe]t\w*[^\n\r]*?[:–\-]\s*([^\n\r]+)/i.exec(text);
   if (!m) return null;
   const line = m[1].trim();
@@ -192,7 +159,6 @@ export function achievedPriceFromText(text) {
   return numM ? parsePLN(numM[1]) : null;
 }
 
-/** Buyer name from result item text (null if unsold/negative). */
 export function buyerName(text) {
   const m = /nabywc\w*[\s\S]{0,120}?[:–\-]\s*([^\n\r]+)/i.exec(text);
   if (!m) return null;
@@ -201,28 +167,23 @@ export function buyerName(text) {
   return val.length > 2 ? val : null;
 }
 
-/** Unit area of a flat/premises in m². */
 export function unitAreaFromText(text) {
   const m = /(?:lokal\w*\s+(?:mieszkaln\w*\s+)?(?:nr\s*\w+\s+)?o\s+pow\w*\.?|powierzchnia\s+u[żz]ytkowa|o\s+pow\w*\.?\s*u[żz]ytkowej)\s*([0-9]+(?:[,\.][0-9]+)?)\s*m\s*[2²]/i.exec(text);
   return m ? parseNum(m[1]) : null;
 }
 
-/** Land plot cadastral number and area. */
 export function landPlotFromText(text) {
   let dzialka_nr = null;
   let area_m2 = null;
 
-  // Parcel number: "działka nr 78/8" / "działki nr 523/3 i 523/4" / "działka nr 358/2"
   const dm = /dzia[łl]k[ai]?\s*(?:budowlan[ae])?\s*(?:nr\s*)?([0-9]+(?:\/[0-9]+)?(?:(?:\s+i\s+|\s*,\s*)[0-9]+(?:\/[0-9]+)?)*)/i.exec(text);
   if (dm) dzialka_nr = dm[1].trim();
 
-  // Area in ha -> m²
   const haM = /o\s+pow\w*\.?\s*([0-9]+(?:[,\.][0-9]+)?)\s*ha/i.exec(text);
   if (haM) {
     const haVal = parseNum(haM[1]);
     if (haVal != null) area_m2 = Math.round(haVal * 10000);
   } else {
-    // Area in m²
     const m2M = /o\s+pow\w*\.?\s*([0-9]+(?:[,\.][0-9]+)?)\s*m\s*[2²]/i.exec(text);
     if (m2M) area_m2 = parseNum(m2M[1]);
   }
@@ -230,21 +191,15 @@ export function landPlotFromText(text) {
   return { dzialka_nr, area_m2 };
 }
 
-/**
- * Extract raw address string from item text.
- * Returns e.g. "ul. Zamkowa 15/14", "ul. Drzymały 8/1".
- */
 export function flatAddressRaw(text) {
   let street = null;
   let building = null;
   let apt = null;
 
-  // First check if parcel 179/1
   if (/179\/1|OP1U\/00061267\/4/i.test(text) && !/ul\./i.test(text)) {
     street = 'Damrota';
     building = '15';
   } else {
-    // Match street and building
     const sm = /(?:ul\.|u\.|ulicy)\s*([A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż.\s-]+?)[,\s-]+([0-9]+[a-zA-Z]?(?:\/[0-9]+)?|[lI])(?=[,\s-]+(?:ark|dzia[łl]k|lokal|KW|o\s+pow|\.|-|$))/iu.exec(text);
     if (sm) {
       street = sm[1].trim().replace(/^ul\.\s*/i, '');
@@ -258,7 +213,6 @@ export function flatAddressRaw(text) {
     }
   }
 
-  // Match flat unit number: "lokal mieszkalny nr 14", "lokal nr 1", "lokal mieszkalny nr l"
   const am = /lokal\w*\s+(?:mieszkaln\w*\s+)?(?:nr\s*)?([0-9lI]+)/i.exec(text);
   if (am) {
     apt = am[1].replace(/^[lI]$/, '1');
@@ -269,7 +223,6 @@ export function flatAddressRaw(text) {
   return apt ? `ul. ${street} ${building}/${apt}` : `ul. ${street} ${building}`;
 }
 
-/** Classify item into asset class. */
 export function kindFromText(text) {
   if (/lokal\w*\s+mieszkaln|lokalu\s+mieszkaln|mieszkanie/i.test(text)) return 'mieszkalny';
   if (/lokal\w*\s+(?:u[żz]ytkow|niemieszkaln)|budyn\w*\s+niemieszkaln/i.test(text)) return 'uzytkowy';
@@ -280,13 +233,8 @@ export function kindFromText(text) {
   return classifyKind(text);
 }
 
-// ------------------------------------------------------------- Section Parsing
 
-/**
- * Split an announcement document into individual item blocks with associated round numbers.
- */
 function splitAnnouncementItems(fullText) {
-  // Cut off administrative footer after "Przetarg odbędzie się"
   const cutoffIdx = fullText.search(/Przetarg\s+odb[ęe]dzie\s+si[ęe]/i);
   const itemsSection = cutoffIdx > 0 ? fullText.slice(0, cutoffIdx) : fullText;
 
@@ -297,7 +245,6 @@ function splitAnnouncementItems(fullText) {
   const itemMatches = [...itemsSection.matchAll(itemRe)];
 
   if (itemMatches.length === 0) {
-    // If no numbered items, treat entire items section as 1 item
     return [{ text: itemsSection, round: roundFromText(fullText) }];
   }
 
@@ -307,7 +254,6 @@ function splitAnnouncementItems(fullText) {
     const end = i + 1 < itemMatches.length ? itemMatches[i + 1].index : itemsSection.length;
     const blockText = itemsSection.slice(start, end).trim();
 
-    // Determine round from the last round heading preceding this item
     const precedingRounds = roundMatches.filter((r) => r.index < start);
     let round = 1;
     if (precedingRounds.length > 0) {
@@ -323,9 +269,6 @@ function splitAnnouncementItems(fullText) {
   return items;
 }
 
-/**
- * Split a result document into individual item blocks with associated round numbers.
- */
 function splitResultItems(fullText) {
   const roundRe = /(?:^|\n)\s*([IVX]+|\b(?:pierwszy|drugi|trzeci|czwarty|pi[ąa]ty|sz[óo]sty)\b)\s+przetarg\s+ustny\s+(?:nieograniczony|ograniczony)/gi;
   const roundMatches = [...fullText.matchAll(roundRe)];
@@ -358,12 +301,7 @@ function splitResultItems(fullText) {
   return items;
 }
 
-// ------------------------------------------------------------- Announcement Parse
 
-/**
- * Parse one ANNOUNCEMENT document into 0..N records.
- * Returns array of active/pending property or land records.
- */
 export function parseAnnouncement(text, metadata = {}) {
   const t = whole(text);
   if (!t || !isSaleAuction(t) || isLease(t) || isCancellation(t)) return [];
@@ -421,11 +359,7 @@ export function parseAnnouncement(text, metadata = {}) {
   return records;
 }
 
-// ------------------------------------------------------------- Result Parse
 
-/**
- * Parse one CONCLUDED result document into 0..N result records.
- */
 export function parseResultDoc(textOrRef, fallbackDate, sourceUrl) {
   let text = '';
   let fallback = fallbackDate;

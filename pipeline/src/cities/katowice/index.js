@@ -1,26 +1,3 @@
-// Katowice city adapter — implements the registry contract (see ../index.js).
-//
-// Katowice has TWO crawl routes that we merge:
-//   1) bip.katowice.eu live board (crawl.js)              — last ~12 months
-//   2) katowice.eu SharePoint lists (crawl-sharepoint.js) — full archive,
-//      announcements list (~15 months) + result wykazy list (back to 2012)
-//
-// Both routes feed the same parsers: parseAnnouncement() for active-listing
-// HTML, parseResultPdf() for result-PDF tables (pdftotext -layout). The only
-// new code is the *enumeration* — the SharePoint REST API. See SPIKE-WAVE1.md
-// "Appendix — katowice.eu SharePoint lists (May 2026, resolved)" for the
-// endpoint discovery.
-//
-// Dedup:
-//   - announcements: by (auction_date, address.key). Same auction may surface
-//     in both routes (a current listing on the live BIP board is also on the
-//     city portal). First-seen wins — BIP first so we keep the dokument.aspx
-//     detail URL the existing extension content-script already targets.
-//   - result PDFs: by basename. The two stores host the same PDFs at
-//     different paths (e.g. `bip.katowice.eu/Lists/Dokumenty/Attachments/<id>`
-//     vs. `katowice.eu/SiteAssets/Lists/<list>/AllItems/`), but the filename
-//     ("Wyniki przetargów 28.04.2026.pdf") is stable across both — and using
-//     it as the dedup key means we OCR / pdftotext each PDF only once.
 
 import { config } from './config.js';
 import { crawlActive as crawlActiveBip, crawlResultDocs as crawlResultDocsBip } from './crawl.js';
@@ -30,19 +7,15 @@ import {
 } from './crawl-sharepoint.js';
 import { parseResultDoc } from './parse.js';
 
-// Final segment of a URL, ignoring query string. Used as the dedup key for
-// result PDFs that the same auction can publish at two different paths.
 function pdfBasename(url) {
   const stripped = (url || '').split('?')[0];
   const idx = stripped.lastIndexOf('/');
   return decodeURIComponent(idx >= 0 ? stripped.slice(idx + 1) : stripped);
 }
 
-/** @returns {Promise<{ listings: object[], wykaz: object[], land: object[] }>} */
 async function crawlActive() {
   const bip = await crawlActiveBip();
   const spResult = await crawlSharePointAnnouncements();
-  // crawlSharePointAnnouncements now returns { listings, land }
   const spListings = Array.isArray(spResult) ? spResult : (spResult.listings || []);
   const spLand = Array.isArray(spResult) ? [] : (spResult.land || []);
 
@@ -63,7 +36,6 @@ async function crawlActive() {
     spAdds++;
   }
 
-  // Merge land from both routes; dedup by (dzialka_nr|auction_date)
   const landSeen = new Set();
   const land = [];
   for (const lr of [...(bip.land || []), ...spLand]) {
@@ -79,7 +51,6 @@ async function crawlActive() {
   return { listings: merged, wykaz: bip.wykaz, land };
 }
 
-/** @returns {Promise<Array<{ pdf_url: string, auction_date: string|null }>>} */
 async function crawlResultDocs() {
   const bip = await crawlResultDocsBip();
   const sp = await crawlSharePointResultDocs();
@@ -109,9 +80,6 @@ async function crawlResultDocs() {
 export default {
   ...config,
   crawlResultDocs,
-  // parseResultDoc routes per-auction "Wyniki" PDFs to parseResultPdf and
-  // annual "Wykaz nieruchomości sprzedanych" PDFs to parseYearlySummaryPdf —
-  // see parse.js. Both call paths produce the same sold-record shape.
   parseResultDoc,
   crawlActive,
 };

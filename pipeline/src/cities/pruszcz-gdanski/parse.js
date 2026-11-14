@@ -1,6 +1,3 @@
-// Parser for Pruszcz Gdański auction notices and results (bip.pruszcz-gdanski.pl)
-//
-// Handles Logonet eUrząd XML export and HTML documents.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';

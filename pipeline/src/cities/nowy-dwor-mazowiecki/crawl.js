@@ -1,6 +1,3 @@
-// Crawler for Nowy Dwór Mazowiecki (bip.nowydwormaz.pl)
-//
-// Fetches board 1368,przetargi-nieruchomosci and extracts PDFs.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -32,8 +29,6 @@ export async function crawlActive() {
     return [];
   }
 
-  // Parse items from the board
-  // Look for: <div class="system_anchor obiekt obiekt_pliki" id="pliki_3282"><h2 class="predef">...</h2>...<a href="plik,6920,..."
   const itemRegex = /<h2\s+class=\"predef\">([\s\S]*?)<\/h2>[\s\S]*?<a\s+[^>]*href=\"(plik,[^\"]+\.pdf)\"[^>]*>/gi;
   const matches = [...html.matchAll(itemRegex)];
 

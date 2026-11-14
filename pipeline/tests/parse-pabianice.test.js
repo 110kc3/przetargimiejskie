@@ -1,17 +1,3 @@
-// Pabianice parser + crawl-helper tests.
-//
-// Fixtures are groundtruthed against LIVE data fetched 2026-06-27:
-//   List board: https://bip.um.pabianice.pl/przetargi-nieruchomosci/61 (page 1)
-//   Detail page: https://bip.um.pabianice.pl/przetarg-nieruchomosci/23966/
-//                  lokal-mieszkalny-nr-7-przy-ul-pomorskiej-20
-//   Result PDF:  https://bip.um.pabianice.pl/attachments/download/43139
-//                  (Rozstrzygnięcie, Pomorska 20 nr 7, 248 kB, 2026-05-22, 67 downloads)
-//
-// The result-PDF fixture (RESULT_SOLD / RESULT_UNSOLD) is a synthetic
-// condensation of the standard Logonet/Pabianice "Informacja o wyniku przetargu"
-// format. VALIDATE the exact phrasing against the real pdftotext output of
-// attachments/download/43139 on the first live CI run and adjust regexes in
-// parse.js if the labels differ.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -33,11 +19,7 @@ import {
   parseResultDoc,
 } from '../src/cities/pabianice/parse.js';
 
-// ============================================================ list-page parser
 
-// Condensed but faithful reproduction of the live HTML from page 1 of the board.
-// Each entry is a standalone <table> block (the full page also wraps in outer
-// elements but parseListPage only looks for <table>…</table> blocks).
 const LIST_HTML = `
 <p><em>Adres nieruchomości : lokal mieszkalny nr 6 przy ul. Bolesława Nawrockiego 4A</em></p>
 <table>
@@ -119,8 +101,6 @@ const LIST_HTML = `
 
 test('parseListPage: keeps only lokal mieszkalny + przetarg ustny nieograniczony', () => {
   const items = parseListPage(LIST_HTML);
-  // Should include: Nawrockiego (ustny), Toruńska (ustny), Pomorska (ustny), Wyszyński (ustny)
-  // Should EXCLUDE: lokal użytkowy, nieruchomość niezabudowana, przetarg pisemny
   assert.equal(items.length, 4, 'exactly 4 lokal mieszkalny (ustny) items');
   const kinds = items.map((i) => i.address_raw);
   assert.ok(kinds.some((a) => /nawrockiego/i.test(a)), 'Nawrockiego included');
@@ -162,7 +142,6 @@ test('parseListPage: empty HTML returns empty array without throwing', () => {
   assert.deepEqual(parseListPage('<html><body>nic</body></html>'), []);
 });
 
-// ============================================================ address parser
 
 test('parseAddressFromBipTitle: standard "nr N przy ul. Street Bldg"', () => {
   const a = parseAddressFromBipTitle('lokal mieszkalny nr 7 przy ul. Pomorskiej 20');
@@ -177,7 +156,6 @@ test('parseAddressFromBipTitle: multi-word street "Bolesława Nawrockiego 4A"', 
   assert.ok(a);
   assert.equal(a.building, '4A');
   assert.equal(a.apt, '6');
-  // key uses normalised (Polish-lower) form
   assert.match(a.key, /nawrockiego\|4A\|6/i);
 });
 
@@ -187,7 +165,6 @@ test('parseAddressFromBipTitle: compound unit "nr 64/65" → apt uses first numb
   );
   assert.ok(a, 'compound unit resolves to an address');
   assert.equal(a.building, '3');
-  // Compound units like 64/65 (a merged flat) key on first number: apt = "64"
   assert.equal(a.apt, '64', 'compound unit → first number as apt');
   assert.ok(a.key.includes('64'), 'key includes 64');
 });
@@ -204,7 +181,6 @@ test('parseAddressFromBipTitle: missing "przy ul." returns null', () => {
   assert.equal(parseAddressFromBipTitle(''), null);
 });
 
-// ============================================================ detail-page result PDF URL
 
 const DETAIL_HTML_WITH_RESULT = `
 <h2>Załączniki</h2>
@@ -236,11 +212,6 @@ test('resultPdfUrlFromDetail: also matches "Rozstrzygnięcie" with ę entity', (
   assert.match(url, /99999/);
 });
 
-// ============================================================ result-PDF parsers
-//
-// Synthetic fixtures based on the standard Logonet/Pabianice boilerplate.
-// Groundtruth against pdftotext -layout output of attachments/download/43139
-// on the first live CI run.
 
 const RESULT_SOLD = `
 INFORMACJA O WYNIKU PRZETARGU
@@ -361,7 +332,6 @@ test('unitAreaFromText: returns null when not stated', () => {
   assert.equal(unitAreaFromText(RESULT_UNSOLD), null);
 });
 
-// ============================================================ full parseResultDoc
 
 test('parseResultDoc: SOLD — correct outcome, prices, address, area', () => {
   const recs = parseResultDoc(RESULT_SOLD, null, 'https://bip.um.pabianice.pl/attachments/download/43139');
@@ -400,7 +370,6 @@ test('parseResultDoc: SOLD round 2 — joins by address + round', () => {
   assert.equal(r.outcome, 'sold');
   assert.equal(r.final_price_pln, 56000);
   assert.equal(r.area_m2, 45.0);
-  // key must join the announcement by the same address
   assert.match(r.address.key, /nawrockiego/);
 });
 

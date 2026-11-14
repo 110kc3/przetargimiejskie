@@ -1,27 +1,3 @@
-// Bełchatów parser tests — groundtruthed against REAL fixtures (fetched live
-// 2026-07-05 via the belchatow.pl WordPress REST API).
-//
-// Fixture sources (live-verified):
-//
-//   ANNOUNCEMENT (news prose, category 215):
-//     "Miasto wystawia mieszkanie na sprzedaż. Sprawdź ofertę" (2026-05-27)
-//       https://belchatow.pl/miasto-wystawia-mieszkanie-na-sprzedaz-sprawdz-oferte/
-//       → os. Dolnośląskim, bloku nr 306 · 52,83 mkw · 276 724,00 zł · 30 czerwca 2026
-//     "Miasto wystawiło na sprzedaż mieszkanie" (2025-06-12)
-//       https://belchatow.pl/miasto-wystawilo-na-sprzedaz-mieszkanie/
-//       → os. Dolnośląskim 225 · 36,72 mkw · 192 340,00 zł · 4 lipca 2025
-//
-//   The <p> bodies below are copied verbatim from the two live posts'
-//   content.rendered (image galleries/scripts trimmed; the parser strips tags
-//   so parsed values are identical to the live posts). crawlActive parsed both
-//   correctly end-to-end against the live REST API on 2026-07-05.
-//
-//   RESULT NOTICE: validated live 2026-07-10 — belchatow.pl publishes result
-//   notices as STUBS (RESULT_TEXT_STUB below is the verbatim live text): the
-//   post carries the property description but the achieved price + outcome live
-//   in an attachment behind the belchatow.bip.gov.pl "Pobierz" link. So a stub
-//   with no price/outcome must yield [] (never a misleading price-less "open"
-//   record). Full sold/unsold templates still parse (groundtruthed synthetics).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -36,9 +12,6 @@ import {
   parseResultDoc,
 } from '../src/cities/belchatow/parse.js';
 
-// ---------------------------------------------------------------------------
-// Numeric / date helpers
-// ---------------------------------------------------------------------------
 
 test('parsePLN: "276 724,00 zł" → 276724', () => {
   assert.equal(parsePLN('276 724,00'), 276724);
@@ -69,9 +42,6 @@ test('parseDateText: "04.07.2025" → 2025-07-04', () => {
   assert.equal(parseDateText('04.07.2025'), '2025-07-04');
 });
 
-// ---------------------------------------------------------------------------
-// roundFromText — "drugim piętrze" (2nd FLOOR) must NOT be read as round 2
-// ---------------------------------------------------------------------------
 
 test('roundFromText: bare announcement → 1', () => {
   assert.equal(roundFromText('Przetarg odbędzie się 30 czerwca.'), 1);
@@ -89,9 +59,6 @@ test('roundFromText: "II przetarg" → 2', () => {
   assert.equal(roundFromText('II przetarg nieograniczony na sprzedaż lokalu'), 2);
 });
 
-// ---------------------------------------------------------------------------
-// isFlatSaleAnnouncement — predicate that filters the WordPress search noise
-// ---------------------------------------------------------------------------
 
 test('isFlatSaleAnnouncement: real flat announcement → true', () => {
   assert.equal(
@@ -133,9 +100,6 @@ test('isFlatSaleAnnouncement: działka na sprzedaż → false', () => {
   );
 });
 
-// ---------------------------------------------------------------------------
-// parseAnnouncementPost — REAL fixture #1 (2026-05-27, os. Dolnośląskim 306)
-// ---------------------------------------------------------------------------
 
 const POST_2026 = {
   title: 'Miasto wystawia mieszkanie na sprzedaż. Sprawdź ofertę',
@@ -189,9 +153,6 @@ test('parseAnnouncementPost #2026: BIP deep-link captured', () => {
   assert.ok(r.bip_url?.includes('belchatow.bip.gov.pl/przetargi/'), `bip_url: ${r.bip_url}`);
 });
 
-// ---------------------------------------------------------------------------
-// parseAnnouncementPost — REAL fixture #2 (2025-06-12, os. Dolnośląskim 225)
-// ---------------------------------------------------------------------------
 
 const POST_2025 = {
   title: 'Miasto wystawiło na sprzedaż mieszkanie',
@@ -243,10 +204,6 @@ test('parseAnnouncementPost: null input → null', () => {
   assert.equal(parseAnnouncementPost(null), null);
 });
 
-// ---------------------------------------------------------------------------
-// parseResultDoc — synthetic fixture (standard Polish result template).
-// NOT yet validated against a live Bełchatów result — validate on first run.
-// ---------------------------------------------------------------------------
 
 const RESULT_TEXT_SOLD = `
 Informacja o wyniku ustnego przetargu nieograniczonego na sprzedaż lokalu mieszkalnego.
@@ -318,29 +275,17 @@ test('parseResultDoc: empty/null → empty array', () => {
   assert.deepEqual(parseResultDoc(null, null, RESULT_URL), []);
 });
 
-// Crash-prevention contract: every emitted result record must carry a `notes`
-// array. refresh.js accumulates `r.notes.length` across records; a record
-// missing the field crashed the whole city refresh on belchatow's first live
-// result (2026-07-08). Guard the field here and defensively in refresh.js.
 test('parseResultDoc (sold): record carries notes: [] (crash-prevention contract)', () => {
   const r = parseResultDoc(RESULT_TEXT_SOLD, '2025-07-04', RESULT_URL)[0];
   assert.deepEqual(r.notes, []);
 });
 
-// Real live stub (verbatim from belchatow.pl 2026-07-10): "informacja o wyniku"
-// framing + flat + address, but NO achieved price and NO negative outcome —
-// the actual result is in the belchatow.bip.gov.pl attachment. Must yield []
-// rather than a price-less "open" record misrepresenting a concluded auction.
 const RESULT_TEXT_STUB = `Informacja o wyniku przetargu W dniu 30.06.2026 r. w gmachu Urzędu Miasta w Bełchatowie przy ul. Kościuszki 1 został przeprowadzony ustny przetarg nieograniczony na sprzedaż lokalu mieszkalnego wraz z ułamkową częścią gruntu, położonego w Bełchatowie: lokal mieszkalny nr 55 położony w budynku na os. Dolnośląskim 306 o powierzchni użytkowej 52,83 m 2 wraz z pomieszczeniem przynależnym o powierzchni 3,52 m 2 oraz zabudową kuchenną i meblami, usytuowanym na działce nr 435/2 o pow. 1,0407 ha.`;
 
 test('parseResultDoc: live belchatow.pl stub (no price/outcome) → empty array', () => {
   assert.deepEqual(parseResultDoc(RESULT_TEXT_STUB, '2026-07-08', RESULT_URL), []);
 });
 
-// --- BIP attachment-follow helpers (crawl.js) --------------------------------
-// Markup verbatim from live pages fetched 2026-07-18: a belchatow.pl stub body
-// linking its belchatow.bip.gov.pl article, and that article's attachment list
-// (/fobjects/download/…-doc.html "dostępna cyfrowo" + …-pdf.html).
 
 const { bipArticleLinks, pickBipAttachment } = await import('../src/cities/belchatow/crawl.js');
 

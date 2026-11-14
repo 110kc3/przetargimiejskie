@@ -1,31 +1,3 @@
-// Gorzów Wielkopolski parser tests — REAL fixtures, live-groundtruthed 2026-07-06.
-//
-// Fixtures are faithful copies of `pdftotext -layout` output (poppler 25.07,
-// the same extractor family CI uses) of live-fetched PDFs, plus verbatim board
-// HTML from the live BIP:
-//
-//   ANN_61_2025 — announcement Ogłoszenie Nr 61/2025 (05.09.2025), 12 flats,
-//     auction 09.10.2025, all "drugi przetarg":
-//     https://bip.um.gorzow.pl/system/obj/59130_Ogloszenie_nr_61-2025.pdf
-//
-//   RESULT_FLATS_05FEB — result notice for the 05.02.2026 flat przetargi
-//     (Ogłoszenie 77/2025), 4 lots ALL SOLD. NOTE: this EZD-printed PDF embeds
-//     its diacritic font without a ToUnicode map, so words with ą/ę/ł/ś/ż/ź/ć/ń
-//     are dropped by every extractor — rows 3+4 lose their street names
-//     ("     19/7") and are UNPARSEABLE by design; the parser must return the
-//     2 rows that survive:
-//     https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu.pdf&id=a7a56a4144b2940d40da90ac2b872c22&stats=true
-//
-//   RESULT_LAND_16APR — result notice 16.04.2026 godz. 10 (Ogłoszenie 9/2026),
-//     6 land lots (5 negative, 1 sold) — NO flats, must yield 0 records:
-//     https://bip.um.gorzow.pl/system/pobierz.php?plik=Informacja_o_wyniku_przetargow_9-2026_z_16.04.2026.pdf&id=2cf2aa3fcd59798adbf4d77a4ec84cdc&stats=true
-//
-//   BOARD_ROWS — two verbatim <tr> rows from /przetargi/320/status/0/
-//     (fetched 2026-07-06): the flat batch Ogłoszenie 34/2026 (auction
-//     09.07.2026) and the land-only Ogłoszenie 30/2026.
-//
-//   RESULTS_PAGE — the verbatim flats-result item from the /509/ archive page 2
-//     plus a dzierżawa item (same markup) that must be filtered out.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -49,7 +21,6 @@ import {
   isSaleResultRow,
 } from '../src/cities/gorzow-wielkopolski/crawl.js';
 
-// ── Fixture: announcement PDF (12 flats, born-digital) ───────────────────────
 
 const ANN_61_2025 = `  PREZYDENT
 Miasta Gorzowa Wlkp.
@@ -172,7 +143,6 @@ Miasta pok. 404 (tel. 95 73- 55-404, 95 73-55-524).
                                                                                                             /podpisano elektronicznie/
 `;
 
-// ── Fixture: flats result PDF 05.02.2026 (broken diacritic font) ─────────────
 
 const RESULT_FLATS_05FEB = `                  MIASTA
        Gorzowa Wielkopolskiego
@@ -235,7 +205,6 @@ Wyniki przetargów
 Data wydruku: 12.02.2026
 `;
 
-// ── Fixture: land result PDF 16.04.2026 (no flats) ───────────────────────────
 
 const RESULT_LAND_16APR = `                                                                                                                 Gorzów Wlkp., 24 kwietnia 2026 r
 
@@ -283,7 +252,6 @@ lp.                                                                             
                                                                                    /podpisano elektronicznie/
 `;
 
-// ── Fixture: live board rows (flat batch + land) ─────────────────────────────
 
 const BOARD_ROWS = `<tr class="even">
 			<td class="td-no"><span>Lp: </span>2</td>
@@ -314,7 +282,6 @@ const BOARD_ROWS = `<tr class="even">
 	</td>
 		</tr>`;
 
-// ── Fixture: results-archive items (flats result + dzierżawa) ────────────────
 
 const RESULTS_PAGE = `<div class="information">
 					<p class="phx ph3">
@@ -348,21 +315,19 @@ const ANN_URL = 'https://bip.um.gorzow.pl/system/obj/59130_Ogloszenie_nr_61-2025
 const RES_URL =
   'https://bip.um.gorzow.pl/system/pobierz.php?plik=informacja_o_wyniku_przetargu.pdf&id=a7a56a4144b2940d40da90ac2b872c22&stats=true';
 
-// ── monthNum ─────────────────────────────────────────────────────────────────
 
 test('monthNum: full and diacritic-stripped Polish month tokens', () => {
   assert.equal(monthNum('października'), '10');
-  assert.equal(monthNum('padziernika'), '10'); // xpdf drops the ź
+  assert.equal(monthNum('padziernika'), '10');
   assert.equal(monthNum('lutego'), '02');
   assert.equal(monthNum('września'), '09');
-  assert.equal(monthNum('wrzenia'), '09'); // dropped ś
+  assert.equal(monthNum('wrzenia'), '09');
   assert.equal(monthNum('maja'), '05');
   assert.equal(monthNum('grudnia'), '12');
   assert.equal(monthNum('xyz'), null);
   assert.equal(monthNum(''), null);
 });
 
-// ── auctionDateFromText ──────────────────────────────────────────────────────
 
 test('auctionDateFromText: "Przetargi odbędą się 9 października 2025r."', () => {
   assert.equal(auctionDateFromText(ANN_61_2025), '2025-10-09');
@@ -378,7 +343,6 @@ test('auctionDateFromText: null when absent', () => {
   assert.equal(auctionDateFromText(null), null);
 });
 
-// ── resultDateFromText ───────────────────────────────────────────────────────
 
 test('resultDateFromText: PDF body ("przeprowadzonych dnia 5 lutego 2026 r.")', () => {
   assert.equal(resultDateFromText(RESULT_FLATS_05FEB), '2026-02-05');
@@ -395,7 +359,6 @@ test('resultDateFromText: board title ("przeprowadzonych w dniu 5 lutego 2026r."
   );
 });
 
-// ── extractFlatAddresses ─────────────────────────────────────────────────────
 
 test('extractFlatAddresses: accepts real flat addresses', () => {
   assert.equal(extractFlatAddresses('  Armii Polskiej 17/4  lokal')[0]?.raw, 'ul. Armii Polskiej 17/4');
@@ -413,7 +376,6 @@ test('extractFlatAddresses: rejects ids, parcels, fractions, doc numbers', () =>
   assert.equal(extractFlatAddresses('').length, 0);
 });
 
-// ── parseAnnouncement (12-flat batch, groundtruthed) ─────────────────────────
 
 test('parseAnnouncement: guard — non-announcement text returns []', () => {
   assert.deepEqual(parseAnnouncement('Informacja o wyniku przetargu na dzierżawę', {}), []);
@@ -481,7 +443,6 @@ test('parseAnnouncement: board date-2 (fallbackAuctionDate) wins over body date'
   assert.equal(recs[0].auction_date, '2025-10-09');
 });
 
-// ── isResultNotice / isNegative ──────────────────────────────────────────────
 
 test('isResultNotice: recognises both result fixtures', () => {
   assert.equal(isResultNotice(RESULT_FLATS_05FEB), true);
@@ -500,7 +461,6 @@ test('isNegative: detects "wynikiem negatywnym"', () => {
   assert.equal(isNegative('cena osiągnięta 215.000'), false);
 });
 
-// ── parseResultDoc (flats result, groundtruthed) ─────────────────────────────
 
 test('parseResultDoc: guard — non-result text returns []', () => {
   assert.deepEqual(parseResultDoc(ANN_61_2025, null, RES_URL), []);
@@ -549,7 +509,6 @@ test('parseResultDoc: 16.04.2026 land result — 0 flat records', () => {
   assert.equal(recs.length, 0, `expected 0 records, got ${recs.length}`);
 });
 
-// ── crawl helpers (verbatim live board HTML) ─────────────────────────────────
 
 test('boardUrl: page 1 plain, page N puts the number before the status segment', () => {
   assert.equal(boardUrl(0, 1), 'https://bip.um.gorzow.pl/przetargi/320/status/0/');

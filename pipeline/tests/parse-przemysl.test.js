@@ -1,26 +1,3 @@
-// Przemyśl parser tests.
-//
-// Fixtures grounded in LIVE data fetched from bip.przemysl.pl on 2026-06-28.
-// The BIP and invest.przemysl.eu cannot be reached from CI sandboxes, so
-// the pure parsers are exercised against captured/reconstructed markup.
-//
-// Live fixture sources:
-//   Result listing — bip.przemysl.pl/59228/3722/informacje-o-wynikach-przetargow.html
-//     Structure: <li><h2><a href="URL">TITLE</a></h2></li>  (skyCMS v4)
-//     10 items/page, 2 pages total (12 items as of 2026-06-28).
-//
-//   Result notice (positive) — bip.przemysl.pl/76706 (Mierosławskiego 4, 2025-02-26,
-//     achieved 136 350 zł, starting 135 000 zł, property: zabudowana/house — NOT a flat,
-//     but demonstrates the body prose template used for all result notices).
-//
-//   Result notice (negative) — bip.przemysl.pl/82381 (Chrzanowska, 2026-06-17,
-//     negative result — nikt nie wpłacił wadium).
-//
-// NOTE: The bip.przemysl.pl/59228 listing currently (June 2026) contains ONLY
-//   land/house results, no flat-specific "lokal mieszkalny" notices. The flat
-//   parseResultDoc test uses a SYNTHETIC fixture built from the observed body
-//   template, with "lokal mieszkalny" substituted. This is the intended
-//   groundtruth approach when the live result set has rolled off.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -35,12 +12,7 @@ import {
   extractArticleText,
 } from '../src/cities/przemysl/parse.js';
 
-// ---------------------------------------------------------------------------
-// parseListPage — skyCMS article-list markup
-// ---------------------------------------------------------------------------
 
-// Minimal skyCMS v4 listing reconstructed from bip.przemysl.pl/59228 (June 2026).
-// The live page uses <li><h2><a href="...">TITLE</a></h2></li> inside <ul>.
 const LISTING_HTML = `
 <html><body>
 <div id="main">
@@ -93,9 +65,6 @@ test('parseListPage: empty / no-heading HTML returns empty array', () => {
   assert.deepEqual(parseListPage('<html><body><p>nic</p></body></html>', 'https://bip.przemysl.pl'), []);
 });
 
-// ---------------------------------------------------------------------------
-// isFlatTitle / isResultTitle
-// ---------------------------------------------------------------------------
 
 test('isFlatTitle: accepts flat-specific titles', () => {
   assert.equal(isFlatTitle('Ogloszenie o przetargu na sprzedaz lokalu mieszkalnego ul. Sobieskiego 15/4'), true);
@@ -115,9 +84,6 @@ test('isResultTitle: accepts result notice headings', () => {
   assert.equal(isResultTitle('Informacja o wyniku kolejnego przetargu na zbycie dzialki nr 837/6'), true);
 });
 
-// ---------------------------------------------------------------------------
-// roundFromText
-// ---------------------------------------------------------------------------
 
 test('roundFromText: bare przetarg = 1', () => {
   assert.equal(roundFromText('przetarg ustny nieograniczony na sprzedaz lokalu mieszkalnego'), 1);
@@ -146,9 +112,6 @@ test('roundFromText: empty / null / undefined never throws', () => {
   assert.equal(roundFromText(undefined), null);
 });
 
-// ---------------------------------------------------------------------------
-// extractArticleText
-// ---------------------------------------------------------------------------
 
 const PAGE_WITH_PRINT_AREA = `
 <html><body>
@@ -178,13 +141,7 @@ test('extractArticleText: empty input returns empty string', () => {
   assert.equal(extractArticleText(null), '');
 });
 
-// ---------------------------------------------------------------------------
-// parseResultDoc — result notice body parser
-// ---------------------------------------------------------------------------
 
-// POSITIVE result notice — synthetic fixture grounded on the template observed
-// at bip.przemysl.pl/76706 (Mieroslawskiego 4, zabudowana, 2025-02-26), adapted
-// to use "lokalu mieszkalnego" so classifyKind returns 'mieszkalny'.
 const RESULT_POSITIVE_HTML = `
 <html><body>
 <div id="printArea">
@@ -231,8 +188,6 @@ test('parseResultDoc: positive result — area from powierzchni uzytkowej', () =
   assert.equal(results[0].area_m2, 38.5);
 });
 
-// NEGATIVE result notice — grounded on bip.przemysl.pl/82381 body template
-// (Chrzanowska dzialki, 2026-06-17), adapted with "lokalu mieszkalnego" + flat address.
 const RESULT_NEGATIVE_HTML = `
 <html><body>
 <div id="printArea">
@@ -290,13 +245,7 @@ test('parseResultDoc: announcement-only text (no result sentinel) returns empty 
   assert.deepEqual(results, []);
 });
 
-// ---------------------------------------------------------------------------
-// parseAnnouncement
-// ---------------------------------------------------------------------------
 
-// Synthetic announcement detail HTML grounded on the skyCMS article template.
-// invest.przemysl.eu listing timed out during collection; template inferred from
-// the bip.przemysl.pl article body structure (same CMS).
 const ANNOUNCEMENT_HTML = `
 <html><body>
 <div id="printArea">
@@ -330,27 +279,20 @@ test('parseAnnouncement: extracts address, price, area, date, round', () => {
   assert.equal(f.address.key, 'rodziewiczowny|8|4');
 });
 
-// ---------------------------------------------------------------------------
-// config.js contract
-// ---------------------------------------------------------------------------
 
 import { config } from '../src/cities/przemysl/config.js';
 
 test('config: required fields present and correct', () => {
   assert.equal(config.id, 'przemysl');
-  assert.equal(config.label, 'Przemyśl');        // Przemyśl
+  assert.equal(config.label, 'Przemyśl');
   assert.equal(config.voivodeship, 'podkarpackie');
-  assert.equal(config.authority, 'Urząd Miasta Przemyśla'); // Urząd Miasta Przemyśla
+  assert.equal(config.authority, 'Urząd Miasta Przemyśla');
   assert.equal(config.host, 'bip.przemysl.pl');
   assert.equal(config.source, 'html');
   assert.ok(config.teryt, 'teryt must be set');
-  // Format used across all cities: 6 digits + underscore + 1 digit (e.g. '186101_1')
   assert.match(config.teryt, /^\d{6}_\d$/, 'teryt must match XXXXXX_Y format');
 });
 
-// ---------------------------------------------------------------------------
-// index.js adapter contract
-// ---------------------------------------------------------------------------
 
 import adapter from '../src/cities/przemysl/index.js';
 

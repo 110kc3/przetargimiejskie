@@ -1,16 +1,3 @@
-// Generic content-script renderer. The Gliwice / Katowice-specific DOM lives
-// in extension/sites/*.js (see EXPANSION.md §1.6). On load we pick the adapter
-// whose hostMatches contains location.hostname and drive everything below from
-// that adapter — selectors, URL regexes and inject targets all come from it.
-//
-// Two main paths:
-//   1) listing index pages — for each card the adapter yields, look up history
-//        by `<city>|<addr.key>`, inject a badge (+ optional zł/m² + dates chip)
-//   2) detail pages — pull the address from the adapter, look up history, and
-//        inject the timeline sidebar (with a watch toggle button)
-//
-// All user-facing strings go through window.ZGM_I18N.t() so the PL/EN toggle in
-// the popup retranslates everything live.
 
 (async function () {
   const site = window.ZGM_SITES && window.ZGM_SITES.findFor(location.hostname);
@@ -20,14 +7,10 @@
   const isDetail = site.isDetail(location.pathname);
   if (!isListingIndex && !isDetail) return;
 
-  // Escape crawled strings before they reach innerHTML. window.ZGM_I18N.t()
-  // does raw ${} substitution (no escaping), so any value we pass to it that
-  // originates from the page — addresses, etc. — must be escaped first too.
   const esc = (s) =>
     String(s == null ? '' : s).replace(/[&<>"']/g, (c) =>
       ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]),
     );
-  // Allow only http(s) URLs through to hrefs; else collapse to ''.
   const safeHref = (u) => {
     if (!u) return '';
     try {
@@ -37,8 +20,6 @@
       return '';
     }
   };
-  // Compact city chip for the panel header (same markup as popup/archive;
-  // chip style for content pages lives in styles.css).
   const cityTagHtml = (city) => {
     if (!city) return '';
     const label = window.ZGM_I18N.t('city.' + city);
@@ -48,13 +29,7 @@
     return `<span class="zgm-city-tag" data-city="${esc(city)}">${esc(display)}</span> `;
   };
 
-  // Wait for i18n + the user's saved minHistoryYear preference before first
-  // render. settings.js is optional (defensive ?.) — if it ever fails to
-  // load, we just show everything (no year filter).
   await Promise.all([window.ZGM_I18N.ready, window.ZGM_SETTINGS?.ready]);
-  // Helper: drop pre-cutoff historical listings. Active / announced rows
-  // are never dropped — they're current. Listings without a date pass
-  // through (parser noise).
   const minYear = () => window.ZGM_SETTINGS?.getMinHistoryYear?.() ?? 0;
   const withinYearWindow = (l) => {
     if (
@@ -68,24 +43,12 @@
     return Number(l.date.slice(0, 4)) >= y;
   };
 
-  // A listing counts as *prior history* only if it's a concluded result we can
-  // show (sold / unsold). 'active' is the current posting; 'archived' is a
-  // past-dated current posting with no published result (Bytom/Zabrze) — it is
-  // the listing itself, NOT its own history, so it must be excluded here.
-  // Otherwise it lands in the history branch and renders as a (mislabelled)
-  // prior round, and an archived row used to throw in buildTooltip.
   const isPriorHistory = (l) =>
     l.outcome !== 'active' &&
     l.outcome !== 'announced' &&
     l.outcome !== 'archived' &&
     withinYearWindow(l);
 
-  // Prior rounds for a property, INCLUDING 'archived' ones (announcement-only
-  // cities — Bytom/Zabrze — publish no results, so a flat's earlier rounds are
-  // all 'archived'; hiding them made the detail panel claim "no prior
-  // auctions" while the chip said "3. przetarg"). The one archived row that IS
-  // the page's current listing (a just-passed auction with no fresher row) is
-  // still excluded — a listing is not its own history.
   const priorOf = (prop) => {
     if (!prop) return [];
     const cur = currentListing(prop);
@@ -108,25 +71,14 @@
     return;
   }
 
-  // background.js merges every city into one payload and namespaces each
-  // property's key as "<city>|<street>|<bldg>|<apt>". The adapter knows its
-  // own city, so the lookup helper does the namespacing in one place.
   const properties = payload.properties?.properties || [];
   const byKey = new Map(properties.map((p) => [p.key, p]));
   const nsKey = (addrKey) => `${site.city}|${addrKey}`;
 
-  // Per-city median zł/m² for the "deal score" badge on the stats chip
-  // (residential only). Computed once from the merged dataset.
   const cityMedians = window.ZGM_DEALSCORE
     ? window.ZGM_DEALSCORE.buildCityMedians(properties)
     : new Map();
 
-  // Polish-case street-suffix swaps (genitive ↔ nominative), mirrored from
-  // pipeline/src/core/build-properties.js. The pipeline coalesces genitive
-  // street keys ("staromiejskiej|…") into the nominative ("staromiejska|…"),
-  // so an exact lookup on a genitive page title (Katowice's are genitive)
-  // misses exactly the multi-round properties. On a miss we retry with each
-  // street-suffix variant.
   const SUFFIX_SUBS = [
     ['ej$', 'a'], ['iej$', 'a'], ['ego$', 'y'], ['ego$', ''],
     ['skiej$', 'ska'], ['skiego$', 'ski'], ['ckiej$', 'cka'], ['ckiego$', 'cki'],
@@ -152,7 +104,6 @@
   };
 
   function render() {
-    // Clear anything we previously injected so re-renders don't duplicate DOM.
     for (const el of document.querySelectorAll(
       '.zgm-ext-badge, .zgm-ext-panel, .zgm-ext-infochip, .zgm-ext-perm2',
     )) {
@@ -164,15 +115,9 @@
 
   render();
   window.ZGM_I18N.onChange(render);
-  // The min-year preference can change in another tab (popup or archive);
-  // re-render so the prior-history tooltips + detail panel update in place.
   window.ZGM_SETTINGS?.onChange(render);
-  // Single page-level watchlist listener (rebuilds the panel with the correct
-  // star state). Registered once here — never inside injectPanel — so it
-  // doesn't accumulate across re-renders.
   window.ZGM_WATCH.onChange(render);
 
-  // -------------------------------------------------------------- index page
 
   function decorateIndex() {
     const t = window.ZGM_I18N.t;
@@ -184,8 +129,6 @@
       const prop = lookup(address);
       const prior = priorOf(prop);
 
-      // (a) zł/m² inline, right after the price in the description line.
-      //     Only when the adapter exposed both numbers from the card text.
       if (area_m2 && price_pln && descTarget) {
         if (!descTarget.querySelector('.zgm-ext-perm2')) {
           const span = document.createElement('span');
@@ -195,23 +138,13 @@
         }
       }
 
-      // (a.5) stats chip from the joined dataset: auction round · start price ·
-      //       area · zł/m² · auction date. This is the only place the user sees
-      //       those numbers for sources whose listing page has no inline figures
-      //       (e.g. Bytom's BIP list), and it shows the round correctly (the
-      //       page states "drugi/trzeci przetarg" but only the dataset is read).
       const statsChip = buildStatsChip(prop);
       if (statsChip) element.appendChild(statsChip);
 
-      // (b) a small chip with the wadium / viewing dates, if known.
       const activeListing = currentListing(prop);
       const datesChip = buildDatesChip(activeListing);
       if (datesChip) element.appendChild(datesChip);
 
-      // (c) prior-history badge. With no prior records, distinguish a genuine
-      //     first auction from a re-listing (round > 1) whose earlier rounds we
-      //     simply don't have archived — saying "no prior auctions" there would
-      //     contradict the "2./3. przetarg" the chip shows.
       if (prior.length === 0) {
         const text =
           activeListing && activeListing.round > 1
@@ -236,25 +169,20 @@
         } else if (soldCount > 0) {
           label = t('badge.prev_sold', { n: prior.length });
         } else {
-          // Only 'archived' rounds (no published result) — neither sold nor unsold.
           label = t('badge.prev_archived', { n: prior.length });
         }
         const badge = makeBadge({ kind, text: label });
-        // Pass the card-parsed area as a fallback so the history table can
-        // still compute zł/m² even when the dataset's per-listing area is null.
         badge.appendChild(buildTooltip(prop, area_m2));
         element.appendChild(badge);
       }
       decorated++;
      } catch (err) {
-      // One malformed card must never blank the whole page — log and continue.
       console.warn('[ZGM ext] card decoration skipped:', err);
      }
     }
     console.log(`[ZGM ext] decorated ${decorated} listing card(s) on ${site.city}`);
   }
 
-  // -------------------------------------------------------------- detail page
 
   function decorateDetail() {
     const t = window.ZGM_I18N.t;
@@ -328,13 +256,9 @@
   function priceSummary(active, prior) {
     const t = window.ZGM_I18N.t;
     if (!active || prior.length === 0) return '';
-    // "First attempt" = the earliest prior auction. Nothing upstream guarantees
-    // `prior` is date-sorted (background.js never sorts listings), so pick the
-    // earliest dated row rather than trusting prior[0] — otherwise the discount
-    // and the shown date can be computed against the wrong baseline.
     const first = prior.reduce((a, b) => {
-      const da = a.date || '9999'; // undated → treat as latest so a dated row
-      const db = b.date || '9999'; // is preferred as the "first attempt"
+      const da = a.date || '9999';
+      const db = b.date || '9999';
       return da <= db ? a : b;
     });
     const startPrice = active.starting_price_pln;
@@ -413,11 +337,7 @@
     }
   }
 
-  // -------------------------------------------------------------- shared bits
 
-  // The listing to summarise on an index card: prefer the live one, else the
-  // most recent (past auctions are 'archived'; sold/unsold for cities with
-  // history). Sorted by date desc so we surface the newest round.
   function currentListing(prop) {
     if (!prop || !prop.listings.length) return null;
     return (
@@ -442,9 +362,6 @@
     );
   }
 
-  // Compact chip next to the listing name: round · price · area · zł/m² · date.
-  // Built from the joined dataset (not the page), so it works where the source
-  // page carries no inline numbers.
   function buildStatsChip(prop) {
     const t = window.ZGM_I18N.t;
     const l = currentListing(prop);
@@ -464,9 +381,6 @@
     const chip = document.createElement('div');
     chip.className = 'zgm-ext-infochip zgm-ext-stats';
     chip.textContent = parts.join('  ·  ');
-    // Deal score: how this listing's zł/m² compares to the city median.
-    // Appended as a styled span (defensive — a failure leaves the chip text
-    // intact rather than blanking the card's decoration).
     try {
       const ds = window.ZGM_DEALSCORE && window.ZGM_DEALSCORE.score(
         l.starting_price_pln, area, l.kind ?? prop.kind,
@@ -551,7 +465,6 @@
     );
   }
 
-  // Returns "X NNN zł/m²" or '—' if either value is missing.
   function fmtPerM2(price, area) {
     if (price == null || area == null || area === 0) return '—';
     const v = Math.round(price / area);
@@ -567,30 +480,22 @@
     if (l.outcome === 'unsold') return t('outcome.unsold');
     if (l.outcome === 'no_winner') return t('outcome.no_winner');
     if (l.outcome === 'archived') return t('outcome.archived');
-    // Unknown enum value from the data — escape, it lands in innerHTML.
     return esc(l.outcome);
   }
 
   function reasonLabel(reason) {
     const t = window.ZGM_I18N.t;
     if (!reason) return '';
-    // esc() the whole result: the templates are plain text, and the default
-    // path returns the raw (crawled-derived) enum value into innerHTML.
     return esc(t('reason.' + reason, { default: reason }));
   }
 
   function kindLabel(kind) {
     const t = window.ZGM_I18N.t;
     if (!kind) return '';
-    // esc() the whole result: the templates are plain text, but the default
-    // path returns the raw (crawled-derived) kind value into innerHTML. Passing
-    // { default: kind } stops an unmapped kind (e.g. "zabudowa") from leaking
-    // the literal "kind.xyz" key into the TYP column.
     return esc(t('kind.' + kind, { default: kind }));
   }
 
   function noteCell(l) {
-    // For the tooltip on index pages: show "sold ${price}" or the unsold reason.
     const t = window.ZGM_I18N.t;
     if (l.outcome === 'sold') {
       return t('outcome.sold_for', { price: fmtPLN(l.final_price_pln) });

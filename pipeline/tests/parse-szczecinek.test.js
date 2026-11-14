@@ -1,40 +1,3 @@
-// Szczecinek parser tests. Fixtures are condensed-but-faithful copies of REAL
-// `pdftotext -layout` / HTML-body-extracted text fetched live 2026-07-10/11:
-//   - flat announcement (round III) — article 645/7273, Narutowicza 3E/9
-//   - flat announcement (round III, alt area phrasing) — article 547/5115,
-//     Koszalińska 58/2
-//   - land announcement (word-month date, no round marker) — article
-//     645/7276, Kołobrzeska (parcels 466/2, 465/3, 465/4)
-//   - RESULT stub (board 338, NO PDF attachment at all — confirmed live,
-//     repeat-fetch byte-identical) — article 338/7239, Narutowicza flat
-//   - RESULT multi-row table PDF (attachment 13801, article 338/7156) — 7
-//     parcels from one przetarg session, sold + unsold rows, INCLUDING the
-//     office's own period-for-comma grosze rendering glitch on 2 rows
-//   - RESULT single-row table PDF (attachment 14403, article 338/7446) —
-//     Kołobrzeska land batch, SOLD (the ≥1-achieved-price groundtruth)
-//   - RESULT table PDF, building/zabudowana (attachment 13677, article
-//     338/7091) — Władysława Bartoszewskiego 12, UNSOLD (round III)
-//   - RESULT table PDF (attachment 14478, article 338/7484) — rounds III AND
-//     IV in the SAME PDF
-//   - lease-board slug (board 348/647, out of scope for this crawler but
-//     real — isSkippableTitle groundtruth)
-//
-// Three REAL bugs were caught and fixed while building this against live
-// data (see parse.js's inline comments at each site); the regression tests
-// below are named after them:
-//   1. isResultNotice used \w* (ASCII-only) against the office's own
-//      ACCUSATIVE phrasing ("...informację o wyniku...") — silently matched
-//      NOTHING on this host until the character class went Polish-aware.
-//   2. amountsInChunk misread parts of TWO different dates as amounts: the
-//      row-start marker's own date ("21.01.2026" -> a bogus 1202), and a
-//      citation date elsewhere in a row's prose ("07.02.2017r." -> a bogus
-//      2201) — fixed by excluding the marker from row text and adding a
-//      (?<![\d.]) guard so a match can't start mid-way through another
-//      dotted digit run.
-//   3. streetFromHeader's terminator list didn't anticipate "wpisanej"
-//      (a common word directly after a building number in RESULT-table
-//      prose, as opposed to the terse announcements) — a building number
-//      capture is now itself a sufficient stop, no trailing word needed.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -60,19 +23,15 @@ import {
   extractBodyText,
 } from '../src/cities/szczecinek/parse.js';
 
-// ---------------------------------------------------------------- title routing
 
 test('isSkippableTitle: wykaz, lease (real board-348 slug), cancellation, rokowania', () => {
   assert.equal(
     isSkippableTitle('', 'wykaz-nieruchomosci-przeznaczonej-do-zbycia-polozonej-przy-ul-armii-krajowej'),
     true,
   );
-  // real slug from board 348/647 (Nieruchomości przeznaczone do wydzierżawienia) — out
-  // of scope for this crawler, but the classifier must still recognize it defensively.
   assert.equal(isSkippableTitle('', 'wykaz-nieruchomosci-przeznaczonych-do-wydzierzawienia'), true);
   assert.equal(isSkippableTitle('', 'odwolanie-przetargu'), true);
   assert.equal(isSkippableTitle('Burmistrz ogłasza rokowania na sprzedaż nieruchomości', ''), true);
-  // a real sale announcement is NOT skippable
   assert.equal(isSkippableTitle('', 'ogloszenie-o-przetargu-na-zbycie-lokalu-przy-ulicy-narutowicza-3e-9'), false);
 });
 
@@ -82,13 +41,10 @@ test('isResultTitle / isAnnouncementTitle: real slugs (incl. the "ogloszenia"/"u
     true,
   );
   assert.equal(isAnnouncementTitle('', 'przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ul-kolobrzeskiej'), true);
-  // multi-item batch announcement (plural "przetargi")
   assert.equal(
     isAnnouncementTitle('', 'przetargi-na-sprzedaz-nieruchomosci-polozonych-przy-ulicach-lipowej-winnicznej-pilskiej'),
     true,
   );
-  // real live typo: "ogloszenia" (not "ogloszenie") + "ulicu" (not "ulicy") — board
-  // 645 page 2 — the broad sprzeda|zbyci substring match must survive typos like this.
   assert.equal(
     isAnnouncementTitle('', 'ogloszenia-o-przetargu-na-zbycie-lokalu-przy-ulicu-koszalinskiej-58-2'),
     true,
@@ -97,38 +53,27 @@ test('isResultTitle / isAnnouncementTitle: real slugs (incl. the "ogloszenia"/"u
 });
 
 test('isResultNotice: REGRESSION — the office\'s real ACCUSATIVE phrasing ("informację", not "informacja")', () => {
-  // \w* is ASCII-only in JS; this office's live boilerplate never uses the
-  // nominative "INFORMACJA" TG/Skarżysko fixtures use — it's always
-  // "...publicznej wiadomości informację o wyniku przetargu..." (accusative,
-  // "ę"). A bare \w* silently fails to match this on EVERY result page.
   assert.equal(
     isResultNotice('Burmistrz Miasta Szczecinek … podaje do publicznej wiadomości informację o wyniku przetargu z dnia 19.02.2026r.'),
     true,
   );
-  // the ALL-CAPS nominative header form (as seen atop the PDF tables) still works
   assert.equal(isResultNotice('INFORMACJA O WYNIKU PRZETARGU'), true);
   assert.equal(isResultNotice('Burmistrz Miasta Szczecinek ogłasza: III przetarg ustny nieograniczony na sprzedaż'), false);
 });
 
-// -------------------------------------------------------------- shared extractors
 
 test('roundFromText: Roman numeral (current attempt) wins over a later word-ordinal history mention', () => {
   assert.equal(roundFromText('ogłasza: III przetarg ustny nieograniczony na sprzedaż'), 3);
   assert.equal(roundFromText('IV przetarg ustny nieograniczony na sprzedaż'), 4);
   assert.equal(roundFromText('I przetarg ustny nieograniczony na sprzedaż'), 1);
   assert.equal(roundFromText('przetarg ustny nieograniczony na sprzedaż nieruchomości niezabudowanej'), null, 'no marker at all -> null, never assumed 1');
-  // REGRESSION: a word-ordinal-only regex (the TG/Skarżysko pattern) would
-  // grab "Pierwszy" -> 1 here since it's the first ordinal-shaped token; the
-  // TRUE current round (III, stated up front) must win.
   assert.equal(
     roundFromText(
       'III przetarg ustny nieograniczony na sprzedaż wolnego lokalu mieszkalnego nr 9. Pierwszy przetarg odbył się w dniu 20.11.2025 r. Drugi przetarg odbył się w dniu 19.02.2026r.',
     ),
     3,
   );
-  // word-ordinal fallback (used only when no Roman marker exists)
   assert.equal(roundFromText('ogłasza pierwszy przetarg ustny nieograniczony'), 1);
-  // must NOT false-fire on the Polish conjunction "i" ("and") right before "przetarg"
   assert.equal(roundFromText('dokonać wpłaty wadium i przetarg ustny nieograniczony zostanie przeprowadzony'), null);
 });
 
@@ -141,7 +86,6 @@ test('auctionDateFromText: numeric DD.MM.YYYY (flats) AND word-month (land) — 
     auctionDateFromText('Przetarg na sprzedaż w/w nieruchomości zostanie przeprowadzony w dniu 03 czerwca 2026 r. o godz. 10-tej'),
     '2026-06-03',
   );
-  // prior-round past-tense mentions must NOT be picked up
   assert.equal(
     auctionDateFromText('Pierwszy przetarg odbył się w dniu 20.11.2025 r. Przetarg zostanie przeprowadzony w dniu 28.04.2026 r.'),
     '2026-04-28',
@@ -154,7 +98,6 @@ test('resultDateFromText: "…informację o wyniku przetargu z dnia D.M.Y…" �
     '2026-02-19',
   );
   assert.equal(resultDateFromText('z dnia 26.03.2026r. na sprzedaż lokalu mieszkalnego nr 2'), null, 'needs the "przetargu z dnia" anchor, not a bare "z dnia"');
-  // a PDF table's own text never restates "z dnia" (the date lives per-row instead)
   assert.equal(resultDateFromText('Lp. Data i miejsce przeprowadzonego przetargu … 1. 21.01.2026 r. Urząd Miasta'), null);
 });
 
@@ -167,15 +110,9 @@ test('startingPriceFromText: en-dash connector, dot-thousands (this office\'s ho
 test('amountsInChunk: reading-order [wywoławcza, osiągnięta]; REGRESSION — dates must never be read as amounts', () => {
   assert.deepEqual(amountsInChunk('… 120.000,00   121.200,00        Ilona i Bartosz Pytlak'), [120000, 121200]);
   assert.deepEqual(amountsInChunk('… 110.000,00                  przetarg zakończył się wynikiem negatywnym'), [110000], 'unsold row: only the starting price, no dash-as-amount');
-  // this office's grosze-as-period rendering glitch (seen on 2 real rows)
   assert.deepEqual(amountsInChunk('… 120.000.00   129.600,00           Niewiadomscy'), [120000, 129600]);
   assert.deepEqual(amountsInChunk('… 200.000.00   202.000.00       ARFEN POLSKA'), [200000, 202000]);
-  // REGRESSION 1: the row-start marker's own date must not appear here at all
-  // (splitResultRows excludes the marker from row text — this asserts the
-  // marker's date shape alone, in isolation, is inert)
   assert.deepEqual(amountsInChunk(' 2.    21.01.2026 r.            przetarg'), []);
-  // REGRESSION 2: a citation date elsewhere in the row's prose must not be
-  // misread starting at its month ("02.201" from "02.2017")
   assert.deepEqual(amountsInChunk('Burmistrza Miasta Szczecinek z dn. 07.02.2017r. (ze zm.)'), []);
 });
 
@@ -185,29 +122,23 @@ test('unitAreaFromText: "o powierzchni użytkowej" (direct) AND "Lokal o pow." (
     29.49,
   );
   assert.equal(unitAreaFromText('Lokal o pow. 127,60 m² składa się z: I pokój o pow. 26,42 m²'), 127.6);
-  // never the attached cellar, and never the "łączna...wraz z piwnicami" total
   assert.equal(unitAreaFromText('Do lokalu przynależy piwnica o pow. 5,08 m2'), null);
   assert.equal(unitAreaFromText('Łączna powierzchnia lokalu wraz z powierzchnią piwnic wynosi 149,49 m².'), null);
 });
 
 test('plotFromText: word-order-agnostic parcel list ("działki numer…" AND "numerami działek…"), m2-direct AND ha-converted', () => {
-  // announcement order: dzialk-word first
   assert.deepEqual(plotFromText('działki nr : 466/2, 465/3 i 465/4 o łącznej pow. 1,0698 ha'), {
     dzialka_nr: '466/2, 465/3, 465/4',
     area_m2: 10698,
   });
-  // results-table order: numer-word first (REGRESSION — an order-anchored
-  // regex, like TG's "działk…numer" pattern, only catches one of these two)
   assert.deepEqual(plotFromText('oznaczona numerami działek : 466/2, 465/3 i 465/4 o łącznej pow. 1,0698 ha w obrębie 07'), {
     dzialka_nr: '466/2, 465/3, 465/4',
     area_m2: 10698,
   });
-  // a single small parcel already given directly in m2 (no ha conversion)
   assert.deepEqual(plotFromText('oznaczona numerem działki 454/12 o pow. 866 m2 w obrębie 18'), {
     dzialka_nr: '454/12',
     area_m2: 866,
   });
-  // a co-owned access-road parcel mentioned alongside must NOT be folded into the main parcel's area
   assert.deepEqual(
     plotFromText('numerem działki 1448/7 o pow. 757 m2 w obrębie 09 wraz z udziałem do 1/5 części w działce nr 1448/8 o pow. 481 m2'),
     { dzialka_nr: '1448/7', area_m2: 757 },
@@ -223,10 +154,6 @@ test('obrebFromText: bare NUMBER (not a name, unlike Tarnowskie Góry) — both 
 test('streetFromHeader / addressRawFromText: REGRESSION — a building number is self-terminating (no trailing-word list needed)', () => {
   assert.deepEqual(streetFromHeader('położonego w budynku przy ul. Narutowicza 3E w Szczecinku.'), { street: 'Narutowicza', building: '3E' });
   assert.deepEqual(streetFromHeader('przy ul. Kołobrzeskiej w Szczecinku'), { street: 'Kołobrzeskiej', building: null });
-  // REGRESSION: real result-table prose ("…12 wpisanej do księgi wieczystej…")
-  // — the original terminator list (period/comma/"w Szczecin"/…) didn't
-  // anticipate "wpisanej" and the whole match failed, silently dropping the
-  // record. A captured building number must need nothing more to stop.
   assert.deepEqual(streetFromHeader('w obrębie 13 przy ul. Władysława Bartoszewskiego 12 wpisanej do księgi wieczystej nr KO11/00021547/1'), {
     street: 'Władysława Bartoszewskiego',
     building: '12',
@@ -234,7 +161,6 @@ test('streetFromHeader / addressRawFromText: REGRESSION — a building number is
   assert.equal(addressRawFromText('sprzedaż lokalu mieszkalnego nr 9 położonego w budynku przy ul. Narutowicza 3E'), 'ul. Narutowicza 3E/9');
 });
 
-// -------------------------------------------------------- announcement parse (real)
 
 const ANN_FLAT_NARUTOWICZA = `O  G  Ł  O  S  Z  E  N  I  E o przetargu na zbycie lokalu Burmistrz Miasta Szczecinek ogłasza: III przetarg ustny nieograniczony na sprzedaż wolnego lokalu mieszkalnego nr 9 o powierzchni użytkowej 29,49 m2 położonego na drugim piętrze w budynku wielomieszkaniowym przy ul. Narutowicza 3E w Szczecinku. Do lokalu przynależy piwnica o pow. 5,08 m2. Lokal posiada urządzoną księgę wieczystą nr KO1I/00050270/0 prowadzoną przez Sąd Rejonowy w Szczecinku. Z własnością lokalu związany jest udział wynoszący 2950/413240 części w nieruchomości wspólnej, która stanowi działkę gruntu nr 14/7 położoną w obr. 13 o pow. 4843 m2 wpisaną do księgi wieczystej nr KO1I/00042818/5. Pierwszy przetarg odbył się w dniu 20.11.2025 r. Drugi przetarg odbył się w dniu 19.02.2026r. Cena wywoławcza – 130.000,00 zł netto (sprzedaż zwolniona z podatku VAT) Wadium – 13.000,00 zł Minimalne postąpienie – 1.300,00 zł Przetarg zostanie przeprowadzony w dniu 28.04.2026 r. o godz. 10- tej w siedzibie Urzędu Miasta Szczecinek przy Placu Wolności 13 w sali nr 104.`;
 
@@ -243,7 +169,7 @@ test('parseAnnouncement: flat (Narutowicza, article 645/7273) — address/area/p
   assert.ok(r);
   assert.equal(r.kind, 'mieszkalny');
   assert.equal(r.address_raw, 'ul. Narutowicza 3E/9');
-  assert.equal(r.address.key, 'narutowicza|3E|9'); // ← the result→announcement JOIN KEY
+  assert.equal(r.address.key, 'narutowicza|3E|9');
   assert.equal(r.area_m2, 29.49, 'flat usable area, NOT the 5,08 m² cellar');
   assert.equal(r.starting_price_pln, 130000);
   assert.equal(r.auction_date, '2026-04-28', 'the CURRENT round\'s future date, not the 20.11.2025/19.02.2026 prior rounds');
@@ -280,7 +206,6 @@ test('parseAnnouncement: land (Kołobrzeska, article 645/7276) — word-month da
   assert.equal(r.round, null, 'no ordinal marker at all on a first attempt — never assumed round 1');
 });
 
-// -------------------------------------------------------------- result parse (real)
 
 test('parseResultDoc: STUB result (board 338, NO PDF at all — confirmed live) — best-effort record, no fabricated price', () => {
   const STUB_NARUTOWICZA = `Burmistrz Miasta Szczecinek na podstawie art. 42 ust. 1 i 2 ustawy z dnia 21 sierpnia 1997 roku o gospodarce nieruchomościami / Dz. U. z 2024 r. poz. 1145 ze zm /, oraz § 12 Rozporządzenia Rady Ministrów z dnia 14 września 2004r. w sprawie sposobu i trybu przeprowadzania przetargów oraz rokowań na zbycie nieruchomości / Dz. U. z 2021 r. poz. 2213 ze zm. / podaje do publicznej wiadomości informację o wyniku przetargu z dnia 19.02.2026r. na sprzedaż lokalu mieszkalnego nr 9 położonego w budynku przy ul. Narutowicza 3E`;
@@ -297,10 +222,6 @@ test('parseResultDoc: STUB result (board 338, NO PDF at all — confirmed live) 
   assert.ok(s.notes.includes('parse: no achieved price and no explicit negative outcome'));
 });
 
-// Multi-row results-table PDF — attachment 13801 (article 338/7156, 21.01.2026
-// batch). 7 parcels from one przetarg session; kept verbatim (incl. the raw
-// column-interleaved pdftotext -layout garbling) because the row-splitting +
-// dewrapping fixes are only meaningfully tested against the REAL messy shape.
 const RESULT_TABLE_13801 = `
        Data i miejsce    Rodzaj przetargu                       Oznaczenie nieruchomości wg księgi wieczystej                           Liczba osób       Liczba osób         Cena      Najwyższa        Imię i nazwisko albo nazwa
 Lp.   przeprowadzoneg                                                      i katastru nieruchomości                                    dopuszczonych   niedopuszczonych wywoławcza cena osiągnięta      lub firma osoby ustalonej jako
@@ -350,8 +271,6 @@ test('parseResultDoc: multi-row TABLE PDF (13801) splits into one record per Lp 
   assert.equal(sold.final_price_pln, 121200);
   assert.equal(sold.outcome, 'sold');
 
-  // REGRESSION: rows 6 and 7 render the grosze separator as "." not "," —
-  // this office's own PDF-rendering quirk, not an OCR scan.
   const soldPeriodGrosze = recs.find((r) => r.dzialka_nr === '454/15');
   assert.ok(soldPeriodGrosze, 'row 6 ("120.000.00" period-grosze)');
   assert.equal(soldPeriodGrosze.starting_price_pln, 120000);
@@ -436,7 +355,6 @@ test('parseResultDoc / isResultNotice: an announcement is not a result notice', 
   assert.deepEqual(parseResultDoc(ANN_FLAT_NARUTOWICZA, null, 'u'), []);
 });
 
-// ------------------------------------------------------------- HTML extraction
 
 test('extractBodyText: pulls the <section class="wysiwyg"> body, strips tags/entities', () => {
   const html = `<html><body><section class="wysiwyg" aria-labelledby="content-header">

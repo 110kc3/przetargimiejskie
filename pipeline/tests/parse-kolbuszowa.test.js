@@ -1,41 +1,3 @@
-// Kolbuszowa parser tests. Fixtures are condensed-but-faithful copies of REAL
-// page text / OCR output fetched live from bip.kolbuszowa.pl (Pro3W CMS),
-// verified 2026-07-12 from this Pi's Polish IP. Long non-load-bearing prose (the
-// room-by-room condition survey, VAT-exemption boilerplate, wadium-procedure
-// paragraphs) is trimmed; every sentence that feeds a parsed field (address,
-// area, price, date, round, kind, outcome) is kept verbatim — including two
-// deliberate regression traps present on every real notice:
-//   1. the OFFICE address "…Przetarg odbędzie się … przy ul. Obrońców Pokoju 21…"
-//      that shares the "przy ul." shape with the flat's own address (the flat
-//      always uses the full word "ulicy", the office the abbreviation "ul."), and
-//   2. the VIEWING dates "…oglądać w dniach 17 i 24 listopada 2022 r.…" that
-//      share the "w dni…" shape with the auction's "…w dniu 7 grudnia 2022 r.…"
-//      (the auction is the singular "w dniu", viewings the plural "w dniach").
-//
-// Groundtruth (hand-verified against the live pages):
-//   2022 announce  9714   Kolbuszowa, ul. Targowej 8, lokal mieszkalny nr 2,
-//                          25,04 m², cena wywoławcza 102 990 zł, auction
-//                          2022-12-07, published 2022-11-02, round I
-//   2025 announce  14625  Kolbuszowa, ul. Kolejowej 12, samodzielny lokal
-//                          mieszkalny nr 17, 24,60 m², cena wywoławcza 130 439 zł,
-//                          auction 2025-07-11, published 2025-06-10, round I
-//   2026 announce  17732  land: Kupno, dz. nr 1125/147 i 2030, 0,1257 ha
-//                          (=1257 m²), cena wywoławcza 69 135 zł, auction
-//                          2026-07-13, round II  (kind 'grunt' → land.json)
-//   2022 result    OCR    Targowej 8/2 SOLD: wywoławcza 102 990, osiągnięta
-//                          172 000, auction 2022-12-07
-//   2025 result    OCR    Kolejowej 12/17 SOLD: wywoławcza 130 439, osiągnięta
-//                          131 749, auction 2025-07-11
-//   2021 result    OCR    Piłsudskiego 6/10 lokal nr 21 SOLD: wywoławcza
-//                          106 985, osiągnięta 146 000, auction 2021-05-25 — the
-//                          source writes the building as a compound "6/10"; the
-//                          parser keeps the bare "6" and takes the apartment (21)
-//                          from the separate "lokalu mieszkalnego nr 21" match
-//   negative result       TEMPLATE-derived (no flat auction in Kolbuszowa's
-//                          crawled history 2019–2026 ended negatively — all four
-//                          flats SOLD), so the unsold branch is exercised with the
-//                          standard "…zakończył się wynikiem negatywnym…" phrasing
-//                          the source uses on its (land) negative notices.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -59,13 +21,7 @@ import {
 } from '../src/cities/kolbuszowa/parse.js';
 import { discoverSprzedazYearCats } from '../src/cities/kolbuszowa/crawl.js';
 
-// --------------------------------------------------------------- fixtures
 
-// Wraps body prose in the real Pro3W CMS page skeleton, confirmed live
-// 2026-07-12: the announcement text lives in
-// <div class="art-body clearfix"><div class="row"><div id="akapitBody">…</div>,
-// with the attachment list split off into a trailing <!--ZALACZNIKI--> block,
-// and the publish date rendered as "Data publikacji: <strong>YYYY-MM-DD HH:MM".
 function pageHtml(fullTitle, bodyText, publishedIso, attachmentsHtml = '') {
   return `<!doctype html><html><head>
 <title>Przetargi - 2026 r. - ${fullTitle}</title></head><body>
@@ -81,12 +37,10 @@ function pageHtml(fullTitle, bodyText, publishedIso, attachmentsHtml = '') {
 </div></body></html>`;
 }
 
-// Attachment <li> markup as the real page emits it.
 function att(href, label) {
   return `<li><em class="fal fa-paperclip"></em><span class="img-pdf"></span><a href="${href}" target="_blank">${label}</a></li>`;
 }
 
-// --- 2022 flat announcement (ul. Targowej 8, lokal mieszkalny nr 2) ---
 const FLAT2022_TITLE =
   'Burmistrz Kolbuszowej ogłasza I publiczny przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego własności Gminy Kolbuszowa wraz z pomieszczeniem przynależnym oraz udziałem w nieruchomości wspólnej.';
 const FLAT2022_HTML = pageHtml(
@@ -109,7 +63,6 @@ o godzinie 9 00.`,
     att('/static/img/k05/2022/SPRZEDAZ_NIERUCHOMOSCI/20_12_Informacja_o_wyniku_przetargu_lokal_Kolbuszowa.pdf', 'Informacja o wyniku przetargu (1,15 MB)'),
 );
 
-// --- 2025 flat announcement (ul. Kolejowej 12, samodzielny lokal nr 17) ---
 const FLAT2025_TITLE =
   'Burmistrz Kolbuszowej ogłasza I publiczny przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego własności Gminy Kolbuszowa wraz z pomieszczeniem przynależnym oraz udziałem w nieruchomości wspólnej.';
 const FLAT2025_HTML = pageHtml(
@@ -131,7 +84,6 @@ Pokoju 21 w sali nr 1 o godz. 9:00.`,
     att('/static/img/k05/2025/przetargi/rolnictwo/wynik_przetargu_23_07_2025.pdf', 'Wynik przetargu (525,94 kB)'),
 );
 
-// --- 2026 LAND announcement (Kupno, dz. 1125/147 i 2030) — kind 'grunt' ---
 const LAND2026_TITLE =
   'Burmistrz Kolbuszowej ogłasza II publiczny przetarg ustny nieograniczony na sprzedaż nieruchomości własności Gminy Kolbuszowa.';
 const LAND2026_HTML = pageHtml(
@@ -146,13 +98,6 @@ Urzędzie Miejskim w Kolbuszowej przy ul. Obrońców Pokoju 21 w sali nr 1 o god
   '2026-06-12',
 );
 
-// --- 2026 BUILT-plot (round III, "zabudowana nieruchomość gruntowa") — a plot
-//     identified only by parcel + village, no street; must reroute to 'grunt'
-//     (land.json). Its body also carries the PRIOR round's own "…odbył się w
-//     dniu 6 października 2025 r. i zakończył się wynikiem negatywnym…"
-//     self-report BEFORE the upcoming "…odbędzie się w dniu 24 marca 2026 r.…" —
-//     the regression that the auction date must be the FUTURE one. Price omits
-//     "złotych" (VAT-bearing form). Real text from art. 16730. ---
 const BUILT2026_TITLE =
   'Burmistrz Kolbuszowej ogłasza III publiczny przetarg ustny nieograniczony na sprzedaż nieruchomości własności Gminy Kolbuszowa.';
 const BUILT2026_HTML = pageHtml(
@@ -168,8 +113,6 @@ Kolbuszowej przy ul. Obrońców Pokoju 21 w sali nr 1 o godz. 10:00.`,
   '2026-02-20',
 );
 
-// --- 2026 in-town LAND with a street ("…w Kolbuszowej przy ulicy Błonie…") — the
-//     obręb must be "Kolbuszowej", NOT "Kolbuszowej przy". Real text from art. 17417. ---
 const TOWNLAND2026_HTML = pageHtml(
   'Burmistrz Kolbuszowej ogłasza I publiczny przetarg ustny nieograniczony na sprzedaż nieruchomości własności Gminy Kolbuszowa.',
   `Burmistrz Kolbuszowej ogłasza I publiczny przetarg ustny nieograniczony na sprzedaż
@@ -181,7 +124,6 @@ przy ul. Obrońców Pokoju 21 w sali nr 1 o godz. 9:00.`,
   '2026-05-15',
 );
 
-// --- Result OCR text (fresh tesseract -l pol @300dpi output, verbatim) ---
 const RESULT2022_OCR =
   `Informację o wyniku przetargu ustnego nieograniczonego na zbycie nieruchomości Gminy
 Kolbuszowa, który odbył się w dniu 7 grudnia 2022 r. w siedzibie Urzędu Miejskiego w
@@ -210,16 +152,12 @@ wraz ze sprzedażą udziału 4124/248791 części w nieruchomości wspólnej. Ce
 nieruchomości — 106 985,00 złotych (brutto) Najwyższa cena osiągnięta w przetargu —
 146 000,00 złotych (brutto) Nabywca nieruchomości — Pani Bożena Bester`;
 
-// Negative-outcome result — TEMPLATE-derived (see header): the same result-notice
-// shell, ended with the standard unsold sentence the source uses on its negative
-// notices, to exercise parseResultDoc's unsold branch.
 const RESULT_NEGATIVE_OCR =
   `Informację o wyniku I publicznego przetargu ustnego nieograniczonego na sprzedaż lokalu
 mieszkalnego nr 2 położonego w budynku wielorodzinnym w Kolbuszowej przy ulicy Targowej 8,
 który odbył się w dniu 7 grudnia 2022 r. Cena wywoławcza nieruchomości — 102 990,00 złotych
 (brutto). Przetarg zakończył się wynikiem negatywnym, ponieważ nikt nie wpłacił wadium.`;
 
-// -------------------------------------------------------------- unit funcs
 
 test('parsePLN: space-thousands + comma-grosze, plain, and null', () => {
   assert.equal(parsePLN('102 990,00'), 102990);
@@ -249,8 +187,6 @@ test('roundFromText: "I/II publiczny przetarg ustny" (intervening "publiczny")',
 });
 
 test('extractAuctionDate: spelled-out "w dniu" (singular) — never the "w dniach" viewing dates', () => {
-  // Both the viewing dates (plural "w dniach") and the auction date (singular
-  // "w dniu") are present; only the auction date must be returned.
   const body = 'oglądać w dniach 17 i 24 listopada 2022 r. ... odbędzie się ... w dniu 7 grudnia 2022 r.';
   assert.equal(extractAuctionDate(body), '2022-12-07');
   assert.equal(extractAuctionDate('który odbył się w dniu 25 maja 2021 r.'), '2021-05-25');
@@ -266,8 +202,6 @@ test('isCancelled: title-scoped "odwołanie"/"unieważnienie", not the standing 
 test('extractArticleText / extractTitle / extractPublishedDate: real Pro3W containers, body stops before ZALACZNIKI', () => {
   const text = extractArticleText(FLAT2022_HTML);
   assert.ok(text.includes('102 990,00 złotych'), `price missing from body: ${text.slice(0, 120)}`);
-  // The attachment label "Informacja o wyniku przetargu (1,15 MB)" must NOT leak
-  // into the article text (extraction stops at <!--ZALACZNIKI-->).
   assert.ok(!/Informacja o wyniku/i.test(text), 'attachment label leaked into article text');
   assert.ok(extractTitle(FLAT2022_HTML).startsWith('Burmistrz Kolbuszowej'), 'title breadcrumb prefix not stripped');
   assert.equal(extractPublishedDate(FLAT2022_HTML), '2022-11-02');
@@ -275,7 +209,7 @@ test('extractArticleText / extractTitle / extractPublishedDate: real Pro3W conta
 
 test('extractStartingPrice / extractFinalPrice: total (not the cena-lokalu breakdown) + achieved price', () => {
   const body = extractArticleText(FLAT2022_HTML);
-  assert.equal(extractStartingPrice(body), 102990); // not 102 481 (cena lokalu) nor 509 (udział)
+  assert.equal(extractStartingPrice(body), 102990);
   assert.equal(extractFinalPrice(RESULT2022_OCR), 172000);
   assert.equal(extractFinalPrice('brak takiej linii'), null);
 });
@@ -285,13 +219,10 @@ test('findResultPdfHref: picks the "wynik" attachment, not the "Ogłoszenie" one
     findResultPdfHref(FLAT2022_HTML),
     '/static/img/k05/2022/SPRZEDAZ_NIERUCHOMOSCI/20_12_Informacja_o_wyniku_przetargu_lokal_Kolbuszowa.pdf',
   );
-  // 2025 labels the result attachment "Wynik przetargu" (no "Informacja o…") — still matched.
   assert.equal(findResultPdfHref(FLAT2025_HTML), '/static/img/k05/2025/przetargi/rolnictwo/wynik_przetargu_23_07_2025.pdf');
-  // An announcement with only the "Ogłoszenie" PDF has no result doc.
   assert.equal(findResultPdfHref(LAND2026_HTML), null);
 });
 
-// ------------------------------------------------------- parseAnnouncement (flats)
 
 test('parseAnnouncement: 2022 flat (Targowej 8/2) — flat classified from BODY; office "przy ul. Obrońców Pokoju 21" NOT captured', () => {
   const r = parseAnnouncement(FLAT2022_HTML, 'https://bip.kolbuszowa.pl/63-przetargi/8331-2022-r/9714-x.html');
@@ -320,7 +251,6 @@ test('parseAnnouncement: 2025 flat (Kolejowej 12/17) — "Samodzielny lokal … 
   assert.equal(r.round, 1);
 });
 
-// --------------------------------------------------------- parseAnnouncement (land)
 
 test('parseAnnouncement: 2026 land (Kupno) — kind grunt, parcel-keyed, ha→m², round II', () => {
   const r = parseAnnouncement(LAND2026_HTML, 'https://bip.kolbuszowa.pl/63-przetargi/16729-2026-r/17732-x.html');
@@ -328,7 +258,7 @@ test('parseAnnouncement: 2026 land (Kupno) — kind grunt, parcel-keyed, ha→m�
   assert.equal(r.address, null);
   assert.equal(r.dzialka_nr, '1125/147 i 2030');
   assert.equal(r.obreb, 'Kupnie');
-  assert.equal(r.area_m2, 1257); // 0,1257 ha × 10000
+  assert.equal(r.area_m2, 1257);
   assert.equal(r.starting_price_pln, 69135);
   assert.equal(r.auction_date, '2026-07-13');
   assert.equal(r.round, 2);
@@ -336,14 +266,14 @@ test('parseAnnouncement: 2026 land (Kupno) — kind grunt, parcel-keyed, ha→m�
 
 test('parseAnnouncement: built plot ("zabudowana nieruchomość gruntowa", no street) reroutes to grunt; auction date is the FUTURE "odbędzie się" (not the prior round\'s "odbył się"); price without "złotych"', () => {
   const r = parseAnnouncement(BUILT2026_HTML, 'https://bip.kolbuszowa.pl/63-przetargi/16729-2026-r/16730-x.html');
-  assert.equal(r.kind, 'grunt'); // rerouted from classifyKind's 'zabudowana'
+  assert.equal(r.kind, 'grunt');
   assert.equal(r.address, null);
   assert.equal(r.dzialka_nr, '300/2');
-  assert.equal(r.obreb, 'Hucie Przedborskiej'); // two-word village kept whole
-  assert.equal(r.area_m2, 2057); // 0,2057 ha × 10000
+  assert.equal(r.obreb, 'Hucie Przedborskiej');
+  assert.equal(r.area_m2, 2057);
   assert.equal(r.round, 3);
-  assert.equal(r.auction_date, '2026-03-24'); // NOT 2025-10-06 (the prior round)
-  assert.equal(r.starting_price_pln, 300000); // "…wynosi: 300 000,00 (brutto…" — no "złotych"
+  assert.equal(r.auction_date, '2026-03-24');
+  assert.equal(r.starting_price_pln, 300000);
 });
 
 test('parseAnnouncement: in-town land ("…w Kolbuszowej przy ulicy Błonie…") — obręb is "Kolbuszowej", never "Kolbuszowej przy"', () => {
@@ -355,7 +285,6 @@ test('parseAnnouncement: in-town land ("…w Kolbuszowej przy ulicy Błonie…")
   assert.equal(r.auction_date, '2026-07-13');
 });
 
-// ----------------------------------------------------------------- parseResultDoc
 
 test('parseResultDoc: 2022 flat result (Targowej 8/2) — SOLD, real achieved price 172 000', () => {
   const [r] = parseResultDoc(RESULT2022_OCR, null, 'https://bip.kolbuszowa.pl/x/res2022.pdf');
@@ -413,11 +342,8 @@ test('parseResultDoc: empty / non-result input → []', () => {
   assert.deepEqual(parseResultDoc('Zwykły tekst bez wyniku przetargu.', null, 'x'), []);
 });
 
-// ----------------------------------------------------------- crawl discovery
 
 test('discoverSprzedazYearCats: reads only the "Sprzedaż nieruchomości" year categories from the board nav tree', () => {
-  // A minimal board-index nav tree with all three parents interleaved with their
-  // year children (real order: parent header, then its "<id>-YYYY-r" nodes).
   const board = `
     <a href="/63-przetargi/3666-zamowienia-publiczne.html">Zamówienia Publiczne</a>
     <a href="/63-przetargi/16338-2026-r.html">2026 r.</a>
@@ -430,6 +356,5 @@ test('discoverSprzedazYearCats: reads only the "Sprzedaż nieruchomości" year c
     <a href="/63-przetargi/8331-2022-r.html">2022 r.</a>`;
   const cats = discoverSprzedazYearCats(board).sort((a, b) => b.year - a.year);
   assert.deepEqual(cats.map((c) => [c.year, c.id]), [[2026, 16729], [2025, 13508], [2022, 8331]]);
-  // The procurement / other-tender year categories (16338, 13515, 16339) are excluded.
   assert.ok(!cats.some((c) => [16338, 13515, 16339].includes(c.id)));
 });

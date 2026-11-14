@@ -1,19 +1,3 @@
-// Nysa parsers -- announcement PDFs and result notice PDFs from bip.nysa.pl.
-//
-// ANNOUNCEMENT PDF (real fixture: Moniuszki 1/27, id=22892, verified 2026-06-27):
-//   "przy ul. Moniuszki 1/27"  -- address with apt embedded
-//   "Lokal mieszkalny nr 27 o lacznej powierzchni uzytkowej 33,10 m2"
-//   "Cena wywolawcza nieruchomosci wynosi: 145.000,00 zl"  (dot-thousands)
-//   "Przetarg odbedzie sie w dniu 17 grudnia 2024 r."
-//
-// RESULT PDF (real fixture: id=23554, verified 2026-06-27):
-//   pdftotext -layout table -- two PLN amounts on same data row:
-//   "145.000,00 zl       165.000,00 zl"
-//   Column header "Cena osiagnieta w / przetargu" is split across two lines
-//   and far from the data values; cannot anchor on it to find the price.
-//
-// Mariackiej 21/3 (id=29480 ann + id=30096 result, verified 2026-06-27):
-//   "przy ul. Mariackiej nr 21/3"  -- optional "nr" before bldg/apt stripped
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -37,7 +21,6 @@ function parseArea(numStr) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// All PLN amounts in text in order. Supports dot-thousands and space-thousands.
 function allPLNAmounts(text) {
   const re = /((?:\d{1,3}[. ])*\d{1,3},\d{2})\s*z[lł]/gi;
   const results = [];
@@ -49,7 +32,6 @@ function allPLNAmounts(text) {
   return results;
 }
 
-// Normalize Polish diacritics for month lookup
 function normalizePL(s) {
   return s.toLowerCase()
     .replace(/ą/g, 'a').replace(/ę/g, 'e').replace(/ó/g, 'o')
@@ -57,17 +39,13 @@ function normalizePL(s) {
     .replace(/ć/g, 'c').replace(/ł/g, 'l').replace(/ń/g, 'n');
 }
 
-// ----------------------------------------------------------------- round
 
 export function roundFromText(text) {
   const t = text || '';
-  // Strip history-list lines ("- I przetarg ... 27.11.2025 r.") so prior-round
-  // references don't masquerade as the current round's ordinal.
   const cleaned = t.split('\n')
     .filter((line) => !/^\s*[-–]\s+\S+\s+przetarg/i.test(line))
     .join('\n');
 
-  // Word ordinal: "drugi przetarg", "pierwszego przetargu"
   const mw = /\b(pierwsz|drug|trzeci|czwart|pi[aoą]t|sz[oóo]st|si[oó]dm|[oó]sm|dziewi[aoą]t)\w*\s+przetarg/i.exec(cleaned);
   if (mw) {
     const stem = normalizePL(mw[1]);
@@ -76,7 +54,6 @@ export function roundFromText(text) {
       if (stem.startsWith(key)) return val;
     }
   }
-  // Roman numeral prefix: "I przetarg", "II przetarg", etc.
   const mr = /\b(I{1,3}|IV|V|VI{0,3}|IX|X)\s+przetarg/i.exec(cleaned);
   if (mr) {
     const roman = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8, IX: 9, X: 10 };
@@ -86,7 +63,6 @@ export function roundFromText(text) {
   return null;
 }
 
-// ----------------------------------------------------------------- dates
 
 export function auctionDateFromText(text) {
   const t = text || '';
@@ -110,10 +86,7 @@ export function resultDateFromText(text) {
   return null;
 }
 
-// ----------------------------------------------------------------- address
 
-// Header: "przy ul. Moniuszki 1/27" or "przy ul. Mariackiej nr 21/3"
-// Optional "nr" before the building/apt number is stripped.
 const HEADER_ADDR_RE =
   /przy\s+ul\.\s+([A-ZŻŹĆŁŚĄĘÓŃ][A-Za-zŻŹĆŁŚĄĘÓŃżźćłśąęóń.'' -]+?)\s+(?:nr\s+)?((?:\d+[A-Za-z]?\/)?\d+[A-Za-z]?)\s*[.,;\n]/i;
 
@@ -142,10 +115,7 @@ export function addressRawFromText(text) {
   return null;
 }
 
-// ----------------------------------------------------------------- area
 
-// [\s\S]{0,200} bridges the pdftotext line-break between "powierzchni" and
-// "uzytkowej" in fixed-width result-table columns.
 export function unitAreaFromText(text) {
   const t = text || '';
   const re =
@@ -154,7 +124,6 @@ export function unitAreaFromText(text) {
   return m ? parseArea(m[1]) : null;
 }
 
-// ----------------------------------------------------------------- prices
 
 export function startingPriceFromText(text) {
   const t = text || '';
@@ -174,13 +143,11 @@ export function achievedPriceFromText(text) {
   return amounts.length >= 2 ? amounts[1] : null;
 }
 
-// ----------------------------------------------------------------- result detector
 
 export function isResultNotice(text) {
   return /Informacja\s+o\s+wyniku\s+przetargu/i.test(text || '');
 }
 
-// ----------------------------------------------------------------- title filters
 
 export function isSkippableTitle(title) {
   const t = title || '';
@@ -202,7 +169,6 @@ export function isFlatSaleTitle(title) {
   return /lokal\s+mieszkaln/i.test(title || '');
 }
 
-// ----------------------------------------------------------------- announcement parse
 
 export function parseAnnouncement(text) {
   if (!text) return null;
@@ -224,7 +190,6 @@ export function parseAnnouncement(text) {
   return { kind, address_raw, address, area_m2, starting_price_pln, auction_date, round };
 }
 
-// ----------------------------------------------------------------- result parse
 
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!isResultNotice(text)) return [];

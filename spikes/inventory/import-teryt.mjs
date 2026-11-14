@@ -1,9 +1,5 @@
 #!/usr/bin/env node
 
-// Build the canonical city manifest from official GUS TERYT TERC/SIMC data.
-// No npm dependencies: GitHub-hosted Ubuntu supplies `unzip`, and Node 20
-// supplies fetch/Web APIs. The official download is kept in a read-only job;
-// only generated JSON/Markdown crosses into the publisher job.
 
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';

@@ -1,23 +1,3 @@
-// Slupsk crawler.
-//
-//   LISTING: https://bip.um.slupsk.pl/przetargi/nieruchomosci/?pix=N
-//     Server-rendered HTML, 20 items/page, paginated via ?pix=N (0-indexed).
-//     "aktualne" = active; "zamkniete" = closed/past. We scrape ALL pages and
-//     filter to flat auctions (isFlatAuction in parse.js). Status "aktualne" is
-//     kept in active listings; "zamkniete" items are skipped (archive only).
-//
-//   DETAIL: https://bip.um.slupsk.pl/przetargi/<id>.html
-//     Single notice page per flat -- full text inline (no PDF needed).
-//     Parsed by parseNoticePage -> {area_m2, starting_price_pln, auction_date, kw, ...}.
-//
-//   RESULT ARCHIVE: https://bip.um.slupsk.pl/nieruchomosci/dokumenty/846.html
-//     Lists the most-recently-added result PDFs as <div class="mx-files-item pdf">
-//     links. These are born-digital PDFs served at /file/<id>.
-//     crawlResultDocs() returns refs with {pdf_url}; source:'html' tells the
-//     refresh loop to call parseResultDoc on the extracted text directly.
-//
-// No auth, no JS SPA, no TLS issues observed. Standard browser UA used to
-// avoid any WAF rejecting the default bot UA.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -37,15 +17,8 @@ const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const FETCH_OPTS = { userAgent: BROWSER_UA };
 
-// Safety cap: the board has 56+ pages as of 2026-06-27; cap at 120 to handle growth.
 const MAX_PAGES = 120;
 
-/**
- * Paginate the listing board and return refs for ALL flat auction notice pages.
- * Stops at the last page (no mx-next link) or MAX_PAGES, whichever comes first.
- *
- * @returns {Promise<Array<{detail_url:string, title:string, round:number|null, auction_date:string|null, status:string|null}>>}
- */
 async function crawlListingPages() {
   const refs = [];
   const seenUrls = new Set();
@@ -73,7 +46,6 @@ async function crawlListingPages() {
       `  slupsk listing pix=${pix}: ${items.length} flat items (${added} new)`,
     );
 
-    // Stop if there is no next-page link.
     if (!hasNextPage(html)) break;
   }
 
@@ -81,12 +53,6 @@ async function crawlListingPages() {
   return refs;
 }
 
-/**
- * Fetch each flat notice page and extract the detail fields.
- * Only "aktualne" (active) items become listings; closed ones are skipped.
- *
- * @returns {Promise<{ listings: object[], wykaz: object[] }>}
- */
 export async function crawlActive() {
   const refs = await crawlListingPages();
   const active = refs.filter((r) => r.status === 'aktualne');
@@ -111,8 +77,6 @@ export async function crawlActive() {
       continue;
     }
 
-    // Merge: listing-page auction_date / round take precedence over detail-page
-    // when the detail page has a garbled date (space-inserted digits in <b> tags).
     listings.push({
       kind: parsed.kind,
       address_raw: parsed.address_raw,
@@ -130,16 +94,6 @@ export async function crawlActive() {
   return { listings, wykaz: [] };
 }
 
-/**
- * Fetch the result archive page and return PDF refs.
- * source:'html' -> refresh loop calls parseResultDoc on pdfText(pdf_url).
- *
- * Incremental skip: PDF URLs already recorded in data/slupsk/properties.json
- * (pdf_url field of listings) are filtered out before returning, so re-runs
- * only fetch genuinely new result documents.
- *
- * @returns {Promise<Array<{pdf_url:string, auction_date:null}>>}
- */
 export async function crawlResultDocs() {
   let html;
   try {
@@ -152,7 +106,6 @@ export async function crawlResultDocs() {
   const refs = parseResultArchive(html, ORIGIN);
   console.error(`  slupsk crawlResultDocs: ${refs.length} result PDF refs`);
 
-  // Incremental skip: filter out PDF URLs already captured in properties.json.
   const known = await loadKnownSourceUrls('slupsk');
   const newRefs = refs.filter((r) => !known.has(r.pdf_url));
   const skipped = refs.length - newRefs.length;
@@ -162,7 +115,6 @@ export async function crawlResultDocs() {
     );
   }
 
-  // Add auction_date:null so the refresh loop passes it to parseResultDoc as fallbackDate.
   return newRefs.map((r) => ({ ...r, auction_date: null }));
 }
 

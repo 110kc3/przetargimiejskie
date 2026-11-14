@@ -1,32 +1,3 @@
-// Tests for pipeline/src/cities/gdansk/parse.js + crawl.js
-//
-// Fixtures groundtruthed against live bip.gdansk.pl (2026-06-27):
-//
-//   ANNOUNCEMENT INDEX:
-//     https://bip.gdansk.pl/urzad-miejski/Ogloszenia-o-przetargach,a,1439
-//     → one entry: ",a,309425" (auction 2026-07-01)
-//
-//   ANNOUNCEMENT ARTICLE:
-//     https://bip.gdansk.pl/urzad-miejski/OGLOSZENIE-O-PRZETARGACH-NIEOGRANICZONYCH-NA-SPRZEDAZ-NIERUCHOMOSCI-GMINNYCH-NA-DZIEN-01-07-2026,a,309425
-//     → PDF: https://download.cloudgdansk.pl/gdansk-pl/d/202604273600/ogloszenie-o-przetargach-nieograniczonych-planowanych-na-dzien-01-07-2026.pdf
-//
-//   ORIGINAL PDF FIXTURE: reconstructed during the 2026-06-27 spike from:
-//     1. Known properties listed on gdansk.pl/urzad-miejski/wydzial-skarbu/nieruchomosci
-//        (6 live flats as of 2026-06-27, of which the following are confirmed
-//         "Przetarg ustny nieograniczony"):
-//          ul. Kaprów 15 m.5    — 1 200 000 PLN, 93.97 m²
-//          ul. Ks. Mariana Góreckiego 8 lok. 3,4A
-//          ul. Na Zaspę 34B lok. 6
-//          ul. Opata Jacka Rybińskiego 6 m. 7
-//          ul. Teofila Lenartowicza 3 lok. 5
-//          ul. Uczniowska 37 lok. 4
-//     2. Standard Gdańsk Wydział Skarbu PDF vocabulary (server-rendered BIP,
-//        standard przetarg announcement boilerplate).
-//   The current wide-table layout is additionally covered below with excerpts
-//   groundtruthed against the live 30.09.2026 PDF on 2026-08-23.
-//
-//   RESULT NOTICES: URL pattern UNCONFIRMED (spike gap). No fixture available.
-//   parseResultDoc is a stub returning []; tests assert that only.
 
 import { strict as assert } from 'node:assert';
 import { describe, it } from 'node:test';
@@ -45,13 +16,7 @@ import {
   parsePdfUrl,
 } from '../src/cities/gdansk/crawl.js';
 
-// ---------------------------------------------------------------------------
-// Helper fixtures
-// ---------------------------------------------------------------------------
 
-// Reconstructed PDF text for the 2026-07-01 Gdańsk auction batch.
-// Vocabulary modelled on standard Gdańsk Wydział Skarbu announcement practice.
-// VALIDATE against the real PDF text from cloudgdansk.pl after 2026-07-01.
 const ANN_PDF_TEXT = `
 OGŁOSZENIE O PRZETARGACH NIEOGRANICZONYCH USTNYCH NA SPRZEDAŻ NIERUCHOMOŚCI
 STANOWIĄCYCH WŁASNOŚĆ GMINY MIASTA GDAŃSKA ODBYWAJĄCYCH SIĘ W DNIU 01.07.2026 R.
@@ -102,9 +67,6 @@ Szczegółowe warunki przetargów określają regulaminy, które można uzyskać
 w Wydziale Skarbu Urzędu Miejskiego w Gdańsku.
 `.trim();
 
-// Condensed live-shape excerpt of the 30.09.2026 wide-table PDF. It includes
-// an earlier land section and historic auction dates in row notes: neither may
-// override the local-property rows or the batch date in the heading.
 const LIVE_TABLE_TEXT = `
 Prezydent Miasta Gdańska uprzejmie zaprasza do uczestnictwa w dniu 30 września 2026 r.
 w nieograniczonych przetargach ustnych na sprzedaż nieruchomości.
@@ -141,9 +103,6 @@ II przetarg – po bezskutecznym przetargu w dniu 01.07.2026 r.
 Warunkiem wzięcia udziału w przetargach jest wpłacenie wadium.
 `.trim();
 
-// ---------------------------------------------------------------------------
-// auctionDateFromText
-// ---------------------------------------------------------------------------
 
 describe('auctionDateFromText', () => {
   it('extracts date from "ODBYWAJĄCYCH SIĘ W DNIU DD.MM.YYYY R." (uppercase)', () => {
@@ -175,9 +134,6 @@ describe('auctionDateFromText', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// roundFromText
-// ---------------------------------------------------------------------------
 
 describe('roundFromText', () => {
   it('defaults to 1 for a standard announcement without ordinal', () => {
@@ -198,9 +154,6 @@ describe('roundFromText', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// splitBlocks
-// ---------------------------------------------------------------------------
 
 describe('splitBlocks', () => {
   it('finds 6 blocks in the fixture', () => {
@@ -234,9 +187,6 @@ describe('splitBlocks', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// parseBlock
-// ---------------------------------------------------------------------------
 
 describe('parseBlock', () => {
   it('parses Kaprów 15 m. 5 — kind mieszkalny, area 93.97, price 1 200 000', () => {
@@ -306,9 +256,6 @@ describe('parseBlock', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// parseAnnouncementPdf — integration
-// ---------------------------------------------------------------------------
 
 describe('parseAnnouncementPdf', () => {
   it('returns 6 records from the fixture', () => {
@@ -341,7 +288,6 @@ describe('parseAnnouncementPdf', () => {
   });
 
   it('deduplicates records with the same address key', () => {
-    // Duplicate the first block — dedup should keep only one
     const textWithDup = ANN_PDF_TEXT + '\n\n7. ul. Kaprów 15 m. 5\nLokal mieszkalny\nCena wywoławcza wynosi 1 200 000,00 zł\n';
     const recs = parseAnnouncementPdf(textWithDup, {});
     const kaprowRecs = recs.filter((r) => r.address?.street === 'Kaprów');
@@ -391,9 +337,6 @@ describe('parseAnnouncementPdf', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// parseResultDoc — stub
-// ---------------------------------------------------------------------------
 
 describe('parseResultDoc (stub)', () => {
   it('returns [] for any input (result URL not yet confirmed)', () => {
@@ -403,9 +346,6 @@ describe('parseResultDoc (stub)', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// crawl.js: parseIndexLinks
-// ---------------------------------------------------------------------------
 
 describe('parseIndexLinks', () => {
   it('finds the 2026-07-01 article link from live index HTML', () => {
@@ -465,9 +405,6 @@ describe('parseIndexLinks', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// crawl.js: parsePdfUrl
-// ---------------------------------------------------------------------------
 
 describe('parsePdfUrl', () => {
   it('extracts the cloudgdansk CDN PDF URL from article HTML', () => {

@@ -1,31 +1,3 @@
-// Lubin parser tests. Fixtures are condensed-but-faithful copies of REAL
-// `pdftotext -layout` output of live bip.um.lubin.pl attachments, fetched and
-// verified 2026-07-18 (see parse.js header for full provenance):
-//   attachments/9945/download   flat ANNOUNCEMENT, multi-lot batch (4 flats:
-//     Drzymały 6/13, Kilińskiego 2/6, Kościuszki 23/24, Szkolna 13/12; II
-//     przetarg, dated 2015 — table-driven price/area)
-//   attachments/10683/download  land ANNOUNCEMENT, multi-lot batch (11
-//     działki 750/51..750/61, one price/wadium per działka; IV przetarg,
-//     dated 2018-2019)
-//   attachments/10067/download  land ANNOUNCEMENT, single combined lot (2
-//     działki 855/246 + 154/5 sold together; I przetarg, dated 2016)
-//   attachments/9472/download   WYKAZ package-sale table (13 flats at
-//     ul. 1 Maja 11/11A/11B sold together to one investor)
-//
-// FLAT_ANNOUNCEMENT_SINGLE is a faithful copy of the live 2026-03-09 Szkolna
-// 3/8 announcement's text as republished verbatim by the adradar aggregator
-// (the original bip.um.lubin.pl attachment for that session had already aged
-// off the board by build time — see crawl.js/parse.js headers on the
-// short-retention finding).
-//
-// RESULT_* fixtures are SYNTHETIC, built from the generic Polish
-// municipal-auction result-notice phrasing this repo uses elsewhere (and
-// confirmed present in Lubin's OWN announcement boilerplate — e.g. "Cena
-// zakupu nieruchomości osiągnięta w przetargu podlegać będzie zapłacie
-// jednorazowo" in the 10067 fixture) — NOT from a real Lubin result document.
-// None was reachable at build time: the results board was empty and no
-// "informacja o wyniku przetargu" URL survives in the live sitemap. Flag for
-// re-groundtruthing against a real result PDF the moment one is captured.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -48,9 +20,6 @@ import {
 } from '../src/cities/lubin/parse.js';
 
 test('October 2026 live land tables survive whole parcels and zoning asset mentions', () => {
-  // Exact pdftotext -layout, fetched 2026-10-19 from the official URLs:
-  // https://bip.um.lubin.pl/attachments/30174/download
-  // https://bip.um.lubin.pl/attachments/30173/download
   const read = (id) => readFileSync(new URL(`./fixtures/remediation/lubin-${id}.txt`, import.meta.url), 'utf8');
   const [restricted] = parseAnnouncement(read('30174'));
   assert.equal(parseAnnouncement(read('30174')).length, 1);
@@ -76,7 +45,6 @@ test('October 2026 live land tables survive whole parcels and zoning asset menti
   assert.deepEqual(open.notes, []);
 });
 
-// ---------------------------------------------------------------- unit helpers
 
 test('romanToInt: I, II, IV', () => {
   assert.equal(romanToInt('I'), 1);
@@ -161,11 +129,7 @@ test('isGenuineSaleWykazTitle: sale vs lease/exchange (the live board is mostly 
   );
 });
 
-// ------------------------------------------------------------ real fixtures
 
-// attachments/9945/download — flat ANNOUNCEMENT, multi-lot batch (condensed:
-// legal boilerplate after the table/lot list trimmed, table + all 4 numbered
-// lots kept verbatim).
 const FLAT_ANNOUNCEMENT_MULTI = `
               Prezydent Miasta Lubina ogłasza II nieograniczony przetarg ustny na sprzedaż l oka l i mi es zk al n yc h poł ożon yc h w Lubi nie
       prze znac zon yc h do zb yc i a w ra z z odda ni em w uż ytk ow a nie w ie c z ys te prz yna l e żne j do l ok a l i uł a mk ow e j c zę śc i gruntu
@@ -202,8 +166,6 @@ Pierwszy przetarg odbył się w dniu 10 lipca 2015 roku o godzinie 10 00.
 Przetarg odbędzie się w siedzibie Urzędu Miejskiego w Lubinie, przy ulicy Jana Kilińskiego 10 w sali nr 126, dnia 02-10-2015 roku o godzinie 1000
 `;
 
-// attachments/10683/download — land ANNOUNCEMENT, multi-lot batch (condensed:
-// descriptive prose after the table trimmed, table + auction-date line kept).
 const LAND_ANNOUNCEMENT_BATCH = `
                                                                  Prezydent Miasta Lubina
                        ogłasza IV nieograniczony przetarg ustny na sprzedaż nieruchomości stanowiącej własność Gminy Miejskiej Lubin
@@ -225,8 +187,6 @@ const LAND_ANNOUNCEMENT_BATCH = `
   o godzinie 10:00.
 `;
 
-// attachments/10067/download — land ANNOUNCEMENT, single combined lot
-// (condensed: descriptive prose trimmed, table + auction-date line kept).
 const LAND_ANNOUNCEMENT_SINGLE = `
                                                              Prezydent Miasta Lubina
                                         ogłasza I nieograniczony przetarg ustny na sprzedaż nieruchomości
@@ -244,8 +204,6 @@ przenoszącej własność.
 Przetarg odbędzie się w siedzibie Urzędu Miejskiego w Lubinie, przy ulicy Jana Kilińskiego 10 w sali nr 126, dnia 03-06-2016 roku o godzinie 10:00.
 `;
 
-// Faithful copy of the live 2026-03-09 announcement text (Szkolna 3/8),
-// republished verbatim by adradar — see file header.
 const FLAT_ANNOUNCEMENT_SINGLE = `
 Prezydent Miasta Lubina ogłasza I nieograniczony przetarg ustny na sprzedaż spółdzielczego własnościowego prawa do lokalu mieszkalnego
 Adres lokalu: ul. Szkolna 3/8, Lubin, powiat lubiński, województwo dolnośląskie; Powierzchnia użytkowa lokalu: 27,47 m2; Pomieszczenia: pokój, kuchnia, łazienka z WC, przedpokój;
@@ -254,8 +212,6 @@ Cena wywoławcza: 160 000,00 zł. Lokal niewyodrębniony, znajduje się w zasoba
 P r z e t a r g odbędzie się w siedzibie Urzędu Miejskiego w Lubinie, przy ul. J. Kilińskiego 10 w Lubinie w sali nr 126 dnia 09.03.2026 r. o godzinie 11:00
 `;
 
-// attachments/9472/download — WYKAZ package-sale table (condensed to 4 of the
-// 13 rows; title/header kept verbatim).
 const WYKAZ_PACKAGE = `
                                     WYKAZ NIERUCHOMOŚCI
                  niewyodrębnionych lokali przeznaczonych do łącznej sprzedaży
@@ -345,9 +301,6 @@ test('wykazRecordsFromText: package-sale table — one record per flat, no price
   assert.equal(recs[3].address.key, '1 maja|11A|2');
 });
 
-// ------------------------------------------------------------------ result parse
-// SYNTHETIC fixtures — see file header. Exercises the code path; does not
-// prove the real Lubin result-notice template matches this shape.
 
 const RESULT_SOLD_SYNTHETIC = `
 INFORMACJA O WYNIKU PRZETARGU

@@ -1,5 +1,3 @@
-// City configuration for Hajnówka (powiat hajnowski, Podlaskie)
-// BIP: https://bip.hajnowka.pl
 
 export default {
   id: 'hajnowka',

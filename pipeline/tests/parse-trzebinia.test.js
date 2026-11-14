@@ -1,11 +1,3 @@
-// Trzebinia parser tests. Fixtures are condensed-but-faithful copies of the REAL
-// live article bodies (verified 2026-06-26):
-//   art. 11856 — land ANNOUNCEMENT (dz. 3620, Góry Luszowskie, I przetarg,
-//     137.000,00 zł in a TABLE, termin przetargu 20.01.2026);
-//   art. 9562  — land RESULT (dz. Lgota 1080/34, I, wywoławcza 7.000 → osiągnięta
-//     7.100, nabywca Pan Sylwester Piasny, held 06.09.2022).
-// Reuses core/finn-bip.js body helpers; the office "ul. Narutowicza 10" must
-// never be taken as the property street.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -23,7 +15,6 @@ import {
   parseResultDoc,
 } from '../src/cities/trzebinia/parse.js';
 
-// ---------------------------------------------------------------- title routing
 
 test('title routing: sale announcement vs result notice vs noise', () => {
   assert.equal(isAnnouncementTitle('Ogłoszenie Burmistrza Miasta Trzebini z dnia 26.11.2025 r. przetarg ustny nieograniczony na sprzedaż niezabudowanej działki'), true);
@@ -43,7 +34,6 @@ test('unit extractors', () => {
   assert.equal(obrebFromText('obręb ewidencyjny Góry Luszowskie'), 'Góry Luszowskie');
 });
 
-// ---------------------------------------------------------------------- fixtures
 
 const LAND_ANNOUNCEMENT_TITLE =
   'Ogłoszenie Burmistrza Miasta Trzebini z dnia 26.11.2025 r. przetarg ustny nieograniczony na sprzedaż niezabudowanej działki położonej przy ulicy Robotniczej w Trzebini.';
@@ -62,7 +52,6 @@ W dniu 06.09.2022 roku w siedzibie Urzędu Miasta w Trzebini przy ulicy Narutowi
 Cena wywoławcza nieruchomości wynosiła: 7.000,00 zł, a najwyższa cena osiągnięta w przetargu wyniosła: 7.100,00 zł. Przedmiotowa sprzedaż jest zwolniona z podatku Vat.
 Nabywcą prawa własności przedmiotowej nieruchomości został Pan Sylwester Piasny.`;
 
-// ------------------------------------------------------------ announcement parse
 
 test('parseAnnouncement: land — parcel, obręb, ha→m², table price + table date, street (not office)', () => {
   const rec = parseAnnouncement(LAND_ANNOUNCEMENT_TITLE, LAND_ANNOUNCEMENT_BODY, 'https://trzebinia.pl/.../11856-...');
@@ -70,14 +59,13 @@ test('parseAnnouncement: land — parcel, obręb, ha→m², table price + table 
   assert.equal(rec.kind, 'grunt');
   assert.equal(rec.dzialka_nr, '3620');
   assert.equal(rec.obreb, 'Góry Luszowskie');
-  assert.equal(rec.area_m2, 1418); // 0,1418 ha
-  assert.equal(rec.address_raw, 'ul. Robotniczej'); // NOT ul. Narutowicza (office)
-  assert.equal(rec.starting_price_pln, 137000); // from the table cell
-  assert.equal(rec.auction_date, '2026-01-20'); // Termin przetargu, not Termin wadium (15.01)
+  assert.equal(rec.area_m2, 1418);
+  assert.equal(rec.address_raw, 'ul. Robotniczej');
+  assert.equal(rec.starting_price_pln, 137000);
+  assert.equal(rec.auction_date, '2026-01-20');
   assert.equal(rec.round, 1);
 });
 
-// ------------------------------------------------------------------ result parse
 
 test('parseResultDoc: land sold — parcel, achieved price + buyer, numeric date', () => {
   const [rec] = parseResultDoc(LAND_RESULT_BODY, null, 'https://trzebinia.pl/.../9562-...');
@@ -85,7 +73,7 @@ test('parseResultDoc: land sold — parcel, achieved price + buyer, numeric date
   assert.equal(rec.kind, 'grunt');
   assert.equal(rec.dzialka_nr, '1080/34');
   assert.equal(rec.obreb, 'Lgota');
-  assert.equal(rec.area_m2, 665); // 0,0665 ha
+  assert.equal(rec.area_m2, 665);
   assert.equal(rec.round, 1);
   assert.equal(rec.starting_price_pln, 7000);
   assert.equal(rec.final_price_pln, 7100);

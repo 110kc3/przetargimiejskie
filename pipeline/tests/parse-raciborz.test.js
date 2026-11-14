@@ -1,21 +1,3 @@
-// Racibórz parser tests — groundtruthed against REAL fixtures (2026-06-27).
-//
-// Fixtures captured from bipraciborz.pl:
-//   Announcement PDF: https://www.bipraciborz.pl/res/serwisy/pliki/43779983?version=1.0
-//     (komunikat 43779639, "Pierwszy, publiczny przetarg … ul. Stalmacha nr 7a/10")
-//     Extracted with: pdftotext -layout (3 pages, 116 KB, born-digital, version 1.6)
-//   Result PDF:       https://www.bipraciborz.pl/res/serwisy/pliki/43891507?version=1.0
-//     (komunikat 43891486, "Informacja o wyniku przetargu", ul. Tęczowej/Odrodzenia — LAND)
-//     Extracted with: pdftotext -layout (1 page, version 1.5)
-//
-// Ground truth (verified from the actual PDFs):
-//   Announcement: address ul. Stalmacha 7A/10, apt 10, area 58.25 m², price 281 000 zł,
-//                 auction 15 July 2026, round 1, kind mieszkalny
-//   Result (land): negative outcome, 18 June 2026, round 2, kind grunt
-//
-// NOTE on flat result format: only a LAND result was available on 2026-06-27.
-//   The flat result parser is tested with a synthetic but structurally faithful
-//   fixture; validate against the first real flat result on CI refresh.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -36,14 +18,12 @@ import {
 
 import { parseBoardHtml } from '../src/cities/raciborz/crawl.js';
 
-// ---------------------------------------------------------------- title routing
 
 test('isSkippableTitle: najem, dzierżawa, wykaz', () => {
   assert.equal(isSkippableTitle('Ogłoszenie o przetargu na najem lokalu użytkowego'), true);
   assert.equal(isSkippableTitle('Wykaz nieruchomości przeznaczonych do sprzedaży'), true);
   assert.equal(isSkippableTitle('Ogłoszenie o dzierżawie gruntów'), true);
   assert.equal(isSkippableTitle('Odwołanie przetargu na sprzedaż lokalu'), true);
-  // a valid sale announcement is NOT skippable
   assert.equal(isSkippableTitle('Pierwszy, publiczny przetarg ustny, nieograniczony na sprzedaż lokalu mieszkalnego położonego w Raciborzu przy ul. Stalmacha nr 7a/10'), false);
 });
 
@@ -61,7 +41,6 @@ test('isAnnouncementTitle: przetarg+sprzedaż, rokowania', () => {
   assert.equal(isAnnouncementTitle(''), false);
 });
 
-// ---------------------------------------------------------------- round parsing
 
 test('roundFromText: pierwszy→1, drugi→2, rokowania→2', () => {
   assert.equal(roundFromText('ogłasza pierwszy, publiczny, przetarg ustny, nieograniczony'), 1);
@@ -71,7 +50,6 @@ test('roundFromText: pierwszy→1, drugi→2, rokowania→2', () => {
   assert.equal(roundFromText(null), null);
 });
 
-// ---------------------------------------------------------------- date parsing
 
 test('auctionDateFromText: "w dniu 15 lipca 2026r." (Racibórz announcement format)', () => {
   const body = 'Przetarg odbędzie się w dniu 15 lipca 2026r. o godzinie 1200, w sali nr 125';
@@ -89,7 +67,6 @@ test('auctionDateFromText: null on empty/absent', () => {
   assert.equal(auctionDateFromText('brak daty tutaj'), null);
 });
 
-// ---------------------------------------------------------------- price parsing
 
 test('startingPriceFromText: "281 000,00 zł" (Racibórz section 6 format)', () => {
   const body = 'Cena wywoławcza nieruchomości:\n    281 000,00 zł, z czego 2 % stanowi cena składnika gruntowego.';
@@ -97,7 +74,6 @@ test('startingPriceFromText: "281 000,00 zł" (Racibórz section 6 format)', () 
 });
 
 test('startingPriceFromText: rokowania floor price "nie niższa niż 130 000 zł"', () => {
-  // Verbatim section-6 line from live rokowania PDF pliki/43849103 (Wileńska 15/16).
   const body = 'Cena wywoławcza do rokowań:\n     nie niższa niż 130 000 zł, z czego 5,2 % stanowi cena składnika gruntowego .';
   assert.equal(startingPriceFromText(body), 130000);
 });
@@ -107,7 +83,6 @@ test('startingPriceFromText: null when absent', () => {
   assert.equal(startingPriceFromText(null), null);
 });
 
-// ---------------------------------------------------------------- area parsing
 
 test('unitAreaFromText: "58,25 m2" (lokal mieszkalny)', () => {
   const body = 'Lokal mieszkalny nr 5, usytuowany na czwartej kondygnacji … o powierzchni użytkowej 58,25 m2 .';
@@ -119,7 +94,6 @@ test('unitAreaFromText: null when absent', () => {
   assert.equal(unitAreaFromText(null), null);
 });
 
-// ---------------------------------------------------------------- address parsing
 
 test('addressRawFromText: "47-400 Racibórz, ul. Stalmacha nr 7a/10" → "ul. Stalmacha 7A/10"', () => {
   const body = '1. Lokalizacja: 47-400 Racibórz, ul. Stalmacha nr 7a/10';
@@ -136,18 +110,15 @@ test('addressRawFromText: null when absent', () => {
   assert.equal(addressRawFromText(null), null);
 });
 
-// ---------------------------------------------------------------- isResultNotice
 
 test('isResultNotice: plain and letter-spaced header', () => {
   assert.equal(isResultNotice('Informacja o wyniku przetargu'), true);
-  // letter-spaced (as sometimes rendered by pdftotext from Racibórz PDFs)
   assert.equal(isResultNotice('I n f o r m a c j a  o  wyniku'), true);
   assert.equal(isResultNotice('ogłasza pierwszy przetarg'), false);
   assert.equal(isResultNotice(''), false);
   assert.equal(isResultNotice(null), false);
 });
 
-// ---------------------------------------------------------------- parseBoardHtml
 
 const BOARD_SAMPLE = `
 <div class="article-section" data-announcement-id="43779639" data-annoucement-version="1.1">
@@ -223,12 +194,6 @@ test('parseBoardHtml: empty HTML returns empty array', () => {
   assert.deepEqual(parseBoardHtml('<html><body>nic</body></html>', 'https://example.com'), []);
 });
 
-// ---------------------------------------------------------------- parseAnnouncement (REAL fixture)
-//
-// Source: pdftotext -layout output of the REAL PDF
-//   https://www.bipraciborz.pl/res/serwisy/pliki/43779983?version=1.0
-// (komunikat 43779639, ul. Stalmacha nr 7a/10, fetched 2026-06-27)
-// All values verified against the actual PDF document.
 
 const ANN_STALMACHA = `                                                   PREZYDENT MIASTA RACIBÓRZ
                                   działając na podstawie art. 38 ust. 1 i 2 ustawy z dnia 21 sierpnia 1997 r.
@@ -261,7 +226,7 @@ test('parseAnnouncement: Stalmacha 7a/10 — kind=mieszkalny', () => {
 
 test('parseAnnouncement: Stalmacha 7a/10 — address_raw and address key', () => {
   const r = parseAnnouncement(ANN_STALMACHA);
-  assert.equal(r.address_raw, 'ul. Stalmacha 7a/10'); // ← the result→announcement JOIN KEY basis
+  assert.equal(r.address_raw, 'ul. Stalmacha 7a/10');
   assert.equal(r.address.street, 'Stalmacha');
   assert.equal(r.address.building, '7A');
   assert.equal(r.address.apt, '10');
@@ -294,7 +259,6 @@ test('parseAnnouncement: null/empty → null', () => {
   assert.equal(parseAnnouncement('brak adresu tutaj'), null);
 });
 
-// Rokowania fixture (second-round negotiation, no auction date section present in some)
 const ANN_ROKOWANIA = `                                       PREZYDENT MIASTA RACIBÓRZ
 
                         ogłasza rokowania na sprzedaż lokalu mieszkalnego
@@ -313,19 +277,13 @@ const ANN_ROKOWANIA = `                                       PREZYDENT MIASTA R
 test('parseAnnouncement: rokowania — round=2, kind=mieszkalny, address key set', () => {
   const r = parseAnnouncement(ANN_ROKOWANIA);
   assert.ok(r, 'rokowania record returned');
-  assert.equal(r.round, 2); // rokowania → min round 2
+  assert.equal(r.round, 2);
   assert.equal(r.kind, 'mieszkalny');
   assert.equal(r.address.key, 'mickiewicza|13|15');
   assert.equal(r.starting_price_pln, 115000);
   assert.equal(r.area_m2, 23.4);
 });
 
-// REAL rokowania announcement — verbatim pdftotext -layout of live PDF
-//   https://www.bipraciborz.pl/res/serwisy/pliki/43849103?version=1.0  (Wileńska 15/16)
-// Fetched 2026-07-10. Groundtruth: mieszkalny, round 2 (rokowania), 35,05 m²,
-// floor price 130 000 zł, rokowania 29 lipca 2026. Regression for the null-price gap
-// the 2026-07-07 live smoke flagged: this doc uses the "Cena wywoławcza do rokowań:
-// nie niższa niż X zł" label the earlier price regexes missed (→ starting_price_pln null).
 const ANN_ROKOWANIA_WILENSKA = `                                                   PREZYDENT MIASTA RACIBÓRZ
                                     działając na podstawie art. 39 ust. 2 ustawy z dnia 21 sierpnia 1997 r.
                                        o gospodarce nieruchomościami (t.j. Dz.U. z 2026 r., poz. 399)
@@ -357,17 +315,10 @@ test('parseAnnouncement: rokowania Wileńska 15/16 (real PDF) — floor price 13
   assert.equal(r.round, 2);
   assert.equal(r.address.key, 'wilenskiej|15|16');
   assert.equal(r.area_m2, 35.05);
-  assert.equal(r.starting_price_pln, 130000); // ← was null before the rokowania price clause
+  assert.equal(r.starting_price_pln, 130000);
   assert.equal(r.auction_date, '2026-07-29');
 });
 
-// ---------------------------------------------------------------- parseResultDoc (REAL fixture — land)
-//
-// Source: pdftotext -layout output of the REAL result PDF
-//   https://www.bipraciborz.pl/res/serwisy/pliki/43891507?version=1.0
-// (komunikat 43891486, "Informacja o wyniku przetargu", ul. Tęczowej i ul. Odrodzenia — LAND)
-// Fetched 2026-06-27. Ground truth: negative outcome, no achieved price,
-// auction date 18 June 2026, round 2 (drugi przetarg).
 
 const RESULT_TECZ_LAND = `                               Informacja o wyniku przetargu
 
@@ -431,12 +382,6 @@ test('parseResultDoc: land result — source_pdf propagated', () => {
   assert.equal(recs[0].source_pdf, url);
 });
 
-// ---------------------------------------------------------------- parseResultDoc (synthetic flat result)
-//
-// No real flat result was available on 2026-06-27 (only land results on the wyniki board).
-// This fixture is synthetic but structurally faithful to the result format observed in
-// the land result and consistent with the Racibórz announcement structure.
-// Validate against a real flat result on the first CI refresh.
 
 const RESULT_FLAT_SOLD = `                               Informacja o wyniku przetargu
 
@@ -524,16 +469,12 @@ test('parseResultDoc: non-result text returns empty', () => {
 });
 
 test('parseResultDoc: fallbackDate used when body has no parseable date', () => {
-  // Strip BOTH dates from the land result fixture so the parser has no body date:
-  //   "zaplanowany na 18 czerwca 2026 r.,"  -- the auction date phrase
-  //   "24 czerwca 2026 r."                   -- the signature line (bottom of notice)
   const noDate = RESULT_TECZ_LAND
     .replace(/zaplanowany\s+na\s+18\s+czerwca\s+2026\s+r\.,/i, '')
     .replace(/24\s+czerwca\s+2026\s+r\./i, '');
   const recs = parseResultDoc(noDate, '2026-06-18', 'https://example.com');
-  assert.ok(recs.length >= 0); // must not throw
+  assert.ok(recs.length >= 0);
   if (recs.length > 0) {
-    // Parser had no body date -- fallback date should be used (or null if fallback ignored)
     assert.ok(recs[0].auction_date === '2026-06-18' || recs[0].auction_date === null);
   }
 });

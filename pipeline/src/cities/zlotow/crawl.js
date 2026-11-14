@@ -1,15 +1,3 @@
-// Złotów crawler.
-//
-// Source: bip.zlotow.pl — Nefeni BIPv2 (Next.js App Router SSR platform).
-//
-// Boards:
-//   Parent property sales:      https://bip.zlotow.pl/kategorie/181-sprzedaz-nieruchomosci
-//   Flats & premises:           https://bip.zlotow.pl/kategorie/184-sprzedaz-nieruchomosci-lokalowej
-//   Tender notices board:       https://bip.zlotow.pl/kategorie/94-ogloszenia-o-przetargu
-//   Wykaz board:                https://bip.zlotow.pl/kategorie/91-wykaz-nieruchomosci-przeznaczonych-do-obrotu
-//
-// Attachments are hosted on bip-api.zlotow.pl/api/attachments/<id>.
-// PDF documents are born-digital or clean scans (pdfText with ocrPdf fallback).
 
 import { getText } from '../../core/fetch.js';
 import { pdfText } from '../../core/pdf-text.js';
@@ -30,7 +18,6 @@ import {
 const ORIGIN = 'https://bip.zlotow.pl';
 const MAX_PAGES = 5;
 
-// Active announcement categories (current and recent years)
 const ACTIVE_ANNOUNCEMENT_CATS = [
   '267-2026',
   '242-2025',
@@ -40,14 +27,12 @@ const ACTIVE_ANNOUNCEMENT_CATS = [
   '94-ogloszenia-o-przetargu',
 ];
 
-// Active wykaz categories (current and recent years)
 const ACTIVE_WYKAZ_CATS = [
   '270-2026',
   '241-2025',
   '91-wykaz-nieruchomosci-przeznaczonych-do-obrotu',
 ];
 
-// All historical result categories for achieved-price stream
 const ALL_RESULT_CATS = [
   '267-2026',
   '242-2025',
@@ -65,9 +50,6 @@ export function buildCategoryUrl(catSlug, page = 0, size = 100) {
   return `${ORIGIN}/kategorie/${catSlug}?size=${size}&page=${page}&lang=PL`;
 }
 
-/**
- * Dynamically discover subcategories linked from a parent category board.
- */
 export async function discoverSubcategories(parentSlug) {
   try {
     const url = buildCategoryUrl(parentSlug, 0);
@@ -81,9 +63,6 @@ export async function discoverSubcategories(parentSlug) {
   }
 }
 
-/**
- * Harvest article entries from a paginated category board.
- */
 export async function harvestCategoryEntries(catSlug) {
   const entries = [];
   const seen = new Set();
@@ -112,17 +91,12 @@ export async function harvestCategoryEntries(catSlug) {
       added++;
     }
 
-    // Single page with fewer items than requested size means no further pages exist
     if (added === 0 || found.length < 100) break;
   }
 
   return { entries, verified };
 }
 
-/**
- * Extract text from an attachment URL, trying born-digital pdfText first,
- * then falling back to ocrPdf.
- */
 export async function extractAttachmentText(url) {
   if (!url) return '';
   let text = '';
@@ -143,9 +117,6 @@ export async function extractAttachmentText(url) {
   return text || '';
 }
 
-/**
- * Pick notice PDF from attachments list, ignoring supplementary maps.
- */
 export function pickNoticeAttachment(attachments) {
   if (!attachments || attachments.length === 0) return null;
   const noticeAtt = attachments.find(
@@ -168,7 +139,6 @@ async function doCrawlActive() {
     discoverSubcategories('91-wykaz-nieruchomosci-przeznaczonych-do-obrotu'),
   ]);
 
-  // Keep active / recent years (2025, 2026, and upcoming)
   const isRecentCat = (c) => /202[5-9]/.test(c) || !/202[0-4]/.test(c);
 
   const activeAuctionCats = [
@@ -211,7 +181,6 @@ async function doCrawlActive() {
   const wykaz = [];
   const land = [];
 
-  // Process auction announcements
   for (const entry of allEntries) {
     if (!isAnnouncement(entry.title)) continue;
 
@@ -236,7 +205,6 @@ async function doCrawlActive() {
     for (const item of parsed.land) land.push(item);
   }
 
-  // Process wykaz notices
   for (const entry of wykazEntries) {
     if (!isWykaz(entry.title)) continue;
 
@@ -314,7 +282,6 @@ async function doCrawlResultDocs() {
 
   const refs = [];
   for (const entry of resultEntries) {
-    // If entry URL itself is already in knownUrls, skip detail fetch
     if (knownUrls.has(entry.url)) continue;
 
     let detailHtml = '';

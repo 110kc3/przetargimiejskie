@@ -1,24 +1,3 @@
-// Sopot parsers. Groundtruthed against REAL fetched fixtures (2026-07-18):
-//   - id 58541 (announcement .doc, Armii Krajowej 61/1): "Cena wywoławcza
-//     lokalu mieszkalnego nr 1 ... wynosi: 900.000,00 zł" / "Powierzchnia
-//     użytkowa lokalu wynosi 65,20 m²" / "Przetarg odbędzie się w dniu 16
-//     lipca 2026 r."
-//   - id 59208 (result .doc, same property, NEGATIVE): "Wadium ... nie
-//     zostało wpłacone przez żaden podmiot ... przetarg zakończył się
-//     wynikiem negatywnym."
-//   - id 55644 (result .doc, Wybickiego 45/4, SOLD): "Cena sprzedaży lokalu
-//     niemieszkalnego nr 4 ... osiągnęła w wyniku przetargu kwotę -
-//     404.000,00 zł. Nabywcą lokalu została Pani Katarzyna Jagiełka ..."
-//   - id 17712 (INLINE result article, Fiszera 2, 2016 era, NEGATIVE): result
-//     prose lives directly in the article's `content` HTML, no attachment.
-//
-// Reuses core/finn-bip.js's generic Polish auction-text helpers (priceFromText,
-// areaFromText, auctionDateFromText for the future-tense announcement date,
-// addressFrom, shareFromTitle, parsePLN) — Sopot's prose uses the same
-// vocabulary. Round detection and the result-side (past-tense) date are
-// Sopot-specific (see below) because Sopot's title phrasing ("<Roman>
-// publiczny przetarg") and result phrasing ("W dniu ... odbył się") differ
-// from the FINN-BIP titles those helpers were tuned against.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -34,11 +13,7 @@ import {
 
 export { htmlToText };
 
-// ---- title-level filters (cheap — no fetch needed) -------------------------
 
-/** Rentals, movable-property sales, pure rokowania (post-failed-auction
- *  negotiations, no ustny przetarg to parse), and wykaz pre-announcements —
- *  never a keyable flat/commercial/garage SALE auction. */
 export function isOutOfScopeTitle(title) {
   const t = (title || '').toLowerCase();
   if (/najem|dzier[żz]aw|wynajem/.test(t)) return true;
@@ -48,13 +23,10 @@ export function isOutOfScopeTitle(title) {
   return false;
 }
 
-/** "(ODWOŁANY)" / "[UNIEWAŻNIONY]" etc. — the auction never happened. */
 export function isCancelledTitle(title) {
   return /odwo[łl]an|uniewa[żz]ni/i.test(title || '');
 }
 
-/** Cheap pre-fetch kind classification from the board-list TITLE alone —
- *  null means land/other, out of scope for this build. */
 export function titleInScopeKind(title) {
   const t = title || '';
   if (/lokal\w*\s+mieszkaln/i.test(t)) return 'mieszkalny';
@@ -68,15 +40,10 @@ export function isSaleAnnouncementTitle(title) {
   return /przetarg/.test(t) && /sprzeda/.test(t);
 }
 
-/** A standalone "Informacja (dotycząca rozstrzygnięcia | o wyniku) ..."
- *  article — the pre-~2020 shape where the result is its OWN board entry
- *  (as opposed to a "wynik" attachment appended to the announcement article). */
 export function isResultStandaloneTitle(title) {
   return /informacj\w*[\s\S]{0,40}?(rozstrzygni|wynik)/i.test(title || '');
 }
 
-// ---- text-level classification (after fetch: which role does this
-// attachment/inline-content text play?) -------------------------------------
 
 export function isResultText(text) {
   const t = text || '';
@@ -102,15 +69,11 @@ export function isNegativeResultText(text) {
   );
 }
 
-/** "Cena sprzedaży ... osiągnęła w wyniku przetargu kwotę - 404.000,00 zł." */
 export function achievedPriceFromText(text) {
   const m = /osi[ąa]gn[ęe][łl]a[\s\S]{0,80}?kwot[ęe]\s*-?\s*([\d][\d.,\s-]*?)\s*z[łl]/i.exec(text || '');
   return m ? parsePLN(m[1]) : null;
 }
 
-/** "Nabywcą lokalu została Pani Katarzyna Jagiełka, zamieszkała przy ..." →
- *  optional buyer name for `notes` (public record; not required by the
- *  extension's schema, kept as a light informational extra). */
 export function buyerFromText(text) {
   const m = /Nabywc[ąa]\s+(?:lokalu\s+)?(?:zosta[łl]\w*|sta[łl]\w*)\s+(Pan\w*\s+[A-ZŻŹĆŁŚĄĘÓŃ][\p{L}.\- ]+?)(?=,|\s+zamieszka|\s*$)/u.exec(
     text || '',
@@ -127,58 +90,22 @@ export function unsoldReasonFromText(text) {
   return 'unknown';
 }
 
-// ---- round ------------------------------------------------------------------
 
 const ROMAN = { I: 1, II: 2, III: 3, IV: 4, V: 5 };
 const WORD_ROUND_RE = /\b(pierwsz|drug|trzeci|czwart|pi[ąa]t)\w*\s+przetarg/i;
 const WORD_ROUND_MAP = { pierwsz: 1, drug: 2, trzeci: 3, czwart: 4, pi: 5 };
 
-/**
- * Round marker anywhere in the given text (title OR body). Case-SENSITIVE on
- * the Roman group — a lowercase "i" is the Polish conjunction, not a numeral.
- * Handles bare "<Roman> przetarg" ("II przetarg ustny nieograniczony ..."),
- * the common Sopot phrasing "<Roman> publiczn[y|ego] przetarg[u]" ("I
- * publiczny przetarg ustny nieograniczony ..."), word-spelled rounds ("Drugi
- * przetarg pisemny ..."), and the live-observed data-entry typo of a
- * lowercase "l" standing in for Roman "I" at a title's start (seen live: "l
- * publiczny przetarg ustny nieograniczony ...", ids 18926/18760/18665/17902).
- * @param {string} text
- * @returns {number|null}
- */
 export function roundFrom(text) {
-  // Strip a leading status marker: "(ZAKOŃCZONY) I publiczny ..." / "[ODWOŁANY] ...".
   const t = (text || '').replace(/^\s*[([][^)\]]*[)\]]\s*/, '');
   const w = WORD_ROUND_RE.exec(t);
   if (w) return WORD_ROUND_MAP[w[1].toLowerCase()] ?? null;
-  if (/^l\s+publiczny\s+przetarg/.test(t)) return 1; // OCR/data-entry typo "l" for "I"
+  if (/^l\s+publiczny\s+przetarg/.test(t)) return 1;
   const m = /\b(I{1,3}|IV|V)\s+publiczn\w*\s+przetarg/.exec(t) || /\b(I{1,3}|IV|V)\s+przetarg/.exec(t);
   if (m) return ROMAN[m[1]] ?? null;
   return /przetarg/i.test(t) ? 1 : null;
 }
 
-// ---- garage address ----------------------------------------------------------
-//
-// Garages are often sold WITHOUT a street building number of their own (a
-// standalone garage court): "sprzedaż garażu nr 16 położonego przy ul.
-// Traugutta w Sopocie". core/finn-bip's generic addressFrom expects a
-// building number after the street and has no "garaż nr N" apartment marker
-// (that's a flat-only pattern), so garage titles get their own extractor —
-// garage number and street are searched INDEPENDENTLY (order-agnostic) since
-// Sopot titles use both orders live ("garażu nr 417 ... przy ul. X" and
-// "przy ul. X ... budynku garażu nr 30").
 
-// Sopot's own documents spell the same street inconsistently across
-// documents for the SAME property — observed live:
-//   - "Gen. Józefa Wybickiego" (id 23848) vs "Generała Józefa Wybickiego"
-//     (id 55644);
-//   - "Al. Niepodległości 671-671A" (id 20824) vs "Alei Niepodległości
-//     671-671A" (id 22698) — core/normalize's STRIP_LEAD only strips the
-//     abbreviated "al\.?", so the full word "Alei" survives into the street
-//     name and the SAME building splits into two property keys ("alei
-//     niepodległości|671|" vs "niepodległości|671|").
-// Without normalizing these, the announcement and its achieved-price result
-// never link up as one property. Fold the full form down to the abbreviated
-// one (which STRIP_LEAD already handles) before address extraction.
 const STREET_PREFIX_NORMALIZATIONS = [
   [/\bGen\.\s+/g, 'Generała '],
   [/\bgen\.\s+/g, 'generała '],
@@ -207,12 +134,6 @@ export function garageAddressFrom(text) {
   return address ? { address_raw: raw, address } : null;
 }
 
-// ---- date (result text) ------------------------------------------------------
-//
-// Result prose is PAST tense ("W dniu 16 lipca 2026 r. ... odbył się ...", or
-// the older "Termin przetargu: 29 września 2016r.") — a different anchor than
-// core/finn-bip's auctionDateFromText, which is tuned to the FUTURE-tense
-// announcement phrasing ("odbędzie się").
 
 const PL_MONTHS = {
   stycznia: 1, lutego: 2, marca: 3, kwietnia: 4, maja: 5, czerwca: 6,
@@ -239,15 +160,6 @@ export function resultDateFromText(text) {
   return null;
 }
 
-// ---- unit (apartment) number for NON-flat units --------------------------
-//
-// core/finn-bip's addressFrom only extracts the apartment number for the
-// literal "lokal... MIESZKALN..." (flat) phrasing — a commercial/non-
-// residential unit ("lokalu niemieszkalnego nr 4" / "lokalu użytkowego nr
-// 1A") falls through with address.apt left null, which loses the distinct
-// unit (two commercial lokale in the same building would collide on one
-// address key). Patch the apt in ourselves when addressFrom found a street +
-// building but no apt.
 
 function unitAptFrom(text) {
   const m = /lokal\w*\s+(?:mieszkaln\w*|niemieszkaln\w*|u[żz]ytkow\w*)\s+(?:o\s+numerze|numer|nr\.?)\s*(\d+[A-Za-z]?)/i.exec(
@@ -271,11 +183,7 @@ function resolveAddress(title, text, kind) {
   return patched ? { address_raw: raw, address: patched } : addr;
 }
 
-// ---- record builders ---------------------------------------------------------
 
-/** Build one ACTIVE-listing record from an announcement's extracted text
- *  (either the article's inline `content` or an attachment's docText/pdfText).
- *  Returns null when the record isn't keyable (no usable address). */
 export function buildAnnouncementRecord(title, text, url) {
   let kind = classifyKind(`${title} ${text}`);
   if (kind === 'unknown') kind = titleInScopeKind(title) || 'unknown';
@@ -298,16 +206,6 @@ export function buildAnnouncementRecord(title, text, url) {
   };
 }
 
-/**
- * Build one RESULT record from a result article/attachment's full text. This
- * is the ONLY place a result record is actually assembled — crawl.js hands
- * the already-extracted text straight through (source:'html' contract) and
- * parseResultDoc (the adapter's contract entry point) calls this at
- * refresh-time.
- * @param {string} text
- * @param {string} url
- * @returns {object|null}
- */
 export function buildResultRecord(text, url) {
   if (!text) return null;
   const negative = isNegativeResultText(text);
@@ -335,14 +233,6 @@ export function buildResultRecord(text, url) {
   };
 }
 
-/**
- * Adapter contract entry point: parse one already-extracted result text
- * (crawl.js's ref.text) into an array of result records.
- * @param {string} text
- * @param {string|null} fallbackDate
- * @param {string} sourceUrl
- * @returns {object[]}
- */
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   const rec = buildResultRecord(text, sourceUrl);
   if (!rec) return [];

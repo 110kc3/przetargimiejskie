@@ -1,50 +1,3 @@
-// Świdnica adapter tests. Every fixture is REAL data live-fetched 2026-07-19
-// from bip.swidnica.nv.pl's JSON API (GET /api/articles/{id}, board menu id
-// 11962 "Sprzedaż i dzierżawa nieruchomości") and flattened with the exact
-// production path (core/finn-bip.js#htmlToText on the article's \`content\`
-// field) — i.e. each TEXT_* below is byte-for-byte what crawl.js hands to
-// parse.js at refresh time. Świdnica's workflow mutates ONE article per
-// auction round: the wynik preamble is PREPENDED to the original (unedited)
-// announcement once the round concludes, so every concluded fixture contains
-// both streams (see config.js header).
-//
-//   - TITLE_* — the real board titles (columnFields fieldId 42).
-//   - TEXT_131222 (SOLD, round I, P-43/VI/26, Al. Niepodległości 17 lokal 5):
-//     achieved 352 000,00 zł, nabywca Dawid Konrad Orzech, cena wywoławcza
-//     310 000,00 zł, 101,80 m², auction 25-06-2026.
-//   - ANNOUNCEMENT_131222 — the verbatim original announcement embedded after
-//     131222's wynik preamble (computed slice at the "Prezydent Miasta
-//     Świdnicy ul. Armii Krajowej ... ogłasza I przetarg ..." boundary) — the
-//     REAL pre-mutation announcement text, groundtruthing the crawlActive
-//     listing path (no pristine pending announcement was on the board on
-//     fetch day; every lokal item had already concluded).
-//   - TEXT_131223 (SOLD studio, "Kolejny" = round 2, P-44/VI/26, Wałbrzyska
-//     6/6): 30,60 m² single room whose annex rooms (kuchnia 9,80 m², komórka
-//     12,50 m²) must NOT win the area pick; achieved 60 600,00 zł.
-//   - EXCERPT_131224 — contiguous verbatim head slice (title-repeat + full
-//     wynik preamble) of P-45/VI/26 (UNSOLD despite 1 wadium payer —
-//     "dopuszczonych 0 osób" → no_participants; the achieved-price/nabywca
-//     template lines are left as placeholder punctuation
-//     "&hellip;&hellip;----&hellip;&hellip; zł").
-//   - EXCERPT_131297 — same-shape head slice of P-50/VII/26 (SOLD to TWO
-//     buyers "Roman Gałafin, Urszula Gałafin"; body leads with "Kolejny
-//     przetarg" but recaps "Pierwszy przetarg odbył się ..." further down —
-//     groundtruths roundFrom's start-anchoring).
-//   - TEXT_131298 (UNSOLD, no wadium paid, P-51/VII/26, Środkowa 7A lokal 7):
-//     letter-suffix building; two spelled-month prior-round recaps sit before
-//     the numeric current-round date 06-07-2026.
-//   - TEXT_131299 (UNSOLD commercial "lokalu użytkowego nr 01", P-52/VII/26,
-//     Kraszowicka 55): a stray "lok. 01 m²" fragment floats a bare m² with no
-//     real number — the real 86,48 m² total must win.
-//   - TEXT_131390 (LAND announcement, "ograniczony", P-58/VIII/26) — still a
-//     PURE announcement (no wynik preamble) and out-of-scope kind; contains
-//     the standard wadium-refund boilerplate mentioning "wynikiem negatywnym",
-//     proving that phrase alone must not classify an article as a result.
-//   - TEXT_131198 (archived wykaz/dzierżawa notice) — out-of-scope title AND
-//     unparseable-as-result body.
-//
-// The only non-live string is the "(ODWOŁANY)" cancelled-marker probe in the
-// title-filter test (no cancelled round was on the board on fetch day).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -90,28 +43,25 @@ const TEXT_131390 = "Pierwszy przetarg ustny ograniczony nr P-58/VIII/26 na sprz
 
 const TEXT_131198 = "Prezydent Miasta Świdnicy informuje o wywieszeniu na tablicy ogłoszeń wykazu nieruchomości gruntowych przeznaczonych do wydzierżawienia w trybie bezprzetargowym na cele pozarolnicze oraz rolnicze - Zarządzenie nr 0050-108/2026 Prezydenta Miasta Świdnicy z dnia 11 maja 2026 r. Zarządzenie nr 0050-108/2026 Prezydenta Miasta Świdnicy z dnia 11 maja 2026 r.";
 
-// The verbatim original announcement embedded after 131222's wynik preamble.
 const ANNOUNCEMENT_BOUNDARY = 'Prezydent Miasta Świdnicy ul. Armii Krajowej';
 const ANNOUNCEMENT_131222 = TEXT_131222.slice(TEXT_131222.indexOf(ANNOUNCEMENT_BOUNDARY));
 
-// ------------------------------------------------------------ title filters
 
 test('title filters: dzierżawa/wykaz out, sale gate, per-kind scope gate', () => {
-  assert.equal(isOutOfScopeTitle(TITLE_131198), true); // "... wydzierżawienia ..."
+  assert.equal(isOutOfScopeTitle(TITLE_131198), true);
   assert.equal(isSaleTitle(TITLE_131198), false);
   assert.equal(isOutOfScopeTitle(TITLE_131222), false);
   assert.equal(isSaleTitle(TITLE_131222), true);
 
   assert.equal(titleInScopeKind(TITLE_131222), 'mieszkalny');
   assert.equal(titleInScopeKind(TITLE_131299), 'uzytkowy');
-  assert.equal(titleInScopeKind(TITLE_131390), null); // land — never fetched
+  assert.equal(titleInScopeKind(TITLE_131390), null);
   assert.equal(titleInScopeKind(TITLE_131198), null);
 
   assert.equal(isCancelledTitle(TITLE_131222), false);
-  assert.equal(isCancelledTitle('I przetarg ustny nieograniczony ... (ODWOŁANY)'), true); // synthetic probe
+  assert.equal(isCancelledTitle('I przetarg ustny nieograniczony ... (ODWOŁANY)'), true);
 });
 
-// --------------------------------------------------- announcement vs result
 
 test('isResultText tells a mutated (concluded) article from a pure announcement', () => {
   assert.equal(isResultText(TEXT_131222), true);
@@ -120,28 +70,21 @@ test('isResultText tells a mutated (concluded) article from a pure announcement'
   assert.equal(isResultText(TEXT_131299), true);
   assert.equal(isResultText(EXCERPT_131224), true);
 
-  // The land announcement carries the standard wadium-refund boilerplate
-  // ("... zakończeniu przetargu wynikiem negatywnym") yet must NOT classify
-  // as a result — only the wynik-preamble anchors count.
   assert.ok(TEXT_131390.includes('wynikiem negatywnym'));
   assert.equal(isResultText(TEXT_131390), false);
 
-  // The verbatim original announcement (pre-mutation shape) is not a result.
   assert.ok(TEXT_131222.indexOf(ANNOUNCEMENT_BOUNDARY) > 0);
   assert.equal(isResultText(ANNOUNCEMENT_131222), false);
 });
 
-// ------------------------------------------------------- wynik-block fields
 
 test('achievedPriceFromText/buyerFromText gate on real digits/letters, not template presence', () => {
   assert.equal(achievedPriceFromText(TEXT_131222), 352000);
   assert.equal(buyerFromText(TEXT_131222), 'Dawid Konrad Orzech');
 
   assert.equal(achievedPriceFromText(EXCERPT_131297), 202000);
-  assert.equal(buyerFromText(EXCERPT_131297), 'Roman Gałafin, Urszula Gałafin'); // two buyers
+  assert.equal(buyerFromText(EXCERPT_131297), 'Roman Gałafin, Urszula Gałafin');
 
-  // Negative round: the template lines are PRESENT but left as placeholder
-  // punctuation — must read as null, not 0 or a garbage capture.
   assert.ok(EXCERPT_131224.includes('----&hellip;&hellip; zł'));
   assert.equal(achievedPriceFromText(EXCERPT_131224), null);
   assert.equal(buyerFromText(EXCERPT_131224), null);
@@ -151,56 +94,49 @@ test('achievedPriceFromText/buyerFromText gate on real digits/letters, not templ
 });
 
 test('unsoldReasonFromText: no wadium paid vs nobody admitted', () => {
-  assert.equal(unsoldReasonFromText(TEXT_131298), 'no_wadium'); // "wpłaciło 0 osób"
-  assert.equal(unsoldReasonFromText(EXCERPT_131224), 'no_participants'); // 1 wadium, "dopuszczonych 0 osób"
+  assert.equal(unsoldReasonFromText(TEXT_131298), 'no_wadium');
+  assert.equal(unsoldReasonFromText(EXCERPT_131224), 'no_participants');
 });
 
-// ------------------------------------------------------------------- round
 
 test('roundFrom: Roman, spelled and "Kolejny" markers, anchored at the start', () => {
-  assert.equal(roundFrom(TITLE_131222), 1); // "I przetarg"
-  assert.equal(roundFrom(TITLE_131299), 2); // "II przetarg"
-  assert.equal(roundFrom(TITLE_131298), 2); // "Kolejny przetarg" = re-run
-  assert.equal(roundFrom(TITLE_131390), 1); // "Pierwszy przetarg"
+  assert.equal(roundFrom(TITLE_131222), 1);
+  assert.equal(roundFrom(TITLE_131299), 2);
+  assert.equal(roundFrom(TITLE_131298), 2);
+  assert.equal(roundFrom(TITLE_131390), 1);
 
-  // Body of a "Kolejny" round recaps "Pierwszy przetarg odbył się ..." further
-  // down — the anchor must keep the leading marker in charge.
   assert.ok(EXCERPT_131297.includes('Pierwszy przetarg odbył się'));
   assert.equal(roundFrom(EXCERPT_131297), 2);
 });
 
-// ----------------------------------------------------------------- address
 
 test('addressFrom handles the "przy <ulicy/Alei> X nr N" idiom', () => {
   const niepodleglosci = addressFrom(TITLE_131222, '');
   assert.equal(niepodleglosci.address_raw, 'ul. Niepodległości 17/5');
   assert.equal(niepodleglosci.address.key, 'niepodleglosci|17|5');
 
-  const grodzka = addressFrom(TITLE_131224, ''); // range building number
+  const grodzka = addressFrom(TITLE_131224, '');
   assert.equal(grodzka.address_raw, 'ul. Grodzkiej 16-18/6');
   assert.equal(grodzka.address.building, '16-18');
   assert.equal(grodzka.address.apt, '6');
 
-  const srodkowa = addressFrom(TITLE_131298, ''); // letter-suffix building
+  const srodkowa = addressFrom(TITLE_131298, '');
   assert.equal(srodkowa.address_raw, 'ul. Środkowej 7A/7');
   assert.equal(srodkowa.address.building, '7A');
 
-  // Title-less lookup (parseResultDoc path) reads the wynik preamble's recap.
   const walbrzyska = addressFrom('', TEXT_131223);
   assert.equal(walbrzyska.address_raw, 'ul. Wałbrzyskiej 6/6');
   assert.equal(walbrzyska.address.key, 'walbrzyskiej|6|6');
 });
 
-// -------------------------------------------------------------------- date
 
 test('auctionDateFromText: numeric dash date wins; spelled-month recaps never match', () => {
   assert.equal(auctionDateFromText(TEXT_131222), '2026-06-25');
-  assert.ok(TEXT_131298.includes('odbył się w dniu 30 marca 2026')); // spelled recap sits FIRST
+  assert.ok(TEXT_131298.includes('odbył się w dniu 30 marca 2026'));
   assert.equal(auctionDateFromText(TEXT_131298), '2026-07-06');
   assert.equal(auctionDateFromText(TEXT_131390), '2026-08-13');
 });
 
-// ---------------------------------------------------- announcement records
 
 test('buildAnnouncementRecord on the verbatim original announcement (131222)', () => {
   const rec = buildAnnouncementRecord(TITLE_131222, ANNOUNCEMENT_131222, URL_131222);
@@ -220,7 +156,6 @@ test('buildAnnouncementRecord rejects the land announcement (131390)', () => {
   assert.equal(buildAnnouncementRecord(TITLE_131390, TEXT_131390, 'https://x/'), null);
 });
 
-// --------------------------------------------------------- result records
 
 test('parseResultDoc: SOLD flat (131222, round I)', () => {
   const [rec, ...rest] = parseResultDoc(TEXT_131222, null, URL_131222);
@@ -244,7 +179,7 @@ test('parseResultDoc: SOLD studio (131223) — the flat\'s 30,60 m² wins over a
   assert.equal(rec.kind, 'mieszkalny');
   assert.equal(rec.address_raw, 'ul. Wałbrzyskiej 6/6');
   assert.equal(rec.area_m2, 30.6);
-  assert.equal(rec.round, 2); // "Kolejny przetarg"
+  assert.equal(rec.round, 2);
   assert.equal(rec.starting_price_pln, 60000);
   assert.equal(rec.final_price_pln, 60600);
   assert.equal(rec.outcome, 'sold');
@@ -287,11 +222,8 @@ test('parseResultDoc returns [] for out-of-scope texts (land, wykaz)', () => {
 
 test('parseResultDoc: fallback date only fills a missing parse, never overrides', () => {
   const [rec] = parseResultDoc(TEXT_131298, '2020-01-01', 'https://x/');
-  assert.equal(rec.auction_date, '2026-07-06'); // parsed date wins
+  assert.equal(rec.auction_date, '2026-07-06');
 
-  // The 131224 preamble excerpt has ONLY spelled-month recap dates (no
-  // numeric current-round date), so the fallback is used — and the preamble
-  // alone still yields a complete UNSOLD record.
   assert.equal(auctionDateFromText(EXCERPT_131224), null);
   const [fb] = parseResultDoc(EXCERPT_131224, '2026-06-25', 'https://x/');
   assert.equal(fb.auction_date, '2026-06-25');

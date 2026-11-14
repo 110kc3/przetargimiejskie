@@ -1,6 +1,3 @@
-// Crawler for Wołomin (wolomin.bip.net.pl)
-//
-// Fetches search results for property tenders and extracts attached PDF notices.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -47,7 +44,6 @@ export async function crawlActive() {
     try {
       const artHtml = await getText(art.url, FETCH_OPTS);
 
-      // Find attachment document links
       const attMatches = [...artHtml.matchAll(/href=[\"'](\?p=document&amp;action=save&amp;id=(\d+)&amp;bar_id=(\d+))[\"']/gi)];
 
       if (attMatches.length > 0) {
@@ -77,7 +73,6 @@ export async function crawlActive() {
           }
         }
       } else {
-        // Fallback to article text
         if (isAnnouncementTitle(art.title)) {
           results.push(parseAnnouncement(art, artHtml));
         }

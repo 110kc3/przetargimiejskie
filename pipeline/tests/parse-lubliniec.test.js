@@ -1,43 +1,3 @@
-// Lubliniec parser tests. Fixtures are condensed-but-faithful copies of REAL
-// TITLE (board link text) + BODY (content-main plain text) pairs fetched live
-// from lubliniec.bip.info.pl (verified 2026-07-10). Each fixture feeds
-// parse.buildRecordText() exactly as crawl.js does, so the parsers are
-// groundtruthed against production data.
-//
-//   ANNOUNCEMENTS (idmp=93):
-//   iddok 26798  Mickiewicza 9/6   — ACTIVE, round IV (lokal niemieszkalny →
-//                                    kind uzytkowy), modern table price layout,
-//                                    date + round history decoys
-//   iddok 22526  Częstochowska 6/34 — ACTIVE, round I, spółdzielcze
-//                                    własnościowe prawo (area-clause gap case)
-//   iddok 13865  Oświęcimska 19/1  — ACTIVE, round I, pre-2023 direct
-//                                    price-label layout, "nr N położonej…"
-//                                    title form (no slash-apt)
-//   iddok 24601  Paderewskiego 12/16 — ACTIVE, round III; board TITLE has a
-//                                    REAL typo ("prztarg" for "przetarg") —
-//                                    round/kind recovery falls through to the
-//                                    (correctly spelled) BODY
-//   iddok 26836  M.C. Skłodowskiej  — ACTIVE land, round I, abbreviated
-//                                    "o godz." (not "o godzinie") time marker
-//   RESULTS (idmp=94):
-//   iddok 24862  Paderewskiego 12/16 — SOLD, round III, no-grosze price
-//                                    ("141.400 zł")
-//   iddok 24861  Oświęcimska 19/12 — SOLD, round III; apt (12) ONLY recoverable
-//                                    from the TITLE's "19/12" slash — this
-//                                    terse result body never restates "Lokal
-//                                    … nr 12"
-//   iddok 25996  Mickiewicza 9/6   — UNSOLD, round I, "nikt nie przystąpił"
-//   iddok 27200  M.C. Skłodowskiej — SOLD land, round I — THE spike-confirmed
-//                                    hammer-price doc: 552.000,00 zł vs
-//                                    400.000,00 zł wywoławcza, 3 oferentów,
-//                                    nabywca KOMTERM Sp. z o.o.
-//   GATES (both boards):
-//   iddok 24378  "na dzierżawę …"  — LEASE → skipped
-//   iddok 22477  "UWAGA Odwołanie …" — CANCELLATION → skipped (title-scoped
-//                                    guard; body legitimately says "Burmistrz
-//                                    ma prawo odwołania przetargu" is NOT what
-//                                    trips this — it's the notice's OWN title)
-//   iddok 26884  "…rozstrzygnięcia skargi…" — COMPLAINT RESOLUTION → skipped
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -61,7 +21,6 @@ import {
 } from '../src/cities/lubliniec/parse.js';
 import { parseBoardPage } from '../src/cities/lubliniec/crawl.js';
 
-// --------------------------------------------------------------- real fixtures
 
 const MICKIEWICZA_IV_ACTIVE = {
   title:
@@ -101,10 +60,6 @@ const OSWIECIMSKA_19_2017_ACTIVE = {
     'PRZETARG przeprowadzony zostanie zgodnie z Rozporządzeniem Rady Ministrów.',
 };
 
-// Board TITLE has a REAL live typo: "prztarg" (missing the "e" of "przetarg"),
-// confirmed both in the board-93 anchor text and the document's own metryka
-// "Tytuł dokumentu" field. The BODY's opening line is correctly spelled, so
-// round/kind extraction (which reads TITLE-then-BODY) still recovers cleanly.
 const PADEREWSKIEGO_1216_III_ACTIVE = {
   title:
     'III prztarg ustny nieograniczony(licytacja) na sprzedaż nieruchomości lokalowej przy ul. Paderewskiego 12/16 w Lublińcu',
@@ -117,8 +72,6 @@ const PADEREWSKIEGO_1216_III_ACTIVE = {
     'I przetarg wyznaczony na dzień 17.07.2024r. oraz II przetarg wyznaczony na dzień 9.10.2024r. zakończyły się wynikiem negatywnym.',
 };
 
-// Abbreviated "o godz." (not "o godzinie") — confirms the date anchor accepts
-// both spellings.
 const LAND_SKLODOWSKIEJ_ACTIVE = {
   title:
     'I przetarg ustny (licytacja) nieograniczony na sprzedaż nieruchomości gruntowej, stanowiącej własność Gminy Lubliniec, położonej w Lublińcu przy ul. Marii Curie Skłodowskiej (dz.1808/51)',
@@ -143,8 +96,6 @@ const PADEREWSKIEGO_1216_SOLD = {
     'Nabywcami wyżej opisanej nieruchomości lokalowej zostali: Małgorzata i Jarosław PROWDA',
 };
 
-// Terse result body NEVER restates "Lokal … nr 12" — the apartment number is
-// only recoverable from the TITLE's "Oświęcimskiej 19/12" slash.
 const OSWIECIMSKA_1912_SOLD = {
   title:
     'Informacja pozytywna odnośnie rozstrzygnięcia III przetargu ustnego nieograniczonego na sprzedaż nieruchomości lokalowej przy ul. Oświęcimskiej 19/12 w Lublińcu, stanowiącej własność Gminy Lubliniec',
@@ -165,7 +116,6 @@ const MICKIEWICZA_I_UNSOLD = {
     'wynik jest negatywny tj. nikt nie przystąpił do przetargu',
 };
 
-// THE spike-confirmed hammer-price doc (iddok 27200).
 const LAND_RESULT_SOLD = {
   title:
     'Informacja pozytywna odnośnie I przetargu ustnego nieograniczonego na sprzedaż nieruchomości gruntowej, położonej w Lublińcu przy ul. M.C. Skłodowskiej (1808/51)',
@@ -177,15 +127,6 @@ const LAND_RESULT_SOLD = {
     'W wyniku przeprowadzonego przetargu nabywcą nieruchomości została KOMTERM Spółka z ograniczoną odpowiedzialnością z/s w Częstochowie',
 };
 
-// NOTE the "Symbole: 1UC teren zabudowy usługowej … o powierzchni sprzedaży
-// powyżej 2000 m2" clause below is REAL (verbatim from the live document,
-// zoning-plan boilerplate — "sales floor area" of nearby retail land uses,
-// nothing to do with selling THIS property) and deliberately kept: it means
-// this lease notice's full text DOES contain "sprzedaż", so isSaleAuction
-// ALONE (which only requires "przetarg" + "sprzedaż" somewhere in the text)
-// is fooled into returning true here — exactly why crawl.js runs isLease as
-// a SEPARATE, second gate rather than folding lease-exclusion into
-// isSaleAuction. See the dedicated gate test below.
 const LEASE_LISOWICKA = {
   title:
     'I przetarg ustny (licytacja) nieograniczony na dzierżawę nieruchomości gruntowej, stanowiącej własność Gminy Lubliniec, położonej w Lublińcu przy ul. Lisowickiej z przeznaczeniem pod uprawy rolne',
@@ -211,7 +152,6 @@ const SKARGA_TARGOWA = {
     'Informacja o sposobie rozstrzygnięcia skargi na czynności związane z przeprowadzeniem w dniu 08.04.2026 roku pierwszego przetargu ustnego nieograniczonego na sprzedaż nieruchomości, stanowiącej własność Gminy Lubliniec, położonej w Lublińcu przy ul. Targowej.',
 };
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: dot-thousands, no-grosze, comma-decimal (real Lubliniec amounts)', () => {
   assert.equal(parsePLN('552.000,00'), 552000);
@@ -283,40 +223,20 @@ test('addressRawFromText: slash-apt in TITLE, "nr N" in TITLE, and body-derived 
 });
 
 test('addressRawFromText: terse RESULT doc recovers apt ONLY from the TITLE slash (no body restatement)', () => {
-  // Oświęcimska 19/12's result body never says "Lokal … nr 12" (see fixture
-  // comment) — addressRawFromText must fall back to the "/12" already
-  // captured from the "przy ul. Oświęcimskiej 19/12" TITLE match itself.
   assert.equal(addressRawFromText(buildRecordText(OSWIECIMSKA_1912_SOLD)), 'Oświęcimskiej 19/12');
   assert.equal(addressRawFromText(buildRecordText(PADEREWSKIEGO_1216_SOLD)), 'Paderewskiego 12/16');
   assert.equal(addressRawFromText(buildRecordText(MICKIEWICZA_I_UNSOLD)), 'Mickiewicza 9/6');
 });
 
 test('addressRawFromText: land text (no building number anywhere) resolves to null, not a garbage capture', () => {
-  // addressRawFromText is documented flat/commercial-only (land routes
-  // through landStreetFromText/landPlotFromText instead) and is never called
-  // on land text in the real parseAnnouncement/parseResultDoc flow — but
-  // calling it directly here regression-guards the failure mode found while
-  // building this adapter: LAND_SKLODOWSKIEJ_ACTIVE's "przy ul. Marii Curie
-  // Skłodowskiej" has NO building number nearby (land is parcel-addressed),
-  // so an early version of PROP_ADDR_RE's lazy street capture ran straight
-  // through the sentence boundary into "działka nr 1808/51" and returned
-  // that PARCEL number as if it were a building number. isJunkStreetCapture
-  // (+ the street-length cap) now makes this fail closed (null) instead.
   assert.equal(addressRawFromText(buildRecordText(LAND_SKLODOWSKIEJ_ACTIVE)), null);
 });
 
 test('addressRawFromText: skips the UM office address and the "działka nr" junk capture to find the real address', () => {
-  // Synthetic (not live-fetched) probes, built from REAL phrase fragments
-  // confirmed live, that force addressRawFromText's `while` loop to actually
-  // walk PAST a bad first candidate — none of the fixtures above need to
-  // (their TITLE already has a clean match on the first attempt), so without
-  // these the office/junk skip logic would be exercised by nothing.
   const officeFirst = buildRecordText({
     title: 'Ogłoszenie', // deliberately no address, forcing a body-only search
     body:
-      // Real boilerplate clause (verbatim, seen on every announcement):
       'Ogłoszenie niniejsze wywieszone jest na tablicy informacyjnej w siedzibie Urzędu Miejskiego w Lublińcu przy ul. Paderewskiego 5. ' +
-      // The real property address, appearing only AFTER the office one:
       'Lokal mieszkalny nr 3 położony jest przy ul. Kościuszki 8 w Lublińcu.',
   });
   assert.equal(addressRawFromText(officeFirst), 'Kościuszki 8/3');
@@ -324,10 +244,6 @@ test('addressRawFromText: skips the UM office address and the "działka nr" junk
   const junkThenReal = buildRecordText({
     title: 'Ogłoszenie',
     body:
-      // A minimal reproduction of the land "przy ul. …" (no nearby number)
-      // running into a parcel aside, immediately followed by a genuine
-      // flat address — proves isJunkStreetCapture skips the first without
-      // consuming the second.
       'Nieruchomość gruntowa położona w Lublińcu przy ul. Sportowej działka nr 12/3. ' +
       'Lokal mieszkalny nr 5 przy ul. Klonowej 7 w Lublińcu.',
   });
@@ -335,7 +251,7 @@ test('addressRawFromText: skips the UM office address and the "działka nr" junk
 });
 
 test('kindFromText: TITLE-unqualified "nieruchomości lokalowej" falls back to BODY\'s (nie)mieszkalny qualifier', () => {
-  assert.equal(kindFromText(buildRecordText(MICKIEWICZA_IV_ACTIVE)), 'uzytkowy'); // lokal NIEmieszkalny
+  assert.equal(kindFromText(buildRecordText(MICKIEWICZA_IV_ACTIVE)), 'uzytkowy');
   assert.equal(kindFromText(buildRecordText(CZESTOCHOWSKA_634_ACTIVE)), 'mieszkalny');
   assert.equal(kindFromText(buildRecordText(PADEREWSKIEGO_1216_III_ACTIVE)), 'mieszkalny');
   assert.equal(kindFromText(buildRecordText(LAND_SKLODOWSKIEJ_ACTIVE)), 'grunt');
@@ -343,9 +259,6 @@ test('kindFromText: TITLE-unqualified "nieruchomości lokalowej" falls back to B
 
 test('gates: isSaleAuction / isLease — isSaleAuction alone is fooled by real zoning-plan "sprzedaży" text, isLease is the actual filter', () => {
   assert.equal(isSaleAuction(buildRecordText(MICKIEWICZA_IV_ACTIVE)), true);
-  // Real "powierzchni sprzedaży" zoning boilerplate (see fixture comment)
-  // makes the bare przetarg+sprzedaż test pass even for this lease notice —
-  // isSaleAuction is NOT the gate that excludes leases.
   assert.equal(isSaleAuction(buildRecordText(LEASE_LISOWICKA)), true);
   assert.equal(isLease(buildRecordText(LEASE_LISOWICKA)), true);
   assert.equal(isLease(buildRecordText(MICKIEWICZA_IV_ACTIVE)), false);
@@ -356,9 +269,6 @@ test('gates: cancellation and complaint-resolution notices are excluded (TITLE-s
   assert.equal(isSaleAuction(buildRecordText(SKARGA_TARGOWA)), false);
   assert.equal(isResultDoc(buildRecordText(CANCEL_KISIELEWSKIEGO)), false);
   assert.equal(isResultDoc(buildRecordText(SKARGA_TARGOWA)), false);
-  // The ordinary boilerplate clause "Burmistrz ma prawo odwołania przetargu z
-  // ważnych powodów" sits in EVERY normal announcement's body (incl. this
-  // fixture) — a whole-text (non-TITLE-scoped) guard would wrongly reject it.
   assert.equal(isSaleAuction(buildRecordText(MICKIEWICZA_IV_ACTIVE)), true);
 });
 
@@ -366,12 +276,11 @@ test('gates: isResultDoc / isNegativeOutcome', () => {
   assert.equal(isResultDoc(buildRecordText(PADEREWSKIEGO_1216_SOLD)), true);
   assert.equal(isResultDoc(buildRecordText(MICKIEWICZA_I_UNSOLD)), true);
   assert.equal(isResultDoc(buildRecordText(LAND_RESULT_SOLD)), true);
-  assert.equal(isResultDoc(buildRecordText(MICKIEWICZA_IV_ACTIVE)), false); // announcement, not a result
+  assert.equal(isResultDoc(buildRecordText(MICKIEWICZA_IV_ACTIVE)), false);
   assert.equal(isNegativeOutcome(buildRecordText(MICKIEWICZA_I_UNSOLD)), true);
   assert.equal(isNegativeOutcome(buildRecordText(PADEREWSKIEGO_1216_SOLD)), false);
 });
 
-// ------------------------------------------------------------- result records
 
 test('parseResultDoc: Paderewskiego 12/16 SOLD (round III, no-grosze achieved price)', () => {
   const [r] = parseResultDoc(buildRecordText(PADEREWSKIEGO_1216_SOLD), null, 'https://lubliniec.bip.info.pl/dokument.php?iddok=24862&idmp=94&r=r');
@@ -420,10 +329,9 @@ test('parseResultDoc: THE confirmed hammer-price doc — M.C. Skłodowskiej land
 test('parseResultDoc: returns [] for non-result / non-auction notices', () => {
   assert.deepEqual(parseResultDoc(buildRecordText(CANCEL_KISIELEWSKIEGO), null, 'x'), []);
   assert.deepEqual(parseResultDoc(buildRecordText(SKARGA_TARGOWA), null, 'x'), []);
-  assert.deepEqual(parseResultDoc(buildRecordText(MICKIEWICZA_IV_ACTIVE), null, 'x'), []); // pending announcement, not a result
+  assert.deepEqual(parseResultDoc(buildRecordText(MICKIEWICZA_IV_ACTIVE), null, 'x'), []);
 });
 
-// ----------------------------------------------------------- active + land
 
 test('parseAnnouncement: Mickiewicza 9/6 IV (lokal niemieszkalny → uzytkowy, table price, date+round decoys)', () => {
   const rec = parseAnnouncement(buildRecordText(MICKIEWICZA_IV_ACTIVE));
@@ -471,29 +379,20 @@ test('parseAnnouncement: land (Skłodowskiej dz. 1808/51) → kind grunt with pa
   assert.equal(rec.auction_date, '2026-06-17');
 });
 
-// crawl.js admits a record into parseAnnouncement only when BOTH gates agree:
-// `if (!isSaleAuction(text)) continue; if (isLease(text)) continue;`
 function admittedAsSaleAnnouncement(fixture) {
   const text = buildRecordText(fixture);
   return isSaleAuction(text) && !isLease(text);
 }
 
 test('parseAnnouncement gating: lease / cancellation / complaint-resolution notices never reach parseAnnouncement', () => {
-  assert.equal(admittedAsSaleAnnouncement(LEASE_LISOWICKA), false); // isSaleAuction=true, but isLease=true catches it
-  assert.equal(admittedAsSaleAnnouncement(CANCEL_KISIELEWSKIEGO), false); // isSaleAuction=false (TITLE-scoped "Odwołanie" guard)
-  assert.equal(admittedAsSaleAnnouncement(SKARGA_TARGOWA), false); // isSaleAuction=false (TITLE-scoped "skargi" guard)
-  assert.equal(admittedAsSaleAnnouncement(MICKIEWICZA_IV_ACTIVE), true); // a genuine sale announcement is admitted
+  assert.equal(admittedAsSaleAnnouncement(LEASE_LISOWICKA), false);
+  assert.equal(admittedAsSaleAnnouncement(CANCEL_KISIELEWSKIEGO), false);
+  assert.equal(admittedAsSaleAnnouncement(SKARGA_TARGOWA), false);
+  assert.equal(admittedAsSaleAnnouncement(MICKIEWICZA_IV_ACTIVE), true);
 });
 
-// ----------------------------------------------------------- board HTML
 
 test('parseBoardPage: extracts iddok/url/title from real board HTML (single-quoted hrefs, dedupes)', () => {
-  // Condensed-but-real markup shape captured live from
-  // https://lubliniec.bip.info.pl/index.php?idmp=93&r=r (2026-07-10): a
-  // `<div id="content-main">` table of `<tr><td>DATE</td><td class="code">
-  // </td><td><a class="hilited" href='dokument.php?iddok=N&amp;idmp=93&amp;
-  // r=r' >TITLE</a></td></tr>` rows, followed by `<div id="colRight">`
-  // sidebar chrome that must be excluded from the parsed region.
   const html = `
     <div id="content-main" class="textformatter col-sm-7" role="main">
     <table><tbody>

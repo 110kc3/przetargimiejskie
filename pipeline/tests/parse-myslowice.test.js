@@ -1,5 +1,3 @@
-// Myslowice parser tests (FINN eUrząd / core/finn-bip.js).
-// See also: parse-myslowice-land.test.js for land tests (HL-27).
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -135,8 +133,6 @@ test('parseIndexLinks: harvest + dedup; broadened linkFilter passes land (HL-27)
   assert.deepEqual(links.filter((u) => FILTER.test(u)), links);
 });
 
-// ---- Land via parseLandAnnouncement (HL-27) ----
-// CMS-injected spaces: "106 .000,-zl" -> 106000; "2 3 czerwca 202 6" -> 2026-06-23
 
 const LAND_TITLE =
   'Ogloszenie o I przetargu na sprzedaz nieruchomosci niezabudowanej - ul. Dlugiej.';
@@ -171,7 +167,7 @@ test('parseLandAnnouncement: street fallback when no parcel', () => {
   assert.ok(r);
   assert.equal(r.kind, 'grunt');
   assert.equal(r.dzialka_nr, null);
-  assert.equal(r.street, 'Stokrotek'); // the real street, not the "ul" prefix
+  assert.equal(r.street, 'Stokrotek');
   assert.equal(r.area_m2, 500);
   assert.equal(r.starting_price_pln, 75000);
 });
@@ -193,13 +189,6 @@ test('parseAnnouncement (flat): no regression from land wiring (HL-27)', () => {
   assert.equal(r.starting_price_pln, 154000);
 });
 
-// ---- House (zabudowana) + commercial (uzytkowy) routing (coverage fix) ----
-// The factory loop in core/finn-bip.js used to drop every non-flat, non-grunt
-// title (`if (!isFlat(title)) continue;`), losing ~20 houses + 8 commercial that
-// share the Mysłowice przetarg board. Now it resolves the kind on title+body and
-// routes house/commercial through parseAnnouncement, stamped with the resolved
-// kind. resolveKind classifies on the title first, falling back to the body when
-// the title is terse (the kind word lives in the body).
 
 const HOUSE_TITLE =
   'Ogloszenie o I przetargu na sprzedaz nieruchomosci - ul. Stawowa 12.';
@@ -220,14 +209,10 @@ const COMMERCIAL_BODY =
   'Cena wywolawcza wynosi 180 000,00 zl. Przetarg w dniu 06.04.2026 r.</p>';
 
 test('resolveKind: terse title resolves house/commercial from the body', () => {
-  // Title alone is unknown (no zabudowanej/uzytkowego word); body decides.
   assert.equal(resolveKind(HOUSE_TITLE, ''), 'unknown');
   assert.equal(resolveKind(HOUSE_TITLE, 'nieruchomosci zabudowanej budynkiem mieszkalnym'), 'zabudowana');
-  // Commercial title already carries "lokalu uzytkowego" → resolves from title.
   assert.equal(resolveKind(COMMERCIAL_TITLE, ''), 'uzytkowy');
-  // Flat title must still win even if the body mentions a plot share.
   assert.equal(resolveKind(FLAT_TITLE, 'wraz z udzialem w dzialce gruntu'), 'mieszkalny');
-  // Explicit land title stays grunt (no regression).
   assert.equal(resolveKind('Ogloszenie o V przetargu na sprzedaz nieruchomosci niezabudowanej', ''), 'grunt');
 });
 
@@ -245,7 +230,7 @@ test('house: parseAnnouncement keys + extracts; routed kind is zabudowana', () =
   assert.equal(kind, 'zabudowana');
   const r = parseAnnouncement(HOUSE_TITLE, HOUSE_BODY);
   assert.ok(r, 'house must be keyable');
-  assert.equal(r.address.key, 'stawowa|12|'); // building-level key, no apt
+  assert.equal(r.address.key, 'stawowa|12|');
   assert.equal(r.area_m2, 96.4);
   assert.equal(r.starting_price_pln, 420000);
   assert.equal(r.auction_date, '2026-07-14');
@@ -257,8 +242,6 @@ test('commercial: parseAnnouncement keys + extracts; routed kind is uzytkowy', (
   assert.equal(kind, 'uzytkowy');
   const r = parseAnnouncement(COMMERCIAL_TITLE, COMMERCIAL_BODY);
   assert.ok(r, 'commercial must be keyable');
-  // Commercial keys at building level: addressFrom only lifts an apt nr for a
-  // residential "lokal mieszkalny", so a "lokal użytkowy nr 3" → "<street>|8|".
   assert.equal(r.address.key, 'grunwaldzka|8|');
   assert.equal(r.area_m2, 45.2);
   assert.equal(r.starting_price_pln, 180000);

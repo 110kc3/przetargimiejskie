@@ -1,11 +1,3 @@
-// Regression tests for buildCityData's same-run healing (June 2026 review):
-//   1. dual-stream dedupe — Katowice surfaces the same auction from the
-//      results PDF AND the announcement archive; the announcement row used to
-//      either replace the result record in merge-history or survive next to
-//      it and inflate the derived round (observed: grzyski|1|7 got a
-//      fabricated round 2; sklodowskiej curie|21|1 lost its result record).
-//   2. street case-variant coalescing — "Staromiejska" (results PDF) vs
-//      "Staromiejskiej" (announcement) used to become two properties.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -47,7 +39,6 @@ const activeListing = (addrRaw, date, o = {}) => ({
 });
 
 test('same auction from results PDF + announcement collapses into ONE result-backed listing', () => {
-  // Past date → the announcement-derived row would be 'archived'.
   const { properties } = buildCityData({
     allRecords: [resultRec('ul. Grzyśki 1/7', '2026-02-17', { starting: 280000, final: 286000 })],
     active: [activeListing('ul. Grzyśki 1/7', '2026-02-17', { area: 48.3, starting: 280000 })],
@@ -132,9 +123,6 @@ test('buildCityData preserves optional outcome evidence and owner type', () => {
 });
 
 test('healStreetVariants folds a post-merge genitive zombie into the nominative property', () => {
-  // Simulates mergeProperties output: the fresh build coalesced "sportowej|6|2"
-  // into "sportowa|6|2", but the merge re-seeded the old genitive key from the
-  // previously-committed file — same sold auction in BOTH properties.
   const sold = {
     date: '2026-02-23', round: 3, kind: 'mieszkalny',
     starting_price_pln: 142000, final_price_pln: 142000,
@@ -165,9 +153,6 @@ test('healStreetVariants folds a post-merge genitive zombie into the nominative 
 });
 
 test('healStreetVariants migrates merged-in plot areas to land_area_m2 (post-merge self-heal)', () => {
-  // Simulates the CI failure of 12 June: the committed file carries a 1716 m²
-  // "flat" (old parser), the merge re-imports it every run — the post-merge
-  // heal must demote it so the sanity gate passes without manual data edits.
   const merged = [{
     key: 'gliwicka|132A|6', street: 'Gliwicka', street_norm: 'gliwicka',
     building: '132A', apt: '6', kind: 'mieszkalny', area_m2: 1716.67,

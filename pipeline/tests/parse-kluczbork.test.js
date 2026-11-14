@@ -1,29 +1,3 @@
-// Kluczbork parser tests — groundtruthed on REAL municipal documents from bip.kluczbork.eu.
-//
-// Key fixtures:
-// 1. ANNOUNCE_2026_BATCH (GNP.6840.24.2026.JK, plik 23707):
-//    - Ligota Dolna działka nr 78/8 (kind: grunt)
-//    - ul. Zamkowa 15/14 (kind: mieszkalny, 139.03 m², 187 400 zł, date: 2026-09-29, round: 1)
-//    - ul. Skłodowskiej-Curie 3/3 (kind: mieszkalny, 137.20 m², 235 000 zł, date: 2026-09-29, round: 1)
-// 2. RESULT_2026_BATCH (GNP.6840.24.2026.JK, plik 23873):
-//    - Same 3 items concluded UNSOLD (wynikiem negatywnym) on 2026-09-29
-// 3. RESULT_2024_DRZYMALY (GNP.6840.34.2024.JK, plik 20707):
-//    - ul. Drzymały 8/1 (kind: mieszkalny, 34.85 m², 25 000 zł -> 35 000 zł, SOLD to Meinhart Company Sp.zo.o.)
-//    - Kuniów dz. 492/454 (kind: grunt, SOLD 190 650 zł -> 193 000 zł to Firma Usługowo-Handlowa „Prędkiewicz”)
-//    - Kuniów dz. 441 (kind: grunt, SOLD 89 790 zł -> 91 000 zł)
-//    - Kluczbork dz. 2445 & Ks. Skargi dz. 358/2 (kind: grunt, UNSOLD)
-// 4. ANNOUNCE_2023_SYBIRAKOW (GNP.6840.24.2023.JK, plik 18931):
-//    - ul. Sybiraków 1/6 (kind: mieszkalny, 186.67 m², 216 400 zł, date: 2023-11-30, round: 1)
-//    - ul. Zamkowa 15/14 (kind: mieszkalny, 139.03 m², 184 500 zł [ocr xl], date: 2023-11-30, round: 1)
-//    - Ks. Skargi dz. 358/2 (kind: grunt, 1401 m², 253 000 zł, date: 2023-11-30, round: 3)
-// 5. RESULT_2023_DAMROTA (GNP.6840.13.2023.JK, plik 18647):
-//    - ul. Damrota 15/1 (działka 179/1, kind: mieszkalny, 73 013 zł -> 78 500 zł, SOLD to Sabina Trocha, round: 4, date: 2023-07-28)
-//    - dz. 359/2 (kind: grunt, 251 000 zł -> 253 600 zł, SOLD to Sławomir Błaszków, round: 2)
-//    - dz. 358/2 (kind: grunt, 253 000 zł, UNSOLD, round: 2)
-// 6. RESULT_2022_BYCZYNSKA_ZAMKOWA (GNP.6840.2.2022.JK, plik 15332):
-//    - Plots 314-318 (all sold to AVIBUD / WEKA)
-//    - ul. Byczyńska 25 (68 010 zł -> 80 000 zł, SOLD to Gerhard Pilarski, round: 1, date: 2022-02-16)
-//    - ul. Zamkowa 15/14 (179 568 zł, UNSOLD, round: 2, date: 2022-02-16)
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -47,7 +21,6 @@ const {
   flatAddressRaw,
 } = parse;
 
-// --------------------------------------------------------------------- Fixtures
 
 const FIXTURE_ANNOUNCE_2026 = `BURMISTRZ MIASTA KLUCZBORKA
 województwo opolskie Kluczbork, dnia 27 sierpnia 2026 r.
@@ -284,7 +257,6 @@ const FIXTURE_CANCEL = `Informacja Burmistrza Miasta Kluczborka o odwołaniu I i
 
 const FIXTURE_QUALIFIED_BIDDERS = `Lista osób zakwalifikowanych do uczestnictwa w I ustnym przetargu ustnym ograniczonym wyznaczonym na dzień 14.08.2025r. w Urzędzie Miejskim w Kluczborku`;
 
-// --------------------------------------------------------------------- Tests
 
 test('2026 Batch Announcement (plik 23707): extracts flats Zamkowa 15/14, Curie-Skłodowskiej 3/3, land 78/8', () => {
   const recs = parseAnnouncement(FIXTURE_ANNOUNCE_2026, {
@@ -294,7 +266,6 @@ test('2026 Batch Announcement (plik 23707): extracts flats Zamkowa 15/14, Curie-
 
   assert.equal(recs.length, 3);
 
-  // Item 1: Land plot 78/8
   const plot = recs.find((r) => r.kind === 'grunt');
   assert.ok(plot, 'expected land plot');
   assert.equal(plot.dzialka_nr, '78/8');
@@ -303,7 +274,6 @@ test('2026 Batch Announcement (plik 23707): extracts flats Zamkowa 15/14, Curie-
   assert.equal(plot.auction_date, '2026-09-29');
   assert.equal(plot.round, 1);
 
-  // Item 2: Zamkowa 15/14
   const zamkowa = recs.find((r) => r.address?.key === 'zamkowa|15|14');
   assert.ok(zamkowa, 'expected Zamkowa 15/14');
   assert.equal(zamkowa.kind, 'mieszkalny');
@@ -316,7 +286,6 @@ test('2026 Batch Announcement (plik 23707): extracts flats Zamkowa 15/14, Curie-
   assert.equal(zamkowa.auction_date, '2026-09-29');
   assert.equal(zamkowa.round, 1);
 
-  // Item 3: Curie-Skłodowskiej 3/3
   const curie = recs.find((r) => r.address?.key === 'sklodowskiej curie|3|3');
   assert.ok(curie, 'expected Skłodowskiej-Curie 3/3');
   assert.equal(curie.kind, 'mieszkalny');
@@ -374,7 +343,6 @@ test('2024 Drzymały 8/1 Result (plik 20707): flat SOLD 25 000 zł -> 35 000 zł
   assert.equal(flat.auction_date, '2024-10-18');
   assert.equal(flat.round, 1);
 
-  // Also check land plots in the same result doc
   const soldLand1 = recs.find((r) => r.dzialka_nr === '492/454');
   assert.ok(soldLand1);
   assert.equal(soldLand1.outcome, 'sold');
@@ -394,7 +362,6 @@ test('2023 Sybiraków 1/6 Announcement (plik 18931): Sybiraków 1/6, Zamkowa 15/
   });
   assert.equal(recs.length, 3);
 
-  // Flat 1: Sybiraków 1/6
   const sybirakow = recs.find((r) => r.address?.key === 'sybirakow|1|6');
   assert.ok(sybirakow, 'expected Sybiraków 1/6');
   assert.equal(sybirakow.address_raw, 'ul. Sybiraków 1/6');
@@ -403,7 +370,6 @@ test('2023 Sybiraków 1/6 Announcement (plik 18931): Sybiraków 1/6, Zamkowa 15/
   assert.equal(sybirakow.auction_date, '2023-11-30');
   assert.equal(sybirakow.round, 1);
 
-  // Flat 2: Zamkowa 15/14 (with 'xl' OCR currency)
   const zamkowa = recs.find((r) => r.address?.key === 'zamkowa|15|14');
   assert.ok(zamkowa, 'expected Zamkowa 15/14');
   assert.equal(zamkowa.area_m2, 139.03);
@@ -411,7 +377,6 @@ test('2023 Sybiraków 1/6 Announcement (plik 18931): Sybiraków 1/6, Zamkowa 15/
   assert.equal(zamkowa.auction_date, '2023-11-30');
   assert.equal(zamkowa.round, 1);
 
-  // Land: Ks. Skargi 358/2 round III
   const land = recs.find((r) => r.dzialka_nr === '358/2');
   assert.ok(land, 'expected Ks. Skargi parcel 358/2');
   assert.equal(land.starting_price_pln, 253000);
@@ -434,7 +399,6 @@ test('2023 Damrota 15/1 Result (plik 18647): round 4 SOLD to Sabina Trocha for 7
   assert.equal(damrota.round, 4);
   assert.equal(damrota.auction_date, '2023-07-28');
 
-  // Commercial / building
   const built = recs.find((r) => r.kind === 'uzytkowy' || r.kind === 'zabudowana');
   assert.ok(built);
   assert.equal(built.starting_price_pln, 25800);
@@ -448,7 +412,6 @@ test('2022 Byczyńska 25 & Zamkowa 15/14 Result (plik 15332)', () => {
   const recs = parseResultDoc(FIXTURE_RESULT_2022, null, 'https://www.bip.kluczbork.eu/plik,15332,test.pdf');
   assert.equal(recs.length, 3);
 
-  // Zamkowa 15/14 round II unsold
   const zamkowa = recs.find((r) => r.address?.key === 'zamkowa|15|14');
   assert.ok(zamkowa);
   assert.equal(zamkowa.outcome, 'unsold');
@@ -456,7 +419,6 @@ test('2022 Byczyńska 25 & Zamkowa 15/14 Result (plik 15332)', () => {
   assert.equal(zamkowa.round, 2);
   assert.equal(zamkowa.auction_date, '2022-02-16');
 
-  // Byczyńska 25 sold to Gerhard Pilarski
   const byczynska = recs.find((r) => r.address?.street === 'Byczyńska');
   assert.ok(byczynska);
   assert.equal(byczynska.outcome, 'sold');
@@ -473,15 +435,12 @@ test('Filter guards: isLease, isCancellation, isResultDoc, error handling', () =
   assert.equal(isCancellation(FIXTURE_CANCEL), true);
   assert.equal(isResultDoc(FIXTURE_QUALIFIED_BIDDERS), false);
 
-  // Announcements filter out lease and cancellations
   assert.deepEqual(parseAnnouncement(FIXTURE_LEASE), []);
   assert.deepEqual(parseAnnouncement(FIXTURE_CANCEL), []);
 
-  // Results filter out lease and procedural notices
   assert.deepEqual(parseResultDoc(FIXTURE_LEASE), []);
   assert.deepEqual(parseResultDoc(FIXTURE_QUALIFIED_BIDDERS), []);
 
-  // Empty or invalid input
   assert.deepEqual(parseAnnouncement(''), []);
   assert.deepEqual(parseResultDoc(''), []);
   assert.deepEqual(parseAnnouncement(null), []);

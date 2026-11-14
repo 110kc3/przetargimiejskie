@@ -1,6 +1,3 @@
-// Parser for Wołomin auction notices and results (wolomin.bip.net.pl)
-//
-// Parses Sputnik Software BIP notice listings and attached PDFs.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -74,28 +71,23 @@ export function parseAnnouncement(item, docText = '') {
   const text = cleanText(`${item.title || ''} ${docText}`);
   const title = (item.title || '').trim();
 
-  // Date
   const dateMatch =
     text.match(/(?:odbędzie się dnia|odbędzie się w dniu|termin przetargu|w dniu)\s+([0-9]{1,2}\s+[a-ząćęłńóśźż]+\s+20\d{2})/i) ||
     text.match(/(?:odbędzie się dnia|odbędzie się w dniu|termin przetargu|w dniu)\s+([0-9]{1,2}\.[0-9]{2}\.20\d{2})/i);
   const auctionDate = dateMatch ? parsePlDate(dateMatch[1]) : parsePlDate(item.date);
 
-  // Price
   const priceMatch =
     text.match(/cena wywoławcza[^\n:]*?wynosi\s*([\d\s]+(?:,\d{2})?\s*(?:z[łl]|PLN))/i) ||
     text.match(/cena wywoławcza[^\d]{1,60}([\d\s]+(?:,\d{2})?\s*(?:z[łl]|PLN))/i) ||
     text.match(/(?:cena wywoławcza|cena)\s*(?:netto|brutto)?\s*[:\-]?\s*([\d\s]+(?:,\d{2})?\s*(?:z[łl]|PLN))/i);
   const price = priceMatch ? parsePrice(priceMatch[1]) : null;
 
-  // Deposit (wadium)
   const depositMatch = text.match(/wadium[^\d]{1,40}([\d\s]+(?:,\d{2})?\s*(?:z[łl]|PLN))/i);
   const deposit = depositMatch ? parsePrice(depositMatch[1]) : null;
 
-  // Parcel
   const parcelMatch = text.match(/\b(?:działk[aieę]|działce|dz\.)\s*(?:ewidencyjn[a-z]*\s*)?(?:nr\s*)?(\d+(?:\/\d+)?)/i);
   const parcel = parcelMatch ? parcelMatch[1] : null;
 
-  // Area
   const areaMatch = text.match(/powierzchni[^\d]{1,25}([\d\s]+(?:,\d{1,4})?)\s*(m2|m²|ha)/i);
   let area = null;
   if (areaMatch) {
@@ -107,12 +99,10 @@ export function parseAnnouncement(item, docText = '') {
     }
   }
 
-  // Address
   const addrMatch = text.match(/(?:przy\s+ul\.?|ulicy|ul\.)\s+([A-ZĄĆĘŁŃÓŚŹŻ0-9][a-ząćęłńóśźż\s\d\/-]+?)(?:w\s+Wołominie|\.|,|KW)/i);
   const rawAddress = addrMatch ? `ul. ${addrMatch[1].trim()}` : 'Wołomin';
   const address = parseAddress(rawAddress, 'Wołomin');
 
-  // KW
   const kwMatch = text.match(/\b(WA1W\/\d{8}\/\d+)\b/i) || text.match(/KW[-:\s]+([A-Z0-9\/]+)/i);
   const landRegistry = kwMatch ? kwMatch[1].toUpperCase() : null;
 

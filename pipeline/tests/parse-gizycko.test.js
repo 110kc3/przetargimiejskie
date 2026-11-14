@@ -1,27 +1,3 @@
-// Tests for pipeline/src/cities/gizycko/parse.js + crawl.js
-//
-// Fixtures groundtruthed 2026-06-29 against live BIP bip.gizycko.pl:
-//
-//   ANNOUNCEMENT (flat, round 3) — Obwieszczenie nr 92/2025:
-//     URL: https://bip.gizycko.pl/wiadomosci/11525/wiadomosc/845322/obwieszczenie_nr_922025__iii_przetarg_na_sprzedaz_lokalu_dabrows
-//     Title: "Obwieszczenie nr 92/2025 - III przetarg na sprzedaz lokalu Dąbrowskiego 6/12B"
-//     Body: lokal mieszkalny nr 12B … nr 6 przy ul. Dąbrowskiego, pow. użytkowa 27,00 m²
-//     Cena wywoławcza: 200 000 zł; przetarg: 10 grudnia 2025 o godz. 11.00
-//     Date (ISO): "Data wytworzenia dokumentu: <span>2025-10-21</span>"
-//     No PDF attachments on this page.
-//
-//   ANNOUNCEMENT (multi-flat, round 1) — Obwieszczenie nr 53/2025:
-//     URL: https://bip.gizycko.pl/wiadomosci/11525/wiadomosc/818013/obwieszczenie__nr_532025__i_przetarg_ustny_nieograniczony_na_spr
-//     Title: "OBWIESZCZENIE NR 53/2025 - I przetarg ustny nieograniczony na sprzedaż lokali w budynku Dąbrowskiego 6."
-//     Body: two flats — nr 12B (27,00 m², 250 000 zł, 18 czerwca 2025)
-//                     + nr 9 (68,20 m², 743 000 zł, 16.07.2025)
-//     Result PDFs were attached (informacja_o_wyniku_przetargu.pdf) then removed 2025-11-17
-//     pdftotext output: empty (scanned Xerox image PDF)
-//
-//   RESULT PDF (confirmed scanned image) — Obwieszczenie nr 12/2024:
-//     URL: https://bip-v1-files.idcom-jst.pl/sites/3080/wiadomosci/735398/files/wyniki.pdf
-//     Creator: Xerox WorkCentre 7225; pdftotext output: empty
-//     parseResultDoc always returns [].
 
 import { strict as assert } from 'node:assert';
 import { describe, it } from 'node:test';
@@ -44,11 +20,8 @@ import {
   addressFromBody,
 } from '../src/cities/gizycko/crawl.js';
 
-// ----------------------------------------------------------------- parseListPage
 
 describe('parseListPage', () => {
-  // Reconstructed from live list HTML (bip.gizycko.pl/wiadomosci/11525/lista/1/przetargi__sprzedaz),
-  // confirmed structure 2026-06-29.
   const LIST_HTML = `
 <div class="t1 clickable">
   <div class="contener">
@@ -102,7 +75,6 @@ describe('parseListPage', () => {
   });
 });
 
-// ----------------------------------------------------------------- isAnnouncementTitle
 
 describe('isAnnouncementTitle', () => {
   it('accepts flat III przetarg (Dąbrowskiego)', () => {
@@ -153,7 +125,6 @@ describe('isAnnouncementTitle', () => {
   });
 });
 
-// ----------------------------------------------------------------- isResultTitle
 
 describe('isResultTitle', () => {
   it('identifies wynik + lokal', () => {
@@ -171,7 +142,6 @@ describe('isResultTitle', () => {
   });
 });
 
-// ----------------------------------------------------------------- roundFromTitle
 
 describe('roundFromTitle', () => {
   it('extracts III (3)', () => {
@@ -196,7 +166,6 @@ describe('roundFromTitle', () => {
   });
 });
 
-// ----------------------------------------------------------------- publishedDateFromDetail
 
 describe('publishedDateFromDetail', () => {
   it('parses ISO date form (confirmed live 2026-06-29)', () => {
@@ -226,7 +195,6 @@ describe('publishedDateFromDetail', () => {
   });
 });
 
-// ----------------------------------------------------------------- attachmentPdfUrlsFromDetail
 
 describe('attachmentPdfUrlsFromDetail', () => {
   it('finds result PDF URL (confirmed live on nr 113/2024 page)', () => {
@@ -265,7 +233,6 @@ describe('attachmentPdfUrlsFromDetail', () => {
   });
 });
 
-// ----------------------------------------------------------------- auctionDateFromBody
 
 describe('auctionDateFromBody', () => {
   it('parses "w dniu 10 grudnia 2025 roku" (nr 92/2025, confirmed live)', () => {
@@ -293,7 +260,6 @@ describe('auctionDateFromBody', () => {
   });
 });
 
-// ----------------------------------------------------------------- areaFromBody
 
 describe('areaFromBody', () => {
   it('parses "pow. użytkowa lokalu 27,00 m2" (nr 92/2025, confirmed live)', () => {
@@ -321,7 +287,6 @@ describe('areaFromBody', () => {
   });
 });
 
-// ----------------------------------------------------------------- startingPriceFromBody
 
 describe('startingPriceFromBody', () => {
   it('parses "Cena wywoławcza lokalu … 200 000 zł" (nr 92/2025, confirmed live)', () => {
@@ -355,13 +320,8 @@ describe('startingPriceFromBody', () => {
   });
 });
 
-// ----------------------------------------------------------------- addressFromBody
 
 describe('addressFromBody', () => {
-  // Fixture text from nr 92/2025 detail page (confirmed live 2026-06-29).
-  // Body text (tags stripped):
-  //   "lokal mieszkalny nr 12B położony w budynku mieszkalnym wielorodzinnym
-  //    nr 6 przy ul. Dąbrowskiego w Giżycku, pow. użytkowa lokalu 27,00 m2"
   const BODY_92 =
     'lokal mieszkalny nr 12B położony w budynku mieszkalnym wielorodzinnym nr 6 przy ul. Dąbrowskiego w Giżycku, pow. użytkowa lokalu 27,00 m2';
   const TITLE_92 = 'Obwieszczenie nr 92/2025 - III przetarg na sprzedaz lokalu Dąbrowskiego 6/12B';
@@ -408,7 +368,6 @@ describe('addressFromBody', () => {
   });
 });
 
-// ----------------------------------------------------------------- bodyTextFromDetail
 
 describe('bodyTextFromDetail', () => {
   it('extracts text from <div class="tresc"> and strips tags', () => {
@@ -427,7 +386,6 @@ describe('bodyTextFromDetail', () => {
   });
 });
 
-// ----------------------------------------------------------------- parseResultDoc
 
 describe('parseResultDoc', () => {
   it('always returns [] (scanned image PDFs — no text extractable)', () => {
@@ -444,16 +402,8 @@ describe('parseResultDoc', () => {
   });
 });
 
-// ----------------------------------------------------------------- integration: full announcement parse
 
 describe('integration — nr 92/2025 announcement (confirmed live 2026-06-29)', () => {
-  // Synthetic detail HTML reproducing the exact structure from the live page.
-  // Body text confirmed by curl on 2026-06-29:
-  //   - lokal mieszkalny nr 12B … nr 6 przy ul. Dąbrowskiego w Giżycku
-  //   - pow. użytkowa lokalu 27,00 m2
-  //   - Cena wywoławcza lokalu wraz z udziałem w gruncie: 200 000 zł
-  //   - odbędzie się w dniu 10 grudnia 2025 roku o godz. 11.00
-  //   - Data wytworzenia dokumentu: 2025-10-21
   const DETAIL_HTML = `
 <div class="tresc">
   <p>lokal mieszkalny nr 12B położony w budynku mieszkalnym wielorodzinnym nr 6 przy ul. Dąbrowskiego w Giżycku, pow. użytkowa lokalu 27,00 m<sup>2</sup></p>
@@ -518,11 +468,8 @@ describe('integration — nr 92/2025 announcement (confirmed live 2026-06-29)', 
   });
 });
 
-// ----------------------------------------------------------------- integration: nr 53/2025 multi-flat (I przetarg)
 
 describe('integration — nr 53/2025 multi-flat announcement (confirmed live 2026-06-29)', () => {
-  // Two flats: 12B (27 m², 250 000 zł, 18.06.2025) and 9 (68,20 m², 743 000 zł, 16.07.2025)
-  // Parser extracts FIRST flat's data.
   const BODY_53 = [
     'lokal mieszkalny nr 12B położony w budynku mieszkalnym wielorodzinnym nr 6 przy ul. Dąbrowskiego w Giżycku,',
     'pow. użytkowa lokalu 27,00 m2.',
@@ -552,7 +499,6 @@ describe('integration — nr 53/2025 multi-flat announcement (confirmed live 202
     assert.ok(addr, 'address must be non-null');
     assert.match(addr.street_norm, /dabrowskiego/i);
     assert.equal(addr.building, '6');
-    // First flat is 12B from body pattern A
     assert.equal(addr.apt, '12B');
   });
   it('isAnnouncementTitle accepts this title', () => {

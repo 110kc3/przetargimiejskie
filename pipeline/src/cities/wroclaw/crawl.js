@@ -1,21 +1,3 @@
-// Wrocław crawler — bip.um.wroc.pl (Logonet eUrząd, server-rendered HTML) +
-// gn.um.wroc.pl (Giełda Nieruchomości, secondary achieved-price source).
-// See config.js for the two-source achieved-price picture and parse.js for
-// the field-extraction groundtruth.
-//
-// BIP search endpoint (confirmed live 2026-07-16):
-//   https://bip.um.wroc.pl/przetargi-nieruchomosci/szukaj
-//     ?kind_id=3        "lokal mieszkalny" (the only kind this adapter tracks)
-//     &status=0|2       0 = Aktualne, 2 = Rozstrzygnięte
-//     &perPage=N&page=N
-// Each result row AND the article detail page itself render an identical
-// `<table class="table table-borderless">` "Szczegóły" block — parse.js's
-// parseListingBlocks() handles both shapes with one parser.
-//
-// RODO window (live-verified): a resolved article's "Informacja o wyniku"
-// .docx attachment is present only ~7 days after the auction date. The
-// "Rozstrzygnięte" search is newest-first, so crawlResultDocs() only needs to
-// scan the first few pages to catch every doc still inside its window.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -35,21 +17,17 @@ const ORIGIN = 'https://bip.um.wroc.pl';
 const SEARCH_URL = `${ORIGIN}/przetargi-nieruchomosci/szukaj`;
 const GIELDA_ORIGIN = 'https://gn.um.wroc.pl';
 
-const KIND_FLAT = 3;     // "lokal mieszkalny" — the only kind_id this adapter tracks
-const STATUS_ACTIVE = 0; // "Aktualne"
-const STATUS_RESOLVED = 2; // "Rozstrzygnięte"
+const KIND_FLAT = 3;
+const STATUS_ACTIVE = 0;
+const STATUS_RESOLVED = 2;
 const PER_PAGE = 25;
-const MAX_PAGES_ACTIVE = 15;   // safety cap — real "Aktualne" volume is far smaller
-const MAX_PAGES_RESULT = 5;    // newest-first; only recent pages fall inside the 7-day doc window
-const ENRICH_AREA_LIMIT = 200; // bound the per-listing announcement-.docx fetch pass
+const MAX_PAGES_ACTIVE = 15;
+const MAX_PAGES_RESULT = 5;
+const ENRICH_AREA_LIMIT = 200;
 
-// Giełda sequential-ID scan window. Confirmed live 2026-07-16: ids ~1097-1310
-// resolve (HTTP 200); 1320+ 500s (past the current max). Bump GIELDA_ID_START
-// forward periodically as the catalog grows — this is a SUPPLEMENTARY source
-// (recent-window backfill), not the primary achieved-price stream.
 const GIELDA_ID_START = 1050;
-const GIELDA_MAX_SCAN = 400;   // hard cap on ids probed this run
-const GIELDA_FAIL_STREAK_STOP = 8; // consecutive non-200s ⇒ past the current max
+const GIELDA_MAX_SCAN = 400;
+const GIELDA_FAIL_STREAK_STOP = 8;
 
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
@@ -68,7 +46,6 @@ async function fetchSearchPage(status, page) {
   }
 }
 
-// ---- crawlActive -------------------------------------------------------------
 
 export async function crawlActive() {
   const listings = [];
@@ -86,8 +63,6 @@ export async function crawlActive() {
   return { listings, wykaz: [], land: [] };
 }
 
-// The first "Ogłoszenie (wersja tekstowa)" .docx/.doc attachment link on a
-// detail page whose label matches `labelRe`.
 function attachmentUrlByLabel(detailHtml, labelRe) {
   const re = /<a id="attachments-title"[^>]*href="([^"]+)">\s*([^<]+)<\/a>/g;
   let m;
@@ -97,13 +72,6 @@ function attachmentUrlByLabel(detailHtml, labelRe) {
   return null;
 }
 
-/**
- * Fill area_m2 for active listings by fetching each detail page (to find the
- * "Ogłoszenie (wersja tekstowa)" attachment) then the attachment itself.
- * Bounded to ENRICH_AREA_LIMIT listings/run. Optional per the adapter
- * contract — refresh.js calls it only if present.
- * @param {object[]} active  mutated in place
- */
 export async function enrichActive(active) {
   let recovered = 0;
   let attempted = 0;
@@ -125,7 +93,6 @@ export async function enrichActive(active) {
   console.error(`  wroclaw enrichActive: recovered area for ${recovered}/${attempted} attempted listing(s)`);
 }
 
-// ---- crawlResultDocs: BIP result .docx (primary) ----------------------------
 
 function buildRefText({ addressRaw, round, startingPricePln, auctionDate, body }) {
   const header = [
@@ -155,7 +122,7 @@ async function crawlBipResultRefs() {
         continue;
       }
       const docUrl = attachmentUrlByLabel(detailHtml, /Informacja\s+o\s+wyniku/i);
-      if (!docUrl) continue; // outside the ~7-day RODO publication window
+      if (!docUrl) continue;
       let body;
       try {
         body = await docText(docUrl, FETCH_OPTS);
@@ -182,15 +149,12 @@ async function crawlBipResultRefs() {
   return refs;
 }
 
-// ---- crawlResultDocs: Giełda Nieruchomości (secondary/backfill) -------------
 
 function gieldaAddressFromHtml(html) {
   const m = /details-title-offer">\s*<b>\s*(?:Ulica\s+)?([^<]+?)\s*<\/b>/i.exec(html || '');
   return m ? `ul. ${m[1].trim()}` : null;
 }
 
-// Strict digit-group pattern (see parse.js's amountsInText doc comment for
-// why: a loose `[\d\s.]*` run can swallow stray adjacent-field digits).
 function gieldaPriceField(text, label) {
   const re = new RegExp(`${label}:\\s*(\\d{1,3}(?:[ .]\\d{3})*,\\d{2})\\s*z[łl]`, 'i');
   const m = re.exec(text || '');
@@ -210,16 +174,6 @@ async function fetchGielda(id) {
   }
 }
 
-/**
- * Bounded forward scan of Giełda's sequential lot IDs. Only lots with a
- * parseable "Cena uzyskana:" (achieved price) become result refs — that's
- * the only field this source adds over the BIP stream, and it's absent
- * (rendered "-") for anything not yet resolved. Addresses come from Giełda's
- * own nominative "Ulica X Y" heading, which is NOT guaranteed to match the
- * genitive form BIP labels use for the same building (a known, systemic
- * genitive/nominative key-drift already handled post-hoc by
- * core/build-properties.js's healStreetVariants — not re-solved here).
- */
 async function crawlGieldaResultRefs() {
   const refs = [];
   let failStreak = 0;
@@ -229,11 +183,9 @@ async function crawlGieldaResultRefs() {
     if (!html) { failStreak++; continue; }
     failStreak = 0;
 
-    // gieldaPriceField's label:...value regex needs the FLATTENED text — the
-    // raw HTML has the <li>label</li>...<li>value</li> tags in between.
     const text = htmlToText(html);
     const achieved = gieldaPriceField(text, 'Cena uzyskana');
-    if (achieved == null) continue; // not yet resolved / no recorded price
+    if (achieved == null) continue;
 
     const addressRaw = gieldaAddressFromHtml(html);
     if (!addressRaw) continue;
@@ -255,7 +207,6 @@ async function crawlGieldaResultRefs() {
   return refs;
 }
 
-// ---- crawlResultDocs ---------------------------------------------------------
 
 export async function crawlResultDocs() {
   const bipRefs = await crawlBipResultRefs();

@@ -1,11 +1,3 @@
-// Kędzierzyn-Koźle parser tests. Fixtures are condensed-but-faithful copies of
-// the REAL extracted text of live attachments (verified 2026-06-26):
-//   download/74494 land ANNOUNCEMENT (dz. 854/44, III przetarg, 150.000,00 zł);
-//   download/78414 land RESULT negative (dz. 1756/5,9,10, XIV przetarg, 80.000,00 zł);
-//   download/73247 land RESULT sold (dz. 450/7, I, wywoławcza 60.000 → osiągnięta 60.600);
-//   download/74897 flat RESULT unsold (ul. Grunwaldzka 51 nr 1, I, 170.000,00 zł, brak wadium).
-// Same Logonet CMS as Tarnowskie Góry; the office "ul. Piastowskiej 17" appears
-// in every doc and must never be taken as the property street.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -23,7 +15,6 @@ import {
   parseResultDoc,
 } from '../src/cities/kedzierzyn-kozle/parse.js';
 
-// ---------------------------------------------------------------- unit helpers
 
 test('romanToInt: I, III, XIV', () => {
   assert.equal(romanToInt('I'), 1);
@@ -36,7 +27,6 @@ test('romanToInt: I, III, XIV', () => {
 test('roundFromText: Roman ordinal qualifying "przetarg ustny", first wins', () => {
   assert.equal(roundFromText('ogłasza:\nIII przetarg ustny nieograniczony'), 3);
   assert.equal(roundFromText('przeprowadzono XIV przetarg ustny nieograniczony'), 14);
-  // a conjunction "i" must NOT be read as Roman 1:
   assert.equal(roundFromText('przedmiot i datę przetargu zgodnie z ogłoszeniem'), null);
 });
 
@@ -57,7 +47,6 @@ test('date extractors anchor correctly', () => {
     auctionDateFromText('Przetarg odbędzie się w dniu 22 stycznia 2026 r. w Wydziale'),
     '2026-01-22',
   );
-  // prior-round recap ("odbył się") must NOT be picked as the auction date:
   assert.equal(auctionDateFromText('W dniu 2 października 2025 r. odbył się I przetarg'), null);
   assert.equal(
     resultDateFromText('iż dnia 17 czerwca 2026 r. w Wydziale Gospodarki Nieruchomościami'),
@@ -73,7 +62,6 @@ test('price extractors', () => {
   );
 });
 
-// ---------------------------------------------------------------------- fixtures
 
 const LAND_ANNOUNCEMENT = `str. 1/3
 GNP-SM.6840.21.2024
@@ -110,7 +98,6 @@ Prezydent Miasta Kędzierzyn-Koźle działając zgodnie z § 12 rozporządzenia 
 Cena wywoławcza lokalu wraz ze sprzedażą przynależnego gruntu wynosiła 170.000,00 zł.
 Na wyżej opisaną nieruchomość nie zostało wpłacone wadium, w związku z czym do przetargu nie przystąpiła żadna osoba prawna lub fizyczna.`;
 
-// ------------------------------------------------------------ announcement parse
 
 test('parseAnnouncement: land — parcel, area, obręb, price, future date, round', () => {
   const rec = parseAnnouncement(LAND_ANNOUNCEMENT);
@@ -118,21 +105,20 @@ test('parseAnnouncement: land — parcel, area, obręb, price, future date, roun
   assert.equal(rec.kind, 'grunt');
   assert.equal(rec.dzialka_nr, '854/44');
   assert.equal(rec.obreb, 'Kędzierzyn');
-  assert.equal(rec.area_m2, 1120); // 0,1120 ha
-  assert.equal(rec.address_raw, 'ul. Niezapominajek'); // NOT the office ul. Piastowskiej
+  assert.equal(rec.area_m2, 1120);
+  assert.equal(rec.address_raw, 'ul. Niezapominajek');
   assert.equal(rec.starting_price_pln, 150000);
-  assert.equal(rec.auction_date, '2026-01-22'); // future date, not the prior-round recap
+  assert.equal(rec.auction_date, '2026-01-22');
   assert.equal(rec.round, 3);
 });
 
-// ------------------------------------------------------------------ result parse
 
 test('parseResultDoc: land negative — parcels list, round XIV, unsold', () => {
   const [rec] = parseResultDoc(LAND_RESULT_NEGATIVE, null, 'https://bip.kedzierzynkozle.pl/attachments/download/78414');
   assert.ok(rec);
   assert.equal(rec.kind, 'grunt');
   assert.equal(rec.dzialka_nr, '1756/5, 1756/9, 1756/10');
-  assert.equal(rec.area_m2, 745); // 0,0745 ha
+  assert.equal(rec.area_m2, 745);
   assert.equal(rec.obreb, 'Kędzierzyn');
   assert.equal(rec.address_raw, 'ul. Grunwaldzkiej');
   assert.equal(rec.round, 14);
@@ -160,7 +146,7 @@ test('parseResultDoc: flat unsold — address key, usable area, round, no wadium
   assert.ok(rec);
   assert.equal(rec.kind, 'mieszkalny');
   assert.equal(rec.address.key, 'grunwaldzkiej|51|1');
-  assert.equal(rec.area_m2, 45); // usable 45,00 m2 (NOT the 16,70 cellar)
+  assert.equal(rec.area_m2, 45);
   assert.equal(rec.round, 1);
   assert.equal(rec.starting_price_pln, 170000);
   assert.equal(rec.final_price_pln, null);

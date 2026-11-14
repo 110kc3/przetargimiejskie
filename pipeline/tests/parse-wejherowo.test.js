@@ -1,26 +1,3 @@
-// Wejherowo parser + crawl helper tests.
-//
-// Fixtures groundtruthed against LIVE pages (2026-06-27):
-//
-// LIST PAGE (2026): https://bip.wejherowo.pl/artykul/przetargi-2026-r
-//   — DataTables grid, role="row"/role="gridcell", /artykul/ slug links + date.
-//
-// ANNOUNCEMENT (resolved, 2025):
-//   https://bip.wejherowo.pl/artykul/czwarty-przetarg-ustny-nieograniczony-
-//     na-sprzedaz-lokalu-mieszkalnego-nr-28-polozonego-w-budynk
-//   ul. Harcerska 11 nr 28, area 19.56 m², cena wywoławcza 124 000 zł,
-//   auction date 29 października 2025 (= 2025-10-29), round 4,
-//   result PDF: /pliki/wejherowo/zalaczniki/14086/06-11-2025-r-wyniki.pdf
-//
-// ANNOUNCEMENT (active, 2026):
-//   https://bip.wejherowo.pl/artykul/drugi-przetarg-ustny-nieograniczony-
-//     na-sprzedaz-lokalu-mieszkalnego-nr-8-polozonego-w-budynku-p
-//   ul. św. Jana 7 nr 8, area 34.83 m², cena wywoławcza 146 000 zł,
-//   auction date 26 sierpnia 2026 (= 2026-08-26), round 2.
-//
-// RESULT PDF TEXT (inferred structure — VALIDATE on first CI run):
-//   Standard wording "Cena nieruchomości osiągnięta w wyniku przetargu: NNN zł"
-//   or "wynik negatywny".
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -43,11 +20,6 @@ import {
   parseResultDoc,
 } from '../src/cities/wejherowo/parse.js';
 
-// ── List page parser ──────────────────────────────────────────────────────────
-//
-// Condensed but structurally faithful copy of the real BIP list page HTML
-// (bip.wejherowo.pl/artykul/przetargi-2026-r, 2026-06-27).
-// The DataTables grid uses role="row" / role="gridcell" wrappers.
 
 const LIST_HTML = `
 <div role="grid">
@@ -108,7 +80,6 @@ test('parseListPage: resolved article row has PRZETARG ROZSTRZYGNIĘTY in title'
 
 test('parseListPage: returns rows for land and commercial (caller filters)', () => {
   const rows = parseListPage(LIST_HTML);
-  // We return all rows; the crawl layer filters — test the parser returns them
   const land = rows.find(r => /gruntow/.test(r.href));
   assert.ok(land, 'land row should be in raw output');
   const commercial = rows.find(r => /najem/.test(r.href));
@@ -117,9 +88,6 @@ test('parseListPage: returns rows for land and commercial (caller filters)', () 
 
 test('parseListPage: header row (no link) is skipped', () => {
   const rows = parseListPage(LIST_HTML);
-  // Header row has a link to /artykul/przetargi-2026-r (the page itself) —
-  // it will be in the output but filtered by the caller (not a flat slug).
-  // Key assertion: we have data rows.
   assert.ok(rows.length >= 2);
 });
 
@@ -129,10 +97,6 @@ test('parseListPage: empty HTML returns empty array', () => {
 });
 
 test('parseListPage: recovers UNCLOSED grid anchors (real BIP markup — 54→1 swallow regression)', () => {
-  // The live grid rows OMIT </a> (`<td><a href="…">title</td>`) and the page
-  // carries unclosed nav anchors before them. The old `([\s\S]*?)</a>` matched a
-  // nav anchor and ran across every auction row to a distant </a>, returning
-  // just 1 of 54 flats (→ 0 active listings). Assert all rows are recovered.
   const html = `
     <a href="/artykul/menu-nav">Menu
     <table>
@@ -145,11 +109,6 @@ test('parseListPage: recovers UNCLOSED grid anchors (real BIP markup — 54→1 
   assert.ok(/lokal\w*.*mieszkaln/i.test(flats[0].title), 'title captured from an unclosed anchor');
 });
 
-// ── resultPdfUrlFromArticle ───────────────────────────────────────────────────
-//
-// Real article HTML (confirmed 2026-06-27, Harcerska 11/28):
-//   <a href="/pliki/wejherowo/zalaczniki/14086/06-11-2025-r-wyniki.pdf" class="download"
-//      id="24234" download="">06.11.2025 r. - wyniki (PDF, 71.17Kb)</a>
 
 const ARTICLE_HTML_WITH_RESULT = `
 <table class="table table-striped">
@@ -185,7 +144,6 @@ test('resultPdfUrlFromArticle: returns null when no wyniki attachment', () => {
   assert.equal(resultPdfUrlFromArticle(''), null);
 });
 
-// ── roundFromTitle (crawl helper) ─────────────────────────────────────────────
 
 test('roundFromTitle: maps Polish ordinals to round number', () => {
   assert.equal(roundFromTitle('Pierwszy przetarg ustny …'), 1);
@@ -206,7 +164,6 @@ test('roundFromTitle: bare przetarg with no ordinal returns 1', () => {
   assert.equal(roundFromTitle('Przetarg ustny nieograniczony na sprzedaż lokalu'), 1);
 });
 
-// ── aptFromTitle ──────────────────────────────────────────────────────────────
 
 test('aptFromTitle: extracts apartment number from title', () => {
   assert.equal(
@@ -223,12 +180,6 @@ test('aptFromTitle: returns null when no "lokal mieszkalny nr" pattern', () => {
   assert.equal(aptFromTitle('Nieruchomość gruntowa niezabudowana'), null);
 });
 
-// ── auctionDateFromText ───────────────────────────────────────────────────────
-//
-// Live fixture (Harcerska 11/28, 2025):
-//   "Przetarg odbędzie się dnia 29 października 2025 roku, o godzinie 9:30"
-// Live fixture (św. Jana 7/8, 2026):
-//   "Przetarg odbędzie się dnia 26 sierpnia 2026 roku, o godzinie 09:30,"
 
 test('auctionDateFromText: spelled-out month "29 października 2025"', () => {
   const text = 'Przetarg odbędzie się dnia 29 października 2025 roku, o godzinie 9:30, w sali konferencyjnej.';
@@ -251,12 +202,6 @@ test('auctionDateFromText: null/empty → null, no throw', () => {
   assert.equal(auctionDateFromText('brak daty'), null);
 });
 
-// ── priceFromText ─────────────────────────────────────────────────────────────
-//
-// Live fixture (Harcerska 11/28):
-//   "cena wywoławcza brutto 124 000,00 zł"
-// Live fixture (św. Jana 7/8):
-//   "cena wywoławcza brutto 146 000,00 zł"
 
 test('priceFromText: "cena wywoławcza brutto 124 000,00 zł"', () => {
   assert.equal(priceFromText('cena wywoławcza brutto 124 000,00 zł'), 124000);
@@ -275,14 +220,6 @@ test('priceFromText: null/no price text → null, no throw', () => {
   assert.equal(priceFromText('brak ceny'), null);
 });
 
-// ── areaFromText ──────────────────────────────────────────────────────────────
-//
-// Live fixture (Harcerska 11/28):
-//   "powierzchni użytkowej 19,56 m2 wraz z udziałem … (działka … o powierzchni 739 m2)"
-//   → should return 19.56, NOT 739
-// Live fixture (św. Jana 7/8):
-//   "o powierzchni użytkowej 34,83 m2 oraz udziałem …"
-//   → 34.83
 
 test('areaFromText: "powierzchni użytkowej 19,56 m2"', () => {
   const text = 'na sprzedaż lokalu mieszkalnego nr 28 … o powierzchni użytkowej 19,56 m2 wraz z udziałem wynoszącym 9/1.000 … działki nr 173/8, obręb 16, o powierzchni 739 m2';
@@ -306,10 +243,6 @@ test('areaFromText: null/empty → null, no throw', () => {
   assert.equal(areaFromText(''), null);
 });
 
-// ── roundFromText (parse helper) ──────────────────────────────────────────────
-//
-// Live fixture (Harcerska 11/28): body says "czwarty przetarg ustny nieograniczony"
-// Live fixture (św. Jana 7/8): body says "drugi przetarg ustny nieograniczony"
 
 test('roundFromText: "czwarty przetarg" → 4', () => {
   const text = 'Prezydent Miasta Wejherowa ogłasza czwarty przetarg ustny nieograniczony na sprzedaż lokalu';
@@ -336,17 +269,6 @@ test('roundFromText: null/empty → null, no throw', () => {
   assert.equal(roundFromText(''), null);
 });
 
-// ── addressFromBody ───────────────────────────────────────────────────────────
-//
-// Live fixture (Harcerska 11/28):
-//   "na sprzedaż lokalu mieszkalnego nr 28 położonego w budynku przy ul. Harcerskiej 11
-//    w Wejherowie, o powierzchni użytkowej 19,56 m2"
-//   → address key: "harcerskiej|11|28"
-//
-// Live fixture (św. Jana 7/8):
-//   "na sprzedaż lokalu mieszkalnego nr 8 położonego w budynku przy ul. św. Jana 7
-//    w Wejherowie, o powierzchni użytkowej 34,83 m2"
-//   → address key: "sw. jana|7|8"  (or similar normalization)
 
 const ANN_BODY_HARCERSKA = `Prezydent Miasta Wejherowa ogłasza czwarty przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 28 położonego w budynku przy ul. Harcerskiej 11 w Wejherowie, o powierzchni użytkowej 19,56 m2 wraz z udziałem wynoszącym 9/1.000 w częściach wspólnych budynku i gruntu działki nr 173/8, obręb 16, o powierzchni 739 m2, objętej księgą wieczystą nr GD1W/00019258/6, cena wywoławcza brutto 124 000,00 zł (sprzedaż zwolniona z podatku VAT) … Przetarg odbędzie się dnia 29 października 2025 roku, o godzinie 9:30, w sali konferencyjnej Urzędu Miejskiego w Wejherowie.`;
 
@@ -365,11 +287,9 @@ test('addressFromBody: sw. Jana 7/8 — building and apt', () => {
   assert.ok(addr, 'address must be parsed');
   assert.equal(addr.building, '7');
   assert.equal(addr.apt, '8');
-  // street_norm strips Polish diacritics and dots
   assert.ok(/jana/i.test(addr.street_norm), `street_norm should contain jana, got: ${addr.street_norm}`);
 });
 
-// ── parseAnnouncement ─────────────────────────────────────────────────────────
 
 test('parseAnnouncement: Harcerska 11/28 — all fields', () => {
   const f = parseAnnouncement(ANN_BODY_HARCERSKA);
@@ -393,11 +313,6 @@ test('parseAnnouncement: sw. Jana 7/8 — all fields', () => {
   assert.equal(f.address.apt, '8');
 });
 
-// ── parseResultDoc ────────────────────────────────────────────────────────────
-//
-// Inferred from spike data; VALIDATE against real pdftotext output on first CI run.
-// Spike example: ul. 12 Marca 194 nr 2 sold at 153 000 zł (vs 125 000 zł wywoławcza).
-// Another example: ul. Wybickiego 2 nr 11 — negative result (no bidder).
 
 const RESULT_PDF_SOLD = `
 Informacja o wynikach przetargu
@@ -483,7 +398,6 @@ test('parseResultDoc: unsold — starting price still parsed', () => {
 test('parseResultDoc: fallbackDate used when body has no date', () => {
   const noDate = RESULT_PDF_SOLD.replace(/w\s+dniu\s+29 października 2025 r\./i, 'w dniu ... odbył się');
   const recs = parseResultDoc(noDate, '2025-10-29', 'https://example.com');
-  // Either extracted from body or from fallback — must not throw
   if (recs.length > 0) {
     assert.ok(recs[0].auction_date === '2025-10-29' || recs[0].auction_date === null);
   }

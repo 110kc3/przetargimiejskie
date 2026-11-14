@@ -1,10 +1,3 @@
-// Gliwice site adapter — zgm-gliwice.pl (WordPress + Elementor).
-//
-// Listing-index pages are the four ZGM auction-board paths; their cards are
-// Elementor image-boxes whose text looks like
-//   "<address> - DD.MM.YYYY r. <area> m² - <price> zł".
-// Detail pages have slug URLs like /zygmunta-starego-29-4-23-03-2026-r/ and a
-// <title> that starts with the address before the date dash.
 
 (function () {
   if (!window.ZGM_SITES) return;
@@ -13,11 +6,6 @@
     /^\/(przetargi-lokale-mieszkalne|przetargi-garaze|przetargi-lokale-uzytkowe|wykaz-lokali-przeznaczonych-do-sprzedazy-w-przetargu)\/?/;
   const DETAIL_RE = /^\/[a-z0-9-]+-\d{2}-\d{2}-\d{4}-r\/?$/;
 
-  // "…m² - <price> zł" → { area_m2, price_pln } (either may be null).
-  // Parsed INDEPENDENTLY: a card that omits the area ("<addr> - <date> -
-  // 70 000 zł") must still yield its price — the old single regex required
-  // both figures, so a card missing its area silently lost the price too
-  // (and with it the inline zł/m² slot's price fallback).
   function parseCardFigures(text) {
     const am = /(\d{1,4}(?:[,.]\d{1,3})?)\s*m[²2]/i.exec(text);
     const pm = /(\d[\d.,\s]*)\s*z[łl]\b/i.exec(text);
@@ -32,8 +20,6 @@
   window.ZGM_SITES.register({
     city: 'gliwice',
     hostMatches: ['zgm-gliwice.pl'],
-    // The Elementor card title already contains the auction date
-    // ("… - DD.MM.YYYY r."), so the stats chip omits it to avoid duplication.
     cardShowsDate: true,
 
     isListingIndex: (path) => LISTING_RE.test(path),
@@ -63,10 +49,6 @@
     },
 
     detailAddress() {
-      // Title is authoritative; slug fallback only. Split the address from the
-      // trailing " – DD.MM.YYYY r." on a SPACE-padded dash anchored to the
-      // date — the old `[^-]` class stopped at the first hyphen, truncating a
-      // hyphenated building range ("Kozielska 10-12" → "Kozielska 10").
       let guess = null;
       const titleM = /^(.+?)\s+[–—-]\s+\d{1,2}\.\d{1,2}\.\d{4}/.exec(
         document.title.replace(/&#8211;/g, '–'),

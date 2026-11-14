@@ -1,15 +1,3 @@
-// Golub-Dobrzyń parser tests — groundtruthed on REAL fetched documents
-// (verified live 2026-07). Each fixture is the actual extracted page/PDF text;
-// buildRecordText assembles the SAME TITLE+BODY blob the crawler feeds the
-// parsers, so these assert the real extraction end-to-end.
-//
-//   POWIAT (bip.golub-dobrzyn.com.pl, inline HTML):
-//     8339 — flat RESULT, PTTK 5 lokal nr 3, round III, SOLD 81 810 zł
-//     8173 — flat RESULT, PTTK 5 lokal nr 3, round II,  SOLD 81 810 zł
-//     8268 — flat ANNOUNCEMENT (table layout), PTTK 5 lokal nr 3, round III
-//     8440 — land RESULT (multi-parcel Kowalewo), round III, UNSOLD
-//   MIASTO (bip.golub-dobrzyn.pl, born-digital PDF):
-//     działka nr 375 obręb VIII — land RESULT, SOLD 55 570 zł
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -25,7 +13,6 @@ const {
   buyerName: buyer,
 } = parse;
 
-// --------------------------------------------------------------------- fixtures
 
 const BODY_8339 =
   'GN.6840.4.2025.Ac Informacja o wyniku trzeciego ustnego nieograniczonego przetargu na sprzedaż nieruchomości stanowiącej własność Powiatu Golubsko-Dobrzyńskiego, położonej w 2 obrębie miasta Golubia-Dobrzynia, przy ulicy PTTK 5, lokal mieszkalny nr 3. Zarząd Powiatu Golubsko-Dobrzyńskiego działając na podstawie § 12 ust. 1 Rozporządzenia Rady Ministrów z dnia 14 września 2004 r. w sprawie sposobu i trybu przeprowadzania przetargów na zbycie nieruchomości (Dz. U. z 2021 r. poz. 2213) podaje do publicznej wiadomości informację o wyniku pierwszego ustnego przetargu: 1. Trzeci przetarg ustny nieograniczony odbył się dnia 30 kwietnia 2026 r. o godz. 10-tej w siedzibie Starostwa Powiatowego w Golubiu-Dobrzyniu, Plac Tysiąclecia 25, pokój nr S5 (Biuro Rady Powiatu). 2. Przedmiotem przetargu był lokal mieszkalny nr 3 położony na parterze budynku mieszkalnego wielorodzinnego położonego przy ulicy PTTK 5, lokal o powierzchni użytkowej 31,91m² składający się z 2 pokoi, kuchni, natrysku, wc, przedpokoju i piwnicy o pow. 5,11m². Lokal posiada instalacje elektryczną, c.o. z kotłowni miałowej w sąsiednim budynku, wod-kan. Udział w częściach wspólnych budynku i gruntu wynosi 3702/101331 do nieruchomości oznaczonej nr geod. 82/1, o pow. 0,2608ha dla której Sąd Rejonowy w Golubiu-Dobrzyniu IV Wydział Ksiąg Wieczystych prowadzi księgę wieczystą nr TO1G/00008376/0. 3. Do przetargu dopuszczono: 1 osoby (wpłacone wadium). Do przetargu nie dopuszczono: 0 osób. 4. Cena wywoławcza nieruchomości: 81.000,00zł (netto). Najwyższa cena osiągnięta w przetargu: 81.810,00zł. 5. Nabywcą nieruchomości został/ła – Andrzej Jankowski. Starosta Golubsko-Dobrzyński mgr Jacek Foksiński Informacje podano do publicznej wiadomości na okres 7 dni od dnia 8 maja 2026 r. Sporządziła: A. Chmielewska';
@@ -47,15 +34,12 @@ const BODY_8440 =
 const TITLE_8440 =
   'Informacja o wyniku trzeciego ustnego nieograniczonego przetargu na sprzedaż nieruchomości niezabudowanych, położonych w obrębie 3 miasta Kowalewo Pomorskie';
 
-// Miasto born-digital PDF (soft hyphens already normalised, exactly as pdfText
-// hands it after crawl.js's soft-hyphen strip).
 const BODY_MIASTO_375 =
   'Golub-Dobrzyń, 2025-09-19 INFORMACJA O WYNIKU PRZETARGU USTNEGO OGRANICZONEGO NA SPRZEDAŻ DZIAŁKI OZNACZONEJ NR GEOD. 375 OBRĘB VIII, KW NR TO1G/00020569/0 Na podstawie § 12 rozporządzenia Rady Ministrów z dnia 14 września 2004 r. w sprawie sposobu i trybu przeprowadzania przetargów oraz rokowań na zbycie nieruchomości (t.j. Dz.U. 2021, poz. 2213) uprzejmie informuję, że przetarg ustny ograniczony na sprzedaż działki ozn. nr 375 o powierzchni 835 m2, obręb VIII, KW nr TO1G/00020569/0, będącej własnością Gminy Miasto Golub-Dobrzyń, odbył się w dniu 10 września 2025 r. w siedzibie Urzędu Miasta Golubia-Dobrzynia przy ul. Plac 1000-lecia 25, o godzinie 10.00. W wyniku przeprowadzonego przetargu nabywcą została: 1) Hurtownia Olejów i Paliw Gabriel Kropkowski Cena wywoławcza nieruchomości wynosiła 18.400,00 zł netto Najwyższa cena osiągnięta w przetargu wyniosła 55.570,00 zł netto Liczba uczestników dopuszczonych do uczestnictwa w przetargu — 2';
 const TITLE_MIASTO_375 = 'informacja o wynikach przetargu';
 
 const SRC = 'https://www.bip.golub-dobrzyn.com.pl/redir,8339';
 
-// --------------------------------------------------------------------- tests
 
 test('POWIAT flat result 8339 — PTTK 5 lokal nr 3, round III, SOLD 81 810 zł', () => {
   const blob = build({ title: TITLE_8339, body: BODY_8339 });
@@ -100,7 +84,6 @@ test('POWIAT flat announcement 8268 — PTTK 5 lokal nr 3, round III, table pric
   assert.equal(r.round, 3);
   assert.equal(r.auction_date, '2026-04-30');
   assert.equal(r.starting_price_pln, 81000);
-  // Announcement table has no "powierzchni użytkowej" label → area not extracted.
   assert.equal(r.area_m2, null);
 });
 
@@ -115,7 +98,6 @@ test('POWIAT land result 8440 — multi-parcel Kowalewo, round III, UNSOLD (dash
   assert.equal(r.round, 3);
   assert.equal(r.auction_date, '2026-06-25');
   assert.ok(r.dzialka_nr.includes('17/9'), `dzialka_nr should include 17/9, got ${r.dzialka_nr}`);
-  // The table's "108.000,00 zł" / "0,00 zł" columns must NOT become a price.
   assert.equal(r.address_raw, null);
 });
 
@@ -140,14 +122,12 @@ test('doc-type gates route announcement vs result vs movable/lease correctly', (
   assert.equal(isResult(announceBlob), false);
   assert.equal(isSale(announceBlob), true);
 
-  // Movable property (a car / equipment) is NOT a real-estate sale.
   const movable = build({
     title: 'Ogłoszenie o II pisemnym przetargu na sprzedaż składnika rzeczowego majątku ruchomego',
     body: 'Zarząd Powiatu ogłasza przetarg pisemny na sprzedaż składnika rzeczowego majątku ruchomego - samochodu.',
   });
   assert.equal(isSale(movable), false);
 
-  // A lease (dzierżawa) is gated out.
   const leaseBlob = build({
     title: 'Pierwszy pisemny przetarg nieograniczony na oddanie w dzierżawę nieruchomości Skarbu Państwa',
     body: 'przetarg pisemny nieograniczony na oddanie w dzierżawę nieruchomości Skarbu Państwa - jezioro.',
@@ -157,9 +137,9 @@ test('doc-type gates route announcement vs result vs movable/lease correctly', (
 });
 
 test('buyerName: named ⇒ sold, dash placeholder ⇒ unsold', () => {
-  assert.ok(buyer(build({ title: '', body: BODY_8339 })));            // Andrzej Jankowski
-  assert.ok(buyer(build({ title: '', body: BODY_MIASTO_375 })));      // Hurtownia ...
-  assert.equal(buyer(build({ title: '', body: BODY_8440 })), null);   // dashes
+  assert.ok(buyer(build({ title: '', body: BODY_8339 })));
+  assert.ok(buyer(build({ title: '', body: BODY_MIASTO_375 })));
+  assert.equal(buyer(build({ title: '', body: BODY_8440 })), null);
 });
 
 test('parsePLN / parseNum units', () => {
@@ -171,9 +151,6 @@ test('parsePLN / parseNum units', () => {
   assert.equal(parse.parseNum('835'), 835);
 });
 
-// Official municipal PDF plik,10722, published 29 September 2026. Geometry
-// was extracted on Linux at 300 DPI; expected values checked against all four
-// scanned table rows. The 4.51 m² basement belongs to Zamkowa, never Chopina.
 test('municipal table preserves four independent flat rows and their columns', async () => {
   const { readFileSync } = await import('node:fs');
   const { parseMunicipalFlatTable } = await import('../src/cities/golub-dobrzyn/parse-table.js');

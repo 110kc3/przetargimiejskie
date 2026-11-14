@@ -1,29 +1,3 @@
-// Złotoryja parser tests. Fixtures are real captured title+content strings
-// fetched live from bip.zlotoryja.pl's `/api/fo/articles/<slug>` endpoint
-// (verified 2026-07-10 — see crawl.js for why THIS host, not the dead legacy
-// zlotoryja.bip.info.pl the spike profiled). Each fixture feeds
-// parse.buildRecordText() exactly as crawl.js does, so the parsers are
-// groundtruthed against production data.
-//
-//   Górniczej        — LAND active, round I RESTRICTED ("ograniczony do
-//                       właścicieli nieruchomości sąsiednich" — drops the
-//                       "nieograniczony" clause the round regex otherwise
-//                       expects)
-//   Piastowej        — LAND active, round II, carries a PRIOR-ROUND-history
-//                       trap ("Terminy poprzednich przetargów: 05.03.2026
-//                       r. – I przetarg.") the round/date parser must avoid
-//   Piłsudskiego 26  — FLAT announcement (round I) + its own FLAT result,
-//                       UNSOLD ("nikt nie przystąpił do przetargu")
-//   Garbarskiej 14   — FLAT result, UNSOLD
-//   działka 173/43   — LAND result, SOLD (netto pricing, no grosze)
-//   działka 545/13   — LAND-WITH-GARAGE result, SOLD (VAT sub-component
-//                       pricing breakdown; exercises the kindFromText
-//                       land-with-garage override so it parcel-keys instead
-//                       of misrouting through classify-kind's GARAGE_RE)
-//   działka 41/8     — DZIERŻAWA (lease) result → excluded (gate fixture)
-//   two synthetic-but-verbatim-titled noise fixtures (job-posting result,
-//   works-contract result) from the SAME "Ogłoszenia" board the real result
-//   stream is filtered from, confirming the noise-exclusion gates hold
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -45,7 +19,6 @@ import {
   parsePLN,
 } from '../src/cities/zlotoryja/parse.js';
 
-// --------------------------------------------------------------- real fixtures
 
 const GORNICZA_ACTIVE = {
   title:
@@ -102,9 +75,6 @@ const LEASE_RESULT = {
     'INFORMACJA O WYNIKU PRZETARGU W dniu 01.07.2026 r. o godz. 10:30 w Urzędzie Miejskim w Złotoryi odbył się I nieograniczony przetarg ustny na dzierżawę części nieruchomości gruntowej niezabudowanej, oznaczonej geodezyjnie jako działka nr 41/8, położonej w obrębie 0002 miasta Złotoryja przy ul. 3 Maja. Właścicielem opisanej nieruchomości jest Gmina Miejska Złotoryja. Do uczestnictwa w przetargu dopuszczono 2 osoby. Cena wywoławcza przedmiotowej nieruchomości wyniosła 48,84 zł netto (słownie: czterdzieści osiem złotych 84/100). Najwyższa cena nieruchomości osiągnięta w przetargu wyniosła 2.100,00 zł netto (słownie: dwa tysiące sto złotych 00/100). Dzierżawcą nieruchomości został Pan Przemysław Niedźwiecki zam. 59-500 Złotoryja, ul. Hoża 9a/14. BURMISTRZ MIASTA ZŁOTORYJA Paweł Kulig',
 };
 
-// Non-property noise, real titles from the SAME "Ogłoszenia" board the
-// "wyniku"-filtered result stream is pulled from (see crawl.js) — confirms
-// the gates exclude job-posting / unrelated-works-contract results.
 const JOB_POSTING_NOISE = {
   title:
     'Informacja o wyniku naboru na wolne stanowisko urzędnicze Referenta ds. rachuby w Wydziale Budżetu i Finansów',
@@ -119,7 +89,6 @@ const WORKS_CONTRACT_NOISE = {
     'Burmistrz Miasta Złotoryja informuje, że w wyniku przetargu nieograniczonego na Przebudowę miejsc składowania odpadów komunalnych wybrano ofertę firmy XYZ za cenę 500 000 zł.',
 };
 
-// ------------------------------------------------------------------- unit funcs
 
 test('parsePLN: space-thousands, dot-thousands, grosze tail', () => {
   assert.equal(parsePLN('24 698'), 24698);
@@ -129,37 +98,37 @@ test('parsePLN: space-thousands, dot-thousands, grosze tail', () => {
 });
 
 test('roundFromText: optional "nieograniczony" (restricted round beats prior-round trap)', () => {
-  assert.equal(roundFromText(buildRecordText(GORNICZA_ACTIVE)), 1); // "I PRZETARG USTNY" — no "nieograniczony"
-  assert.equal(roundFromText(buildRecordText(PIASTOWA_ACTIVE)), 2); // beats "Terminy poprzednich przetargów: ... I przetarg."
+  assert.equal(roundFromText(buildRecordText(GORNICZA_ACTIVE)), 1);
+  assert.equal(roundFromText(buildRecordText(PIASTOWA_ACTIVE)), 2);
   assert.equal(roundFromText(buildRecordText(PILSUDSKIEGO_ANNOUNCE)), 1);
   assert.equal(roundFromText(buildRecordText(GARAZ_545_13_RESULT)), 2);
 });
 
 test('auctionDateFromText: announcement label beats wadium/prior-round dates', () => {
   assert.equal(auctionDateFromText(buildRecordText(GORNICZA_ACTIVE)), '2026-07-31');
-  assert.equal(auctionDateFromText(buildRecordText(PIASTOWA_ACTIVE)), '2026-07-30'); // not 2026-03-05
+  assert.equal(auctionDateFromText(buildRecordText(PIASTOWA_ACTIVE)), '2026-07-30');
   assert.equal(auctionDateFromText(buildRecordText(PILSUDSKIEGO_ANNOUNCE)), '2026-05-07');
 });
 
 test('auctionDateFromText: result dates — "nie odbył się" cannot win the SOLD anchor', () => {
-  assert.equal(auctionDateFromText(buildRecordText(PILSUDSKIEGO_RESULT)), '2026-05-07'); // unsold
-  assert.equal(auctionDateFromText(buildRecordText(DZIALKA_173_43_RESULT)), '2026-01-14'); // sold
-  assert.equal(auctionDateFromText(buildRecordText(LEASE_RESULT)), '2026-07-01'); // numeric dotted date
+  assert.equal(auctionDateFromText(buildRecordText(PILSUDSKIEGO_RESULT)), '2026-05-07');
+  assert.equal(auctionDateFromText(buildRecordText(DZIALKA_173_43_RESULT)), '2026-01-14');
+  assert.equal(auctionDateFromText(buildRecordText(LEASE_RESULT)), '2026-07-01');
 });
 
 test('startingPriceFromText: label variants, total not sub-component', () => {
   assert.equal(startingPriceFromText(buildRecordText(GORNICZA_ACTIVE)), 24698);
-  assert.equal(startingPriceFromText(buildRecordText(PILSUDSKIEGO_ANNOUNCE)), 254237); // not 241817 (cena lokalu)
+  assert.equal(startingPriceFromText(buildRecordText(PILSUDSKIEGO_ANNOUNCE)), 254237);
   assert.equal(startingPriceFromText(buildRecordText(DZIALKA_173_43_RESULT)), 196665);
-  assert.equal(startingPriceFromText(buildRecordText(GARAZ_545_13_RESULT)), 72717); // grosze-bearing
+  assert.equal(startingPriceFromText(buildRecordText(GARAZ_545_13_RESULT)), 72717);
 });
 
 test('achievedPriceFromText: only when a buyer (Nabywcą) is named', () => {
-  assert.equal(achievedPriceFromText(buildRecordText(PILSUDSKIEGO_RESULT)), null); // unsold
-  assert.equal(achievedPriceFromText(buildRecordText(GARBARSKA_RESULT)), null); // unsold
+  assert.equal(achievedPriceFromText(buildRecordText(PILSUDSKIEGO_RESULT)), null);
+  assert.equal(achievedPriceFromText(buildRecordText(GARBARSKA_RESULT)), null);
   assert.equal(achievedPriceFromText(buildRecordText(DZIALKA_173_43_RESULT)), 198635);
-  assert.equal(achievedPriceFromText(buildRecordText(GARAZ_545_13_RESULT)), 73447); // total, not the VAT sub-component
-  assert.equal(achievedPriceFromText(buildRecordText(LEASE_RESULT)), null); // "Dzierżawcą", not "Nabywcą"
+  assert.equal(achievedPriceFromText(buildRecordText(GARAZ_545_13_RESULT)), 73447);
+  assert.equal(achievedPriceFromText(buildRecordText(LEASE_RESULT)), null);
 });
 
 test('unitAreaFromText: usable area, short gap (announcement) and long gap (result)', () => {
@@ -172,18 +141,18 @@ test('kindFromText: land-with-garage override beats classify-kind\'s garaz', () 
   assert.equal(kindFromText(buildRecordText(GORNICZA_ACTIVE)), 'grunt');
   assert.equal(kindFromText(buildRecordText(PILSUDSKIEGO_ANNOUNCE)), 'mieszkalny');
   assert.equal(kindFromText(buildRecordText(DZIALKA_173_43_RESULT)), 'grunt');
-  assert.equal(kindFromText(buildRecordText(GARAZ_545_13_RESULT)), 'grunt'); // NOT 'garaz'
+  assert.equal(kindFromText(buildRecordText(GARAZ_545_13_RESULT)), 'grunt');
 });
 
 test('gates: isSaleAuction, isLease, isResultDoc, isNegativeOutcome', () => {
   assert.equal(isSaleAuction(buildRecordText(GORNICZA_ACTIVE)), true);
-  assert.equal(isSaleAuction(buildRecordText(LEASE_RESULT)), false); // no "sprzedaż"
+  assert.equal(isSaleAuction(buildRecordText(LEASE_RESULT)), false);
   assert.equal(isLease(buildRecordText(LEASE_RESULT)), true);
   assert.equal(isLease(buildRecordText(GORNICZA_ACTIVE)), false);
   assert.equal(isResultDoc(buildRecordText(PILSUDSKIEGO_RESULT)), true);
-  assert.equal(isResultDoc(buildRecordText(GORNICZA_ACTIVE)), false); // an announcement, not a result
+  assert.equal(isResultDoc(buildRecordText(GORNICZA_ACTIVE)), false);
   assert.equal(isNegativeOutcome(buildRecordText(PILSUDSKIEGO_RESULT)), true);
-  assert.equal(isNegativeOutcome(buildRecordText(DZIALKA_173_43_RESULT)), false); // sold
+  assert.equal(isNegativeOutcome(buildRecordText(DZIALKA_173_43_RESULT)), false);
 });
 
 test('noise exclusion: job-posting and works-contract "wyniku" results are dropped', () => {
@@ -194,7 +163,6 @@ test('noise exclusion: job-posting and works-contract "wyniku" results are dropp
   assert.deepEqual(parseResultDoc(buildRecordText(LEASE_RESULT), null, 'x'), []);
 });
 
-// ------------------------------------------------------------- result records
 
 test('parseResultDoc: Piłsudskiego 26/1 UNSOLD (round I)', () => {
   const [r] = parseResultDoc(buildRecordText(PILSUDSKIEGO_RESULT), '2026-05-07', 'https://bip.zlotoryja.pl/ogloszenia-5/x');
@@ -223,7 +191,7 @@ test('parseResultDoc: działka 173/43 SOLD (netto, no grosze)', () => {
   const [r] = parseResultDoc(buildRecordText(DZIALKA_173_43_RESULT), '2026-01-14', 'https://bip.zlotoryja.pl/y');
   assert.equal(r.kind, 'grunt');
   assert.equal(r.dzialka_nr, '173/43');
-  assert.equal(r.area_m2, 885); // 0,0885 ha -> m2
+  assert.equal(r.area_m2, 885);
   assert.equal(r.starting_price_pln, 196665);
   assert.equal(r.final_price_pln, 198635);
   assert.equal(r.outcome, 'sold');
@@ -234,9 +202,9 @@ test('parseResultDoc: działka 545/13 (land-with-garage) SOLD, VAT-split pricing
   const [r] = parseResultDoc(buildRecordText(GARAZ_545_13_RESULT), '2025-12-16', 'https://bip.zlotoryja.pl/z');
   assert.equal(r.kind, 'grunt');
   assert.equal(r.dzialka_nr, '545/13');
-  assert.equal(r.area_m2, 28); // 0,0028 ha -> m2
+  assert.equal(r.area_m2, 28);
   assert.equal(r.starting_price_pln, 72717);
-  assert.equal(r.final_price_pln, 73447); // total, not the 72 676,40 sub-component
+  assert.equal(r.final_price_pln, 73447);
   assert.equal(r.outcome, 'sold');
   assert.equal(r.round, 2);
 });
@@ -245,7 +213,6 @@ test('parseResultDoc: returns [] for an active (non-result) announcement', () =>
   assert.deepEqual(parseResultDoc(buildRecordText(GORNICZA_ACTIVE), null, 'x'), []);
 });
 
-// ----------------------------------------------------------- active + land
 
 test('parseAnnouncement: flat (Piłsudskiego 26/1, round I)', () => {
   const rec = parseAnnouncement(buildRecordText(PILSUDSKIEGO_ANNOUNCE));
@@ -261,7 +228,7 @@ test('parseAnnouncement: land (Górniczej, restricted round I) -> kind grunt wit
   const rec = parseAnnouncement(buildRecordText(GORNICZA_ACTIVE));
   assert.equal(rec.kind, 'grunt');
   assert.equal(rec.dzialka_nr, '207/5');
-  assert.equal(rec.area_m2, 164); // 0,0164 ha -> m2
+  assert.equal(rec.area_m2, 164);
   assert.equal(rec.address_raw, 'Górniczej');
   assert.equal(rec.starting_price_pln, 24698);
   assert.equal(rec.auction_date, '2026-07-31');
@@ -272,7 +239,7 @@ test('parseAnnouncement: land (Piastowej, round II) survives the prior-round tra
   const rec = parseAnnouncement(buildRecordText(PIASTOWA_ACTIVE));
   assert.equal(rec.kind, 'grunt');
   assert.equal(rec.dzialka_nr, '156/9');
-  assert.equal(rec.area_m2, 755); // 0,0755 ha -> m2
+  assert.equal(rec.area_m2, 755);
   assert.equal(rec.starting_price_pln, 82869);
   assert.equal(rec.auction_date, '2026-07-30');
   assert.equal(rec.round, 2);

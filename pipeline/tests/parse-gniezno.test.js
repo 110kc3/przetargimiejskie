@@ -1,16 +1,3 @@
-// Gniezno parser tests.
-//
-// Fixtures grounded in LIVE data fetched from bip.gniezno.eu and gniezno.eu
-// on 2026-06-27. The BIP and city site can't be reached from CI sandboxes, so
-// the pure parsers are exercised against captured markup / article text.
-//
-// BIP HTML: IDcom.pl CMS — each entry is
-//   <div class="contener"><p class="title"><a href="...">TITLE</a></p></div>
-//   No inline date or description; filter is on title keyword only.
-//
-// gniezno.eu result notices (two real examples):
-//   Sienkiewicza 19/8  — IV przetarg, sold, 106 885 zł (cena wywoławcza 105 825 zł)
-//   Chrobrego 11/5A    — III przetarg, negative (brak wpłaty wadium)
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -25,13 +12,10 @@ import {
   parseAnnouncement,
 } from '../src/cities/gniezno/parse.js';
 
-// ---- isFlatSaleTitle --------------------------------------------------------
 
 test('isFlatSaleTitle: flat-sale titles are accepted', () => {
-  // "Sprzedaż - ul. X/N" shorthand (most common on bip.gniezno.eu)
   assert.equal(isFlatSaleTitle('Sprzedaż - ul. Wyszyńskiego 18/14 (WM.6840.21.2024)'), true);
   assert.equal(isFlatSaleTitle('Sprzedaż - ul. Chrobrego 11/5A (WM.6840.22.2024)'), true);
-  // Long-form with "lokal mieszkalny"
   assert.equal(
     isFlatSaleTitle(
       'Ogłoszenie o pierwszym przetargu ustnym nieograniczonym na sprzedaż lokalu stanowiącego własność Miasta Gniezna - niewyodrębniony lokal mieszkalny nr 9 usytuowany w budynku położonym w Gnieźnie przy ul. Sienkiewicza 10 (WM.6840.26.2024)',
@@ -41,7 +25,6 @@ test('isFlatSaleTitle: flat-sale titles are accepted', () => {
 });
 
 test('isFlatSaleTitle: non-flat titles are rejected', () => {
-  // Land / plots
   assert.equal(
     isFlatSaleTitle('Ogłoszenie o I przetargu ustnym nieograniczonym na sprzedaż nieruchomości niezabudowanych, położonych w Gnieźnie przy ulicy Leopolda Staffa i Marii Dąbrowskiej (WM.6840.9.2025)'),
     false,
@@ -50,28 +33,21 @@ test('isFlatSaleTitle: non-flat titles are rejected', () => {
     isFlatSaleTitle('Ogłoszenie przy przetargu na sprzedaż działek przy ul. Staffa i Dąbrowskiej – WM.6840.9.2025'),
     false,
   );
-  // Najem (rental)
   assert.equal(
     isFlatSaleTitle('Ogłoszenie o przetargu na najem lokali do remontu (WZ.7140.94.2025) - 23.10.2025'),
     false,
   );
-  // Bezprzetargowy najem (direct / auto)
   assert.equal(
     isFlatSaleTitle('Ogłoszenie o bezprzetargowym najmie powierzchni na automaty w Hali Widowiskowo Sportowej II przy ul. Sportowej 5, 62 200 Gniezno'),
     false,
   );
-  // Change notice for najem
   assert.equal(
     isFlatSaleTitle('Zmiana ogłoszenia o przetargu na najem lokali do remontu (WZ.7140.94.2025) - 23.10.2025'),
     false,
   );
 });
 
-// ---- parseBipList -----------------------------------------------------------
 
-// Minimal BIP listing HTML reconstructed from the real IDcom.pl CMS markup
-// observed on bip.gniezno.eu/wiadomosci/11287/lista/1/2025 (2026-06-27).
-// Structure: <div class="contener"><p class="title"><a href="URL">TITLE</a></p></div>
 const BIP_LISTING_HTML = `
 <div id="Content">
   <div class="contener">
@@ -128,7 +104,6 @@ test('parseBipList: round from long-form "pierwszym" title = 1', () => {
 test('parseBipList: round from "Sprzedaż - ul." shorthand title = null (multi-round, no ordinal)', () => {
   const items = parseBipList(BIP_LISTING_HTML);
   const wys = items.find((i) => /Wyszyńskiego/.test(i.title));
-  // The "Sprzedaż - ul." entries don't carry an explicit round; null is correct.
   assert.equal(wys.round, null);
 });
 
@@ -137,7 +112,6 @@ test('parseBipList: empty / non-matching HTML yields []', () => {
   assert.deepEqual(parseBipList('<html><body>nic</body></html>'), []);
 });
 
-// ---- roundFromTitle ---------------------------------------------------------
 
 test('roundFromTitle: Roman numerals in "X przetarg" pattern', () => {
   assert.equal(roundFromTitle('IV przetarg ustny nieograniczony na sprzedaż …'), 4);
@@ -159,11 +133,7 @@ test('roundFromTitle: no recognisable ordinal → null', () => {
   assert.equal(roundFromTitle(null), null);
 });
 
-// ---- pdfAttachmentUrlsFromDetail --------------------------------------------
 
-// Reconstructed from the real BIP detail page for ul. Wyszyńskiego 18/14
-// (wiadomosc/805965), observed 2026-06-27. The page carries 8 attachments:
-// alternating ogłoszenie/wynik PDFs from I to IV przetarg + unieważnienie.
 const DETAIL_HTML = `
 <section id="Attachments">
   <h2 class="section-title">Załączniki</h2>
@@ -203,7 +173,7 @@ test('pdfAttachmentUrlsFromDetail: extracts all 8 PDF URLs in document order', (
 });
 
 test('pdfAttachmentUrlsFromDetail: no duplicate URLs', () => {
-  const urls = pdfAttachmentUrlsFromDetail(DETAIL_HTML + DETAIL_HTML); // duped HTML
+  const urls = pdfAttachmentUrlsFromDetail(DETAIL_HTML + DETAIL_HTML);
   assert.equal(urls.length, 8, 'dedup: only 8 unique URLs despite doubled HTML');
 });
 
@@ -219,11 +189,7 @@ test('pdfAttachmentUrlsFromDetail: decodes &amp; in href', () => {
   assert.ok(!urls[0].includes('&amp;'), 'should decode &amp; to &');
 });
 
-// ---- parseResultNotice (gniezno.eu HTML result notices) ---------------------
 
-// FIXTURE 1: Sold result — IV przetarg, Sienkiewicza 19/8 (WM.6840.26.2024)
-// Source: https://www.gniezno.eu/wiadomosci/1/wiadomosc/237765/...
-// Fetched live 2026-06-27. Article text extracted from <article> tag.
 const RESULT_SOLD = `Przetarg na sprzedaż lokalu mieszkalnego przy ulicy Sienkiewicza - wynik
 
 Prezydent Miasta Gniezna 24 czerwca 2025 roku ogłosił IV przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 8, położonego w Gnieźnie przy ulicy Sienkiewicza 19, stanowiącego własność Miasta Gniezna wraz z udziałem w nieruchomości gruntowej oznaczonej geodezyjnie jako działka nr 63 na ark. 28 dla której Sąd Rejonowy w Gnieźnie prowadzi księgę wieczystą pod oznaczeniem PO1G/00001656/5.
@@ -236,9 +202,6 @@ Nabywcą został Pan Roman Stachowiak.
 
 Przetarg zakończył się wynikiem pozytywnym.`;
 
-// FIXTURE 2: Negative result — III przetarg, Chrobrego 11/5A (WM.6840.22.2024)
-// Source: https://www.gniezno.eu/wiadomosci/1/wiadomosc/235852/...
-// Fetched live 2026-06-27.
 const RESULT_NEGATIVE = `Przetarg na sprzedaż lokalu mieszkalnego przy ulicy Chrobrego - wynik
 
 Prezydent Miasta Gniezna 3 kwietnia 2025 roku ogłosił III przetarg ustny nieograniczony na sprzedaż lokalu mieszkalnego nr 5A, położonego w Gnieźnie przy ulicy Chrobrego 11, wraz z udziałem w nieruchomości gruntowej oznaczonej geodezyjnie jako działka nr 14 na ark. 28 dla której Sąd Rejonowy w Gnieźnie prowadzi księgę wieczystą pod oznaczeniem PO1G/00029923/0.
@@ -268,7 +231,7 @@ test('parseResultNotice: sold — Sienkiewicza 19/8, round=4, prices, outcome=so
   assert.equal(r.outcome, 'sold');
   assert.equal(r.unsold_reason, null);
   assert.equal(r.source_pdf, SOLD_URL);
-  assert.equal(r.area_m2, null); // not in gniezno.eu notice
+  assert.equal(r.area_m2, null);
 });
 
 test('parseResultNotice: negative — Chrobrego 11/5A, round=3, outcome=unsold', () => {
@@ -281,7 +244,7 @@ test('parseResultNotice: negative — Chrobrego 11/5A, round=3, outcome=unsold',
   assert.ok(r.address, 'address must parse successfully');
   assert.equal(r.address.key, 'chrobrego|11|5A');
   assert.equal(r.address.apt, '5A');
-  assert.equal(r.starting_price_pln, null); // not stated on negative result notice
+  assert.equal(r.starting_price_pln, null);
   assert.equal(r.final_price_pln, null);
   assert.equal(r.outcome, 'unsold');
   assert.equal(r.unsold_reason, 'brak_uczestnikow');
@@ -293,19 +256,13 @@ test('parseResultNotice: empty/garbled text returns []', () => {
   assert.deepEqual(parseResultNotice('Brak danych.', SOLD_URL), []);
 });
 
-// parseResultDoc is the contract wrapper for parseResultNotice
 test('parseResultDoc delegates to parseResultNotice (same results)', () => {
   const fromNotice = parseResultNotice(RESULT_SOLD, SOLD_URL);
   const fromDoc = parseResultDoc(RESULT_SOLD, null, SOLD_URL);
   assert.deepEqual(fromDoc, fromNotice);
 });
 
-// ---- parseAnnouncement (ogłoszenie PDF text parser) -------------------------
 
-// Synthetic ogłoszenie text in the standard Polish vocabulary.
-// Gniezno announcements are text-PDFs; pdftotext -layout output is prose.
-// This fixture combines real field patterns from the Gniezno format with
-// the standard vocabulary shared across all Polish municipal flat auctions.
 const ANNOUNCE_TEXT = `PREZYDENT MIASTA GNIEZNA
 ogłasza II przetarg ustny nieograniczony na sprzedaż lokalu stanowiącego własność
 Miasta Gniezna - niewyodrębniony lokal mieszkalny nr 8 usytuowany w budynku
@@ -334,7 +291,7 @@ test('parseAnnouncement: round from Roman "II przetarg", numeric date, labelled 
 test('parseAnnouncement: round from ordinal "trzeci przetarg"=3, spelled-out date, labelled area ignores cellar + plot', () => {
   const f = parseAnnouncement(ANNOUNCE_ORDINAL);
   assert.equal(f.round, 3);
-  assert.equal(f.auction_date, '2025-04-03'); // "3 kwietnia 2025"
+  assert.equal(f.auction_date, '2025-04-03');
   assert.equal(f.area_m2, 38.2, 'flat area 38,20 — not cellar 6,40 nor plot 280');
   assert.equal(f.starting_price_pln, 88000);
 });

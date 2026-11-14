@@ -1,5 +1,3 @@
-// Starachowice crawler.
-// Crawls municipal property auctions and results from starachowice.eu.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -26,11 +24,9 @@ const TIME_BUDGET_MS = Number(process.env.STARACHOWICE_TIME_BUDGET_MS) || 180000
 
 export function extractAttachmentUrl(html) {
   if (!html) return null;
-  // Look for official document link on BIP or /fckeditor/file/
   const mBip = /<a[^>]+href="([^"]*(?:bip\.um\.starachowice\.pl|\/fckeditor\/file\/)[^"]*\.pdf(?:\?[^"]*)?)"[^>]*>/i.exec(html);
   if (mBip) return mBip[1];
 
-  // Any pdf that is not the page print (?format=pdf)
   const mPdf = /<a[^>]+href="([^"]+\.pdf(?:\?[^"]*)?)"[^>]*>/gi;
   let m;
   while ((m = mPdf.exec(html)) !== null) {
@@ -90,7 +86,6 @@ async function crawlAll() {
 
   let maxBoardPages = MAX_PAGES;
 
-  // 1) Harvest listings index across pages
   for (let page = 1; page <= maxBoardPages; page++) {
     if (Date.now() - start > TIME_BUDGET_MS) {
       console.error(`  starachowice: listing index time budget reached at page ${page}`);
@@ -109,7 +104,6 @@ async function crawlAll() {
       break;
     }
 
-    // Determine max page from pagination on first page
     if (page === 1) {
       const mLastPage = /page=(\d+)[^>]*aria-label="Ostatnia strona"|aria-label="Ostatnia strona"[^>]*page=(\d+)/i.exec(html);
       if (mLastPage) {
@@ -118,7 +112,6 @@ async function crawlAll() {
       }
     }
 
-    // Detect wrap to page 1
     if (page > 1 && /aria-current="page"[^>]*>\s*1\s*<\/a>/i.test(html)) {
       break;
     }
@@ -140,7 +133,6 @@ async function crawlAll() {
     }
   }
 
-  // 2) Process result notices
   for (const item of resCandidates) {
     if (Date.now() - start > TIME_BUDGET_MS) {
       console.error('  starachowice: time budget reached during result processing');
@@ -182,7 +174,6 @@ async function crawlAll() {
     });
   }
 
-  // 3) Process active announcements
   for (const item of annCandidates) {
     if (Date.now() - start > TIME_BUDGET_MS) {
       console.error('  starachowice: time budget reached during announcement processing');

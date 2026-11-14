@@ -1,20 +1,3 @@
-// Bolesławiec crawler — TWO sources (see config.js for the full rationale).
-//
-//   ACTIVE + WYKAZ — city portal xn--bolesawiec-e0b.pl (Joomla). The article
-//   list is a JS SPA, but every category exposes a server-rendered RSS feed
-//   (`?format=feed&type=rss`) carrying the full article HTML, so NO Playwright
-//   is needed. Two boards:
-//     sp-estate           → CURRENT auctions (table: address/area/price/date)  → listings + land
-//     przetargi-planowane → WYKAZ pre-auction designations (prose)             → wykaz
-//
-//   RESULTS — city BIP www.um.boleslawiec.bip-gov.pl board /public/?id=110553
-//   ("Wyniki sprzedaży nieruchomości"): plain HTML, one <a /public/getFile?id=N>
-//   per born-digital PDF. crawlResultDocs() extracts each PDF's text with
-//   pdfText() and attaches it as ref.text (source:'html'), so refresh.js's
-//   OCR/parse loop just reads ref.text.
-//
-// Both hosts use reviewed missing-intermediate compatibility. The legacy
-// insecureTLS option retains full certificate/hostname/expiry verification.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -26,13 +9,8 @@ const BIP = 'https://www.um.boleslawiec.bip-gov.pl';
 const RESULTS_BOARD = `${BIP}/public/?id=110553`;
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
-// Portal serves the RSS fine to the polite bot UA, but the BIP host gates it;
-// send a browser UA everywhere for consistency. insecureTLS selects each host's
-// reviewed intermediate chain (see core/source-tls.js); verification stays on.
 const FETCH_OPTS = { userAgent: BROWSER_UA, insecureTLS: true };
 
-// sp-estate categories that carry SELLABLE auctions (flats, built property,
-// commercial units, land). "dzierżawy" (rental) is intentionally excluded.
 const SALE_CATEGORIES = [
   'lokale-mieszkalne',
   'lokale-budynki-użytkowe',
@@ -42,19 +20,14 @@ const SALE_CATEGORIES = [
   'garaże',
   'inne',
 ];
-// wykaz[] is address-keyed only (buildCityData has no land path for it), so we
-// harvest wykaz from the LOKAL categories only — działka wykaz entries would
-// produce nothing address-keyable. They still surface once they reach an
-// sp-estate auction (crawlActive's `land`).
 const WYKAZ_CATEGORIES = ['lokale-mieszkalne', 'lokale-budynki-użytkowe'];
 
-const MAX_ITEMS_PER_FEED = 50; // Joomla RSS caps well below this; a safety bound.
+const MAX_ITEMS_PER_FEED = 50;
 
 function feedUrl(board, category) {
   return `${PORTAL}/index.php/mig/${board}/${encodeURIComponent(category)}?format=feed&type=rss`;
 }
 
-// ---- RSS parsing ------------------------------------------------------------
 
 function decodeXml(s) {
   return (s || '')
@@ -63,12 +36,6 @@ function decodeXml(s) {
     .replace(/&amp;/g, '&');
 }
 
-/**
- * Parse an RSS feed body into items. Regex-based (the Joomla output is simple
- * and stable) — no XML dependency.
- * @param {string} xml
- * @returns {Array<{title:string, link:string, description:string, pubDate:string}>}
- */
 export function parseRssItems(xml) {
   const out = [];
   const itemRe = /<item>([\s\S]*?)<\/item>/gi;
@@ -85,14 +52,7 @@ export function parseRssItems(xml) {
   return out;
 }
 
-// ---- results board parsing --------------------------------------------------
 
-/**
- * Extract result-notice refs from the BIP board HTML. Each entry is an
- * <a href="/public/getFile?id=N" …><span>Wynik … z dnia DD month YYYY r. - …</span></a>.
- * @param {string} html
- * @returns {Array<{pdf_url:string, title:string, auction_date:string|null}>}
- */
 export function parseResultsBoard(html) {
   const out = [];
   const seen = new Set();
@@ -103,7 +63,6 @@ export function parseResultsBoard(html) {
     if (seen.has(id)) continue;
     seen.add(id);
     const title = decodeXml(m[3].replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
-    // Title carries the auction date: "Wynik I przetargu z dnia 25 czerwca 2026 r. - …"
     const dateM = /z\s+dnia\s+(\d{1,2}\s+[a-ząćęłńóśźż]+\s+\d{4})/i.exec(title);
     out.push({
       pdf_url: `${BIP}${m[1]}`,
@@ -114,7 +73,6 @@ export function parseResultsBoard(html) {
   return out;
 }
 
-// ---- crawlActive ------------------------------------------------------------
 
 let activePromise = null;
 
@@ -123,7 +81,6 @@ export async function crawlAll({ fetchText = getText } = {}) {
   const land = [];
   const wykaz = [];
 
-  // sp-estate → active auctions (listings + land)
   for (const category of SALE_CATEGORIES) {
     let xml;
     try {
@@ -142,7 +99,6 @@ export async function crawlAll({ fetchText = getText } = {}) {
     if (items.length) console.error(`  boleslawiec sp-estate/${category}: ${items.length} item(s) → ${addL} listing(s), ${addLand} land`);
   }
 
-  // przetargi-planowane → wykaz pre-announcements (address-keyed only)
   for (const category of WYKAZ_CATEGORIES) {
     let xml;
     try {
@@ -161,7 +117,6 @@ export async function crawlAll({ fetchText = getText } = {}) {
   }
 
   console.error(`  boleslawiec crawlActive: ${listings.length} listing(s), ${wykaz.length} wykaz, ${land.length} land`);
-  // RSS and result boards retain a rolling window, not the full land ledger.
   return { listings, wykaz, land, land_complete: false };
 }
 
@@ -170,13 +125,7 @@ export async function crawlActive() {
   return activePromise;
 }
 
-// ---- crawlResultDocs --------------------------------------------------------
 
-/**
- * Fetch the BIP results board, extract each getFile PDF, and return refs with
- * the extracted text attached (source:'html' — refresh.js reads ref.text).
- * @returns {Promise<Array<{text:string, pdf_url:string, auction_date:string|null}>>}
- */
 export async function crawlResultDocs() {
   let html;
   try {
@@ -202,7 +151,6 @@ export async function crawlResultDocs() {
   return refs;
 }
 
-// Manual smoke test: `node src/cities/boleslawiec/crawl.js`
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const active = await crawlActive();
   const refs = await crawlResultDocs();

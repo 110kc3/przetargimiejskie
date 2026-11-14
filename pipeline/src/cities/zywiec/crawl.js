@@ -1,6 +1,3 @@
-// Crawler for Żywiec (bip.zywiec.pl)
-//
-// Scrapes server-rendered HTML notices from Żywiec BIP property category.
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';

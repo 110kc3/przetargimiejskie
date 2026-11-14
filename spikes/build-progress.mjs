@@ -1,11 +1,3 @@
-// Regenerates SPIKE-PROGRESS.md from master-cities.json + backlog.json.
-//
-//   node spikes/build-progress.mjs        (from repo root, or anywhere)
-//
-// SPIKE-PROGRESS.md is a pure VIEW over the two JSON ledgers — it went stale
-// once (July 2026: roll-up said 46 built / 64 build while the JSON and the
-// actual registry said 53 / 57), so it is now generated, never hand-edited.
-// Update master-cities.json (the source of truth), then run this.
 
 import { readFileSync, writeFileSync, renameSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -28,7 +20,6 @@ const STATUS = {
   unresearched: { badge: '⚪ UNRESEARCHED', order: 6 },
 };
 
-// Voivodeship slugs → display names (diacritics matter in the headings).
 const WOJ = {
   dolnoslaskie: 'Dolnośląskie', 'kujawsko-pomorskie': 'Kujawsko-Pomorskie',
   lubelskie: 'Lubelskie', lubuskie: 'Lubuskie', lodzkie: 'Łódzkie',

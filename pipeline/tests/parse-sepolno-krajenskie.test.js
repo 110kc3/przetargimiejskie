@@ -1,38 +1,3 @@
-// Sępólno Krajeńskie parser tests. Fixtures are condensed-but-faithful copies
-// of REAL page/PDF text fetched live from bip.gmina-sepolno.pl (verified
-// 2026-07-11 via this Pi, insecureTLS + browser UA). Long non-load-bearing
-// boilerplate (RODO/GDPR block, generic wadium/płatność procedure, the
-// publication-period footer) is trimmed; every sentence that feeds a parsed
-// field (address, area, price, date, round, kind, outcome) is kept verbatim,
-// including the pdftotext line breaks the address/date regexes rely on.
-//
-// The notice-page HTML fixtures reproduce the real extranet "BIP w JST" CMS
-// skeleton confirmed live: <h1 class="pageHeader">, the structured inline
-// metadata block of repeated
-//   <div class="cct-page__name"> LABEL: </div>
-//   <div class="cct-page__value"> VALUE </div>
-// pairs, and the /download/attachment/<id>/<name> links.
-//
-// Groundtruth (hand-verified against the live pages/PDFs):
-//   ul. Hallera 9/4 — lokal mieszkalny nr 4, pow. użytkowa 34,30 m², udział
-//     31/294, KW BY2T/00020115/6, dz. 254 obr. 4:
-//       announce  /2562  Rodzaj nieruchomości "lokal mieszkalny", cena wyw.
-//                        98 900 zł, I przetarg, Data przetargu 11-10-2023
-//       result    informacja-o-wyniku-przetargu-hallera.pdf — SOLD: cena
-//                        osiągnięta 99 900 zł, nabywca Pani Joanna Jelińska
-//   ul. Plac Wolności 14/1 — lokal mieszkalny nr 1, cena wyw. 69 300 zł:
-//       result    informacja-o-wyniku-przetargu-plac-wolnosci.pdf — NEGATYWNY:
-//                        cena osiągnięta "brak", nabywca "brak"
-//   ul. Plac Wolności 14/2 — lokal użytkowy nr 2, pow. użytkowa 28,50 m²:
-//       announce  /5301  Rodzaj nieruchomości "lokal użytkowy", cena wyw.
-//                        70 000 zł, II przetarg, Data przetargu 12-09-2024;
-//                        body self-reports "I przetarg odbył się w dniu
-//                        26 marca 2024 r. i zakończył się wynikiem negatywnym."
-//       result    9-informacja-o-wyniku-przetargu.pdf — SOLD: cena osiągnięta
-//                        70 700 zł, nabywca Państwo Izabela i Dariusz Głazik
-//   ul. Osiedle Słowackiego — zabudowana nieruchomość garażem: an area-named
-//     site with NO civic street/building number (only działka nr 576) → the
-//     address is correctly unparseable (null), a documented residual not a bug.
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -65,10 +30,7 @@ import {
   parseResultDoc,
 } from '../src/cities/sepolno-krajenskie/parse.js';
 
-// ------------------------------------------------------------- HTML fixtures
 
-// Build one notice page in the real "BIP w JST" skeleton. `meta` is an ordered
-// array of [label, value]; `attNames` are the download-attachment file names.
 function noticeHtml(title, meta, attNames) {
   const metaHtml = meta
     .map(
@@ -107,7 +69,6 @@ test('attachment selection accepts cache-busting query strings', () => {
 
 const HALLERA_TITLE =
   'Ogłoszenie o przetargu ustnym nieograniczonym na sprzedaż prawa własności nieruchomości lokalowej przy ul. Hallera 9/4 w Sępólnie Krajeńskim';
-// Real: this notice has NO "Adres nieruchomości" row — address comes from the title.
 const HALLERA_HTML = noticeHtml(
   HALLERA_TITLE,
   [
@@ -147,8 +108,6 @@ const PL142_HTML = noticeHtml(
   ],
 );
 
-// A land notice (działki) — a genuine SALE, but grunt-kind (out of the
-// address-keyed listing scope; crawl.js skips it).
 const TARTACZNA_TITLE =
   'Ogłoszenie o przetargu na sprzedaż nieruchomości gruntowych położonych przy ul. Tartacznej w Sępólnie Krajeńskim';
 const TARTACZNA_HTML = noticeHtml(
@@ -162,7 +121,6 @@ const TARTACZNA_HTML = noticeHtml(
   ['44-przetarg-na-sprzedaz-dz-za-weterynaria-ogloszenie.pdf', 'informacja-o-wynikach-przetargow.pdf'],
 );
 
-// A lease notice (dzierżawa) — NOT a sale; crawl.js excludes it.
 const DZIERZAWA_TITLE =
   'Burmistrz Sępólna Krajeńskiego ogłasza I publiczny przetarg ustny ograniczony na dzierżawę nieruchomości położonych w Sępólnie Krajeńskim przeznaczonych pod miejsca płatnego parkowania';
 const DZIERZAWA_HTML = noticeHtml(
@@ -175,8 +133,6 @@ const DZIERZAWA_HTML = noticeHtml(
   ['dzierzawa-ogloszenie.pdf'],
 );
 
-// A garaż notice on an area-named site: "Adres nieruchomości" has no building
-// number → address unparseable (the documented residual).
 const GARAZ_TITLE =
   'Ogłoszenie o przetargu ustnym nieograniczonym na sprzedaż prawa własności zabudowanej nieruchomości garażem położonej przy ul. Osiedle Słowackiego w Sępólnie Krajeńskim';
 const GARAZ_HTML = noticeHtml(
@@ -192,10 +148,7 @@ const GARAZ_HTML = noticeHtml(
   ['5-ogloszenie-o-przetargu-sprzedaz-garaz-slowackiego-podpisane.pdf', '5-informacja-o-wyniku-przetargu.pdf'],
 );
 
-// --------------------------------------------------------------- PDF fixtures
 
-// Hallera 9/4 ogłoszenie (born-digital) — condensed, keeping the powierzchnia
-// użytkowa line verbatim.
 const HALLERA_ANNOUNCE_PDF = `BURMISTRZ SĘPÓLNA KRAJEŃSKIEGO
 ogłasza przetarg ustny nieograniczony na sprzedaż prawa własności nieruchomości lokalowej – lokal mieszkalny położony w Sępólnie Krajeńskim
 Sępólno Krajeńskie, ul. Hallera 9/4          lokal mieszkalny – położony jest na pierwszym piętrze
@@ -205,8 +158,6 @@ lokal o powierzchni użytkowej 34,30 m2, składający się z: pokoju (18,66 m2),
 98 900,00 zł
 PRZETARG NA SPRZEDAŻ WW. NIERUCHOMOŚCI ODBĘDZIE SIĘ W DNIU 11 PAŹDZIERNIKA 2023 R.`;
 
-// Plac Wolności 14/2 II ogłoszenie — condensed; keeps the powierzchnia użytkowa
-// line and the round-II self-report ("I przetarg ... wynikiem negatywnym").
 const PL142_ANNOUNCE_PDF = `BURMISTRZ SĘPÓLNA KRAJEŃSKIEGO
 ogłasza II przetarg ustny nieograniczony na sprzedaż prawa własności nieruchomości lokalowej – lokal użytkowy położony w Sępólnie Krajeńskim
 Sępólno Krajeńskie, ul. Plac Wolności 14/2
@@ -216,7 +167,6 @@ lokal o powierzchni użytkowej 28,50 m2, składający się z: sali (12,30 m2), s
 PRZETARG NA SPRZEDAŻ WW. NIERUCHOMOŚCI ODBĘDZIE SIĘ W DNIU 12 WRZEŚNIA 2024 R.
 I przetarg odbył się w dniu 26 marca 2024 r. i zakończył się wynikiem negatywnym.`;
 
-// Hallera 9/4 informacja o wyniku (SOLD) — near-verbatim (the whole notice is
 // short); the address header line-break is preserved for addressFromResult.
 const HALLERA_RESULT_PDF = `INFORMACJA
 o wyniku przetargu ustnego nieograniczonego na sprzedaż prawa własności
@@ -237,7 +187,6 @@ opisanej w księdze wieczystej pod oznaczeniem: BY2T/00020115/6.
 6. Najwyższa cena osiągnięta w przetargu: 99 900,00 zł
 7. Nabywca nieruchomości: Pani Joanna Jelińska`;
 
-// Plac Wolności 14/1 informacja o wyniku (NEGATYWNY) — "brak" on lines 6 + 7.
 const PL141_RESULT_PDF = `INFORMACJA
 o wyniku przetargu ustnego nieograniczonego na sprzedaż prawa własności
 nieruchomości lokalowej – lokal mieszkalny położony w Sępólnie Krajeńskim,
@@ -255,7 +204,6 @@ w wysokości 24/258 części w nieruchomości wspólnej.
 6. Najwyższa cena osiągnięta w przetargu: brak
 7. Nabywca nieruchomości: brak`;
 
-// Plac Wolności 14/2 informacja o wyniku (SOLD, lokal użytkowy).
 const PL142_RESULT_PDF = `INFORMACJA
 o wyniku przetargu ustnego nieograniczonego na sprzedaż prawa własności
 nieruchomości lokalowej – lokal użytkowy położony w Sępólnie Krajeńskim,
@@ -272,7 +220,6 @@ w wysokości 29/258 części w nieruchomości wspólnej.
 6. Najwyższa cena osiągnięta w przetargu: 70 700,00 zł
 7. Nabywca nieruchomości: Państwo Izabela i Dariusz Głazik`;
 
-// ------------------------------------------------------------------ unit funcs
 
 test('parsePLN: space-thousands with and without a trailing "zł"', () => {
   assert.equal(parsePLN('98 900,00 zł'), 98900);
@@ -307,7 +254,6 @@ test('polishDateToIso: spelled-out Polish month with diacritics (pdftotext outpu
   assert.equal(polishDateToIso('26 marca 2024'), '2024-03-26');
 });
 
-// ------------------------------------------------------------ HTML structure
 
 test('extractTitle / extractMetadata / extractAttachments: real "BIP w JST" skeleton', () => {
   assert.equal(extractTitle(HALLERA_HTML), HALLERA_TITLE);
@@ -325,13 +271,11 @@ test('pickAnnouncementPdf / pickResultPdf: ogłoszenie vs annex vs "informacja o
   const atts = extractAttachments(HALLERA_HTML);
   assert.match(pickAnnouncementPdf(atts), /2-akt-ogloszenia-o-przetargu-h94\.pdf$/);
   assert.match(pickResultPdf(atts), /informacja-o-wyniku-przetargu-hallera\.pdf$/);
-  // "podpisane" naming variant + numeric-prefixed result file:
   const atts2 = extractAttachments(PL142_HTML);
   assert.match(pickAnnouncementPdf(atts2), /9-ogloszenie-o-ii-przetargu-podpisane\.pdf$/);
   assert.match(pickResultPdf(atts2), /9-informacja-o-wyniku-przetargu\.pdf$/);
 });
 
-// -------------------------------------------------------------- parseNotice
 
 test('parseNotice: Hallera 9/4 flat — kind/price/date from metadata, address from title (no "Adres" row)', () => {
   const n = parseNotice(HALLERA_HTML, 'https://bip.gmina-sepolno.pl/2562/405/x.html');
@@ -381,14 +325,12 @@ test('parseNotice: garaż on an area-named site (no building number) → address
   assert.equal(n.starting_price_pln, 29670);
 });
 
-// ---------------------------------------------------------- areaFromAnnouncement
 
 test('areaFromAnnouncement: "powierzchni użytkowej 34,30 m2" / "28,50 m2" from the born-digital ogłoszenie', () => {
   assert.equal(areaFromAnnouncement(HALLERA_ANNOUNCE_PDF), 34.3);
   assert.equal(areaFromAnnouncement(PL142_ANNOUNCE_PDF), 28.5);
 });
 
-// ------------------------------------------------------------- parseResultDoc
 
 test('parseResultDoc: Hallera 9/4 SOLD — cena wyw. 98 900 → osiągnięta 99 900, nabywca present, date from spelled-out month', () => {
   const [r] = parseResultDoc(HALLERA_RESULT_PDF, '2023-10-11', 'https://bip.gmina-sepolno.pl/download/attachment/4473/informacja-o-wyniku-przetargu-hallera.pdf');

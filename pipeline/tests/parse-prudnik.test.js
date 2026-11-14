@@ -1,13 +1,3 @@
-// Prudnik parser tests. Fixtures are faithful copies of REAL pdftotext output
-// from bip.prudnik.pl PDFs (verified 2026-10-22):
-//
-// 1. ANN_RYNEK_20: article 2266 / 2110 — Rynek 20/8, 32.90 m², wyw. 160.000 zł
-// 2. RESULT_RYNEK_20: article 2110 — 18.06.2026, 160.000 zł, wynik negatywny (unsold)
-// 3. ANN_PARKOWA_8: article 1782 — Parkowa 8/5, 76.09 m², wyw. 162.600 zł, round 4
-// 4. RESULT_PARKOWA_8: article 1782 — 12.11.2025, 162.600 → 164.260 zł, Bernadeta Bednarczuk (SOLD)
-// 5. ANN_MULTI_665: article 665 — Klasztorna 8/10, Klasztorna 16/2, Chrobrego 11/5
-// 6. RESULT_MULTI_665: article 665 — Klasztorna 16/2 (SOLD 56.600 zł), Chrobrego 11/5 (SOLD 39.800 zł)
-// 7. RESULT_RYNEK_9: article 1485 — 07.05.2025, Rynek 9/7 106.000 → 107.060 zł (SOLD)
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -31,7 +21,6 @@ import {
   classifyAttachment,
 } from '../src/cities/prudnik/crawl.js';
 
-// ─────────────────────────── REAL FIXTURES ───────────────────────────────────
 
 const ANN_RYNEK_20 = `MG-III.6840.1.2025                                                     Prudnik, dnia 13.05.2026 r.
 
@@ -196,7 +185,6 @@ const RESULT_RYNEK_9 = `MG-V.6840.1.2025                                        
        Lokal mieszkalny nr 7 położony przy
  2.    ul. Rynek 9 w Prudniku                     1       nie było   106.000,00 zł     107.060,00 zł      Jan Kowalski`;
 
-// ─────────────────────────── isResultNotice ──────────────────────────────────
 
 test('isResultNotice: correctly distinguishes result notices from announcements', () => {
   assert.equal(isResultNotice(RESULT_RYNEK_20), true);
@@ -208,7 +196,6 @@ test('isResultNotice: correctly distinguishes result notices from announcements'
   assert.equal(isResultNotice(ANN_MULTI_665), false);
 });
 
-// ─────────────────────────── isSkippableTitle ────────────────────────────────
 
 test('isSkippableTitle: skips bare land and vehicle auctions, retains flats', () => {
   assert.equal(isSkippableTitle('sprzedaż nieruchomości niezabudowanej dz. nr 600/7'), true);
@@ -220,7 +207,6 @@ test('isSkippableTitle: skips bare land and vehicle auctions, retains flats', ()
   assert.equal(isSkippableTitle('przetarg ustny nieograniczony na zbycie nieruchomości'), false);
 });
 
-// ─────────────────────────── dates & numbers ─────────────────────────────────
 
 test('auctionDateFromText & resultDateFromText: formats Polish date expressions to ISO', () => {
   assert.equal(auctionDateFromText(ANN_RYNEK_20), '2026-06-18');
@@ -241,16 +227,14 @@ test('parsePLN & parseArea: handles dot-thousands and Polish comma decimals', ()
   assert.equal(parseArea('105,61 m2'), 105.61);
 });
 
-// ─────────────────────────── extractLotRound ─────────────────────────────────
 
 test('extractLotRound: counts prior tenders or reads Roman numeral / word heading', () => {
   assert.equal(extractLotRound(ANN_RYNEK_20), 1);
-  assert.equal(extractLotRound(ANN_PARKOWA_8), 4); // 3 prior rounds + heading PO RAZ CZWARTY
+  assert.equal(extractLotRound(ANN_PARKOWA_8), 4);
   assert.equal(extractLotRound('PRZETARGI PO RAZ DRUGI'), 2);
   assert.equal(extractLotRound('PRZETARG PO RAZ TRZECI'), 3);
 });
 
-// ─────────────────────────── address extraction ──────────────────────────────
 
 test('extractAddressFromLot: parses streets with embedded building and unit', () => {
   assert.equal(extractAddressFromLot(ANN_RYNEK_20), 'ul. Rynek 20/8');
@@ -261,7 +245,6 @@ test('extractAddressFromLot: parses streets with embedded building and unit', ()
   assert.equal(extractAddressFromLot('Lokal mieszkalny nr 7 położony przy ul. Rynek 9 w Prudniku'), 'ul. Rynek 9/7');
 });
 
-// ─────────────────────────── parseAnnouncement ───────────────────────────────
 
 test('parseAnnouncement: single lot Rynek 20/8', () => {
   const lots = parseAnnouncement(ANN_RYNEK_20, 'https://bip.prudnik.pl/detail', 'https://bip.prudnik.pl/ann.pdf');
@@ -289,10 +272,9 @@ test('parseAnnouncement: multi-lot Klasztorna & Chrobrego', () => {
   assert.equal(lots[2].address.key, 'chrobrego|11|5');
   assert.equal(lots[2].starting_price_pln, 39400);
   assert.equal(lots[2].area_m2, 62.11);
-  assert.equal(lots[2].round, 5); // 4 prior tenders -> round 5
+  assert.equal(lots[2].round, 5);
 });
 
-// ─────────────────────────── parseResultDoc ──────────────────────────────────
 
 test('parseResultDoc: UNSOLD Rynek 20/8', () => {
   const recs = parseResultDoc(RESULT_RYNEK_20, null, 'https://bip.prudnik.pl/res.pdf');
@@ -355,7 +337,6 @@ test('parseResultDoc: paired result 1485 with SOLD Rynek 9/7', () => {
   assert.equal(r9.final_price_pln, 107060);
 });
 
-// ─────────────────────────── crawl helpers ───────────────────────────────────
 
 test('parseArticleList: extracts articles from table', () => {
   const html = `

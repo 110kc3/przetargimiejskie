@@ -1,27 +1,3 @@
-// Włocławek crawler — single board on the extranet "BIP w JST" CMS
-// bip.wloclawek.eu (see config.js for the full rationale).
-//
-//   harvestNotices() [memoized] — crawls the board /2730/... (paginated
-//     ?Page=N, bounded), then fetches + parses each notice page ONCE. Shared by
-//     both entry points so one refresh run fetches each notice HTML a single
-//     time.
-//
-//   crawlActive() — sale notices, address-keyed kinds only (flats/zabudowana
-//     share/commercial/garaż): metadata + title + body prose drive
-//     kind/round/price/date/address/area (no PDF needed — see parse.js). Land
-//     (grunt) and lease (najem/dzierżawa) are detected and skipped.
-//     Returns { listings, wykaz: [], land: [] }.
-//
-//   crawlResultDocs() — sale notices carrying a result attachment: extract its
-//     text (docText for .docx — preferred, born-digital; pdfText for .pdf,
-//     falling back to ocrPdf on a near-empty/\f-only extraction — the
-//     documented scanned-PDF gotcha, confirmed live on Jagiellońska 2/4's
-//     fixture) and return refs with ref.text (source:'html' -> refresh.js reads
-//     ref.text directly). Returns Array<{ text, pdf_url, auction_date }>.
-//
-// No insecureTLS/browser-UA workaround needed — bip.wloclawek.eu serves the
-// project's plain bot UA fine (confirmed live 2026-07-16, unlike e.g.
-// bip.miastozabrze.pl/bip.gmina-sepolno.pl).
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -32,31 +8,17 @@ import { parseNotice, parseResultDoc } from './parse.js';
 
 const PORTAL = 'https://bip.wloclawek.eu';
 const BOARD = `${PORTAL}/2730/ogloszenia-o-przetargach-nieruchomosci.html`;
-const BOARD_DOCID = '2730'; // the board's own self-link — never a notice
-const MAX_PAGES = 20; // observed ~9 pages / 81 items (2026-07); safety margin for growth
+const BOARD_DOCID = '2730';
+const MAX_PAGES = 20;
 
-// Below this many non-whitespace chars, treat pdftotext output as a scanned
-// PDF with no text layer (the \f-only junk the memory note warns about) and
-// fall back to OCR.
 const MIN_PDF_TEXT_CHARS = 40;
 
-// Address-keyed kinds we emit as listings; grunt (parcel-keyed land) is
-// skipped in v1 (see config.js scope note).
 const LISTING_KINDS = new Set(['mieszkalny', 'zabudowana', 'uzytkowy', 'garaz']);
 
-/**
- * Extract notice-detail links from one board-index page.
- * Notice URL: /<docid>/<slug>.html; the historical /726/ category segment is
- * also accepted (absolute or root-relative). Skips the
- * board's own self-link (docid 2730 / slug
- * "ogloszenia-o-przetargach-nieruchomosci.html").
- * @param {string} html @returns {Array<{docid:string, url:string}>}
- */
 export function parseBoardLinks(html) {
   const out = [];
   const seen = new Set();
   // Scope to board-card titles. Once /726/ disappeared, a global href scan
-  // also matched hundreds of unrelated navigation pages.
   const re = /<div[^>]*class="cct-item__name"[^>]*>\s*<a href="((?:https?:\/\/[^"]+)?\/(\d+)\/(?:726\/)?([^"]+\.html))"/gi;
   let m;
   while ((m = re.exec(html)) !== null) {
@@ -72,14 +34,6 @@ export function parseBoardLinks(html) {
   return out;
 }
 
-/**
- * Extract a result-attachment's text, born-digital first: a .docx via
- * docText (preferred — Kilińskiego 12A/1 carries a "dokument dostępny cyfrowo"
- * DOCX twin), else pdfText with an OCR fallback on a near-empty extraction
- * (Jagiellońska 2/4's attachment is a SCANNED pdf despite its "dokument
- * dostępny cyfrowo" filename — never trust the label, check the byte output).
- * @param {string} url @returns {Promise<string>}
- */
 export async function extractResultText(url) {
   if (/\.docx?(?:[?#]|$)/i.test(url)) {
     return docText(url);
@@ -99,12 +53,10 @@ export async function extractResultText(url) {
   }
 }
 
-// ---------------------------------------------------------------- harvest (memoized)
 
 let noticesPromise = null;
 
 async function harvestNotices() {
-  // 1. Paginate the board, collecting unique notice links.
   const links = [];
   const seen = new Set();
   for (let page = 1; page <= MAX_PAGES; page++) {
@@ -124,11 +76,10 @@ async function harvestNotices() {
       links.push(l);
       added++;
     }
-    if (added === 0) break; // no new notices on this page — stop paginating
+    if (added === 0) break;
   }
   console.error(`  wloclawek: ${links.length} notice link(s) across board`);
 
-  // 2. Fetch + parse each notice page once.
   const notices = [];
   for (const l of links) {
     let html;
@@ -148,7 +99,6 @@ function getNotices() {
   return noticesPromise;
 }
 
-// ---------------------------------------------------------------- crawlActive
 
 export async function crawlActive() {
   const notices = await getNotices();
@@ -156,7 +106,7 @@ export async function crawlActive() {
 
   for (const n of notices) {
     if (!n.is_sale) continue;
-    if (!LISTING_KINDS.has(n.kind)) continue; // grunt/unknown -> skipped (see config.js)
+    if (!LISTING_KINDS.has(n.kind)) continue;
 
     listings.push({
       kind: n.kind,
@@ -175,7 +125,6 @@ export async function crawlActive() {
   return { listings, wykaz: [], land: [] };
 }
 
-// ---------------------------------------------------------------- crawlResultDocs
 
 export async function crawlResultDocs() {
   const notices = await getNotices();
@@ -198,7 +147,6 @@ export async function crawlResultDocs() {
   return refs;
 }
 
-// ---------------------------------------------------------------- CLI smoke test
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { listings } = await crawlActive();

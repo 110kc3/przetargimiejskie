@@ -1,35 +1,3 @@
-// Szczecin parser + RSS-crawl-helper tests.
-//
-// Fixtures groundtruthed against LIVE data fetched 2026-06-27:
-//
-// ANNOUNCEMENT (active, round 2):
-//   https://bip.um.szczecin.pl/chapter_131207.asp?soid=0040FE1CF9FE4AD68A581184AB236384
-//   "Drugi przetarg ustny nieograniczony na sprzedaż gminnego lokalu mieszkalnego
-//    nr 4 położonego w nieruchomości przy ul. Krzemiennej 28 w Szczecinie"
-//   Address: Krzemienna 28/4 · area: 31,40 m² · cena: 215 400,00 zł
-//   Auction date: 17.11.2025 (second auction; first was 06.08.2025)
-//   RSS pubDate: Mon, 06 Oct 2025 06:59:28 GMT
-//
-// ANNOUNCEMENT (active, round 2, 2026):
-//   https://bip.um.szczecin.pl/chapter_131207.asp?soid=0375356C3DCF4DC3BC96D57C3AA247C7
-//   "Drugi przetarg ustny nieograniczony na sprzedaż gminnego lokalu mieszkalnego
-//    nr 16 położonego w nieruchomości przy ul. Pocztowej 30 w Szczecinie"
-//   Address: Pocztowa 30/16 · area: 162,04 m² · cena: 806 200,00 zł
-//   Auction date: 03.06.2026
-//   RSS pubDate: Mon, 30 Mar 2026 08:55:37 GMT
-//
-// RESULT NOTICE (achieved price):
-//   https://bip.um.szczecin.pl/chapter_131207.asp?soid=00B57BEA97AA44EE9B007CF9D660A543
-//   "Informacja o wyniku drugiego przetargu ustnego nieograniczonego na sprzedaż
-//    lokalu mieszkalnego nr 4 położonego przy ul. Ludwika Waryńskiego 22"
-//   Address: ul. Ludwika Waryńskiego 22/4 · area: 140,81 m²
-//   Cena wywoławcza: 589 900,00 zł · Cena osiągnięta: 764 000,00 zł
-//   Auction date: 27.03.2024 · round: 2
-//
-// JOIN KEYS (build-properties links result → announcement):
-//   Krzemienna:   krzemienna|28|4
-//   Pocztowa:     pocztowa|30|16
-//   Warynskiego:  ludwika warynskiego|22|4
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -48,7 +16,6 @@ import {
 
 import { parseRss } from '../src/cities/szczecin/crawl.js';
 
-// ─── roundFromText ────────────────────────────────────────────────────────────
 
 test('roundFromText: "Drugi przetarg …" → 2', () => {
   assert.equal(roundFromText('Drugi przetarg ustny nieograniczony na sprzedaż lokalu'), 2);
@@ -87,7 +54,6 @@ test('roundFromText: null/empty → null', () => {
   assert.equal(roundFromText(null), null);
 });
 
-// ─── isAnnouncementTitle ──────────────────────────────────────────────────────
 
 test('isAnnouncementTitle: Krzemienna flat announcement → true', () => {
   assert.equal(
@@ -122,7 +88,6 @@ test('isAnnouncementTitle: empty → false', () => {
   assert.equal(isAnnouncementTitle(null), false);
 });
 
-// ─── isResultTitle ────────────────────────────────────────────────────────────
 
 test('isResultTitle: Waryńskiego result notice → true', () => {
   assert.equal(
@@ -145,7 +110,6 @@ test('isResultTitle: commercial result → false', () => {
   );
 });
 
-// ─── auctionDateFromText ──────────────────────────────────────────────────────
 
 test('auctionDateFromText: "odbędzie się w dniu 17.11.2025 r."', () => {
   assert.equal(
@@ -167,7 +131,6 @@ test('auctionDateFromText: no date → null', () => {
   assert.equal(auctionDateFromText(null), null);
 });
 
-// ─── auctionDateFromResultText ────────────────────────────────────────────────
 
 test('auctionDateFromResultText: "PRZEPROWADZONEGO W DNIU 27.03.2024 r."', () => {
   assert.equal(
@@ -181,8 +144,6 @@ test('auctionDateFromResultText: no date → null', () => {
   assert.equal(auctionDateFromResultText(null), null);
 });
 
-// ─── extractAddressFromCell ───────────────────────────────────────────────────
-// The "Położenie i opis lokalu" cell text after HTML tag stripping.
 
 test('extractAddressFromCell: "Ul. Krzemienna 28/4 1 piętro …" → "Ul. Krzemienna 28/4"', () => {
   const addr = extractAddressFromCell('Ul. Krzemienna 28/4 1 piętro Opis: 1 pokój, 1 kuchnia');
@@ -205,12 +166,6 @@ test('extractAddressFromCell: empty → null', () => {
   assert.equal(extractAddressFromCell(null), null);
 });
 
-// ─── parseAnnouncementPage — Krzemienna fixture ───────────────────────────────
-//
-// Condensed but faithful reconstruction of the live page HTML from
-// chapter_131207.asp?soid=0040FE1CF9FE4AD68A581184AB236384 (2026-06-27).
-// Includes the essential parts: <h2>, table with one data row, and the
-// auction-date prose paragraph after the table.
 
 const ANN_KRZEMIENNA = `<!DOCTYPE html>
 <html><body>
@@ -323,11 +278,6 @@ test('parseAnnouncementPage (Krzemienna): detail_url stored', () => {
   assert.equal(rec.detail_url, url);
 });
 
-// ─── parseAnnouncementPage — Pocztowa fixture (2026, round 2) ────────────────
-//
-// Condensed faithful reconstruction from
-// chapter_131207.asp?soid=0375356C3DCF4DC3BC96D57C3AA247C7 (2026-06-27).
-// Address WITHOUT "Ul." prefix ("Pocztowa 30/16"), larger flat, bigger price.
 
 const ANN_POCZTOWA = `<!DOCTYPE html>
 <html><body>
@@ -411,7 +361,6 @@ test('parseAnnouncementPage (Pocztowa): round = 2', () => {
   assert.equal(rec.round, 2);
 });
 
-// ─── parseAnnouncementPage edge cases ────────────────────────────────────────
 
 test('parseAnnouncementPage: null/empty → null', () => {
   assert.equal(parseAnnouncementPage(null, 'https://example.com', 'Przetarg na lokal mieszkalny', null), null);
@@ -419,7 +368,6 @@ test('parseAnnouncementPage: null/empty → null', () => {
 });
 
 test('parseAnnouncementPage: non-flat title rejected → null', () => {
-  // Replace ALL forms of "lokal mieszkaln*" (nom + genitive) with commercial equivalent
   const html = ANN_KRZEMIENNA
     .replace(/lokalu?\s+mieszkaln\w*/gi, 'lokal użytkowy')
     .replace(/lokal\w*\s+mieszkaln\w*/gi, 'lokal użytkowy');
@@ -427,7 +375,6 @@ test('parseAnnouncementPage: non-flat title rejected → null', () => {
   assert.equal(rec, null);
 });
 
-// ─── isResultNotice ───────────────────────────────────────────────────────────
 
 test('isResultNotice: html with INFORMACJA O WYNIKU → true', () => {
   assert.equal(isResultNotice('<p>INFORMACJA O WYNIKU PRZETARGU</p>'), true);
@@ -443,12 +390,6 @@ test('isResultNotice: null/empty → false', () => {
   assert.equal(isResultNotice(''), false);
 });
 
-// ─── parseResultDoc — Waryńskiego fixture ────────────────────────────────────
-//
-// Condensed faithful reconstruction from
-// chapter_131207.asp?soid=00B57BEA97AA44EE9B007CF9D660A543 (2026-06-27).
-// Result table: address / działka / area / bidders / rejected /
-//               cena wywoławcza / cena osiągnięta / nabywca
 
 const RESULT_WARYNSKIEGO = `<!DOCTYPE html>
 <html><body>
@@ -556,7 +497,6 @@ test('parseResultDoc (Waryńskiego): fallbackDate used when no inline date', () 
   assert.equal(recs[0].auction_date, '2024-03-27');
 });
 
-// ─── parseResultDoc — unsold result ──────────────────────────────────────────
 
 const RESULT_UNSOLD = `<!DOCTYPE html>
 <html><body>
@@ -614,7 +554,6 @@ test('parseResultDoc (unsold): auction_date = 2025-01-15', () => {
   assert.equal(recs[0].auction_date, '2025-01-15');
 });
 
-// ─── parseResultDoc edge cases ────────────────────────────────────────────────
 
 test('parseResultDoc: non-result html → []', () => {
   assert.deepEqual(parseResultDoc(ANN_KRZEMIENNA, null, 'https://example.com'), []);
@@ -625,8 +564,6 @@ test('parseResultDoc: null/empty → []', () => {
   assert.deepEqual(parseResultDoc('', null, 'https://example.com'), []);
 });
 
-// ─── parseRss ────────────────────────────────────────────────────────────────
-// Condensed faithful XML structure from live rss_131207.xml (2026-06-27).
 
 const SAMPLE_RSS = `<?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
@@ -663,10 +600,8 @@ test('parseRss: returns 4 items from sample XML', () => {
 
 test('parseRss: Krzemienna item — title stripped of suffix', () => {
   const items = parseRss(SAMPLE_RSS);
-  // The RSS title uses the genitive "Krzemiennej" not nominative "Krzemienna"
   const k = items.find(i => /krzemiennej|krzemienna/i.test(i.title));
   assert.ok(k, 'Krzemienna item must be present');
-  // Suffix ", Sprzedaż, Lokale, 2025/10/06" must be stripped
   assert.ok(!/Sprzedaż/.test(k.title), `title suffix must be stripped, got: ${k.title}`);
   assert.ok(/Krzemienn/i.test(k.title), `title must include Krzemienn*, got: ${k.title}`);
   assert.ok(/ 28/.test(k.title), `title must include building 28, got: ${k.title}`);
@@ -674,7 +609,6 @@ test('parseRss: Krzemienna item — title stripped of suffix', () => {
 
 test('parseRss: Krzemienna item — href upgraded to https', () => {
   const items = parseRss(SAMPLE_RSS);
-  // The RSS title uses the genitive "Krzemiennej" not nominative "Krzemienna"
   const k = items.find(i => /krzemiennej|krzemienna/i.test(i.title));
   assert.ok(k, 'Krzemienna item must be present for href test');
   assert.ok(k.href.startsWith('https://'), `href must be https, got: ${k.href}`);
@@ -686,13 +620,11 @@ test('parseRss: Waryńskiego item — pubMs is valid ms epoch', () => {
   const w = items.find(i => /wyniku/i.test(i.title));
   assert.ok(w, 'result item must be present');
   assert.ok(w.pubMs > 0, 'pubMs must be positive');
-  // 2024-04-12 → approx 1712880000000 ms
   assert.ok(w.pubMs > 1_000_000_000_000, 'pubMs must be in reasonable range');
 });
 
 test('parseRss: commercial (pomieszczenie) item included in raw output (filter is caller\'s job)', () => {
   const items = parseRss(SAMPLE_RSS);
-  // parseRss is a dumb XML parser -- filtering is done in crawlAll(); all 4 items present
   assert.equal(items.length, 4);
 });
 

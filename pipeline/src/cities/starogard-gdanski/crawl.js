@@ -1,12 +1,3 @@
-// Starogard Gdański crawler.
-//
-// Dual-source crawler:
-// 1. Official city BIP (bip.starogard.pl — Madkom SIP platform):
-//    - Oral auction announcements: /api/menu/32/articles (active & archived)
-//    - Concluded auction results:   /api/menu/447/articles (archived results)
-//    - Attachments:                 /api/files/<attId> (born-digital PDFs)
-// 2. City portal property board (starogard.pl):
-//    - Pre-auction designations:    /informacje-o-nieruchomosciach.html (wykaz)
 
 import { pathToFileURL } from 'node:url';
 import { getText } from '../../core/fetch.js';
@@ -57,7 +48,6 @@ function itemPublishDate(item) {
   return cf?.value ? cf.value.trim().slice(0, 10) : null;
 }
 
-/** Fetch articles from a BIP menu board. */
 async function fetchMenuArticles(menuId, archived = false) {
   const items = [];
   try {
@@ -79,7 +69,6 @@ async function fetchMenuArticles(menuId, archived = false) {
   return items;
 }
 
-/** Fetch details and attachments for one article. */
 async function fetchArticleDetails(articleId) {
   try {
     const raw = await getText(articleUrl(articleId), FETCH_OPTS);
@@ -90,7 +79,6 @@ async function fetchArticleDetails(articleId) {
   }
 }
 
-/** Filter out non-sale, lease, or procurement items. */
 function isSaleArticle(title) {
   const t = (title || '').toLowerCase();
   if (/dzier[żz]aw|\bnajem\b|najmu|wynajem|bezprzetarg/.test(t)) return false;
@@ -98,16 +86,11 @@ function isSaleArticle(title) {
   return /przetarg/.test(t) && /sprzeda/.test(t);
 }
 
-/**
- * Crawl active & archived announcements for listings, land, and wykaz designations.
- * @returns {Promise<{ listings: Array, wykaz: Array, land: Array, valid_empty: boolean, valid_empty_land: boolean }>}
- */
 export async function crawlActive() {
   const listings = [];
   const land = [];
   const wykaz = [];
 
-  // 1. Crawl BIP oral auction announcements (both active and recent archived)
   const activeArts = await fetchMenuArticles(ANNOUNCE_MENU, false);
   const archivedArts = await fetchMenuArticles(ANNOUNCE_MENU, true);
   const allArts = [...activeArts];
@@ -132,7 +115,6 @@ export async function crawlActive() {
     );
     if (!atts.length) continue;
 
-    // Pick main announcement document (prefer 'Treść ogłoszenia' or 'Ogłoszenie')
     const mainAtt =
       atts.find((a) => /og[łl]oszen|tre[śs][ćc]/i.test(a.name || '')) || atts[0];
     const url = fileUrl(mainAtt.id);
@@ -161,7 +143,6 @@ export async function crawlActive() {
     }
   }
 
-  // 2. Crawl municipal wykaz board on starogard.pl
   for (const wykazUrl of WYKAZ_CANDIDATE_URLS) {
     try {
       const html = await getText(wykazUrl, FETCH_OPTS);
@@ -189,10 +170,6 @@ export async function crawlActive() {
   return { listings, wykaz, land, valid_empty, valid_empty_land };
 }
 
-/**
- * Crawl result documents from BIP menu 447 (Wyniki przetargów).
- * @returns {Promise<Array<object>>}
- */
 export async function crawlResultDocs() {
   const known = await loadKnownSourceUrls('starogard-gdanski');
   const resultRefs = [];
@@ -236,9 +213,6 @@ export async function crawlResultDocs() {
   return resultRefs;
 }
 
-// ---------------------------------------------------------------------------
-// CLI smoke test
-// ---------------------------------------------------------------------------
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const active = await crawlActive();

@@ -1,26 +1,3 @@
-// Chełm parser — text PDFs from the lubelskie.pl BIP platform.
-//
-// All announcement PDFs follow the standard "OGŁOSZENIE O PRZETARGU" format:
-//   "Prezydent Miasta Chełm ogłasza [I/II/III] ustny nieograniczony przetarg
-//    na sprzedaż [lokalu mieszkalnego nr N / spółdzielczego własnościowego prawa
-//    do lokalu mieszkalnego] położonego w Chełmie przy ul. XYZ N/M."
-//   "Cena wywoławcza ... wynosi 278.350,00zł"  (dot = thousands sep)
-//   "Przetarg odbędzie się ... dnia 20 lipca 2026r. o godz. 11^00."
-//
-// Result notices ("INFORMACJA") are sparse but follow:
-//   "...w dniu 21.06.2021 roku ... odbył się przetarg ustny nieograniczony
-//    na sprzedaż lokalu mieszkalnego nr 2A ... przy ul. G. Stephensona 4..."
-//   "cena wywoławcza (brutto) nieruchomości wynosiła 33.300,00zł"
-//   "w przetargu osiągnięto cenę 64.030,00 zł"
-//
-// Fixtures groundtruthed 2026-06-28:
-//   Announcement: umchelm.bip.lubelskie.pl/upload/pliki/5-ogloszenie_o_przetargu.pdf
-//     (Wolynska 65A/5, round 3, price 278350, area 51.50m2, date 2026-07-20)
-//   Result: umchelm.bip.lubelskie.pl/upload/pliki/INFORMACJA_O_WYNIKACH_PRZETARGU.pdf
-//     (Stephensona 4/2A, price 33300 to 64030, date 2021-06-21, sold)
-//
-// Achieved-price stream is WEAK (only ~5 result PDFs on 796-record board).
-// crawlResultDocs() returns what exists; parse gaps are noted in record .notes.
 
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
@@ -31,29 +8,21 @@ const PL_MONTH = {
   'października': 10, pazdziernika: 10, listopada: 11, grudnia: 12,
 };
 
-// ----------------------------------------------------------------- number helpers
 
-// "278.350,00zł" / "33.300,00 zł" / "64.030,00 zł" / "278350,00" -> integer PLN
-// Chelm uses DOT as thousands separator and COMMA as decimal separator.
 function parsePLN(numStr) {
   if (!numStr) return null;
-  // Trim whitespace, remove dot-thousands separators, then strip decimal
   const cleaned = String(numStr).trim().replace(/\./g, '').replace(/,\d{2}\s*$/, '').replace(/,/g, '');
   const n = Number(cleaned.replace(/\s/g, ''));
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// "51,50" / "51.50" / "51 50" -> number (floor area m2)
 function parseArea(numStr) {
   if (numStr == null) return null;
   const n = Number(String(numStr).replace(/\s/g, '').replace(',', '.'));
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// ----------------------------------------------------------------- title routing
 
-/** True for items to skip outright: wykazy, najem/dzierzawa,
- *  zamiar wszczecia, cancellations (odwolanie), corrections (sprostowanie). */
 export function isSkippableTitle(title) {
   const t = title || '';
   return (
@@ -67,20 +36,16 @@ export function isSkippableTitle(title) {
   );
 }
 
-/** True when the title looks like a published result notice. */
 export function isResultTitle(title) {
   const t = title || '';
   return /informacja\s+o\s+(wynik|odwo[łl]|wynikach)/i.test(t);
 }
 
-/** True when the title looks like a sale auction announcement. */
 export function isAnnouncementTitle(title) {
   const t = title || '';
   return /przetarg/i.test(t) && /sprzeda[zż]|zbyci|nieruchomo[śs]/i.test(t);
 }
 
-/** True when the PDF body is a result notice. Chelm uses bare "INFORMACJA"
- *  not "INFORMACJA o wyniku", so detect by result-specific phrases. */
 export function isResultNotice(text) {
   const t = text || '';
   return (
@@ -91,17 +56,14 @@ export function isResultNotice(text) {
   );
 }
 
-// ----------------------------------------------------------------- shared extractors
 
 const ROUND_WORDS = {
   pierwsz: 1, drug: 2, trzeci: 3, czwart: 4, 'piąt': 5, piat: 5,
   'szóst': 6, szost: 6,
 };
 
-/** Roman numeral round prefix ("I przetarg", "II przetarg", "III przetarg"). */
 const ROUND_ROMAN_RE = /\b(I{1,3}|IV|V|VI{0,3})\s+(?:ustn|przetarg)/i;
 
-/** Round from word ordinal or Roman prefix. */
 export function roundFromText(text) {
   const t = text || '';
   const mWord = /\b(pierwsz|drug|trzeci|czwart|pi[ąa]t|sz[óo]st)\w*\s+przetarg/i.exec(t);
@@ -114,7 +76,6 @@ export function roundFromText(text) {
   return null;
 }
 
-/** Auction date from announcement body. */
 export function auctionDateFromText(text) {
   const t = text || '';
   const m = /(?:odb[ęe]dzie\s+si[ęe]|przetarg\s+odb[ęe]dzie)|dnia\s+(\d{1,2})\s+([a-ząęóśżźćłń]+)\s+(\d{4})/i.exec(t);
@@ -132,7 +93,6 @@ export function auctionDateFromText(text) {
   return `${dm[3]}-${String(mo).padStart(2, '0')}-${dm[1].padStart(2, '0')}`;
 }
 
-/** Result-notice auction date. */
 export function resultDateFromText(text) {
   const t = text || '';
   let m = /w\s+dniu\s+(\d{2})\.(\d{2})\.(\d{4})\s+roku/i.exec(t);
@@ -167,7 +127,6 @@ function unitAreaFromText(text) {
   return m ? parseArea(m[1]) : null;
 }
 
-/** Starting price: "cena wywoławcza ... wynosi 278.350,00zł" or "wynosiła 33.300,00zł". */
 export function startingPriceFromText(text) {
   const t = text || '';
   let m = /cena\s+wywo[łl]awcza\b[^.]*?(?:wynosi[łl]?a?|:)\s*([\d.,\s]+)\s*z[łl]/i.exec(t);
@@ -175,7 +134,6 @@ export function startingPriceFromText(text) {
   return m ? parsePLN(m[1]) : null;
 }
 
-/** Achieved price from result notice: "osiągnięto cenę 64.030,00 zł". */
 export function achievedPriceFromText(text) {
   const t = text || '';
   let m = /osi[ąa]gni[ęe]to\s+cen[ęe]\s+([\d.,]+)\s*z[łl]/i.exec(t);
@@ -183,7 +141,6 @@ export function achievedPriceFromText(text) {
   return m ? parsePLN(m[1]) : null;
 }
 
-// ----------------------------------------------------------------- announcement parse
 
 export function parseAnnouncement(text) {
   if (!text) return null;
@@ -213,7 +170,6 @@ export function parseAnnouncement(text) {
   return { kind, address_raw, address, area_m2, starting_price_pln, auction_date, round };
 }
 
-// ----------------------------------------------------------------- result parse
 
 export function parseResultDoc(text, fallbackDate, sourceUrl) {
   if (!isResultNotice(text)) return [];

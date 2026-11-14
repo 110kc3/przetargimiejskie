@@ -1,15 +1,3 @@
-// Tests for pipeline/src/cities/lodz/parse.js
-// Fixtures groundtruthed against live PDFs fetched 2026-06-27:
-//
-//   ANNOUNCEMENT: https://bip.uml.lodz.pl/files/bip/public/BIP_SS_26/ZNN_przetarg_Plocka_Jaracza_inne_20260624.pdf
-//     Łódź batch: ul. Płocka 16 (lokal nr 1A), ul. Stefana Jaracza 23 (nr 1, 15, 53),
-//                 ul. Juliana Tuwima 6 (lokal użytkowy nr 6U). Auction: 13 sierpnia 2026.
-//
-//   RESULT:       https://bip.uml.lodz.pl/files/bip/public/BIP_VG_26/ZNN_wyniki_Rybna-7_Lagiewnicka-89A_inne_20260625.pdf
-//     Conducted: 11 czerwca 2026 r.
-//     Sold: ul. Narutowicza 89 lokal garaż nr 6U → 191 900 zł
-//           ul. Wólczańska 228 lokal nr 6 → 196 200 zł
-//     Unsold: all others (various negative reasons)
 
 import { strict as assert } from 'node:assert';
 import { describe, it } from 'node:test';
@@ -29,9 +17,6 @@ import {
 
 import { parsePdfLinks } from '../src/cities/lodz/crawl.js';
 
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
 
 describe('parsePLN', () => {
   it('parses space-separated thousands', () => {
@@ -67,9 +52,6 @@ describe('parseArea', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// Announcement date
-// ---------------------------------------------------------------------------
 
 describe('auctionDateFromAnn', () => {
   it('extracts date from plural form "Przetargi odbędą się"', () => {
@@ -90,11 +72,7 @@ describe('auctionDateFromAnn', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// Announcement lot splitting (groundtruthed on Płocka/Jaracza PDF text)
-// ---------------------------------------------------------------------------
 
-// Reconstructed from live PDF (pdftotext -layout output for 5-lot PDF):
 const ANN_PDF_TEXT = `
 OGŁOSZENIE PREZYDENTA MIASTA ŁODZI
 Prezydent Miasta Łodzi ogłasza ustne przetargi nieograniczone (licytacje) na sprzedaż samodzielnych lokali mieszkalnych i samodzielnego lokalu
@@ -183,9 +161,6 @@ lewa oficyna (budynek nr 587) – parter
 Przetargi odbędą się w dniu 13 sierpnia 2026 r., o godz. 10:00, w siedzibie Urzędu Miasta Łodzi.
 `.trim();
 
-// Current 8-lot layout (2026-08-21): page breaks precede rows, building/unit
-// footnote markers are inline, areas may stand alone, and prices occupy three
-// columns on otherwise non-numeric table lines.
 const CURRENT_8_LOT_TEXT = `
 OGŁOSZENIE PREZYDENTA MIASTA ŁODZI
 1. ul. Rybna 7A*1
@@ -346,11 +321,7 @@ describe('parseAnnouncementPdf', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// Result PDF
-// ---------------------------------------------------------------------------
 
-// Reconstructed from live ZNN_wyniki_Rybna-7_Lagiewnicka-89A_inne_20260625.pdf
 const RESULT_PDF_TEXT = `
 INFORMACJA
 o wynikach ustnych przetargów nieograniczonych (licytacjach)
@@ -482,13 +453,10 @@ describe('parseResultSegment', () => {
   });
 
   it('Kasprzaka 19/21 → unsold (brak postąpienia)', () => {
-    // segs[2] is the 3rd segment (lot #6 in the PDF)
     const rec = parseResultSegment(segs[2], '2026-06-11', 'https://example.com/result.pdf');
     assert.ok(rec);
     assert.equal(rec.outcome, 'unsold');
     assert.equal(rec.address.street, 'Marcina Kasprzaka');
-    // Note: "19/21" is building number with slash — parseAddress treats "19" as bldg, "21" as apt
-    // OR may treat the whole thing differently. We just assert street + non-null record.
     assert.equal(rec.starting_price_pln, 210000);
   });
 
@@ -559,14 +527,10 @@ describe('parseResultDoc', () => {
       'przeprowadzonych w',
     );
     const recs = parseResultDoc(noDateText, '2026-06-01', SOURCE);
-    // Should still produce records using the fallback date
     for (const r of recs) assert.equal(r.auction_date, '2026-06-01');
   });
 });
 
-// ---------------------------------------------------------------------------
-// crawl.js: parsePdfLinks (from HTML)
-// ---------------------------------------------------------------------------
 
 describe('parsePdfLinks', () => {
   it('finds announcement PDF in article HTML', () => {
