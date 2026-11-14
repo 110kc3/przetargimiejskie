@@ -6,7 +6,8 @@ Last completed slices (owner-selected review items 1–7): publication restored 
 
 ### Accepted next work
 
-- [ ] Verify the next scheduled refresh commits `data: refresh cities` and that health shows only legacy-city findings (check once next session).
+- [x] Municipal publication recovered: run [43627823453](https://github.com/110kc3/przetargimiejskie/actions/runs/43627823453) (commit `7a0118acc`) succeeded and published `264dceb67` (`data: refresh cities 2026-11-14`, 473 files) — observed 2026-11-14.
+- [ ] Confirm once next session that the following scheduled refresh also publishes and health shows only legacy-city findings. The 14 November publication ran before the engine canonicalizer, so `aleksandrow-lodzki` published 16 raw headline rows; the next run replaces them with canonical records.
 - [ ] Chrome Web Store v1.33.0 package submission review and verification.
 - [ ] Daily refresh failure triage on quarantined city feeds.
 
@@ -44,7 +45,7 @@ Real pages were captured once per engine (one representative city each) and save
 
 ### Pending verification
 
-- This slice's push: [Actions runs](https://github.com/110kc3/przetargimiejskie/actions) pending observation next session; do not wait after pushing.
+- Commit `d0aed628f` (engine conformance, truth pass): [Actions runs](https://github.com/110kc3/przetargimiejskie/actions) pending observation next session; do not wait after pushing.
 
 ### History / deferred
 
