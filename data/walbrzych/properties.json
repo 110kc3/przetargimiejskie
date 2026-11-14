@@ -3,6 +3,133 @@
   "city": "walbrzych",
   "properties": [
     {
+      "key": "1 maja|110|1",
+      "street": "1 Maja",
+      "street_norm": "1 maja",
+      "building": "110",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 40000,
+          "outcome": "archived",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51701/przy-ul-1-maja-110-1-obreb-sobiecin-nr-28",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-12-02",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 38000,
+          "outcome": "active",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52120/przy-ul-1-maja-110-1",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "niepodleglosci|199|7",
+      "street": "Niepodległości",
+      "street_norm": "niepodleglosci",
+      "building": "199",
+      "apt": "7",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-07",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "archived",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51700/przy-ul-niepodleglosci-199-7-obreb-podgorze-nr-39",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-12-02",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 58000,
+          "outcome": "active",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52119/ul-niepodleglosci-199-7",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "andersa|172|11",
+      "street": "Andersa",
+      "street_norm": "andersa",
+      "building": "172",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 50000,
+          "outcome": "active",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52122/przy-ul-andersa-172-11",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "andersa|148|8",
+      "street": "Andersa",
+      "street_norm": "andersa",
+      "building": "148",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 40000,
+          "outcome": "active",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52121/przy-ul-andersa-148-8",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "daszynskiego|15|5",
+      "street": "Daszyńskiego",
+      "street_norm": "daszynskiego",
+      "building": "15",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 115000,
+          "outcome": "active",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52123/ul-daszynskiego-15-5",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
       "key": "kosynierow|3A|1",
       "street": "Kosynierów",
       "street_norm": "kosynierow",
@@ -39,48 +166,6 @@
           "starting_price_pln": 93000,
           "outcome": "archived",
           "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51703/ul-gen-j-bema-60a-2-obreb-bialy-kamien-nr-14",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
-        }
-      ]
-    },
-    {
-      "key": "1 maja|110|1",
-      "street": "1 Maja",
-      "street_norm": "1 maja",
-      "building": "110",
-      "apt": "1",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-10-07",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 40000,
-          "outcome": "archived",
-          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51701/przy-ul-1-maja-110-1-obreb-sobiecin-nr-28",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
-        }
-      ]
-    },
-    {
-      "key": "niepodleglosci|199|7",
-      "street": "Niepodległości",
-      "street_norm": "niepodleglosci",
-      "building": "199",
-      "apt": "7",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-10-07",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 60000,
-          "outcome": "archived",
-          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51700/przy-ul-niepodleglosci-199-7-obreb-podgorze-nr-39",
           "wadium_deadline": null,
           "viewing_date": null,
           "round_source": "inferred"

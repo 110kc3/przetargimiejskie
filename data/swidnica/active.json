@@ -4,40 +4,21 @@
   "listings": [
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Środkowej 7A/7",
+      "address_raw": "ul. Ofiar Oświęcimskich 13A/7",
       "address": {
-        "street": "Środkowej",
-        "street_norm": "srodkowej",
-        "building": "7A",
+        "street": "Ofiar Oświęcimskich",
+        "street_norm": "ofiar oswiecimskich",
+        "building": "13A",
         "apt": "7",
-        "key": "srodkowej|7A|7",
+        "key": "ofiar oswiecimskich|13A|7",
         "warning": null
       },
-      "area_m2": 31.3,
-      "starting_price_pln": 85000,
+      "area_m2": 33.4,
+      "starting_price_pln": 125000,
       "round": 1,
-      "auction_date": "2026-10-26",
-      "detail_url": "https://bip.swidnica.nv.pl/swidnica,a,131678,i-przetarg-ustny-nieograniczony-p-80x26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-7-przy-ulicy-srod.html",
-      "source_url": "https://bip.swidnica.nv.pl/swidnica,a,131678,i-przetarg-ustny-nieograniczony-p-80x26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-7-przy-ulicy-srod.html",
-      "share": null
-    },
-    {
-      "kind": "uzytkowy",
-      "address_raw": "ul. Kraszowickiej 55/01",
-      "address": {
-        "street": "Kraszowickiej",
-        "street_norm": "kraszowickiej",
-        "building": "55",
-        "apt": "01",
-        "key": "kraszowickiej|55|01",
-        "warning": null
-      },
-      "area_m2": 86.48,
-      "starting_price_pln": 80000,
-      "round": 2,
-      "auction_date": "2026-10-26",
-      "detail_url": "https://bip.swidnica.nv.pl/swidnica,a,131675,kolejny-przetarg-ustny-nieograniczony-p-77x26-na-sprzedaz-wolnego-lokalu-uzytkowego-nr-01-przy-ulicy.html",
-      "source_url": "https://bip.swidnica.nv.pl/swidnica,a,131675,kolejny-przetarg-ustny-nieograniczony-p-77x26-na-sprzedaz-wolnego-lokalu-uzytkowego-nr-01-przy-ulicy.html",
+      "auction_date": "2026-12-14",
+      "detail_url": "https://bip.swidnica.nv.pl/swidnica,a,131875,i-przetarg-ustny-nieograniczony-p-88xii26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-7-przy-ulicy-of.html",
+      "source_url": "https://bip.swidnica.nv.pl/swidnica,a,131875,i-przetarg-ustny-nieograniczony-p-88xii26-na-sprzedaz-wolnego-lokalu-mieszkalnego-nr-7-przy-ulicy-of.html",
       "share": null
     }
   ],

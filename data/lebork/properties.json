@@ -3,6 +3,193 @@
   "city": "lebork",
   "properties": [
     {
+      "key": "wojska polskiego|39|9",
+      "street": "Wojska Polskiego",
+      "street_norm": "wojska polskiego",
+      "building": "39",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-08-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 287000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
+          "area_m2": 62.72
+        },
+        {
+          "date": "2026-10-16",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 259000,
+          "outcome": "archived",
+          "area_m2": 62.72,
+          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-ii-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkaln-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-12-10",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 249000,
+          "outcome": "active",
+          "area_m2": 62.72,
+          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-iii-przetarg-ustny-nieograniczony-w-sprawie-sprzedazy-lokalu-m",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 62.72
+    },
+    {
+      "key": "lokietka|16|1",
+      "street": "Łokietka",
+      "street_norm": "lokietka",
+      "building": "16",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-16",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 365000,
+          "outcome": "archived",
+          "area_m2": 99.64,
+          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalneg",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-12-10",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 335000,
+          "outcome": "active",
+          "area_m2": 99.64,
+          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-ii-przetarg-ustny-nieograniczony-w-sprawie-sprzedazy-lokalu-mi",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 99.64
+    },
+    {
+      "key": "armii krajowej|35|1",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "35",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 282000,
+          "outcome": "active",
+          "area_m2": 69.86,
+          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-w-sprawie-sprzedazy-lokali-mi-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 69.86
+    },
+    {
+      "key": "armii krajowej|35|2",
+      "street": "Armii Krajowej",
+      "street_norm": "armii krajowej",
+      "building": "35",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 323000,
+          "outcome": "active",
+          "area_m2": 83.14,
+          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-w-sprawie-sprzedazy-lokali-mi-1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 83.14
+    },
+    {
+      "key": "przyzamcze|15|4",
+      "street": "Przyzamcze",
+      "street_norm": "przyzamcze",
+      "building": "15",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 153000,
+          "outcome": "active",
+          "area_m2": 34.41,
+          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-w-sprawie-sprzedazy-lokali-mi",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 34.41
+    },
+    {
+      "key": "okrzei|1|2",
+      "street": "Okrzei",
+      "street_norm": "okrzei",
+      "building": "1",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-09",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 217000,
+          "outcome": "active",
+          "area_m2": 61.15,
+          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetargi-ustne-nieograniczone-w-sprawie-sprzedazy-lokali-mi",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 61.15
+    },
+    {
+      "key": "wojska polskiego|7|9",
+      "street": "Wojska Polskiego",
+      "street_norm": "wojska polskiego",
+      "building": "7",
+      "apt": "9",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-12-02",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 148500,
+          "outcome": "active",
+          "area_m2": 26.08,
+          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetarg-ustny-nieograniczony-w-sprawie-sprzedazy-lokalu-o-i",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 26.08
+    },
+    {
       "key": "lokietka|24|3",
       "street": "Łokietka",
       "street_norm": "lokietka",
@@ -78,61 +265,6 @@
         }
       ],
       "area_m2": 60.16
-    },
-    {
-      "key": "wojska polskiego|39|9",
-      "street": "Wojska Polskiego",
-      "street_norm": "wojska polskiego",
-      "building": "39",
-      "apt": "9",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-08-12",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 287000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "notes": [],
-          "area_m2": 62.72
-        },
-        {
-          "date": "2026-10-16",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 259000,
-          "outcome": "archived",
-          "area_m2": 62.72,
-          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-ii-przetargi-ustne-nieograniczone-na-sprzedaz-lokali-mieszkaln-1",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 62.72
-    },
-    {
-      "key": "lokietka|16|1",
-      "street": "Łokietka",
-      "street_norm": "lokietka",
-      "building": "16",
-      "apt": "1",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-10-16",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 365000,
-          "outcome": "archived",
-          "area_m2": 99.64,
-          "detail_url": "https://bip.um.lebork.pl/artykul/burmistrz-miasta-leborka-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalneg",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 99.64
     },
     {
       "key": "teligi|14|23",

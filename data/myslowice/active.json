@@ -4,6 +4,44 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Brzezińskiej 47/2",
+      "address": {
+        "street": "Brzezińskiej",
+        "street_norm": "brzezinskiej",
+        "building": "47",
+        "apt": "2",
+        "key": "brzezinskiej|47|2",
+        "warning": null
+      },
+      "auction_date": "2026-12-08",
+      "published_date": null,
+      "round": 4,
+      "area_m2": 35.86,
+      "starting_price_pln": 135000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-47-p",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Fryderyka Chopina 15/3",
+      "address": {
+        "street": "Fryderyka Chopina",
+        "street_norm": "fryderyka chopina",
+        "building": "15",
+        "apt": "3",
+        "key": "fryderyka chopina|15|3",
+        "warning": null
+      },
+      "auction_date": "2026-12-01",
+      "published_date": null,
+      "round": 4,
+      "area_m2": 44.07,
+      "starting_price_pln": 198000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-15-p",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Armii Krajowej 16C/24",
       "address": {
         "street": "Armii Krajowej",
@@ -156,25 +194,6 @@
     },
     {
       "kind": "zabudowana",
-      "address_raw": "Gwarków 7",
-      "address": {
-        "street": "Gwarków",
-        "street_norm": "gwarkow",
-        "building": "7",
-        "apt": null,
-        "key": "gwarkow|7|",
-        "warning": null
-      },
-      "auction_date": "2026-11-03",
-      "published_date": null,
-      "round": 3,
-      "area_m2": 258.1,
-      "starting_price_pln": 400000,
-      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej-wl-1",
-      "share": null
-    },
-    {
-      "kind": "zabudowana",
       "address_raw": "Grunwaldzkiej 9",
       "address": {
         "street": "Grunwaldzkiej",
@@ -209,6 +228,25 @@
       "area_m2": 1379.6,
       "starting_price_pln": null,
       "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-stanowiacy",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Gwarków 7",
+      "address": {
+        "street": "Gwarków",
+        "street_norm": "gwarkow",
+        "building": "7",
+        "apt": null,
+        "key": "gwarkow|7|",
+        "warning": null
+      },
+      "auction_date": "2026-11-03",
+      "published_date": null,
+      "round": 3,
+      "area_m2": 258.1,
+      "starting_price_pln": 400000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej-wl-1",
       "share": null
     },
     {

@@ -15,12 +15,13 @@
           "round": 1,
           "kind": "zabudowana",
           "starting_price_pln": 699000,
-          "outcome": "archived",
-          "area_m2": null,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=124656",
+          "notes": [],
           "land_area_m2": 390,
-          "detail_url": "https://bip.tarnowskiegory.pl/a,102947,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nierucho.html",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.tarnowskiegory.pl/a,102947,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nierucho.html"
         }
       ]
     },
@@ -97,6 +98,28 @@
         }
       ],
       "area_m2": 41.24
+    },
+    {
+      "key": "sienkiewicza|2|",
+      "street": "Sienkiewicza",
+      "street_norm": "sienkiewicza",
+      "building": "2",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-24",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "land_area_m2": 481,
+          "detail_url": "https://bip.tarnowskiegory.pl/a,102861,burmistrz-miasta-tarnowskie-gory-odwoluje-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nieruch.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
     },
     {
       "key": "pokoju|10|5",
@@ -1263,28 +1286,6 @@
         }
       ],
       "area_m2": 96.5
-    },
-    {
-      "key": "sienkiewicza|2|",
-      "street": "Sienkiewicza",
-      "street_norm": "sienkiewicza",
-      "building": "2",
-      "apt": null,
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": null,
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": null,
-          "outcome": "active",
-          "area_m2": null,
-          "land_area_m2": 481,
-          "detail_url": "https://bip.tarnowskiegory.pl/a,102861,burmistrz-miasta-tarnowskie-gory-odwoluje-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nieruch.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
     }
   ]
 }

@@ -3,6 +3,38 @@
   "city": "mragowo",
   "plots": [
     {
+      "key": "dz|nr 10|69/9",
+      "kind": "grunt",
+      "city": "mragowo",
+      "dzialka_nr": "69/9",
+      "obreb": "nr 10",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2069%2F9%20nr%2010%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3353,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-01-05",
+          "round": 2,
+          "starting_price_pln": 950000,
+          "outcome": "active",
+          "area_m2": 3353,
+          "detail_url": "https://bipmragowo.warmia.mazury.pl/8669/ii-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-na-osiedlu-mazurskim-dz.-nr-10-69-9.html",
+          "source_url": "https://bipmragowo.warmia.mazury.pl/8669/ii-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-na-osiedlu-mazurskim-dz.-nr-10-69-9.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "69/9",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2069%2F9%20nr%2010%20Mr%C4%85gowo%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|nr 2|317/2",
       "kind": "grunt",
       "city": "mragowo",
@@ -116,7 +148,7 @@
           "date": "2026-11-10",
           "round": 2,
           "starting_price_pln": 180000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1007,
           "detail_url": "https://bipmragowo.warmia.mazury.pl/8645/ii-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-12.html",
           "source_url": "https://bipmragowo.warmia.mazury.pl/8645/ii-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-12.html"
@@ -148,10 +180,10 @@
           "date": "2026-10-29",
           "round": 2,
           "starting_price_pln": 180000,
-          "outcome": "active",
+          "outcome": "unsold",
           "area_m2": 1000,
           "detail_url": "https://bipmragowo.warmia.mazury.pl/8634/ii-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-11.html",
-          "source_url": "https://bipmragowo.warmia.mazury.pl/8634/ii-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-11.html"
+          "source_url": "https://bipmragowo.warmia.mazury.pl/8689/informacja-o-wyniku-przetargu.html"
         }
       ],
       "parcels": [
@@ -180,10 +212,10 @@
           "date": "2026-10-27",
           "round": 2,
           "starting_price_pln": 180000,
-          "outcome": "active",
+          "outcome": "unsold",
           "area_m2": 1001,
           "detail_url": "https://bipmragowo.warmia.mazury.pl/8632/ii-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-10.html",
-          "source_url": "https://bipmragowo.warmia.mazury.pl/8632/ii-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-10.html"
+          "source_url": "https://bipmragowo.warmia.mazury.pl/8683/informacja-o-wyniku-przetargu.html"
         }
       ],
       "parcels": [
@@ -212,10 +244,10 @@
           "date": "2026-10-23",
           "round": 2,
           "starting_price_pln": 180000,
-          "outcome": "active",
+          "outcome": "unsold",
           "area_m2": 1000,
           "detail_url": "https://bipmragowo.warmia.mazury.pl/8624/ii-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-8.html",
-          "source_url": "https://bipmragowo.warmia.mazury.pl/8624/ii-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-8.html"
+          "source_url": "https://bipmragowo.warmia.mazury.pl/8675/informacja-o-wyniku-przetargu.html"
         }
       ],
       "parcels": [
@@ -244,10 +276,11 @@
           "date": "2026-10-22",
           "round": 2,
           "starting_price_pln": 160000,
-          "outcome": "active",
+          "outcome": "sold",
           "area_m2": 1204,
           "detail_url": "https://bipmragowo.warmia.mazury.pl/8625/ii-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-9.html",
-          "source_url": "https://bipmragowo.warmia.mazury.pl/8625/ii-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-9.html"
+          "source_url": "https://bipmragowo.warmia.mazury.pl/8671/informacja-o-wyniku-przetargu.html",
+          "final_price_pln": 161600
         }
       ],
       "parcels": [
@@ -276,10 +309,10 @@
           "date": "2026-10-22",
           "round": 1,
           "starting_price_pln": 310000,
-          "outcome": "active",
+          "outcome": "unsold",
           "area_m2": 3560,
           "detail_url": "https://bipmragowo.warmia.mazury.pl/8623/i-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-mlynowej-dz.-nr-2-230-19.html",
-          "source_url": "https://bipmragowo.warmia.mazury.pl/8623/i-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-mlynowej-dz.-nr-2-230-19.html"
+          "source_url": "https://bipmragowo.warmia.mazury.pl/8670/informacja-o-wyniku-przetargu.html"
         }
       ],
       "parcels": [
@@ -308,10 +341,10 @@
           "date": "2026-10-20",
           "round": 2,
           "starting_price_pln": 185000,
-          "outcome": "archived",
+          "outcome": "unsold",
           "area_m2": 1007,
           "detail_url": "https://bipmragowo.warmia.mazury.pl/8622/ii-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-25.html",
-          "source_url": "https://bipmragowo.warmia.mazury.pl/8622/ii-przetarg-ustny-nieograniczony-na-zbycie-nieruchomosci-polozonej-w-mragowie-przy-ulicy-niedzwiedziej-dz.-nr-10-40-25.html"
+          "source_url": "https://bipmragowo.warmia.mazury.pl/8667/informacja-o-wyniku-przetargu.html"
         }
       ],
       "parcels": [

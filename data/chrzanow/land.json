@@ -46,6 +46,47 @@
       ]
     },
     {
+      "key": "dz|chrzanów|3102/289, 3102/285",
+      "kind": "grunt",
+      "city": "chrzanow",
+      "dzialka_nr": "3102/289, 3102/285",
+      "obreb": "Chrzanów",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Partyzantów",
+      "dzialka_id": "120303_4.0001.3102/289",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120303_4.0001.3102%2F289",
+      "area_m2": 561,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-16",
+          "round": 1,
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 561,
+          "detail_url": "https://bip.malopolska.pl/umchrzanow,a,2957096,przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-polozonej-w-rejonie-ul-partyz.html",
+          "source_url": "https://bip.malopolska.pl/umchrzanow,a,2957096,przetarg-ustny-nieograniczony-na-sprzedaz-niezabudowanej-nieruchomosci-polozonej-w-rejonie-ul-partyz.html",
+          "notes": [
+            "Łączna cena i powierzchnia dotyczą całego pakietu działek."
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3102/289",
+          "dzialka_id": "120303_4.0001.3102/289",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120303_4.0001.3102%2F289"
+        },
+        {
+          "nr": "3102/285",
+          "dzialka_id": "120303_4.0001.3102/285",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=120303_4.0001.3102%2F285"
+        }
+      ]
+    },
+    {
       "key": "dz|balin|49/283",
       "kind": "grunt",
       "city": "chrzanow",

@@ -2,22 +2,22 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "tarnowskie-gory",
-  "generated_at": "2026-10-21T22:23:20.616Z",
-  "source_pdf_count": 84,
-  "parsed_records": 39,
+  "generated_at": "2026-11-14T18:49:52.072Z",
+  "source_pdf_count": 87,
+  "parsed_records": 40,
   "parser_note_count": 3,
   "unique_properties": 39,
   "active_listings": 61,
-  "active_auctions": 5,
-  "archived_auctions": 64,
+  "active_auctions": 4,
+  "archived_auctions": 65,
   "wykaz_entries": 0,
   "land_plots": 48,
   "land_listings": 86,
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-21T22:17:16.695Z",
-  "last_successful_source_check_at": "2026-10-21T22:17:16.695Z",
+  "last_source_attempt_at": "2026-11-14T18:43:39.247Z",
+  "last_successful_source_check_at": "2026-11-14T18:43:39.247Z",
   "monitored_assets": [
     "building",
     "land",
@@ -26,14 +26,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-21T22:17:16.695Z",
-      "last_success_at": "2026-10-21T22:17:16.695Z"
+      "last_attempt_at": "2026-11-14T18:43:39.247Z",
+      "last_success_at": "2026-11-14T18:43:39.247Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-21T22:17:16.695Z",
-      "last_success_at": "2026-10-21T22:17:16.695Z"
+      "last_attempt_at": "2026-11-14T18:43:39.247Z",
+      "last_success_at": "2026-11-14T18:43:39.247Z"
     }
   }
 }

@@ -4,6 +4,204 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Gen. Józefa Bema 89C m 54",
+      "address": {
+        "street": "Gen. Józefa Bema",
+        "street_norm": "gen jozefa bema",
+        "building": "89C",
+        "apt": "54",
+        "key": "gen jozefa bema|89C|54",
+        "warning": null
+      },
+      "auction_date": "2026-12-14",
+      "round": 4,
+      "area_m2": null,
+      "starting_price_pln": 318900,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-89c-m-54-56.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Władysława Broniewskiego 8C m 42",
+      "address": {
+        "street": "Władysława Broniewskiego",
+        "street_norm": "wladyslawa broniewskiego",
+        "building": "8C",
+        "apt": "42",
+        "key": "wladyslawa broniewskiego|8C|42",
+        "warning": null
+      },
+      "auction_date": "2026-12-14",
+      "round": 8,
+      "area_m2": null,
+      "starting_price_pln": 368000,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-8c-m-42-48.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Władysława Broniewskiego 13 m 4",
+      "address": {
+        "street": "Władysława Broniewskiego",
+        "street_norm": "wladyslawa broniewskiego",
+        "building": "13",
+        "apt": "4",
+        "key": "wladyslawa broniewskiego|13|4",
+        "warning": null
+      },
+      "auction_date": "2026-12-17",
+      "round": 3,
+      "area_m2": null,
+      "starting_price_pln": 407100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-13-m-4-5.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Bohaterów Getta 7 m 15",
+      "address": {
+        "street": "Bohaterów Getta",
+        "street_norm": "bohaterow getta",
+        "building": "7",
+        "apt": "15",
+        "key": "bohaterow getta|7|15",
+        "warning": null
+      },
+      "auction_date": "2026-12-16",
+      "round": 3,
+      "area_m2": null,
+      "starting_price_pln": 343100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-bohaterow-getta-7-m-15-16.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Gen. Józefa Bema 91 m 19",
+      "address": {
+        "street": "Gen. Józefa Bema",
+        "street_norm": "gen jozefa bema",
+        "building": "91",
+        "apt": "19",
+        "key": "gen jozefa bema|91|19",
+        "warning": null
+      },
+      "auction_date": "2026-12-15",
+      "round": 3,
+      "area_m2": null,
+      "starting_price_pln": 428100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-91-m-19-20.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Suraska 4 m 14",
+      "address": {
+        "street": "Suraska",
+        "street_norm": "suraska",
+        "building": "4",
+        "apt": "14",
+        "key": "suraska|4|14",
+        "warning": null
+      },
+      "auction_date": "2027-01-05",
+      "round": 2,
+      "area_m2": null,
+      "starting_price_pln": 524100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-suraska-4-m-14-1.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Juliana Tuwima 1/1 m 41",
+      "address": {
+        "street": "Juliana Tuwima",
+        "street_norm": "juliana tuwima",
+        "building": "1",
+        "apt": "41",
+        "key": "juliana tuwima|1|41",
+        "warning": null
+      },
+      "auction_date": "2026-12-10",
+      "round": 7,
+      "area_m2": null,
+      "starting_price_pln": 285100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-11-m-41-46.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Juliana Tuwima 9 m 11",
+      "address": {
+        "street": "Juliana Tuwima",
+        "street_norm": "juliana tuwima",
+        "building": "9",
+        "apt": "11",
+        "key": "juliana tuwima|9|11",
+        "warning": null
+      },
+      "auction_date": "2026-12-10",
+      "round": 6,
+      "area_m2": null,
+      "starting_price_pln": 363100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-9-m-11-15.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wierzbowa 29A m 55",
+      "address": {
+        "street": "Wierzbowa",
+        "street_norm": "wierzbowa",
+        "building": "29A",
+        "apt": "55",
+        "key": "wierzbowa|29A|55",
+        "warning": null
+      },
+      "auction_date": "2026-12-10",
+      "round": 6,
+      "area_m2": null,
+      "starting_price_pln": 289100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wierzbowa-29a-m-55-59.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Hanki Ordonówny 6 m 11",
+      "address": {
+        "street": "Hanki Ordonówny",
+        "street_norm": "hanki ordonowny",
+        "building": "6",
+        "apt": "11",
+        "key": "hanki ordonowny|6|11",
+        "warning": null
+      },
+      "auction_date": "2026-12-09",
+      "round": 5,
+      "area_m2": null,
+      "starting_price_pln": 236000,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-hanki-ordonowny-6-m-11-14.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Włókiennicza 17 m 71",
+      "address": {
+        "street": "Włókiennicza",
+        "street_norm": "wlokiennicza",
+        "building": "17",
+        "apt": "71",
+        "key": "wlokiennicza|17|71",
+        "warning": null
+      },
+      "auction_date": "2026-12-03",
+      "round": 2,
+      "area_m2": null,
+      "starting_price_pln": 258100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wlokiennicza-17-m-71-1.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Włókiennicza 17 m 68",
       "address": {
         "street": "Włókiennicza",
@@ -58,42 +256,6 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Gen. Józefa Bema 89C m 54",
-      "address": {
-        "street": "Gen. Józefa Bema",
-        "street_norm": "gen jozefa bema",
-        "building": "89C",
-        "apt": "54",
-        "key": "gen jozefa bema|89C|54",
-        "warning": null
-      },
-      "auction_date": "2026-11-04",
-      "round": 3,
-      "area_m2": null,
-      "starting_price_pln": 375100,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-gen-jozefa-bema-89c-m-54-55.html",
-      "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Władysława Broniewskiego 8C m 42",
-      "address": {
-        "street": "Władysława Broniewskiego",
-        "street_norm": "wladyslawa broniewskiego",
-        "building": "8C",
-        "apt": "42",
-        "key": "wladyslawa broniewskiego|8C|42",
-        "warning": null
-      },
-      "auction_date": "2026-11-03",
-      "round": 7,
-      "area_m2": null,
-      "starting_price_pln": 368000,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-8c-m-42-47.html",
-      "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "ul.Wołodyjowskiego 8 m 6",
       "address": {
         "street": "ul.Wołodyjowskiego",
@@ -109,110 +271,6 @@
       "starting_price_pln": 513100,
       "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ulwolodyjowskiego-8-m-6.html",
       "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Lipowa 37 m 10",
-      "address": {
-        "street": "Lipowa",
-        "street_norm": "lipowa",
-        "building": "37",
-        "apt": "10",
-        "key": "lipowa|37|10",
-        "warning": null
-      },
-      "auction_date": "2026-10-23",
-      "round": 3,
-      "area_m2": null,
-      "starting_price_pln": 411500,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-lipowa-37-m-10-12.html",
-      "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Juliana Tuwima 1/1 m 41",
-      "address": {
-        "street": "Juliana Tuwima",
-        "street_norm": "juliana tuwima",
-        "building": "1",
-        "apt": "41",
-        "key": "juliana tuwima|1|41",
-        "warning": null
-      },
-      "auction_date": "2026-10-21",
-      "round": null,
-      "area_m2": null,
-      "starting_price_pln": 285100,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-11-m-41-45.html"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Juliana Tuwima 9 m 11",
-      "address": {
-        "street": "Juliana Tuwima",
-        "street_norm": "juliana tuwima",
-        "building": "9",
-        "apt": "11",
-        "key": "juliana tuwima|9|11",
-        "warning": null
-      },
-      "auction_date": "2026-10-21",
-      "round": null,
-      "area_m2": null,
-      "starting_price_pln": 363100,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-9-m-11-14.html"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wierzbowa 29A m 55",
-      "address": {
-        "street": "Wierzbowa",
-        "street_norm": "wierzbowa",
-        "building": "29A",
-        "apt": "55",
-        "key": "wierzbowa|29A|55",
-        "warning": null
-      },
-      "auction_date": "2026-10-21",
-      "round": null,
-      "area_m2": null,
-      "starting_price_pln": 289100,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wierzbowa-29a-m-55-58.html"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Władysława Broniewskiego 13 m 4",
-      "address": {
-        "street": "Władysława Broniewskiego",
-        "street_norm": "wladyslawa broniewskiego",
-        "building": "13",
-        "apt": "4",
-        "key": "wladyslawa broniewskiego|13|4",
-        "warning": null
-      },
-      "auction_date": "2026-10-22",
-      "round": 2,
-      "area_m2": null,
-      "starting_price_pln": 407100,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wladyslawa-broniewskiego-13-m-4-1.html",
-      "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Juliana Tuwima 9 m 34",
-      "address": {
-        "street": "Juliana Tuwima",
-        "street_norm": "juliana tuwima",
-        "building": "9",
-        "apt": "34",
-        "key": "juliana tuwima|9|34",
-        "warning": null
-      },
-      "auction_date": "2026-10-13",
-      "round": null,
-      "area_m2": null,
-      "starting_price_pln": 199100,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-juliana-tuwima-9-m-34.html"
     },
     {
       "kind": "mieszkalny",

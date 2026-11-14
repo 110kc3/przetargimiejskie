@@ -69,5 +69,38 @@
       "source_url": "https://bip.sztum.pl/1186.html?file=19549"
     }
   ],
-  "wykaz": []
+  "wykaz": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jagiełły 51/4",
+      "address": {
+        "street": "Jagiełły",
+        "street_norm": "jagielly",
+        "building": "51",
+        "apt": "4",
+        "key": "jagielly|51|4",
+        "warning": null
+      },
+      "area_m2": 46,
+      "estimated_price_pln": 147000,
+      "source_url": "https://bip.sztum.pl/1186.html?file=20030",
+      "detail_url": "https://bip.sztum.pl/1186.html?file=20030"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Akacjowa 4/2",
+      "address": {
+        "street": "Akacjowa",
+        "street_norm": "akacjowa",
+        "building": "4",
+        "apt": "2",
+        "key": "akacjowa|4|2",
+        "warning": null
+      },
+      "area_m2": 42.6,
+      "estimated_price_pln": 55000,
+      "source_url": "https://bip.sztum.pl/1186.html?file=20013",
+      "detail_url": "https://bip.sztum.pl/1186.html?file=20013"
+    }
+  ]
 }

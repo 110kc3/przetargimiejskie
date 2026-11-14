@@ -3,6 +3,72 @@
   "city": "sosnowiec",
   "plots": [
     {
+      "key": "dz|0010 sosnowiec|2725/2",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "2725/2",
+      "obreb": "0010 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 2725/2, obręb 0010 Sosnowiec",
+      "dzialka_id": "247501_1.0010.2725/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0010.2725%2F2",
+      "area_m2": 3635,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-02-05",
+          "round": 1,
+          "starting_price_pln": 1031000,
+          "outcome": "active",
+          "area_m2": 3635,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,565392,ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,565392,ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-ul-.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2725/2",
+          "dzialka_id": "247501_1.0010.2725/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0010.2725%2F2"
+        }
+      ]
+    },
+    {
+      "key": "dz|0004 kazimierz|162/3",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "162/3",
+      "obreb": "0004 Kazimierz",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 162/3, obręb 0004 Kazimierz",
+      "dzialka_id": "247501_1.0004.162/3",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0004.162%2F3",
+      "area_m2": 14130,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-01-22",
+          "round": 1,
+          "starting_price_pln": 3208000,
+          "outcome": "active",
+          "area_m2": 14130,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,565367,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-sosnowcu-przy-ul-a-kowalskiej.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,565367,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-sosnowcu-przy-ul-a-kowalskiej.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "162/3",
+          "dzialka_id": "247501_1.0004.162/3",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0004.162%2F3"
+        }
+      ]
+    },
+    {
       "key": "dz|0007 porąbka|2821/8",
       "kind": "grunt",
       "city": "sosnowiec",

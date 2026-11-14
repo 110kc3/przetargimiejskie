@@ -3,8 +3,63 @@
   "city": "myslowice",
   "properties": [
     {
+      "key": "brzezinskiej|47|2",
+      "street": "Brzezińskiej",
+      "street_norm": "brzezinskiej",
+      "building": "47",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 135000,
+          "outcome": "archived",
+          "area_m2": 35.86,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-47-pr",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-07-14",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 135000,
+          "outcome": "archived",
+          "area_m2": 35.86,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-47-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-06",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 135000,
+          "outcome": "archived",
+          "area_m2": 35.86,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-47",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-12-08",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 135000,
+          "outcome": "active",
+          "area_m2": 35.86,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-47-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 35.86
+    },
+    {
       "key": "grunwaldzkiej|9|",
-      "street": "Grunwaldzkiej",
+      "street": "Grunwaldzka",
       "street_norm": "grunwaldzkiej",
       "building": "9",
       "apt": null,
@@ -93,6 +148,61 @@
         }
       ],
       "area_m2": 128
+    },
+    {
+      "key": "fryderyka chopina|15|3",
+      "street": "Fryderyka Chopina",
+      "street_norm": "fryderyka chopina",
+      "building": "15",
+      "apt": "3",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-05-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 198000,
+          "outcome": "archived",
+          "area_m2": 44.07,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-15-pr",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-07-21",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 198000,
+          "outcome": "archived",
+          "area_m2": 44.07,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-15-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-10-06",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 198000,
+          "outcome": "archived",
+          "area_m2": 44.07,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-15",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-12-01",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 198000,
+          "outcome": "active",
+          "area_m2": 44.07,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iv-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-15-p",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 44.07
     },
     {
       "key": "krakowskiej|14B|9",
@@ -371,7 +481,7 @@
           "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 218000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 48.86,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-12-znajdujacy-sie-w-budynku-nr-5a",
           "wadium_deadline": null,
@@ -459,7 +569,7 @@
           "round": 7,
           "kind": "mieszkalny",
           "starting_price_pln": 150000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 37.49,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-vii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-11-znajdujacy-sie-w-budynku-nr-4",
           "wadium_deadline": null,
@@ -481,7 +591,7 @@
           "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 139000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 30.55,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-41-znajdujacy-sie-w-budynku-nr-2",
           "wadium_deadline": null,
@@ -525,7 +635,7 @@
           "round": 3,
           "kind": "zabudowana",
           "starting_price_pln": 400000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 258.1,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej-wl-1",
           "wadium_deadline": null,
@@ -588,94 +698,6 @@
         }
       ],
       "area_m2": 52.13
-    },
-    {
-      "key": "fryderyka chopina|15|3",
-      "street": "Fryderyka Chopina",
-      "street_norm": "fryderyka chopina",
-      "building": "15",
-      "apt": "3",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-05-19",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 198000,
-          "outcome": "archived",
-          "area_m2": 44.07,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-15-pr",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-07-21",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 198000,
-          "outcome": "archived",
-          "area_m2": 44.07,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-15-p",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-10-06",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 198000,
-          "outcome": "archived",
-          "area_m2": 44.07,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-3-znajdujacy-sie-w-budynku-nr-15",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 44.07
-    },
-    {
-      "key": "brzezinskiej|47|2",
-      "street": "Brzezińskiej",
-      "street_norm": "brzezinskiej",
-      "building": "47",
-      "apt": "2",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-05-19",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 135000,
-          "outcome": "archived",
-          "area_m2": 35.86,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-47-pr",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-07-14",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 135000,
-          "outcome": "archived",
-          "area_m2": 35.86,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-47-p",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2026-10-06",
-          "round": 3,
-          "kind": "mieszkalny",
-          "starting_price_pln": 135000,
-          "outcome": "archived",
-          "area_m2": 35.86,
-          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-2-znajdujacy-sie-w-budynku-nr-47",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 35.86
     },
     {
       "key": "powstancow|1|11",

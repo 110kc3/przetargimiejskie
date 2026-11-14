@@ -159,11 +159,14 @@
           "round": 2,
           "kind": "zabudowana",
           "starting_price_pln": 2800000,
-          "outcome": "active",
-          "area_m2": null,
-          "detail_url": "https://bip.szczecinek.pl/artykul/645/7552/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-kosciuszki-22",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.szczecinek.pl/attachments/download/14873",
+          "notes": [
+            "parse: no achieved price and no explicit negative outcome"
+          ],
+          "detail_url": "https://bip.szczecinek.pl/artykul/645/7552/przetarg-na-sprzedaz-nieruchomosci-polozonej-przy-ulicy-kosciuszki-22"
         }
       ]
     },

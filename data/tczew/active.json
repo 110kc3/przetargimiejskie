@@ -1,6 +1,64 @@
 {
   "schema_version": 1,
   "city": "tczew",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Ogłoszenie o I przetargu ustnym nieograniczonym na sprzedaż lokalu mieszkalnego nr 4, położonego w Tczewie przy ul. Chopina 32, będącego własnością Gminy Miejskiej Tczew.",
+      "address": {
+        "street": "Chopina",
+        "street_norm": "chopina",
+        "building": "32",
+        "apt": "4",
+        "key": "chopina|32|4",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": "2026-11-06",
+      "round": 1,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.tczew.pl/wiadomosci/3/wiadomosc/912346/ogloszenie_o_i_przetargu_ustnym_nieograniczonym_na_sprzedaz_loka",
+      "source_pdf": "https://bip-v1-files.idcom-jst.pl/sites/3051/wiadomosci/912346/files/ogloszenie_do_zarzadzenia_379_2026.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Ogłoszenie o II przetargu ustnym nieograniczonym na sprzedaż lokalu mieszkalnego nr 3, położonego w Tczewie przy ul. Starowiejskiej 17, będącego własnością Gminy Miejskiej Tczew.",
+      "address": {
+        "street": "Starowiejskiej",
+        "street_norm": "starowiejskiej",
+        "building": "17",
+        "apt": "3",
+        "key": "starowiejskiej|17|3",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": "2026-11-03",
+      "round": 2,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.tczew.pl/wiadomosci/3/wiadomosc/911541/ogloszenie_o_ii_przetargu_ustnym_nieograniczonym_na_sprzedaz_lok",
+      "source_pdf": "https://bip-v1-files.idcom-jst.pl/sites/3051/wiadomosci/911541/files/ogloszenie_do_zarzadzenia_363_2026.pdf"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Ogłoszenie o II przetargu ustnym nieograniczonym na sprzedaż lokalu mieszkalnego nr 4, położonego w Tczewie przy Placu Hallera 1 będącego własnością Gminy Miejskiej Tczew.",
+      "address": {
+        "street": "Placu Hallera",
+        "street_norm": "placu hallera",
+        "building": "1",
+        "apt": "4",
+        "key": "placu hallera|1|4",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": "2026-11-03",
+      "round": 2,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.tczew.pl/wiadomosci/3/wiadomosc/911540/ogloszenie_o_ii_przetargu_ustnym_nieograniczonym_na_sprzedaz_lok",
+      "source_pdf": "https://bip-v1-files.idcom-jst.pl/sites/3051/wiadomosci/911540/files/ogloszenie_do_zarzadzenia_362_2026.pdf"
+    }
+  ],
   "wykaz": []
 }

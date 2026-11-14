@@ -152,13 +152,13 @@
         },
         {
           "date": "2026-02-23",
-          "round": 4,
+          "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 208000,
           "outcome": "unsold",
           "unsold_reason": "unknown",
           "final_price_pln": null,
-          "source_pdf": "https://bip.sztum.pl/1186.html?file=19237",
+          "source_pdf": "https://bip.sztum.pl/1186.html?file=19078",
           "notes": [
             "procedure: rokowania"
           ]
@@ -1047,6 +1047,36 @@
           "detail_url": "https://bip.sztum.pl/1186.html?file=19549",
           "wadium_deadline": null,
           "viewing_date": null
+        }
+      ]
+    },
+    {
+      "key": "jagielly|51|4",
+      "street": "Jagiełły",
+      "street_norm": "jagielly",
+      "building": "51",
+      "apt": "4",
+      "kind": "unknown",
+      "listings": [
+        {
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced"
+        }
+      ]
+    },
+    {
+      "key": "akacjowa|4|2",
+      "street": "Akacjowa",
+      "street_norm": "akacjowa",
+      "building": "4",
+      "apt": "2",
+      "kind": "unknown",
+      "listings": [
+        {
+          "round": null,
+          "kind": "unknown",
+          "outcome": "announced"
         }
       ]
     }

@@ -3,6 +3,143 @@
   "city": "torun",
   "properties": [
     {
+      "key": "mostowa|22|4A",
+      "street": "Mostowa",
+      "street_norm": "mostowa",
+      "building": "22",
+      "apt": "4A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-09-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "archived",
+          "area_m2": 27.47,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63049/ul-mostowa-22-m-4a",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-12-11",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 217000,
+          "outcome": "active",
+          "area_m2": 27.47,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63049/ul-mostowa-22-m-4a",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 27.47,
+      "legacy_keys": [
+        "mostowa 22 ul podmurna|21|"
+      ]
+    },
+    {
+      "key": "adama mickiewicza|93|9",
+      "street": "Adama Mickiewicza",
+      "street_norm": "adama mickiewicza",
+      "building": "93",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "active",
+          "area_m2": 37.2,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63999/adama-mickiewicza-93-m-9",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 37.2
+    },
+    {
+      "key": "ducha sw|19|12",
+      "street": "Ducha Św.",
+      "street_norm": "ducha sw",
+      "building": "19",
+      "apt": "12",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "archived",
+          "area_m2": 19.37,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63434/ul-ducha-sw-19-m-nr-12-i-nr-13",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-12-08",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 153000,
+          "outcome": "active",
+          "area_m2": 19.37,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63434/ul-ducha-sw-19-m-nr-12-i-nr-13",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 19.37,
+      "legacy_keys": [
+        "ducha sw 19 m nr 12 i nr|13|"
+      ]
+    },
+    {
+      "key": "ducha sw|19|13",
+      "street": "Ducha Św.",
+      "street_norm": "ducha sw",
+      "building": "19",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-06",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "archived",
+          "area_m2": 18.3,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63434/ul-ducha-sw-19-m-nr-12-i-nr-13",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-12-08",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 145000,
+          "outcome": "active",
+          "area_m2": 18.3,
+          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63434/ul-ducha-sw-19-m-nr-12-i-nr-13",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 18.3,
+      "legacy_keys": [
+        "ducha sw 19 m nr 12 i nr|13|"
+      ]
+    },
+    {
       "key": "sebastiana klonowica|21|2",
       "street": "Sebastiana Klonowica",
       "street_norm": "sebastiana klonowica",
@@ -38,7 +175,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 138000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 31.12,
           "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63691/ul-lubicka-51-m-4",
           "wadium_deadline": null,
@@ -70,84 +207,6 @@
         }
       ],
       "area_m2": 53.8
-    },
-    {
-      "key": "ducha sw|19|12",
-      "street": "Ducha Św.",
-      "street_norm": "ducha sw",
-      "building": "19",
-      "apt": "12",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-10-06",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 180000,
-          "outcome": "archived",
-          "area_m2": 19.37,
-          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63434/ul-ducha-sw-19-m-nr-12-i-nr-13",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
-        }
-      ],
-      "area_m2": 19.37,
-      "legacy_keys": [
-        "ducha sw 19 m nr 12 i nr|13|"
-      ]
-    },
-    {
-      "key": "ducha sw|19|13",
-      "street": "Ducha Św.",
-      "street_norm": "ducha sw",
-      "building": "19",
-      "apt": "13",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-10-06",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 170000,
-          "outcome": "archived",
-          "area_m2": 18.3,
-          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63434/ul-ducha-sw-19-m-nr-12-i-nr-13",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
-        }
-      ],
-      "area_m2": 18.3,
-      "legacy_keys": [
-        "ducha sw 19 m nr 12 i nr|13|"
-      ]
-    },
-    {
-      "key": "mostowa|22|4A",
-      "street": "Mostowa",
-      "street_norm": "mostowa",
-      "building": "22",
-      "apt": "4A",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-09-08",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 250000,
-          "outcome": "archived",
-          "area_m2": 27.47,
-          "detail_url": "https://bip.torun.pl/przetarg-nieruchomosci/63049/ul-mostowa-22-m-4a",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
-        }
-      ],
-      "area_m2": 27.47,
-      "legacy_keys": [
-        "mostowa 22 ul podmurna|21|"
-      ]
     },
     {
       "key": "slusarska|5|5A",

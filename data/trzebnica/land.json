@@ -3,6 +3,91 @@
   "city": "trzebnica",
   "plots": [
     {
+      "key": "dz|kobylice|1/2",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "1/2",
+      "obreb": "Kobylice",
+      "street": null,
+      "building": null,
+      "address_raw": "Kobylice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F2%20Kobylice%20Kobylice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3873,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-07-03",
+          "round": 2,
+          "starting_price_pln": 215700,
+          "outcome": "unsold",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7086"
+        },
+        {
+          "date": "2026-08-11",
+          "round": 3,
+          "starting_price_pln": 215700,
+          "outcome": "unsold",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7169"
+        },
+        {
+          "date": "2026-09-21",
+          "round": 4,
+          "starting_price_pln": 215700,
+          "outcome": "unsold",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7397"
+        },
+        {
+          "date": "2026-11-26",
+          "round": 5,
+          "starting_price_pln": 172560,
+          "outcome": "active",
+          "area_m2": 3873,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3603/przetarg-nr-ggn-p-25-2026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7512"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F2%20Kobylice%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|szczytkowice|285",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "285",
+      "obreb": "Szczytkowice",
+      "street": null,
+      "building": null,
+      "address_raw": "Szczytkowice",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20285%20Szczytkowice%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1636,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-26",
+          "round": 5,
+          "starting_price_pln": 126960,
+          "outcome": "active",
+          "area_m2": 1636,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3605/przetarg-ggnp-27-2026",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/7514"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "285",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20285%20Szczytkowice%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "addr|biedaszków wielki",
       "kind": "grunt",
       "city": "trzebnica",
@@ -101,7 +186,7 @@
           "date": "2026-11-03",
           "round": 1,
           "starting_price_pln": 1516100,
-          "outcome": "active",
+          "outcome": "archived",
           "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/3522/przetarg-nr-ggn-p-22-2026",
           "source_url": "https://bip.trzebnica.pl/attachments/download/7277"
         }
@@ -293,50 +378,6 @@
         {
           "nr": "881",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20881%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|kobylice|1/2",
-      "kind": "grunt",
-      "city": "trzebnica",
-      "dzialka_nr": "1/2",
-      "obreb": "Kobylice",
-      "street": null,
-      "building": null,
-      "address_raw": "Kobylice",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F2%20Kobylice%20Kobylice%20Trzebnica%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-07-03",
-          "round": 2,
-          "starting_price_pln": 215700,
-          "outcome": "unsold",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/7086"
-        },
-        {
-          "date": "2026-08-11",
-          "round": 3,
-          "starting_price_pln": 215700,
-          "outcome": "unsold",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/7169"
-        },
-        {
-          "date": "2026-09-21",
-          "round": 4,
-          "starting_price_pln": 215700,
-          "outcome": "unsold",
-          "source_url": "https://bip.trzebnica.pl/attachments/download/7397"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "1/2",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201%2F2%20Kobylice%20Trzebnica%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -1909,10 +1950,19 @@
       "address_raw": null,
       "dzialka_id": null,
       "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2032%2F7%20Trzebnica%20OG%C5%81OSZENIE%20Trzebnica%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1200,
+      "area_m2": 1274,
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": "2022-05-31",
+          "round": 5,
+          "starting_price_pln": 150000,
+          "outcome": "archived",
+          "area_m2": 1274,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/818/ggnp352022",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/1543"
+        },
         {
           "date": "2022-07-06",
           "round": 6,
@@ -2134,6 +2184,70 @@
         {
           "nr": "0",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%200%20Trzebnica%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|trzebnica ogłoszenie|21",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "21",
+      "obreb": "Trzebnica OGŁOSZENIE",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2021%20Trzebnica%20OG%C5%81OSZENIE%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3111,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-31",
+          "round": 1,
+          "starting_price_pln": 395200,
+          "outcome": "archived",
+          "area_m2": 3111,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/822/ggnp362022",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/1551"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "21",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2021%20Trzebnica%20OG%C5%81OSZENIE%20Trzebnica%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|trzebnica ogłoszenie|31",
+      "kind": "grunt",
+      "city": "trzebnica",
+      "dzialka_nr": "31",
+      "obreb": "Trzebnica OGŁOSZENIE",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2031%20Trzebnica%20OG%C5%81OSZENIE%20Trzebnica%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1216,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-05-31",
+          "round": 5,
+          "starting_price_pln": 150000,
+          "outcome": "archived",
+          "area_m2": 1216,
+          "detail_url": "https://bip.trzebnica.pl/przetarg-nieruchomosci/816/ggnp332022",
+          "source_url": "https://bip.trzebnica.pl/attachments/download/1541"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "31",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2031%20Trzebnica%20OG%C5%81OSZENIE%20Trzebnica%20geoportal%20dzia%C5%82ki"
         }
       ]
     },

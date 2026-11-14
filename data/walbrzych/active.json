@@ -3,67 +3,58 @@
   "city": "walbrzych",
   "listings": [
     {
-      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51706/przy-ul-kosynierow-3a-1-obreb-podgorze-nr-39",
+      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52122/przy-ul-andersa-172-11",
       "address": {
-        "street": "Kosynierów",
-        "street_norm": "kosynierow",
-        "building": "3A",
-        "apt": "1",
-        "key": "kosynierow|3A|1",
+        "street": "Andersa",
+        "street_norm": "andersa",
+        "building": "172",
+        "apt": "11",
+        "key": "andersa|172|11",
         "warning": null
       },
-      "address_raw": "ul. Kosynierów 3A/1",
+      "address_raw": "ul. Andersa 172/11",
       "kind": "mieszkalny",
-      "starting_price_pln": 32000,
-      "auction_date": "2026-10-07"
+      "starting_price_pln": 50000,
+      "auction_date": "2026-12-02",
+      "round": 1,
+      "round_source": "inferred"
     },
     {
-      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51705/przy-ul-stacyjnej-4-3-obreb-szczawienko-nr-3",
+      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52121/przy-ul-andersa-148-8",
       "address": {
-        "street": "Stacyjnej",
-        "street_norm": "stacyjnej",
-        "building": "4",
-        "apt": "3",
-        "key": "stacyjnej|4|3",
+        "street": "Andersa",
+        "street_norm": "andersa",
+        "building": "148",
+        "apt": "8",
+        "key": "andersa|148|8",
         "warning": null
       },
-      "address_raw": "ul. Stacyjnej 4/3",
-      "kind": "mieszkalny",
-      "starting_price_pln": 55000,
-      "auction_date": "2026-10-07"
-    },
-    {
-      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51703/ul-gen-j-bema-60a-2-obreb-bialy-kamien-nr-14",
-      "address": {
-        "street": "gen. J. Bema",
-        "street_norm": "gen j bema",
-        "building": "60A",
-        "apt": "2",
-        "key": "gen j bema|60A|2",
-        "warning": null
-      },
-      "address_raw": "ul. gen. J. Bema 60A/2",
-      "kind": "mieszkalny",
-      "starting_price_pln": 93000,
-      "auction_date": "2026-10-07"
-    },
-    {
-      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51701/przy-ul-1-maja-110-1-obreb-sobiecin-nr-28",
-      "address": {
-        "street": "1 Maja",
-        "street_norm": "1 maja",
-        "building": "110",
-        "apt": "1",
-        "key": "1 maja|110|1",
-        "warning": null
-      },
-      "address_raw": "ul. 1 Maja 110/1",
+      "address_raw": "ul. Andersa 148/8",
       "kind": "mieszkalny",
       "starting_price_pln": 40000,
-      "auction_date": "2026-10-07"
+      "auction_date": "2026-12-02",
+      "round": 1,
+      "round_source": "inferred"
     },
     {
-      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51700/przy-ul-niepodleglosci-199-7-obreb-podgorze-nr-39",
+      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52123/ul-daszynskiego-15-5",
+      "address": {
+        "street": "Daszyńskiego",
+        "street_norm": "daszynskiego",
+        "building": "15",
+        "apt": "5",
+        "key": "daszynskiego|15|5",
+        "warning": null
+      },
+      "address_raw": "ul. Daszyńskiego 15/5",
+      "kind": "mieszkalny",
+      "starting_price_pln": 115000,
+      "auction_date": "2026-12-02",
+      "round": 1,
+      "round_source": "inferred"
+    },
+    {
+      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52119/ul-niepodleglosci-199-7",
       "address": {
         "street": "Niepodległości",
         "street_norm": "niepodleglosci",
@@ -74,23 +65,27 @@
       },
       "address_raw": "ul. Niepodległości 199/7",
       "kind": "mieszkalny",
-      "starting_price_pln": 60000,
-      "auction_date": "2026-10-07"
+      "starting_price_pln": 58000,
+      "auction_date": "2026-12-02",
+      "round": 2,
+      "round_source": "inferred"
     },
     {
-      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/51446/przy-ul-stanislawa-staszica-1-7",
+      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52120/przy-ul-1-maja-110-1",
       "address": {
-        "street": "Stanisława Staszica",
-        "street_norm": "stanislawa staszica",
-        "building": "1",
-        "apt": "7",
-        "key": "stanislawa staszica|1|7",
+        "street": "1 Maja",
+        "street_norm": "1 maja",
+        "building": "110",
+        "apt": "1",
+        "key": "1 maja|110|1",
         "warning": null
       },
-      "address_raw": "ul. Stanisława Staszica 1/7",
+      "address_raw": "ul. 1 Maja 110/1",
       "kind": "mieszkalny",
-      "starting_price_pln": 170000,
-      "auction_date": "2026-08-19"
+      "starting_price_pln": 38000,
+      "auction_date": "2026-12-02",
+      "round": 2,
+      "round_source": "inferred"
     }
   ],
   "wykaz": []

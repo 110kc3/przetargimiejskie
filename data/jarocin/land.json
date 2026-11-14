@@ -3,6 +3,39 @@
   "city": "jarocin",
   "plots": [
     {
+      "key": "dz|jarocin|2",
+      "kind": "grunt",
+      "city": "jarocin",
+      "dzialka_nr": "2",
+      "obreb": "Jarocin",
+      "street": null,
+      "building": null,
+      "address_raw": "Jarocin, dz. nr 2",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202%20Jarocin%2C%20dz.%20nr%202%20Jarocin%20Jarocin%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-01-13",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-dz.-315-6-bip.pdf",
+          "notes": [
+            "parse: multi-parcel notice (6 działki) — primary parcel only"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202%20Jarocin%20Jarocin%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|witaszyce|236/2, 237/3, 237/4",
       "kind": "grunt",
       "city": "jarocin",
@@ -139,7 +172,7 @@
           "date": "2026-11-04",
           "round": 3,
           "starting_price_pln": null,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 907,
           "detail_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-o-3-przetargu-zagrodowa.pdf",
           "notes": [
@@ -721,6 +754,28 @@
           "notes": [
             "parse: multi-parcel result (2 działki) — primary parcel + first stated price only"
           ]
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 1300000,
+          "outcome": "unsold",
+          "area_m2": 5294,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-2-przetargu.pdf",
+          "notes": [
+            "parse: multi-parcel result (2 działki) — primary parcel + first stated price only"
+          ]
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 1300000,
+          "outcome": "unsold",
+          "area_m2": 5294,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-przetargu283-4.pdf",
+          "notes": [
+            "parse: multi-parcel result (2 działki) — primary parcel + first stated price only"
+          ]
         }
       ],
       "parcels": [
@@ -745,6 +800,28 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 205200,
+          "outcome": "unsold",
+          "area_m2": 1026,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-vii-przetargu.pdf",
+          "notes": [
+            "parse: multi-parcel result (4 działki) — primary parcel + first stated price only"
+          ]
+        },
+        {
+          "date": null,
+          "round": 6,
+          "starting_price_pln": 205200,
+          "outcome": "unsold",
+          "area_m2": 1026,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-vi-przetargu.pdf",
+          "notes": [
+            "parse: multi-parcel result (4 działki) — primary parcel + first stated price only"
+          ]
+        },
         {
           "date": null,
           "round": 1,
@@ -1537,6 +1614,72 @@
           "notes": [
             "parse: multi-parcel result (3 działki) — primary parcel + first stated price only"
           ]
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 5700000,
+          "outcome": "open",
+          "area_m2": 24921,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-ii-przetargu-dz.-nr-314-2.pdf",
+          "notes": [
+            "parse: multi-parcel result (2 działki) — primary parcel + first stated price only"
+          ]
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 13800000,
+          "outcome": "unsold",
+          "area_m2": 24921,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-przetargu.pdf",
+          "notes": [
+            "parse: multi-parcel result (3 działki) — primary parcel + first stated price only"
+          ]
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 13800000,
+          "outcome": "unsold",
+          "area_m2": 24921,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-przetargu.pdf",
+          "notes": [
+            "parse: multi-parcel result (3 działki) — primary parcel + first stated price only"
+          ]
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 13800000,
+          "outcome": "unsold",
+          "area_m2": 24921,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-przetargu.pdf",
+          "notes": [
+            "parse: multi-parcel result (3 działki) — primary parcel + first stated price only"
+          ]
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 13800000,
+          "outcome": "unsold",
+          "area_m2": 24921,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-przetargu.pdf",
+          "notes": [
+            "parse: multi-parcel result (3 działki) — primary parcel + first stated price only"
+          ]
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 13800000,
+          "outcome": "unsold",
+          "area_m2": 24921,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-przetargu.pdf",
+          "notes": [
+            "parse: multi-parcel result (3 działki) — primary parcel + first stated price only"
+          ]
         }
       ],
       "parcels": [
@@ -1561,6 +1704,28 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": "2026-10-28",
+          "round": 2,
+          "starting_price_pln": 7140000,
+          "outcome": "unsold",
+          "area_m2": 31361,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-ii-przetargu-dz.-nr-315-6.pdf",
+          "notes": [
+            "parse: multi-parcel result (2 działki) — primary parcel + first stated price only"
+          ]
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 7140000,
+          "outcome": "unsold",
+          "area_m2": 31361,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-przetargu-315-6.pdf",
+          "notes": [
+            "parse: multi-parcel result (2 działki) — primary parcel + first stated price only"
+          ]
+        },
         {
           "date": null,
           "round": 1,
@@ -2151,6 +2316,51 @@
           "notes": [
             "parse: multi-parcel result (2 działki) — primary parcel + first stated price only"
           ]
+        },
+        {
+          "date": null,
+          "round": 6,
+          "starting_price_pln": 231300,
+          "outcome": "sold",
+          "final_price_pln": 233620,
+          "area_m2": 2000,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-6-przetargu-sloneczna.pdf",
+          "notes": [
+            "parse: multi-parcel result (2 działki) — primary parcel + first stated price only"
+          ]
+        },
+        {
+          "date": null,
+          "round": 5,
+          "starting_price_pln": 251300,
+          "outcome": "unsold",
+          "area_m2": 2000,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-przetargu-sloneczna.pdf",
+          "notes": [
+            "parse: multi-parcel result (2 działki) — primary parcel + first stated price only"
+          ]
+        },
+        {
+          "date": null,
+          "round": 4,
+          "starting_price_pln": 251300,
+          "outcome": "unsold",
+          "area_m2": 2000,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/przetargi/informacja-o-wyniku-4-przetargu-sloneczna.pdf",
+          "notes": [
+            "parse: multi-parcel result (2 działki) — primary parcel + first stated price only"
+          ]
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 251300,
+          "outcome": "unsold",
+          "area_m2": 2000,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/przetargi/informacja-o-wyniku-przetargu-witaszyce-sloneczna-dz.-1267-7.pdf",
+          "notes": [
+            "parse: multi-parcel result (2 działki) — primary parcel + first stated price only"
+          ]
         }
       ],
       "parcels": [
@@ -2284,6 +2494,17 @@
           "notes": [
             "parse: multi-parcel result (2 działki) — primary parcel + first stated price only"
           ]
+        },
+        {
+          "date": null,
+          "round": 4,
+          "starting_price_pln": 322550,
+          "outcome": "unsold",
+          "area_m2": 1685,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-4-przetargu.pdf",
+          "notes": [
+            "parse: multi-parcel result (2 działki) — primary parcel + first stated price only"
+          ]
         }
       ],
       "parcels": [
@@ -2308,6 +2529,30 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": 800000,
+          "outcome": "unsold",
+          "area_m2": 10000,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-iii-wyniku-przetargu.pdf"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 800000,
+          "outcome": "unsold",
+          "area_m2": 10000,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-ii-wyniku-przetargu.pdf"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 800000,
+          "outcome": "unsold",
+          "area_m2": 10000,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-i-wyniku-przetargu.pdf"
+        },
         {
           "date": null,
           "round": 3,
@@ -2890,6 +3135,38 @@
           "outcome": "unsold",
           "area_m2": 408,
           "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/przetargi/informacja-o-wyniku-przetargu-pro%C5%9Bniana.pdf"
+        },
+        {
+          "date": null,
+          "round": 5,
+          "starting_price_pln": 81600,
+          "outcome": "unsold",
+          "area_m2": 408,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-przetargu-jarocin-ul.-pro%C5%9Bniana.pdf"
+        },
+        {
+          "date": null,
+          "round": 5,
+          "starting_price_pln": 81600,
+          "outcome": "unsold",
+          "area_m2": 408,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-przetargu-jarocin-ul.-pro%C5%9Bniana.pdf"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "area_m2": 408,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/przetargi/informacja-o-wyniku-przetargu-jarocin-ul.-pro%C5%9Bniana.pdf"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 90000,
+          "outcome": "unsold",
+          "area_m2": 408,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/przetargi/informacja-o-wyniku-przetargu-pro%C5%9Bniana.pdf"
         }
       ],
       "parcels": [
@@ -2914,6 +3191,28 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": 173810,
+          "outcome": "unsold",
+          "area_m2": 908,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-3-przetargu-bip.pdf",
+          "notes": [
+            "parse: multi-parcel result (3 działki) — primary parcel + first stated price only"
+          ]
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 215000,
+          "outcome": "unsold",
+          "area_m2": 908,
+          "source_url": "https://bip2.wokiss.pl/jarocin/informacja-o-wyniku-przetargu-%C5%82ugi.pdf",
+          "notes": [
+            "parse: multi-parcel result (3 działki) — primary parcel + first stated price only"
+          ]
+        },
         {
           "date": null,
           "round": 3,
@@ -3816,6 +4115,72 @@
           "notes": [
             "parse: multi-parcel result (8 działki) — primary parcel + first stated price only"
           ]
+        },
+        {
+          "date": null,
+          "round": 5,
+          "starting_price_pln": 205400,
+          "outcome": "unsold",
+          "area_m2": 1027,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-v-przetargu.pdf",
+          "notes": [
+            "parse: multi-parcel result (6 działki) — primary parcel + first stated price only"
+          ]
+        },
+        {
+          "date": null,
+          "round": 4,
+          "starting_price_pln": 257000,
+          "outcome": "unsold",
+          "area_m2": 1027,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-iv-przetargu.pdf",
+          "notes": [
+            "parse: multi-parcel result (6 działki) — primary parcel + first stated price only"
+          ]
+        },
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": 257000,
+          "outcome": "unsold",
+          "area_m2": 1027,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-iii-przetargu.pdf",
+          "notes": [
+            "parse: multi-parcel result (6 działki) — primary parcel + first stated price only"
+          ]
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 257000,
+          "outcome": "unsold",
+          "area_m2": 1027,
+          "source_url": "https://bip2.wokiss.pl/jarocin/informacja-o-wyniku-przetargu.pdf",
+          "notes": [
+            "parse: multi-parcel result (6 działki) — primary parcel + first stated price only"
+          ]
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 257000,
+          "outcome": "unsold",
+          "area_m2": 1027,
+          "source_url": "https://bip2.wokiss.pl/jarocin/informacja-o-wyniku-przetargu.pdf",
+          "notes": [
+            "parse: multi-parcel result (6 działki) — primary parcel + first stated price only"
+          ]
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 268000,
+          "outcome": "unsold",
+          "area_m2": 1027,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/przetargi/informacja-o-wyniku-przetargu-jarocin-ul.-malopolska.pdf",
+          "notes": [
+            "parse: multi-parcel result (8 działki) — primary parcel + first stated price only"
+          ]
         }
       ],
       "parcels": [
@@ -3840,6 +4205,22 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": 39000,
+          "outcome": "unsold",
+          "area_m2": 15100,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/informacja-o-wyniku-przetargu-gogolewo.pdf"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 39000,
+          "outcome": "unsold",
+          "area_m2": 15100,
+          "source_url": "https://bip2.wokiss.pl/jarocin/zasoby/przetargi/informacja-o-wyniku-przetargu-gogolewo.pdf"
+        },
         {
           "date": null,
           "round": 2,

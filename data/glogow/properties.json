@@ -3,6 +3,119 @@
   "city": "glogow",
   "properties": [
     {
+      "key": "obroncow pokoju|28|16",
+      "street": "Obrońców Pokoju",
+      "street_norm": "obroncow pokoju",
+      "building": "28",
+      "apt": "16",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-12-15",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 43000,
+          "outcome": "active",
+          "area_m2": 10.5,
+          "detail_url": "https://glogow.bip.info.pl/api/fo/files/D2E51F1B-AECF-4175-A516-5ADE52A56DB9/download",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 10.5
+    },
+    {
+      "key": "sikorskiego|6|19",
+      "street": "Sikorskiego",
+      "street_norm": "sikorskiego",
+      "building": "6",
+      "apt": "19",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 245000,
+          "outcome": "archived",
+          "area_m2": 48.3,
+          "detail_url": "https://glogow.bip.info.pl/api/fo/files/045EF703-736A-4608-9DB8-6618CCD952E6/download",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-12-08",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 220000,
+          "outcome": "active",
+          "area_m2": 48.3,
+          "detail_url": "https://glogow.bip.info.pl/api/fo/files/7605634F-5B7A-4DAC-BC5D-507024D799E5/download",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 48.3
+    },
+    {
+      "key": "stawnej|16A|4",
+      "street": "Stawna",
+      "street_norm": "stawnej",
+      "building": "16A",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2025-03-18",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 175000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/13909eb270542b63ebe3f1aefbc86c/download",
+          "notes": [],
+          "area_m2": 30
+        },
+        {
+          "date": "2025-05-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 170000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/518886d7c42769715d7c81d938e523/download",
+          "notes": [],
+          "area_m2": 30
+        },
+        {
+          "date": "2026-09-22",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/A885560C-4000-49DE-962B-E9535B89C915/download",
+          "notes": [],
+          "area_m2": 30
+        },
+        {
+          "date": "2026-12-08",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 30,
+          "detail_url": "https://glogow.bip.info.pl/api/fo/files/9B4FF4BF-9D40-4770-A7AE-D1058AC710B4/download",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 30
+    },
+    {
       "key": "obroncow pokoju|7C|58",
       "street": "Obrońców Pokoju",
       "street_norm": "obroncow pokoju",
@@ -84,28 +197,6 @@
       "area_m2": 182.03
     },
     {
-      "key": "sikorskiego|6|19",
-      "street": "Sikorskiego",
-      "street_norm": "sikorskiego",
-      "building": "6",
-      "apt": "19",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-10-13",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 245000,
-          "outcome": "archived",
-          "area_m2": 48.3,
-          "detail_url": "https://glogow.bip.info.pl/api/fo/files/045EF703-736A-4608-9DB8-6618CCD952E6/download",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 48.3
-    },
-    {
       "key": "plac 1000 lecia|10|22",
       "street": "Plac 1000-lecia",
       "street_norm": "plac 1000 lecia",
@@ -152,53 +243,6 @@
         }
       ],
       "area_m2": 35.29
-    },
-    {
-      "key": "stawnej|16A|4",
-      "street": "Stawna",
-      "street_norm": "stawnej",
-      "building": "16A",
-      "apt": "4",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2025-03-18",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 175000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/13909eb270542b63ebe3f1aefbc86c/download",
-          "notes": [],
-          "area_m2": 30
-        },
-        {
-          "date": "2025-05-20",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 170000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/518886d7c42769715d7c81d938e523/download",
-          "notes": [],
-          "area_m2": 30
-        },
-        {
-          "date": "2026-09-22",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 160000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://glogow.bip.info.pl/api/fo/files/A885560C-4000-49DE-962B-E9535B89C915/download",
-          "notes": [],
-          "area_m2": 30
-        }
-      ],
-      "area_m2": 30
     },
     {
       "key": "rzemieslniczej|21A|9",

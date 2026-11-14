@@ -3,6 +3,145 @@
   "city": "bytom",
   "plots": [
     {
+      "key": "dz|2883/11",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "2883/11",
+      "obreb": null,
+      "street": "Tadeusza Czackiego",
+      "building": null,
+      "address_raw": "Tadeusza Czackiego dz. 2883/11",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.871569739302625%2C50.34481722228529%2C18.873610118908324%2C50.345249879970595&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.39c894da-bce9-4076-86d2-ea420cc7dd27",
+      "area_m2": 4326,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-01-12",
+          "round": 1,
+          "starting_price_pln": 700000,
+          "outcome": "active",
+          "area_m2": 4326,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Czackiego-dzialka-2883_11,25733.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2883/11"
+        }
+      ]
+    },
+    {
+      "key": "addr|piekarska 26",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Piekarska 26",
+      "building": null,
+      "address_raw": "Piekarska 26",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.919099412482595%2C50.350489515429736%2C18.91953462899913%2C50.3508073180326&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.70ded859-2355-4a19-9993-b2b6c6e58812",
+      "area_m2": 715,
+      "zoning": "zabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-18",
+          "round": 3,
+          "starting_price_pln": 275000,
+          "outcome": "active",
+          "area_m2": 715,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Piekarska-26,25756.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|piekarska 30",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Piekarska 30",
+      "building": null,
+      "address_raw": "Piekarska 30",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.919211888372722%2C50.35074039226007%2C18.919677403708054%2C50.351013024983715&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.1d3b0254-b44c-4fa5-9ea6-5713d291c0f8",
+      "area_m2": 640,
+      "zoning": "zabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-16",
+          "round": 3,
+          "starting_price_pln": 190000,
+          "outcome": "active",
+          "area_m2": 640,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Piekarska-30,25758.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|generała władysława sikorskiego",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Generała Władysława Sikorskiego",
+      "building": null,
+      "address_raw": "Generała Władysława Sikorskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.885354193714964%2C50.38762020573825%2C18.885450595940632%2C50.38766117948599&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.86636c6e-7a7d-4219-a838-6909f2c62445",
+      "area_m2": 19,
+      "zoning": "zabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-08",
+          "round": 1,
+          "starting_price_pln": 5800,
+          "outcome": "active",
+          "area_m2": 19,
+          "detail_url": "https://www.bytom.pl/download/Ogloszenie-przetargu-ul.-Sikorskiego-dzialka-nr-398_27,8361.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|leśna",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Leśna",
+      "building": null,
+      "address_raw": "Leśna",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.88294269197746%2C50.36844328846408%2C18.884166328876027%2C50.36874279829103&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.d9475302-2257-481b-9492-c120571cf78b",
+      "area_m2": 2035,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-07",
+          "round": 1,
+          "starting_price_pln": 250000,
+          "outcome": "active",
+          "area_m2": 2035,
+          "detail_url": "https://www.bytom.pl/download/Ogloszenie-przetargu-ul.-Lesna-dz.-3157_12,8358.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "dz|8573,8574,8575",
       "kind": "grunt",
       "city": "bytom",
@@ -96,6 +235,37 @@
         }
       ],
       "parcels": []
+    },
+    {
+      "key": "dz|1932/182",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "1932/182",
+      "obreb": null,
+      "street": "Alfonsa Zgrzebnioka",
+      "building": null,
+      "address_raw": "Alfonsa Zgrzebnioka dz. 1932/182",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.798182706627628%2C50.39404570961167%2C18.798894571103357%2C50.39453313525246&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.4453167a-8731-4428-abae-869289c08096",
+      "area_m2": 1266,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-20",
+          "round": 1,
+          "starting_price_pln": 225000,
+          "outcome": "active",
+          "area_m2": 1266,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zgrzebnioka-dz.-1932_182,25560.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1932/182"
+        }
+      ]
     },
     {
       "key": "addr|bolesława prusa 31a",
@@ -242,7 +412,7 @@
           "date": "2026-11-09",
           "round": 2,
           "starting_price_pln": 1000000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1148,
           "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zabrzanska-91,24932.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
@@ -269,7 +439,7 @@
           "date": "2026-11-02",
           "round": 3,
           "starting_price_pln": 87500,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 398,
           "detail_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.931474429214823%2C50.357542376852464%2C18.931758879286978%2C50.35781680459941&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.766eed9d-8a61-4280-853b-8d622f9f2ff1",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
@@ -296,7 +466,7 @@
           "date": "2026-11-02",
           "round": 1,
           "starting_price_pln": 150000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 563,
           "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Witczaka-dz.-71-i-72,25318.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
@@ -327,7 +497,7 @@
           "date": "2026-10-29",
           "round": 1,
           "starting_price_pln": 550000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 634,
           "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-pl.-Sikorskiego-8-i-8a-ustny-I-niezabud.i-zabud,24833.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
@@ -354,7 +524,7 @@
           "date": "2026-10-26",
           "round": 2,
           "starting_price_pln": 750000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 9719,
           "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-Aleja-Jana-Nowaka-Jezioranskiego-i-Hutnicza,24802.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
@@ -381,7 +551,7 @@
           "date": "2026-10-26",
           "round": 1,
           "starting_price_pln": 450000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 905,
           "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zeromskiego-4,24803.doc",
           "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"

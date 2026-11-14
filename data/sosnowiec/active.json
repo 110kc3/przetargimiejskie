@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Litewskiej 35/68",
+      "address": {
+        "street": "Litewskiej",
+        "street_norm": "litewskiej",
+        "building": "35",
+        "apt": "68",
+        "key": "litewskiej|35|68",
+        "warning": null
+      },
+      "auction_date": "2027-02-12",
+      "published_date": "2026-11-09",
+      "round": 1,
+      "area_m2": 45.4,
+      "starting_price_pln": 227000,
+      "detail_url": "https://www.bip.um.sosnowiec.pl/a,565386,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-poloznego-w-sosnowcu-przy-ul-litewskie.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Ostrogórskiej 35a/399",
       "address": {
         "street": "Ostrogórskiej",
@@ -796,6 +814,27 @@
       "dzialka_nr": "5499",
       "obreb": "0009 Sosnowiec",
       "plot_area_m2": 27.26
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Targowej 12",
+      "address": {
+        "street": "Targowej",
+        "street_norm": "targowej",
+        "building": "12",
+        "apt": null,
+        "key": "targowej|12|",
+        "warning": null
+      },
+      "auction_date": "2027-01-22",
+      "published_date": "2026-11-03",
+      "round": 2,
+      "area_m2": null,
+      "starting_price_pln": 4432500,
+      "detail_url": "https://www.bip.um.sosnowiec.pl/a,565336,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-.html",
+      "dzialka_nr": "2802",
+      "obreb": "11 Sosnowiec",
+      "plot_area_m2": 1385
     },
     {
       "kind": "zabudowana",

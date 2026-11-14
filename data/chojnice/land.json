@@ -3,6 +3,129 @@
   "city": "chojnice",
   "plots": [
     {
+      "key": "dz|18",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "18",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ROD Metalowiec",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2018%20ROD%20Metalowiec%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-10",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://miastochojnice.pl/przetarg-pisemny-ograniczony-na-sprzedaz-dzialki-rod-metalowiec-10-11-2026-r-godz-10-00/",
+          "source_url": "https://miastochojnice.pl/przetarg-pisemny-ograniczony-na-sprzedaz-dzialki-rod-metalowiec-10-11-2026-r-godz-10-00/?aid=101680&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "18"
+        }
+      ]
+    },
+    {
+      "key": "dz|684/87",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "684/87",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Zakładowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20684%2F87%20ul.%20Zak%C5%82adowa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3321,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2024-04-09",
+          "round": 1,
+          "starting_price_pln": 376000,
+          "outcome": "unsold",
+          "area_m2": 3321,
+          "source_url": "https://miastochojnice.pl/09-04-2024-wyniki-przetargu/?aid=92097&sa=0"
+        },
+        {
+          "date": "2024-05-14",
+          "round": 2,
+          "starting_price_pln": 305000,
+          "outcome": "unsold",
+          "area_m2": 3321,
+          "source_url": "https://miastochojnice.pl/14-05-2024-wyniki-przetargu/?aid=92386&sa=0"
+        },
+        {
+          "date": "2024-08-20",
+          "round": 3,
+          "starting_price_pln": 250000,
+          "outcome": "unsold",
+          "area_m2": 3321,
+          "source_url": "https://miastochojnice.pl/20-08-2024-wyniki-przetargu-ustnego-nieograniczonego-przeprowadzonego-w-dniu-20-08-2024r-dzialka-nr-68487/?aid=93416&sa=0"
+        },
+        {
+          "date": "2026-06-23",
+          "round": 1,
+          "starting_price_pln": 398000,
+          "outcome": "unsold",
+          "area_m2": 3321,
+          "source_url": "https://miastochojnice.pl/01-07-2026-r-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej-ul-zakladowa-dz-nr-684-87/?aid=100510&sa=0"
+        },
+        {
+          "date": "2026-10-27",
+          "round": 2,
+          "starting_price_pln": 323000,
+          "outcome": "unsold",
+          "area_m2": 3321,
+          "source_url": "https://miastochojnice.pl/04-11-2026-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej-ul-zakladowa-dz-nr-684-87/?aid=101970&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "684/87"
+        }
+      ]
+    },
+    {
+      "key": "dz|3024/6",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "3024/6",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Szymborskiej/Żeromskiego",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%203024%2F6%20ul.%20Szymborskiej%2F%C5%BBeromskiego%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1678,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-20",
+          "round": 1,
+          "starting_price_pln": 440000,
+          "outcome": "sold",
+          "final_price_pln": 470000,
+          "area_m2": 1678,
+          "source_url": "https://miastochojnice.pl/27-10-2026-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej-ul-szymborskiej-zeromskiego-dz-nr-3024-6/?aid=101885&sa=0"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3024/6"
+        }
+      ]
+    },
+    {
       "key": "dz|4608/105",
       "kind": "grunt",
       "city": "chojnice",
@@ -57,8 +180,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 830,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 830,
@@ -69,7 +203,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 142000,
           "outcome": "unsold",
           "area_m2": 830,
@@ -77,7 +211,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 830,
@@ -88,7 +222,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 142000,
           "outcome": "unsold",
           "area_m2": 830,
@@ -214,8 +348,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 715,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 715,
@@ -226,7 +371,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 122000,
           "outcome": "unsold",
           "area_m2": 715,
@@ -234,7 +379,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 715,
@@ -245,7 +390,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 122000,
           "outcome": "unsold",
           "area_m2": 715,
@@ -372,8 +517,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 961,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 961,
@@ -384,7 +540,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 164000,
           "outcome": "unsold",
           "area_m2": 961,
@@ -392,7 +548,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 961,
@@ -403,7 +559,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 164000,
           "outcome": "unsold",
           "area_m2": 961,
@@ -529,8 +685,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1115,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 1115,
@@ -541,7 +708,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 190000,
           "outcome": "unsold",
           "area_m2": 1115,
@@ -549,7 +716,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 1115,
@@ -560,7 +727,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 190000,
           "outcome": "unsold",
           "area_m2": 1115,
@@ -686,8 +853,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 764,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 764,
@@ -698,7 +876,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 130000,
           "outcome": "unsold",
           "area_m2": 764,
@@ -706,7 +884,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 764,
@@ -717,7 +895,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 130000,
           "outcome": "unsold",
           "area_m2": 764,
@@ -856,60 +1034,6 @@
       "parcels": [
         {
           "nr": "135"
-        }
-      ]
-    },
-    {
-      "key": "dz|684/87",
-      "kind": "grunt",
-      "city": "chojnice",
-      "dzialka_nr": "684/87",
-      "obreb": null,
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Zakładowa",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20684%2F87%20ul.%20Zak%C5%82adowa%20Chojnice%20geoportal%20dzia%C5%82ki",
-      "area_m2": 3321,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2024-04-09",
-          "round": 1,
-          "starting_price_pln": 376000,
-          "outcome": "unsold",
-          "area_m2": 3321,
-          "source_url": "https://miastochojnice.pl/09-04-2024-wyniki-przetargu/?aid=92097&sa=0"
-        },
-        {
-          "date": "2024-05-14",
-          "round": 2,
-          "starting_price_pln": 305000,
-          "outcome": "unsold",
-          "area_m2": 3321,
-          "source_url": "https://miastochojnice.pl/14-05-2024-wyniki-przetargu/?aid=92386&sa=0"
-        },
-        {
-          "date": "2024-08-20",
-          "round": 3,
-          "starting_price_pln": 250000,
-          "outcome": "unsold",
-          "area_m2": 3321,
-          "source_url": "https://miastochojnice.pl/20-08-2024-wyniki-przetargu-ustnego-nieograniczonego-przeprowadzonego-w-dniu-20-08-2024r-dzialka-nr-68487/?aid=93416&sa=0"
-        },
-        {
-          "date": "2026-06-23",
-          "round": 1,
-          "starting_price_pln": 398000,
-          "outcome": "unsold",
-          "area_m2": 3321,
-          "source_url": "https://miastochojnice.pl/01-07-2026-r-wyniki-przetargu-na-zbycie-nieruchomosci-miejskiej-ul-zakladowa-dz-nr-684-87/?aid=100510&sa=0"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "684/87"
         }
       ]
     },
@@ -1134,8 +1258,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1064,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 1064,
@@ -1146,7 +1281,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 181000,
           "outcome": "unsold",
           "area_m2": 1064,
@@ -1154,7 +1289,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 1064,
@@ -1165,7 +1300,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 181000,
           "outcome": "unsold",
           "area_m2": 1064,
@@ -1454,8 +1589,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 857,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 857,
@@ -1466,7 +1612,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 146000,
           "outcome": "unsold",
           "area_m2": 857,
@@ -1474,7 +1620,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 857,
@@ -1485,7 +1631,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 146000,
           "outcome": "unsold",
           "area_m2": 857,
@@ -1577,8 +1723,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 628,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 628,
@@ -1589,7 +1746,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 107000,
           "outcome": "unsold",
           "area_m2": 628,
@@ -1597,7 +1754,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 628,
@@ -1608,7 +1765,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 107000,
           "outcome": "unsold",
           "area_m2": 628,
@@ -1725,8 +1882,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 690,
@@ -1737,7 +1905,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 118000,
           "outcome": "unsold",
           "area_m2": 690,
@@ -1745,7 +1913,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 690,
@@ -1756,7 +1924,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 118000,
           "outcome": "unsold",
           "area_m2": 690,
@@ -1840,8 +2008,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 750,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 750,
@@ -1852,7 +2031,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 128000,
           "outcome": "unsold",
           "area_m2": 750,
@@ -1860,7 +2039,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 750,
@@ -1871,7 +2050,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 128000,
           "outcome": "unsold",
           "area_m2": 750,
@@ -1955,8 +2134,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1039,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 1039,
@@ -1967,7 +2157,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 177000,
           "outcome": "unsold",
           "area_m2": 1039,
@@ -1975,7 +2165,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 1039,
@@ -1986,7 +2176,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 177000,
           "outcome": "unsold",
           "area_m2": 1039,
@@ -2062,8 +2252,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 1061,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 1061,
@@ -2074,7 +2275,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 181000,
           "outcome": "unsold",
           "area_m2": 1061,
@@ -2082,7 +2283,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 1061,
@@ -2093,7 +2294,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 181000,
           "outcome": "unsold",
           "area_m2": 1061,
@@ -2169,8 +2370,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-04-21",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 827,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-04-21",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 827,
@@ -2181,7 +2393,7 @@
         },
         {
           "date": "2022-07-19",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 827,
@@ -2192,7 +2404,7 @@
         },
         {
           "date": "2022-11-29",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 827,
@@ -2203,7 +2415,7 @@
         },
         {
           "date": "2023-02-21",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 827,
@@ -2214,7 +2426,7 @@
         },
         {
           "date": "2023-04-25",
-          "round": 5,
+          "round": 6,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 827,
@@ -2369,8 +2581,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 593,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 593,
@@ -2381,7 +2604,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 101000,
           "outcome": "unsold",
           "area_m2": 593,
@@ -2389,7 +2612,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 593,
@@ -2400,7 +2623,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 101000,
           "outcome": "unsold",
           "area_m2": 593,
@@ -2636,8 +2859,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 744,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 744,
@@ -2648,7 +2882,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 127000,
           "outcome": "unsold",
           "area_m2": 744,
@@ -2656,7 +2890,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 744,
@@ -2667,7 +2901,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 127000,
           "outcome": "unsold",
           "area_m2": 744,
@@ -2732,8 +2966,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 655,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 655,
@@ -2744,7 +2989,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 112000,
           "outcome": "unsold",
           "area_m2": 655,
@@ -2752,7 +2997,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 655,
@@ -2763,7 +3008,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 112000,
           "outcome": "unsold",
           "area_m2": 655,
@@ -2828,8 +3073,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 690,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 690,
@@ -2840,7 +3096,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 118000,
           "outcome": "unsold",
           "area_m2": 690,
@@ -2848,7 +3104,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 690,
@@ -2859,7 +3115,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 118000,
           "outcome": "unsold",
           "area_m2": 690,
@@ -2943,8 +3199,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 777,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 777,
@@ -2955,7 +3222,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 133000,
           "outcome": "unsold",
           "area_m2": 777,
@@ -2963,7 +3230,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 777,
@@ -2974,7 +3241,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 133000,
           "outcome": "unsold",
           "area_m2": 777,
@@ -3080,8 +3347,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 865,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 865,
@@ -3092,7 +3370,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 148000,
           "outcome": "unsold",
           "area_m2": 865,
@@ -3100,7 +3378,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 865,
@@ -3111,7 +3389,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 148000,
           "outcome": "unsold",
           "area_m2": 865,
@@ -3149,8 +3427,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-04-21",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 721,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-04-21",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 721,
@@ -3161,7 +3450,7 @@
         },
         {
           "date": "2022-07-19",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 721,
@@ -3172,7 +3461,7 @@
         },
         {
           "date": "2022-11-29",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 721,
@@ -3183,7 +3472,7 @@
         },
         {
           "date": "2023-02-21",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 721,
@@ -3194,7 +3483,7 @@
         },
         {
           "date": "2023-04-25",
-          "round": 5,
+          "round": 6,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 721,
@@ -3234,8 +3523,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-04-21",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 721,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-04-21",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 721,
@@ -3246,7 +3546,7 @@
         },
         {
           "date": "2022-07-19",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 721,
@@ -3257,7 +3557,7 @@
         },
         {
           "date": "2022-11-29",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 721,
@@ -3268,7 +3568,7 @@
         },
         {
           "date": "2023-02-21",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 721,
@@ -3279,7 +3579,7 @@
         },
         {
           "date": "2023-04-25",
-          "round": 5,
+          "round": 6,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 721,
@@ -3448,8 +3748,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-04-21",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 595,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-04-21",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 595,
@@ -3460,7 +3771,7 @@
         },
         {
           "date": "2022-07-19",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 595,
@@ -3471,7 +3782,7 @@
         },
         {
           "date": "2022-11-29",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 595,
@@ -3482,7 +3793,7 @@
         },
         {
           "date": "2023-02-21",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 595,
@@ -3493,7 +3804,7 @@
         },
         {
           "date": "2023-04-25",
-          "round": 5,
+          "round": 6,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 595,
@@ -3636,8 +3947,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-04-21",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 788,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-04-21",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 788,
@@ -3648,7 +3970,7 @@
         },
         {
           "date": "2022-07-19",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 788,
@@ -3659,7 +3981,7 @@
         },
         {
           "date": "2022-11-29",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 788,
@@ -3670,7 +3992,7 @@
         },
         {
           "date": "2023-02-21",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": null,
           "outcome": "sold",
           "final_price_pln": 151500,
@@ -3703,8 +4025,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 615,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 615,
@@ -3715,7 +4048,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 105000,
           "outcome": "unsold",
           "area_m2": 615,
@@ -3723,7 +4056,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 615,
@@ -3734,7 +4067,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 105000,
           "outcome": "unsold",
           "area_m2": 615,
@@ -3763,8 +4096,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 625,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 625,
@@ -3775,7 +4119,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 107000,
           "outcome": "unsold",
           "area_m2": 625,
@@ -3783,7 +4127,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 625,
@@ -3794,7 +4138,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 107000,
           "outcome": "unsold",
           "area_m2": 625,
@@ -3823,8 +4167,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 710,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 710,
@@ -3835,7 +4190,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 121000,
           "outcome": "unsold",
           "area_m2": 710,
@@ -3843,7 +4198,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 710,
@@ -3854,7 +4209,7 @@
         },
         {
           "date": "2022-12-15",
-          "round": 4,
+          "round": 5,
           "starting_price_pln": 121000,
           "outcome": "unsold",
           "area_m2": 710,
@@ -3913,8 +4268,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 742,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 742,
@@ -3925,7 +4291,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 127000,
           "outcome": "unsold",
           "area_m2": 742,
@@ -3933,7 +4299,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "sold",
           "final_price_pln": 128300,
@@ -3966,8 +4332,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 510,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 510,
@@ -3978,7 +4355,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 87000,
           "outcome": "unsold",
           "area_m2": 510,
@@ -3986,7 +4363,7 @@
         },
         {
           "date": "2022-10-25",
-          "round": 3,
+          "round": 4,
           "starting_price_pln": null,
           "outcome": "sold",
           "final_price_pln": 87900,
@@ -4080,8 +4457,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 700,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 700,
@@ -4092,7 +4480,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 120000,
           "outcome": "sold",
           "final_price_pln": 121200,
@@ -4122,8 +4510,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 663,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 663,
@@ -4134,7 +4533,7 @@
         },
         {
           "date": "2022-09-13",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": 113000,
           "outcome": "sold",
           "final_price_pln": 114200,
@@ -4164,8 +4563,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-04-21",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 651,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-04-21",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 651,
@@ -4176,7 +4586,7 @@
         },
         {
           "date": "2022-07-19",
-          "round": 2,
+          "round": 3,
           "starting_price_pln": null,
           "outcome": "sold",
           "final_price_pln": 115500,
@@ -4209,8 +4619,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 550,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "sold",
           "final_price_pln": 95000,
@@ -4243,8 +4664,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 662,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 662,
@@ -4276,8 +4708,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 609,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 609,
@@ -4309,8 +4752,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 670,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 670,
@@ -4342,8 +4796,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 687,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 687,
@@ -4375,8 +4840,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-05-11",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 576,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-05-11",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 576,
@@ -4408,8 +4884,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-04-21",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 720,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-04-21",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "sold",
           "final_price_pln": 140400,
@@ -4442,8 +4929,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-04-21",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 550,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-04-21",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 550,
@@ -4475,8 +4973,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-04-21",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 600,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-04-21",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 600,
@@ -4508,8 +5017,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-04-21",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 737,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-04-21",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "unsold",
           "area_m2": 737,
@@ -4541,8 +5061,19 @@
       "status": null,
       "listings": [
         {
-          "date": "2022-04-21",
+          "date": "2022-03-01",
           "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "area_m2": 770,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        },
+        {
+          "date": "2022-04-21",
+          "round": 2,
           "starting_price_pln": null,
           "outcome": "sold",
           "final_price_pln": 154600,
@@ -4589,6 +5120,108 @@
       "parcels": [
         {
           "nr": "5365"
+        }
+      ]
+    },
+    {
+      "key": "dz|5361",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "5361",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Kolejowa",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%205361%20ul.%20Kolejowa%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 987,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-03-02",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 98000,
+          "area_m2": 987,
+          "source_url": "https://miastochojnice.pl/02-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialki-w-okolicy-ul-kolejowej/?aid=85449&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "5361"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/57",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/57",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Koziołka Matołka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F57%20ul.%20Bytowska%2F%20Kozio%C5%82ka%20Mato%C5%82ka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 551,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-03-01",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 95000,
+          "area_m2": 551,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/57"
+        }
+      ]
+    },
+    {
+      "key": "dz|4608/28",
+      "kind": "grunt",
+      "city": "chojnice",
+      "dzialka_nr": "4608/28",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Bytowska/ Misia Uszatka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204608%2F28%20ul.%20Bytowska%2F%20Misia%20Uszatka%20Chojnice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 919,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2022-03-01",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "sold",
+          "final_price_pln": 162700,
+          "area_m2": 919,
+          "source_url": "https://miastochojnice.pl/01-03-2022-wyniki-przetarg-ustny-nieograniczony-na-sprzedaz-dzialek-na-osiedlu-bajkowym/?aid=85445&sa=0",
+          "notes": [
+            "parse: missing starting price"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4608/28"
         }
       ]
     }

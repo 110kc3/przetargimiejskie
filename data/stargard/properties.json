@@ -3,6 +3,28 @@
   "city": "stargard",
   "properties": [
     {
+      "key": "przy ul gdynskiej|26A|2",
+      "street": "przy ul. Gdyńskiej",
+      "street_norm": "przy ul gdynskiej",
+      "building": "26A",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-30",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 285000,
+          "outcome": "active",
+          "area_m2": 48,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-przy-ul-gdynskiej-26a-2-i-przetarg-ustny-nieograniczony/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 48
+    },
+    {
       "key": "aleja gryfa|15|1",
       "street": "Aleja Gryfa",
       "street_norm": "aleja gryfa",
@@ -169,7 +191,7 @@
           "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 229500,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 48.36,
           "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-hugona-kollataja-7-2-iii-przetarg-na-sprzedaz-nieruchomosci/",
           "wadium_deadline": null,
@@ -213,7 +235,7 @@
           "round": 3,
           "kind": "mieszkalny",
           "starting_price_pln": 112500,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 26.54,
           "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-czarnieckiego-11-8-iii-przetarg-na-sprzedaz-nieruchomosci/",
           "wadium_deadline": null,
@@ -499,6 +521,28 @@
           "round_source": "inferred"
         }
       ]
+    },
+    {
+      "key": "dworcowa|31|2",
+      "street": "Dworcowa",
+      "street_norm": "dworcowa",
+      "building": "31",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 240000,
+          "outcome": "active",
+          "area_m2": 44.85,
+          "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-dworcowa-31-2-i-przetarg-ustny-nieograniczony/",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 44.85
     }
   ]
 }

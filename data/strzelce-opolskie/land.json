@@ -76,7 +76,7 @@
           "date": "2026-11-12",
           "round": 3,
           "starting_price_pln": 200000,
-          "outcome": "active",
+          "outcome": "archived",
           "detail_url": "https://gzmk.pl/bw/III_ustny_przetarg_nieograniczony_na_sprzedaz_nieruchomosci_gminnej_polozonej_przy_ul_Wawrzynca_Swierzego_w_Strzelcach_Opolskich_,14,1012"
         }
       ],
@@ -114,9 +114,11 @@
           "date": "2026-11-04",
           "round": 3,
           "starting_price_pln": 64000,
-          "outcome": "active",
+          "outcome": "sold",
           "area_m2": 818,
-          "detail_url": "https://gzmk.pl/bw/III_ustny_przetarg_nieograniczony_na_sprzedaz_nieruchomosci_gminnych_polozonych_w_Szymiszowie_przy_ul_Franciszka_Mysliwca,14,1010"
+          "detail_url": "https://gzmk.pl/bw/III_ustny_przetarg_nieograniczony_na_sprzedaz_nieruchomosci_gminnych_polozonych_w_Szymiszowie_przy_ul_Franciszka_Mysliwca,14,1010",
+          "final_price_pln": 65000,
+          "source_url": "https://gzmk.pl/bw/III_ustny_przetarg_nieograniczony_na_sprzedaz_nieruchomosci_gminnych_polozonych_w_Szymiszowie_przy_ul_Franciszka_Mysliwca,14,1010"
         }
       ],
       "parcels": [
@@ -145,9 +147,11 @@
           "date": "2026-10-30",
           "round": 1,
           "starting_price_pln": 150000,
-          "outcome": "active",
+          "outcome": "sold",
           "area_m2": 1264,
-          "detail_url": "https://gzmk.pl/bw/I_ustny_przetarg_ograniczony_na_sprzedaz_nieruchomosci_gminnej_polozonej_w_Strzelcach_Opolskich_przy_ul_1-go_Maja,14,1009"
+          "detail_url": "https://gzmk.pl/bw/I_ustny_przetarg_ograniczony_na_sprzedaz_nieruchomosci_gminnej_polozonej_w_Strzelcach_Opolskich_przy_ul_1-go_Maja,14,1009",
+          "final_price_pln": 151500,
+          "source_url": "https://gzmk.pl/bw/I_ustny_przetarg_ograniczony_na_sprzedaz_nieruchomosci_gminnej_polozonej_w_Strzelcach_Opolskich_przy_ul_1-go_Maja,14,1009"
         }
       ],
       "parcels": [

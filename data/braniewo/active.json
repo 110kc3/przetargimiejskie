@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Morska 23",
+      "address": {
+        "street": "Morska",
+        "street_norm": "morska",
+        "building": "23",
+        "apt": null,
+        "key": "morska|23|",
+        "warning": null
+      },
+      "area_m2": 19.6,
+      "starting_price_pln": null,
+      "auction_date": "2026-12-18",
+      "round": 1,
+      "detail_url": "http://bip.braniewo.pl/artykul/120/3153/ogloszenie-o-pierwszym-przetargu-ustnym-ograniczonym-na-pomieszczenie-mieszkalne-nr-5-ul-morska-23",
+      "source_url": "http://bip.braniewo.pl/attachments/download/5439"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Krasickiego 12/3",
       "address": {
         "street": "Krasickiego",

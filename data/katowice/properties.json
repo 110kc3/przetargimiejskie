@@ -125,28 +125,6 @@
       "area_m2": 101.99
     },
     {
-      "key": "jozefowskiej|118A|1",
-      "street": "Józefowska",
-      "street_norm": "jozefowskiej",
-      "building": "118A",
-      "apt": "1",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-10-27",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 440000,
-          "outcome": "active",
-          "area_m2": 62.8,
-          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153651&menu=679",
-          "wadium_deadline": "2026-10-19",
-          "viewing_date": "2026-10-19"
-        }
-      ],
-      "area_m2": 62.8
-    },
-    {
       "key": "dzialkowej|17|",
       "street": "Działkowa",
       "street_norm": "dzialkowej",
@@ -171,10 +149,10 @@
           "round": 2,
           "kind": "zabudowana",
           "starting_price_pln": 315000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 100.37,
           "land_area_m2": 100.37,
-          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=154024&menu=679",
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=585",
           "wadium_deadline": "2026-10-19",
           "viewing_date": "2026-10-19"
         }
@@ -209,9 +187,13 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 310000,
-          "outcome": "active",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 319300,
+          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/154721/Wyniki%20poz%2027.10.2026%20Działkowa%2017,%20Gliwicka%206.7.pdf",
+          "notes": [],
           "area_m2": 67.52,
-          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=154025&menu=679",
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=586",
           "wadium_deadline": "2026-10-19",
           "viewing_date": "2026-10-19"
         }
@@ -244,9 +226,13 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 280000,
-          "outcome": "active",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/154722/Wyniki%2027.10.26%20Józefowska%20118a.1,%20Warszawska%2028.9%20II,%20Mielęckiego%208d.6%20%20neg.pdf",
+          "notes": [],
           "area_m2": 85.06,
-          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153887&menu=679",
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=581",
           "wadium_deadline": "2026-10-19",
           "viewing_date": "2026-10-19"
         }
@@ -266,14 +252,40 @@
           "round": 1,
           "kind": "uzytkowy",
           "starting_price_pln": 130000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 22.12,
-          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=154021&menu=679",
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=584",
           "wadium_deadline": "2026-10-19",
           "viewing_date": "2026-10-19"
         }
       ],
       "area_m2": 22.12
+    },
+    {
+      "key": "jozefowska|118A|1",
+      "street": "Józefowska",
+      "street_norm": "jozefowska",
+      "building": "118A",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-27",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 440000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/154722/Wyniki%2027.10.26%20Józefowska%20118a.1,%20Warszawska%2028.9%20II,%20Mielęckiego%208d.6%20%20neg.pdf",
+          "notes": [],
+          "area_m2": 62.8,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=580",
+          "wadium_deadline": "2026-10-19",
+          "viewing_date": "2026-10-19"
+        }
+      ],
+      "area_m2": 62.8
     },
     {
       "key": "rybnicka|8|8",

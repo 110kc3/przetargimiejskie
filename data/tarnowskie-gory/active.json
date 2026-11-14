@@ -91,8 +91,9 @@
       "area_m2": null,
       "land_area_m2": 481,
       "starting_price_pln": null,
-      "auction_date": null,
+      "auction_date": "2026-07-24",
       "round": 1,
+      "auction_date_estimated": true,
       "detail_url": "https://bip.tarnowskiegory.pl/a,102861,burmistrz-miasta-tarnowskie-gory-odwoluje-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nieruch.html",
       "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=124160"
     },
@@ -392,24 +393,6 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Krakowskiej 17/11",
-      "address": {
-        "street": "Krakowskiej",
-        "street_norm": "krakowskiej",
-        "building": "17",
-        "apt": "11",
-        "key": "krakowskiej|17|11",
-        "warning": null
-      },
-      "area_m2": 48.29,
-      "starting_price_pln": 193000,
-      "auction_date": "2025-04-16",
-      "round": 2,
-      "detail_url": "https://bip.tarnowskiegory.pl/a,98458,burmistrz-miasta-tarnowskie-gory-oglasza-drugi-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mies.html",
-      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119925"
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "ul. Słoneczników 49B/11",
       "address": {
         "street": "Słoneczników",
@@ -425,6 +408,24 @@
       "round": 1,
       "detail_url": "https://bip.tarnowskiegory.pl/a,98457,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-m.html",
       "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119924"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Krakowskiej 17/11",
+      "address": {
+        "street": "Krakowskiej",
+        "street_norm": "krakowskiej",
+        "building": "17",
+        "apt": "11",
+        "key": "krakowskiej|17|11",
+        "warning": null
+      },
+      "area_m2": 48.29,
+      "starting_price_pln": 193000,
+      "auction_date": "2025-04-16",
+      "round": 2,
+      "detail_url": "https://bip.tarnowskiegory.pl/a,98458,burmistrz-miasta-tarnowskie-gory-oglasza-drugi-przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mies.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119925"
     },
     {
       "kind": "mieszkalny",

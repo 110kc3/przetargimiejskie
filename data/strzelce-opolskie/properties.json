@@ -52,12 +52,13 @@
           "round": 4,
           "kind": "zabudowana",
           "starting_price_pln": 211000,
-          "outcome": "active",
+          "outcome": "unsold",
+          "unsold_reason": "wynik negatywny",
+          "final_price_pln": null,
+          "source_pdf": "https://gzmk.pl/bw/Rokowania_na_sprzedaz_zabudowanej_nieruchomosci_gminnej_polozonej_w_Rozmierce_przy_ul_Strzeleckiej_33,14,1011",
           "area_m2": null,
-          "detail_url": "https://gzmk.pl/bw/Rokowania_na_sprzedaz_zabudowanej_nieruchomosci_gminnej_polozonej_w_Rozmierce_przy_ul_Strzeleckiej_33,14,1011",
-          "wadium_deadline": null,
-          "viewing_date": null,
           "round_source": "inferred",
+          "detail_url": "https://gzmk.pl/bw/Rokowania_na_sprzedaz_zabudowanej_nieruchomosci_gminnej_polozonej_w_Rozmierce_przy_ul_Strzeleckiej_33,14,1011",
           "land_area_m2": 467
         }
       ],

@@ -2,35 +2,35 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "wejherowo",
-  "generated_at": "2026-10-21T22:18:35.567Z",
-  "source_pdf_count": 55,
+  "generated_at": "2026-11-14T18:45:10.579Z",
+  "source_pdf_count": 59,
   "parsed_records": 0,
   "parser_note_count": 0,
   "unique_properties": 11,
-  "active_listings": 6,
-  "active_auctions": 3,
-  "archived_auctions": 14,
+  "active_listings": 7,
+  "active_auctions": 4,
+  "archived_auctions": 17,
   "wykaz_entries": 0,
   "land_plots": 0,
   "land_listings": 0,
-  "retained_properties": 5,
+  "retained_properties": 7,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-21T22:16:50.917Z",
-  "last_successful_source_check_at": "2026-10-21T22:16:50.917Z",
+  "last_source_attempt_at": "2026-11-14T18:43:21.184Z",
+  "last_successful_source_check_at": "2026-11-14T18:43:21.184Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-21T22:16:50.917Z",
-      "last_success_at": "2026-10-21T22:16:50.917Z"
+      "last_attempt_at": "2026-11-14T18:43:21.184Z",
+      "last_success_at": "2026-11-14T18:43:21.184Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-10-21T22:16:50.917Z",
+      "last_attempt_at": "2026-11-14T18:43:21.184Z",
       "last_success_at": null
     }
   }

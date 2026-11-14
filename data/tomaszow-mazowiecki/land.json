@@ -35,6 +35,54 @@
       ]
     },
     {
+      "key": "dz|8|490",
+      "kind": "grunt",
+      "city": "tomaszow-mazowiecki",
+      "dzialka_nr": "490",
+      "obreb": "8",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Konstytucji 3 Maja 14/16",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20490%20ul.%20Konstytucji%203%20Maja%2014%2F16%208%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1754,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-12-10",
+          "round": 1,
+          "starting_price_pln": 800000,
+          "outcome": "unsold",
+          "area_m2": 1754,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=616650"
+        },
+        {
+          "date": "2026-05-20",
+          "round": 2,
+          "starting_price_pln": 700000,
+          "outcome": "unsold",
+          "area_m2": 1754,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=622979"
+        },
+        {
+          "date": "2026-10-26",
+          "round": 3,
+          "starting_price_pln": 600000,
+          "outcome": "sold",
+          "final_price_pln": 606100,
+          "area_m2": 1754,
+          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=628787"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "490",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20490%208%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|10|764",
       "kind": "grunt",
       "city": "tomaszow-mazowiecki",
@@ -376,45 +424,6 @@
         }
       ],
       "parcels": []
-    },
-    {
-      "key": "dz|8|490",
-      "kind": "grunt",
-      "city": "tomaszow-mazowiecki",
-      "dzialka_nr": "490",
-      "obreb": "8",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Konstytucji 3 Maja 14/16",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20490%20ul.%20Konstytucji%203%20Maja%2014%2F16%208%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki",
-      "area_m2": 1754,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-12-10",
-          "round": 1,
-          "starting_price_pln": 800000,
-          "outcome": "unsold",
-          "area_m2": 1754,
-          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=616650"
-        },
-        {
-          "date": "2026-05-20",
-          "round": 2,
-          "starting_price_pln": 700000,
-          "outcome": "unsold",
-          "area_m2": 1754,
-          "source_url": "http://bip.tomaszow.miasta.pl/public/getFile?id=622979"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "490",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20490%208%20Tomasz%C3%B3w%20Mazowiecki%20geoportal%20dzia%C5%82ki"
-        }
-      ]
     },
     {
       "key": "dz|9|213",

@@ -3,6 +3,38 @@
   "city": "sulecin",
   "plots": [
     {
+      "key": "dz|48|229/3",
+      "kind": "grunt",
+      "city": "sulecin",
+      "dzialka_nr": "229/3",
+      "obreb": "48",
+      "street": null,
+      "building": null,
+      "address_raw": "Sulęcin, obręb 48",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20229%2F3%20Sul%C4%99cin%2C%20obr%C4%99b%2048%2048%20Sul%C4%99cin%20geoportal%20dzia%C5%82ki",
+      "area_m2": 65,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-29",
+          "round": 1,
+          "starting_price_pln": 11800,
+          "outcome": "sold",
+          "final_price_pln": 11920,
+          "area_m2": 65,
+          "source_url": "https://bip.sulecin.pl/system/pobierz.php?plik=Informacja_o_wyniku_przetargu__dz._229.3__Sulecin_.pdf&id=21544aadfbb64c7ddd70a1f227b4ece4&stats=true"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "229/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20229%2F3%2048%20Sul%C4%99cin%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|0048|437/1",
       "kind": "grunt",
       "city": "sulecin",

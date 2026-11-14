@@ -2,22 +2,22 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "jarocin",
-  "generated_at": "2026-10-21T22:34:32.244Z",
-  "source_pdf_count": 53,
+  "generated_at": "2026-11-14T19:01:47.428Z",
+  "source_pdf_count": 54,
   "parsed_records": 0,
-  "parser_note_count": 27,
+  "parser_note_count": 28,
   "unique_properties": 3,
-  "active_listings": 2,
-  "active_auctions": 2,
-  "archived_auctions": 4,
+  "active_listings": 1,
+  "active_auctions": 1,
+  "archived_auctions": 5,
   "wykaz_entries": 0,
-  "land_plots": 24,
+  "land_plots": 25,
   "land_listings": 50,
-  "retained_properties": 1,
+  "retained_properties": 2,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-21T22:32:23.852Z",
-  "last_successful_source_check_at": "2026-10-21T22:32:23.852Z",
+  "last_source_attempt_at": "2026-11-14T18:59:35.022Z",
+  "last_successful_source_check_at": "2026-11-14T18:59:35.022Z",
   "monitored_assets": [
     "building",
     "land",
@@ -27,19 +27,19 @@
     "results": {
       "status": "degraded",
       "complete": false,
-      "last_attempt_at": "2026-10-21T22:32:23.852Z",
+      "last_attempt_at": "2026-11-14T18:59:35.022Z",
       "last_success_at": null
     },
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-21T22:32:23.852Z",
-      "last_success_at": "2026-10-21T22:32:23.852Z"
+      "last_attempt_at": "2026-11-14T18:59:35.022Z",
+      "last_success_at": "2026-11-14T18:59:35.022Z"
     },
     "land": {
       "status": "healthy",
       "complete": false,
-      "last_attempt_at": "2026-10-21T22:32:23.852Z",
-      "last_success_at": "2026-10-21T22:32:23.852Z"
+      "last_attempt_at": "2026-11-14T18:59:35.022Z",
+      "last_success_at": "2026-11-14T18:59:35.022Z"
     }
   },
   "land_complete": false

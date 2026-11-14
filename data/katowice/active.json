@@ -23,83 +23,6 @@
       "viewing_date": "2026-11-23"
     },
     {
-      "kind": "uzytkowy",
-      "round": 1,
-      "address_raw": "Mielęckiego 8d",
-      "address": {
-        "street": "Mielęckiego",
-        "street_norm": "mieleckiego",
-        "building": "8D",
-        "apt": null,
-        "key": "mieleckiego|8D|",
-        "warning": null
-      },
-      "auction_date": "2026-10-27",
-      "area_m2": 22.12,
-      "starting_price_pln": 130000,
-      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=154021&menu=679",
-      "wadium_deadline": "2026-10-19",
-      "viewing_date": "2026-10-19"
-    },
-    {
-      "kind": "zabudowana",
-      "round": 2,
-      "address_raw": "Działkowej 17",
-      "address": {
-        "street": "Działkowej",
-        "street_norm": "dzialkowej",
-        "building": "17",
-        "apt": null,
-        "key": "dzialkowej|17|",
-        "warning": null
-      },
-      "auction_date": "2026-10-27",
-      "area_m2": null,
-      "land_area_m2": 100.37,
-      "starting_price_pln": 315000,
-      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=154024&menu=679",
-      "wadium_deadline": "2026-10-19",
-      "viewing_date": "2026-10-19"
-    },
-    {
-      "kind": "mieszkalny",
-      "round": 2,
-      "address_raw": "Gliwickiej 6/7",
-      "address": {
-        "street": "Gliwickiej",
-        "street_norm": "gliwickiej",
-        "building": "6",
-        "apt": "7",
-        "key": "gliwickiej|6|7",
-        "warning": null
-      },
-      "auction_date": "2026-10-27",
-      "area_m2": 67.52,
-      "starting_price_pln": 310000,
-      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=154025&menu=679",
-      "wadium_deadline": "2026-10-19",
-      "viewing_date": "2026-10-19"
-    },
-    {
-      "kind": "mieszkalny",
-      "round": 2,
-      "address_raw": "Warszawskiej 28/9",
-      "address": {
-        "street": "Warszawskiej",
-        "street_norm": "warszawskiej",
-        "building": "28",
-        "apt": "9",
-        "key": "warszawskiej|28|9",
-        "warning": null
-      },
-      "auction_date": "2026-10-27",
-      "area_m2": 85.06,
-      "starting_price_pln": 280000,
-      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153887&menu=679",
-      "wadium_deadline": "2026-10-19",
-      "viewing_date": "2026-10-19"
-    },
-    {
       "kind": "mieszkalny",
       "round": 1,
       "address_raw": "i mieszkalnych nr 1",
@@ -174,44 +97,6 @@
       "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153891&menu=679",
       "wadium_deadline": "2026-11-09",
       "viewing_date": "2026-11-09"
-    },
-    {
-      "kind": "mieszkalny",
-      "round": 1,
-      "address_raw": "Józefowskiej 118a/1",
-      "address": {
-        "street": "Józefowskiej",
-        "street_norm": "jozefowskiej",
-        "building": "118A",
-        "apt": "1",
-        "key": "jozefowskiej|118A|1",
-        "warning": null
-      },
-      "auction_date": "2026-10-27",
-      "area_m2": 62.8,
-      "starting_price_pln": 440000,
-      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153651&menu=679",
-      "wadium_deadline": "2026-10-19",
-      "viewing_date": "2026-10-19"
-    },
-    {
-      "kind": "uzytkowy",
-      "round": 1,
-      "address_raw": "Kościuszki 45",
-      "address": {
-        "street": "Kościuszki",
-        "street_norm": "kosciuszki",
-        "building": "45",
-        "apt": null,
-        "key": "kosciuszki|45|",
-        "warning": null
-      },
-      "auction_date": "2026-09-15",
-      "area_m2": 18.13,
-      "starting_price_pln": 200000,
-      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153461&menu=679",
-      "wadium_deadline": "2026-09-07",
-      "viewing_date": "2026-09-07"
     },
     {
       "kind": "mieszkalny",
@@ -1516,6 +1401,25 @@
       "viewing_date": "2026-08-31"
     },
     {
+      "kind": "uzytkowy",
+      "round": 1,
+      "address_raw": "Kościuszki 45",
+      "address": {
+        "street": "Kościuszki",
+        "street_norm": "kosciuszki",
+        "building": "45",
+        "apt": null,
+        "key": "kosciuszki|45|",
+        "warning": null
+      },
+      "auction_date": "2026-09-15",
+      "area_m2": 18.13,
+      "starting_price_pln": 200000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=578",
+      "wadium_deadline": "2026-09-07",
+      "viewing_date": "2026-09-07"
+    },
+    {
       "kind": "mieszkalny",
       "round": 2,
       "address_raw": "Rybnickiej 8/8",
@@ -1533,6 +1437,102 @@
       "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=579",
       "wadium_deadline": "2026-09-28",
       "viewing_date": "2026-09-28"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Józefowskiej 118a/1",
+      "address": {
+        "street": "Józefowskiej",
+        "street_norm": "jozefowskiej",
+        "building": "118A",
+        "apt": "1",
+        "key": "jozefowskiej|118A|1",
+        "warning": null
+      },
+      "auction_date": "2026-10-27",
+      "area_m2": 62.8,
+      "starting_price_pln": 440000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=580",
+      "wadium_deadline": "2026-10-19",
+      "viewing_date": "2026-10-19"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 2,
+      "address_raw": "Warszawskiej 28/9",
+      "address": {
+        "street": "Warszawskiej",
+        "street_norm": "warszawskiej",
+        "building": "28",
+        "apt": "9",
+        "key": "warszawskiej|28|9",
+        "warning": null
+      },
+      "auction_date": "2026-10-27",
+      "area_m2": 85.06,
+      "starting_price_pln": 280000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=581",
+      "wadium_deadline": "2026-10-19",
+      "viewing_date": "2026-10-19"
+    },
+    {
+      "kind": "uzytkowy",
+      "round": 1,
+      "address_raw": "Mielęckiego 8d",
+      "address": {
+        "street": "Mielęckiego",
+        "street_norm": "mieleckiego",
+        "building": "8D",
+        "apt": null,
+        "key": "mieleckiego|8D|",
+        "warning": null
+      },
+      "auction_date": "2026-10-27",
+      "area_m2": 22.12,
+      "starting_price_pln": 130000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=584",
+      "wadium_deadline": "2026-10-19",
+      "viewing_date": "2026-10-19"
+    },
+    {
+      "kind": "zabudowana",
+      "round": 2,
+      "address_raw": "Działkowej 17",
+      "address": {
+        "street": "Działkowej",
+        "street_norm": "dzialkowej",
+        "building": "17",
+        "apt": null,
+        "key": "dzialkowej|17|",
+        "warning": null
+      },
+      "auction_date": "2026-10-27",
+      "area_m2": null,
+      "land_area_m2": 100.37,
+      "starting_price_pln": 315000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=585",
+      "wadium_deadline": "2026-10-19",
+      "viewing_date": "2026-10-19"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 2,
+      "address_raw": "Gliwickiej 6/7",
+      "address": {
+        "street": "Gliwickiej",
+        "street_norm": "gliwickiej",
+        "building": "6",
+        "apt": "7",
+        "key": "gliwickiej|6|7",
+        "warning": null
+      },
+      "auction_date": "2026-10-27",
+      "area_m2": 67.52,
+      "starting_price_pln": 310000,
+      "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=586",
+      "wadium_deadline": "2026-10-19",
+      "viewing_date": "2026-10-19"
     }
   ],
   "wykaz": []

@@ -3,6 +3,45 @@
   "city": "sztum",
   "plots": [
     {
+      "key": "dz|3 miasta sztum|18/2",
+      "kind": "grunt",
+      "city": "sztum",
+      "dzialka_nr": "18/2",
+      "obreb": "3 MIASTA SZTUM",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2018%2F2%203%20MIASTA%20SZTUM%20Sztum%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-10-22",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://bip.sztum.pl/1186.html?file=19832",
+          "source_url": "https://bip.sztum.pl/1186.html?file=19832"
+        },
+        {
+          "date": "2027-01-12",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.sztum.pl/1186.html?file=20020",
+          "source_url": "https://bip.sztum.pl/1186.html?file=20020"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "18/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2018%2F2%203%20MIASTA%20SZTUM%20Sztum%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|sztumskie pole|239/2, 239/3, 239/4, 239/5, 239/6, 239/7",
       "kind": "grunt",
       "city": "sztum",
@@ -21,10 +60,19 @@
           "date": "2026-10-26",
           "round": 4,
           "starting_price_pln": 152500,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1134,
           "detail_url": "https://bip.sztum.pl/1186.html?file=19891",
           "source_url": "https://bip.sztum.pl/1186.html?file=19891"
+        },
+        {
+          "date": "2026-12-15",
+          "round": 5,
+          "starting_price_pln": 152500,
+          "outcome": "active",
+          "area_m2": 1134,
+          "detail_url": "https://bip.sztum.pl/1186.html?file=20028",
+          "source_url": "https://bip.sztum.pl/1186.html?file=20028"
         }
       ],
       "parcels": [
@@ -73,9 +121,17 @@
           "date": "2026-10-26",
           "round": 4,
           "starting_price_pln": 138700,
-          "outcome": "active",
+          "outcome": "archived",
           "detail_url": "https://bip.sztum.pl/1186.html?file=19890",
           "source_url": "https://bip.sztum.pl/1186.html?file=19890"
+        },
+        {
+          "date": "2026-12-15",
+          "round": 5,
+          "starting_price_pln": 138700,
+          "outcome": "active",
+          "detail_url": "https://bip.sztum.pl/1186.html?file=20029",
+          "source_url": "https://bip.sztum.pl/1186.html?file=20029"
         }
       ],
       "parcels": [
@@ -86,33 +142,152 @@
       ]
     },
     {
-      "key": "dz|3 miasta sztum|18/2",
+      "key": "dz|sztumskie|163/1 i 163/2",
       "kind": "grunt",
       "city": "sztum",
-      "dzialka_nr": "18/2",
-      "obreb": "3 MIASTA SZTUM",
+      "dzialka_nr": "163/1 i 163/2",
+      "obreb": "Sztumskie",
       "street": null,
       "building": null,
       "address_raw": null,
       "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2018%2F2%203%20MIASTA%20SZTUM%20Sztum%20geoportal%20dzia%C5%82ki",
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20163%2F1%20i%20163%2F2%20Sztumskie%20Sztum%20geoportal%20dzia%C5%82ki",
       "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-05-29",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "source_url": "https://bip.sztum.pl/1186.html?file=19495",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-07-22",
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "source_url": "https://bip.sztum.pl/1186.html?file=19718",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-09-11",
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "source_url": "https://bip.sztum.pl/1186.html?file=19880",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        },
+        {
+          "date": "2026-11-03",
+          "round": 4,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "source_url": "https://bip.sztum.pl/1186.html?file=20006",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "163/1 i 163/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20163%2F1%20i%20163%2F2%20Sztumskie%20Sztum%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|numer      liczba podmiotów      cena wywoławcza wraz           cena           osoba|239/2, 239/3, 239/4, 239/5, 239/6, 239/7",
+      "kind": "grunt",
+      "city": "sztum",
+      "dzialka_nr": "239/2, 239/3, 239/4, 239/5, 239/6, 239/7",
+      "obreb": "Numer      Liczba podmiotów      Cena wywoławcza wraz           Cena           Osoba",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20239%2F2%2C%20239%2F3%2C%20239%2F4%2C%20239%2F5%2C%20239%2F6%2C%20239%2F7%20Numer%20%20%20%20%20%20Liczba%20podmiot%C3%B3w%20%20%20%20%20%20Cena%20wywo%C5%82awcza%20wraz%20%20%20%20%20%20%20%20%20%20%20Cena%20%20%20%20%20%20%20%20%20%20%20Osoba%20Sztum%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-03",
+          "round": 4,
+          "starting_price_pln": null,
+          "outcome": "unsold",
+          "source_url": "https://bip.sztum.pl/1186.html?file=20005",
+          "notes": [
+            "procedure: rokowania"
+          ]
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "239/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20239%2F2%20Numer%20%20%20%20%20%20Liczba%20podmiot%C3%B3w%20%20%20%20%20%20Cena%20wywo%C5%82awcza%20wraz%20%20%20%20%20%20%20%20%20%20%20Cena%20%20%20%20%20%20%20%20%20%20%20Osoba%20Sztum%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "239/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20239%2F3%20Numer%20%20%20%20%20%20Liczba%20podmiot%C3%B3w%20%20%20%20%20%20Cena%20wywo%C5%82awcza%20wraz%20%20%20%20%20%20%20%20%20%20%20Cena%20%20%20%20%20%20%20%20%20%20%20Osoba%20Sztum%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "239/4",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20239%2F4%20Numer%20%20%20%20%20%20Liczba%20podmiot%C3%B3w%20%20%20%20%20%20Cena%20wywo%C5%82awcza%20wraz%20%20%20%20%20%20%20%20%20%20%20Cena%20%20%20%20%20%20%20%20%20%20%20Osoba%20Sztum%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "239/5",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20239%2F5%20Numer%20%20%20%20%20%20Liczba%20podmiot%C3%B3w%20%20%20%20%20%20Cena%20wywo%C5%82awcza%20wraz%20%20%20%20%20%20%20%20%20%20%20Cena%20%20%20%20%20%20%20%20%20%20%20Osoba%20Sztum%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "239/6",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20239%2F6%20Numer%20%20%20%20%20%20Liczba%20podmiot%C3%B3w%20%20%20%20%20%20Cena%20wywo%C5%82awcza%20wraz%20%20%20%20%20%20%20%20%20%20%20Cena%20%20%20%20%20%20%20%20%20%20%20Osoba%20Sztum%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "239/7",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20239%2F7%20Numer%20%20%20%20%20%20Liczba%20podmiot%C3%B3w%20%20%20%20%20%20Cena%20wywo%C5%82awcza%20wraz%20%20%20%20%20%20%20%20%20%20%20Cena%20%20%20%20%20%20%20%20%20%20%20Osoba%20Sztum%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|3 sztum|18/2",
+      "kind": "grunt",
+      "city": "sztum",
+      "dzialka_nr": "18/2",
+      "obreb": "3 Sztum",
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2018%2F2%203%20Sztum%20Sztum%20geoportal%20dzia%C5%82ki",
+      "area_m2": 29271,
       "zoning": null,
       "status": null,
       "listings": [
         {
           "date": "2026-10-22",
           "round": 2,
-          "starting_price_pln": null,
-          "outcome": "active",
-          "detail_url": "https://bip.sztum.pl/1186.html?file=19832",
-          "source_url": "https://bip.sztum.pl/1186.html?file=19832"
+          "starting_price_pln": 3900000,
+          "outcome": "unsold",
+          "area_m2": 29271,
+          "source_url": "https://bip.sztum.pl/1186.html?file=19999",
+          "notes": [
+            "procedure: rokowania"
+          ]
         }
       ],
       "parcels": [
         {
           "nr": "18/2",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2018%2F2%203%20MIASTA%20SZTUM%20Sztum%20geoportal%20dzia%C5%82ki"
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2018%2F2%203%20Sztum%20Sztum%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -191,59 +366,6 @@
         {
           "nr": "214/15",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20214%2F15%20Koniecwa%C5%82d%20Sztum%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|sztumskie|163/1 i 163/2",
-      "kind": "grunt",
-      "city": "sztum",
-      "dzialka_nr": "163/1 i 163/2",
-      "obreb": "Sztumskie",
-      "street": null,
-      "building": null,
-      "address_raw": null,
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20163%2F1%20i%20163%2F2%20Sztumskie%20Sztum%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-05-29",
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "unsold",
-          "source_url": "https://bip.sztum.pl/1186.html?file=19495",
-          "notes": [
-            "procedure: rokowania"
-          ]
-        },
-        {
-          "date": "2026-07-22",
-          "round": 2,
-          "starting_price_pln": null,
-          "outcome": "unsold",
-          "source_url": "https://bip.sztum.pl/1186.html?file=19718",
-          "notes": [
-            "procedure: rokowania"
-          ]
-        },
-        {
-          "date": "2026-09-11",
-          "round": 3,
-          "starting_price_pln": null,
-          "outcome": "unsold",
-          "source_url": "https://bip.sztum.pl/1186.html?file=19880",
-          "notes": [
-            "procedure: rokowania"
-          ]
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "163/1 i 163/2",
-          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20163%2F1%20i%20163%2F2%20Sztumskie%20Sztum%20geoportal%20dzia%C5%82ki"
         }
       ]
     },

@@ -3,6 +3,157 @@
   "city": "pisz",
   "plots": [
     {
+      "key": "dz|pisz 2|6/30, 6/31",
+      "kind": "grunt",
+      "city": "pisz",
+      "dzialka_nr": "6/30, 6/31",
+      "obreb": "Pisz 2",
+      "street": null,
+      "building": null,
+      "address_raw": "obręb Pisz 2",
+      "dzialka_id": "281603_4.0002.6/30",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=281603_4.0002.6%2F30",
+      "area_m2": 2380,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-05",
+          "round": 1,
+          "starting_price_pln": 381000,
+          "outcome": "unsold"
+        },
+        {
+          "date": "2027-01-19",
+          "round": 1,
+          "starting_price_pln": 476000,
+          "outcome": "active",
+          "area_m2": 2380,
+          "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=31737",
+          "source_url": "https://bip.pisz.hi.pl/index.php?wiad=31737"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "6/30",
+          "dzialka_id": "281603_4.0002.6/30",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=281603_4.0002.6%2F30"
+        },
+        {
+          "nr": "6/31",
+          "dzialka_id": "281603_4.0002.6/31",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=281603_4.0002.6%2F31"
+        }
+      ]
+    },
+    {
+      "key": "dz|pisz 2|6/27",
+      "kind": "grunt",
+      "city": "pisz",
+      "dzialka_nr": "6/27",
+      "obreb": "Pisz 2",
+      "street": null,
+      "building": null,
+      "address_raw": "obręb Pisz 2",
+      "dzialka_id": "281603_4.0002.6/27",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=281603_4.0002.6%2F27",
+      "area_m2": 1379,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2025-11-05",
+          "round": 1,
+          "starting_price_pln": 221000,
+          "outcome": "unsold"
+        },
+        {
+          "date": "2026-12-16",
+          "round": 1,
+          "starting_price_pln": 276000,
+          "outcome": "active",
+          "area_m2": 1379,
+          "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=31738",
+          "source_url": "https://bip.pisz.hi.pl/index.php?wiad=31738"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "6/27",
+          "dzialka_id": "281603_4.0002.6/27",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=281603_4.0002.6%2F27"
+        }
+      ]
+    },
+    {
+      "key": "dz|karwik|73, 71/2",
+      "kind": "grunt",
+      "city": "pisz",
+      "dzialka_nr": "73, 71/2",
+      "obreb": "Karwik",
+      "street": null,
+      "building": null,
+      "address_raw": "obręb Karwik",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2073%2C%2071%2F2%20obr%C4%99b%20Karwik%20Karwik%20Pisz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 900,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-10",
+          "round": 1,
+          "starting_price_pln": 110000,
+          "outcome": "active",
+          "area_m2": 900,
+          "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=31721",
+          "source_url": "https://bip.pisz.hi.pl/index.php?wiad=31721"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "73",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2073%20Karwik%20Pisz%20geoportal%20dzia%C5%82ki"
+        },
+        {
+          "nr": "71/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2071%2F2%20Karwik%20Pisz%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|szczechy małe|14/37",
+      "kind": "grunt",
+      "city": "pisz",
+      "dzialka_nr": "14/37",
+      "obreb": "Szczechy Małe",
+      "street": null,
+      "building": null,
+      "address_raw": "obręb Szczechy Małe",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2014%2F37%20obr%C4%99b%20Szczechy%20Ma%C5%82e%20Szczechy%20Ma%C5%82e%20Pisz%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1514,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-10",
+          "round": 1,
+          "starting_price_pln": 183000,
+          "outcome": "active",
+          "area_m2": 1514,
+          "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=31720",
+          "source_url": "https://bip.pisz.hi.pl/index.php?wiad=31720"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "14/37",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2014%2F37%20Szczechy%20Ma%C5%82e%20Pisz%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|maldanin|102/1",
       "kind": "grunt",
       "city": "pisz",
@@ -30,10 +181,11 @@
           "date": "2026-10-29",
           "round": 2,
           "starting_price_pln": 19300,
-          "outcome": "active",
+          "outcome": "sold",
           "area_m2": 182,
           "detail_url": "https://bip.pisz.hi.pl/index.php?wiad=31540",
-          "source_url": "https://bip.pisz.hi.pl/index.php?wiad=31540"
+          "source_url": "https://bip.pisz.hi.pl/index.php?wiad=31540",
+          "final_price_pln": 19500
         }
       ],
       "parcels": [
@@ -486,71 +638,6 @@
         {
           "nr": "28/31",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2028%2F31%20Wiartel%20Pisz%20geoportal%20dzia%C5%82ki"
-        }
-      ]
-    },
-    {
-      "key": "dz|pisz 2|6/30, 6/31",
-      "kind": "grunt",
-      "city": "pisz",
-      "dzialka_nr": "6/30, 6/31",
-      "obreb": "Pisz 2",
-      "street": null,
-      "building": null,
-      "address_raw": "obręb Pisz 2",
-      "dzialka_id": "281603_4.0002.6/30",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=281603_4.0002.6%2F30",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-11-05",
-          "round": 1,
-          "starting_price_pln": 381000,
-          "outcome": "unsold"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "6/30",
-          "dzialka_id": "281603_4.0002.6/30",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=281603_4.0002.6%2F30"
-        },
-        {
-          "nr": "6/31",
-          "dzialka_id": "281603_4.0002.6/31",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=281603_4.0002.6%2F31"
-        }
-      ]
-    },
-    {
-      "key": "dz|pisz 2|6/27",
-      "kind": "grunt",
-      "city": "pisz",
-      "dzialka_nr": "6/27",
-      "obreb": "Pisz 2",
-      "street": null,
-      "building": null,
-      "address_raw": "obręb Pisz 2",
-      "dzialka_id": "281603_4.0002.6/27",
-      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=281603_4.0002.6%2F27",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2025-11-05",
-          "round": 1,
-          "starting_price_pln": 221000,
-          "outcome": "unsold"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "6/27",
-          "dzialka_id": "281603_4.0002.6/27",
-          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=281603_4.0002.6%2F27"
         }
       ]
     },

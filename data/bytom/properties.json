@@ -3,6 +3,29 @@
   "city": "bytom",
   "properties": [
     {
+      "key": "marszalka jozefa pilsudskiego|7|11",
+      "street": "marszalka jozefa pilsudskiego",
+      "street_norm": "marszalka jozefa pilsudskiego",
+      "building": "7",
+      "apt": "11",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-12-03",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 28500,
+          "outcome": "active",
+          "area_m2": 41.05,
+          "detail_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 41.05
+    },
+    {
       "key": "artura grottgera|5|13",
       "street": "artura grottgera",
       "street_norm": "artura grottgera",

@@ -3,6 +3,60 @@
   "city": "glogow",
   "listings": [
     {
+      "kind": "uzytkowy",
+      "address_raw": "Obrońców Pokoju 28/16",
+      "address": {
+        "street": "Obrońców Pokoju",
+        "street_norm": "obroncow pokoju",
+        "building": "28",
+        "apt": "16",
+        "key": "obroncow pokoju|28|16",
+        "warning": null
+      },
+      "area_m2": 10.5,
+      "starting_price_pln": 43000,
+      "auction_date": "2026-12-15",
+      "round": 1,
+      "detail_url": "https://glogow.bip.info.pl/api/fo/files/D2E51F1B-AECF-4175-A516-5ADE52A56DB9/download",
+      "source_url": "https://glogow.bip.info.pl/api/fo/files/D2E51F1B-AECF-4175-A516-5ADE52A56DB9/download"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Stawnej 16a/4",
+      "address": {
+        "street": "Stawnej",
+        "street_norm": "stawnej",
+        "building": "16A",
+        "apt": "4",
+        "key": "stawnej|16A|4",
+        "warning": null
+      },
+      "area_m2": 30,
+      "starting_price_pln": 150000,
+      "auction_date": "2026-12-08",
+      "round": 3,
+      "detail_url": "https://glogow.bip.info.pl/api/fo/files/9B4FF4BF-9D40-4770-A7AE-D1058AC710B4/download",
+      "source_url": "https://glogow.bip.info.pl/api/fo/files/9B4FF4BF-9D40-4770-A7AE-D1058AC710B4/download"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Sikorskiego 6/19",
+      "address": {
+        "street": "Sikorskiego",
+        "street_norm": "sikorskiego",
+        "building": "6",
+        "apt": "19",
+        "key": "sikorskiego|6|19",
+        "warning": null
+      },
+      "area_m2": 48.3,
+      "starting_price_pln": 220000,
+      "auction_date": "2026-12-08",
+      "round": 2,
+      "detail_url": "https://glogow.bip.info.pl/api/fo/files/7605634F-5B7A-4DAC-BC5D-507024D799E5/download",
+      "source_url": "https://glogow.bip.info.pl/api/fo/files/7605634F-5B7A-4DAC-BC5D-507024D799E5/download"
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "Obrońców Pokoju 7c/58",
       "address": {
@@ -19,24 +73,6 @@
       "round": 4,
       "detail_url": "https://glogow.bip.info.pl/api/fo/files/9C897FEC-96D0-4130-A1E3-85B4C98F408E/download",
       "source_url": "https://glogow.bip.info.pl/api/fo/files/9C897FEC-96D0-4130-A1E3-85B4C98F408E/download"
-    },
-    {
-      "kind": "zabudowana",
-      "address_raw": "Kamienna Droga 49",
-      "address": {
-        "street": "Kamienna Droga",
-        "street_norm": "kamienna droga",
-        "building": "49",
-        "apt": null,
-        "key": "kamienna droga|49|",
-        "warning": null
-      },
-      "area_m2": 182.03,
-      "starting_price_pln": 500000,
-      "auction_date": "2026-10-21",
-      "round": 1,
-      "detail_url": "https://glogow.bip.info.pl/api/fo/files/EC2CB578-7514-4295-9284-F45FADDC75F5/download",
-      "source_url": "https://glogow.bip.info.pl/api/fo/files/EC2CB578-7514-4295-9284-F45FADDC75F5/download"
     }
   ],
   "wykaz": []

@@ -3,6 +3,24 @@
   "city": "bydgoszcz",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Karola Marcinkowskiego 18/6",
+      "address": {
+        "street": "Karola Marcinkowskiego",
+        "street_norm": "karola marcinkowskiego",
+        "building": "18",
+        "apt": "6",
+        "key": "karola marcinkowskiego|18|6",
+        "warning": null
+      },
+      "area_m2": 38.98,
+      "starting_price_pln": 290000,
+      "auction_date": "2026-12-11",
+      "round": 1,
+      "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/11322/lokal-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-11-12-2026-r-ul-k-marcinkowskiego-18m6",
+      "source_url": "https://bip.um.bydgoszcz.pl/attachments/download/34850"
+    },
+    {
       "kind": "uzytkowy",
       "address_raw": "ul. Stanisława Wyspiańskiego 6/3",
       "address": {
@@ -37,42 +55,6 @@
       "round": 1,
       "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/11120/lokal-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-11-12-2026-r-ul-j-j-sniadeckich-12m7",
       "source_url": "https://bip.um.bydgoszcz.pl/attachments/download/34380"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Wileńskiej 6/14",
-      "address": {
-        "street": "Wileńskiej",
-        "street_norm": "wilenskiej",
-        "building": "6",
-        "apt": "14",
-        "key": "wilenskiej|6|14",
-        "warning": null
-      },
-      "area_m2": 52.73,
-      "starting_price_pln": 205000,
-      "auction_date": "2026-10-30",
-      "round": 3,
-      "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/11029/lokal-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-30-10-2026-r-ul-wilenska-6m14",
-      "source_url": "https://bip.um.bydgoszcz.pl/attachments/download/34152"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Dworcowej 12/13",
-      "address": {
-        "street": "Dworcowej",
-        "street_norm": "dworcowej",
-        "building": "12",
-        "apt": "13",
-        "key": "dworcowej|12|13",
-        "warning": null
-      },
-      "area_m2": 49.66,
-      "starting_price_pln": 220000,
-      "auction_date": "2026-10-30",
-      "round": 2,
-      "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/11016/lokal-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-30-10-2026-r-ul-dworcowa12m13",
-      "source_url": "https://bip.um.bydgoszcz.pl/attachments/download/34118"
     }
   ],
   "wykaz": []

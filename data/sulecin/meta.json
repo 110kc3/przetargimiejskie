@@ -2,8 +2,8 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "sulecin",
-  "generated_at": "2026-10-21T09:12:26.377Z",
-  "source_pdf_count": 6,
+  "generated_at": "2026-11-14T18:53:01.717Z",
+  "source_pdf_count": 8,
   "parsed_records": 0,
   "parser_note_count": 0,
   "unique_properties": 2,
@@ -11,13 +11,13 @@
   "active_auctions": 0,
   "archived_auctions": 3,
   "wykaz_entries": 0,
-  "land_plots": 6,
-  "land_listings": 9,
+  "land_plots": 7,
+  "land_listings": 10,
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-21T09:11:43.084Z",
-  "last_successful_source_check_at": "2026-10-21T09:11:43.084Z",
+  "last_source_attempt_at": "2026-11-14T18:52:36.191Z",
+  "last_successful_source_check_at": "2026-11-14T18:52:36.191Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,14 +25,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-21T09:11:43.084Z",
-      "last_success_at": "2026-10-21T09:11:43.084Z"
+      "last_attempt_at": "2026-11-14T18:52:36.191Z",
+      "last_success_at": "2026-11-14T18:52:36.191Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-21T09:11:43.084Z",
-      "last_success_at": "2026-10-21T09:11:43.084Z"
+      "last_attempt_at": "2026-11-14T18:52:36.191Z",
+      "last_success_at": "2026-11-14T18:52:36.191Z"
     }
   }
 }

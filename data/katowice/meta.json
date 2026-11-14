@@ -2,22 +2,22 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "katowice",
-  "generated_at": "2026-10-21T22:15:12.161Z",
-  "source_pdf_count": 27,
-  "parsed_records": 117,
+  "generated_at": "2026-11-14T18:41:19.046Z",
+  "source_pdf_count": 28,
+  "parsed_records": 120,
   "parser_note_count": 4,
   "unique_properties": 146,
   "active_listings": 80,
-  "active_auctions": 15,
-  "archived_auctions": 162,
+  "active_auctions": 10,
+  "archived_auctions": 167,
   "wykaz_entries": 0,
   "land_plots": 9,
   "land_listings": 10,
   "retained_properties": 5,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-21T22:14:19.142Z",
-  "last_successful_source_check_at": "2026-10-21T22:14:19.142Z",
+  "last_source_attempt_at": "2026-11-14T18:40:30.081Z",
+  "last_successful_source_check_at": "2026-11-14T18:40:30.081Z",
   "monitored_assets": [
     "building",
     "commercial",
@@ -27,14 +27,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-21T22:14:19.142Z",
-      "last_success_at": "2026-10-21T22:14:19.142Z"
+      "last_attempt_at": "2026-11-14T18:40:30.081Z",
+      "last_success_at": "2026-11-14T18:40:30.081Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-21T22:14:19.142Z",
-      "last_success_at": "2026-10-21T22:14:19.142Z"
+      "last_attempt_at": "2026-11-14T18:40:30.081Z",
+      "last_success_at": "2026-11-14T18:40:30.081Z"
     }
   }
 }

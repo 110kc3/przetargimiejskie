@@ -3,6 +3,38 @@
   "city": "jelenia-gora",
   "plots": [
     {
+      "key": "dz|0013, sobieszów ii|839/1",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "839/1",
+      "obreb": "0013, Sobieszów II",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Cieplickiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20839%2F1%20ul.%20Cieplickiej%200013%2C%20Sobiesz%C3%B3w%20II%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 22959,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-01-14",
+          "round": 1,
+          "starting_price_pln": 3500000,
+          "outcome": "active",
+          "area_m2": 22959,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/26357/118-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/52480"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "839/1",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20839%2F1%200013%2C%20Sobiesz%C3%B3w%20II%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|448/7",
       "kind": "grunt",
       "city": "jelenia-gora",
@@ -61,6 +93,37 @@
         {
           "nr": "11",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2011%200028%2C%2028%20NE%2C%20AM%208%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|0063, maciejowa iii o łącznej powierzchni 0,2471 ha|14/3",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "14/3",
+      "obreb": "0063, Maciejowa III o łącznej powierzchni 0,2471 ha",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Wrocławskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2014%2F3%20ul.%20Wroc%C5%82awskiej%200063%2C%20Maciejowa%20III%20o%20%C5%82%C4%85cznej%20powierzchni%200%2C2471%20ha%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-02",
+          "round": 2,
+          "starting_price_pln": 290000,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/26253/114-2026",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/52380"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "14/3",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2014%2F3%200063%2C%20Maciejowa%20III%20o%20%C5%82%C4%85cznej%20powierzchni%200%2C2471%20ha%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -211,7 +274,7 @@
           "date": "2026-11-13",
           "round": 2,
           "starting_price_pln": 220000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 963,
           "detail_url": "https://bip.jeleniagora.pl/artykul/126/26018/108-2026",
           "source_url": "https://bip.jeleniagora.pl/attachments/download/52108"
@@ -242,7 +305,7 @@
           "date": "2026-11-04",
           "round": 1,
           "starting_price_pln": 280000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1184,
           "detail_url": "https://bip.jeleniagora.pl/artykul/126/25975/104-2026",
           "source_url": "https://bip.jeleniagora.pl/attachments/download/52037"
@@ -252,6 +315,38 @@
         {
           "nr": "928",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20928%200013%2C%20Sobiesz%C3%B3w%20II%2C%20AM%2016%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|0013, sobieszów ii|928",
+      "kind": "grunt",
+      "city": "jelenia-gora",
+      "dzialka_nr": "928",
+      "obreb": "0013, Sobieszów II",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Łazienkowskiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20928%20ul.%20%C5%81azienkowskiej%200013%2C%20Sobiesz%C3%B3w%20II%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1184,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-04",
+          "round": 1,
+          "starting_price_pln": 280000,
+          "outcome": "sold",
+          "final_price_pln": 282800,
+          "area_m2": 1184,
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/52542"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "928",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20928%200013%2C%20Sobiesz%C3%B3w%20II%20Jelenia%20G%C3%B3ra%20geoportal%20dzia%C5%82ki"
         }
       ]
     },
@@ -274,7 +369,7 @@
           "date": "2026-10-27",
           "round": 1,
           "starting_price_pln": 35000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 159,
           "detail_url": "https://bip.jeleniagora.pl/artykul/126/25889/95-2026",
           "source_url": "https://bip.jeleniagora.pl/attachments/download/51840"
@@ -2167,6 +2262,150 @@
           "outcome": "active",
           "detail_url": "https://bip.jeleniagora.pl/artykul/126/18349/ks-1-2023",
           "source_url": "https://bip.jeleniagora.pl/attachments/download/37293"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 121000,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/22564/ks-1-2025",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/46263"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/22564/ks-1-2025",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/46265"
+        },
+        {
+          "date": null,
+          "round": 3,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/22564/ks-1-2025",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/46264"
+        },
+        {
+          "date": null,
+          "round": 4,
+          "starting_price_pln": 121000,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/21658/ks-2-2024",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/44420"
+        },
+        {
+          "date": null,
+          "round": 5,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/21658/ks-2-2024",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/44421"
+        },
+        {
+          "date": null,
+          "round": 6,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/21658/ks-2-2024",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/44422"
+        },
+        {
+          "date": null,
+          "round": 7,
+          "starting_price_pln": 121000,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/21191/ks-1-2024",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/43319"
+        },
+        {
+          "date": null,
+          "round": 8,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/21191/ks-1-2024",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/43320"
+        },
+        {
+          "date": null,
+          "round": 9,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/21191/ks-1-2024",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/43322"
+        },
+        {
+          "date": null,
+          "round": 10,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/21000/ks-6840-13-2022",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/42889"
+        },
+        {
+          "date": null,
+          "round": 11,
+          "starting_price_pln": 146000,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/19901/ks-4-2023",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/40460"
+        },
+        {
+          "date": null,
+          "round": 12,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/19901/ks-4-2023",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/40461"
+        },
+        {
+          "date": null,
+          "round": 13,
+          "starting_price_pln": 146000,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/19478/ks-3-2023",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/39615"
+        },
+        {
+          "date": null,
+          "round": 14,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/19478/ks-3-2023",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/39616"
+        },
+        {
+          "date": null,
+          "round": 15,
+          "starting_price_pln": 146000,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/18778/ks-2-2023",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/38139"
+        },
+        {
+          "date": null,
+          "round": 16,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/18778/ks-2-2023",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/38141"
+        },
+        {
+          "date": null,
+          "round": 17,
+          "starting_price_pln": 146000,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/18349/ks-1-2023",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/37292"
+        },
+        {
+          "date": null,
+          "round": 18,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/18349/ks-1-2023",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/37293"
         }
       ],
       "parcels": [
@@ -2277,6 +2516,14 @@
           "outcome": "active",
           "detail_url": "https://bip.jeleniagora.pl/artykul/126/15144/75-2021",
           "source_url": "https://bip.jeleniagora.pl/attachments/download/30159"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/15144/75-2021",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/30159"
         }
       ],
       "parcels": [
@@ -2300,6 +2547,24 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 951,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/14751/46-2021",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/29179"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 951,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/14750/46-2021",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/29179"
+        },
         {
           "date": null,
           "round": 2,
@@ -2618,6 +2883,15 @@
           "area_m2": 4514,
           "detail_url": "https://bip.jeleniagora.pl/artykul/126/14593/36-2021",
           "source_url": "https://bip.jeleniagora.pl/attachments/download/28845"
+        },
+        {
+          "date": null,
+          "round": 2,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 4514,
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/14593/36-2021",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/28845"
         }
       ],
       "parcels": [
@@ -2641,6 +2915,14 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/12883/45-2020",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/24630"
+        },
         {
           "date": null,
           "round": 1,
@@ -2838,6 +3120,14 @@
           "outcome": "active",
           "detail_url": "https://bip.jeleniagora.pl/artykul/126/12882/43-2020",
           "source_url": "https://bip.jeleniagora.pl/attachments/download/24629"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/12882/43-2020",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/24629"
         }
       ],
       "parcels": [
@@ -2864,6 +3154,14 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.jeleniagora.pl/artykul/126/12850/42-2020",
+          "source_url": "https://bip.jeleniagora.pl/attachments/download/24529"
+        },
         {
           "date": null,
           "round": 1,

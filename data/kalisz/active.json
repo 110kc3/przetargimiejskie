@@ -1,6 +1,25 @@
 {
   "schema_version": 1,
   "city": "kalisz",
-  "listings": [],
+  "listings": [
+    {
+      "kind": "zabudowana",
+      "address_raw": "ul. Kredytowej 1",
+      "address": {
+        "street": "Kredytowej",
+        "street_norm": "kredytowej",
+        "building": "1",
+        "apt": null,
+        "key": "kredytowej|1|",
+        "warning": null
+      },
+      "area_m2": 825,
+      "round": 3,
+      "starting_price_pln": 415000,
+      "auction_date": "2026-12-10",
+      "detail_url": "https://bip.kalisz.pl/ogloszenia/sn/0611kredytowa1.pdf",
+      "source_url": "https://bip.kalisz.pl/ogloszenia/sn/0611kredytowa1.pdf"
+    }
+  ],
   "wykaz": []
 }

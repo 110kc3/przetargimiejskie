@@ -51,11 +51,13 @@
           "round": 4,
           "kind": "mieszkalny",
           "starting_price_pln": 350000,
-          "outcome": "active",
+          "outcome": "unsold",
+          "unsold_reason": "brak chętnych",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kwidzyn.pl/e,pobierz,get.html?id=131567",
+          "notes": [],
           "area_m2": 116.7,
-          "detail_url": "https://bip.kwidzyn.pl/e,pobierz,get.html?id=131118",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.kwidzyn.pl/e,pobierz,get.html?id=131118"
         }
       ],
       "area_m2": 116.7
@@ -85,11 +87,13 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 41108,
-          "outcome": "active",
+          "outcome": "unsold",
+          "unsold_reason": "brak chętnych",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kwidzyn.pl/e,pobierz,get.html?id=131570",
+          "notes": [],
           "area_m2": 22.1,
-          "detail_url": "https://bip.kwidzyn.pl/e,pobierz,get.html?id=131119",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.kwidzyn.pl/e,pobierz,get.html?id=131119"
         }
       ],
       "area_m2": 22.1

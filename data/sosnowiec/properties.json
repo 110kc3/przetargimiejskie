@@ -3,6 +3,97 @@
   "city": "sosnowiec",
   "properties": [
     {
+      "key": "litewskiej|35|68",
+      "street": "Litewskiej",
+      "street_norm": "litewskiej",
+      "building": "35",
+      "apt": "68",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 227000,
+          "outcome": "active",
+          "area_m2": 45.4,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,565386,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-poloznego-w-sosnowcu-przy-ul-litewskie.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 45.4
+    },
+    {
+      "key": "targowej|12|",
+      "street": "Targowa",
+      "street_norm": "targowej",
+      "building": "12",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2025-02-07",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 9986000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,558951,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-dzialki-zabudowanej-o-numerze-2802-obreb-11-sos.html",
+          "notes": [],
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,558039,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-tar.html"
+        },
+        {
+          "date": "2025-05-16",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 9986000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,559862,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-dzialki-zabudowanej-o-numerze-2802-obreb-11-sos.html",
+          "notes": [],
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,559142,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-tar.html"
+        },
+        {
+          "date": "2025-11-07",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 6988573,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,561552,wynik-drugiego-ustnego-przetargu-nieograniczonego-na-sprzedaz-dzialki-zabudowanej-o-numerze-2802-obr.html",
+          "notes": [],
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,560468,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-.html"
+        },
+        {
+          "date": "2026-08-21",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 8867000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,564568,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-dzialki-zabudowanej-o-numerze-2802-obreb-11-sos.html",
+          "notes": [],
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,563715,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-tar.html"
+        },
+        {
+          "date": "2027-01-22",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 4432500,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,565336,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "pilsudskiego|34|",
       "street": "Piłsudskiego",
       "street_norm": "pilsudskiego",
@@ -63,7 +154,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 207700,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 41.54,
           "detail_url": "https://www.bip.um.sosnowiec.pl/a,564591,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-o-numerze-399-ul-ostrogorska-35a.html",
           "wadium_deadline": null,
@@ -109,11 +200,12 @@
           "round": 1,
           "kind": "zabudowana",
           "starting_price_pln": 242000,
-          "outcome": "active",
-          "area_m2": null,
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,564578,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-ryb.html",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,565329,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-dzialki-zabudowanej-o-numerze-2348-obreb-09-sos.html",
+          "notes": [],
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,564578,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-ryb.html"
         }
       ]
     },
@@ -130,11 +222,13 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 318000,
-          "outcome": "archived",
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": 342000,
+          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,565239,wyniki-przetargu-ustnego-nieograniczonego-na-sprzedaz-lokalu-mieszkalnego-polozonego-w-sosnowcu-przy.html",
+          "notes": [],
           "area_m2": 61.75,
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,564037,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-o-numerze-130-ul-rodakowskiego-12.html",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,564037,przetarg-ustny-nieograniczony-na-sprzedaz-lokalu-mieszkalnego-o-numerze-130-ul-rodakowskiego-12.html"
         }
       ],
       "area_m2": 61.75
@@ -394,64 +488,6 @@
         }
       ],
       "area_m2": 30.8
-    },
-    {
-      "key": "targowej|12|",
-      "street": "Targowa",
-      "street_norm": "targowej",
-      "building": "12",
-      "apt": null,
-      "kind": "zabudowana",
-      "listings": [
-        {
-          "date": "2025-02-07",
-          "round": 1,
-          "kind": "zabudowana",
-          "starting_price_pln": 9986000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,558951,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-dzialki-zabudowanej-o-numerze-2802-obreb-11-sos.html",
-          "notes": [],
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,558039,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-tar.html"
-        },
-        {
-          "date": "2025-05-16",
-          "round": 1,
-          "kind": "zabudowana",
-          "starting_price_pln": 9986000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,559862,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-dzialki-zabudowanej-o-numerze-2802-obreb-11-sos.html",
-          "notes": [],
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,559142,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-tar.html"
-        },
-        {
-          "date": "2025-11-07",
-          "round": 2,
-          "kind": "zabudowana",
-          "starting_price_pln": 6988573,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,561552,wynik-drugiego-ustnego-przetargu-nieograniczonego-na-sprzedaz-dzialki-zabudowanej-o-numerze-2802-obr.html",
-          "notes": [],
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,560468,drugi-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-.html"
-        },
-        {
-          "date": "2026-08-21",
-          "round": 1,
-          "kind": "zabudowana",
-          "starting_price_pln": 8867000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://www.bip.um.sosnowiec.pl/a,564568,wynik-ustnego-przetargu-nieograniczonego-na-sprzedaz-dzialki-zabudowanej-o-numerze-2802-obreb-11-sos.html",
-          "notes": [],
-          "detail_url": "https://www.bip.um.sosnowiec.pl/a,563715,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-zabudowanej-polozonej-w-sosnowcu-przy-ul-tar.html"
-        }
-      ]
     },
     {
       "key": "kisielewskiego|3|45",

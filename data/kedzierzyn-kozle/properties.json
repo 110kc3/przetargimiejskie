@@ -246,7 +246,7 @@
           "round": 2,
           "kind": "mieszkalny",
           "starting_price_pln": 250000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 86.6,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30424/ogloszenie-o-przetargu-ustnym-nieograniczonym",
           "wadium_deadline": null,
@@ -260,6 +260,17 @@
           "outcome": "active",
           "area_m2": 51.12,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30569/ogloszenia-o-przetargu-lokale-mieszkalne",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-12-17",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 86.6,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30685/ogloszenie-o-przetargu-ustnym-nieograniczonym",
           "wadium_deadline": null,
           "viewing_date": null
         }
@@ -433,14 +444,48 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 178000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 55.83,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30464/ogloszenie-o-przetargu-ustnym-nieograniczonym",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-12-17",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "active",
+          "area_m2": 55.83,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30685/ogloszenie-o-przetargu-ustnym-nieograniczonym",
           "wadium_deadline": null,
           "viewing_date": null
         }
       ],
       "area_m2": 42
+    },
+    {
+      "key": "walerego wroblewskiego|6|2",
+      "street": "Walerego Wróblewskiego",
+      "street_norm": "walerego wroblewskiego",
+      "building": "6",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-03",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 178000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.kedzierzynkozle.pl/attachments/download/80912",
+          "notes": [],
+          "area_m2": 51.12
+        }
+      ],
+      "area_m2": 51.12
     },
     {
       "key": "targowej|7|7",
@@ -598,7 +643,7 @@
     },
     {
       "key": "grunwaldzkiej|51|1",
-      "street": "Grunwaldzkiej",
+      "street": "Grunwaldzka",
       "street_norm": "grunwaldzkiej",
       "building": "51",
       "apt": "1",
@@ -994,7 +1039,7 @@
     },
     {
       "key": "grunwaldzkiej|35|",
-      "street": "Grunwaldzkiej",
+      "street": "Grunwaldzka",
       "street_norm": "grunwaldzkiej",
       "building": "35",
       "apt": null,
@@ -1221,7 +1266,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27560/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2025-01-22",
@@ -1232,7 +1278,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27590/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2025-01-23",
@@ -1243,7 +1290,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27601/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2025-03-06",
@@ -1254,7 +1302,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27846/ogloszenia-o-przetargu-ustnym-nieograniczonym",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2025-03-11",
@@ -1265,7 +1314,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27846/ogloszenia-o-przetargu-ustnym-nieograniczonym",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2025-03-12",
@@ -1276,7 +1326,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27924/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2025-03-13",
@@ -1287,7 +1338,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/27924/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2025-04-15",
@@ -1298,7 +1350,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28059/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2025-04-23",
@@ -1309,7 +1362,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28099/ogloszenia-o-przetargu-ustnym-nieograniczonym",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2025-05-06",
@@ -1320,7 +1374,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28157/ogloszenie-o-przetargu-ustnym-nieograniczonym",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2025-06-10",
@@ -1331,7 +1386,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28292/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2025-06-18",
@@ -1342,7 +1398,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28288/ogloszenia-o-przetargu-ustnym-nieograniczonym",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2025-07-01",
@@ -1353,7 +1410,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28385/ogloszenia-o-przetargu-ustnym-nieograniczonym",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2025-08-06",
@@ -1364,7 +1422,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28535/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2025-08-12",
@@ -1375,7 +1434,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28536/ogloszenia-o-przetargu-ustnym-nieograniczonym",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2025-09-30",
@@ -1386,7 +1446,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28741/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2025-10-07",
@@ -1397,7 +1458,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28744/ogloszenia-o-przetargu-ustnym-nieograniczonym",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2025-11-18",
@@ -1408,7 +1470,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/28992/ogloszenia-o-przetargu-ustnym-nieograniczonym",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2026-01-20",
@@ -1419,7 +1482,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29198/ogloszenia-o-przetargu-ustnym-nieograniczonym",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2026-04-21",
@@ -1430,7 +1494,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29665/ogloszenia-o-przetargu-ustnym-nieograniczonym",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2026-06-16",
@@ -1441,7 +1506,8 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/29919/ogloszenia-o-przetargu-ustnym-nieograniczonym",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": "2026-08-18",
@@ -1452,7 +1518,20 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30110/ogloszenia-o-przetargach-ustnych-nieograniczonych",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
+        },
+        {
+          "date": "2027-01-14",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 2600000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30686/ogloszenie-o-przetargu-ustnym-nieograniczonym",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 518.52
         },
         {
           "date": null,
@@ -1463,9 +1542,12 @@
           "area_m2": null,
           "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30372/ogloszenia-o-przetargu-ustnym-nieograniczonym",
           "wadium_deadline": null,
-          "viewing_date": null
+          "viewing_date": null,
+          "land_area_m2": 518.52
         }
-      ]
+      ],
+      "area_m2": null,
+      "land_area_m2": 518.52
     },
     {
       "key": "grzegorza piramowicza|32|",

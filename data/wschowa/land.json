@@ -3,6 +3,99 @@
   "city": "wschowa",
   "plots": [
     {
+      "key": "dz|445/16",
+      "kind": "grunt",
+      "city": "wschowa",
+      "dzialka_nr": "445/16",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20445%2F16%20Wschowa%20geoportal%20dzia%C5%82ki",
+      "area_m2": 824,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-07",
+          "round": 1,
+          "starting_price_pln": 145000,
+          "outcome": "active",
+          "area_m2": 824,
+          "detail_url": "https://bip.gminawschowa.pl/przetargi/29/134/7_2FBN_2F2026__2881_2FBN_29/",
+          "source_url": "https://bip.gminawschowa.pl/system/pobierz.php?plik=Ogloszenie__-__I_przetarg__28Szmaragdowa_2C_Czeresniowa_2C_Kwiatowa_29.pdf&id=0aff9d3457e3f4d07fa025810a88a616"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "445/16"
+        }
+      ]
+    },
+    {
+      "key": "dz|92/85",
+      "kind": "grunt",
+      "city": "wschowa",
+      "dzialka_nr": "92/85",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2092%2F85%20Wschowa%20geoportal%20dzia%C5%82ki",
+      "area_m2": 456,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-07",
+          "round": 1,
+          "starting_price_pln": 78000,
+          "outcome": "active",
+          "area_m2": 456,
+          "detail_url": "https://bip.gminawschowa.pl/przetargi/29/134/7_2FBN_2F2026__2881_2FBN_29/",
+          "source_url": "https://bip.gminawschowa.pl/system/pobierz.php?plik=Ogloszenie__-__I_przetarg__28Szmaragdowa_2C_Czeresniowa_2C_Kwiatowa_29.pdf&id=0aff9d3457e3f4d07fa025810a88a616"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "92/85"
+        }
+      ]
+    },
+    {
+      "key": "dz|92/87",
+      "kind": "grunt",
+      "city": "wschowa",
+      "dzialka_nr": "92/87",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2092%2F87%20Wschowa%20geoportal%20dzia%C5%82ki",
+      "area_m2": 389,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-07",
+          "round": 1,
+          "starting_price_pln": 67000,
+          "outcome": "active",
+          "area_m2": 389,
+          "detail_url": "https://bip.gminawschowa.pl/przetargi/29/134/7_2FBN_2F2026__2881_2FBN_29/",
+          "source_url": "https://bip.gminawschowa.pl/system/pobierz.php?plik=Ogloszenie__-__I_przetarg__28Szmaragdowa_2C_Czeresniowa_2C_Kwiatowa_29.pdf&id=0aff9d3457e3f4d07fa025810a88a616"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "92/87"
+        }
+      ]
+    },
+    {
       "key": "dz|138/1",
       "kind": "grunt",
       "city": "wschowa",

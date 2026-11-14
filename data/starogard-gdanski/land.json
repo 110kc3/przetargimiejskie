@@ -3,6 +3,40 @@
   "city": "starogard-gdanski",
   "plots": [
     {
+      "key": "addr|ul. skarszewska",
+      "kind": "grunt",
+      "city": "starogard-gdanski",
+      "dzialka_nr": null,
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Skarszewska",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Skarszewska%201%20Starogard%20Gda%C5%84ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-09-30",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "detail_url": "https://bip.starogard.pl/a,27558,i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-starogardzie-.html",
+          "source_url": "https://bip.starogard.pl/api/files/66453"
+        },
+        {
+          "date": "2027-01-13",
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.starogard.pl/a,27828,ii-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-starogardzie.html",
+          "source_url": "https://bip.starogard.pl/api/files/67663"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "addr|ul. chrztu polski",
       "kind": "grunt",
       "city": "starogard-gdanski",
@@ -102,7 +136,7 @@
           "date": "2026-10-28",
           "round": 1,
           "starting_price_pln": null,
-          "outcome": "active",
+          "outcome": "archived",
           "detail_url": "https://bip.starogard.pl/a,27744,ii-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-starogardzie-g.html",
           "source_url": "https://bip.starogard.pl/api/files/67292"
         }
@@ -147,32 +181,6 @@
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2022%2F29%207%20Starogard%20Gda%C5%84ski%20geoportal%20dzia%C5%82ki"
         }
       ]
-    },
-    {
-      "key": "addr|ul. skarszewska",
-      "kind": "grunt",
-      "city": "starogard-gdanski",
-      "dzialka_nr": null,
-      "obreb": "1",
-      "street": null,
-      "building": null,
-      "address_raw": "ul. Skarszewska",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Skarszewska%201%20Starogard%20Gda%C5%84ski%20geoportal%20dzia%C5%82ki",
-      "area_m2": null,
-      "zoning": null,
-      "status": null,
-      "listings": [
-        {
-          "date": "2026-09-30",
-          "round": 1,
-          "starting_price_pln": null,
-          "outcome": "archived",
-          "detail_url": "https://bip.starogard.pl/a,27558,i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanych-polozonych-w-starogardzie-.html",
-          "source_url": "https://bip.starogard.pl/api/files/66453"
-        }
-      ],
-      "parcels": []
     },
     {
       "key": "dz|28|70/98",

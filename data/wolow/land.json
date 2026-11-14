@@ -3,6 +3,37 @@
   "city": "wolow",
   "plots": [
     {
+      "key": "dz|pełczyn|235/2",
+      "kind": "grunt",
+      "city": "wolow",
+      "dzialka_nr": "235/2",
+      "obreb": "Pełczyn",
+      "street": null,
+      "building": null,
+      "address_raw": "Pełczyn, dz. nr 235/2, Am 1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20235%2F2%20Pe%C5%82czyn%2C%20dz.%20nr%20235%2F2%2C%20Am%201%20Pe%C5%82czyn%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki",
+      "area_m2": 1173,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-09",
+          "round": 1,
+          "starting_price_pln": 70000,
+          "outcome": "active",
+          "area_m2": 1173,
+          "detail_url": "https://wolow.pl/4129/i-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-pelczynie-pelczyn-dz-nr-2352-am-1.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "235/2",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20235%2F2%20Pe%C5%82czyn%20Wo%C5%82%C3%B3w%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|219/11",
       "kind": "grunt",
       "city": "wolow",
@@ -351,7 +382,7 @@
           "date": "2026-11-12",
           "round": 1,
           "starting_price_pln": 8500000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 5345,
           "detail_url": "https://wolow.pl/4061/i-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-wolowie-wolow-ul-tadeusza-kosciuszki-dz-nr-52-54-55-56-125-am-40.html"
         }
@@ -382,7 +413,7 @@
           "date": "2026-11-10",
           "round": 4,
           "starting_price_pln": 115000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1100,
           "detail_url": "https://wolow.pl/4084/iv-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-wolowie-wolow-ul-kamienna-dz-nr-159-am-25.html"
         }
@@ -412,7 +443,7 @@
           "date": "2026-10-26",
           "round": 1,
           "starting_price_pln": 100000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 3224,
           "detail_url": "https://wolow.pl/4056/i-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-lososiowicach-lososiowice-dz-nr-3624-am-1.html"
         }

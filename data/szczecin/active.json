@@ -1,25 +1,6 @@
 {
   "schema_version": 1,
   "city": "szczecin",
-  "listings": [
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Bolesława Krzywoustego 29/14",
-      "address": {
-        "street": "Bolesława Krzywoustego",
-        "street_norm": "boleslawa krzywoustego",
-        "building": "29",
-        "apt": "14",
-        "key": "boleslawa krzywoustego|29|14",
-        "warning": null
-      },
-      "auction_date": "2026-10-15",
-      "published_date": "2026-07-29",
-      "round": 1,
-      "area_m2": 132.85,
-      "starting_price_pln": 638200,
-      "detail_url": "https://bip.um.szczecin.pl/chapter_131207.asp?soid=4CFE2EAA79794318A1305BA0BCF29446"
-    }
-  ],
+  "listings": [],
   "wykaz": []
 }

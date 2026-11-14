@@ -3,6 +3,37 @@
   "city": "myslowice",
   "plots": [
     {
+      "key": "dz|4432",
+      "kind": "grunt",
+      "city": "myslowice",
+      "dzialka_nr": "4432",
+      "obreb": null,
+      "street": "Marii Konopnickiej",
+      "building": null,
+      "address_raw": "ul. Marii Konopnickiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%204432%20Marii%20Konopnickiej%20Mys%C5%82owice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 32,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-08",
+          "round": 1,
+          "starting_price_pln": 5500,
+          "outcome": "active",
+          "area_m2": 32,
+          "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-marii-konopni",
+          "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-marii-konopni"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "4432"
+        }
+      ]
+    },
+    {
       "key": "dz|0003 dziećkowice|2003/52",
       "kind": "grunt",
       "city": "myslowice",
@@ -210,7 +241,7 @@
           "date": "2026-11-03",
           "round": 3,
           "starting_price_pln": 95000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 439,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-ul-niepodleglosci",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-nieruchomosci-niezabudowanych-ul-niepodleglosci"
@@ -243,7 +274,7 @@
           "date": "2026-11-03",
           "round": 1,
           "starting_price_pln": 142100,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 685,
           "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-wincentego-wi",
           "source_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-i-przetargu-ograniczonym-na-sprzedaz-nieruchomosci-niezabudowanej-ul-wincentego-wi"

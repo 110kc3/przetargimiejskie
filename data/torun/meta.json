@@ -2,35 +2,35 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "torun",
-  "generated_at": "2026-10-21T22:15:30.500Z",
+  "generated_at": "2026-11-14T18:41:38.570Z",
   "source_pdf_count": 11,
   "parsed_records": 9,
   "parser_note_count": 0,
-  "unique_properties": 26,
-  "active_listings": 23,
-  "active_auctions": 2,
-  "archived_auctions": 27,
+  "unique_properties": 27,
+  "active_listings": 24,
+  "active_auctions": 5,
+  "archived_auctions": 28,
   "wykaz_entries": 0,
   "land_plots": 0,
   "land_listings": 0,
   "retained_properties": 2,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-21T22:14:20.646Z",
-  "last_successful_source_check_at": "2026-10-21T22:14:20.646Z",
+  "last_source_attempt_at": "2026-11-14T18:40:34.883Z",
+  "last_successful_source_check_at": "2026-11-14T18:40:34.883Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-21T22:14:20.646Z",
-      "last_success_at": "2026-10-21T22:14:20.646Z"
+      "last_attempt_at": "2026-11-14T18:40:34.883Z",
+      "last_success_at": "2026-11-14T18:40:34.883Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-10-21T22:14:20.646Z",
+      "last_attempt_at": "2026-11-14T18:40:34.883Z",
       "last_success_at": null
     }
   }

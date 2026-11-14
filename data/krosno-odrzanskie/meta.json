@@ -2,35 +2,35 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "krosno-odrzanskie",
-  "generated_at": "2026-10-21T09:15:19.765Z",
-  "source_pdf_count": 8,
-  "parsed_records": 0,
+  "generated_at": "2026-11-14T18:57:08.010Z",
+  "source_pdf_count": 10,
+  "parsed_records": 2,
   "parser_note_count": 0,
   "unique_properties": 10,
-  "active_listings": 2,
-  "active_auctions": 2,
-  "archived_auctions": 25,
+  "active_listings": 0,
+  "active_auctions": 0,
+  "archived_auctions": 27,
   "wykaz_entries": 0,
   "land_plots": 0,
   "land_listings": 0,
   "retained_properties": 8,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-21T09:14:38.012Z",
-  "last_successful_source_check_at": "2026-10-21T09:14:38.012Z",
+  "last_source_attempt_at": "2026-11-14T18:56:00.465Z",
+  "last_successful_source_check_at": "2026-11-14T18:56:00.465Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-21T09:14:38.012Z",
-      "last_success_at": "2026-10-21T09:14:38.012Z"
+      "last_attempt_at": "2026-11-14T18:56:00.465Z",
+      "last_success_at": "2026-11-14T18:56:00.465Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-10-21T09:14:38.012Z",
+      "last_attempt_at": "2026-11-14T18:56:00.465Z",
       "last_success_at": null
     }
   }

@@ -2,22 +2,22 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "glogow",
-  "generated_at": "2026-10-21T22:34:17.375Z",
+  "generated_at": "2026-11-14T19:03:29.117Z",
   "source_pdf_count": 44,
   "parsed_records": 0,
   "parser_note_count": 4,
-  "unique_properties": 29,
-  "active_listings": 2,
-  "active_auctions": 1,
+  "unique_properties": 30,
+  "active_listings": 4,
+  "active_auctions": 4,
   "archived_auctions": 59,
   "wykaz_entries": 0,
   "land_plots": 28,
   "land_listings": 45,
-  "retained_properties": 27,
+  "retained_properties": 26,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-10-21T22:31:19.458Z",
-  "last_successful_source_check_at": "2026-10-21T22:31:19.458Z",
+  "last_source_attempt_at": "2026-11-14T18:59:47.550Z",
+  "last_successful_source_check_at": "2026-11-14T18:59:47.550Z",
   "monitored_assets": [
     "building",
     "commercial",
@@ -27,14 +27,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-10-21T22:31:19.458Z",
-      "last_success_at": "2026-10-21T22:31:19.458Z"
+      "last_attempt_at": "2026-11-14T18:59:47.550Z",
+      "last_success_at": "2026-11-14T18:59:47.550Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-10-21T22:31:19.458Z",
-      "last_success_at": "2026-10-21T22:31:19.458Z"
+      "last_attempt_at": "2026-11-14T18:59:47.550Z",
+      "last_success_at": "2026-11-14T18:59:47.550Z"
     }
   }
 }

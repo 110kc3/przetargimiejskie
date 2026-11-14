@@ -4,6 +4,26 @@
   "listings": [
     {
       "kind": "uzytkowy",
+      "address_raw": "marszalka jozefa pilsudskiego",
+      "address": {
+        "key": "marszalka jozefa pilsudskiego|7|11",
+        "street": "marszalka jozefa pilsudskiego",
+        "street_norm": "marszalka jozefa pilsudskiego",
+        "building": "7",
+        "apt": "11",
+        "warning": null
+      },
+      "auction_date": "2026-12-03",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 41.05,
+      "starting_price_pln": 28500,
+      "detail_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html",
+      "doc_url": "https://www.bytom.pl/download/Ogloszenie-przetargu-ul.-Pilsudskiego-7_11,8342.doc",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "uzytkowy",
       "address_raw": "artura grottgera",
       "address": {
         "key": "artura grottgera|5|13",

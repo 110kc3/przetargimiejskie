@@ -62,6 +62,39 @@
       ]
     },
     {
+      "key": "dz|24|230/2",
+      "kind": "grunt",
+      "city": "elblag",
+      "dzialka_nr": "230/2",
+      "obreb": "24",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Dębowa",
+      "dzialka_id": "286101_1.0024.230/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0024.230%2F2",
+      "area_m2": 545,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-23",
+          "round": 3,
+          "starting_price_pln": 145000,
+          "outcome": "active",
+          "area_m2": 545,
+          "detail_url": "https://bip.elblag.eu/przetarg-nieruchomosci/11234/iii-ustny-przetarg-nieograniczony-ul-debowa-nieruchomosc-niezabudowana-23-11-2026-r",
+          "source_url": "https://bip.elblag.eu/attachments/download/19631"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "230/2",
+          "dzialka_id": "286101_1.0024.230/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=286101_1.0024.230%2F2"
+        }
+      ]
+    },
+    {
       "key": "addr|ul. bolesława chrobrego",
       "kind": "grunt",
       "city": "elblag",
@@ -80,7 +113,7 @@
           "date": "2026-11-09",
           "round": 1,
           "starting_price_pln": 4255000,
-          "outcome": "active",
+          "outcome": "archived",
           "detail_url": "https://bip.elblag.eu/przetarg-nieruchomosci/10871/i-ustny-przetarg-nieograniczony-ul-boleslawa-chrobrego-kompleks-nieruchomosci-niezabudowanych-09-11-2026-r",
           "source_url": "https://bip.elblag.eu/attachments/download/18983"
         }
@@ -106,7 +139,7 @@
           "date": "2026-10-26",
           "round": 4,
           "starting_price_pln": 500000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1629,
           "detail_url": "https://bip.elblag.eu/przetarg-nieruchomosci/10760/iv-ustny-przetarg-nieograniczony-ul-fabryczna-nieruchomosc-niezabudowana-26-10-2026-r",
           "source_url": "https://bip.elblag.eu/attachments/download/18862"
@@ -139,7 +172,7 @@
           "date": "2026-10-26",
           "round": 2,
           "starting_price_pln": 77000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 617,
           "detail_url": "https://bip.elblag.eu/przetarg-nieruchomosci/10974/ii-ustny-przetarg-ograniczony-ul-leczycka-nieruchomosc-niezabudowana-26-10-2026-r",
           "source_url": "https://bip.elblag.eu/attachments/download/19159"

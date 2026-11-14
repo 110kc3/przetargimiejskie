@@ -3,6 +3,73 @@
   "city": "sroda-wielkopolska",
   "plots": [
     {
+      "key": "dz|437/82",
+      "kind": "grunt",
+      "city": "sroda-wielkopolska",
+      "dzialka_nr": "437/82",
+      "obreb": null,
+      "street": "Lotniczej",
+      "building": null,
+      "address_raw": "rejon ul. Lotniczej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20437%2F82%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
+      "area_m2": 2907,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2023-07-31",
+          "round": 1,
+          "starting_price_pln": 697680,
+          "outcome": "archived",
+          "area_m2": 2907,
+          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/688898/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/4"
+        },
+        {
+          "date": "2023-11-06",
+          "round": 2,
+          "starting_price_pln": 697680,
+          "outcome": "archived",
+          "area_m2": 2907,
+          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/704374/ogloszenie_o_drugim_przetargu_ustnym_nieograniczonym_na_sprzedaz",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/3"
+        },
+        {
+          "date": "2024-11-15",
+          "round": 1,
+          "starting_price_pln": 70000,
+          "outcome": "archived",
+          "area_m2": 2907,
+          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/775852/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/3"
+        },
+        {
+          "date": "2026-07-17",
+          "round": 1,
+          "starting_price_pln": 1017450,
+          "outcome": "archived",
+          "area_m2": 2907,
+          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/881592/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/1"
+        },
+        {
+          "date": "2027-01-22",
+          "round": 2,
+          "starting_price_pln": 1017450,
+          "outcome": "active",
+          "area_m2": 2907,
+          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/912843/ogloszenie_o_drugim_przetargu_ustnym_nieograniczonym_na_sprzedaz",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/1"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "437/82"
+        }
+      ]
+    },
+    {
       "key": "dz|953/44",
       "kind": "grunt",
       "city": "sroda-wielkopolska",
@@ -37,11 +104,11 @@
         },
         {
           "date": "2026-10-16",
-          "round": 2,
+          "round": 1,
           "starting_price_pln": 282000,
           "outcome": "archived",
           "area_m2": 647,
-          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/901610/ogloszenie_o_drugim_przetargu_ustnym_nieograniczonym_na_sprzedaz",
+          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/909841/informacja_o_wyniku_przetargu_na_sprzedaz_nieruchomosci_niezabud",
           "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/1"
         }
       ],
@@ -90,64 +157,6 @@
       ]
     },
     {
-      "key": "dz|437/82",
-      "kind": "grunt",
-      "city": "sroda-wielkopolska",
-      "dzialka_nr": "437/82",
-      "obreb": null,
-      "street": "Lotniczej",
-      "building": null,
-      "address_raw": "rejon ul. Lotniczej",
-      "dzialka_id": null,
-      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20437%2F82%20Lotniczej%20%C5%9Aroda%20Wielkopolska%20geoportal%20dzia%C5%82ki",
-      "area_m2": 2907,
-      "zoning": "niezabudowana",
-      "status": null,
-      "listings": [
-        {
-          "date": "2023-07-31",
-          "round": 1,
-          "starting_price_pln": 697680,
-          "outcome": "archived",
-          "area_m2": 2907,
-          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/688898/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
-          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/3"
-        },
-        {
-          "date": "2023-11-06",
-          "round": 2,
-          "starting_price_pln": 697680,
-          "outcome": "archived",
-          "area_m2": 2907,
-          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/704374/ogloszenie_o_drugim_przetargu_ustnym_nieograniczonym_na_sprzedaz",
-          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/3"
-        },
-        {
-          "date": "2024-11-15",
-          "round": 1,
-          "starting_price_pln": 70000,
-          "outcome": "archived",
-          "area_m2": 2907,
-          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/775852/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
-          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
-        },
-        {
-          "date": "2026-07-17",
-          "round": 1,
-          "starting_price_pln": 1017450,
-          "outcome": "archived",
-          "area_m2": 2907,
-          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/881592/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
-          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/1"
-        }
-      ],
-      "parcels": [
-        {
-          "nr": "437/82"
-        }
-      ]
-    },
-    {
       "key": "dz|265",
       "kind": "grunt",
       "city": "sroda-wielkopolska",
@@ -169,7 +178,7 @@
           "outcome": "archived",
           "area_m2": 4400,
           "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/849551/ogloszenie_o_przetargu_ustnym_ograniczonym_na_sprzedaz_nieruchom",
-          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/1"
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
         }
       ],
       "parcels": [
@@ -905,7 +914,7 @@
           "outcome": "archived",
           "area_m2": 17,
           "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/693966/ogloszenie_o_przetargu_ustnym_ograniczonym_na_sprzedaz_nieruchom",
-          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/3"
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/4"
         }
       ],
       "parcels": [
@@ -937,6 +946,15 @@
           "area_m2": 392,
           "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/784220/ogloszenie_o_przetargach_na_dzialkach_nr_368811_36881419_368823_",
           "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/2"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 50960,
+          "outcome": "active",
+          "area_m2": 392,
+          "detail_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/wiadomosc/591416/ogloszenie_o_przetargu_ustnym_nieograniczonym_na_sprzedaz_nieruc",
+          "source_url": "https://bip.umsroda.pl/struktura/1/2905/dokumenty/14926/lista/5"
         },
         {
           "date": null,

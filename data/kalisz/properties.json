@@ -3,6 +3,54 @@
   "city": "kalisz",
   "properties": [
     {
+      "key": "kredytowej|1|",
+      "street": "Kredytowa",
+      "street_norm": "kredytowej",
+      "building": "1",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-03-31",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 415000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.kalisz.pl/ogloszenia/sn/2602kredytowa1.pdf",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 825
+        },
+        {
+          "date": "2026-06-16",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 415000,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.kalisz.pl/ogloszenia/sn/wgm.6840.01.0051.2024.ad.pdf",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 825
+        },
+        {
+          "date": "2026-12-10",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 415000,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.kalisz.pl/ogloszenia/sn/0611kredytowa1.pdf",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 825
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 825
+    },
+    {
       "key": "gornoslaskiej|42|11A",
       "street": "Górnośląskiej",
       "street_norm": "gornoslaskiej",
@@ -110,42 +158,6 @@
         }
       ],
       "area_m2": 28
-    },
-    {
-      "key": "kredytowej|1|",
-      "street": "Kredytowa",
-      "street_norm": "kredytowej",
-      "building": "1",
-      "apt": null,
-      "kind": "zabudowana",
-      "listings": [
-        {
-          "date": "2026-03-31",
-          "round": 1,
-          "kind": "zabudowana",
-          "starting_price_pln": 415000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.kalisz.pl/ogloszenia/sn/2602kredytowa1.pdf",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "land_area_m2": 825
-        },
-        {
-          "date": "2026-06-16",
-          "round": 2,
-          "kind": "zabudowana",
-          "starting_price_pln": 415000,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.kalisz.pl/ogloszenia/sn/wgm.6840.01.0051.2024.ad.pdf",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "land_area_m2": 825
-        }
-      ],
-      "area_m2": null,
-      "land_area_m2": 825
     },
     {
       "key": "podgorze|22|",

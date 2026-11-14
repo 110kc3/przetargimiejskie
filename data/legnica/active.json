@@ -3,6 +3,96 @@
   "city": "legnica",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Żwirki i Wigury 10/2",
+      "address": {
+        "street": "Żwirki i Wigury",
+        "street_norm": "zwirki i wigury",
+        "building": "10",
+        "apt": "2",
+        "key": "zwirki i wigury|10|2",
+        "warning": null
+      },
+      "auction_date": "2026-10-22",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39418,Wynik-rokowan-na-sprzedaz-lokalu-mieszkalnego-ulica-Zwirki-i-Wigury-10.html",
+      "doc_url": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Złotoryjska 43/3",
+      "address": {
+        "street": "Złotoryjska",
+        "street_norm": "zlotoryjska",
+        "building": "43",
+        "apt": "3",
+        "key": "zlotoryjska|43|3",
+        "warning": null
+      },
+      "auction_date": "2026-10-22",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39417,Wynik-rokowan-na-lokal-mieszkalny-przy-ul-Zlotoryjskiej-43.html",
+      "doc_url": null
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Rycerska 10/6",
+      "address": {
+        "street": "Rycerska",
+        "street_norm": "rycerska",
+        "building": "10",
+        "apt": "6",
+        "key": "rycerska|10|6",
+        "warning": null
+      },
+      "auction_date": "2026-10-15",
+      "round": null,
+      "area_m2": null,
+      "starting_price_pln": null,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39403,Wynik-rokowan-na-sprzedaz-lokalu-mieszkalnego-ul-Rycerska-10.html",
+      "doc_url": null
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Wrocławska 244/6",
+      "address": {
+        "street": "Wrocławska",
+        "street_norm": "wroclawska",
+        "building": "244",
+        "apt": "6",
+        "key": "wroclawska|244|6",
+        "warning": null
+      },
+      "auction_date": "2026-11-20",
+      "round": 1,
+      "area_m2": 59.5,
+      "starting_price_pln": 210000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39359,Ogloszenie-o-przetargu-na-lokal-przy-ul-Wroclawskiej-244.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/66196/20261020przetargwroc.docx"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul.Głogowska 65/9",
+      "address": {
+        "street": "ul.Głogowska",
+        "street_norm": "ul glogowska",
+        "building": "65",
+        "apt": "9",
+        "key": "ul glogowska|65|9",
+        "warning": null
+      },
+      "auction_date": "2026-11-20",
+      "round": 1,
+      "area_m2": 35.9,
+      "starting_price_pln": 100000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39358,Ogloszenie-o-przetargu-na-lokal-przy-ul-Glogowskiej-65.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/66220/20261020przetargglog.docx"
+    },
+    {
       "kind": "unknown",
       "address_raw": "ul. Wrocławska 131/6",
       "address": {
@@ -87,10 +177,11 @@
       },
       "auction_date": "2026-11-19",
       "round": 1,
-      "area_m2": 59.1,
-      "starting_price_pln": 190000,
+      "area_m2": null,
+      "starting_price_pln": null,
       "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39341,Ogloszenie-o-przetargu-na-lokal-przy-ul-Dmowskiego-8.html",
-      "doc_url": "https://um.bip.legnica.eu/download/107/66187/20261012przetargglog.docx"
+      "doc_url": null,
+      "round_source": "inferred"
     },
     {
       "kind": "unknown",
@@ -163,42 +254,6 @@
       "starting_price_pln": 110000,
       "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39309,Ogloszenie-o-przetargu-na-lokal-przy-ul-Zeglarskiej-15.html",
       "doc_url": "https://um.bip.legnica.eu/download/107/66116/20261006przetargzegl.docx"
-    },
-    {
-      "kind": "unknown",
-      "address_raw": "ul. Żwirki i Wigury 10/2",
-      "address": {
-        "street": "Żwirki i Wigury",
-        "street_norm": "zwirki i wigury",
-        "building": "10",
-        "apt": "2",
-        "key": "zwirki i wigury|10|2",
-        "warning": null
-      },
-      "auction_date": "2026-10-22",
-      "round": 3,
-      "area_m2": 58.4,
-      "starting_price_pln": 230000,
-      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39184,Ogloszenie-o-rokowaniach-na-lokal-przy-ul-Zwirki-i-Wigury-10.html",
-      "doc_url": "https://um.bip.legnica.eu/download/107/65915/20260922przetargzwi.docx"
-    },
-    {
-      "kind": "unknown",
-      "address_raw": "ul. Złotoryjska 43/3",
-      "address": {
-        "street": "Złotoryjska",
-        "street_norm": "zlotoryjska",
-        "building": "43",
-        "apt": "3",
-        "key": "zlotoryjska|43|3",
-        "warning": null
-      },
-      "auction_date": "2026-10-22",
-      "round": 5,
-      "area_m2": 106.6,
-      "starting_price_pln": 330000,
-      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39183,Ogloszenie-o-rokowaniach-na-lokal-przy-ul-Zlotoryjskiej-43.html",
-      "doc_url": "https://um.bip.legnica.eu/download/107/65906/20260922przetargzlo.docx"
     }
   ],
   "wykaz": []
