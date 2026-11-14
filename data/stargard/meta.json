@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "stargard",
-  "generated_at": "2026-11-14T18:42:26.469Z",
+  "generated_at": "2026-11-14T19:11:08.758Z",
   "source_pdf_count": 19,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -16,8 +16,8 @@
   "retained_properties": 14,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-14T18:42:00.255Z",
-  "last_successful_source_check_at": "2026-11-14T18:42:00.255Z",
+  "last_source_attempt_at": "2026-11-14T19:10:43.304Z",
+  "last_successful_source_check_at": "2026-11-14T19:10:43.304Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,13 +25,13 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-14T18:42:00.255Z",
-      "last_success_at": "2026-11-14T18:42:00.255Z"
+      "last_attempt_at": "2026-11-14T19:10:43.304Z",
+      "last_success_at": "2026-11-14T19:10:43.304Z"
     },
     "land": {
       "status": "degraded",
       "complete": true,
-      "last_attempt_at": "2026-11-14T18:42:00.255Z",
+      "last_attempt_at": "2026-11-14T19:10:43.304Z",
       "last_success_at": "2026-10-21T22:15:25.407Z"
     }
   }

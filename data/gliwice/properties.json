@@ -150,6 +150,67 @@
       "area_m2": 48.57
     },
     {
+      "key": "kozielska|13|garaz-1",
+      "street": "Kozielska",
+      "street_norm": "kozielska",
+      "building": "13",
+      "apt": "garaz-1",
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2026-06-29",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 44820,
+          "outcome": "archived",
+          "area_m2": 16.92,
+          "detail_url": "https://zgm-gliwice.pl/kozielska-13-garaz-nr-1-20-04-2026-r/",
+          "wadium_deadline": "2026-06-23",
+          "viewing_date": "2026-06-16",
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-08-10",
+          "round": 2,
+          "kind": "garaz",
+          "starting_price_pln": 39840,
+          "outcome": "archived",
+          "area_m2": 16.92,
+          "detail_url": "https://zgm-gliwice.pl/kozielska-13-garaz-nr-1-20-04-2026-r/",
+          "wadium_deadline": "2026-06-23",
+          "viewing_date": "2026-06-16",
+          "round_source": "inferred"
+        },
+        {
+          "date": "2026-10-19",
+          "round": 4,
+          "round_source": "explicit",
+          "kind": "garaz",
+          "starting_price_pln": 34860,
+          "outcome": "archived",
+          "area_m2": 16.92,
+          "detail_url": "https://zgm-gliwice.pl/kozielska-13-g-1-19-10-2026-r/",
+          "wadium_deadline": "2026-10-13",
+          "viewing_date": "2026-10-05",
+          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-19102026-ul-ks-marcina-strzody-38-ul-zygmunta-starego-294-ul-mewy-39-lokale-mieszkalne-ul-paulinska-51-ul-krolowej-jadwigi-89-al-wojciecha-korfantego-17i-lokale-uzytkowe-ul-kozielska-13-garaz-nr-1"
+        },
+        {
+          "date": "2026-12-07",
+          "round": 5,
+          "round_source": "explicit",
+          "kind": "garaz",
+          "starting_price_pln": 29880,
+          "outcome": "active",
+          "area_m2": 16.92,
+          "detail_url": "https://bip.gliwice.eu/sprzedaz-przetarg-7122026-ul-rozy-luksemburg-154-ul-ksiecia-ziemowita-89-ul-jozefa-uszczyka-1011-lokale-mieszkalne-ul-paulinska-51-lokal-uzytkowy-ul-kozielska-13-garaz-nr-1",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "bip"
+        }
+      ],
+      "area_m2": 16.92
+    },
+    {
       "key": "chodkiewicza|10|8",
       "street": "Chodkiewicza",
       "street_norm": "chodkiewicza",
@@ -492,67 +553,6 @@
         }
       ],
       "area_m2": 71.07
-    },
-    {
-      "key": "kozielska|13|garaz-1",
-      "street": "Kozielska",
-      "street_norm": "kozielska",
-      "building": "13",
-      "apt": "garaz-1",
-      "kind": "garaz",
-      "listings": [
-        {
-          "date": "2026-06-29",
-          "round": 1,
-          "kind": "garaz",
-          "starting_price_pln": 44820,
-          "outcome": "archived",
-          "area_m2": 16.92,
-          "detail_url": "https://zgm-gliwice.pl/kozielska-13-garaz-nr-1-20-04-2026-r/",
-          "wadium_deadline": "2026-06-23",
-          "viewing_date": "2026-06-16",
-          "round_source": "inferred"
-        },
-        {
-          "date": "2026-08-10",
-          "round": 2,
-          "kind": "garaz",
-          "starting_price_pln": 39840,
-          "outcome": "archived",
-          "area_m2": 16.92,
-          "detail_url": "https://zgm-gliwice.pl/kozielska-13-garaz-nr-1-20-04-2026-r/",
-          "wadium_deadline": "2026-06-23",
-          "viewing_date": "2026-06-16",
-          "round_source": "inferred"
-        },
-        {
-          "date": "2026-10-19",
-          "round": 4,
-          "round_source": "explicit",
-          "kind": "garaz",
-          "starting_price_pln": 34860,
-          "outcome": "archived",
-          "area_m2": 16.92,
-          "detail_url": "https://zgm-gliwice.pl/kozielska-13-g-1-19-10-2026-r/",
-          "wadium_deadline": "2026-10-13",
-          "viewing_date": "2026-10-05",
-          "bip_url": "https://bip.gliwice.eu/sprzedaz-przetarg-19102026-ul-ks-marcina-strzody-38-ul-zygmunta-starego-294-ul-mewy-39-lokale-mieszkalne-ul-paulinska-51-ul-krolowej-jadwigi-89-al-wojciecha-korfantego-17i-lokale-uzytkowe-ul-kozielska-13-garaz-nr-1"
-        },
-        {
-          "date": "2026-12-07",
-          "round": 5,
-          "round_source": "explicit",
-          "kind": "garaz",
-          "starting_price_pln": 29880,
-          "outcome": "active",
-          "area_m2": 16.92,
-          "detail_url": "https://bip.gliwice.eu/sprzedaz-przetarg-7122026-ul-rozy-luksemburg-154-ul-ksiecia-ziemowita-89-ul-jozefa-uszczyka-1011-lokale-mieszkalne-ul-paulinska-51-lokal-uzytkowy-ul-kozielska-13-garaz-nr-1",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "source": "bip"
-        }
-      ],
-      "area_m2": 16.92
     },
     {
       "key": "zygmunta starego|29|4",

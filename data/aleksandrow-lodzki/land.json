@@ -1,5 +1,66 @@
 {
   "schema_version": 1,
   "city": "aleksandrow-lodzki",
-  "plots": []
+  "plots": [
+    {
+      "key": "dz|43/17",
+      "kind": "grunt",
+      "city": "aleksandrow-lodzki",
+      "dzialka_nr": "43/17",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2043%2F17%20Aleksandr%C3%B3w%20%C5%81%C3%B3dzki%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.aleksandrow-lodzki.pl/a,15090,burmistrz-aleksandrowa-lodzkiego-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-g.html",
+          "source_url": "https://bip.aleksandrow-lodzki.pl/a,15090,burmistrz-aleksandrowa-lodzkiego-oglasza-i-przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-g.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "43/17"
+        }
+      ]
+    },
+    {
+      "key": "dz|477/7",
+      "kind": "grunt",
+      "city": "aleksandrow-lodzki",
+      "dzialka_nr": "477/7",
+      "obreb": null,
+      "street": "Franciszkańska",
+      "building": null,
+      "address_raw": "Franciszkańska 21",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20477%2F7%20Franciszka%C5%84ska%20Aleksandr%C3%B3w%20%C5%81%C3%B3dzki%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://bip.aleksandrow-lodzki.pl/a,15000,burmistrz-aleksandrowa-lodzkiego-oglasza-i-przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-grun.html",
+          "source_url": "https://bip.aleksandrow-lodzki.pl/a,15000,burmistrz-aleksandrowa-lodzkiego-oglasza-i-przetarg-ustny-ograniczony-na-sprzedaz-nieruchomosci-grun.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "477/7"
+        }
+      ]
+    }
+  ]
 }

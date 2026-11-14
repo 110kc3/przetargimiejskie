@@ -2,22 +2,22 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "sztum",
-  "generated_at": "2026-11-14T19:01:20.919Z",
-  "source_pdf_count": 14,
+  "generated_at": "2026-11-14T19:29:33.719Z",
+  "source_pdf_count": 11,
   "parsed_records": 1,
-  "parser_note_count": 4,
+  "parser_note_count": 1,
   "unique_properties": 17,
   "active_listings": 3,
   "active_auctions": 3,
   "archived_auctions": 66,
   "wykaz_entries": 2,
   "land_plots": 32,
-  "land_listings": 6,
+  "land_listings": 3,
   "retained_properties": 11,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-14T19:00:58.952Z",
-  "last_successful_source_check_at": "2026-11-14T19:00:58.952Z",
+  "last_source_attempt_at": "2026-11-14T19:29:19.685Z",
+  "last_successful_source_check_at": "2026-11-14T19:29:19.685Z",
   "monitored_assets": [
     "building",
     "land",
@@ -27,14 +27,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-14T19:00:58.952Z",
-      "last_success_at": "2026-11-14T19:00:58.952Z"
+      "last_attempt_at": "2026-11-14T19:29:19.685Z",
+      "last_success_at": "2026-11-14T19:29:19.685Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-11-14T19:00:58.952Z",
-      "last_success_at": "2026-11-14T19:00:58.952Z"
+      "last_attempt_at": "2026-11-14T19:29:19.685Z",
+      "last_success_at": "2026-11-14T19:29:19.685Z"
     }
   }
 }
