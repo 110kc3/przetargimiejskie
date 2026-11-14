@@ -14,6 +14,7 @@ import { pdfText } from './core/pdf-text.js';
 import { buildCityData, healKinds, syncActiveListingRounds, todayWarsaw } from './core/build-properties.js';
 import { applyDurablePropertyHeals, buildGlobalStreetDisplay } from './core/verified-heals.js';
 import { buildLand, reconcileLandHistory } from './core/build-land.js';
+import { propertyStreamStatus } from './core/property-stream-status.js';
 import { LAND_KIND, normalizeKind } from './core/classify-kind.js';
 import { mergeProperties, archiveAllActive, archivePastActive } from './core/merge-history.js';
 import { closeBrowser } from './core/render.js';
@@ -140,6 +141,7 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
 
   const built = buildCityData({ allRecords, active, wykaz, detailAreas });
   let properties = built.properties;
+  const crawledRowsAllDiscarded = built.properties.length === 0 && (active.length + allRecords.length) > 0;
 
   const propPath = join(DATA_DIR, city.id, 'properties.json');
   const metaPath = join(DATA_DIR, city.id, 'meta.json');
@@ -340,16 +342,10 @@ async function refreshCity(city, globalStreetDisplay = new Map()) {
         last_attempt_at: attemptedAt,
         last_success_at: docRefs.complete ? attemptedAt : prevMeta?.source_checks?.results?.last_success_at || null,
       } }),
-      property: propertyCrawlEmpty
-        ? (verifiedEmpty
-          ? { status: 'verified_empty', last_attempt_at: attemptedAt, last_success_at: attemptedAt }
-          : (prevProperties.length > 0
-            ? {
-              status: 'degraded', last_attempt_at: attemptedAt,
-              last_success_at: prevMeta?.source_checks?.property?.last_success_at || prevMeta?.last_successful_source_check_at || prevMeta?.generated_at || null,
-            }
-            : { status: 'not_monitored', last_attempt_at: attemptedAt, last_success_at: null }))
-        : { status: 'healthy', last_attempt_at: attemptedAt, last_success_at: attemptedAt },
+      property: propertyStreamStatus({
+        propertyCrawlEmpty, verifiedEmpty, crawledRowsAllDiscarded,
+        previousPropertyCount: prevProperties.length, prevMeta, attemptedAt,
+      }),
       land: landRecords.length > 0
         ? { status: 'healthy', complete: landComplete, last_attempt_at: attemptedAt, last_success_at: attemptedAt }
         : (valid_empty_land === true

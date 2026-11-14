@@ -1,6 +1,7 @@
 import { getText } from './fetch.js';
-import { parseAddress } from './normalize.js';
 import { classifyKind } from './classify-kind.js';
+import { findAuctionDate, parseAreaSqm } from './engine-fields.js';
+import { withCanonicalRecords } from './engine-records.js';
 
 export const PL_MONTHS = {
   stycznia: '01',
@@ -72,7 +73,6 @@ export function parseParcelNumber(text) {
 
 export function parseBipInfoDoc(html, url = '', options = {}) {
   const text = cleanText(html);
-  const cityLabel = options.label || 'Gmina';
   const cityId = options.id || 'bipinfo';
 
   const docIdMatch = url.match(/iddok=(\d+)/);
@@ -89,10 +89,7 @@ export function parseBipInfoDoc(html, url = '', options = {}) {
     }
   }
 
-  const dateMatch =
-    text.match(/(?:odbędzie się w dniu|w dniu|termin przetargu|data(?:\s+przetargu)?|dnia)\s*[:\-]?\s*([0-9]{1,2}\s+[a-ząćęłńóśźż]+\s+20\d{2})/i) ||
-    text.match(/(?:odbędzie się w dniu|w dniu|termin przetargu|data(?:\s+przetargu)?|dnia)\s*[:\-]?\s*([0-9]{1,2}\.[0-9]{2}\.20\d{2})/i);
-  const auctionDate = dateMatch ? parsePlDate(dateMatch[1]) : parsePlDate(text);
+  const auctionDate = findAuctionDate(text);
 
   const priceMatch = text.match(/cena\s+wywo[łl]awcza\s*(?:wynosi)?:?\s*([\d\s.]+(?:,\d{2})?\s*z[łl])/i);
   const price = priceMatch ? parsePrice(priceMatch[1]) : null;
@@ -101,13 +98,8 @@ export function parseBipInfoDoc(html, url = '', options = {}) {
   const deposit = depositMatch ? parsePrice(depositMatch[1]) : null;
 
   const parcel = parseParcelNumber(text);
-  const address = parseAddress(text, cityLabel);
 
-  const areaMatch = text.match(/(?:powierzchni|pow\.)\s*(?:u[żz]ytkowej)?\s*([0-9]+(?:[.,][0-9]+)?)\s*(?:m2|m²|ha)/i);
-  let area = null;
-  if (areaMatch) {
-    area = parseFloat(areaMatch[1].replace(',', '.'));
-  }
+  const area = parseAreaSqm(text);
 
   const kind = classifyKind(text);
   const propertyType = kind && kind !== 'unknown' ? kind : (/lokal/i.test(text) ? 'lokal' : 'grunt');
@@ -123,7 +115,7 @@ export function parseBipInfoDoc(html, url = '', options = {}) {
     deposit,
     parcel,
     area,
-    address: address ? address.full : null,
+    address: null,
     property_type: propertyType,
     type: isResult ? 'result' : 'announcement',
     raw_text: text.slice(0, 1500),
@@ -184,11 +176,12 @@ export function makeBipInfoCrawlActive(options) {
 }
 
 export function makeBipInfoCity(options) {
-  const crawlActive = makeBipInfoCrawlActive(options);
+  const crawlActive = withCanonicalRecords(makeBipInfoCrawlActive(options));
   const crawlResults = async () => [];
 
   return {
     id: options.id,
+    engine: 'bipinfo-bip',
     teryt: options.teryt,
     label: options.label,
     voivodeship: options.voivodeship,

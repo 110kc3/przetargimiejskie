@@ -182,6 +182,6 @@ After the pilot, forecast from **remaining research / measured research rate + q
 
 Phase A, B, C, D, and E are complete as of November 2026.
 The complete national GUS TERYT city inventory of 1,026 official cities has been
-audited and onboarded: **619 built adapters** registered in `pipeline/src/cities/index.js`,
+audited and registered: **619 built adapters** in `pipeline/src/cities/index.js` (133 publishing data as of 2026-11-14; the engine-based remainder is held outside the refresh cohort until prices and dates can be extracted),
 **404 audited no-build municipalities** documented in per-city spike notes, **3 dropped**,
 **0 deferred**, and **0 unresearched**. The generated state is tracked in [spikes/SPIKE-PROGRESS.md](spikes/SPIKE-PROGRESS.md).

@@ -1,6 +1,7 @@
 import { getText } from './fetch.js';
 import { parseAddress } from './normalize.js';
 import { classifyKind } from './classify-kind.js';
+import { withCanonicalRecords } from './engine-records.js';
 
 export const PL_MONTHS = {
   stycznia: '01',
@@ -222,11 +223,12 @@ export function makeLogonetCrawlActive(options) {
 }
 
 export function makeLogonetCity(options) {
-  const crawlActive = makeLogonetCrawlActive(options);
+  const crawlActive = withCanonicalRecords(makeLogonetCrawlActive(options));
   const crawlResults = async () => [];
 
   return {
     id: options.id,
+    engine: 'logonet-bip',
     teryt: options.teryt,
     label: options.label,
     voivodeship: options.voivodeship,

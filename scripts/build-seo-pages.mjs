@@ -285,7 +285,7 @@ for (const { city, props } of published) {
   const cityBody = `
 <p class="lead">Przetargi na mieszkania i licytacje nieruchomości od miasta ${esc(inCity(city))} —
 ceny wywoławcze, zł/m², rundy i wyniki. Ogłoszenia ${esc(city.authority || 'urzędu miasta')}
-z BIP (${esc(city.host || '')}), aktualizowane codziennie. Sprawdź też
+z BIP (${esc(city.host || '')}), stan danych na ${esc(generated)}. Sprawdź też
 <a href="/archiwum">pełne archiwum</a> z filtrami i medianami zł/m².</p>
 <div class="stat-row">
   <div class="stat"><div class="stat-value">${fmtInt(activeRows.length)}</div><div class="stat-label">aktualnych przetargów</div></div>
@@ -302,13 +302,13 @@ ${monthChips ? `<section class="section"><h2 class="section-title">Miesięczne p
   writePage(city.id, page({
     path: `/${city.id}/`,
     title: `Przetargi na mieszkania ${city.label} — licytacje, ceny, wyniki | przetargimiejskie`,
-    description: `Przetargi na mieszkania ${inCity(city)}: ${activeRows.length ? `${activeRows.length} aktualnych licytacji, ` : ''}ceny wywoławcze, zł/m², rundy i wyniki sprzedaży. Lokale ${city.authority || 'miasta'} — dane z BIP, aktualizowane codziennie.`,
+    description: `Przetargi na mieszkania ${inCity(city)}: ${activeRows.length ? `${activeRows.length} aktualnych licytacji, ` : ''}ceny wywoławcze, zł/m², rundy i wyniki sprzedaży. Lokale ${city.authority || 'miasta'} — dane z BIP, z podaną datą stanu danych.`,
     h1: `Przetargi na mieszkania — ${esc(city.label)}`,
     crumbs: [{ label: 'Strona główna', href: '/' }, { label: 'Miasta', href: '/miasta/' }, { label: city.label }],
     jsonLd: {
       '@context': 'https://schema.org', '@type': 'Dataset',
       name: `Przetargi na mieszkania — ${city.label}`,
-      description: `Historia miejskich przetargów na nieruchomości ${inCity(city)}: ceny wywoławcze, rundy, wyniki. Dane z BIP ${city.authority || 'urzędu miasta'}, aktualizowane codziennie.`,
+      description: `Historia miejskich przetargów na nieruchomości ${inCity(city)}: ceny wywoławcze, rundy, wyniki. Dane z BIP ${city.authority || 'urzędu miasta'}, z podaną datą stanu danych.`,
       url: `${SITE}/${city.id}/`,
       inLanguage: 'pl',
       dateModified: generated,
@@ -421,7 +421,7 @@ wiążące informacje znajdują się w dokumentach źródłowych urzędu.</p></s
 
 const hubBody = `
 <p class="lead">Historia miejskich przetargów na mieszkania — wybierz miasto. Każda strona
-zbiera aktualne licytacje, wyniki i pełną historię rund z BIP, aktualizowaną codziennie.</p>
+zbiera aktualne licytacje, wyniki i pełną historię rund z BIP, z podaną datą stanu danych.</p>
 <div class="chip-row">${cityHub.map(({ city, active, archived, props }) =>
   `<span class="chip"><a href="/${city.id}/">${esc(city.label)}</a><span class="m">${chipMeta({ live: active, archived, props })}</span></span>`).join('\n')}</div>
 <p class="note">Kolejne miasta dodajemy w miarę dostępności otwartych przetargów na mieszkania —
@@ -513,7 +513,7 @@ console.error('  seo: wrote llms.txt + llms-full.txt');
 
 const agentCard = {
   name: 'przetargimiejskie',
-  description: 'Historia miejskich przetargów na sprzedaż mieszkań w Polsce: ceny wywoławcze, zł/m², rundy i wyniki, zbierane codziennie z oficjalnych biuletynów BIP. '
+  description: 'Historia miejskich przetargów na sprzedaż mieszkań w Polsce: ceny wywoławcze, zł/m², rundy i wyniki, zbierane z oficjalnych biuletynów BIP. '
     + `Zakres publiczny: ${cities.length} miast. Treść w języku polskim.`,
   url: `${SITE}/`,
   documentationUrl: `${SITE}/llms.txt`,

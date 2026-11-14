@@ -1,6 +1,8 @@
 import { getText } from './fetch.js';
 import { parseAddress } from './normalize.js';
 import { classifyKind } from './classify-kind.js';
+import { findAuctionDate, parseAreaSqm } from './engine-fields.js';
+import { withCanonicalRecords } from './engine-records.js';
 
 export const PL_MONTHS = {
   stycznia: '01',
@@ -82,10 +84,7 @@ export function parseWokissNotice(titleText, detailHtml = '', url = '', options 
   const idMatch = url.match(/\/(\d+)(?:\.html|\/?$)/) || url.match(/\/([a-zA-Z0-9_-]+)(?:\.html|\/?$)/);
   const sourceId = idMatch ? idMatch[1] : null;
 
-  const dateMatch =
-    text.match(/(?:odbędzie się w dniu|w dniu|termin przetargu|data(?:\s+przetargu)?|dnia)\s*[:\-]?\s*([0-9]{1,2}\s+[a-ząćęłńóśźż]+\s+20\d{2})/i) ||
-    text.match(/(?:odbędzie się w dniu|w dniu|termin przetargu|data(?:\s+przetargu)?|dnia)\s*[:\-]?\s*([0-9]{1,2}\.[0-9]{2}\.20\d{2})/i);
-  const auctionDate = dateMatch ? parsePlDate(dateMatch[1]) : null;
+  const auctionDate = findAuctionDate(text);
 
   const priceMatch =
     text.match(/(?:cena wywoławcza|cena)\s*(?:netto|brutto)?[:\-]?\s*([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i) ||
@@ -205,11 +204,12 @@ export function makeWokissCrawlActive(options) {
 }
 
 export function makeWokissCity(options) {
-  const crawlActive = makeWokissCrawlActive(options);
+  const crawlActive = withCanonicalRecords(makeWokissCrawlActive(options));
   const crawlResults = async () => [];
 
   return {
     id: options.id,
+    engine: 'wokiss-bip',
     teryt: options.teryt,
     label: options.label,
     voivodeship: options.voivodeship || 'wielkopolskie',

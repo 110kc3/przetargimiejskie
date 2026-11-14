@@ -195,6 +195,7 @@ export function makeSmartSiteCity(config) {
 
   return {
     id,
+    engine: 'smartsite-bip',
     name: name || label,
     label: label || name,
     teryt: teryt || terc,

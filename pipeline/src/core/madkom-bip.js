@@ -1,6 +1,8 @@
 import { getText } from './fetch.js';
 import { parseAddress } from './normalize.js';
 import { classifyKind } from './classify-kind.js';
+import { findAuctionDate, parseAreaSqm } from './engine-fields.js';
+import { withCanonicalRecords } from './engine-records.js';
 
 export const PL_MONTHS = {
   stycznia: '01',
@@ -80,10 +82,7 @@ export function parseMadkomAnnouncement(article, fullHtml = '', options = {}) {
   const cityLabel = options.label || 'Gmina';
   const cityId = options.id || 'madkom';
 
-  const dateMatch =
-    text.match(/(?:odbędzie się w dniu|w dniu|termin przetargu|data(?:\s+przetargu)?|dnia)\s*[:\-]?\s*([0-9]{1,2}\s+[a-ząćęłńóśźż]+\s+20\d{2})/i) ||
-    text.match(/(?:odbędzie się w dniu|w dniu|termin przetargu|data(?:\s+przetargu)?|dnia)\s*[:\-]?\s*([0-9]{1,2}\.[0-9]{2}\.20\d{2})/i);
-  const auctionDate = dateMatch ? parsePlDate(dateMatch[1]) : parsePlDate(article.date);
+  const auctionDate = findAuctionDate(text);
 
   const priceMatch =
     text.match(/(?:cena wywoławcza|cena)\s*(?:netto|brutto)?\s*(?:w\s*zł)?[:\-]?\s*(?:wynosi\s*)?([\d\s.]+(?:,\d{2})?\s*(?:z[łl]|PLN)?)/i) ||
@@ -252,11 +251,12 @@ export function makeMadkomCrawlActive(options) {
 }
 
 export function makeMadkomCity(options) {
-  const crawlActive = makeMadkomCrawlActive(options);
+  const crawlActive = withCanonicalRecords(makeMadkomCrawlActive(options));
   const crawlResults = async () => [];
 
   return {
     id: options.id,
+    engine: 'madkom-bip',
     teryt: options.teryt,
     label: options.label,
     voivodeship: options.voivodeship,

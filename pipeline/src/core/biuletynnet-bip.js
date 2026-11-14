@@ -232,6 +232,7 @@ export function makeBiuletynNetCity(config) {
 
   return {
     id,
+    engine: 'biuletynnet-bip',
     name: name || label,
     label: label || name,
     teryt: teryt || terc,

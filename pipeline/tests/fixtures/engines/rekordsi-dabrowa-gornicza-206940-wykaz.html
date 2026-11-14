@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="deklaracja-dostępności" content="http://www.bip.dabrowa-gornicza.pl/deklaracja-dostepnosci" />
+    <base href="/" />
+    <title>Urz&#x105;d Miejski w D&#x105;browie G&#xF3;rniczej BIP - $Zbycie nieruchomo&#x15B;ci 15665 / Dokument nr 206940</title>
+    <link rel="stylesheet" href="Content/libs/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="Content/libs/bootstrap-select/bootstrap-select.min.css" type="text/css" />
+    <link rel="stylesheet" href="Content/content/icons/fontawesome/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="Content/content/icons/rekord/iconmoon.css" type="text/css" />
+    <link rel="stylesheet" href="Content/content/skin/bip_umdabrowa/scss/style.css" type="text/css" media="all" />
+</head>
+<body data-customer="bip_umdabrowa">
+<div class="app-content" style="overflow-x: hidden;">
+    <ul class="nav fixed-top" aria-label="menu nawigacyjne">
+        <li id="goToMainMenu"
+            tabindex="0"
+            onclick="goToMainMenu()"
+            onkeypress="goToMainMenu()"
+            class="cursor_pointer">
+            Przejdź do menu głównego
+        </li>
+        <li id="goToContent"
+            tabindex="0"
+            onclick="goToContent()"
+            onkeypress="goToContent()"
+            class="cursor_pointer">
+            Przejdź do treści
+        </li>
+        <li id="goToDataSearcher"
+            tabindex="0"
+            onclick="goToDataSearcher()"
+            onkeypress="goToDataSearcher()"
+            class="cursor_pointer">
+            Przejdź do wyszukiwarki
+        </li>
+        <li id="goToDeclaration"
+            tabindex="0"
+            onclick="goToDeclaration()"
+            onkeypress="goToDeclaration()"
+            class="cursor_pointer">
+            Przejdź do deklaracji dostępności
+        </li>
+        <li id="goToSiteMap"
+            tabindex="0"
+            onclick="goToSiteMap()"
+            onkeypress="goToSiteMap()"
+            class="cursor_pointer">
+            Przejdź do mapy strony
+        </li>
+    </ul>
+        <div id="cookies_policy">
+        <div class="container cookies__container mb-2 mt-2 p-0">
+            <div class="row col-12 m-0 pb-3 pt-3">
+                <div class="col-12 col-md-9">
+                    <p class="m-0">Nasza strona wykorzystuje pliki cookies.</p>
+                    <p class="m-0">Korzystanie z witryny oznacza zgodę na ich zapis lub wykorzystanie.</p>
+                    <p class="m-0">Więcej informacji można znaleźć w <a class="font-weight-bold" href="/polityka-cookies">Polityce Cookies.</a></p>
+                </div>
+                <div class="col-12 col-md-3 mt-2 pt-2" style="text-align: right;">
+                    <button class="btn float-md-right" aria-label="Rozumiem i akceptuję" onclick="acceptCookiesPolicy()">Rozumiem i akceptuję</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header id="header">
+    <div class="container all pl-0">
+        <div class="content-header">
+            <div class="top">
+                <div class="container">
+                    <div class="row justify-content-end">
+                        <div class="col-xl-4 col-md-3 col-sm-12">
+                            <a href="https://www.gov.pl/bip" id="bip_gov" target="_blank"
+                               title="Oficjalna strona Biuletynu Informacji Publicznej - link otwiera się w nowej karcie">
+                                <img id="bipLogo" src="/content/img/bip_logo.png" width="136" height="60" alt="Logo biuletynu informacji publicznej" class="header_logo" title="Biuletyn informacji publicznej">
+                            </a>
+                        </div>
+                        <div class="col-xl-4 col-md-4 col-sm-12 d-flex justify-content-center my-auto order-2 p-0 pt-1 pb-1 pt-md-0 pb-md-0 text-center">
+                            <h1 tabindex="0">
+                                Urz&#x105;d Miejski w D&#x105;browie G&#xF3;rniczej
+                            </h1>
+                        </div>
+                        <div class="col-xl-4 col-md-5 col-sm-12 d-flex justify-content-end my-auto order-md-3 text-right wcag">
+                            <span role="button"
+                                  tabindex="0"
+                                  title="Resetuj czcionkę"
+                                  id="fontzero"
+                                  aria-label="Resetuj czcionkę">
+                                A
+                            </span>
+                            <span role="button"
+                                  tabindex="0"
+                                  title="Powiększ czcionkę"
+                                  id="fontup"
+                                  aria-label="Powiększ czcionkę">
+                                A+
+                            </span>
+                            <span role="button"
+                                  tabindex="0"
+                                  title="Zmniejsz czcionkę"
+                                  id="fontdown"
+                                  aria-label="Zmniejsz czcionkę">
+                                A-
+                            </span>
+                            <span role="button"
+                                  tabindex="0"
+                                  title="Wysoki kontrast"
+                                  id="kontrast"
+                                  aria-label="Wysoki kontrast">
+                                <i class="fa fa-low-vision" aria-hidden="true"></i>
+                            </span>
+                            <span role="button"
+                                  tabindex="0"
+                                  title="Deklaracja dostępności"
+                                  id="deklaracja"
+                                  aria-label="Deklaracja dostępności">
+                                <i class="fa fa-wheelchair" aria-hidden="true"></i>
+                            </span>
+                            <span role="button"
+                                  tabindex="0"
+                                  title="Idź do strony głównej"
+                                  id="homePage"
+                                  aria-label="Idź do strony głównej">
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+    <div class="container" id="container-wrapper">
+        <div class="row">
+            <div class="col-lg-3 left-sidebar pl-0">
+                <span class="icon icon-menu" id="toggleRwd"></span>
+<div class="left-sidebar noselect" id="main-menu" tabindex="0">
+    <nav class="nav">
+                <ul class="main-nav mb-0" role="presentation">
+                    <li class="parent" data-name="Dane podmiotu">
+                        <div class="children-handler">
+                            <i class="far fa-list-alt"></i>
+                            <h5 tabindex="0" class="d-inline font-weight-normal" style="font-size: 16px">Dane podmiotu</h5>
+                        </div>
+                        <ul class="nav flex-column children mb-0" role="presentation">
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5823"
+                                           data-start-page="False"
+                                           href="/5823">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Informacje og&#xF3;lne</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="8327"
+                                           data-start-page="False"
+                                           href="/8327">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>E- Urz&#x105;d</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5827"
+                                           data-start-page="False"
+                                           href="/5827">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Strategia</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5830"
+                                           data-start-page="False"
+                                           href="/5830">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Statut Miasta</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5835"
+                                           data-start-page="False"
+                                           href="/5835">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Regulamin organizacyjny UM</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5826"
+                                           data-start-page="False"
+                                           href="/5826">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Wydzia&#x142;y, Biura</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5829"
+                                           data-start-page="False"
+                                           href="/5829">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>W&#x142;adze Miasta</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5839"
+                                           data-start-page="False"
+                                           href="/5839">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Zarz&#x105;dzenia Prezydenta Miasta</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="90152"
+                                           data-start-page="False"
+                                           href="/90152">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Pe&#x142;nomocnicy Prezydenta Miasta</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5828"
+                                           data-start-page="False"
+                                           href="/5828">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Rada Miejska</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5836"
+                                           data-start-page="False"
+                                           href="/5836">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Komisje Rady Miejskiej</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="16385"
+                                           data-start-page="False"
+                                           href="/16385">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Kluby Radnych Rady Miejskiej</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5831"
+                                           data-start-page="False"
+                                           href="/5831">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Uchwa&#x142;y Rady Miejskiej, Sesje Rady Miejskiej</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5955"
+                                           data-start-page="False"
+                                           href="/5955">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Protoko&#x142;y</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="14391"
+                                           data-start-page="False"
+                                           href="/14391">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Interpelacje</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="62203"
+                                           data-start-page="False"
+                                           href="/62203">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Bezpiecze&#x144;stwo danych osobowych</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="107357"
+                                           data-start-page="False"
+                                           href="/107357">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Polityka prywatno&#x15B;ci</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="10386"
+                                           data-start-page="False"
+                                           href="/10386">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Baza Dziennik&#xF3;w Ustaw i Monitora Polskiego</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5841"
+                                           data-start-page="False"
+                                           href="/5841">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Sposoby ustalania prawa</span>
+                                        </a>
+                                </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="main-nav mb-0" role="presentation">
+                    <li class="parent" data-name="Spisy podmiotowe">
+                        <div class="children-handler">
+                            <i class="far fa-list-alt"></i>
+                            <h5 tabindex="0" class="d-inline font-weight-normal" style="font-size: 16px">Spisy podmiotowe</h5>
+                        </div>
+                        <ul class="nav flex-column children mb-0" role="presentation">
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="42213"
+                                           data-start-page="False"
+                                           href="/42213">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Ponowne wykorzystywanie informacji sektora publicznego</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5838"
+                                           data-start-page="False"
+                                           href="/5838">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Jednostki organizacyjne</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="138547"
+                                           data-start-page="False"
+                                           href="/138547">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Niepubliczne i publiczne jednostki o&#x15B;wiatowe</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5868"
+                                           data-start-page="False"
+                                           href="/5868">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Sp&#xF3;&#x142;ki prawa handlowego</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="45406"
+                                           data-start-page="False"
+                                           href="/45406">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Praktyki i sta&#x17C;e</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5971"
+                                           data-start-page="False"
+                                           href="/5971">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Jednostki pomocnicze</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5954"
+                                           data-start-page="False"
+                                           href="/5954">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Menu przedmiotowe</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="64145"
+                                           data-start-page="False"
+                                           href="/64145">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Polityka mieszkaniowa</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="36819"
+                                           data-start-page="False"
+                                           href="/36819">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Dane statystyczne Urz&#x119;du Stanu Cywilnego</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="45470"
+                                           data-start-page="False"
+                                           href="/45470">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Edukacja prawna</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="49145"
+                                           data-start-page="False"
+                                           href="/49145">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Nieodp&#x142;atna pomoc prawna</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="189024"
+                                           data-start-page="False"
+                                           href="/189024">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Sygnali&#x15B;ci</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="16908"
+                                           data-start-page="False"
+                                           href="/16908">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Skargi i wnioski</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="25273"
+                                           data-start-page="False"
+                                           href="/25273">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Zgromadzenia</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="36668"
+                                           data-start-page="False"
+                                           href="/36668">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Stowarzyszenia zwyk&#x142;e</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="10756"
+                                           data-start-page="False"
+                                           href="/10756">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Wybory</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="138924"
+                                           data-start-page="False"
+                                           href="/138924">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Narodowy Spis Ludno&#x15B;ci i Mieszka&#x144; 2021</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="194719"
+                                           data-start-page="False"
+                                           href="/194719">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Raport o stanie gminy</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="18094"
+                                           data-start-page="False"
+                                           href="/18094">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Konsultacje spo&#x142;eczne</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="11565"
+                                           data-start-page="False"
+                                           href="/11565">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Konsultacje z organizacjami pozarz&#x105;dowymi</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="14680"
+                                           data-start-page="False"
+                                           href="/14680">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>D&#x105;browski Bud&#x17C;et Partycypacyjny</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="73693"
+                                           data-start-page="False"
+                                           href="/73693">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Bud&#x17C;et Obywatelski</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="18960"
+                                           data-start-page="False"
+                                           href="/18960">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Gospodarka odpadami komunalnymi</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="42086"
+                                           data-start-page="False"
+                                           href="/42086">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Miejski Zak&#x142;ad Gospodarowania Odpadami</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="36224"
+                                           data-start-page="False"
+                                           href="/36224">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Organizacje pozarz&#x105;dowe</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="36039"
+                                           data-start-page="False"
+                                           href="/36039">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Gospodarka wodno - kanalizacyjna</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5843"
+                                           data-start-page="False"
+                                           href="/5843">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Og&#x142;oszenia</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5842"
+                                           data-start-page="False"
+                                           href="/5842">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Rekrutacja</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="137877"
+                                           data-start-page="False"
+                                           href="/137877">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Petycje lata 2021-2026</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="25150"
+                                           data-start-page="False"
+                                           href="/25150">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Petycje lata 2015-2020</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="44958"
+                                           data-start-page="False"
+                                           href="/44958">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Komisja Bezpiecze&#x144;stwa i Porz&#x105;dku w D&#x105;browie G&#xF3;rniczej</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="43972"
+                                           data-start-page="False"
+                                           href="/43972">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Rozk&#x142;ad jazdy Zarz&#x105;d Transportu Metropolitalnego</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="157113"
+                                           data-start-page="False"
+                                           href="/157113">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Zg&#x142;oszenia rob&#xF3;t budowlanych</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="186445"
+                                           data-start-page="False"
+                                           href="/186445">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Planowanie przestrzenne, Zabytki</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="9471"
+                                           data-start-page="False"
+                                           href="/9471">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Informacje o &#x15B;rodowisku</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5834"
+                                           data-start-page="False"
+                                           href="/5834">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Plany, programy</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="144936"
+                                           data-start-page="False"
+                                           href="/144936">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Zadania finansowane z bud&#x17C;etu pa&#x144;stwa lub z pa&#x144;stwowych funduszy celowych</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5964"
+                                           data-start-page="False"
+                                           href="/5964">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Plan miasta</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5833"
+                                           data-start-page="False"
+                                           href="/5833">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Rejestry i archiwa</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5976"
+                                           data-start-page="False"
+                                           href="/5976">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Kontrole</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="51348"
+                                           data-start-page="False"
+                                           href="/51348">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Kontrola przedsi&#x119;biorcy</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5840"
+                                           data-start-page="False"
+                                           href="/5840">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Finanse i maj&#x105;tek</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5837"
+                                           data-start-page="False"
+                                           href="/5837">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Zam&#xF3;wienia publiczne</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="15665"
+                                           data-start-page="False"
+                                           href="/15665">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Zbycie nieruchomo&#x15B;ci</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="17193"
+                                           data-start-page="False"
+                                           href="/17193">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Rzeczy znalezione</span>
+                                        </a>
+                                </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="main-nav mb-0" role="presentation">
+                    <li class="parent" data-name="Inne">
+                        <div class="children-handler">
+                            <i class="far fa-list-alt"></i>
+                            <h5 tabindex="0" class="d-inline font-weight-normal" style="font-size: 16px">Inne</h5>
+                        </div>
+                        <ul class="nav flex-column children mb-0" role="presentation">
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="131332"
+                                           data-start-page="False"
+                                           href="/131332">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Koordynator ds. dost&#x119;pno&#x15B;ci</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="16921"
+                                           data-start-page="False"
+                                           href="/16921">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>U&#x142;atwienia dla os&#xF3;b z niepe&#x142;nosprawno&#x15B;ciami</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5824"
+                                           data-start-page="False"
+                                           href="/5824">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Informacja publiczna</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5959"
+                                           data-start-page="False"
+                                           href="/5959">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Rejestr zmian</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="10829"
+                                           data-start-page="False"
+                                           href="/10829">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Mapa strony</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5825"
+                                           data-start-page="False"
+                                           href="/5825">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Obja&#x15B;nienia skr&#xF3;t&#xF3;w</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5958"
+                                           data-start-page="False"
+                                           href="/5958">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Instrukcja obs&#x142;ugi</span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5822"
+                                           data-start-page="False"
+                                           href="/5822">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Redakcja biuletynu</span>
+                                        </a>
+                                </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="main-nav mb-0" role="presentation">
+                    <li class="parent" data-name="Sposoby za&#x142;atwiania spraw">
+                        <div class="children-handler">
+                            <i class="far fa-list-alt"></i>
+                            <h5 tabindex="0" class="d-inline font-weight-normal" style="font-size: 16px">Sposoby za&#x142;atwiania spraw</h5>
+                        </div>
+                        <ul class="nav flex-column children mb-0" role="presentation">
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="5832"
+                                           data-start-page="False"
+                                           href="/5832">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Sposoby za&#x142;atwiania spraw</span>
+                                        </a>
+                                </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="main-nav mb-0" role="presentation">
+                    <li class="parent" data-name="Um&#xF3;w wizyt&#x119;">
+                        <div class="children-handler">
+                            <i class="far fa-list-alt"></i>
+                            <h5 tabindex="0" class="d-inline font-weight-normal" style="font-size: 16px">Um&#xF3;w wizyt&#x119;</h5>
+                        </div>
+                        <ul class="nav flex-column children mb-0" role="presentation">
+                                <li class="nav-item">
+                                        <a tabindex="0"
+                                           class="nav-link element"
+                                           data-id="151492"
+                                           data-start-page="False"
+                                           href="/151492">
+                                            <i class="fa fa-hand-point-right"></i>
+                                            <span>Um&#xF3;w wizyt&#x119;</span>
+                                        </a>
+                                </li>
+                        </ul>
+                    </li>
+                </ul>
+    </nav>
+</div>
+            </div>
+            <div class="col-lg-9 content" id="content">
+                <main>
+                    <div class="content-heading">
+    <div class="row h-100">
+        <div class="col-12 col-md-12 col-lg-8 mr-auto">
+                <h2 class="pb-0 pt-1" tabindex="0">
+                    Spisy podmiotowe
+                </h2>
+                <h3 class="small pl-4 m-0 pb-2 ml-1" id="historyPath">
+                            <span class="historyPathElement" tabindex="0" data-id="15665">Zbycie nieruchomo&#x15B;ci</span>
+                </h3>
+        </div>
+        <div class="col-12 col-lg-1 my-auto share text-center">
+            <span role="button"
+                  class="d-lg-block"
+                  title="Drukuj stronę"
+                  aria-label="Drukuj stronę"
+                  id="print"
+                  tabindex="0">
+                <i class="icon-print" aria-hidden="true"></i>
+            </span>
+            <span role="button"
+                  class=""
+                  id="dropdownMenu2"
+                  data-toggle="dropdown"
+                  tabindex="0"
+                  aria-label="Menu udostępnień"
+                  aria-expanded="false">
+                <i class="icon-squares pl-1" aria-hidden="true"></i>
+            </span>
+            <div class="dropdown-menu dropdown-menu-right" id="dropdownItems" role="listbox">
+                <a class="shareFb dropdown-item fb-ic mr-3 m-0"
+                   role="option"
+                   tabindex="0"
+                   href="/">
+                    <i class="fab fa-facebook-f"></i>
+                    udostępnij na facebook
+                </a>
+                <a class="shareGoogle dropdown-item m-0"
+                   role="option"
+                   tabindex="0"
+                   href="/">
+                    <i class="fab fa-google-plus-g"></i>
+                    udostępnij na Google+
+                </a>
+                <a class="sendMail dropdown-item m-0"
+                   role="option"
+                   tabindex="0"
+                   href="/">
+                    <i class="fas fa-paper-plane"></i>
+                    wyślij pocztą email
+                </a>
+            </div>
+        </div>
+        <div class="col-8 col-lg-3 col-md-8 my-auto search">
+            <div class="row md-form">
+                <label for="data-searcher" class="sr-only">Wpisz tekst do wyszukania</label>
+                <input class="col-9 form-control"
+                       type="text"
+                       placeholder="Szukaj"
+                       id="data-searcher"
+                       tabindex="0">
+                <a href="/"
+                   tabindex="0"
+                   class="col-2 my-auto"
+                   title="Szukaj"
+                   role="button">
+                    <span class="sr-only">Szukaj</span>
+                    <i class="fas fa-search"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+                    <div class="main" id="main" tabindex="0">
+<div id="toPrint" class="col-12">
+<table class="default table-bordered w-100 mx-auto mt-2 mb-4">
+  <caption class="sr-only">Prezydent Miasta Dąbrowy Górniczej informuje, że zamieszczono na stronach internetowych Urzędu Miejskiego w Dąbrowie Górniczej: www.dg.pl (zakładka: Aktualności - Nieruchomości) i www.bip.dg.pl (zakładka: Spisy podmiotowe - Zbycie nieruchomości) oraz wywieszono na tablicy ogłoszeń Urzędu Miejskiego w Dąbrowie Górniczej przy ul. Granicznej 21, wykazy nieruchomości przeznaczonych do sprzedaży, stanowiących własność Gminy Dąbrowa Górnicza położonych w Dąbrowie Górniczej przy:<br/>- ul. Innowacyjnej (obręb 0016, Tucznawa) oznaczonej geodezyjnie jako działka nr 16/12 o pow. 0,3300 ha,<br/>- ul. Innowacyjnej (obręb 0016, Tucznawa) oznaczonej geodezyjnie jako działka nr 16/13 o pow. 0,3300 ha,<br/>- ul. Innowacyjnej (obręb 0016, Tucznawa) oznaczonej geodezyjnie jako działka nr 16/14 o pow. 0,3300 ha,<br/>- ul. Inwestycyjnej (obręb 0016, Tucznawa) oznaczonej geodezyjnie jako działki nr 1124/2, 1124/3, 1124/4, 1124/5, 1124/6 o łącznej pow. 1,6233 ha.</caption>
+  <tr>
+    <td colspan="2" tabindex="0" class="card-footer font-weight-bold text-center p-2 title-12">
+      <h4 class="title-10 m-0">Prezydent Miasta Dąbrowy Górniczej informuje, że zamieszczono na stronach internetowych Urzędu Miejskiego w Dąbrowie Górniczej: www.dg.pl (zakładka: Aktualności - Nieruchomości) i www.bip.dg.pl (zakładka: Spisy podmiotowe - Zbycie nieruchomości) oraz wywieszono na tablicy ogłoszeń Urzędu Miejskiego w Dąbrowie Górniczej przy ul. Granicznej 21, wykazy nieruchomości przeznaczonych do sprzedaży, stanowiących własność Gminy Dąbrowa Górnicza położonych w Dąbrowie Górniczej przy:<br/>- ul. Innowacyjnej (obręb 0016, Tucznawa) oznaczonej geodezyjnie jako działka nr 16/12 o pow. 0,3300 ha,<br/>- ul. Innowacyjnej (obręb 0016, Tucznawa) oznaczonej geodezyjnie jako działka nr 16/13 o pow. 0,3300 ha,<br/>- ul. Innowacyjnej (obręb 0016, Tucznawa) oznaczonej geodezyjnie jako działka nr 16/14 o pow. 0,3300 ha,<br/>- ul. Inwestycyjnej (obręb 0016, Tucznawa) oznaczonej geodezyjnie jako działki nr 1124/2, 1124/3, 1124/4, 1124/5, 1124/6 o łącznej pow. 1,6233 ha.</h4>
+    </td>
+  </tr>
+  <tr>
+    <th scope="row" tabindex="0" class="w-25 p-2">Symbol</th>
+    <td tabindex="0" class="w-75 p-2 font-weight-bold text-uppercase">WGN</td>
+  </tr>
+  <tr>
+    <th scope="row" tabindex="0" class="w-25 p-2">Osoba odpowiedzialna</th>
+    <td tabindex="0" class="w-75 p-2">Wioletta Sawicka</td>
+  </tr>
+  <tr>
+    <th scope="row" tabindex="0" class="w-25 p-2">Data utworzenia</th>
+    <td tabindex="0" class="w-75 p-2">2026-11-06</td>
+  </tr>
+  <tr>
+    <th scope="row" tabindex="0" class="w-25 p-2">Udostępnił</th>
+    <td tabindex="0" class="w-75 p-2">Krzysztof Nowicki</td>
+  </tr>
+  <tr>
+    <th scope="row" tabindex="0" class="w-25 p-2">Data udostępnienia</th>
+    <td tabindex="0" class="w-75 p-2">2026-11-06 10:17:27</td>
+  </tr>
+  <tr>
+    <th scope="row" tabindex="0" class="w-25 p-2">Data ost. zmiany</th>
+    <td tabindex="0" class="w-75 p-2 font-weight-bold">2026-11-06 10:17:27</td>
+  </tr>
+  <tr>
+    <th scope="row" tabindex="0" class="w-25 p-2">Data ważności</th>
+    <td tabindex="0" class="w-75 p-2 font-weight-bold">2026-12-18</td>
+  </tr>
+</table>
+<table class="default table-bordered w-100 mx-auto mt-2 mb-4" role="presentation">
+  <tr>
+    <td tabindex="0" class="card-footer font-weight-bold p-2">
+      <h4 class="title-10 m-0">Pliki</h4>
+    </td>
+  </tr>
+  <tr>
+    <td class="p-2"><a class="text_link" tabindex="0" target="_blank" href="api/download/file?id=206941"><i class="file-icon far fa-file-pdf pr-1"></i>Wykaz_Innowacyjna_16'12.pdf
+                        (519,30 kB)
+                    </a></td>
+  </tr>
+  <tr>
+    <td class="p-2"><a class="text_link" tabindex="0" target="_blank" href="api/download/file?id=206945"><i class="file-icon far fa-file-pdf pr-1"></i>Wykaz_Innowacyjna_16'12_w_wersji_dostepnej_cyfrowo.pdf
+                        (149,74 kB)
+                    </a></td>
+  </tr>
+  <tr>
+    <td class="p-2"><a class="text_link" tabindex="0" target="_blank" href="api/download/file?id=206942"><i class="file-icon far fa-file-pdf pr-1"></i>Wykaz_Innowacyjna_16'13.pdf
+                        (518,37 kB)
+                    </a></td>
+  </tr>
+  <tr>
+    <td class="p-2"><a class="text_link" tabindex="0" target="_blank" href="api/download/file?id=206946"><i class="file-icon far fa-file-pdf pr-1"></i>Wykaz_Innowacyjna_16'13_w_wersji_dostepnej_cyfrowo.pdf
+                        (149,74 kB)
+                    </a></td>
+  </tr>
+  <tr>
+    <td class="p-2"><a class="text_link" tabindex="0" target="_blank" href="api/download/file?id=206943"><i class="file-icon far fa-file-pdf pr-1"></i>Wykaz_Innowacyjna_16'14.pdf
+                        (517,39 kB)
+                    </a></td>
+  </tr>
+  <tr>
+    <td class="p-2"><a class="text_link" tabindex="0" target="_blank" href="api/download/file?id=206947"><i class="file-icon far fa-file-pdf pr-1"></i>Wykaz_Innowacyjna_16'14_w_wersji_dostepnej_cyfrowo.pdf
+                        (149,74 kB)
+                    </a></td>
+  </tr>
+  <tr>
+    <td class="p-2"><a class="text_link" tabindex="0" target="_blank" href="api/download/file?id=206944"><i class="file-icon far fa-file-pdf pr-1"></i>Wykaz_Inwestycyjna_1124'2_i_inne.pdf
+                        (546,32 kB)
+                    </a></td>
+  </tr>
+  <tr>
+    <td class="p-2"><a class="text_link" tabindex="0" target="_blank" href="api/download/file?id=206948"><i class="file-icon far fa-file-pdf pr-1"></i>Wykaz_Inwestycyjna_1124'2_i_inne_w_wersji_dostepnej_cyfrowo.pdf
+                        (151,82 kB)
+                    </a></td>
+  </tr>
+</table>
+<div class="col-12 text-left p-0 pt-2 title-8">
+  <p><a class="router_link" href="15665/historia/206940">
+                    Wszystkie zmiany
+                </a></p>
+</div>    <div class="col-12 errors">
+    </div>
+</div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="media row">
+              <div class="col-3">
+                  <img class="mr-3 my-auto" src="Customers/bip_umdabrowa/files/logo-W.png" id="footerLogo" alt="">
+              </div>
+          <div class="media-body text-center text-lg-left col-9">
+            <p tabindex="0" class="mt-0 mb-2 font-weight-bolder text-white text-center text-lg-left" style="font-size: 1rem">Urz&#x105;d Miejski w D&#x105;browie G&#xF3;rniczej</p>
+            <p>
+              <span tabindex="0">ul. Graniczna 21</span>
+              <br>
+              <span tabindex="0">41-300 D&#x105;browa G&#xF3;rnicza</span>
+            </p>
+            <p>
+              <span tabindex="0">32 295 67 00</span>
+              <br>
+              <span tabindex="0">32 262 50 32</span>
+              <br>
+              <span tabindex="0">
+                e-mail: <a tabindex="0" href="mailto:um@dabrowa-gornicza.pl">um@dabrowa-gornicza.pl</a></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 pt-2 pt-md-0">
+        <h6 tabindex="0" class="mt-0 text-center text-lg-left text-white font-weight-bolder">Godziny urzędowania:</h6>
+        <table class="default mx-auto mx-lg-0 footer_table text-center text-lg-left" role="presentation">
+          <tbody>
+          <tr tabindex="0">
+            <td class="pr-5" style="width: 130px;">
+              Poniedziałek
+            </td>
+            <td>
+              7:30 - 15:30
+            </td>
+          </tr>
+          <tr tabindex="0">
+            <td>
+              Wtorek
+            </td>
+            <td>
+              7:30 - 15:30
+            </td>
+          </tr>
+          <tr tabindex="0">
+            <td>
+              Środa
+            </td>
+            <td>
+              7:30 - 15:30
+            </td>
+          </tr>
+          <tr tabindex="0">
+            <td>
+              Czwartek
+            </td>
+            <td>
+              7:30 - 18:00
+            </td>
+          </tr>
+          <tr tabindex="0">
+            <td>
+              Piątek
+            </td>
+            <td>
+              7:30 - 13:00
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+        <div class="col-12 col-lg-3 pt-4 pt-lg-0">
+            <h6 tabindex="0" class="mt-0 text-center text-lg-left font-weight-bolder text-white">Zobacz również:</h6>
+                <ul class="default mx-auto mx-lg-0 nopoint text-center text-lg-left" role="presentation">
+                <li>
+                    <a tabindex="0" href="/deklaracja-dostepnosci" title="Strona z deklaracją dostępności">
+                        <i class="icon-external"></i> Deklaracja dostępności
+                    </a>
+                </li>
+                <li>
+                    <a tabindex="0" href="http://www.dabrowa-gornicza.pl" title="Strona urzędu" target="_blank">
+                        <i class="icon-external"></i> Strona urzędu
+                    </a>
+                </li>
+                <li>
+                    <a tabindex="0" href="https://www.gov.pl/bip" title="Oficjalna strona Bip - link otwiera się w nowej karcie" target="_blank">
+                        <i class="icon-external"></i> Oficjalna strona BIP
+                    </a>
+                </li>
+                    <li>
+                        <a tabindex="0" href="https://www.bip.dabrowa-gornicza.pl/8327/dokument/32100" title="Strona e-urzędu" target="_blank">
+                            <i class="icon-external"></i> E-urząd
+                        </a>
+                    </li>
+            </ul>
+        </div>
+      <div class="col-12">
+        <hr>
+      </div>
+      <div class="col-12">
+        <p class="autor text-left">
+          <span tabindex="0">Licznik odwiedzin:</span>
+          <span tabindex="0">138750964</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+</body>
+</html>

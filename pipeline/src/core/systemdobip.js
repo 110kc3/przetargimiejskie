@@ -1,6 +1,7 @@
 import { getText } from './fetch.js';
 import { parseAddress } from './normalize.js';
 import { classifyKind } from './classify-kind.js';
+import { withCanonicalRecords } from './engine-records.js';
 
 export const PL_MONTHS = {
   stycznia: '01',
@@ -195,11 +196,12 @@ export function makeSystemDoBipCrawlActive(options) {
 }
 
 export function makeSystemDoBipCity(options) {
-  const crawlActive = makeSystemDoBipCrawlActive(options);
+  const crawlActive = withCanonicalRecords(makeSystemDoBipCrawlActive(options));
   const crawlResults = async () => [];
 
   return {
     id: options.id,
+    engine: 'systemdobip',
     teryt: options.teryt,
     label: options.label,
     voivodeship: options.voivodeship,

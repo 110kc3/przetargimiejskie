@@ -177,6 +177,7 @@ export function makeConceptCity(config) {
 
   return {
     id,
+    engine: 'conceptintermedia-bip',
     name: name || label,
     label: label || name,
     teryt: teryt || terc,

@@ -75,7 +75,7 @@ pipeline/src/
 │   ├── geoportal.js, uldk.js  # precise parcel geoportal deep-links
 │   └── hash.js
 ├── cities/
-│   ├── index.js               # the REGISTRY: exports the 619-city registry across all 16 voivodeships
+│   ├── index.js               # the REGISTRY: exports the 619-city registry across all 16 voivodeships (133 with published data on 2026-11-14)
 │   └── <city>/ { config, crawl, parse, index }.js   # one folder per built city
 └── refresh.js                 # thin loop over the registry → data/<city>/*.json
 ```
@@ -206,7 +206,7 @@ live-verify and write its spike file.
 ### 4.1 Tiers & current status
 
 - **All 1,026 GUS TERYT official cities resolved:**
-  - **619 Built Cities:** registered in `pipeline/src/cities/index.js`, verified with offline test suites.
+  - **619 Built Cities:** registered in `pipeline/src/cities/index.js`. Registered is not published: 486 have not yet published and are outside the refresh cohort (see `pipeline/ADAPTER-GUIDE.md`, section 7b).
   - **404 NO-BUILD Municipalities:** documented in per-city spike files in `spikes/`, confirming that disposals run *bezprzetargowo* (statutory tenant pre-emption), on physical notice boards, or lack electronic real-estate auction registries.
   - **3 Dropped Cities:** confirmed zero open competitive tenders (`chorzow`, `siemianowice-slaskie`, `tychy`).
   - **0 Deferred / 0 Unresearched:** 100% of Poland's municipal cities have been audited.
@@ -215,7 +215,8 @@ The live roll-up (built / NO-BUILD / etc.) is always generated in
 [SPIKE-PROGRESS.md](./spikes/SPIKE-PROGRESS.md). Headline pattern: a large share
 of smaller gminas are NO-BUILD because municipal housing is sold *bezprzetargowo*
 to existing tenants or lands on physical notice boards; the 619 BUILT cities are
-those with active electronic *ustny przetarg* announcements.
+those where electronic *ustny przetarg* announcements were found; whether a source currently
+yields priced, dated records is a separate, per-engine status in `pipeline/src/core/engine-status.js`.
 
 ### 4.2 Worked build example — Legnica
 

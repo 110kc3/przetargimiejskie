@@ -237,6 +237,15 @@ To bring an adapter live:
 4. A cohort city that fails to publish fails health as `meta-missing`, so a
    broken first run stays visible.
 
+Cities built on a shared platform engine (`core/*-bip.js`) carry an `engine` id.
+`core/engine-status.js` records each engine's conformance: `unverified` (no real
+auction fixture), `headline-only` (identity, address or parcel, but price and date
+sit in attachments) or `priced`. Only `priced` engines may enter the onboarding
+cohort; `tests/engine-conformance.test.js` enforces it. To promote an engine, add
+real captured pages under `tests/fixtures/engines/`, prove a priced, dated,
+addressed record through `canonicalizeEngineRecords`, `buildCityData` and
+`buildLand`, and change its status in the same commit.
+
 `ONLY_CITY` workflow dispatch bypasses the cohort and can refresh any
 registered city for diagnosis. Shards hold at most 10 cities; a host with more
 registered cities is split across shards.

@@ -6,15 +6,18 @@ Updated 19 October 2026. The authoritative execution queue is
 snapshots are retained in the queue and Git history. They do not override the
 current implementation or accepted boundaries.
 
-The product has 619 enabled municipal feeds and separate PKP/AMW providers.
-The official inventory contains 1,026 cities/towns (619 built, 404 no-build,
-3 dropped, 0 deferred, 0 unresearched). Enabled, source-healthy,
-searchable, SEO-indexable and overlay-supported are separate measures.
+The product registers 619 municipal adapters and has separate PKP/AMW providers.
+As of 2026-11-14, 133 cities have published data and 486 registered adapters have
+never published; the engine-based ones capture announcement headlines only (price,
+date and area live in PDF attachments). The official inventory contains 1,026
+cities/towns (619 built, 404 no-build, 3 dropped, 0 deferred, 0 unresearched).
+Registered, published, source-healthy, searchable, SEO-indexable and
+overlay-supported are separate measures.
 
 ## 1. Restore dependable operation
 
 The October feed/quarantine repair batch is implemented as `6ac3fd36c`.
-All 619 feeds enforce integrity; none remains quarantined. Hosted municipal
+The 121 feeds that existed on 19 October enforce integrity; none remained quarantined then. Hosted municipal
 publication, deployment and extension CI passed for that commit. Current data
 also demonstrates one successful hosted publication for Gliwice, Gniezno,
 Rawa Mazowiecka, Golub-Dobrzyń and Poddębice. Three-day source stability remains
@@ -67,7 +70,7 @@ and [SECURITY.md](SECURITY.md). Isolated local source probes are validation only
 
 National website/extension discovery is implemented in `6ac3fd36c`:
 
-- The compact catalogue represents all 1,026 cities and links all 619 feeds.
+- The compact catalogue represents all 1,026 cities and links the 619 registered feeds; only cities with published data show data (see the 2026-11-14 state above).
 - Users select cities before complete histories load; bounded caches and
   last-good fallback preserve watchlists and failure visibility.
 - Searchability is independent of the ten-auction SEO threshold. Land-only and
@@ -119,7 +122,7 @@ owner decisions and acceptance work.
 4. **Phase D complete (exclusions reviewed):** historical exclusions audited
    against full asset scope (residential, land, commercial, garages, buildings).
 5. **Phase E complete (full inventory resolution):** all 1,026 GUS TERYT cities
-   fully resolved and audited — **619 enabled adapters** across 12 standardized
+   fully resolved and audited — **619 registered adapters** (133 publishing as of 2026-11-14) across 12 standardized
    platform engines, **404 no-build audits** with per-city documentation, **3 dropped**,
    **0 deferred**, and **0 unresearched**.
 

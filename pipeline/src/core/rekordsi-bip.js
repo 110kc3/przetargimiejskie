@@ -1,6 +1,7 @@
 import { getText } from './fetch.js';
-import { parseAddress } from './normalize.js';
 import { classifyKind } from './classify-kind.js';
+import { findAuctionDate, parseAreaSqm } from './engine-fields.js';
+import { withCanonicalRecords } from './engine-records.js';
 
 export const PL_MONTHS = {
   stycznia: '01',
@@ -70,19 +71,25 @@ export function parseParcelNumber(text) {
   return m ? m[1] : null;
 }
 
+const NOTICE_TITLE_LENGTH = 320;
+
+export function noticeTitle(html, text) {
+  const afterSearchBox = text.includes(' Szukaj ') ? text.split(' Szukaj ').pop().trim() : '';
+  if (afterSearchBox) return afterSearchBox.slice(0, NOTICE_TITLE_LENGTH);
+  const heading = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || html.match(/<title>([\s\S]*?)<\/title>/i);
+  return heading ? cleanText(heading[1]) : '';
+}
+
 export function parseRekordSiNotice(html, url = '', options = {}) {
   const text = cleanText(html);
-  const cityLabel = options.label || 'Gmina';
   const cityId = options.id || 'rekordsi';
 
   const docIdMatch = url.match(/\/dokument\/(\d+)/);
   const sourceId = docIdMatch ? docIdMatch[1] : null;
 
-  const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || html.match(/<title>([\s\S]*?)<\/title>/i);
-  const title = titleMatch ? cleanText(titleMatch[1]) : '';
+  const title = noticeTitle(html, text);
 
-  const dateMatch = text.match(/w\s+dniu\s+([0-9]{1,2}[.\s][a-ząćęłńóśźż0-9]+[.\s]20[0-9]{2})/i);
-  const auctionDate = dateMatch ? parsePlDate(dateMatch[1]) : parsePlDate(text);
+  const auctionDate = findAuctionDate(text);
 
   const priceMatch = text.match(/cena\s+wywo[łl]awcza\s*(?:wynosi)?:?\s*([\d\s.]+(?:,\d{2})?\s*z[łl])/i);
   const price = priceMatch ? parsePrice(priceMatch[1]) : null;
@@ -91,13 +98,8 @@ export function parseRekordSiNotice(html, url = '', options = {}) {
   const deposit = depositMatch ? parsePrice(depositMatch[1]) : null;
 
   const parcel = parseParcelNumber(text);
-  const address = parseAddress(text, cityLabel);
 
-  const areaMatch = text.match(/(?:powierzchni|pow\.)\s*(?:u[żz]ytkowej)?\s*([0-9]+(?:[.,][0-9]+)?)\s*(?:m2|m²|ha)/i);
-  let area = null;
-  if (areaMatch) {
-    area = parseFloat(areaMatch[1].replace(',', '.'));
-  }
+  const area = parseAreaSqm(text);
 
   const kind = classifyKind(text);
   const propertyType = kind && kind !== 'unknown' ? kind : (/lokal/i.test(text) ? 'lokal' : 'grunt');
@@ -112,7 +114,7 @@ export function parseRekordSiNotice(html, url = '', options = {}) {
     deposit,
     parcel,
     area,
-    address: address ? address.full : null,
+    address: null,
     property_type: propertyType,
     type: 'announcement',
     raw_text: text.slice(0, 1500),
@@ -172,11 +174,12 @@ export function makeRekordSiCrawlActive(options) {
 }
 
 export function makeRekordSiCity(options) {
-  const crawlActive = makeRekordSiCrawlActive(options);
+  const crawlActive = withCanonicalRecords(makeRekordSiCrawlActive(options));
   const crawlResults = async () => [];
 
   return {
     id: options.id,
+    engine: 'rekordsi-bip',
     teryt: options.teryt,
     label: options.label,
     voivodeship: options.voivodeship,
