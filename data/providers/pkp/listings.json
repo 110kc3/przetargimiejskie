@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "provider": "pkp",
-  "generated_at": "2026-11-15T11:43:14.292Z",
+  "generated_at": "2026-11-16T12:20:49.894Z",
   "listings": [
     {
       "event_key": "pkp:31780",
@@ -258,6 +258,38 @@
       "outcome": "active",
       "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31827",
       "offer_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_nieruchomosci&show=31085"
+    },
+    {
+      "event_key": "pkp:31859",
+      "external_id": "31859",
+      "seller_id": "pkp",
+      "seller_name": "PKP S.A.",
+      "seller_type": "state_company",
+      "transaction_type": "sale",
+      "auction_mode": "unknown",
+      "kind": "mieszkalny",
+      "title": "Lokal mieszkalny w Werkowie 22/2",
+      "city": "Werkowo",
+      "city_norm": "werkowo",
+      "voivodeship": "wielkopolskie",
+      "address_raw": "Lokal mieszkalny w Werkowie 22/2",
+      "street": "Lokal mieszkalny w Werkowie",
+      "building": "22",
+      "apt": "2",
+      "area_m2": 47.08,
+      "land_area_m2": 3262,
+      "publication_date": "2026-11-16",
+      "auction_date": "2026-12-09",
+      "bid_deadline": "2026-12-09",
+      "wadium_deadline": "2026-12-09",
+      "round": null,
+      "starting_price_pln": 63000,
+      "final_price_pln": null,
+      "bidders": null,
+      "source_status": "Ogłoszony",
+      "outcome": "active",
+      "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31859",
+      "offer_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_nieruchomosci&show=31194"
     },
     {
       "event_key": "pkp:31811",
