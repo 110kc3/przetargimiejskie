@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "strzelce-krajenskie",
-  "generated_at": "2026-11-15T11:53:24.103Z",
+  "generated_at": "2026-11-16T12:30:38.278Z",
   "source_pdf_count": 5,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -16,22 +16,22 @@
   "retained_properties": 0,
   "valid_empty": true,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-15T11:53:18.711Z",
-  "last_successful_source_check_at": "2026-11-15T11:53:18.711Z",
+  "last_source_attempt_at": "2026-11-16T12:30:33.288Z",
+  "last_successful_source_check_at": "2026-11-16T12:30:33.288Z",
   "monitored_assets": [
     "land"
   ],
   "source_checks": {
     "property": {
       "status": "verified_empty",
-      "last_attempt_at": "2026-11-15T11:53:18.711Z",
-      "last_success_at": "2026-11-15T11:53:18.711Z"
+      "last_attempt_at": "2026-11-16T12:30:33.288Z",
+      "last_success_at": "2026-11-16T12:30:33.288Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-11-15T11:53:18.711Z",
-      "last_success_at": "2026-11-15T11:53:18.711Z"
+      "last_attempt_at": "2026-11-16T12:30:33.288Z",
+      "last_success_at": "2026-11-16T12:30:33.288Z"
     }
   }
 }

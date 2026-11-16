@@ -21,12 +21,13 @@
           "date": "2026-11-05",
           "round": 1,
           "starting_price_pln": 6500,
-          "outcome": "unsold",
+          "outcome": "sold",
           "area_m2": 1300,
-          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/904391/przetarg_nieograniczony_na_sprzedaz_niezabudowanej_dzialki_oznac",
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/913378/informacja_o_nabywcy_dzialki_276_obreb_zerkowice",
           "notes": [
             "parse: no achieved price and no explicit negative outcome"
-          ]
+          ],
+          "final_price_pln": 6565
         }
       ],
       "parcels": [
@@ -55,12 +56,13 @@
           "date": "2026-11-05",
           "round": 1,
           "starting_price_pln": 20500,
-          "outcome": "unsold",
+          "outcome": "sold",
           "area_m2": 4200,
-          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/904390/przetarg_nieograniczony_na_sprzedaz_niezabudowanej_dzialki_oznac",
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/913375/informacja_o_nabywcy_dzialki_271_obreb_zerkowice",
           "notes": [
             "parse: no achieved price and no explicit negative outcome"
-          ]
+          ],
+          "final_price_pln": 20705
         }
       ],
       "parcels": [
@@ -409,6 +411,192 @@
         {
           "nr": "74/49",
           "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2F49%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1|143/22",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "143/22",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20143%2F22%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 65000,
+          "outcome": "sold",
+          "final_price_pln": 65700,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/913373/informacja_o_nabywcy_dzialki_14322_obreb_1_m_lwowek_slaski"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "143/22",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20143%2F22%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1|143/21",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "143/21",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20143%2F21%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 56000,
+          "outcome": "sold",
+          "final_price_pln": 56600,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/913372/informacja_o_nabywcy_dzialki_14321_obreb_1_m_lwowek_slaski"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "143/21",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20143%2F21%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1|143/20",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "143/20",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20143%2F20%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 54000,
+          "outcome": "sold",
+          "final_price_pln": 54600,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/913371/informacja_o_nabywcy_dzialki_14320_obreb_1_m_lwowek_slaski"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "143/20",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20143%2F20%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1|74/77",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "74/77",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2F77%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 139000,
+          "outcome": "sold",
+          "final_price_pln": 140400,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/913369/informacja_o_nabywcy_dzialki_7477_obreb_1_m_lwowek_slaski"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "74/77",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2F77%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1|74/76",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "74/76",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2F76%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 140000,
+          "outcome": "sold",
+          "final_price_pln": 141400,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/913367/informacja_o_nabywcy_dzialki_7476_obreb_1_m_lwowek_slaski"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "74/76",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2F76%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
+      "key": "dz|1|74/65",
+      "kind": "grunt",
+      "city": "lwowek-slaski",
+      "dzialka_nr": "74/65",
+      "obreb": "1",
+      "street": null,
+      "building": null,
+      "address_raw": "1",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2F65%201%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-05",
+          "round": 1,
+          "starting_price_pln": 118000,
+          "outcome": "sold",
+          "final_price_pln": 130000,
+          "source_url": "https://bip.lwowekslaski.pl/wiadomosci/3/wiadomosc/913365/informacja_o_nabywcy_dzialki_nr_7465_obreb_1_m_lwowek_slaski"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "74/65",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2074%2F65%201%20Lw%C3%B3wek%20%C5%9Al%C4%85ski%20geoportal%20dzia%C5%82ki"
         }
       ]
     },

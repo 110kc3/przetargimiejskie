@@ -3,6 +3,38 @@
   "city": "sulecin",
   "plots": [
     {
+      "key": "dz|0047|494/5",
+      "kind": "grunt",
+      "city": "sulecin",
+      "dzialka_nr": "494/5",
+      "obreb": "0047",
+      "street": null,
+      "building": null,
+      "address_raw": "Sulęcin, obręb 0047",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20494%2F5%20Sul%C4%99cin%2C%20obr%C4%99b%200047%200047%20Sul%C4%99cin%20geoportal%20dzia%C5%82ki",
+      "area_m2": 617,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-21",
+          "round": 1,
+          "starting_price_pln": 52300,
+          "outcome": "active",
+          "area_m2": 617,
+          "detail_url": "https://bip.sulecin.pl/504/2744/ogloszenie_o_pierwszych_przetargach_ustnych_nieograniczonych_na_sprzedaz_nieruchomosci_gruntowych_niezabudowanych_polozonych_w_Sulecinie/",
+          "source_url": "https://bip.sulecin.pl/system/pobierz.php?plik=Ogloszenie_dzialki___-_494.5_i_494.6__Sulecin_-BIP_przetarg.pdf&id=7449e94b8a95761c8b735b3d8c59a4ba&stats=true"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "494/5",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20494%2F5%200047%20Sul%C4%99cin%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|48|229/3",
       "kind": "grunt",
       "city": "sulecin",
