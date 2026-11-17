@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "tczew",
-  "generated_at": "2026-11-17T21:34:52.992Z",
+  "generated_at": "2026-11-17T22:05:14.889Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -16,21 +16,21 @@
   "retained_properties": 1,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-17T21:34:48.314Z",
-  "last_successful_source_check_at": "2026-11-17T21:34:48.314Z",
+  "last_source_attempt_at": "2026-11-17T22:05:09.967Z",
+  "last_successful_source_check_at": "2026-11-17T22:05:09.967Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-17T21:34:48.314Z",
-      "last_success_at": "2026-11-17T21:34:48.314Z"
+      "last_attempt_at": "2026-11-17T22:05:09.967Z",
+      "last_success_at": "2026-11-17T22:05:09.967Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-11-17T21:34:48.314Z",
+      "last_attempt_at": "2026-11-17T22:05:09.967Z",
       "last_success_at": null
     }
   }
