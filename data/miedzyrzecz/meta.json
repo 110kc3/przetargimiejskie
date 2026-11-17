@@ -2,10 +2,10 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "miedzyrzecz",
-  "generated_at": "2026-11-17T12:50:00.770Z",
-  "source_pdf_count": 35,
-  "parsed_records": 30,
-  "parser_note_count": 0,
+  "generated_at": "2026-11-17T21:40:09.047Z",
+  "source_pdf_count": 74,
+  "parsed_records": 34,
+  "parser_note_count": 8,
   "unique_properties": 18,
   "active_listings": 0,
   "active_auctions": 0,
@@ -13,24 +13,24 @@
   "wykaz_entries": 0,
   "land_plots": 0,
   "land_listings": 0,
-  "retained_properties": 3,
+  "retained_properties": 2,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-17T12:49:28.468Z",
-  "last_successful_source_check_at": "2026-11-17T12:49:28.468Z",
+  "last_source_attempt_at": "2026-11-17T21:39:40.120Z",
+  "last_successful_source_check_at": "2026-11-17T21:39:40.120Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-17T12:49:28.468Z",
-      "last_success_at": "2026-11-17T12:49:28.468Z"
+      "last_attempt_at": "2026-11-17T21:39:40.120Z",
+      "last_success_at": "2026-11-17T21:39:40.120Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-11-17T12:49:28.468Z",
+      "last_attempt_at": "2026-11-17T21:39:40.120Z",
       "last_success_at": null
     }
   }

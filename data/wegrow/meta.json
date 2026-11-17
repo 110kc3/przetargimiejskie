@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "wegrow",
-  "generated_at": "2026-11-17T12:53:49.928Z",
+  "generated_at": "2026-11-17T21:45:08.420Z",
   "source_pdf_count": 9,
   "parsed_records": 5,
   "parser_note_count": 3,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-17T12:53:11.881Z",
-  "last_successful_source_check_at": "2026-11-17T12:53:11.881Z",
+  "last_source_attempt_at": "2026-11-17T21:44:39.074Z",
+  "last_successful_source_check_at": "2026-11-17T21:44:39.074Z",
   "monitored_assets": [
     "building",
     "land",
@@ -26,14 +26,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-17T12:53:11.881Z",
-      "last_success_at": "2026-11-17T12:53:11.881Z"
+      "last_attempt_at": "2026-11-17T21:44:39.074Z",
+      "last_success_at": "2026-11-17T21:44:39.074Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-11-17T12:53:11.881Z",
-      "last_success_at": "2026-11-17T12:53:11.881Z"
+      "last_attempt_at": "2026-11-17T21:44:39.074Z",
+      "last_success_at": "2026-11-17T21:44:39.074Z"
     }
   }
 }

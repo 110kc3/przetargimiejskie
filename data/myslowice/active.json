@@ -41,25 +41,6 @@
       "share": null
     },
     {
-      "kind": "mieszkalny",
-      "address_raw": "Armii Krajowej 16C/24",
-      "address": {
-        "street": "Armii Krajowej",
-        "street_norm": "armii krajowej",
-        "building": "16C",
-        "apt": "24",
-        "key": "armii krajowej|16C|24",
-        "warning": null
-      },
-      "auction_date": "2026-11-17",
-      "published_date": null,
-      "round": 5,
-      "area_m2": 46.02,
-      "starting_price_pln": 190000,
-      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c",
-      "share": null
-    },
-    {
       "kind": "zabudowana",
       "address_raw": "Chrzanowskiej 60",
       "address": {
@@ -156,25 +137,6 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "Armii Krajowej 21/20",
-      "address": {
-        "street": "Armii Krajowej",
-        "street_norm": "armii krajowej",
-        "building": "21",
-        "apt": "20",
-        "key": "armii krajowej|21|20",
-        "warning": null
-      },
-      "auction_date": "2026-11-17",
-      "published_date": null,
-      "round": 3,
-      "area_m2": 36.54,
-      "starting_price_pln": 169000,
-      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-20-znajdujacy-sie-w-budynku-nr-21",
-      "share": null
-    },
-    {
-      "kind": "mieszkalny",
       "address_raw": "Wielka Skotnica 5A/12",
       "address": {
         "street": "Wielka Skotnica",
@@ -212,22 +174,41 @@
       "share": null
     },
     {
-      "kind": "zabudowana",
-      "address_raw": "Placu Wolności 7",
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 16C/24",
       "address": {
-        "street": "Placu Wolności",
-        "street_norm": "placu wolnosci",
-        "building": "7",
-        "apt": null,
-        "key": "placu wolnosci|7|",
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "16C",
+        "apt": "24",
+        "key": "armii krajowej|16C|24",
         "warning": null
       },
-      "auction_date": null,
+      "auction_date": "2026-11-17",
       "published_date": null,
-      "round": 1,
-      "area_m2": 1379.6,
-      "starting_price_pln": null,
-      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-stanowiacy",
+      "round": 5,
+      "area_m2": 46.02,
+      "starting_price_pln": 190000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-v-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-24-znajdujacy-sie-w-budynku-nr-16c",
+      "share": null
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Armii Krajowej 21/20",
+      "address": {
+        "street": "Armii Krajowej",
+        "street_norm": "armii krajowej",
+        "building": "21",
+        "apt": "20",
+        "key": "armii krajowej|21|20",
+        "warning": null
+      },
+      "auction_date": "2026-11-17",
+      "published_date": null,
+      "round": 3,
+      "area_m2": 36.54,
+      "starting_price_pln": 169000,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-na-sprzedaz-lokalu-mieszkalnego-nr-20-znajdujacy-sie-w-budynku-nr-21",
       "share": null
     },
     {
@@ -247,6 +228,25 @@
       "area_m2": 258.1,
       "starting_price_pln": 400000,
       "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-iii-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanej-stanowiacej-wl-1",
+      "share": null
+    },
+    {
+      "kind": "zabudowana",
+      "address_raw": "Placu Wolności 7",
+      "address": {
+        "street": "Placu Wolności",
+        "street_norm": "placu wolnosci",
+        "building": "7",
+        "apt": null,
+        "key": "placu wolnosci|7|",
+        "warning": null
+      },
+      "auction_date": null,
+      "published_date": null,
+      "round": 1,
+      "area_m2": 1379.6,
+      "starting_price_pln": null,
+      "detail_url": "https://bip.myslowice.pl/artykul/ogloszenie-o-ustnym-przetargu-nieograniczonym-na-sprzedaz-nieruchomosci-zabudowanych-stanowiacy",
       "share": null
     },
     {

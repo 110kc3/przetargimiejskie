@@ -2,37 +2,37 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "zagan",
-  "generated_at": "2026-11-17T13:02:30.517Z",
-  "source_pdf_count": 40,
+  "generated_at": "2026-11-17T21:53:56.868Z",
+  "source_pdf_count": 133,
   "parsed_records": 0,
-  "parser_note_count": 9,
+  "parser_note_count": 30,
   "unique_properties": 13,
-  "active_listings": 0,
+  "active_listings": 1,
   "active_auctions": 1,
   "archived_auctions": 40,
   "wykaz_entries": 0,
   "land_plots": 60,
-  "land_listings": 40,
-  "retained_properties": 13,
+  "land_listings": 148,
+  "retained_properties": 12,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-17T13:01:49.587Z",
-  "last_successful_source_check_at": "2026-11-17T13:01:49.587Z",
+  "last_source_attempt_at": "2026-11-17T21:53:33.877Z",
+  "last_successful_source_check_at": "2026-11-17T21:53:33.877Z",
   "monitored_assets": [
     "land",
     "residential"
   ],
   "source_checks": {
     "property": {
-      "status": "degraded",
-      "last_attempt_at": "2026-11-17T13:01:49.587Z",
-      "last_success_at": "2026-11-16T12:39:53.814Z"
+      "status": "healthy",
+      "last_attempt_at": "2026-11-17T21:53:33.877Z",
+      "last_success_at": "2026-11-17T21:53:33.877Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-11-17T13:01:49.587Z",
-      "last_success_at": "2026-11-17T13:01:49.587Z"
+      "last_attempt_at": "2026-11-17T21:53:33.877Z",
+      "last_success_at": "2026-11-17T21:53:33.877Z"
     }
   }
 }

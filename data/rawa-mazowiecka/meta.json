@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "rawa-mazowiecka",
-  "generated_at": "2026-11-17T12:59:46.274Z",
+  "generated_at": "2026-11-17T21:49:05.907Z",
   "source_pdf_count": 33,
   "parsed_records": 3,
   "parser_note_count": 0,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-17T12:58:25.702Z",
-  "last_successful_source_check_at": "2026-11-17T12:58:25.702Z",
+  "last_source_attempt_at": "2026-11-17T21:47:44.979Z",
+  "last_successful_source_check_at": "2026-11-17T21:47:44.979Z",
   "monitored_assets": [
     "building",
     "land",
@@ -26,14 +26,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-17T12:58:25.702Z",
-      "last_success_at": "2026-11-17T12:58:25.702Z"
+      "last_attempt_at": "2026-11-17T21:47:44.979Z",
+      "last_success_at": "2026-11-17T21:47:44.979Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-11-17T12:58:25.702Z",
-      "last_success_at": "2026-11-17T12:58:25.702Z"
+      "last_attempt_at": "2026-11-17T21:47:44.979Z",
+      "last_success_at": "2026-11-17T21:47:44.979Z"
     }
   }
 }

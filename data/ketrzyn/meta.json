@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "ketrzyn",
-  "generated_at": "2026-11-17T12:56:44.500Z",
+  "generated_at": "2026-11-17T21:47:40.152Z",
   "source_pdf_count": 27,
   "parsed_records": 1,
   "parser_note_count": 2,
@@ -16,8 +16,8 @@
   "retained_properties": 6,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-17T12:55:46.259Z",
-  "last_successful_source_check_at": "2026-11-17T12:55:46.259Z",
+  "last_source_attempt_at": "2026-11-17T21:46:42.876Z",
+  "last_successful_source_check_at": "2026-11-17T21:46:42.876Z",
   "monitored_assets": [
     "commercial",
     "land",
@@ -27,14 +27,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-17T12:55:46.259Z",
-      "last_success_at": "2026-11-17T12:55:46.259Z"
+      "last_attempt_at": "2026-11-17T21:46:42.876Z",
+      "last_success_at": "2026-11-17T21:46:42.876Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-11-17T12:55:46.259Z",
-      "last_success_at": "2026-11-17T12:55:46.259Z"
+      "last_attempt_at": "2026-11-17T21:46:42.876Z",
+      "last_success_at": "2026-11-17T21:46:42.876Z"
     }
   }
 }
