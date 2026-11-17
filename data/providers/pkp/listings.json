@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "provider": "pkp",
-  "generated_at": "2026-11-17T12:41:23.061Z",
+  "generated_at": "2026-11-17T21:32:27.425Z",
   "listings": [
     {
       "event_key": "pkp:31858",
@@ -1406,8 +1406,8 @@
       "starting_price_pln": 67000,
       "final_price_pln": null,
       "bidders": null,
-      "source_status": "Ogłoszony",
-      "outcome": "active",
+      "source_status": "Nierozstrzygnięty",
+      "outcome": "no_winner",
       "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31742",
       "offer_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_nieruchomosci&show=29397"
     },
@@ -1438,8 +1438,8 @@
       "starting_price_pln": 250000,
       "final_price_pln": null,
       "bidders": null,
-      "source_status": "Ogłoszony",
-      "outcome": "active",
+      "source_status": "Nierozstrzygnięty",
+      "outcome": "no_winner",
       "detail_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_aukcje2&pkp=&show=31743",
       "offer_url": "https://www.pkp.pl/pl/nieruchomosci-menu/?option=com_nieruchomosci&show=31068"
     },
