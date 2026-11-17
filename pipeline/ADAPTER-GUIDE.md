@@ -257,6 +257,16 @@ To promote an engine, add real captured pages and attachment text under
 refresh of one city with strict `sanity-check.js`, and change its status in the
 same commit.
 
+Engine feeds often list years of archived notices, so `canonicalizeEngineRecords`
+publishes only current ones: a notice whose auction date has passed is dropped, and
+an undated notice is dropped when its title's issue date (`z dnia …`) is over 365
+days old. When a feed returns sale notices and every one is stale, the result carries
+`valid_empty` and `valid_empty_land`, so refresh archives previously published rows
+instead of preserving them as a source outage. A feed with no sale notice at all is
+never reported as verified empty. Street candidates that swallow a locality or
+cadastral phrase (`w Limanowej.`, `w obrębie ewid.`) are rejected rather than
+published as addresses. Tests pass a fixed `today` so fixtures do not age out.
+
 The compact catalogue (`city-catalog.js`) labels a registered adapter that has never
 published as `not_monitored` with `pending_first_publish: true`, no `pipeline_id`
 and `searchable: false`, so the extension, archive and SEO pages neither fetch nor

@@ -1,14 +1,19 @@
 # TODO
 
-## Current — 2026-11-14
+## Current — 2026-11-17
 
-Last completed slices (owner-selected review items 1–7, then suggestions 1–2 on 2026-11-14: attachment extraction and pending-city catalogue label): publication restored in code (diagnosis, refresh cohort, shard contract, dead-man check), then engine conformance, honest engine status, B3/B5/B7 fixes and a docs/site truth pass. Both pushes await hosted verification (see below).
+Session 2026-11-17 (owner-selected 1, 2, 5 after a CI/health check): Extension CI runner pinned to `ubuntu-24.04` (Playwright does not support `ubuntu-latest` = 26.04), engine canonicalizer stops publishing stale notices as active (Limanowa), and this queue was reconciled with hosted evidence. Push awaits hosted verification (see Pending verification).
+
+Previous slices (owner-selected review items 1–7, then suggestions 1–2 on 2026-11-14: attachment extraction and pending-city catalogue label): publication restored in code (diagnosis, refresh cohort, shard contract, dead-man check), then engine conformance, honest engine status, B3/B5/B7 fixes and a docs/site truth pass. Both pushes await hosted verification (see below).
 
 ### Accepted next work
 
 - [x] Municipal publication recovered: run [43627823453](https://github.com/110kc3/przetargimiejskie/actions/runs/43627823453) (commit `7a0118acc`) succeeded and published `264dceb67` (`data: refresh cities 2026-11-14`, 473 files) — observed 2026-11-14.
-- [ ] Confirm once next session that `ruda-slaska` and `limanowa` (first onboarding cohort) published priced listings and that `aleksandrow-lodzki` now shows canonical plots instead of the 16 raw headline rows.
-- [ ] Confirm once next session that the following scheduled refresh also publishes and health shows only legacy-city findings. The 14 November publication ran before the engine canonicalizer, so `aleksandrow-lodzki` published 16 raw headline rows; the next run replaces them with canonical records.
+- [x] Onboarding cohort observed 2026-11-17 (`92c5e6cdf`): `ruda-slaska` publishes one priced, dated flat (Siekiela 23/6, 58,000 zł, 2026-12-08); `aleksandrow-lodzki` shows 11 canonical plots. `limanowa` published four 2003–2009 notices as active with mangled addresses — fixed below.
+- [x] Scheduled refreshes 14–17 November all published (refresh and OVH deploy green; publication-freshness gate passes).
+- [x] Limanowa stale notices: `canonicalizeEngineRecords` drops sale notices whose auction date has passed, or undated notices issued (`z dnia …` in the title) over 365 days ago, and rejects street names that swallow a locality or cadastral phrase (`w Limanowej.`, `w obrębie ewid.`). When a source returns sale notices and every one is stale, it reports `valid_empty`/`valid_empty_land`, so refresh archives the retained bad rows instead of preserving them as an outage. Verified by a local `CITY=limanowa` refresh (0 active, 4 archived, both streams `verified_empty`; data not committed). Archived history still carries the mangled address keys; a durable heal is optional.
+- [ ] Health gate red since 15 November (run [44129128916](https://github.com/110kc3/przetargimiejskie/actions/runs/44129128916)): 35 `CITY_HEALTH` findings — 8 cities 26.8 days stale (pila, brzeg, gniezno, nowa-sol, zgorzelec, glubczyce, wroclaw, luban), Racibórz/Pszczyna egress exemptions expired (accepted explicit gap), the rest degraded streams with last-good data retained. Triage the 8 stale cities in cohorts of 2–3 (merges with the quarantine triage item below).
+- [ ] Security gate red since 14 November (run [43909461811](https://github.com/110kc3/przetargimiejskie/actions/runs/43909461811)): 283 open CodeQL alerts, almost all created 2026-10-22/2026-11-01 by the city expansion (173 in `pipeline/src/cities`, 45 in `pipeline/src/core`): 137 incomplete multi-character sanitization, 78 double escaping, 54 bad tag filter, 8 URL substring, 1 shell-command injection from environment. Fix shared sanitizers first; never dismiss alerts or weaken the gate.
 - [ ] Chrome Web Store v1.33.0 package submission review and verification.
 - [ ] Daily refresh failure triage on quarantined city feeds.
 
@@ -46,7 +51,8 @@ Real pages were captured once per engine (one representative city each) and save
 
 ### Pending verification
 
-- Commit `d0aed628f` (engine conformance, truth pass): [Actions runs](https://github.com/110kc3/przetargimiejskie/actions) pending observation next session; do not wait after pushing.
+- 2026-11-17 push (Extension CI runner pin, stale engine notices): check [Extension CI](https://github.com/110kc3/przetargimiejskie/actions/workflows/extension-ci.yml) passes on `ubuntu-24.04` and the next scheduled refresh publishes `limanowa` with no active listings.
+- Commits `d0aed628f` and `5de49f36d`: observed 2026-11-17 — refresh and deploy green; Security red (CodeQL backlog) and Extension CI red (Playwright on Ubuntu 26.04), both recorded above.
 
 ### History / deferred
 

@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs';
 import { cities } from '../src/cities/index.js';
 import { ONBOARDING_COHORT } from '../src/cities/onboarding-cohort.js';
 import { ENGINE_STATUS, isEnginePublishable } from '../src/core/engine-status.js';
-import { canonicalizeEngineRecords } from '../src/core/engine-records.js';
+import { addressFromNotice, canonicalizeEngineRecords } from '../src/core/engine-records.js';
 import { findAuctionDate, parseAreaSqm } from '../src/core/engine-fields.js';
 import { buildCityData } from '../src/core/build-properties.js';
 import { buildLand } from '../src/core/build-land.js';
@@ -13,6 +13,8 @@ import { parseBipInfoDoc } from '../src/core/bipinfo-bip.js';
 import { parseRekordSiNotice } from '../src/core/rekordsi-bip.js';
 import { parseNefeniArticle } from '../src/core/nefeni-bip.js';
 import { parseMadkomAnnouncement } from '../src/core/madkom-bip.js';
+
+const FIXTURE_CAPTURE_DATE = '2026-11-14';
 
 function fixture(name) {
   return readFileSync(new URL(`./fixtures/engines/${name}`, import.meta.url), 'utf8');
@@ -40,7 +42,7 @@ function madkom(name, id) {
 }
 
 function publishThroughRefreshPath(rawRecords) {
-  const { listings, land } = canonicalizeEngineRecords(rawRecords);
+  const { listings, land } = canonicalizeEngineRecords(rawRecords, { today: FIXTURE_CAPTURE_DATE });
   const { properties } = buildCityData({ allRecords: [], active: listings, wykaz: [], detailAreas: new Map() });
   const { plots } = buildLand(land, 'conformance');
   return { listings, land, properties, plots };
@@ -123,4 +125,56 @@ test('an engine is priced only when its attachment fixtures prove a priced, date
   ]) {
     assert.ok(readFileSync(new URL(`./fixtures/engines/${fixtureName}`, import.meta.url), 'utf8').length > 1000);
   }
+});
+
+function limanowaNotice(overrides) {
+  return {
+    id: 'limanowa-test',
+    title: 'Zarządzenie Nr 237/08 Burmistrza Miasta Limanowa z dnia 13 listopada 2008r. w sprawie zatwierdzenia ogłoszenia o przetargu na sprzedaż nieruchomości zabudowanej',
+    url: 'https://bip.malopolska.pl/umlimanowa,a,542188,notice.html',
+    raw_text: 'Przedmiotem przetargu jest nieruchomość zabudowana położona przy ul. Kopernika 12.',
+    auction_date: null,
+    price: 2440000,
+    ...overrides,
+  };
+}
+
+test('engine notices whose auction date has passed are not published as active', () => {
+  const { listings, land } = canonicalizeEngineRecords([
+    limanowaNotice({ auction_date: '2009-02-19' }),
+  ], { today: FIXTURE_CAPTURE_DATE });
+  assert.equal(listings.length + land.length, 0);
+});
+
+test('a source whose sale notices are all stale reports a verified empty board', () => {
+  const result = canonicalizeEngineRecords([
+    limanowaNotice({ auction_date: '2009-02-19' }), limanowaNotice({}),
+  ], { today: FIXTURE_CAPTURE_DATE });
+  assert.equal(result.valid_empty, true);
+  assert.equal(result.valid_empty_land, true);
+});
+
+test('a source without any sale notice is never reported as verified empty', () => {
+  const result = canonicalizeEngineRecords([], { today: FIXTURE_CAPTURE_DATE });
+  assert.equal(result.valid_empty, false);
+  assert.equal(result.valid_empty_land, false);
+});
+
+test('undated engine notices issued over a year ago are not published as active', () => {
+  const { listings } = canonicalizeEngineRecords([limanowaNotice({})], { today: FIXTURE_CAPTURE_DATE });
+  assert.equal(listings.length, 0);
+});
+
+test('engine notices with an upcoming auction date stay active', () => {
+  const { listings } = canonicalizeEngineRecords([
+    limanowaNotice({ auction_date: '2026-12-08' }),
+  ], { today: FIXTURE_CAPTURE_DATE });
+  assert.equal(listings.length, 1);
+  assert.equal(listings[0].address_raw, 'Kopernika 12');
+});
+
+test('a locality or cadastral phrase is never taken as a street name', () => {
+  assert.equal(addressFromNotice('', 'położonej przy ulicy Spacerowej w Limanowej. 2. Cena wywoławcza'), null);
+  assert.equal(addressFromNotice('', 'przy ul. Zygmunta Augusta\nw obrębie ewid. Nr 7'), null);
+  assert.equal(addressFromNotice('', 'przy ul. Fabrycznej i W. Witosa w obrębie ewid. nr 3'), null);
 });

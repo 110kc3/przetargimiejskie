@@ -1,6 +1,8 @@
 import { parseAddress } from './normalize.js';
 import { classifyKind, LAND_KIND } from './classify-kind.js';
 import { attachmentText, landLotsFromTable, parseNoticeText } from './engine-attachments.js';
+import { parsePolishDate } from './engine-fields.js';
+import { todayWarsaw } from './build-properties.js';
 
 const AUCTION_NOTICE = /przetarg/i;
 const SALE_NOTICE = /sprzeda|zbyci|zbyt/i;
@@ -10,6 +12,9 @@ const NOT_A_SALE_AUCTION = /wykaz|bezprzetarg|dzier[żz]aw|najem|wynaj|u[żz]ycz
 const STREET_ADDRESS_SOURCE = String.raw`(?:ul\.|ulicy|al\.|alei|pl\.|placu|os\.|osiedlu)\s+([A-ZĄĆĘŁŃÓŚŹŻ0-9][^,;()\d]*?(?:\s+\d{1,2}\s+[A-ZĄĆĘŁŃÓŚŹŻ][^,;()\d]*?)?)\s+(\d{1,4}[A-Za-z]?(?:\/\d{1,4}[A-Za-z]?)?)(?=[\s,.;)]|$)`;
 const STREET_ADDRESS = new RegExp(STREET_ADDRESS_SOURCE);
 const STREET_ADDRESS_AFTER_PRZY = new RegExp(String.raw`przy\s+` + STREET_ADDRESS_SOURCE);
+const NOT_A_STREET_NAME = /\bw\s+(?:obr[ęe]bie|[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]+)|\bewid\.|\.$/;
+const ISSUE_DATE_LEAD = /z\s+dnia\s+/i;
+const UNDATED_NOTICE_MAX_AGE_DAYS = 365;
 const APARTMENT_NUMBER = /lokal\w*\s+(?:mieszkaln\w+\s+)?nr\s+(\d{1,4}[A-Za-z]?)/i;
 const ROUND_WORDS = [
   [/\bpierwsz\w+|\bI\s+przetarg/i, 1], [/\bdrug\w+|\bII\s+przetarg/i, 2],
@@ -35,6 +40,7 @@ export function addressFromNotice(title, text = '') {
     if (!street) continue;
     const streetStart = street.index;
     if (VENUE_CONTEXT.test((source || '').slice(0, streetStart))) continue;
+    if (NOT_A_STREET_NAME.test(street[1].trim())) continue;
     const apartment = street[2].includes('/') ? null : APARTMENT_NUMBER.exec(source)?.[1];
     const raw = `${street[1].trim()} ${street[2]}${apartment ? `/${apartment}` : ''}`;
     const address = parseAddress(raw);
@@ -86,11 +92,30 @@ function listingRecord(record, kind, found) {
   };
 }
 
-export function canonicalizeEngineRecords(records) {
+export function noticeIssueDate(title) {
+  const lead = ISSUE_DATE_LEAD.exec(title || '');
+  return lead ? parsePolishDate(title.slice(lead.index + lead[0].length)) : null;
+}
+
+function daysBefore(isoDate, days) {
+  const date = new Date(`${isoDate}T00:00:00Z`);
+  date.setUTCDate(date.getUTCDate() - days);
+  return date.toISOString().slice(0, 10);
+}
+
+export function isStaleNotice(record, today) {
+  if (record.auction_date) return record.auction_date < today;
+  const issued = noticeIssueDate(record.title);
+  return Boolean(issued) && issued < daysBefore(today, UNDATED_NOTICE_MAX_AGE_DAYS);
+}
+
+export function canonicalizeEngineRecords(records, { today = todayWarsaw() } = {}) {
   const listings = [];
   const land = [];
+  let staleSaleNotices = 0;
   for (const record of records || []) {
     if (!record || record.type === 'result' || !isSaleAuctionNotice(record.title || '')) continue;
+    if (isStaleNotice(record, today)) { staleSaleNotices += 1; continue; }
     const kind = kindOf(record);
     const found = addressFromNotice(record.title, `${record.raw_text || ''}\n${record.attachment_text || ''}`);
     if (kind === LAND_KIND) {
@@ -99,7 +124,8 @@ export function canonicalizeEngineRecords(records) {
       listings.push(listingRecord(record, kind, found));
     }
   }
-  return { listings, wykaz: [], land };
+  const onlyStaleNotices = staleSaleNotices > 0 && listings.length === 0 && land.length === 0;
+  return { listings, wykaz: [], land, valid_empty: onlyStaleNotices, valid_empty_land: onlyStaleNotices };
 }
 
 export async function enrichFromAttachments(records, { fetchText, limit = 30 } = {}) {

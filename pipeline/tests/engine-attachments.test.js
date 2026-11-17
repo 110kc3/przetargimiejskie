@@ -11,6 +11,8 @@ import { buildLand } from '../src/core/build-land.js';
 import { parseBipInfoDoc } from '../src/core/bipinfo-bip.js';
 import { parseMadkomAnnouncement } from '../src/core/madkom-bip.js';
 
+const FIXTURE_CAPTURE_DATE = '2026-11-14';
+
 function fixture(name) {
   return readFileSync(new URL(`./fixtures/engines/${name}`, import.meta.url), 'utf8');
 }
@@ -56,7 +58,7 @@ test('BIP.INFO: an enriched flat notice becomes a priced, dated, addressed prope
   const enriched = await enrichFromAttachments([raw], {
     fetchText: async () => fixture('bipinfo-ruda-slaska-91444-attachment-ocr.txt'),
   });
-  const { listings } = canonicalizeEngineRecords(enriched);
+  const { listings } = canonicalizeEngineRecords(enriched, { today: FIXTURE_CAPTURE_DATE });
   const { properties } = buildCityData({ allRecords: [], active: listings, wykaz: [], detailAreas: new Map() });
 
   assert.equal(properties.length, 1);
@@ -81,7 +83,7 @@ test('MADKOM: an enriched land notice becomes one priced, dated plot per parcel'
   const enriched = await enrichFromAttachments([raw], {
     fetchText: async () => fixture('madkom-aleksandrow-lodzki-15476-attachment.txt'),
   });
-  const { land } = canonicalizeEngineRecords(enriched);
+  const { land } = canonicalizeEngineRecords(enriched, { today: FIXTURE_CAPTURE_DATE });
   const { plots } = buildLand(land, 'aleksandrow-lodzki');
 
   assert.equal(plots.length, 7);
