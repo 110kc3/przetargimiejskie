@@ -1,8 +1,43 @@
 {
   "schema_version": 1,
   "provider": "amw",
-  "generated_at": "2026-11-16T12:20:10.559Z",
+  "generated_at": "2026-11-17T12:40:39.561Z",
   "listings": [
+    {
+      "title": "Bytom, ul. Gwarecka 15A, dz. 345/29, lok. nr 2",
+      "city": "Bytom",
+      "address_raw": "ul. Gwarecka 15A/nr",
+      "seller_id": "amw",
+      "seller_name": "Agencja Mienia Wojskowego",
+      "seller_type": "state_agency",
+      "transaction_type": "sale",
+      "auction_mode": "unknown",
+      "kind": "grunt",
+      "city_norm": "bytom",
+      "voivodeship": "slaskie",
+      "street": "ul. Gwarecka 15A/nr",
+      "building": null,
+      "apt": null,
+      "area_m2": null,
+      "land_area_m2": 129.68,
+      "publication_date": null,
+      "auction_date": "2027-01-27",
+      "bid_deadline": null,
+      "wadium_deadline": null,
+      "round": null,
+      "starting_price_pln": 595000,
+      "final_price_pln": null,
+      "bidders": null,
+      "categories": [
+        "mieszkaniowe"
+      ],
+      "event_key": "amw:2a57b2633cc2511a",
+      "external_id": "5664",
+      "source_status": "Ogłoszony",
+      "outcome": "active",
+      "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/bytom-ul-gwarecka-15a-5664",
+      "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/bytom-ul-gwarecka-15a-5664"
+    },
     {
       "title": "Warszawa, Grójecka 66, lok. 78",
       "city": "Warszawa",
@@ -876,7 +911,7 @@
       "event_key": "amw:f8009293236774f5",
       "external_id": "12060",
       "source_status": "Ogłoszony",
-      "outcome": "active",
+      "outcome": "archived",
       "detail_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/brzeg-ul-malujowicka-8395-10843-11652-11653-12060",
       "offer_url": "https://amw.com.pl/pl/nieruchomosci/przetargi-nieruchomosci/brzeg-ul-malujowicka-8395-10843-11652-11653-12060"
     },
