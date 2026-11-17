@@ -23,6 +23,7 @@ import {
   parseWykaz,
   auctionDateFromResult,
 } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 const ORIGIN = 'https://bip.sztum.pl';
 const BOARD_URL = `${ORIGIN}/1186.html`;
@@ -150,8 +151,7 @@ export function parseBoard(html) {
     const fileId = m[2];
     if (seen.has(fileId)) continue;
     seen.add(fileId);
-    const rawTitle = m[3]
-      .replace(/<[^>]+>/g, '')
+    const rawTitle = stripTags(m[3])
       .replace(/&ndash;/g, '-')
       .replace(/&quot;/g, '"')
       .replace(/&nbsp;/g, ' ')

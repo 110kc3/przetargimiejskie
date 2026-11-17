@@ -7,6 +7,7 @@ import {
   parseAnnouncement,
   parseResultDoc as parseResultDocFn,
 } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 const ORIGIN = 'https://wolomin.bip.net.pl';
 const SEARCH_URLS = [
@@ -27,7 +28,7 @@ export async function crawlActive() {
       const matches = [...html.matchAll(/<a\s+href=[\"']\?a=([0-9]+)[\"']\s+class=[\"']search_title[\"']>([\s\S]*?)<\/a>/gis)];
       for (const m of matches) {
         const id = m[1];
-        const title = m[2].replace(/<[^>]+>/g, '').trim();
+        const title = stripTags(m[2]).trim();
         if (!seenArticleIds.has(id)) {
           seenArticleIds.add(id);
           articleList.push({ id, title, url: `${ORIGIN}/?a=${id}` });

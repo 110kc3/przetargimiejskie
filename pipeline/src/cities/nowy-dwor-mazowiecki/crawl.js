@@ -7,6 +7,7 @@ import {
   parseAnnouncement,
   parseResultDoc as parseResultDocFn,
 } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 const ORIGIN = 'https://bip.nowydwormaz.pl';
 const BOARD_URL = `${ORIGIN}/1368,przetargi-nieruchomosci`;
@@ -33,7 +34,7 @@ export async function crawlActive() {
 
   const results = [];
   for (const m of matches) {
-    const rawTitle = m[1].replace(/<[^>]+>/g, '').trim();
+    const rawTitle = stripTags(m[1]).trim();
     const pdfRel = m[2];
     const pdfUrl = `${ORIGIN}/${pdfRel}`;
     const idMatch = pdfRel.match(/plik,(\d+),/i);

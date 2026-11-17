@@ -7,6 +7,7 @@ import {
   parseAnnouncement,
   parseResultDoc as parseResultDocFn,
 } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 const ORIGIN = 'https://bip.swiecie.eu';
 const BOARD_URLS = [
@@ -38,7 +39,7 @@ export async function crawlActive() {
     try {
       const html = await getText(articleUrl, FETCH_OPTS);
       const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-      const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').trim() : 'Ogłoszenie o przetargu';
+      const title = titleMatch ? stripTags(titleMatch[1]).trim() : 'Ogłoszenie o przetargu';
 
       const attMatches = [...html.matchAll(/href=[\"'](https:\/\/bip\.swiecie\.eu\/attachments\/download\/(\d+))[\"']/gi)];
       if (attMatches.length > 0) {

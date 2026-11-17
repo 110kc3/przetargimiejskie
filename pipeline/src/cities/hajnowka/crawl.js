@@ -7,6 +7,7 @@ import {
   parseAnnouncement,
   parseResultDoc as parseResultDocFn,
 } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 const BASE_URL = 'https://bip.hajnowka.pl';
 const BOARD_URLS = [
@@ -28,7 +29,7 @@ export async function crawlActive() {
       for (const m of linkMatches) {
         const path = m[1];
         const slug = m[2];
-        const rawTitle = m[3].replace(/<[^>]+>/g, '').trim();
+        const rawTitle = stripTags(m[3]).trim();
         const url = `${BASE_URL}${path}`;
 
         if (!seenUrls.has(url) && (isAnnouncementTitle(rawTitle) || isResultTitle(rawTitle))) {

@@ -1,5 +1,6 @@
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
+import { htmlToFlatText, stripTags } from '../../core/html-text.js';
 
 export const PL_MONTHS = {
   stycznia: '01', styczen: '01', styczeń: '01',
@@ -17,15 +18,7 @@ export const PL_MONTHS = {
 };
 
 export function cleanHtml(s) {
-  return (s || '')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&oacute;/gi, 'ó')
-    .replace(/&ndash;/gi, '-')
-    .replace(/&mdash;/gi, '-')
-    .replace(/\s+/g, ' ')
-    .trim();
+  return htmlToFlatText(String(s ?? '').replace(/&[nm]dash;/gi, '-'));
 }
 
 export function parsePLN(s) {
@@ -257,7 +250,7 @@ export function parseListPage(html, origin = 'https://bip.zlotow.pl') {
     const path = m[2].replace(/&amp;/g, '&');
     const id = m[4];
     const afterHref = m[5];
-    const linkText = m[6].replace(/<[^>]+>/g, '').trim();
+    const linkText = stripTags(m[6]).trim();
 
     if (path.includes('podstawowe-informacje') || path.includes('pomoc') || path.includes('deklaracja-dostepnosci')) {
       continue;
@@ -289,7 +282,7 @@ export function parseDetailPage(html, pageUrl = '') {
 
   const titleM = /<h3 class="text-primary text-lg[^>]*>([\s\S]*?)<\/h3>/i.exec(html) ||
     /<meta property="og:title" content="([^"]+)"/i.exec(html);
-  const title = titleM ? titleM[1].replace(/<[^>]+>/g, '').trim() : null;
+  const title = titleM ? stripTags(titleM[1]).trim() : null;
 
   const dateM = /<div class="text-accent50 text-xs mr-\[20px\][^>]*>([\s\S]*?)<\/div>/i.exec(html) ||
     /publishedDate":"([^"T]+)/i.exec(html);

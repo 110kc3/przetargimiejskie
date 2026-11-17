@@ -3,7 +3,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import dns from 'node:dns/promises';
 import { getText } from '../src/core/fetch.js';
 
@@ -17,6 +17,10 @@ const CITIES_INDEX_PATH = join(REPO, 'pipeline/src/cities/index.js');
 
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
+
+function isBiuletynNetHost(host) {
+  return host === 'biuletyn.net' || host.endsWith('.biuletyn.net');
+}
 
 function toCamelCase(str) {
   return str.replace(/-([a-z0-9])/g, (_, c) => c.toUpperCase());
@@ -279,7 +283,7 @@ export async function detectCityPlatform(cityMeta, spikeContent = '', options = 
     };
   }
 
-  if (host.includes('biuletyn.net') || lowerContent.includes('biuletyn.net')) {
+  if (isBiuletynNetHost(host) || /\bbiuletyn\.net\b/.test(lowerContent)) {
     let defaultCid = 70;
     const mCid = fullUrl.match(/cid=(\d+)/) || html.match(/href="[^"]*cid=(\d+)[^"]*"[^>]*>[^<]*przetarg/i);
     if (mCid) defaultCid = Number(mCid[1]);
@@ -647,7 +651,7 @@ Adapter built using shared ${platform.engine} platform engine and registered as 
 
   writeFileSync(MASTER_PATH, JSON.stringify(master, null, 2) + '\n', 'utf8');
 
-  execSync(`node --test ${testFile}`, { stdio: 'inherit' });
+  execFileSync(process.execPath, ['--test', testFile], { stdio: 'inherit' });
   console.log(`Successfully onboarded ${city.label} (${city.id})!`);
   return true;
 }

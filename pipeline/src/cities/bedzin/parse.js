@@ -1,5 +1,6 @@
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
+import { decodeEntities, stripTags } from '../../core/html-text.js';
 
 const PL_MONTH = {
   stycznia: 1, lutego: 2, marca: 3, kwietnia: 4, maja: 5, czerwca: 6,
@@ -41,15 +42,9 @@ export function parseNum(numStr) {
 
 export function stripHtml(s) {
   if (!s) return '';
-  return String(s)
-    .replace(/<!\[CDATA\[|\]\]>/g, '')
-    .replace(/<br\s*\/?>/gi, ' ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&ndash;/g, '–').replace(/&mdash;/g, '—')
-    .replace(/&sup2;/g, '²').replace(/&amp;/g, '&')
-    .replace(/&oacute;/g, 'ó').replace(/&Oacute;/g, 'Ó')
-    .replace(/&bdquo;|&rdquo;|&ldquo;|&quot;/g, '"')
+  const withoutMarkup = stripTags(String(s).replace(/<!\[CDATA\[|\]\]>/g, ''), ' ')
+    .replace(/&(?:bdquo|rdquo|ldquo);/g, '&quot;');
+  return decodeEntities(withoutMarkup)
     .replace(/&[a-z#0-9]+;/gi, ' ')
     .replace(/\s+/g, ' ')
     .trim();

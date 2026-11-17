@@ -10,6 +10,7 @@ import {
   auctionDateFromText,
   parseDatePL,
 } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 const INDEX_ANNOUNCEMENTS_BASE = 'https://miastochojnice.pl/kat/przetargi-na-nieruchomosci-miejskie/';
 const INDEX_RESULTS_BASE = 'https://miastochojnice.pl/kat/przetargi-na-nieruchomosci-miejskie-wyniki/';
@@ -31,13 +32,13 @@ export function extractAttachmentUrl(html) {
   let m;
   while ((m = reCustom.exec(html)) !== null) {
     const href = m[1];
-    const title = m[2].replace(/<[^>]+>/g, '').trim();
+    const title = stripTags(m[2]).trim();
     list.push({ href, title });
   }
   if (list.length === 0) {
     const reDirect = /<a[^>]+href="([^"]+\.(?:pdf|docx?)(?:\?[^"]*)?)"[^>]*>([\s\S]*?)<\/a>/gi;
     while ((m = reDirect.exec(html)) !== null) {
-      list.push({ href: m[1], title: m[2].replace(/<[^>]+>/g, '').trim() });
+      list.push({ href: m[1], title: stripTags(m[2]).trim() });
     }
   }
   if (list.length === 0) return null;

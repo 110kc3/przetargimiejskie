@@ -7,6 +7,7 @@ import {
   parseAnnouncement,
   isResultNotice,
 } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 export const ORIGIN = 'https://bip.szydlowiec.pl';
 export const BOARD_PATH = '/44/Komunikaty_i_ogloszenia/';
@@ -37,7 +38,7 @@ export function harvestItemsFromHtml(html) {
   for (const block of parts) {
     const titleM = /<p class="phx ph3">\s*([\s\S]*?)\s*<\/p>/i.exec(block);
     if (!titleM) continue;
-    const title = titleM[1].replace(/<[^>]+>/g, '').trim().replace(/\s+/g, ' ');
+    const title = stripTags(titleM[1]).trim().replace(/\s+/g, ' ');
 
     let url = null;
     const linkM = /href="([^"]*\/44\/(\d+)\/([^"\/]+)\/(?:rejestr\/)?)"/i.exec(block);
@@ -61,7 +62,7 @@ export function harvestItemsFromHtml(html) {
     let am;
     while ((am = attRegex.exec(block)) !== null) {
       const href = resolveUrl(am[1]);
-      const label = am[2].replace(/<[^>]+>/g, '').trim().replace(/\s+/g, ' ');
+      const label = stripTags(am[2]).trim().replace(/\s+/g, ' ');
       if (href) {
         attachments.push({ href, label });
       }

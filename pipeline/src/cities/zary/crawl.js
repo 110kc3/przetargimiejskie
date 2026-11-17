@@ -7,6 +7,7 @@ import {
   isAnnouncementTitle,
   isResultTitle,
 } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 export const BASE_URL = 'https://bip.zary.pl';
 export const ANNOUNCE_BOARD = `${BASE_URL}/312/Przetargi/`;
@@ -33,7 +34,7 @@ export function harvestBoardItems(html) {
   let m;
   while ((m = regex.exec(html)) !== null) {
     const url = resolveUrl(m[1]);
-    const rawTitle = m[5].replace(/<[^>]+>/g, '').trim().replace(/\s+/g, ' ');
+    const rawTitle = stripTags(m[5]).trim().replace(/\s+/g, ' ');
     const title = rawTitle.replace(/^czytaj więcej o\s+/i, '');
     if (url && title) {
       items.push({ url, title });

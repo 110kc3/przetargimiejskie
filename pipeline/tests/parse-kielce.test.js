@@ -199,14 +199,14 @@ test('attachmentUrlFromDetail: prefers DOCX over PDF', () => {
   const url = attachmentUrlFromDetail(DETAIL_HTML_DOCX);
   assert.ok(url);
   assert.ok(url.endsWith('.docx'), `expected .docx, got ${url}`);
-  assert.ok(url.startsWith('https://bipum.kielce.eu'));
+  assert.equal(new URL(url).origin, 'https://bipum.kielce.eu');
 });
 
 test('attachmentUrlFromDetail: falls back to PDF when no DOCX present', () => {
   const url = attachmentUrlFromDetail(DETAIL_HTML_PDF_RESULT);
   assert.ok(url);
   assert.ok(url.endsWith('.pdf'), `expected .pdf, got ${url}`);
-  assert.ok(url.startsWith('https://bipum.kielce.eu'));
+  assert.equal(new URL(url).origin, 'https://bipum.kielce.eu');
   assert.ok(url.includes('INFORMACJA'), `expected result PDF, got ${url}`);
 });
 

@@ -7,6 +7,7 @@ import {
   parseAnnouncement,
   parseResultDoc as parseResultDocFn,
 } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 const ORIGIN = 'https://bip.mlawa.pl';
 const SEARCH_URLS = [
@@ -27,7 +28,7 @@ export async function crawlActive() {
       const matches = [...html.matchAll(/<h3[^>]*>\s*<a\s+href=[\"']([^\"']+)[\"'][^>]*>(.*?)<\/a>/gis)];
       for (const m of matches) {
         const fullUrl = m[1].startsWith('http') ? m[1] : `${ORIGIN}${m[1]}`;
-        const title = m[2].replace(/<[^>]+>/g, '').trim();
+        const title = stripTags(m[2]).trim();
         if (!seenUrls.has(fullUrl) && /przetarg/i.test(title)) {
           seenUrls.add(fullUrl);
           noticeUrls.push({ url: fullUrl, title });

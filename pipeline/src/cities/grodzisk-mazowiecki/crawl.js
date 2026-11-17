@@ -3,6 +3,7 @@ import { loadKnownSourceUrls } from '../../core/known-urls.js';
 import { pdfText } from '../../core/pdf-text.js';
 import { ocrPdf } from '../../core/ocr-pdf.js';
 import { parseAnnouncement, isWykaz, roundFromText } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 const WP_ORIGIN = 'https://nieruchomosci.grodzisk.pl';
 const BIP_ORIGIN = 'https://bip.grodzisk.pl';
@@ -84,7 +85,7 @@ async function harvestWpPosts() {
           const url = linkM[1];
           if (!seenUrls.has(url)) {
             seenUrls.add(url);
-            const title = titleM[1].replace(/<[^>]+>/g, '').replace(/&#8211;/g, '-').trim();
+            const title = stripTags(titleM[1]).replace(/&#8211;/g, '-').trim();
             posts.push({ id: url, title, content: chunk, link: url, categories: [] });
             countOnPage++;
           }

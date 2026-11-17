@@ -1,4 +1,5 @@
 import { parseAddress } from '../../core/normalize.js';
+import { decodeEntities, stripTags } from '../../core/html-text.js';
 
 const PL_MONTHS = {
   stycznia: 1, lutego: 2, marca: 3, kwietnia: 4, maja: 5, czerwca: 6,
@@ -10,22 +11,8 @@ const ROMAN = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6 };
 
 export function htmlToText(html) {
   if (!html) return '';
-  let s = html.replace(/<\s*(br|\/p|\/div|\/li|\/tr|\/h\d)\s*\/?>/gi, ' ');
-  s = s.replace(/<[^>]+>/g, ' ');
-  s = s
-    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
-    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(parseInt(d, 10)))
-    .replace(/&sup2;/gi, '²')
-    .replace(/&sup3;/gi, '³')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&oacute;/gi, 'ó')
-    .replace(/&ndash;/gi, '–')
-    .replace(/&mdash;/gi, '—');
-  return s.replace(/ /g, ' ').replace(/\s+/g, ' ').trim();
+  const withoutMarkup = stripTags(html.replace(/<\s*(br|\/p|\/div|\/li|\/tr|\/h\d)\s*\/?>/gi, ' '), ' ');
+  return decodeEntities(withoutMarkup).replace(/\s+/g, ' ').trim();
 }
 
 export function isSaleAuctionTitle(title) {

@@ -12,6 +12,7 @@ import {
   isLease,
   auctionDateFromText,
 } from './parse.js';
+import { decodeEntities, removeScriptsAndStyles, stripTags } from '../../core/html-text.js';
 
 const ORIGIN = 'https://bedzin.bip.info.pl';
 const IDMP_ANNOUNCE = 943;
@@ -85,14 +86,7 @@ async function fetchBoardRefs(idmp, maxPages = MAX_PAGES) {
 }
 
 export function extractDocBody(html) {
-  let txt = contentMain(html)
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&sup2;/g, '²')
-    .replace(/&amp;/g, '&')
-    .replace(/&oacute;/g, 'ó').replace(/&Oacute;/g, 'Ó')
+  let txt = decodeEntities(stripTags(removeScriptsAndStyles(contentMain(html), ' '), ' '))
     .replace(/&[a-z#0-9]+;/gi, ' ')
     .replace(/\s+/g, ' ')
     .trim();

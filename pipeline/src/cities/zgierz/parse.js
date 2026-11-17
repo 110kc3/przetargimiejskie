@@ -1,5 +1,6 @@
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
+import { stripTags } from '../../core/html-text.js';
 
 export const PL_MONTHS = {
   stycznia: '01',
@@ -260,7 +261,7 @@ export function parseListPage(html, catFilter = null) {
     const catId = m[3];
     const id = m[4];
     const afterHref = m[5];
-    const linkText = m[6].replace(/<[^>]+>/g, '').trim();
+    const linkText = stripTags(m[6]).trim();
 
     if (id === '807' || id === '813') continue;
 
@@ -294,7 +295,7 @@ export function parseDetailPage(html, pageUrl = '') {
 
   const titleM = /<h3 class="text-primary text-lg[^"]*">([\s\S]*?)<\/h3>/i.exec(html) ||
     /<h3[^>]*>([\s\S]*?)<\/h3>/i.exec(html);
-  const title = titleM ? titleM[1].replace(/<[^>]+>/g, '').trim() : null;
+  const title = titleM ? stripTags(titleM[1]).trim() : null;
 
   const dateM = /<div class="text-accent50 text-xs mr-\[20px\][^"]*">([\s\S]*?)<\/div>/i.exec(html) ||
     /datePublished":"([^"]+)"/i.exec(html);

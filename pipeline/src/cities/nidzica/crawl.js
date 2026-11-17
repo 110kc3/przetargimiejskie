@@ -11,6 +11,7 @@ import {
   isLease,
   isResultNotice,
 } from './parse.js';
+import { htmlToFlatText } from '../../core/html-text.js';
 
 export const ORIGIN = 'https://bip.nidzica.pl';
 export const BROWSER_UA =
@@ -28,14 +29,7 @@ export const CRAWL_BUDGET_MS = Number(process.env.NIDZICA_CRAWL_BUDGET_MS) || 8 
 
 
 export function stripTags(s) {
-  return (s || '')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&#\d+;/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+  return htmlToFlatText(s);
 }
 
 export function deamp(u) {

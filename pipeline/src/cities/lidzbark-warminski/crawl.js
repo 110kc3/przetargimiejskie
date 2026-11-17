@@ -11,6 +11,7 @@ import {
   buildNegativeResultText,
   dateOnly,
 } from './parse.js';
+import { htmlToFlatText } from '../../core/html-text.js';
 
 const ORIGIN = 'https://bip.lidzbarkw.pl';
 const BOARD_ID = 10054;
@@ -24,14 +25,7 @@ const CRAWL_BUDGET_MS = Number(process.env.LIDZBARK_WARMINSKI_CRAWL_BUDGET_MS) |
 
 
 function stripTags(s) {
-  return (s || '')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&#\d+;/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+  return htmlToFlatText(s);
 }
 
 const deamp = (u) => (u || '').replace(/&amp;/g, '&');

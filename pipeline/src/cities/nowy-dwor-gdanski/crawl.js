@@ -7,6 +7,7 @@ import {
   parseAnnouncement,
   parseResultDoc as parseResultDocFn,
 } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 const BASE_URL = 'https://bip.miastonowydwor.pl';
 const RSS_URL = `${BASE_URL}/rss/aktualnosci_pl.xml`;
@@ -53,7 +54,7 @@ export async function crawlActive() {
       for (const m of linkMatches) {
         const url = `${BASE_URL}${m[1]}`;
         const slug = m[2];
-        const rawTitle = m[3].replace(/<[^>]+>/g, '').trim();
+        const rawTitle = stripTags(m[3]).trim();
 
         if (!seenUrls.has(url) && (isAnnouncementTitle(rawTitle) || isResultTitle(rawTitle))) {
           seenUrls.add(url);

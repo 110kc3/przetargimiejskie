@@ -8,6 +8,7 @@ import {
   isAnnouncementTitle,
   isResultTitle,
 } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 export const BASE_URL = 'http://bip.srem.pl';
 export const BOARD_URL = `${BASE_URL}/public/?id=1162`;
@@ -26,7 +27,7 @@ export function extractSubcategories(html) {
   let m;
   while ((m = regex.exec(html)) !== null) {
     const url = resolveUrl(m[1]);
-    const label = m[2].replace(/<[^>]+>/g, '').trim().replace(/\s+/g, ' ');
+    const label = stripTags(m[2]).trim().replace(/\s+/g, ' ');
     if (url && label) {
       items.push({ url, label });
     }
@@ -40,7 +41,7 @@ export function extractFileAttachments(html) {
   let m;
   while ((m = regex.exec(html)) !== null) {
     const url = resolveUrl(m[1]);
-    const label = m[2].replace(/<[^>]+>/g, '').trim().replace(/\s+/g, ' ');
+    const label = stripTags(m[2]).trim().replace(/\s+/g, ' ');
     if (url && label) {
       files.push({ url, label });
     }

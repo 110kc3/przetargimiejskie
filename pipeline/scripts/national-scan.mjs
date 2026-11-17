@@ -7,6 +7,10 @@ const MASTER_PATH = 'spikes/master-cities.json';
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
+function isBiuletynNetHost(host) {
+  return host === 'biuletyn.net' || host.endsWith('.biuletyn.net');
+}
+
 async function resolves(host) {
   try {
     await dns.lookup(host);
@@ -65,7 +69,7 @@ export async function probeCity(city) {
 
     const lower = html.toLowerCase();
 
-    if (host.includes('biuletyn.net') || lower.includes('biuletyn.net')) {
+    if (isBiuletynNetHost(host) || /\bbiuletyn\.net\b/.test(lower)) {
       let defaultCid = 70;
       const mCid = fullUrl.match(/cid=(\d+)/) || html.match(/href="[^"]*cid=(\d+)[^"]*"[^>]*>[^<]*przetarg/i);
       if (mCid) defaultCid = Number(mCid[1]);

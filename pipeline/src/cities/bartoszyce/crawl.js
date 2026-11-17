@@ -9,6 +9,7 @@ import {
   isResultNotice,
   isLease,
 } from './parse.js';
+import { htmlToFlatText } from '../../core/html-text.js';
 
 const ORIGIN = 'https://bip.bartoszyce.pl';
 const BROWSER_UA =
@@ -24,14 +25,7 @@ const CRAWL_BUDGET_MS = Number(process.env.BARTOSZYCE_CRAWL_BUDGET_MS) || 8 * 60
 
 
 function stripTags(s) {
-  return (s || '')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&#\d+;/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+  return htmlToFlatText(s);
 }
 
 const deamp = (u) => (u || '').replace(/&amp;/g, '&');

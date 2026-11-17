@@ -1,5 +1,6 @@
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
+import { decodeEntities, removeScriptsAndStyles, stripTags } from '../../core/html-text.js';
 
 const ORIGIN = 'https://bip.zakopane.eu';
 
@@ -16,19 +17,12 @@ const ROMAN_ROUNDS = {
 
 export function htmlToText(html) {
   if (!html) return '';
-  return String(html)
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[\s\S]*?<\/style>/gi, '')
+  const withBreaks = removeScriptsAndStyles(String(html))
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<\/p>/gi, '\n\n')
-    .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#187;/gi, '»')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
+    .replace(/<\/li>/gi, '\n');
+  return decodeEntities(stripTags(withBreaks, ' '))
+    .replace(/\u00a0/g, ' ')
     .replace(/\r/g, '')
     .replace(/[ \t]+/g, ' ')
     .replace(/\n\s*\n+/g, '\n\n')

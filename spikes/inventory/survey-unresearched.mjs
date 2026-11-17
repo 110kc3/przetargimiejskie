@@ -91,7 +91,7 @@ async function surveyCity(city) {
 
   if (lower.includes('logonet') || html.includes('author" content="Logonet') || lower.includes('/przetargi-nieruchomosci/')) {
     platform = 'logonet';
-  } else if (lower.includes('biuletyn.net')) {
+  } else if (/\bbiuletyn\.net\b/.test(lower)) {
     platform = 'biuletynnet';
   } else if (lower.includes('systemdobip') || lower.includes('e-line')) {
     platform = 'systemdobip';

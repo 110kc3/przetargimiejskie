@@ -1,19 +1,10 @@
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
+import { decodeEntities as decodeHtmlEntities } from '../../core/html-text.js';
 
 export function decodeEntities(str) {
   if (!str) return '';
-  return str
-    .replace(/&#8211;/g, '–')
-    .replace(/&#8212;/g, '—')
-    .replace(/&#8230;/g, '…')
-    .replace(/&#160;/g, ' ')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>');
+  return decodeHtmlEntities(str).replace(/\u00a0/g, ' ');
 }
 
 export function parsePLN(str) {

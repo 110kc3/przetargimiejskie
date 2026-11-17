@@ -1,20 +1,11 @@
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
+import { htmlToFlatText, removeScriptsAndStyles } from '../../core/html-text.js';
 
 
 export function stripTags(s) {
-  return (s || '')
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<sup>([\s\S]*?)<\/sup>/gi, '$1')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&quot;/gi, '"')
-    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
-    .replace(/\s+/g, ' ')
-    .trim();
+  const withoutSuperscriptTags = removeScriptsAndStyles(s || '', ' ').replace(/<sup>([\s\S]*?)<\/sup>/gi, '$1');
+  return htmlToFlatText(withoutSuperscriptTags);
 }
 
 export function toAscii(s) {

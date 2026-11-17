@@ -1,5 +1,6 @@
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
+import { htmlToFlatText } from '../../core/html-text.js';
 
 export const PL_MONTHS = {
   stycznia: '01',
@@ -19,25 +20,7 @@ export const PL_MONTHS = {
 };
 
 export function cleanText(html) {
-  if (!html) return '';
-  return html
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[\s\S]*?<\/style>/gi, '')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&#039;/g, "'")
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&oacute;/g, 'ó')
-    .replace(/&Oacute;/g, 'Ó')
-    .replace(/&bdquo;/g, '„')
-    .replace(/&rdquo;/g, '”')
-    .replace(/&ndash;/g, '–')
-    .replace(/&mdash;/g, '—')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+  return htmlToFlatText(html);
 }
 
 export function parsePLN(str) {

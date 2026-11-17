@@ -1,4 +1,5 @@
 import { parseAddress, nominativeStreetDisplay } from '../../core/normalize.js';
+import { htmlToFlatText } from '../../core/html-text.js';
 
 const ROMAN_ROUNDS = {
   V: 5,
@@ -10,23 +11,7 @@ const ROMAN_ROUNDS = {
 
 export function cleanHtml(s) {
   if (!s) return '';
-  return s
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&ndash;/gi, '–')
-    .replace(/&mdash;/gi, '—')
-    .replace(/&oacute;/gi, 'ó')
-    .replace(/&Oacute;/gi, 'Ó')
-    .replace(/&sup2;/gi, '²')
-    .replace(/&sup3;/gi, '³')
-    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
-    .replace(/\s+/g, ' ')
-    .trim();
+  return htmlToFlatText(s);
 }
 
 export function parsePLN(s) {

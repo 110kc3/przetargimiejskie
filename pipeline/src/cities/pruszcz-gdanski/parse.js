@@ -1,5 +1,6 @@
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
+import { htmlToFlatText } from '../../core/html-text.js';
 
 export const PL_MONTHS = {
   stycznia: '01',
@@ -20,20 +21,7 @@ export const PL_MONTHS = {
 
 export function cleanText(text) {
   if (!text) return '';
-  return text
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[\s\S]*?<\/style>/gi, '')
-    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
-    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&#039;/g, "'")
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+  return htmlToFlatText(text.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1'));
 }
 
 export function isAnnouncementTitle(title) {

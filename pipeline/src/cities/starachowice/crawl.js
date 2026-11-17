@@ -10,6 +10,7 @@ import {
   auctionDateFromText,
   parseDatePL,
 } from './parse.js';
+import { removeScriptsAndStyles, replaceUntilStable, stripTags } from '../../core/html-text.js';
 
 const BASE_URL = 'https://starachowice.eu/pl/dla-mieszkanca/nieruchomosci/przetargi';
 const ORIGIN = 'https://starachowice.eu';
@@ -40,12 +41,9 @@ export function extractArticleBody(html) {
   if (startIdx === -1) return '';
   const endIdx = html.indexOf('</article>', startIdx);
   const chunk = html.substring(startIdx, endIdx !== -1 ? endIdx : startIdx + 15000);
-  return chunk
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[\s\S]*?<\/style>/gi, '')
-    .replace(/<nav[\s\S]*?<\/nav>/gi, '')
-    .replace(/Więcej aktualności[\s\S]*/i, '')
-    .replace(/<[^>]+>/g, ' ')
+  const withoutNavigation = replaceUntilStable(removeScriptsAndStyles(chunk), /<nav\b[^>]*>[\s\S]*?<\/nav[^>]*>/gi, '')
+    .replace(/Więcej aktualności[\s\S]*/i, '');
+  return stripTags(withoutNavigation, ' ')
     .replace(/&nbsp;/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();

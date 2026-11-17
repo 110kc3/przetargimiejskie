@@ -1,5 +1,6 @@
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
+import { removeScriptsAndStyles, replaceUntilStable, stripTags } from '../../core/html-text.js';
 
 const PL_MONTHS = {
   stycznia: 1,
@@ -46,14 +47,11 @@ export function decodeHtml(html) {
 export function htmlToText(html) {
   if (!html) return '';
   const decoded = decodeHtml(html);
-  const text = decoded
-    .replace(/<aside[^>]*>[\s\S]*?<\/aside>/gi, '')
-    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+  const withoutAsides = replaceUntilStable(removeScriptsAndStyles(decoded), /<aside\b[^>]*>[\s\S]*?<\/aside[^>]*>/gi, '');
+  const text = stripTags(withoutAsides
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<\/(p|div|tr|h[1-6])>/gi, '\n')
-    .replace(/<\/(td|th)>/gi, ' ')
-    .replace(/<[^>]+>/g, ' ');
+    .replace(/<\/(td|th)>/gi, ' '), ' ');
   return text
     .split('\n')
     .map((line) => line.replace(/\s+/g, ' ').trim())

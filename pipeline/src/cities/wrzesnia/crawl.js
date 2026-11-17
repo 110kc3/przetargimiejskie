@@ -7,6 +7,7 @@ import {
   isAnnouncementTitle,
   isResultTitle,
 } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 export const BASE_URL = 'https://bip.wrzesnia.pl';
 export const BOARD_URL = `${BASE_URL}/?bip=1&cid=216&bsc=N`;
@@ -32,7 +33,7 @@ export function harvestItemsFromHtml(html) {
   while ((m = regex.exec(html)) !== null) {
     const date = m[1];
     const url = resolveUrl(m[2]);
-    const title = m[3].replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').trim().replace(/\s+/g, ' ');
+    const title = stripTags(m[3]).replace(/&nbsp;/g, ' ').trim().replace(/\s+/g, ' ');
     if (url && title) {
       items.push({ url, title, date });
     }

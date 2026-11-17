@@ -123,7 +123,7 @@ for (const item of found) {
   else if (s.includes('bip.lubelskie.pl') || s.includes('pobierz_przetargi')) plat = 'biplubelskie';
   else if (s.includes('finn') || item.host.includes('.finn.pl')) plat = 'finn';
   else if (s.includes('wokiss') || item.host.includes('wokiss.pl')) plat = 'wokiss';
-  else if (s.includes('biuletyn.net')) plat = 'biuletynnet';
+  else if (/\bbiuletyn\.net\b/.test(s)) plat = 'biuletynnet';
   else if (s.includes('e-bip.pl')) plat = 'ebip';
   else if (s.includes('warmia.mazury.pl')) plat = 'warmia-mazury';
   platformCounts[plat] = (platformCounts[plat] || 0) + 1;

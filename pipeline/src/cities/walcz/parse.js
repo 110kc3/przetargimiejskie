@@ -1,5 +1,6 @@
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
+import { htmlToFlatText } from '../../core/html-text.js';
 
 const PL_MONTHS = {
   stycznia: '01', styczeń: '01', styczen: '01',
@@ -17,16 +18,7 @@ const PL_MONTHS = {
 };
 
 export function cleanText(s) {
-  return (s || '')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#039;/gi, "'")
-    .replace(/\s+/g, ' ')
-    .trim();
+  return htmlToFlatText(s);
 }
 
 export function parsePLN(numStr) {

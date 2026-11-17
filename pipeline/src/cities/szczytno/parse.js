@@ -1,5 +1,6 @@
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
+import { decodeEntities as decodeHtmlEntities, removeScriptsAndStyles, stripTags } from '../../core/html-text.js';
 
 
 const PL_MONTHS = {
@@ -10,24 +11,13 @@ const PL_MONTHS = {
 
 
 export function decodeEntities(s) {
-  return (s || '')
-    .replace(/&amp;/g, '&')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&quot;/g, '"')
-    .replace(/&#0?39;/g, "'")
-    .replace(/&oacute;/gi, 'ó')
-    .replace(/&ndash;/g, '–')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>');
+  return decodeHtmlEntities(s || '');
 }
 
 export function stripHtml(html) {
   if (!html) return '';
-  const withBreaks = String(html)
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<(?:br|\/p|\/div|\/tr|\/td|\/li|\/h\d)\s*\/?>/gi, ' \n ')
-    .replace(/<[^>]+>/g, ' ');
+  const withBreaks = stripTags(removeScriptsAndStyles(String(html), ' ')
+    .replace(/<(?:br|\/p|\/div|\/tr|\/td|\/li|\/h\d)\s*\/?>/gi, ' \n '), ' ');
   return decodeEntities(withBreaks).replace(/[ \t]+/g, ' ').replace(/\n[ \t]*\n+/g, '\n').trim();
 }
 

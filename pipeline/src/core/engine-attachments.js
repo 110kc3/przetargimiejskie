@@ -8,6 +8,7 @@ import { ocrPdf } from './ocr-pdf.js';
 import { docText } from './doc-text.js';
 import { findAuctionDate, parseAreaSqm } from './engine-fields.js';
 import { shareFromTitle } from './finn-bip.js';
+import { stripTags } from './html-text.js';
 
 const MAX_ATTACHMENTS_PER_NOTICE = 3;
 const MIN_TEXT_LAYER_CHARS = 200;
@@ -21,7 +22,7 @@ const DEPOSIT_AFTER_LABEL = /wadium[^0-9]{0,80}?(\d[\d\s.]*(?:,\d{2})?)\s*z[łl]
 export function attachmentUrlsFromHtml(html, pageUrl) {
   const found = [];
   for (const [, href, label] of (html || '').matchAll(ANCHOR)) {
-    const text = label.replace(/<[^>]+>/g, '').trim();
+    const text = stripTags(label).trim();
     const isDocument = DOCUMENT_EXTENSION.test(href) || DOCUMENT_EXTENSION.test(text) || ATTACHMENT_ENDPOINT.test(href);
     if (!isDocument || BOILERPLATE_ATTACHMENT.test(href) || BOILERPLATE_ATTACHMENT.test(text)) continue;
     try {

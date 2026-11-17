@@ -51,7 +51,7 @@ function resolveCityUrl(href) {
   if (!href) return '';
   if (/^https?:\/\//i.test(href)) return href;
   if (href.startsWith('/')) return `${CITY_ORIGIN}${href}`;
-  return `${CITY_ORIGIN}/${href.replace(/^\?/, '?')}`;
+  return `${CITY_ORIGIN}/${href}`;
 }
 
 function resolveZgmUrl(href) {

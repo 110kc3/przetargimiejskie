@@ -110,7 +110,7 @@ async function classifyOne(city) {
   if (lower.includes('logonet') || html.includes('author" content="Logonet') || lower.includes('/przetargi-nieruchomosci/')) {
     return { id: city.id, label: city.label, voivodeship: city.voivodeship, verdict: 'BUILD', platform: 'logonet', host: resolvedHost };
   }
-  if (lower.includes('biuletyn.net')) {
+  if (/\bbiuletyn\.net\b/.test(lower)) {
     return { id: city.id, label: city.label, voivodeship: city.voivodeship, verdict: 'BUILD', platform: 'biuletynnet', host: resolvedHost };
   }
   if (lower.includes('systemdobip') || lower.includes('e-line')) {

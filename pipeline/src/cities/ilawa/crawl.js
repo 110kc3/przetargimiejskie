@@ -10,6 +10,7 @@ import {
   resultAuctionDate,
   isResultNotice,
 } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 export const ORIGIN = 'https://bip.umilawa.pl';
 export const BOARD_PATH = '/77/Przetargi_-_mienie_komunalne/';
@@ -43,7 +44,7 @@ export function harvestItemsFromHtml(html) {
   let m;
   while ((m = regex.exec(html)) !== null) {
     const url = resolveUrl(m[1]);
-    const title = m[2].replace(/<[^>]+>/g, '').trim().replace(/\s+/g, ' ');
+    const title = stripTags(m[2]).trim().replace(/\s+/g, ' ');
     if (url && title) {
       out.push({ url, title });
     }
@@ -69,7 +70,7 @@ export function extractAttachmentUrls(html) {
   let m;
   while ((m = regex.exec(html)) !== null) {
     const href = resolveUrl(m[1]);
-    const label = m[2].replace(/<[^>]+>/g, '').trim().replace(/\s+/g, ' ');
+    const label = stripTags(m[2]).trim().replace(/\s+/g, ' ');
     if (href) {
       attachments.push({ href, label });
     }

@@ -7,6 +7,7 @@ import {
   parseAnnouncement,
   resultDateFromText,
 } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 const ORIGIN = 'https://bip.prudnik.pl';
 const BOARD_BASE =
@@ -41,7 +42,7 @@ export function parsePdfAttachments(html) {
   while ((m = re.exec(html || '')) !== null) {
     const rawHref = m[1].replace(/&amp;/gi, '&');
     const url = absUrl(rawHref);
-    const label = m[2].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    const label = stripTags(m[2]).replace(/\s+/g, ' ').trim();
     if (seen.has(url)) continue;
     seen.add(url);
     out.push({ url, label });

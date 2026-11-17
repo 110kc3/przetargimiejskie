@@ -257,6 +257,16 @@ To promote an engine, add real captured pages and attachment text under
 refresh of one city with strict `sanity-check.js`, and change its status in the
 same commit.
 
+HTML-to-text conversion goes through `core/html-text.js`; do not write a new
+`.replace()` chain for tags or entities. `htmlToFlatText` removes script and style
+blocks, strips tags and decodes entities into one whitespace-collapsed line;
+`removeScriptsAndStyles`, `stripTags` and `decodeEntities` are the building blocks
+for parsers that keep line breaks. Tag and block removal repeats until the text stops
+changing, and entities are decoded once, after markup is gone, so nested tags cannot
+reassemble and `&amp;lt;` stays literal. These are the patterns the Security workflow's
+CodeQL gate enforces (incomplete multi-character sanitization, bad tag filter,
+double escaping); hand-written chains reintroduce those alerts and fail the gate.
+
 Engine feeds often list years of archived notices, so `canonicalizeEngineRecords`
 publishes only current ones: a notice whose auction date has passed is dropped, and
 an undated notice is dropped when its title's issue date (`z dnia …`) is over 365

@@ -1,5 +1,6 @@
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
+import { htmlToFlatText } from '../../core/html-text.js';
 
 const PL_MONTHS = {
   stycznia: '01', styczen: '01',
@@ -19,16 +20,7 @@ const PL_MONTHS = {
 const OFFICE_STREETS_RE = /\b(?:Płocka|Plocka|1[- ]go\s+Maja|1\s+Maja)\b/i;
 
 export function htmlToText(html) {
-  if (!html) return '';
-  return html
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/\s+/g, ' ')
-    .trim();
+  return htmlToFlatText(html);
 }
 
 export function parseDate(str) {

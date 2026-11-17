@@ -6,6 +6,7 @@ import {
   parseAnnouncement,
   parseResultDoc as parseResultDocFn,
 } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 const BASE_URL = 'https://www.bip.zywiec.pl';
 const BOARD_URLS = [
@@ -25,7 +26,7 @@ export async function crawlActive() {
       const linkMatches = [...html.matchAll(/<a[^>]+href="([^"]*item\/([0-9]+))"[^>]*>([\s\S]*?)<\/a>/gi)];
       for (const m of linkMatches) {
         const id = m[2];
-        const rawTitle = m[3].replace(/<[^>]+>/g, '').trim();
+        const rawTitle = stripTags(m[3]).trim();
         if (!seenIds.has(id) && rawTitle) {
           seenIds.add(id);
           articles.push({

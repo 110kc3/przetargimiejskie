@@ -1,4 +1,5 @@
 import { parseAddress } from '../../core/normalize.js';
+import { htmlToFlatText } from '../../core/html-text.js';
 
 export const PL_MONTHS = {
   stycznia: '01', styczen: '01', styczeń: '01',
@@ -16,15 +17,7 @@ export const PL_MONTHS = {
 };
 
 export function cleanHtml(s) {
-  return (s || '')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&oacute;/gi, 'ó')
-    .replace(/&ndash;/gi, '-')
-    .replace(/&mdash;/gi, '-')
-    .replace(/\s+/g, ' ')
-    .trim();
+  return htmlToFlatText(String(s ?? '').replace(/&[nm]dash;/gi, '-'));
 }
 
 export function parsePLN(s) {

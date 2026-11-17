@@ -1,5 +1,6 @@
 import { parseAddress } from '../../core/normalize.js';
 import { classifyKind } from '../../core/classify-kind.js';
+import { decodeEntities, stripTags } from '../../core/html-text.js';
 
 const PL_MONTH = {
   stycznia: 1, lutego: 2, marca: 3, kwietnia: 4, maja: 5, czerwca: 6,
@@ -40,20 +41,13 @@ export function parseNum(numStr) {
 
 export function stripHtml(s) {
   if (!s) return '';
-  return String(s)
+  const withBreaks = String(s)
     .replace(/<!\[CDATA\[|\]\]>/g, '')
     .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<\/(p|li|div|h\d|tr)>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&ndash;/g, '–')
-    .replace(/&mdash;/g, '—')
-    .replace(/&sup2;/g, '²')
-    .replace(/&amp;/g, '&')
-    .replace(/&oacute;/g, 'ó')
-    .replace(/&Oacute;/g, 'Ó')
-    .replace(/&bdquo;|&rdquo;|&ldquo;|&quot;/g, '"')
-    .replace(/&#8221;|&#8222;|&#8220;/g, '"')
+    .replace(/<\/(p|li|div|h\d|tr)>/gi, '\n');
+  const withoutMarkup = stripTags(withBreaks, ' ')
+    .replace(/&(?:bdquo|rdquo|ldquo|#8221|#8222|#8220);/g, '&quot;');
+  return decodeEntities(withoutMarkup)
     .replace(/&[a-z#0-9]+;/gi, ' ')
     .replace(/[ \t\r]+/g, ' ')
     .replace(/\n\s+/g, '\n')
@@ -156,7 +150,7 @@ export function parseAuctionDate(text, fallbackDate = null) {
 const PRICE_RE = /\b(\d{1,3}(?:[ .]\d{3})*(?:[.,]\d{2})?)\s*z[łl]/gi;
 
 function extractStreetAndBuilding(rawStr) {
-  const m = /(?:ul\.|przy\s+ul\.)\s*((?:11\s+Listopada|\d+\s+[A-Za-zŁŚŻŹĆĘÓŃĄa-z]+|[A-Za-zŁŚŻŹĆĘÓŃĄa-z\s.-]+?))\s+(\d+[A-Za-z]?)\b/i.exec(rawStr) ||
+  const m = /(?:ul\.|przy\s+ul\.)\s*((?:11\s+Listopada|\d+\s+[a-ząćęłńóśźż]+|[a-ząćęłńóśźż\s.-]+?))\s+(\d+[A-Za-z]?)\b/i.exec(rawStr) ||
             /\b(11\s+Listopada)\s+(\d+[A-Za-z]?)\b/i.exec(rawStr) ||
             /\b([A-ZŁŚŻŹĆĘÓŃĄ][a-ząćęłńóśźż]+(?:\s+[A-ZŁŚŻŹĆĘÓŃĄ][a-ząćęłńóśźż]+)*)\s+(\d+[A-Za-z]?)\b/i.exec(rawStr);
   if (!m) return null;

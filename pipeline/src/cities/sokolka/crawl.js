@@ -7,6 +7,7 @@ import {
   parseAnnouncement,
   parseResultDoc as parseResultDocFn,
 } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 const BASE_URL = 'https://bip-umsokolka.podlaskie.eu';
 const BOARD_ROOT = `${BASE_URL}/przet_zam/47cac52c6f2e811/`;
@@ -28,7 +29,7 @@ export async function crawlActive() {
       const linkMatches = [...html.matchAll(/<a[^>]+href="([^"]*\.html)"[^>]*>([\s\S]*?)<\/a>/gi)];
       for (const m of linkMatches) {
         const rawHref = m[1];
-        const rawTitle = m[2].replace(/<[^>]+>/g, '').trim();
+        const rawTitle = stripTags(m[2]).trim();
         const url = rawHref.startsWith('http') ? rawHref : `${BASE_URL}${rawHref.startsWith('/') ? '' : '/'}${rawHref}`;
 
         if (!seenUrls.has(url) && (isAnnouncementTitle(rawTitle) || isResultTitle(rawTitle) || /grk6840/i.test(url))) {

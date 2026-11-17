@@ -10,6 +10,7 @@ import {
   parseAnnouncement,
   parseResultDoc,
 } from './parse.js';
+import { stripTags } from '../../core/html-text.js';
 
 const ORIGIN = 'https://umplonsk.bip.org.pl';
 const PARENT_URL = `${ORIGIN}/id/1999`;
@@ -45,7 +46,7 @@ export async function discoverYearBoards() {
       const subTree = html.slice(parentIdx, parentIdx + 4000);
       const matches = [...subTree.matchAll(/<a\s+href=\"\/id\/(\d+)\"[^>]*>([\s\S]*?)<\/a>/gi)];
       for (const m of matches) {
-        const text = m[2].replace(/<[^>]+>/g, '').trim();
+        const text = stripTags(m[2]).trim();
         if (/^20\d\d$/.test(text)) {
           ids.add(Number(m[1]));
         }
