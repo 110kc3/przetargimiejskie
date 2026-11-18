@@ -2,22 +2,22 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "chodziez",
-  "generated_at": "2026-11-17T22:11:46.981Z",
+  "generated_at": "2026-11-18T12:42:08.091Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
   "unique_properties": 6,
-  "active_listings": 1,
+  "active_listings": 0,
   "active_auctions": 1,
   "archived_auctions": 3,
   "wykaz_entries": 0,
   "land_plots": 1,
   "land_listings": 1,
-  "retained_properties": 5,
+  "retained_properties": 6,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-17T22:11:41.778Z",
-  "last_successful_source_check_at": "2026-11-17T22:11:41.778Z",
+  "last_source_attempt_at": "2026-11-18T12:42:03.839Z",
+  "last_successful_source_check_at": "2026-11-18T12:42:03.839Z",
   "monitored_assets": [
     "building",
     "land",
@@ -26,15 +26,15 @@
   ],
   "source_checks": {
     "property": {
-      "status": "healthy",
-      "last_attempt_at": "2026-11-17T22:11:41.778Z",
+      "status": "degraded",
+      "last_attempt_at": "2026-11-18T12:42:03.839Z",
       "last_success_at": "2026-11-17T22:11:41.778Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-11-17T22:11:41.778Z",
-      "last_success_at": "2026-11-17T22:11:41.778Z"
+      "last_attempt_at": "2026-11-18T12:42:03.839Z",
+      "last_success_at": "2026-11-18T12:42:03.839Z"
     }
   }
 }

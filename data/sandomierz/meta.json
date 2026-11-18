@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "sandomierz",
-  "generated_at": "2026-11-17T22:16:07.212Z",
+  "generated_at": "2026-11-18T12:46:27.780Z",
   "source_pdf_count": 37,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -16,8 +16,8 @@
   "retained_properties": 10,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-17T22:14:15.141Z",
-  "last_successful_source_check_at": "2026-11-17T22:14:15.141Z",
+  "last_source_attempt_at": "2026-11-18T12:44:35.484Z",
+  "last_successful_source_check_at": "2026-11-18T12:44:35.484Z",
   "monitored_assets": [
     "building",
     "garage",
@@ -27,14 +27,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-17T22:14:15.141Z",
-      "last_success_at": "2026-11-17T22:14:15.141Z"
+      "last_attempt_at": "2026-11-18T12:44:35.484Z",
+      "last_success_at": "2026-11-18T12:44:35.484Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-11-17T22:14:15.141Z",
-      "last_success_at": "2026-11-17T22:14:15.141Z"
+      "last_attempt_at": "2026-11-18T12:44:35.484Z",
+      "last_success_at": "2026-11-18T12:44:35.484Z"
     }
   }
 }

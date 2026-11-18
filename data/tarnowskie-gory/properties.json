@@ -3,6 +3,77 @@
   "city": "tarnowskie-gory",
   "properties": [
     {
+      "key": "strzeleckiej|1|",
+      "street": "Strzelecka",
+      "street_norm": "strzeleckiej",
+      "building": "1",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2024-03-28",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip.tarnowskiegory.pl/a,96483,ogloszenie-o-pierwszym-przetargu-pisemnym-nieograniczonym-na-sprzedaz-nieruchomosci-gruntowej-zabudo.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2024-06-12",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 2200000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=117893",
+          "notes": [],
+          "land_area_m2": 481
+        },
+        {
+          "date": "2024-10-01",
+          "round": 2,
+          "kind": "zabudowana",
+          "starting_price_pln": 2200000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118892",
+          "notes": [],
+          "land_area_m2": 481,
+          "detail_url": "https://bip.tarnowskiegory.pl/a,97186,ogloszenie-o-drugim-przetargu-pisemnym-nieograniczonym-na-sprzedaz-nieruchomosci-gruntowej-zabudowan.html"
+        },
+        {
+          "date": "2025-01-21",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": 2110000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119675",
+          "notes": [],
+          "land_area_m2": 481,
+          "detail_url": "https://bip.tarnowskiegory.pl/a,97720,ogloszenie-o-trzecim-przetargu-pisemnym-nieograniczonym-na-sprzedaz-nieruchomosci-gruntowej-zabudowa.html"
+        },
+        {
+          "date": "2026-11-17",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 2200000,
+          "outcome": "archived",
+          "area_m2": null,
+          "land_area_m2": 481,
+          "detail_url": "https://bip.tarnowskiegory.pl/a,103186,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nierucho.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
+    },
+    {
       "key": "strzeleckiej|13|",
       "street": "Strzelecka",
       "street_norm": "strzeleckiej",
@@ -567,65 +638,6 @@
         }
       ],
       "area_m2": 28.59
-    },
-    {
-      "key": "strzeleckiej|1|",
-      "street": "Strzelecka",
-      "street_norm": "strzeleckiej",
-      "building": "1",
-      "apt": null,
-      "kind": "zabudowana",
-      "listings": [
-        {
-          "date": "2024-03-28",
-          "round": 1,
-          "kind": "zabudowana",
-          "starting_price_pln": null,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip.tarnowskiegory.pl/a,96483,ogloszenie-o-pierwszym-przetargu-pisemnym-nieograniczonym-na-sprzedaz-nieruchomosci-gruntowej-zabudo.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        },
-        {
-          "date": "2024-06-12",
-          "round": 1,
-          "kind": "zabudowana",
-          "starting_price_pln": 2200000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=117893",
-          "notes": [],
-          "land_area_m2": 481
-        },
-        {
-          "date": "2024-10-01",
-          "round": 2,
-          "kind": "zabudowana",
-          "starting_price_pln": 2200000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=118892",
-          "notes": [],
-          "land_area_m2": 481,
-          "detail_url": "https://bip.tarnowskiegory.pl/a,97186,ogloszenie-o-drugim-przetargu-pisemnym-nieograniczonym-na-sprzedaz-nieruchomosci-gruntowej-zabudowan.html"
-        },
-        {
-          "date": "2025-01-21",
-          "round": 3,
-          "kind": "zabudowana",
-          "starting_price_pln": 2110000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=119675",
-          "notes": [],
-          "land_area_m2": 481,
-          "detail_url": "https://bip.tarnowskiegory.pl/a,97720,ogloszenie-o-trzecim-przetargu-pisemnym-nieograniczonym-na-sprzedaz-nieruchomosci-gruntowej-zabudowa.html"
-        }
-      ]
     },
     {
       "key": "augustyna swidra|20|",

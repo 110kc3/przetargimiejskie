@@ -2,35 +2,35 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "przemysl",
-  "generated_at": "2026-11-17T22:08:47.741Z",
+  "generated_at": "2026-11-18T12:37:09.158Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
   "unique_properties": 2,
-  "active_listings": 2,
+  "active_listings": 1,
   "active_auctions": 6,
   "archived_auctions": 3,
   "wykaz_entries": 0,
   "land_plots": 0,
   "land_listings": 0,
-  "retained_properties": 0,
+  "retained_properties": 1,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-17T22:08:30.998Z",
-  "last_successful_source_check_at": "2026-11-17T22:08:30.998Z",
+  "last_source_attempt_at": "2026-11-18T12:37:01.870Z",
+  "last_successful_source_check_at": "2026-11-18T12:37:01.870Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-17T22:08:30.998Z",
-      "last_success_at": "2026-11-17T22:08:30.998Z"
+      "last_attempt_at": "2026-11-18T12:37:01.870Z",
+      "last_success_at": "2026-11-18T12:37:01.870Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-11-17T22:08:30.998Z",
+      "last_attempt_at": "2026-11-18T12:37:01.870Z",
       "last_success_at": null
     }
   }

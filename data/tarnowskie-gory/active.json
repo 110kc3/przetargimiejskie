@@ -4,6 +4,25 @@
   "listings": [
     {
       "kind": "zabudowana",
+      "address_raw": "ul. Strzeleckiej 1",
+      "address": {
+        "street": "Strzeleckiej",
+        "street_norm": "strzeleckiej",
+        "building": "1",
+        "apt": null,
+        "key": "strzeleckiej|1|",
+        "warning": null
+      },
+      "area_m2": null,
+      "land_area_m2": 481,
+      "starting_price_pln": 2200000,
+      "auction_date": "2026-11-17",
+      "round": 1,
+      "detail_url": "https://bip.tarnowskiegory.pl/a,103186,burmistrz-miasta-tarnowskie-gory-oglasza-pierwszy-przetarg-ustny-nieograniczony-na-sprzedaz-nierucho.html",
+      "source_url": "https://bip.tarnowskiegory.pl/e,pobierz,get.html?id=124455"
+    },
+    {
+      "kind": "zabudowana",
       "address_raw": "ul. Swobodnej 1",
       "address": {
         "street": "Swobodnej",
