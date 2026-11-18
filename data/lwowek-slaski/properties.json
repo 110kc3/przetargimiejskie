@@ -16,11 +16,9 @@
           "kind": "mieszkalny",
           "starting_price_pln": 76000,
           "outcome": "unsold",
-          "unsold_reason": "unknown",
+          "unsold_reason": "no_buyer",
           "final_price_pln": null,
-          "notes": [
-            "parse: no achieved price and no explicit negative outcome"
-          ],
+          "notes": [],
           "area_m2": 73.68
         }
       ],
@@ -118,8 +116,8 @@
             "parse: missing starting price",
             "parse: no achieved price and no explicit negative outcome"
           ],
-          "area_m2": 27.8,
-          "round_source": "inferred"
+          "round_source": "inferred",
+          "area_m2": 27.8
         }
       ],
       "area_m2": 27.8
