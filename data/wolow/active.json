@@ -3,6 +3,39 @@
   "city": "wolow",
   "listings": [
     {
+      "kind": "zabudowana",
+      "address_raw": null,
+      "address": null,
+      "dzialka_nr": "627/5",
+      "obreb": null,
+      "area_m2": null,
+      "starting_price_pln": 76000,
+      "auction_date": "2026-12-29",
+      "round": 3,
+      "detail_url": "https://wolow.pl/4245/iii-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-lubiazu-lubiaz-ul-ogrodowa-dz-nr-6275-am-3.html",
+      "published_date": "2026-11-19"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "Zwycięstwa 22/2",
+      "address": {
+        "street": "Zwycięstwa",
+        "street_norm": "zwyciestwa",
+        "building": "22",
+        "apt": "2",
+        "key": "zwyciestwa|22|2",
+        "warning": null
+      },
+      "dzialka_nr": "22/26",
+      "obreb": null,
+      "area_m2": 38.62,
+      "starting_price_pln": 160000,
+      "auction_date": "2026-12-29",
+      "round": 2,
+      "detail_url": "https://wolow.pl/4225/ii-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-wolowie-ul-zwyciestwa-222-dz-nr-2226-am-35.html",
+      "published_date": "2026-11-18"
+    },
+    {
       "kind": "garaz",
       "address_raw": null,
       "address": null,

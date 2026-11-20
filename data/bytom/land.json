@@ -34,6 +34,37 @@
       ]
     },
     {
+      "key": "dz|3002/290",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "3002/290",
+      "obreb": null,
+      "street": "Pogodna",
+      "building": null,
+      "address_raw": "Pogodna dz. 3002/290",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.858849041127733%2C50.36024973253364%2C18.85947342442472%2C50.36069767566331&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.302b44fa-9fe8-4db9-bb49-6a0847c38c97",
+      "area_m2": 1359,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-21",
+          "round": 2,
+          "starting_price_pln": 187500,
+          "outcome": "active",
+          "area_m2": 1359,
+          "detail_url": "https://www.bytom.pl/dla-mieszkanca/nieruchomosci-gruntowe-niezabudowane/ul.-Pogodna-dzialka-nr-3002290/idn:47779",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3002/290"
+        }
+      ]
+    },
+    {
       "key": "addr|piekarska 26",
       "kind": "grunt",
       "city": "bytom",

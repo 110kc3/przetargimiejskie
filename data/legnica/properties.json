@@ -3,6 +3,138 @@
   "city": "legnica",
   "properties": [
     {
+      "key": "daszynskiego|15|1A",
+      "street": "Daszyńskiego",
+      "street_norm": "daszynskiego",
+      "building": "15",
+      "apt": "1A",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-08-28",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 200000,
+          "outcome": "archived",
+          "area_m2": 62.58,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38843,Ogloszenie-o-przetargu-na-lokal-przy-ul-Daszynskiego-15.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-12-17",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 62.58,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39498,Ogloszenie-o-przetargu-na-lokal-przy-ul-Daszynskiego-15.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 62.58
+    },
+    {
+      "key": "bracka|6|13",
+      "street": "Bracka",
+      "street_norm": "bracka",
+      "building": "6",
+      "apt": "13",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-20",
+          "round": 4,
+          "kind": "mieszkalny",
+          "starting_price_pln": 90000,
+          "outcome": "archived",
+          "area_m2": 36.2,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38605,Ogloszenie-o-przetargu-na-lokal-przy-ul-Brackiej-6.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        },
+        {
+          "date": "2026-12-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "active",
+          "area_m2": 36.2,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39495,Ogloszenie-o-przetargu-na-lokal-przy-ul-Brackiej-6.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 36.2
+    },
+    {
+      "key": "ul chojnowska|8-10|1A",
+      "street": "ul.Chojnowska",
+      "street_norm": "ul chojnowska",
+      "building": "8-10",
+      "apt": "1A",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-12-17",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 170000,
+          "outcome": "active",
+          "area_m2": 70.5,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39499,Ogloszenie-o-przetargu-na-lokal-przy-ul-Chojnowskiej-8-10.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 70.5
+    },
+    {
+      "key": "drukarska|24|1A",
+      "street": "Drukarska",
+      "street_norm": "drukarska",
+      "building": "24",
+      "apt": "1A",
+      "kind": "unknown",
+      "listings": [
+        {
+          "date": "2026-12-17",
+          "round": 1,
+          "kind": "unknown",
+          "starting_price_pln": 80000,
+          "outcome": "active",
+          "area_m2": 25.3,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39497,Ogloszenie-o-przetargu-ul-Drukarska-24.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 25.3
+    },
+    {
+      "key": "sw piotra|8|11",
+      "street": "Św.Piotra",
+      "street_norm": "sw piotra",
+      "building": "8",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 33.5,
+          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39496,Ogloszenie-o-przetargu-na-lokal-przy-ul-Sw-Piotra-8.html",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 33.5
+    },
+    {
       "key": "wroclawska|244|6",
       "street": "Wrocławska",
       "street_norm": "wroclawska",
@@ -70,7 +202,7 @@
           "round": 1,
           "kind": "unknown",
           "starting_price_pln": 200000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 56.2,
           "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39346,Ogloszenie-o-przetargu-na-lokal-przy-ul-Piastowskiej-10.html",
           "wadium_deadline": null,
@@ -92,7 +224,7 @@
           "round": 1,
           "kind": "unknown",
           "starting_price_pln": 45000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 12.03,
           "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39347,Ogloszenie-o-przetargu-na-lokal-przy-ul-Wroclawskiej-131.html",
           "wadium_deadline": null,
@@ -114,7 +246,7 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 150000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 46.7,
           "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39345,Ogloszenie-o-przetargu-na-lokal-przy-al-Rzeczypospolitej-107.html",
           "wadium_deadline": null,
@@ -136,7 +268,7 @@
           "round": 1,
           "kind": "unknown",
           "starting_price_pln": 190000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 59.1,
           "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39344,Ogloszenie-o-przetargu-na-lokal-przy-ul-Glogowskiej-65.html",
           "wadium_deadline": null,
@@ -158,7 +290,7 @@
           "round": 1,
           "kind": "unknown",
           "starting_price_pln": null,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 59.1,
           "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39341,Ogloszenie-o-przetargu-na-lokal-przy-ul-Dmowskiego-8.html",
           "wadium_deadline": null,
@@ -523,28 +655,6 @@
       "area_m2": 40.3
     },
     {
-      "key": "daszynskiego|15|1A",
-      "street": "Daszyńskiego",
-      "street_norm": "daszynskiego",
-      "building": "15",
-      "apt": "1A",
-      "kind": "uzytkowy",
-      "listings": [
-        {
-          "date": "2026-08-28",
-          "round": 1,
-          "kind": "uzytkowy",
-          "starting_price_pln": 200000,
-          "outcome": "archived",
-          "area_m2": 62.58,
-          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38843,Ogloszenie-o-przetargu-na-lokal-przy-ul-Daszynskiego-15.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 62.58
-    },
-    {
       "key": "chojnowska|86|1A",
       "street": "Chojnowska",
       "street_norm": "chojnowska",
@@ -631,28 +741,6 @@
         }
       ],
       "area_m2": 45.61
-    },
-    {
-      "key": "bracka|6|13",
-      "street": "Bracka",
-      "street_norm": "bracka",
-      "building": "6",
-      "apt": "13",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-20",
-          "round": 4,
-          "kind": "mieszkalny",
-          "starting_price_pln": 90000,
-          "outcome": "archived",
-          "area_m2": 36.2,
-          "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/38605,Ogloszenie-o-przetargu-na-lokal-przy-ul-Brackiej-6.html",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 36.2
     },
     {
       "key": "wroclawska|45|1B",

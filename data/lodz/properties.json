@@ -3,6 +3,259 @@
   "city": "lodz",
   "properties": [
     {
+      "key": "wierzbowa|13|5U",
+      "street": "Wierzbowa",
+      "street_norm": "wierzbowa",
+      "building": "13",
+      "apt": "5U",
+      "kind": "garaz",
+      "listings": [
+        {
+          "date": "2027-02-11",
+          "round": 1,
+          "kind": "garaz",
+          "starting_price_pln": 50000,
+          "outcome": "active",
+          "area_m2": 13.26,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustny-przetarg-nieograniczony-licytacja-na-sprzedaz-samodzielnego-lokalu-uzytkowego-garazu-usytuowanego-w-budynku-polozonym-w-lodzi-przy-ul-wierzbowej-13-id186208/2026/11/20/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 13.26
+    },
+    {
+      "key": "mahatmy gandhiego|6|36",
+      "street": "Mahatmy Gandhiego",
+      "street_norm": "mahatmy gandhiego",
+      "building": "6",
+      "apt": "36",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 300000,
+          "outcome": "active",
+          "area_m2": 42.12,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-oraz-samodzielnych-lokali-uzytkowych-polozonych-w-lodzi-przy-ulicach-mahatmy-gandhiego-6-zgierskiej-18-plk-jana-kilinskiego-89-henryka-sienkiewicza-29-henryka-sienkiewicza-37-juliana-tuwima-30-orlej-9-id186202/2026/11/20/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 42.12
+    },
+    {
+      "key": "zgierska|18|22",
+      "street": "Zgierska",
+      "street_norm": "zgierska",
+      "building": "18",
+      "apt": "22",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 30.67,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-oraz-samodzielnych-lokali-uzytkowych-polozonych-w-lodzi-przy-ulicach-mahatmy-gandhiego-6-zgierskiej-18-plk-jana-kilinskiego-89-henryka-sienkiewicza-29-henryka-sienkiewicza-37-juliana-tuwima-30-orlej-9-id186202/2026/11/20/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 30.67
+    },
+    {
+      "key": "plk jana kilinskiego|89|31",
+      "street": "płk. Jana Kilińskiego",
+      "street_norm": "plk jana kilinskiego",
+      "building": "89",
+      "apt": "31",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "active",
+          "area_m2": 22.49,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-oraz-samodzielnych-lokali-uzytkowych-polozonych-w-lodzi-przy-ulicach-mahatmy-gandhiego-6-zgierskiej-18-plk-jana-kilinskiego-89-henryka-sienkiewicza-29-henryka-sienkiewicza-37-juliana-tuwima-30-orlej-9-id186202/2026/11/20/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 22.49
+    },
+    {
+      "key": "henryka sienkiewicza|29|27",
+      "street": "Henryka Sienkiewicza",
+      "street_norm": "henryka sienkiewicza",
+      "building": "29",
+      "apt": "27",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 210000,
+          "outcome": "active",
+          "area_m2": 36.04,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-oraz-samodzielnych-lokali-uzytkowych-polozonych-w-lodzi-przy-ulicach-mahatmy-gandhiego-6-zgierskiej-18-plk-jana-kilinskiego-89-henryka-sienkiewicza-29-henryka-sienkiewicza-37-juliana-tuwima-30-orlej-9-id186202/2026/11/20/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 36.04
+    },
+    {
+      "key": "henryka sienkiewicza|29|28",
+      "street": "Henryka Sienkiewicza",
+      "street_norm": "henryka sienkiewicza",
+      "building": "29",
+      "apt": "28",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 220000,
+          "outcome": "active",
+          "area_m2": 38.33,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-oraz-samodzielnych-lokali-uzytkowych-polozonych-w-lodzi-przy-ulicach-mahatmy-gandhiego-6-zgierskiej-18-plk-jana-kilinskiego-89-henryka-sienkiewicza-29-henryka-sienkiewicza-37-juliana-tuwima-30-orlej-9-id186202/2026/11/20/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 38.33
+    },
+    {
+      "key": "henryka sienkiewicza|29|35",
+      "street": "Henryka Sienkiewicza",
+      "street_norm": "henryka sienkiewicza",
+      "building": "29",
+      "apt": "35",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "active",
+          "area_m2": 31.39,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-oraz-samodzielnych-lokali-uzytkowych-polozonych-w-lodzi-przy-ulicach-mahatmy-gandhiego-6-zgierskiej-18-plk-jana-kilinskiego-89-henryka-sienkiewicza-29-henryka-sienkiewicza-37-juliana-tuwima-30-orlej-9-id186202/2026/11/20/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 31.39
+    },
+    {
+      "key": "henryka sienkiewicza|37|8U",
+      "street": "Henryka Sienkiewicza",
+      "street_norm": "henryka sienkiewicza",
+      "building": "37",
+      "apt": "8U",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2027-02-11",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 140000,
+          "outcome": "active",
+          "area_m2": 35.83,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-oraz-samodzielnych-lokali-uzytkowych-polozonych-w-lodzi-przy-ulicach-mahatmy-gandhiego-6-zgierskiej-18-plk-jana-kilinskiego-89-henryka-sienkiewicza-29-henryka-sienkiewicza-37-juliana-tuwima-30-orlej-9-id186202/2026/11/20/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 35.83
+    },
+    {
+      "key": "henryka sienkiewicza|37|10U",
+      "street": "Henryka Sienkiewicza",
+      "street_norm": "henryka sienkiewicza",
+      "building": "37",
+      "apt": "10U",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2027-02-11",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 310000,
+          "outcome": "active",
+          "area_m2": 80.99,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-oraz-samodzielnych-lokali-uzytkowych-polozonych-w-lodzi-przy-ulicach-mahatmy-gandhiego-6-zgierskiej-18-plk-jana-kilinskiego-89-henryka-sienkiewicza-29-henryka-sienkiewicza-37-juliana-tuwima-30-orlej-9-id186202/2026/11/20/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 80.99
+    },
+    {
+      "key": "juliana tuwima|30|15",
+      "street": "Juliana Tuwima",
+      "street_norm": "juliana tuwima",
+      "building": "30",
+      "apt": "15",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 410000,
+          "outcome": "active",
+          "area_m2": 87.86,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-oraz-samodzielnych-lokali-uzytkowych-polozonych-w-lodzi-przy-ulicach-mahatmy-gandhiego-6-zgierskiej-18-plk-jana-kilinskiego-89-henryka-sienkiewicza-29-henryka-sienkiewicza-37-juliana-tuwima-30-orlej-9-id186202/2026/11/20/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 87.86
+    },
+    {
+      "key": "orla|9|11",
+      "street": "Orla",
+      "street_norm": "orla",
+      "building": "9",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-11",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "active",
+          "area_m2": 43.87,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/ustne-przetargi-nieograniczone-licytacje-na-sprzedaz-samodzielnych-lokali-mieszkalnych-oraz-samodzielnych-lokali-uzytkowych-polozonych-w-lodzi-przy-ulicach-mahatmy-gandhiego-6-zgierskiej-18-plk-jana-kilinskiego-89-henryka-sienkiewicza-29-henryka-sienkiewicza-37-juliana-tuwima-30-orlej-9-id186202/2026/11/20/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 43.87
+    },
+    {
       "key": "augusta cieszkowskiego|22|48",
       "street": "Augusta Cieszkowskiego",
       "street_norm": "augusta cieszkowskiego",

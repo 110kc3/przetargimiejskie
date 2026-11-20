@@ -4,6 +4,96 @@
   "listings": [
     {
       "kind": "unknown",
+      "address_raw": "ul.Chojnowska 8-10/1A",
+      "address": {
+        "street": "ul.Chojnowska",
+        "street_norm": "ul chojnowska",
+        "building": "8-10",
+        "apt": "1A",
+        "key": "ul chojnowska|8-10|1A",
+        "warning": null
+      },
+      "auction_date": "2026-12-17",
+      "round": 1,
+      "area_m2": 70.5,
+      "starting_price_pln": 170000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39499,Ogloszenie-o-przetargu-na-lokal-przy-ul-Chojnowskiej-8-10.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/66436/20261117przetargchoj.docx"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Daszyńskiego 15/1A",
+      "address": {
+        "street": "Daszyńskiego",
+        "street_norm": "daszynskiego",
+        "building": "15",
+        "apt": "1A",
+        "key": "daszynskiego|15|1A",
+        "warning": null
+      },
+      "auction_date": "2026-12-17",
+      "round": 1,
+      "area_m2": 62.58,
+      "starting_price_pln": 200000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39498,Ogloszenie-o-przetargu-na-lokal-przy-ul-Daszynskiego-15.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/66435/20261117przetargDasz.doc"
+    },
+    {
+      "kind": "unknown",
+      "address_raw": "ul. Drukarska 24/1A",
+      "address": {
+        "street": "Drukarska",
+        "street_norm": "drukarska",
+        "building": "24",
+        "apt": "1A",
+        "key": "drukarska|24|1A",
+        "warning": null
+      },
+      "auction_date": "2026-12-17",
+      "round": 1,
+      "area_m2": 25.3,
+      "starting_price_pln": 80000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39497,Ogloszenie-o-przetargu-ul-Drukarska-24.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/66434/20261117przetargdruk.docx"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Św.Piotra 8/11",
+      "address": {
+        "street": "Św.Piotra",
+        "street_norm": "sw piotra",
+        "building": "8",
+        "apt": "11",
+        "key": "sw piotra|8|11",
+        "warning": null
+      },
+      "auction_date": "2026-12-17",
+      "round": 1,
+      "area_m2": 33.5,
+      "starting_price_pln": null,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39496,Ogloszenie-o-przetargu-na-lokal-przy-ul-Sw-Piotra-8.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/66433/wyciag.doc"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Bracka 6/13",
+      "address": {
+        "street": "Bracka",
+        "street_norm": "bracka",
+        "building": "6",
+        "apt": "13",
+        "key": "bracka|6|13",
+        "warning": null
+      },
+      "auction_date": "2026-12-17",
+      "round": 1,
+      "area_m2": 36.2,
+      "starting_price_pln": 100000,
+      "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39495,Ogloszenie-o-przetargu-na-lokal-przy-ul-Brackiej-6.html",
+      "doc_url": "https://um.bip.legnica.eu/download/107/66432/20261117przetargbra.docx"
+    },
+    {
+      "kind": "unknown",
       "address_raw": "ul. Wrocławska 244/6",
       "address": {
         "street": "Wrocławska",
@@ -122,12 +212,11 @@
         "warning": null
       },
       "auction_date": "2026-11-19",
-      "round": 1,
+      "round": null,
       "area_m2": null,
       "starting_price_pln": null,
       "detail_url": "https://um.bip.legnica.eu/uml/przetargi-na-nieruchomo/przetargi-na-lokale/39341,Ogloszenie-o-przetargu-na-lokal-przy-ul-Dmowskiego-8.html",
-      "doc_url": null,
-      "round_source": "inferred"
+      "doc_url": null
     }
   ],
   "wykaz": []

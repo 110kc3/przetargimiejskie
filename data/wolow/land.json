@@ -309,7 +309,7 @@
           "date": "2026-11-19",
           "round": 4,
           "starting_price_pln": 88000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1230,
           "detail_url": "https://wolow.pl/4075/iv-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-lipnicy-lipnica-ul-mchowa-dz-nr-2199-am-1.html"
         }
@@ -353,7 +353,10 @@
           "outcome": "unsold",
           "area_m2": 2657,
           "detail_url": "https://wolow.pl/4085/ii-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-wolowie-wolow-ul-powstancow-slaskich-dz-nr-151-am-13.html",
-          "source_url": "https://wolow.pl/4085/ii-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-wolowie-wolow-ul-powstancow-slaskich-dz-nr-151-am-13.html"
+          "source_url": "https://wolow.pl/4085/ii-ustny-przetarg-nieograniczony-na-sprzedaz-nieruchomosci-polozonej-w-wolowie-wolow-ul-powstancow-slaskich-dz-nr-151-am-13.html",
+          "notes": [
+            "parse: no achieved-price document exists on this source (see parse.js header) — outcome inferred from the next round being published, not a source-stated result"
+          ]
         }
       ],
       "parcels": [

@@ -69,6 +69,39 @@
       ]
     },
     {
+      "key": "dz|0012 sosnowiec|3069/21",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "3069/21",
+      "obreb": "0012 Sosnowiec",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 3069/21, obręb 0012 Sosnowiec",
+      "dzialka_id": "247501_1.0012.3069/21",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0012.3069%2F21",
+      "area_m2": 2244,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-01-15",
+          "round": 1,
+          "starting_price_pln": 207000,
+          "outcome": "active",
+          "area_m2": 2244,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,565518,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-306921-obreb-0012-sosnowiec-polozonej-w-sosnowcu-p.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,565518,przetarg-ustny-ograniczony-na-sprzedaz-dzialki-nr-306921-obreb-0012-sosnowiec-polozonej-w-sosnowcu-p.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "3069/21",
+          "dzialka_id": "247501_1.0012.3069/21",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0012.3069%2F21"
+        }
+      ]
+    },
+    {
       "key": "dz|0007 porąbka|2821/8",
       "kind": "grunt",
       "city": "sosnowiec",

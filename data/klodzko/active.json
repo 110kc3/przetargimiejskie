@@ -1,24 +1,6 @@
 {
   "schema_version": 1,
   "city": "klodzko",
-  "listings": [
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Niskiej 2/13",
-      "address": {
-        "street": "Niskiej",
-        "street_norm": "niskiej",
-        "building": "2",
-        "apt": "13",
-        "key": "niskiej|2|13",
-        "warning": null
-      },
-      "area_m2": 40.88,
-      "starting_price_pln": 135000,
-      "auction_date": "2026-11-17",
-      "round": 1,
-      "detail_url": "https://um.bip.klodzko.pl/index.php?n=i&id=17749&akcja=info&menu=346"
-    }
-  ],
+  "listings": [],
   "wykaz": []
 }

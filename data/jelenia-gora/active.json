@@ -4,6 +4,114 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul. Wodna 9/3",
+      "address": {
+        "street": "Wodna",
+        "street_norm": "wodna",
+        "building": "9",
+        "apt": "3",
+        "key": "wodna|9|3",
+        "warning": null
+      },
+      "area_m2": 45.97,
+      "starting_price_pln": 230000,
+      "auction_date": "2027-01-12",
+      "round": 2,
+      "detail_url": "https://bip.jeleniagora.pl/artykul/126/26446/125-2026",
+      "source_url": "https://bip.jeleniagora.pl/attachments/download/52668"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Kiepury 30/53",
+      "address": {
+        "street": "Kiepury",
+        "street_norm": "kiepury",
+        "building": "30",
+        "apt": "53",
+        "key": "kiepury|30|53",
+        "warning": null
+      },
+      "area_m2": 54.89,
+      "starting_price_pln": 380000,
+      "auction_date": "2027-01-14",
+      "round": 2,
+      "detail_url": "https://bip.jeleniagora.pl/artykul/126/26438/122-2026",
+      "source_url": "https://bip.jeleniagora.pl/attachments/download/52656"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wita Stwosza 28/1",
+      "address": {
+        "street": "Wita Stwosza",
+        "street_norm": "wita stwosza",
+        "building": "28",
+        "apt": "1",
+        "key": "wita stwosza|28|1",
+        "warning": null
+      },
+      "area_m2": 43.2,
+      "starting_price_pln": 280000,
+      "auction_date": "2027-01-14",
+      "round": 2,
+      "detail_url": "https://bip.jeleniagora.pl/artykul/126/26438/122-2026",
+      "source_url": "https://bip.jeleniagora.pl/attachments/download/52656"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Cieplicka 32/6",
+      "address": {
+        "street": "Cieplicka",
+        "street_norm": "cieplicka",
+        "building": "32",
+        "apt": "6",
+        "key": "cieplicka|32|6",
+        "warning": null
+      },
+      "area_m2": 39.8,
+      "starting_price_pln": 110000,
+      "auction_date": "2027-01-14",
+      "round": 2,
+      "detail_url": "https://bip.jeleniagora.pl/artykul/126/26438/122-2026",
+      "source_url": "https://bip.jeleniagora.pl/attachments/download/52656"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Zjednoczenia Narodowego 36/3",
+      "address": {
+        "street": "Zjednoczenia Narodowego",
+        "street_norm": "zjednoczenia narodowego",
+        "building": "36",
+        "apt": "3",
+        "key": "zjednoczenia narodowego|36|3",
+        "warning": null
+      },
+      "area_m2": 91.13,
+      "starting_price_pln": 280000,
+      "auction_date": "2027-01-14",
+      "round": 2,
+      "detail_url": "https://bip.jeleniagora.pl/artykul/126/26438/122-2026",
+      "source_url": "https://bip.jeleniagora.pl/attachments/download/52656"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Jasna 4/3",
+      "address": {
+        "street": "Jasna",
+        "street_norm": "jasna",
+        "building": "4",
+        "apt": "3",
+        "key": "jasna|4|3",
+        "warning": null
+      },
+      "area_m2": 48,
+      "starting_price_pln": 240000,
+      "auction_date": "2027-01-14",
+      "round": 2,
+      "detail_url": "https://bip.jeleniagora.pl/artykul/126/26438/122-2026",
+      "source_url": "https://bip.jeleniagora.pl/attachments/download/52656"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "Plac Energetyka 1/4",
       "address": {
         "street": "Plac Energetyka",

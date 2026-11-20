@@ -3,6 +3,74 @@
   "city": "walbrzych",
   "listings": [
     {
+      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52304/walbrzych-przy-ul-daszynskiego-31-1",
+      "address": {
+        "street": "Daszyńskiego",
+        "street_norm": "daszynskiego",
+        "building": "31",
+        "apt": "1",
+        "key": "daszynskiego|31|1",
+        "warning": null
+      },
+      "address_raw": "ul. Daszyńskiego 31/1",
+      "kind": "mieszkalny",
+      "starting_price_pln": 40000,
+      "auction_date": "2027-01-13",
+      "round": 1,
+      "round_source": "inferred"
+    },
+    {
+      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52303/walbrzych-przy-ul-andersa-139-6",
+      "address": {
+        "street": "Andersa",
+        "street_norm": "andersa",
+        "building": "139",
+        "apt": "6",
+        "key": "andersa|139|6",
+        "warning": null
+      },
+      "address_raw": "ul. Andersa 139/6",
+      "kind": "mieszkalny",
+      "starting_price_pln": 45000,
+      "auction_date": "2027-01-13",
+      "round": 1,
+      "round_source": "inferred"
+    },
+    {
+      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52305/walbrzych-przy-ul-krolewieckiej-6b-1",
+      "address": {
+        "street": "Królewieckiej",
+        "street_norm": "krolewieckiej",
+        "building": "6B",
+        "apt": "1",
+        "key": "krolewieckiej|6B|1",
+        "warning": null
+      },
+      "address_raw": "ul. Królewieckiej 6B/1",
+      "kind": "mieszkalny",
+      "starting_price_pln": 40000,
+      "auction_date": "2027-01-13",
+      "round": 1,
+      "round_source": "inferred"
+    },
+    {
+      "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52306/walbrzych-przy-ul-asnyka-2a-8",
+      "address": {
+        "street": "Asnyka",
+        "street_norm": "asnyka",
+        "building": "2A",
+        "apt": "8",
+        "key": "asnyka|2A|8",
+        "warning": null
+      },
+      "address_raw": "ul. Asnyka 2A/8",
+      "kind": "mieszkalny",
+      "starting_price_pln": 82000,
+      "auction_date": "2027-01-13",
+      "round": 1,
+      "round_source": "inferred"
+    },
+    {
       "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52122/przy-ul-andersa-172-11",
       "address": {
         "street": "Andersa",

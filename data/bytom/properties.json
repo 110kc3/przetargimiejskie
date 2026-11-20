@@ -3,6 +3,29 @@
   "city": "bytom",
   "properties": [
     {
+      "key": "sadowa|6|8",
+      "street": "sadowa",
+      "street_norm": "sadowa",
+      "building": "6",
+      "apt": "8",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-12-21",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 300000,
+          "outcome": "active",
+          "area_m2": 952,
+          "detail_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 952
+    },
+    {
       "key": "marszalka jozefa pilsudskiego|7|11",
       "street": "marszalka jozefa pilsudskiego",
       "street_norm": "marszalka jozefa pilsudskiego",
@@ -38,7 +61,7 @@
           "round": 1,
           "kind": "uzytkowy",
           "starting_price_pln": 50000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 23.43,
           "detail_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html",
           "wadium_deadline": null,
@@ -61,7 +84,7 @@
           "round": 1,
           "kind": "uzytkowy",
           "starting_price_pln": 50000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 23.78,
           "detail_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html",
           "wadium_deadline": null,

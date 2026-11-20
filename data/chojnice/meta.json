@@ -2,22 +2,22 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "chojnice",
-  "generated_at": "2026-11-18T21:02:53.149Z",
-  "source_pdf_count": 69,
+  "generated_at": "2026-11-20T12:49:24.989Z",
+  "source_pdf_count": 67,
   "parsed_records": 15,
-  "parser_note_count": 188,
+  "parser_note_count": 143,
   "unique_properties": 11,
   "active_listings": 0,
   "active_auctions": 0,
   "archived_auctions": 15,
   "wykaz_entries": 0,
   "land_plots": 78,
-  "land_listings": 366,
+  "land_listings": 318,
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-18T21:00:52.499Z",
-  "last_successful_source_check_at": "2026-11-18T21:00:52.499Z",
+  "last_source_attempt_at": "2026-11-20T12:47:24.267Z",
+  "last_successful_source_check_at": "2026-11-20T12:47:24.267Z",
   "monitored_assets": [
     "building",
     "commercial",
@@ -28,14 +28,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-18T21:00:52.499Z",
-      "last_success_at": "2026-11-18T21:00:52.499Z"
+      "last_attempt_at": "2026-11-20T12:47:24.267Z",
+      "last_success_at": "2026-11-20T12:47:24.267Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-11-18T21:00:52.499Z",
-      "last_success_at": "2026-11-18T21:00:52.499Z"
+      "last_attempt_at": "2026-11-20T12:47:24.267Z",
+      "last_success_at": "2026-11-20T12:47:24.267Z"
     }
   }
 }

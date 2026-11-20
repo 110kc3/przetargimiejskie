@@ -3,6 +3,90 @@
   "city": "walbrzych",
   "properties": [
     {
+      "key": "daszynskiego|31|1",
+      "street": "Daszyńskiego",
+      "street_norm": "daszynskiego",
+      "building": "31",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-01-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 40000,
+          "outcome": "active",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52304/walbrzych-przy-ul-daszynskiego-31-1",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "andersa|139|6",
+      "street": "Andersa",
+      "street_norm": "andersa",
+      "building": "139",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-01-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 45000,
+          "outcome": "active",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52303/walbrzych-przy-ul-andersa-139-6",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "krolewieckiej|6B|1",
+      "street": "Królewieckiej",
+      "street_norm": "krolewieckiej",
+      "building": "6B",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-01-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 40000,
+          "outcome": "active",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52305/walbrzych-przy-ul-krolewieckiej-6b-1",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
+      "key": "asnyka|2A|8",
+      "street": "Asnyka",
+      "street_norm": "asnyka",
+      "building": "2A",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-01-13",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 82000,
+          "outcome": "active",
+          "detail_url": "https://bip.um.walbrzych.pl/przetarg-nieruchomosci/52306/walbrzych-przy-ul-asnyka-2a-8",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
       "key": "1 maja|110|1",
       "street": "1 Maja",
       "street_norm": "1 maja",

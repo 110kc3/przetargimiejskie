@@ -24,6 +24,26 @@
     },
     {
       "kind": "uzytkowy",
+      "address_raw": "sadowa",
+      "address": {
+        "key": "sadowa|6|8",
+        "street": "sadowa",
+        "street_norm": "sadowa",
+        "building": "6",
+        "apt": "8",
+        "warning": null
+      },
+      "auction_date": "2026-12-21",
+      "published_date": null,
+      "round": 1,
+      "area_m2": 952,
+      "starting_price_pln": 300000,
+      "detail_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html",
+      "doc_url": "https://www.bytom.pl/download/Ogloszenie-przetargu-ul.-Sadowa-6_8,8388.doc",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "uzytkowy",
       "address_raw": "artura grottgera",
       "address": {
         "key": "artura grottgera|5|13",
@@ -35,12 +55,11 @@
       },
       "auction_date": "2026-11-18",
       "published_date": null,
-      "round": 1,
+      "round": null,
       "area_m2": 23.43,
       "starting_price_pln": 50000,
       "detail_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html",
-      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Grottgera-5_13,25511.doc",
-      "round_source": "inferred"
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Grottgera-5_13,25511.doc"
     },
     {
       "kind": "uzytkowy",
@@ -55,12 +74,11 @@
       },
       "auction_date": "2026-11-18",
       "published_date": null,
-      "round": 1,
+      "round": null,
       "area_m2": 23.78,
       "starting_price_pln": 50000,
       "detail_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html",
-      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Grottgera-6_11,25501.doc",
-      "round_source": "inferred"
+      "doc_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Grottgera-6_11,25501.doc"
     }
   ],
   "wykaz": []

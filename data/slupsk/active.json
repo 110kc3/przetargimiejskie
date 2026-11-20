@@ -4,6 +4,42 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "Kołłątaja 39,39A",
+      "address": {
+        "street": "Kołłątaja",
+        "street_norm": "kollataja",
+        "building": "39,39A",
+        "apt": "4A",
+        "key": "kollataja|39,39A|4A",
+        "warning": null
+      },
+      "auction_date": "2026-12-22",
+      "round": 2,
+      "area_m2": 30.94,
+      "starting_price_pln": 90000,
+      "kw": "SL1S/000",
+      "detail_url": "https://bip.um.slupsk.pl/przetargi/3284.html"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Podgórnej 2A",
+      "address": {
+        "street": "Podgórnej",
+        "street_norm": "podgornej",
+        "building": "2A",
+        "apt": "6",
+        "key": "podgornej|2A|6",
+        "warning": null
+      },
+      "auction_date": "2026-12-22",
+      "round": 2,
+      "area_m2": 39.88,
+      "starting_price_pln": 130000,
+      "kw": null,
+      "detail_url": "https://bip.um.slupsk.pl/przetargi/3280.html"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Ignacego Jana Paderewskiego 7",
       "address": {
         "street": "Ignacego Jana Paderewskiego",
