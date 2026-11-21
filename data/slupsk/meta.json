@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "slupsk",
-  "generated_at": "2026-11-20T12:26:10.126Z",
+  "generated_at": "2026-11-21T12:00:05.653Z",
   "source_pdf_count": 2,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -16,21 +16,21 @@
   "retained_properties": 14,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-20T12:25:00.935Z",
-  "last_successful_source_check_at": "2026-11-20T12:25:00.935Z",
+  "last_source_attempt_at": "2026-11-21T11:58:56.375Z",
+  "last_successful_source_check_at": "2026-11-21T11:58:56.375Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-20T12:25:00.935Z",
-      "last_success_at": "2026-11-20T12:25:00.935Z"
+      "last_attempt_at": "2026-11-21T11:58:56.375Z",
+      "last_success_at": "2026-11-21T11:58:56.375Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-11-20T12:25:00.935Z",
+      "last_attempt_at": "2026-11-21T11:58:56.375Z",
       "last_success_at": null
     }
   }
