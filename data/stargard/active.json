@@ -1,41 +1,6 @@
 {
   "schema_version": 1,
   "city": "stargard",
-  "listings": [
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Dworcowa 31/2",
-      "address": {
-        "street": "Dworcowa",
-        "street_norm": "dworcowa",
-        "building": "31",
-        "apt": "2",
-        "key": "dworcowa|31|2",
-        "warning": null
-      },
-      "area_m2": 44.85,
-      "starting_price_pln": 240000,
-      "auction_date": null,
-      "round": 1,
-      "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-ul-dworcowa-31-2-i-przetarg-ustny-nieograniczony/"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "przy ul. Gdyńskiej 26A/2",
-      "address": {
-        "street": "przy ul. Gdyńskiej",
-        "street_norm": "przy ul gdynskiej",
-        "building": "26A",
-        "apt": "2",
-        "key": "przy ul gdynskiej|26A|2",
-        "warning": null
-      },
-      "area_m2": 48,
-      "starting_price_pln": 285000,
-      "auction_date": "2026-11-30",
-      "round": 1,
-      "detail_url": "https://tbs.stargard.pl/ogloszenia/lokal-mieszkalny-przy-ul-gdynskiej-26a-2-i-przetarg-ustny-nieograniczony/"
-    }
-  ],
+  "listings": [],
   "wykaz": []
 }

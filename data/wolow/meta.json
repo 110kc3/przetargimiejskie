@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "wolow",
-  "generated_at": "2026-11-21T12:13:23.590Z",
+  "generated_at": "2026-11-22T12:27:16.781Z",
   "source_pdf_count": 73,
   "parsed_records": 6,
   "parser_note_count": 73,
@@ -16,8 +16,8 @@
   "retained_properties": 1,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-21T12:09:13.328Z",
-  "last_successful_source_check_at": "2026-11-21T12:09:13.328Z",
+  "last_source_attempt_at": "2026-11-22T12:23:06.490Z",
+  "last_successful_source_check_at": "2026-11-22T12:23:06.490Z",
   "monitored_assets": [
     "building",
     "land",
@@ -27,14 +27,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-21T12:09:13.328Z",
-      "last_success_at": "2026-11-21T12:09:13.328Z"
+      "last_attempt_at": "2026-11-22T12:23:06.490Z",
+      "last_success_at": "2026-11-22T12:23:06.490Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-11-21T12:09:13.328Z",
-      "last_success_at": "2026-11-21T12:09:13.328Z"
+      "last_attempt_at": "2026-11-22T12:23:06.490Z",
+      "last_success_at": "2026-11-22T12:23:06.490Z"
     }
   }
 }

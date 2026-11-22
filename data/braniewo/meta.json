@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "braniewo",
-  "generated_at": "2026-11-21T12:02:19.358Z",
+  "generated_at": "2026-11-22T12:16:10.142Z",
   "source_pdf_count": 49,
   "parsed_records": 14,
   "parser_note_count": 1,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-21T12:00:19.487Z",
-  "last_successful_source_check_at": "2026-11-21T12:00:19.487Z",
+  "last_source_attempt_at": "2026-11-22T12:13:41.984Z",
+  "last_successful_source_check_at": "2026-11-22T12:13:41.984Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,14 +25,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-21T12:00:19.487Z",
-      "last_success_at": "2026-11-21T12:00:19.487Z"
+      "last_attempt_at": "2026-11-22T12:13:41.984Z",
+      "last_success_at": "2026-11-22T12:13:41.984Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-11-21T12:00:19.487Z",
-      "last_success_at": "2026-11-21T12:00:19.487Z"
+      "last_attempt_at": "2026-11-22T12:13:41.984Z",
+      "last_success_at": "2026-11-22T12:13:41.984Z"
     }
   }
 }
