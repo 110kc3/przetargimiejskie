@@ -3,6 +3,63 @@
   "city": "katowice",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "round": 3,
+      "address_raw": "Warszawskiej 28",
+      "address": {
+        "street": "Warszawskiej",
+        "street_norm": "warszawskiej",
+        "building": "28",
+        "apt": null,
+        "key": "warszawskiej|28|",
+        "warning": null
+      },
+      "auction_date": "2027-01-19",
+      "area_m2": 85.06,
+      "starting_price_pln": 200000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155053&menu=679",
+      "wadium_deadline": "2027-01-11",
+      "viewing_date": "2027-01-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Sokolskiej 54/9",
+      "address": {
+        "street": "Sokolskiej",
+        "street_norm": "sokolskiej",
+        "building": "54",
+        "apt": "9",
+        "key": "sokolskiej|54|9",
+        "warning": null
+      },
+      "auction_date": "2027-01-19",
+      "area_m2": 51.77,
+      "starting_price_pln": 350000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155054&menu=679",
+      "wadium_deadline": "2027-01-11",
+      "viewing_date": "2027-01-11"
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "Ligockiej 6/5",
+      "address": {
+        "street": "Ligockiej",
+        "street_norm": "ligockiej",
+        "building": "6",
+        "apt": "5",
+        "key": "ligockiej|6|5",
+        "warning": null
+      },
+      "auction_date": "2027-01-19",
+      "area_m2": 26.35,
+      "starting_price_pln": 190000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155055&menu=679",
+      "wadium_deadline": "2027-01-11",
+      "viewing_date": "2027-01-11"
+    },
+    {
       "kind": "zabudowana",
       "round": 2,
       "address_raw": "Grottgera 39",

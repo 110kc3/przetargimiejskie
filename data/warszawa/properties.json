@@ -3,6 +3,29 @@
   "city": "warszawa",
   "properties": [
     {
+      "key": "marszalkowskiej|81|18",
+      "street": "Marszałkowskiej",
+      "street_norm": "marszalkowskiej",
+      "building": "81",
+      "apt": "18",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-10",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": 153.9,
+          "detail_url": "https://bip.warszawa.pl/web/srodmiescie/-/wyciag-z-ogloszenia-o-przetargach-ustnych-nieograniczonych-ogloszonych-przez-zarzad-dzielnicy-srodmiescie-miasta-stolecznego-warszawy-na-sprzedaz-lokali-mieszkalnych-nr-18-i-19-usytuowanych-w-budynku-polozonym-w-warszawie-w-dzielnicy-srodmiescie-przy-ul-m",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "city"
+        }
+      ],
+      "area_m2": 153.9
+    },
+    {
       "key": "s noakowskiego|4|17",
       "street": "S. Noakowskiego",
       "street_norm": "s noakowskiego",
@@ -150,6 +173,50 @@
           "outcome": "active",
           "area_m2": null,
           "detail_url": "https://srodmiescie.um.warszawa.pl/-/marszalkowska-81-m-11-lokal-mieszkalny-przeznaczony-do-sprzedazy-w-drodze-przetargu",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "city"
+        }
+      ]
+    },
+    {
+      "key": "koszykowej|24|",
+      "street": "Koszykowa",
+      "street_norm": "koszykowej",
+      "building": "24",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.warszawa.pl/web/srodmiescie/-/srodmiescie-wykaz-lokalu-mieszkalnego-nr-9-przy-ul-koszykowej-24-przeznaczonego-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "source": "city"
+        }
+      ]
+    },
+    {
+      "key": "s noakowskiego|10|2A",
+      "street": "S. Noakowskiego",
+      "street_norm": "s noakowskiego",
+      "building": "10",
+      "apt": "2A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://bip.warszawa.pl/web/srodmiescie/-/srodmiescie-wykaz-lokalu-mieszkalnego-nr-2a-przy-ul-s-noakowskiego-10-w-warszawie-przeznaczonego-do-sprzedazy-w-trybie-przetargu-ustnego-nieograniczonego",
           "wadium_deadline": null,
           "viewing_date": null,
           "source": "city"

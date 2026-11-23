@@ -3,6 +3,83 @@
   "city": "katowice",
   "properties": [
     {
+      "key": "warszawskiej|28|",
+      "street": "Warszawska",
+      "street_norm": "warszawskiej",
+      "building": "28",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 600000,
+          "outcome": "archived",
+          "area_m2": 125.65,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153891&menu=679",
+          "wadium_deadline": "2026-11-09",
+          "viewing_date": "2026-11-09"
+        },
+        {
+          "date": "2027-01-19",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 85.06,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155053&menu=679",
+          "wadium_deadline": "2027-01-11",
+          "viewing_date": "2027-01-11"
+        }
+      ],
+      "area_m2": 85.06
+    },
+    {
+      "key": "sokolskiej|54|9",
+      "street": "Sokolska",
+      "street_norm": "sokolskiej",
+      "building": "54",
+      "apt": "9",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-01-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 350000,
+          "outcome": "active",
+          "area_m2": 51.77,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155054&menu=679",
+          "wadium_deadline": "2027-01-11",
+          "viewing_date": "2027-01-11"
+        }
+      ],
+      "area_m2": 51.77
+    },
+    {
+      "key": "ligockiej|6|5",
+      "street": "Ligocka",
+      "street_norm": "ligockiej",
+      "building": "6",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-01-19",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 190000,
+          "outcome": "active",
+          "area_m2": 26.35,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155055&menu=679",
+          "wadium_deadline": "2027-01-11",
+          "viewing_date": "2027-01-11"
+        }
+      ],
+      "area_m2": 26.35
+    },
+    {
       "key": "grottgera|39|",
       "street": "Grottgera",
       "street_norm": "grottgera",
@@ -57,28 +134,6 @@
         }
       ],
       "area_m2": 241.44
-    },
-    {
-      "key": "warszawskiej|28|",
-      "street": "Warszawska",
-      "street_norm": "warszawskiej",
-      "building": "28",
-      "apt": null,
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-11-17",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 600000,
-          "outcome": "archived",
-          "area_m2": 125.65,
-          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153891&menu=679",
-          "wadium_deadline": "2026-11-09",
-          "viewing_date": "2026-11-09"
-        }
-      ],
-      "area_m2": 125.65
     },
     {
       "key": "warszawskiej|28|7",
