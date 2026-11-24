@@ -3,6 +3,99 @@
   "city": "katowice",
   "plots": [
     {
+      "key": "dz|roździeń|849/53",
+      "kind": "grunt",
+      "city": "katowice",
+      "dzialka_nr": "849/53",
+      "obreb": "Roździeń",
+      "street": "Brynicy",
+      "building": null,
+      "address_raw": "Brynicy",
+      "dzialka_id": "246901_1.0005.AR_3.849/53",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0005.AR_3.849%2F53",
+      "area_m2": 3289,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-02-02",
+          "round": 1,
+          "starting_price_pln": 1500000,
+          "outcome": "active",
+          "area_m2": 3289,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155073&menu=679",
+          "source_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155073&menu=679"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "849/53",
+          "dzialka_id": "246901_1.0005.AR_3.849/53",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0005.AR_3.849%2F53"
+        }
+      ]
+    },
+    {
+      "key": "dz|roździeń|1087/46",
+      "kind": "grunt",
+      "city": "katowice",
+      "dzialka_nr": "1087/46",
+      "obreb": "Roździeń",
+      "street": "Brynicy",
+      "building": null,
+      "address_raw": "Brynicy",
+      "dzialka_id": "246901_1.0005.AR_6.1087/46",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0005.AR_6.1087%2F46",
+      "area_m2": 2425,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-02-02",
+          "round": 1,
+          "starting_price_pln": 1100000,
+          "outcome": "active",
+          "area_m2": 2425,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155074&menu=679",
+          "source_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155074&menu=679"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1087/46",
+          "dzialka_id": "246901_1.0005.AR_6.1087/46",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=246901_1.0005.AR_6.1087%2F46"
+        }
+      ]
+    },
+    {
+      "key": "addr|brynicy",
+      "kind": "grunt",
+      "city": "katowice",
+      "dzialka_nr": null,
+      "obreb": "Roździeń",
+      "street": "Brynicy",
+      "building": null,
+      "address_raw": "Brynicy",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20Brynicy%20Ro%C5%BAdzie%C5%84%20Katowice%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3289,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-02-02",
+          "round": 1,
+          "starting_price_pln": 1500000,
+          "outcome": "active",
+          "area_m2": 3289,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=591",
+          "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=591"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "dz|górne lasy pszczyńskie|1241/36",
       "kind": "grunt",
       "city": "katowice",
@@ -464,6 +557,15 @@
           "area_m2": 14867,
           "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=503",
           "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=503"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 23138000,
+          "outcome": "active",
+          "area_m2": 14867,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=503",
+          "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=503"
         }
       ],
       "parcels": []
@@ -483,6 +585,15 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 95000,
+          "outcome": "active",
+          "area_m2": 317,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=539",
+          "source_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=539"
+        },
         {
           "date": null,
           "round": 1,
@@ -723,6 +834,15 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": 350000,
+          "outcome": "active",
+          "area_m2": 1068,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155056&menu=679",
+          "source_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155056&menu=679"
+        },
         {
           "date": null,
           "round": 1,

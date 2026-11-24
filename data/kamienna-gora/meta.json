@@ -2,13 +2,13 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "kamienna-gora",
-  "generated_at": "2026-11-23T14:12:53.227Z",
+  "generated_at": "2026-11-24T14:44:20.913Z",
   "source_pdf_count": 114,
   "parsed_records": 114,
   "parser_note_count": 0,
   "unique_properties": 35,
-  "active_listings": 0,
-  "active_auctions": 0,
+  "active_listings": 6,
+  "active_auctions": 3,
   "archived_auctions": 113,
   "wykaz_entries": 0,
   "land_plots": 0,
@@ -16,21 +16,21 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-23T14:10:47.792Z",
-  "last_successful_source_check_at": "2026-11-23T14:10:47.792Z",
+  "last_source_attempt_at": "2026-11-24T14:42:03.172Z",
+  "last_successful_source_check_at": "2026-11-24T14:42:03.172Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-23T14:10:47.792Z",
-      "last_success_at": "2026-11-23T14:10:47.792Z"
+      "last_attempt_at": "2026-11-24T14:42:03.172Z",
+      "last_success_at": "2026-11-24T14:42:03.172Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-11-23T14:10:47.792Z",
+      "last_attempt_at": "2026-11-24T14:42:03.172Z",
       "last_success_at": null
     }
   }

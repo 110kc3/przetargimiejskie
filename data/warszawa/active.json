@@ -4,18 +4,11 @@
   "listings": [
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Koszykowej 24",
-      "address": {
-        "street": "Koszykowej",
-        "street_norm": "koszykowej",
-        "building": "24",
-        "apt": null,
-        "key": "koszykowej|24|",
-        "warning": null
-      },
+      "address_raw": "Wykaz lokalu mieszkalnego nr 9 przy ul. Koszykowej 24 przeznaczonego do sprzedaży w drodze przetargu ustnego nieograniczonego",
+      "address": null,
       "auction_date": null,
       "published_date": "2026-11-19",
-      "round": 1,
+      "round": null,
       "area_m2": null,
       "starting_price_pln": null,
       "detail_url": "https://bip.warszawa.pl/web/srodmiescie/-/srodmiescie-wykaz-lokalu-mieszkalnego-nr-9-przy-ul-koszykowej-24-przeznaczonego-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego",
@@ -24,18 +17,11 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. S. Noakowskiego 10/2a",
-      "address": {
-        "street": "S. Noakowskiego",
-        "street_norm": "s noakowskiego",
-        "building": "10",
-        "apt": "2A",
-        "key": "s noakowskiego|10|2A",
-        "warning": null
-      },
+      "address_raw": "Wykaz o przeznaczeniu do sprzedaży w trybie przetargu lokalu mieszkalnego nr 2a przy ul. S. Noakowskiego 10",
+      "address": null,
       "auction_date": null,
       "published_date": "2026-11-12",
-      "round": 1,
+      "round": null,
       "area_m2": null,
       "starting_price_pln": null,
       "detail_url": "https://bip.warszawa.pl/web/srodmiescie/-/srodmiescie-wykaz-lokalu-mieszkalnego-nr-2a-przy-ul-s-noakowskiego-10-w-warszawie-przeznaczonego-do-sprzedazy-w-trybie-przetargu-ustnego-nieograniczonego",
@@ -44,19 +30,12 @@
     },
     {
       "kind": "mieszkalny",
-      "address_raw": "ul. Marszałkowskiej 81/18",
-      "address": {
-        "street": "Marszałkowskiej",
-        "street_norm": "marszalkowskiej",
-        "building": "81",
-        "apt": "18",
-        "key": "marszalkowskiej|81|18",
-        "warning": null
-      },
-      "auction_date": "2026-12-10",
+      "address_raw": "Ogłoszenia o przetargach lokali mieszkalnych nr 18 i 19 przy ul. Marszałkowskiej 81",
+      "address": null,
+      "auction_date": null,
       "published_date": "2026-10-09",
-      "round": 1,
-      "area_m2": 153.9,
+      "round": null,
+      "area_m2": null,
       "starting_price_pln": null,
       "detail_url": "https://bip.warszawa.pl/web/srodmiescie/-/wyciag-z-ogloszenia-o-przetargach-ustnych-nieograniczonych-ogloszonych-przez-zarzad-dzielnicy-srodmiescie-miasta-stolecznego-warszawy-na-sprzedaz-lokali-mieszkalnych-nr-18-i-19-usytuowanych-w-budynku-polozonym-w-warszawie-w-dzielnicy-srodmiescie-przy-ul-m",
       "eto_nr": "19932/2026",

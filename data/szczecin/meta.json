@@ -2,35 +2,35 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "szczecin",
-  "generated_at": "2026-11-23T13:56:19.638Z",
+  "generated_at": "2026-11-24T14:28:51.927Z",
   "source_pdf_count": 22,
   "parsed_records": 22,
   "parser_note_count": 0,
   "unique_properties": 37,
   "active_listings": 0,
-  "active_auctions": 5,
-  "archived_auctions": 39,
+  "active_auctions": 4,
+  "archived_auctions": 40,
   "wykaz_entries": 0,
   "land_plots": 0,
   "land_listings": 0,
   "retained_properties": 15,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-23T13:55:41.564Z",
-  "last_successful_source_check_at": "2026-11-23T13:55:41.564Z",
+  "last_source_attempt_at": "2026-11-24T14:28:13.244Z",
+  "last_successful_source_check_at": "2026-11-24T14:28:13.244Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-23T13:55:41.564Z",
-      "last_success_at": "2026-11-23T13:55:41.564Z"
+      "last_attempt_at": "2026-11-24T14:28:13.244Z",
+      "last_success_at": "2026-11-24T14:28:13.244Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-11-23T13:55:41.564Z",
+      "last_attempt_at": "2026-11-24T14:28:13.244Z",
       "last_success_at": null
     }
   }

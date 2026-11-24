@@ -3,6 +3,64 @@
   "city": "katowice",
   "listings": [
     {
+      "kind": "zabudowana",
+      "round": 1,
+      "address_raw": "Prusa 46",
+      "address": {
+        "street": "Prusa",
+        "street_norm": "prusa",
+        "building": "46",
+        "apt": null,
+        "key": "prusa|46|",
+        "warning": null
+      },
+      "auction_date": "2027-02-02",
+      "area_m2": null,
+      "land_area_m2": 165.11,
+      "starting_price_pln": 450000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155076&menu=679",
+      "wadium_deadline": "2027-01-25",
+      "viewing_date": null
+    },
+    {
+      "kind": "mieszkalny",
+      "round": 1,
+      "address_raw": "u niemieszkalnego przy ul. Jordana 10/I",
+      "address": {
+        "street": "u niemieszkalnego przy ul. Jordana",
+        "street_norm": "u niemieszkalnego przy ul jordana",
+        "building": "10",
+        "apt": "I",
+        "key": "u niemieszkalnego przy ul jordana|10|I",
+        "warning": null
+      },
+      "auction_date": "2027-02-02",
+      "area_m2": 83.69,
+      "starting_price_pln": 520000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155078&menu=679",
+      "wadium_deadline": "2027-01-25",
+      "viewing_date": "2027-01-25"
+    },
+    {
+      "kind": "uzytkowy",
+      "round": 1,
+      "address_raw": "Jordana 10/I",
+      "address": {
+        "street": "Jordana",
+        "street_norm": "jordana",
+        "building": "10",
+        "apt": "I",
+        "key": "jordana|10|I",
+        "warning": null
+      },
+      "auction_date": "2027-02-02",
+      "area_m2": 47.1,
+      "starting_price_pln": 440000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155078&menu=679",
+      "wadium_deadline": "2027-01-25",
+      "viewing_date": "2027-01-25"
+    },
+    {
       "kind": "mieszkalny",
       "round": 3,
       "address_raw": "Warszawskiej 28",

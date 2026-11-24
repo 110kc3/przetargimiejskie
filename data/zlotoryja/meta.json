@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "zlotoryja",
-  "generated_at": "2026-11-23T14:05:33.600Z",
+  "generated_at": "2026-11-24T14:38:23.677Z",
   "source_pdf_count": 48,
   "parsed_records": 6,
   "parser_note_count": 0,
@@ -16,8 +16,8 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-23T14:02:38.173Z",
-  "last_successful_source_check_at": "2026-11-23T14:02:38.173Z",
+  "last_source_attempt_at": "2026-11-24T14:35:25.390Z",
+  "last_successful_source_check_at": "2026-11-24T14:35:25.390Z",
   "monitored_assets": [
     "land",
     "residential"
@@ -25,14 +25,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-23T14:02:38.173Z",
-      "last_success_at": "2026-11-23T14:02:38.173Z"
+      "last_attempt_at": "2026-11-24T14:35:25.390Z",
+      "last_success_at": "2026-11-24T14:35:25.390Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-11-23T14:02:38.173Z",
-      "last_success_at": "2026-11-23T14:02:38.173Z"
+      "last_attempt_at": "2026-11-24T14:35:25.390Z",
+      "last_success_at": "2026-11-24T14:35:25.390Z"
     }
   }
 }

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "otwock",
-  "generated_at": "2026-11-23T14:19:17.601Z",
+  "generated_at": "2026-11-24T14:50:29.153Z",
   "source_pdf_count": 1,
   "parsed_records": 1,
   "parser_note_count": 0,
@@ -16,21 +16,21 @@
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-23T14:18:24.108Z",
-  "last_successful_source_check_at": "2026-11-23T14:18:24.108Z",
+  "last_source_attempt_at": "2026-11-24T14:49:40.756Z",
+  "last_successful_source_check_at": "2026-11-24T14:49:40.756Z",
   "monitored_assets": [
     "residential"
   ],
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-23T14:18:24.108Z",
-      "last_success_at": "2026-11-23T14:18:24.108Z"
+      "last_attempt_at": "2026-11-24T14:49:40.756Z",
+      "last_success_at": "2026-11-24T14:49:40.756Z"
     },
     "land": {
       "status": "not_monitored",
       "complete": true,
-      "last_attempt_at": "2026-11-23T14:18:24.108Z",
+      "last_attempt_at": "2026-11-24T14:49:40.756Z",
       "last_success_at": null
     }
   }

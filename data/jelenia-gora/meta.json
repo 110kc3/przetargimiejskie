@@ -2,8 +2,8 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "jelenia-gora",
-  "generated_at": "2026-11-23T14:18:27.920Z",
-  "source_pdf_count": 1,
+  "generated_at": "2026-11-24T14:51:13.969Z",
+  "source_pdf_count": 5,
   "parsed_records": 0,
   "parser_note_count": 0,
   "unique_properties": 36,
@@ -11,13 +11,13 @@
   "active_auctions": 20,
   "archived_auctions": 43,
   "wykaz_entries": 0,
-  "land_plots": 29,
-  "land_listings": 33,
+  "land_plots": 30,
+  "land_listings": 38,
   "retained_properties": 15,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-23T14:16:44.246Z",
-  "last_successful_source_check_at": "2026-11-23T14:16:44.246Z",
+  "last_source_attempt_at": "2026-11-24T14:48:41.962Z",
+  "last_successful_source_check_at": "2026-11-24T14:48:41.962Z",
   "monitored_assets": [
     "commercial",
     "land",
@@ -26,14 +26,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-23T14:16:44.246Z",
-      "last_success_at": "2026-11-23T14:16:44.246Z"
+      "last_attempt_at": "2026-11-24T14:48:41.962Z",
+      "last_success_at": "2026-11-24T14:48:41.962Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-11-23T14:16:44.246Z",
-      "last_success_at": "2026-11-23T14:16:44.246Z"
+      "last_attempt_at": "2026-11-24T14:48:41.962Z",
+      "last_success_at": "2026-11-24T14:48:41.962Z"
     }
   }
 }

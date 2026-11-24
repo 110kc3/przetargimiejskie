@@ -27,7 +27,7 @@
         },
         {
           "date": "2026-05-19",
-          "round": 2,
+          "round": 1,
           "starting_price_pln": 1000000,
           "outcome": "unsold",
           "area_m2": 15459,
@@ -35,7 +35,7 @@
         },
         {
           "date": "2026-09-22",
-          "round": 3,
+          "round": 2,
           "starting_price_pln": 1000000,
           "outcome": "unsold",
           "area_m2": 15459,
@@ -43,7 +43,7 @@
         },
         {
           "date": "2027-01-26",
-          "round": 4,
+          "round": 3,
           "starting_price_pln": 1000000,
           "outcome": "active",
           "area_m2": 15459,
@@ -154,6 +154,57 @@
       ]
     },
     {
+      "key": "dz|1982/18, 1982/20, 1308/6, 1308/8, 3638/6, 3638/8, 0, 8664",
+      "kind": "grunt",
+      "city": "zagan",
+      "dzialka_nr": "1982/18, 1982/20, 1308/6, 1308/8, 3638/6, 3638/8, 0, 8664",
+      "obreb": null,
+      "street": "Asnyka",
+      "building": null,
+      "address_raw": "Asnyka",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%201982%2F18%2C%201982%2F20%2C%201308%2F6%2C%201308%2F8%2C%203638%2F6%2C%203638%2F8%2C%200%2C%208664%20Asnyka%20%C5%BBaga%C5%84%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-01-26",
+          "round": 1,
+          "starting_price_pln": 610000,
+          "outcome": "active",
+          "detail_url": "https://bip.zagan.pl/przetargi/344/700/2_/",
+          "source_url": "https://bip.zagan.pl/system/pobierz.php?plik=ogloszenie__2_Asnyka__1982-18_1982-20_1308-6_1308-8_3638-6_3638-8.docx&id=93f26f33373f2695bf9039ec46f07297"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1982/18"
+        },
+        {
+          "nr": "1982/20"
+        },
+        {
+          "nr": "1308/6"
+        },
+        {
+          "nr": "1308/8"
+        },
+        {
+          "nr": "3638/6"
+        },
+        {
+          "nr": "3638/8"
+        },
+        {
+          "nr": "0"
+        },
+        {
+          "nr": "8664"
+        }
+      ]
+    },
+    {
       "key": "dz|3961/3",
       "kind": "grunt",
       "city": "zagan",
@@ -194,7 +245,7 @@
         },
         {
           "date": "2025-07-22",
-          "round": 4,
+          "round": 1,
           "starting_price_pln": 204000,
           "outcome": "unsold",
           "area_m2": 1451,
@@ -202,7 +253,7 @@
         },
         {
           "date": "2025-10-07",
-          "round": 5,
+          "round": 2,
           "starting_price_pln": 204000,
           "outcome": "unsold",
           "area_m2": 1451,
@@ -210,7 +261,7 @@
         },
         {
           "date": "2026-08-18",
-          "round": 6,
+          "round": 3,
           "starting_price_pln": 204000,
           "outcome": "unsold",
           "area_m2": 1451,
@@ -218,7 +269,7 @@
         },
         {
           "date": "2026-12-17",
-          "round": 7,
+          "round": 4,
           "starting_price_pln": 204000,
           "outcome": "active",
           "area_m2": 1451,
@@ -429,7 +480,7 @@
         },
         {
           "date": "2025-07-22",
-          "round": 3,
+          "round": 1,
           "starting_price_pln": 150000,
           "outcome": "unsold",
           "area_m2": 926,
@@ -437,7 +488,7 @@
         },
         {
           "date": "2025-10-07",
-          "round": 4,
+          "round": 2,
           "starting_price_pln": 150000,
           "outcome": "unsold",
           "area_m2": 926,
@@ -445,7 +496,7 @@
         },
         {
           "date": "2025-12-16",
-          "round": 5,
+          "round": 3,
           "starting_price_pln": 150000,
           "outcome": "unsold",
           "area_m2": 926,
@@ -453,7 +504,7 @@
         },
         {
           "date": "2026-03-12",
-          "round": 6,
+          "round": 4,
           "starting_price_pln": 150000,
           "outcome": "unsold",
           "area_m2": 926,
@@ -461,7 +512,7 @@
         },
         {
           "date": "2026-06-30",
-          "round": 7,
+          "round": 5,
           "starting_price_pln": 150000,
           "outcome": "unsold",
           "area_m2": 926,
@@ -469,7 +520,7 @@
         },
         {
           "date": "2026-09-16",
-          "round": 8,
+          "round": 6,
           "starting_price_pln": 135000,
           "outcome": "unsold",
           "area_m2": 926,
@@ -477,7 +528,7 @@
         },
         {
           "date": "2026-12-16",
-          "round": 9,
+          "round": 7,
           "starting_price_pln": 135000,
           "outcome": "active",
           "area_m2": 926,
@@ -611,7 +662,7 @@
         },
         {
           "date": "2025-07-23",
-          "round": 4,
+          "round": 1,
           "starting_price_pln": 127000,
           "outcome": "unsold",
           "area_m2": 1253,
@@ -619,7 +670,7 @@
         },
         {
           "date": "2025-10-07",
-          "round": 5,
+          "round": 2,
           "starting_price_pln": 127000,
           "outcome": "unsold",
           "area_m2": 1253,
@@ -627,7 +678,7 @@
         },
         {
           "date": "2025-12-16",
-          "round": 6,
+          "round": 3,
           "starting_price_pln": 127000,
           "outcome": "unsold",
           "area_m2": 1253,
@@ -635,7 +686,7 @@
         },
         {
           "date": "2026-03-10",
-          "round": 7,
+          "round": 4,
           "starting_price_pln": 127000,
           "outcome": "unsold",
           "area_m2": 1253,
@@ -643,7 +694,7 @@
         },
         {
           "date": "2026-06-30",
-          "round": 8,
+          "round": 5,
           "starting_price_pln": 127000,
           "outcome": "unsold",
           "area_m2": 1253,
@@ -651,7 +702,7 @@
         },
         {
           "date": "2026-09-16",
-          "round": 9,
+          "round": 6,
           "starting_price_pln": 115000,
           "outcome": "unsold",
           "area_m2": 1253,
@@ -659,7 +710,7 @@
         },
         {
           "date": "2026-12-16",
-          "round": 10,
+          "round": 7,
           "starting_price_pln": 115000,
           "outcome": "active",
           "area_m2": 1253,
@@ -962,7 +1013,7 @@
         },
         {
           "date": "2025-07-22",
-          "round": 3,
+          "round": 1,
           "starting_price_pln": 169000,
           "outcome": "unsold",
           "area_m2": 1499,
@@ -970,7 +1021,7 @@
         },
         {
           "date": "2025-10-07",
-          "round": 4,
+          "round": 2,
           "starting_price_pln": 169000,
           "outcome": "unsold",
           "area_m2": 1499,
@@ -978,7 +1029,7 @@
         },
         {
           "date": "2025-12-16",
-          "round": 5,
+          "round": 3,
           "starting_price_pln": 169000,
           "outcome": "unsold",
           "area_m2": 1499,
@@ -986,7 +1037,7 @@
         },
         {
           "date": "2026-03-10",
-          "round": 6,
+          "round": 4,
           "starting_price_pln": 169000,
           "outcome": "unsold",
           "area_m2": 1499,
@@ -994,7 +1045,7 @@
         },
         {
           "date": "2026-06-30",
-          "round": 7,
+          "round": 5,
           "starting_price_pln": 169000,
           "outcome": "unsold",
           "area_m2": 1499,
@@ -1002,7 +1053,7 @@
         },
         {
           "date": "2026-09-16",
-          "round": 8,
+          "round": 6,
           "starting_price_pln": 153000,
           "outcome": "sold",
           "area_m2": 1499,
@@ -1336,7 +1387,7 @@
         },
         {
           "date": "2025-10-07",
-          "round": 3,
+          "round": 1,
           "starting_price_pln": 300000,
           "outcome": "unsold",
           "area_m2": 7692,
@@ -1344,7 +1395,7 @@
         },
         {
           "date": "2025-12-16",
-          "round": 4,
+          "round": 2,
           "starting_price_pln": 300000,
           "outcome": "unsold",
           "area_m2": 7692,
@@ -1352,7 +1403,7 @@
         },
         {
           "date": "2026-03-10",
-          "round": 5,
+          "round": 3,
           "starting_price_pln": 300000,
           "outcome": "unsold",
           "area_m2": 7692,
@@ -1360,7 +1411,7 @@
         },
         {
           "date": "2026-06-30",
-          "round": 6,
+          "round": 4,
           "starting_price_pln": 300000,
           "outcome": "unsold",
           "area_m2": 7692,
@@ -1431,7 +1482,7 @@
         },
         {
           "date": "2025-08-19",
-          "round": 2,
+          "round": 1,
           "starting_price_pln": 115000,
           "outcome": "unsold",
           "area_m2": 750,
@@ -1439,7 +1490,7 @@
         },
         {
           "date": "2025-12-16",
-          "round": 3,
+          "round": 2,
           "starting_price_pln": 100000,
           "outcome": "unsold",
           "area_m2": 750,
@@ -1447,7 +1498,7 @@
         },
         {
           "date": "2026-03-12",
-          "round": 4,
+          "round": 3,
           "starting_price_pln": 100000,
           "outcome": "unsold",
           "area_m2": 750,
@@ -1716,7 +1767,7 @@
         },
         {
           "date": "2025-07-22",
-          "round": 5,
+          "round": 1,
           "starting_price_pln": 193000,
           "outcome": "unsold",
           "area_m2": 1750,
@@ -1724,7 +1775,7 @@
         },
         {
           "date": "2025-10-07",
-          "round": 6,
+          "round": 2,
           "starting_price_pln": 193000,
           "outcome": "unsold",
           "area_m2": 1750,
@@ -1732,7 +1783,7 @@
         },
         {
           "date": "2025-12-16",
-          "round": 7,
+          "round": 3,
           "starting_price_pln": 193000,
           "outcome": "unsold",
           "area_m2": 1750,
@@ -1794,7 +1845,7 @@
         },
         {
           "date": "2025-10-07",
-          "round": 5,
+          "round": 1,
           "starting_price_pln": 336000,
           "outcome": "unsold",
           "area_m2": 2878,

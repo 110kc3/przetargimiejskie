@@ -3,6 +3,33 @@
   "city": "bytom",
   "plots": [
     {
+      "key": "addr|orzegowska 20a",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Orzegowska 20a",
+      "building": null,
+      "address_raw": "Orzegowska 20a",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.88721902467539%2C50.336317017313476%2C18.888363895819815%2C50.33698529855037&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.4cb8261c-fdc0-4a8d-884a-05d421fabbb5",
+      "area_m2": 2989,
+      "zoning": "zabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-01-25",
+          "round": 1,
+          "starting_price_pln": 4350000,
+          "outcome": "active",
+          "area_m2": 2989,
+          "detail_url": "https://www.bytom.pl/download/Ogloszenie-przetargu-ul.-Orzegowska-20a,8403.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "dz|2883/11",
       "kind": "grunt",
       "city": "bytom",
@@ -32,6 +59,64 @@
           "nr": "2883/11"
         }
       ]
+    },
+    {
+      "key": "dz|266/33",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "266/33",
+      "obreb": null,
+      "street": "Stefana Żeromskiego",
+      "building": null,
+      "address_raw": "Stefana Żeromskiego dz. 266/33",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.921817263390796%2C50.35198959261786%2C18.921985716438662%2C50.35218638314303&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.214bea01-2a70-412a-a281-d29d0bdf17b3",
+      "area_m2": 144,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-29",
+          "round": 3,
+          "starting_price_pln": 80000,
+          "outcome": "active",
+          "area_m2": 144,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Zeromskiego-266_33,25846.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "266/33"
+        }
+      ]
+    },
+    {
+      "key": "addr|tadeusza boya-żeleńskiego; powstańców",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Tadeusza Boya-Żeleńskiego; Powstańców",
+      "building": null,
+      "address_raw": "Tadeusza Boya-Żeleńskiego; Powstańców",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.81570896334619%2C50.38867442978172%2C18.816858834079394%2C50.389854627997636&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.98540e51-937a-43b3-a52c-a3016e945102",
+      "area_m2": 1570,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-12-29",
+          "round": 3,
+          "starting_price_pln": 135000,
+          "outcome": "active",
+          "area_m2": 1570,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Powstancow-i-Boya-Zelenskiego,25845.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
     },
     {
       "key": "dz|3002/290",

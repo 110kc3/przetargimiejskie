@@ -36,6 +36,39 @@
       ]
     },
     {
+      "key": "dz|0003 zagórze|523/6",
+      "kind": "grunt",
+      "city": "sosnowiec",
+      "dzialka_nr": "523/6",
+      "obreb": "0003 Zagórze",
+      "street": null,
+      "building": null,
+      "address_raw": "dz. nr 523/6, obręb 0003 Zagórze",
+      "dzialka_id": "247501_1.0003.523/6",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0003.523%2F6",
+      "area_m2": 6389,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-01-29",
+          "round": 1,
+          "starting_price_pln": 1800000,
+          "outcome": "active",
+          "area_m2": 6389,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,565531,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-uli.html",
+          "source_url": "https://www.bip.um.sosnowiec.pl/a,565531,przetarg-ustny-nieograniczony-na-sprzedaz-nieruchomosci-niezabudowanej-polozonej-w-sosnowcu-przy-uli.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "523/6",
+          "dzialka_id": "247501_1.0003.523/6",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=247501_1.0003.523%2F6"
+        }
+      ]
+    },
+    {
       "key": "dz|0004 kazimierz|162/3",
       "kind": "grunt",
       "city": "sosnowiec",

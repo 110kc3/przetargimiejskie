@@ -3,6 +3,32 @@
   "city": "kedzierzyn-kozle",
   "plots": [
     {
+      "key": "addr|ul. stanisława",
+      "kind": "grunt",
+      "city": "kedzierzyn-kozle",
+      "dzialka_nr": null,
+      "obreb": "Kłodnica",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Stanisława",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%20ul.%20Stanis%C5%82awa%20K%C5%82odnica%20K%C4%99dzierzyn-Ko%C5%BAle%20geoportal%20dzia%C5%82ki",
+      "area_m2": null,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-01-14",
+          "round": 1,
+          "starting_price_pln": 50000,
+          "outcome": "active",
+          "detail_url": "https://bip.kedzierzynkozle.pl/artykul/127/30728/ogloszenie-o-przetargu-ustnym-nieograniczonym",
+          "source_url": "https://bip.kedzierzynkozle.pl/attachments/download/81142"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "addr|ul. judyma",
       "kind": "grunt",
       "city": "kedzierzyn-kozle",
