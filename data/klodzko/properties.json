@@ -15,11 +15,12 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 135000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
           "area_m2": 40.88,
-          "detail_url": "https://um.bip.klodzko.pl/index.php?n=i&id=17749&akcja=info&menu=346",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://um.bip.klodzko.pl/index.php?n=i&id=17749&akcja=info&menu=346"
         }
       ],
       "area_m2": 40.88

@@ -2,22 +2,22 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "szczecinek",
-  "generated_at": "2026-11-24T14:47:24.356Z",
+  "generated_at": "2026-11-25T14:06:59.311Z",
   "source_pdf_count": 65,
   "parsed_records": 13,
   "parser_note_count": 42,
   "unique_properties": 6,
   "active_listings": 24,
-  "active_auctions": 1,
-  "archived_auctions": 26,
+  "active_auctions": 0,
+  "archived_auctions": 27,
   "wykaz_entries": 0,
   "land_plots": 64,
   "land_listings": 87,
   "retained_properties": 0,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-24T14:44:37.750Z",
-  "last_successful_source_check_at": "2026-11-24T14:44:37.750Z",
+  "last_source_attempt_at": "2026-11-25T14:04:03.652Z",
+  "last_successful_source_check_at": "2026-11-25T14:04:03.652Z",
   "monitored_assets": [
     "building",
     "land",
@@ -26,14 +26,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-24T14:44:37.750Z",
-      "last_success_at": "2026-11-24T14:44:37.750Z"
+      "last_attempt_at": "2026-11-25T14:04:03.652Z",
+      "last_success_at": "2026-11-25T14:04:03.652Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-11-24T14:44:37.750Z",
-      "last_success_at": "2026-11-24T14:44:37.750Z"
+      "last_attempt_at": "2026-11-25T14:04:03.652Z",
+      "last_success_at": "2026-11-25T14:04:03.652Z"
     }
   }
 }

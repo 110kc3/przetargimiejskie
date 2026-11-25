@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "zabrze",
-  "generated_at": "2026-11-24T14:35:14.399Z",
+  "generated_at": "2026-11-25T13:54:48.588Z",
   "source_pdf_count": 8,
   "parsed_records": 48,
   "parser_note_count": 0,
@@ -16,8 +16,8 @@
   "retained_properties": 2,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-24T14:29:09.637Z",
-  "last_successful_source_check_at": "2026-11-24T14:29:09.637Z",
+  "last_source_attempt_at": "2026-11-25T13:48:13.315Z",
+  "last_successful_source_check_at": "2026-11-25T13:48:13.315Z",
   "monitored_assets": [
     "commercial",
     "land",
@@ -26,14 +26,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-24T14:29:09.637Z",
-      "last_success_at": "2026-11-24T14:29:09.637Z"
+      "last_attempt_at": "2026-11-25T13:48:13.315Z",
+      "last_success_at": "2026-11-25T13:48:13.315Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-11-24T14:29:09.637Z",
-      "last_success_at": "2026-11-24T14:29:09.637Z"
+      "last_attempt_at": "2026-11-25T13:48:13.315Z",
+      "last_success_at": "2026-11-25T13:48:13.315Z"
     }
   }
 }

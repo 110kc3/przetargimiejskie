@@ -3,6 +3,283 @@
   "city": "lodz",
   "properties": [
     {
+      "key": "pawia|22|14",
+      "street": "Pawia",
+      "street_norm": "pawia",
+      "building": "22",
+      "apt": "14",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-03-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 210000,
+          "outcome": "active",
+          "area_m2": 33.34,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-id186757/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 33.34
+    },
+    {
+      "key": "stanislawa przybyszewskiego|76|29",
+      "street": "Stanisława Przybyszewskiego",
+      "street_norm": "stanislawa przybyszewskiego",
+      "building": "76",
+      "apt": "29",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-03-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 340000,
+          "outcome": "active",
+          "area_m2": 82.28,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-id186757/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 82.28
+    },
+    {
+      "key": "stanislawa przybyszewskiego|76|30",
+      "street": "Stanisława Przybyszewskiego",
+      "street_norm": "stanislawa przybyszewskiego",
+      "building": "76",
+      "apt": "30",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-03-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 160000,
+          "outcome": "active",
+          "area_m2": 39.75,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-id186757/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 39.75
+    },
+    {
+      "key": "andrzeja struga|46|22",
+      "street": "Andrzeja Struga",
+      "street_norm": "andrzeja struga",
+      "building": "46",
+      "apt": "22",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-03-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 430000,
+          "outcome": "active",
+          "area_m2": 80.21,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-id186757/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 80.21
+    },
+    {
+      "key": "andrzeja struga|46|31",
+      "street": "Andrzeja Struga",
+      "street_norm": "andrzeja struga",
+      "building": "46",
+      "apt": "31",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-03-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 340000,
+          "outcome": "active",
+          "area_m2": 68.87,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-id186757/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 68.87
+    },
+    {
+      "key": "uniwersytecka|18|20A",
+      "street": "Uniwersytecka",
+      "street_norm": "uniwersytecka",
+      "building": "18",
+      "apt": "20A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-03-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 660000,
+          "outcome": "active",
+          "area_m2": 134.11,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-id186757/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 134.11
+    },
+    {
+      "key": "uniwersytecka|18|23",
+      "street": "Uniwersytecka",
+      "street_norm": "uniwersytecka",
+      "building": "18",
+      "apt": "23",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-03-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 660000,
+          "outcome": "active",
+          "area_m2": 127.38,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-id186757/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 127.38
+    },
+    {
+      "key": "juliana tuwima|30|20",
+      "street": "Juliana Tuwima",
+      "street_norm": "juliana tuwima",
+      "building": "30",
+      "apt": "20",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-03-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 250000,
+          "outcome": "active",
+          "area_m2": 50.73,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-id186757/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 50.73
+    },
+    {
+      "key": "piotrkowska|215|5",
+      "street": "Piotrkowska",
+      "street_norm": "piotrkowska",
+      "building": "215",
+      "apt": "5",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-03-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 140000,
+          "outcome": "active",
+          "area_m2": 29.75,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-id186757/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 29.75
+    },
+    {
+      "key": "aleksandrowska|12A|52",
+      "street": "Aleksandrowska",
+      "street_norm": "aleksandrowska",
+      "building": "12A",
+      "apt": "52",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "archived",
+          "area_m2": 25.21,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/archiwum-przetargow/sprzedaz-nieruchomosci-archiwum/sprzedaz-nieruchomosci-archiwum-2024-r/ogloszenie-2024-1-1/przetarg-2-id174932/2026/08/12/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2027-02-25",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 126000,
+          "outcome": "active",
+          "area_m2": 25.21,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-1-id186748/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 25.21
+    },
+    {
+      "key": "pomorska|70|72",
+      "street": "Pomorska",
+      "street_norm": "pomorska",
+      "building": "70",
+      "apt": "72",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-10-08",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 270000,
+          "outcome": "archived",
+          "area_m2": 37.65,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/archiwum-przetargow/sprzedaz-nieruchomosci-archiwum/sprzedaz-nieruchomosci-archiwum-2024-r/ogloszenie-2024-1-1/przetarg-2-id174932/2026/08/12/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2027-02-25",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 189000,
+          "outcome": "active",
+          "area_m2": 37.65,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-1-id186748/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 37.65
+    },
+    {
       "key": "wierzbowa|13|5U",
       "street": "Wierzbowa",
       "street_norm": "wierzbowa",
@@ -254,6 +531,213 @@
         }
       ],
       "area_m2": 43.87
+    },
+    {
+      "key": "zgierska|10|11",
+      "street": "Zgierska",
+      "street_norm": "zgierska",
+      "building": "10",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 80000,
+          "outcome": "active",
+          "area_m2": 16.66,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-1-id186760/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 16.66
+    },
+    {
+      "key": "mikolaja kopernika|10|2A",
+      "street": "Mikołaja Kopernika",
+      "street_norm": "mikolaja kopernika",
+      "building": "10",
+      "apt": "2A",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 180000,
+          "outcome": "active",
+          "area_m2": 49.23,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-1-id186760/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 49.23
+    },
+    {
+      "key": "mikolaja kopernika|10|11",
+      "street": "Mikołaja Kopernika",
+      "street_norm": "mikolaja kopernika",
+      "building": "10",
+      "apt": "11",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "active",
+          "area_m2": 24.23,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-1-id186760/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 24.23
+    },
+    {
+      "key": "solna|5|10",
+      "street": "Solna",
+      "street_norm": "solna",
+      "building": "5",
+      "apt": "10",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 220000,
+          "outcome": "active",
+          "area_m2": 47.52,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-1-id186760/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 47.52
+    },
+    {
+      "key": "tadeusza kosciuszki|32|19",
+      "street": "Tadeusza Kościuszki",
+      "street_norm": "tadeusza kosciuszki",
+      "building": "32",
+      "apt": "19",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 210000,
+          "outcome": "active",
+          "area_m2": 37.61,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-1-id186760/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 37.61
+    },
+    {
+      "key": "tadeusza kosciuszki|32|21",
+      "street": "Tadeusza Kościuszki",
+      "street_norm": "tadeusza kosciuszki",
+      "building": "32",
+      "apt": "21",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 230000,
+          "outcome": "active",
+          "area_m2": 40.51,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-1-id186760/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 40.51
+    },
+    {
+      "key": "marszalka jozefa pilsudskiego|129|8",
+      "street": "Marszałka Józefa Piłsudskiego",
+      "street_norm": "marszalka jozefa pilsudskiego",
+      "building": "129",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 70000,
+          "outcome": "active",
+          "area_m2": 14.36,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-1-id186760/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 14.36
+    },
+    {
+      "key": "marszalka jozefa pilsudskiego|129|16",
+      "street": "Marszałka Józefa Piłsudskiego",
+      "street_norm": "marszalka jozefa pilsudskiego",
+      "building": "129",
+      "apt": "16",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 100000,
+          "outcome": "active",
+          "area_m2": 21.28,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-1-id186760/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 21.28
+    },
+    {
+      "key": "marszalka jozefa pilsudskiego|129|41",
+      "street": "Marszalka Józefa Piłsudskiego",
+      "street_norm": "marszalka jozefa pilsudskiego",
+      "building": "129",
+      "apt": "41",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2027-02-04",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 60000,
+          "outcome": "active",
+          "area_m2": 14.28,
+          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/sprzedaz-nieruchomosci/ogloszenie/aukcja-2-1-id186760/2026/11/25/",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 14.28
     },
     {
       "key": "augusta cieszkowskiego|22|48",
@@ -1877,52 +2361,6 @@
         }
       ],
       "area_m2": 23.33
-    },
-    {
-      "key": "aleksandrowska|12A|52",
-      "street": "Aleksandrowska",
-      "street_norm": "aleksandrowska",
-      "building": "12A",
-      "apt": "52",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-10-08",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 180000,
-          "outcome": "archived",
-          "area_m2": 25.21,
-          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/archiwum-przetargow/sprzedaz-nieruchomosci-archiwum/sprzedaz-nieruchomosci-archiwum-2024-r/ogloszenie-2024-1-1/przetarg-2-id174932/2026/08/12/",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
-        }
-      ],
-      "area_m2": 25.21
-    },
-    {
-      "key": "pomorska|70|72",
-      "street": "Pomorska",
-      "street_norm": "pomorska",
-      "building": "70",
-      "apt": "72",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-10-08",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 270000,
-          "outcome": "archived",
-          "area_m2": 37.65,
-          "detail_url": "https://bip.uml.lodz.pl/urzad-miasta/przetargi/archiwum-przetargow/sprzedaz-nieruchomosci-archiwum/sprzedaz-nieruchomosci-archiwum-2024-r/ogloszenie-2024-1-1/przetarg-2-id174932/2026/08/12/",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
-        }
-      ],
-      "area_m2": 37.65
     },
     {
       "key": "kalinowa|42|1",

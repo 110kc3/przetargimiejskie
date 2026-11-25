@@ -3,6 +3,44 @@
   "city": "katowice",
   "listings": [
     {
+      "kind": "mieszkalny",
+      "round": 3,
+      "address_raw": "Rybnickiej 8/8",
+      "address": {
+        "street": "Rybnickiej",
+        "street_norm": "rybnickiej",
+        "building": "8",
+        "apt": "8",
+        "key": "rybnickiej|8|8",
+        "warning": null
+      },
+      "auction_date": "2027-01-26",
+      "area_m2": 28.52,
+      "starting_price_pln": 270000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155098&menu=679",
+      "wadium_deadline": "2027-01-18",
+      "viewing_date": "2027-01-18"
+    },
+    {
+      "kind": "uzytkowy",
+      "round": 2,
+      "address_raw": "Mielęckiego 8d/6",
+      "address": {
+        "street": "Mielęckiego",
+        "street_norm": "mieleckiego",
+        "building": "8D",
+        "apt": "6",
+        "key": "mieleckiego|8D|6",
+        "warning": null
+      },
+      "auction_date": "2027-01-26",
+      "area_m2": 22.12,
+      "starting_price_pln": 90000,
+      "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155099&menu=679",
+      "wadium_deadline": "2027-01-18",
+      "viewing_date": "2027-01-18"
+    },
+    {
       "kind": "zabudowana",
       "round": 1,
       "address_raw": "Prusa 46",

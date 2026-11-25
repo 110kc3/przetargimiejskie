@@ -3,6 +3,30 @@
   "city": "sosnowiec",
   "properties": [
     {
+      "key": "modrzejowskiej|1|",
+      "street": "Modrzejowskiej",
+      "street_norm": "modrzejowskiej",
+      "building": "1",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2027-02-26",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.um.sosnowiec.pl/a,565554,ustny-przetarg-nieograniczony-na-sprzedaz-udzialu-skarbu-panstwa-wynoszacego-940-czesci-w-prawie-wla.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "land_area_m2": 840.59
+        }
+      ],
+      "area_m2": null,
+      "land_area_m2": 840.59
+    },
+    {
       "key": "litewskiej|35|68",
       "street": "Litewskiej",
       "street_norm": "litewskiej",

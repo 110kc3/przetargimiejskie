@@ -69,6 +69,72 @@
       "area_m2": 47.1
     },
     {
+      "key": "rybnicka|8|8",
+      "street": "Rybnicka",
+      "street_norm": "rybnicka",
+      "building": "8",
+      "apt": "8",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-07-14",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 380000,
+          "outcome": "archived",
+          "area_m2": 28.52,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=567",
+          "wadium_deadline": "2026-07-06",
+          "viewing_date": "2026-07-06"
+        },
+        {
+          "date": "2026-10-06",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 360000,
+          "outcome": "archived",
+          "area_m2": 28.52,
+          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=579",
+          "wadium_deadline": "2026-09-28",
+          "viewing_date": "2026-09-28"
+        },
+        {
+          "date": "2027-01-26",
+          "round": 3,
+          "kind": "mieszkalny",
+          "starting_price_pln": 270000,
+          "outcome": "active",
+          "area_m2": 28.52,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155098&menu=679",
+          "wadium_deadline": "2027-01-18",
+          "viewing_date": "2027-01-18"
+        }
+      ],
+      "area_m2": 28.52
+    },
+    {
+      "key": "mieleckiego|8D|6",
+      "street": "Mielęckiego",
+      "street_norm": "mieleckiego",
+      "building": "8D",
+      "apt": "6",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2027-01-26",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 90000,
+          "outcome": "active",
+          "area_m2": 22.12,
+          "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=155099&menu=679",
+          "wadium_deadline": "2027-01-18",
+          "viewing_date": "2027-01-18"
+        }
+      ],
+      "area_m2": 22.12
+    },
+    {
       "key": "warszawskiej|28|",
       "street": "Warszawska",
       "street_norm": "warszawskiej",
@@ -202,9 +268,57 @@
       "area_m2": 241.44
     },
     {
-      "key": "warszawskiej|28|7",
+      "key": "warszawska|28|1",
       "street": "Warszawska",
-      "street_norm": "warszawskiej",
+      "street_norm": "warszawska",
+      "building": "28",
+      "apt": "1",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 1100000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/155082/Wyniki%2017.11.26%20Warszawska%2028.1,2,7,10%20neg.pdf",
+          "notes": [],
+          "area_m2": 241.44,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 241.44
+    },
+    {
+      "key": "warszawska|28|2",
+      "street": "Warszawska",
+      "street_norm": "warszawska",
+      "building": "28",
+      "apt": "2",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-17",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 600000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/155082/Wyniki%2017.11.26%20Warszawska%2028.1,2,7,10%20neg.pdf",
+          "notes": [],
+          "area_m2": 125.65,
+          "round_source": "inferred"
+        }
+      ],
+      "area_m2": 125.65
+    },
+    {
+      "key": "warszawska|28|7",
+      "street": "Warszawska",
+      "street_norm": "warszawska",
       "building": "28",
       "apt": "7",
       "kind": "mieszkalny",
@@ -214,7 +328,11 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 1000000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/155082/Wyniki%2017.11.26%20Warszawska%2028.1,2,7,10%20neg.pdf",
+          "notes": [],
           "area_m2": 250.72,
           "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153891&menu=679",
           "wadium_deadline": "2026-11-09",
@@ -224,9 +342,9 @@
       "area_m2": 250.72
     },
     {
-      "key": "warszawskiej|28|10",
+      "key": "warszawska|28|10",
       "street": "Warszawska",
-      "street_norm": "warszawskiej",
+      "street_norm": "warszawska",
       "building": "28",
       "apt": "10",
       "kind": "mieszkalny",
@@ -236,7 +354,11 @@
           "round": 1,
           "kind": "mieszkalny",
           "starting_price_pln": 450000,
-          "outcome": "archived",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.katowice.eu/Lists/Dokumenty/Attachments/155082/Wyniki%2017.11.26%20Warszawska%2028.1,2,7,10%20neg.pdf",
+          "notes": [],
           "area_m2": 101.99,
           "detail_url": "https://bip.katowice.eu/ogloszenia/tablicaogloszen/dokument.aspx?idr=153891&menu=679",
           "wadium_deadline": "2026-11-09",
@@ -407,39 +529,6 @@
         }
       ],
       "area_m2": 62.8
-    },
-    {
-      "key": "rybnicka|8|8",
-      "street": "Rybnicka",
-      "street_norm": "rybnicka",
-      "building": "8",
-      "apt": "8",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-07-14",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 380000,
-          "outcome": "archived",
-          "area_m2": 28.52,
-          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=567",
-          "wadium_deadline": "2026-07-06",
-          "viewing_date": "2026-07-06"
-        },
-        {
-          "date": "2026-10-06",
-          "round": 2,
-          "kind": "mieszkalny",
-          "starting_price_pln": 360000,
-          "outcome": "archived",
-          "area_m2": 28.52,
-          "detail_url": "https://katowice.eu/Lists/Nieruchomoci%20%20ogoszenia/DispForm.aspx?ID=579",
-          "wadium_deadline": "2026-09-28",
-          "viewing_date": "2026-09-28"
-        }
-      ],
-      "area_m2": 28.52
     },
     {
       "key": "kosmicznej|10|",

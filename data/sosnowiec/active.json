@@ -835,6 +835,27 @@
     },
     {
       "kind": "zabudowana",
+      "address_raw": "Modrzejowskiej 1",
+      "address": {
+        "street": "Modrzejowskiej",
+        "street_norm": "modrzejowskiej",
+        "building": "1",
+        "apt": null,
+        "key": "modrzejowskiej|1|",
+        "warning": null
+      },
+      "auction_date": "2027-02-26",
+      "published_date": "2026-11-25",
+      "round": 1,
+      "area_m2": 840.59,
+      "starting_price_pln": null,
+      "detail_url": "https://www.bip.um.sosnowiec.pl/a,565554,ustny-przetarg-nieograniczony-na-sprzedaz-udzialu-skarbu-panstwa-wynoszacego-940-czesci-w-prawie-wla.html",
+      "dzialka_nr": "2500",
+      "obreb": "0011 Sosnowiec",
+      "plot_area_m2": 802
+    },
+    {
+      "kind": "zabudowana",
       "address_raw": "Targowej 12",
       "address": {
         "street": "Targowej",
