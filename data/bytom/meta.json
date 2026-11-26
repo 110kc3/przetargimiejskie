@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "bytom",
-  "generated_at": "2026-11-25T13:46:45.698Z",
+  "generated_at": "2026-11-26T13:25:53.964Z",
   "source_pdf_count": 0,
   "parsed_records": 0,
   "parser_note_count": 0,
@@ -11,13 +11,13 @@
   "active_auctions": 3,
   "archived_auctions": 30,
   "wykaz_entries": 0,
-  "land_plots": 23,
-  "land_listings": 12,
+  "land_plots": 27,
+  "land_listings": 16,
   "retained_properties": 27,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-25T13:46:44.511Z",
-  "last_successful_source_check_at": "2026-11-25T13:46:44.511Z",
+  "last_source_attempt_at": "2026-11-26T13:25:52.567Z",
+  "last_successful_source_check_at": "2026-11-26T13:25:52.567Z",
   "monitored_assets": [
     "commercial",
     "garage",
@@ -27,14 +27,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-25T13:46:44.511Z",
-      "last_success_at": "2026-11-25T13:46:44.511Z"
+      "last_attempt_at": "2026-11-26T13:25:52.567Z",
+      "last_success_at": "2026-11-26T13:25:52.567Z"
     },
     "land": {
       "status": "healthy",
       "complete": true,
-      "last_attempt_at": "2026-11-25T13:46:44.511Z",
-      "last_success_at": "2026-11-25T13:46:44.511Z"
+      "last_attempt_at": "2026-11-26T13:25:52.567Z",
+      "last_success_at": "2026-11-26T13:25:52.567Z"
     }
   }
 }

@@ -3,6 +3,42 @@
   "city": "bydgoszcz",
   "listings": [
     {
+      "kind": "uzytkowy",
+      "address_raw": "ul. Mikołaja Reja 7/2",
+      "address": {
+        "street": "Mikołaja Reja",
+        "street_norm": "mikolaja reja",
+        "building": "7",
+        "apt": "2",
+        "key": "mikolaja reja|7|2",
+        "warning": null
+      },
+      "area_m2": 74.8,
+      "starting_price_pln": 300000,
+      "auction_date": "2026-12-28",
+      "round": 2,
+      "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/11456/lokal-uzytkowy-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-28-12-2026-r-ul-m-reja-7-lokal-uzytkowy-nr-2",
+      "source_url": "https://bip.um.bydgoszcz.pl/attachments/download/35199"
+    },
+    {
+      "kind": "mieszkalny",
+      "address_raw": "ul. Wileńskiej 6/14",
+      "address": {
+        "street": "Wileńskiej",
+        "street_norm": "wilenskiej",
+        "building": "6",
+        "apt": "14",
+        "key": "wilenskiej|6|14",
+        "warning": null
+      },
+      "area_m2": 52.73,
+      "starting_price_pln": 190000,
+      "auction_date": "2026-12-28",
+      "round": 4,
+      "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/11437/lokal-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-28-12-2026-r-ul-wilenska-6m14",
+      "source_url": "https://bip.um.bydgoszcz.pl/attachments/download/35114"
+    },
+    {
       "kind": "mieszkalny",
       "address_raw": "ul. Karola Marcinkowskiego 18/6",
       "address": {

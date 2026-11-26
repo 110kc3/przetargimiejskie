@@ -95,6 +95,29 @@
       "area_m2": 29.74
     },
     {
+      "key": "pttk|23|",
+      "street": "PTTK",
+      "street_norm": "pttk",
+      "building": "23",
+      "apt": null,
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-12",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 74800,
+          "outcome": "sold",
+          "unsold_reason": null,
+          "final_price_pln": null,
+          "notes": [
+            "parse: buyer named but achieved price not found"
+          ],
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
       "key": "pttk|5|3",
       "street": "PTTK",
       "street_norm": "pttk",

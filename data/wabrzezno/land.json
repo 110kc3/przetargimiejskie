@@ -3,6 +3,37 @@
   "city": "wabrzezno",
   "plots": [
     {
+      "key": "dz|52/4",
+      "kind": "grunt",
+      "city": "wabrzezno",
+      "dzialka_nr": "52/4",
+      "obreb": null,
+      "street": null,
+      "building": null,
+      "address_raw": null,
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%2052%2F4%20W%C4%85brze%C5%BAno%20geoportal%20dzia%C5%82ki",
+      "area_m2": 3226,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-01-12",
+          "round": 5,
+          "starting_price_pln": 202765,
+          "outcome": "active",
+          "area_m2": 3226,
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/2091/v-przetarg-nieograniczony-na-sprzedaz-dzialki-ul-okrezna.html",
+          "source_url": "https://mst-wabrzezno.rbip.mojregion.info/2091/v-przetarg-nieograniczony-na-sprzedaz-dzialki-ul-okrezna.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "52/4"
+        }
+      ]
+    },
+    {
       "key": "dz|725, 726, 52/4, 727/4",
       "kind": "grunt",
       "city": "wabrzezno",
@@ -403,6 +434,14 @@
           "outcome": "active",
           "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1374/pierwszy-ograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-niezabudowanej-nieruchomosci-gruntowej-przy-ulicy-chelminskiej.html",
           "source_url": "https://mst-wabrzezno.rbip.mojregion.info/1374/pierwszy-ograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-niezabudowanej-nieruchomosci-gruntowej-przy-ulicy-chelminskiej.html"
+        },
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1374/pierwszy-ograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-niezabudowanej-nieruchomosci-gruntowej-przy-ulicy-chelminskiej.html",
+          "source_url": "https://mst-wabrzezno.rbip.mojregion.info/1374/pierwszy-ograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-niezabudowanej-nieruchomosci-gruntowej-przy-ulicy-chelminskiej.html"
         }
       ],
       "parcels": []
@@ -422,6 +461,14 @@
       "zoning": null,
       "status": null,
       "listings": [
+        {
+          "date": null,
+          "round": 1,
+          "starting_price_pln": null,
+          "outcome": "active",
+          "detail_url": "https://mst-wabrzezno.rbip.mojregion.info/1209/pierwszy-nieograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-niezabudowanej-nieruchomosci-gruntowej-bedacej-wlasnoscia-gminy-miasto-wabrzezno-polozonej-w-obrebie-2-miasta-wabrzezno-przy-ulicy-kukulczej.html",
+          "source_url": "https://mst-wabrzezno.rbip.mojregion.info/1209/pierwszy-nieograniczony-przetarg-ustny-na-sprzedaz-prawa-wlasnosci-do-niezabudowanej-nieruchomosci-gruntowej-bedacej-wlasnoscia-gminy-miasto-wabrzezno-polozonej-w-obrebie-2-miasta-wabrzezno-przy-ulicy-kukulczej.html"
+        },
         {
           "date": null,
           "round": 1,

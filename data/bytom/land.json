@@ -3,6 +3,60 @@
   "city": "bytom",
   "plots": [
     {
+      "key": "addr|karbowska; warszawska; generała władysława andersa",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Karbowska; Warszawska; Generała Władysława Andersa",
+      "building": null,
+      "address_raw": "Karbowska; Warszawska; Generała Władysława Andersa",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.858271212808077%2C50.35750264867635%2C18.861827075281656%2C50.35853732968069&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.dd0ed598-53b3-4a66-b585-5b1a0dfc0772",
+      "area_m2": 11963,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-02-01",
+          "round": 3,
+          "starting_price_pln": 1300000,
+          "outcome": "active",
+          "area_m2": 11963,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Andersa-Warszawska-Karbowska,25911.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
+      "key": "addr|brzezińska",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Brzezińska",
+      "building": null,
+      "address_raw": "Brzezińska",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.951347529348674%2C50.34234314363555%2C18.956760266613333%2C50.34681822788726&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.9e20bc73-ba62-471e-adbc-0efe5b26697b",
+      "area_m2": 41881,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-02-01",
+          "round": 1,
+          "starting_price_pln": 3150000,
+          "outcome": "active",
+          "area_m2": 41881,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Brzezinska-dz.-5948_467,25910.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
+    },
+    {
       "key": "addr|orzegowska 20a",
       "kind": "grunt",
       "city": "bytom",
@@ -59,6 +113,64 @@
           "nr": "2883/11"
         }
       ]
+    },
+    {
+      "key": "dz|1722/25",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": "1722/25",
+      "obreb": null,
+      "street": "Kamienna",
+      "building": null,
+      "address_raw": "Kamienna dz. 1722/25",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.906686885162518%2C50.337624553536244%2C18.907975930646902%2C50.338235039148884&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.827abcad-841a-430a-90fb-39ca1a2a0a50",
+      "area_m2": 2505,
+      "zoning": "niezabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-01-11",
+          "round": 2,
+          "starting_price_pln": 200000,
+          "outcome": "active",
+          "area_m2": 2505,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Kamienna-dz.-1722-25,25916.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "1722/25"
+        }
+      ]
+    },
+    {
+      "key": "addr|piekarska 86; piekarska 86 b",
+      "kind": "grunt",
+      "city": "bytom",
+      "dzialka_nr": null,
+      "obreb": null,
+      "street": "Piekarska 86; Piekarska 86 B",
+      "building": null,
+      "address_raw": "Piekarska 86; Piekarska 86 B",
+      "dzialka_id": null,
+      "geoportal_url": "https://sitplan.um.bytom.pl/?profile=4939&projection=EPSG:4326&bbox=18.921757935069152%2C50.35611343206733%2C18.922171185361478%2C50.356299814419664&selection=3928711:GDB$G_NIER_DO_ZBYCIA_SOWA_N.9c218f0f-104c-4dbc-b16f-e6f8fbef620c",
+      "area_m2": 403,
+      "zoning": "zabudowana",
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-01-11",
+          "round": 2,
+          "starting_price_pln": 150000,
+          "outcome": "active",
+          "area_m2": 403,
+          "detail_url": "https://www.bytom.pl/bip/download/Ogloszenie-przetargu-ul.-Piekarska-86-i-86B,25917.doc",
+          "source_url": "https://i-biip.um.bytom.pl/katalog-nieruchomosci-do-zbycia.html"
+        }
+      ],
+      "parcels": []
     },
     {
       "key": "dz|266/33",

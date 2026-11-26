@@ -3,6 +3,38 @@
   "city": "rybnik",
   "plots": [
     {
+      "key": "dz|gotartowice|2091/117",
+      "kind": "grunt",
+      "city": "rybnik",
+      "dzialka_nr": "2091/117",
+      "obreb": "Gotartowice",
+      "street": "Gotartowickiej",
+      "building": null,
+      "address_raw": "ul. Gotartowickiej",
+      "dzialka_id": null,
+      "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202091%2F117%20Gotartowickiej%20Gotartowice%20Rybnik%20geoportal%20dzia%C5%82ki",
+      "area_m2": 583,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2027-01-20",
+          "round": 1,
+          "starting_price_pln": 37800,
+          "outcome": "active",
+          "area_m2": 583,
+          "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=106580",
+          "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3588279"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "2091/117",
+          "geoportal_url": "https://www.google.com/search?q=dzia%C5%82ka%202091%2F117%20Gotartowice%20Rybnik%20geoportal%20dzia%C5%82ki"
+        }
+      ]
+    },
+    {
       "key": "dz|niedobczyce|3451/133",
       "kind": "grunt",
       "city": "rybnik",
@@ -21,7 +53,7 @@
           "date": "2026-11-25",
           "round": 1,
           "starting_price_pln": 149000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 960,
           "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105687",
           "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3564028"
@@ -63,7 +95,7 @@
           "date": "2026-11-25",
           "round": 1,
           "starting_price_pln": 77500,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 508,
           "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105686",
           "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3564025"
@@ -90,7 +122,7 @@
           "date": "2026-11-25",
           "round": 1,
           "starting_price_pln": 368000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 3967,
           "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105817",
           "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3567987"
@@ -122,7 +154,7 @@
           "date": "2026-11-25",
           "round": 3,
           "starting_price_pln": 117500,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1456,
           "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105816",
           "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3567982"
@@ -149,7 +181,7 @@
           "date": "2026-11-25",
           "round": 1,
           "starting_price_pln": 96000,
-          "outcome": "active",
+          "outcome": "archived",
           "area_m2": 1121,
           "detail_url": "https://bip.um.rybnik.eu/Default.aspx?Page=339&Id=105814",
           "source_url": "https://bip.um.rybnik.eu/Download.ashx?id=3567976"

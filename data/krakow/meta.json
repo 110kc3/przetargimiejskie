@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "krakow",
-  "generated_at": "2026-11-25T14:01:51.881Z",
+  "generated_at": "2026-11-26T13:40:26.028Z",
   "source_pdf_count": 60,
   "parsed_records": 66,
   "parser_note_count": 18,
@@ -16,8 +16,8 @@
   "retained_properties": 7,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-25T13:59:38.617Z",
-  "last_successful_source_check_at": "2026-11-25T13:59:38.617Z",
+  "last_source_attempt_at": "2026-11-26T13:38:12.342Z",
+  "last_successful_source_check_at": "2026-11-26T13:38:12.342Z",
   "monitored_assets": [
     "building",
     "commercial",
@@ -29,19 +29,19 @@
     "results": {
       "status": "degraded",
       "complete": false,
-      "last_attempt_at": "2026-11-25T13:59:38.617Z",
+      "last_attempt_at": "2026-11-26T13:38:12.342Z",
       "last_success_at": null
     },
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-25T13:59:38.617Z",
-      "last_success_at": "2026-11-25T13:59:38.617Z"
+      "last_attempt_at": "2026-11-26T13:38:12.342Z",
+      "last_success_at": "2026-11-26T13:38:12.342Z"
     },
     "land": {
       "status": "healthy",
       "complete": false,
-      "last_attempt_at": "2026-11-25T13:59:38.617Z",
-      "last_success_at": "2026-11-25T13:59:38.617Z"
+      "last_attempt_at": "2026-11-26T13:38:12.342Z",
+      "last_success_at": "2026-11-26T13:38:12.342Z"
     }
   },
   "land_complete": false

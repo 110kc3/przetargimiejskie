@@ -156,6 +156,38 @@
       ]
     },
     {
+      "key": "dz|0014|196/2",
+      "kind": "grunt",
+      "city": "boleslawiec",
+      "dzialka_nr": "196/2",
+      "obreb": "0014",
+      "street": null,
+      "building": null,
+      "address_raw": "ul. Generała Józefa Hallera",
+      "dzialka_id": "020101_1.0014.196/2",
+      "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0014.196%2F2",
+      "area_m2": 4255,
+      "zoning": null,
+      "status": null,
+      "listings": [
+        {
+          "date": "2026-11-17",
+          "round": 1,
+          "starting_price_pln": 1100000,
+          "outcome": "unsold",
+          "area_m2": 4255,
+          "source_url": "https://www.um.boleslawiec.bip-gov.pl/public/getFile?id=253714"
+        }
+      ],
+      "parcels": [
+        {
+          "nr": "196/2",
+          "dzialka_id": "020101_1.0014.196/2",
+          "geoportal_url": "https://mapy.geoportal.gov.pl/imap/?identifyParcel=020101_1.0014.196%2F2"
+        }
+      ]
+    },
+    {
       "key": "dz|0007|1216/23",
       "kind": "grunt",
       "city": "boleslawiec",
