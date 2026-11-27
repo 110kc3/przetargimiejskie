@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "mieszkalny",
+      "address_raw": "ul.Wołodyjowskiego 8 m 6",
+      "address": {
+        "street": "ul.Wołodyjowskiego",
+        "street_norm": "ul wolodyjowskiego",
+        "building": "8",
+        "apt": "6",
+        "key": "ul wolodyjowskiego|8|6",
+        "warning": null
+      },
+      "auction_date": "2027-02-09",
+      "round": 2,
+      "area_m2": null,
+      "starting_price_pln": 513100,
+      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ulwolodyjowskiego-8-m-6-1.html",
+      "round_source": "inferred"
+    },
+    {
+      "kind": "mieszkalny",
       "address_raw": "ul. Gen. Józefa Bema 89C m 54",
       "address": {
         "street": "Gen. Józefa Bema",
@@ -216,24 +234,6 @@
       "area_m2": null,
       "starting_price_pln": 326100,
       "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-wlokiennicza-17-m-68-1.html",
-      "round_source": "inferred"
-    },
-    {
-      "kind": "mieszkalny",
-      "address_raw": "ul. Przejazd 2 m 7",
-      "address": {
-        "street": "Przejazd",
-        "street_norm": "przejazd",
-        "building": "2",
-        "apt": "7",
-        "key": "przejazd|2|7",
-        "warning": null
-      },
-      "auction_date": "2026-11-27",
-      "round": 2,
-      "area_m2": null,
-      "starting_price_pln": 275100,
-      "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-przejazd-2-m-7-1.html",
       "round_source": "inferred"
     },
     {

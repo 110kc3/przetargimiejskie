@@ -26,11 +26,12 @@
           "round": 9,
           "kind": "mieszkalny",
           "starting_price_pln": 45000,
-          "outcome": "active",
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "notes": [],
           "area_m2": 20.84,
-          "detail_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/11879/ul-dominikanska-26-9-86-200-chelmno",
-          "wadium_deadline": null,
-          "viewing_date": null
+          "detail_url": "https://bip.chelmno.pl/przetarg-nieruchomosci/11879/ul-dominikanska-26-9-86-200-chelmno"
         }
       ],
       "area_m2": 20.84

@@ -86,6 +86,41 @@
       "area_m2": 74.8
     },
     {
+      "key": "kapusciska|8|1U",
+      "street": "Kapuściska",
+      "street_norm": "kapusciska",
+      "building": "8",
+      "apt": "1U",
+      "kind": "uzytkowy",
+      "listings": [
+        {
+          "date": "2026-09-15",
+          "round": 1,
+          "kind": "uzytkowy",
+          "starting_price_pln": 110000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.bydgoszcz.pl/attachments/download/33982",
+          "notes": [],
+          "area_m2": 44.87,
+          "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/10656/lokal-uzytkowy-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-15-09-2026-r-ul-kapusciska-8-nr-u1"
+        },
+        {
+          "date": "2026-12-28",
+          "round": 2,
+          "kind": "uzytkowy",
+          "starting_price_pln": 90000,
+          "outcome": "active",
+          "area_m2": 44.87,
+          "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/11458/lokal-uzytkowy-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-28-12-2026-r-ul-kapusciska-8-nr-u1",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 44.87
+    },
+    {
       "key": "j j sniadeckich|12|7",
       "street": "J.J. Śniadeckich",
       "street_norm": "j j sniadeckich",
@@ -152,6 +187,27 @@
       "area_m2": 32.56
     },
     {
+      "key": "j j sniadeckich|63|",
+      "street": "J.J. Śniadeckich",
+      "street_norm": "j j sniadeckich",
+      "building": "63",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-11-19",
+          "round": 1,
+          "kind": "zabudowana",
+          "starting_price_pln": 5960000,
+          "outcome": "unsold",
+          "unsold_reason": "unknown",
+          "final_price_pln": null,
+          "source_pdf": "https://bip.um.bydgoszcz.pl/attachments/download/35212",
+          "notes": []
+        }
+      ]
+    },
+    {
       "key": "dworcowej|12|13",
       "street": "Dworcowa",
       "street_norm": "dworcowej",
@@ -187,30 +243,6 @@
         }
       ],
       "area_m2": 49.66
-    },
-    {
-      "key": "kapusciska|8|1U",
-      "street": "Kapuściska",
-      "street_norm": "kapusciska",
-      "building": "8",
-      "apt": "1U",
-      "kind": "uzytkowy",
-      "listings": [
-        {
-          "date": "2026-09-15",
-          "round": 1,
-          "kind": "uzytkowy",
-          "starting_price_pln": 110000,
-          "outcome": "unsold",
-          "unsold_reason": "unknown",
-          "final_price_pln": null,
-          "source_pdf": "https://bip.um.bydgoszcz.pl/attachments/download/33982",
-          "notes": [],
-          "area_m2": 44.87,
-          "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/10656/lokal-uzytkowy-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-15-09-2026-r-ul-kapusciska-8-nr-u1"
-        }
-      ],
-      "area_m2": 44.87
     },
     {
       "key": "unii lubelskiej|1|",

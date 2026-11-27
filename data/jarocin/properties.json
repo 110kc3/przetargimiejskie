@@ -3,49 +3,6 @@
   "city": "jarocin",
   "properties": [
     {
-      "key": "bema|31A|4",
-      "street": "Bema",
-      "street_norm": "bema",
-      "building": "31A",
-      "apt": "4",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-12-02",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 401000,
-          "outcome": "active",
-          "area_m2": 50.9,
-          "detail_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-o-przetargu-bema-31a-4-bip.pdf",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ],
-      "area_m2": 50.9
-    },
-    {
-      "key": "malopolskiej oraz zarzadzenia nr|160|",
-      "street": "Małopolskiej oraz Zarządzenia Nr",
-      "street_norm": "malopolskiej oraz zarzadzenia nr",
-      "building": "160",
-      "apt": null,
-      "kind": "zabudowana",
-      "listings": [
-        {
-          "date": "2026-11-04",
-          "round": 3,
-          "kind": "zabudowana",
-          "starting_price_pln": null,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-o-3-przetargu-zagrodowa.pdf",
-          "wadium_deadline": null,
-          "viewing_date": null
-        }
-      ]
-    },
-    {
       "key": "konstytucji 3 maja|20|17",
       "street": "Konstytucji 3 Maja",
       "street_norm": "konstytucji 3 maja",
@@ -99,9 +56,63 @@
           "detail_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-o-przetargu-kostytucji-3-maja.pdf",
           "wadium_deadline": null,
           "viewing_date": null
+        },
+        {
+          "date": "2027-01-20",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 395000,
+          "outcome": "active",
+          "area_m2": 68.3,
+          "detail_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-o-ii-przetargu-lokal-konstytucji-3-maja.pdf",
+          "wadium_deadline": null,
+          "viewing_date": null
         }
       ],
       "area_m2": 68.3
+    },
+    {
+      "key": "bema|31A|4",
+      "street": "Bema",
+      "street_norm": "bema",
+      "building": "31A",
+      "apt": "4",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-12-02",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 401000,
+          "outcome": "active",
+          "area_m2": 50.9,
+          "detail_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-o-przetargu-bema-31a-4-bip.pdf",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ],
+      "area_m2": 50.9
+    },
+    {
+      "key": "malopolskiej oraz zarzadzenia nr|160|",
+      "street": "Małopolskiej oraz Zarządzenia Nr",
+      "street_norm": "malopolskiej oraz zarzadzenia nr",
+      "building": "160",
+      "apt": null,
+      "kind": "zabudowana",
+      "listings": [
+        {
+          "date": "2026-11-04",
+          "round": 3,
+          "kind": "zabudowana",
+          "starting_price_pln": null,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://bip2.wokiss.pl/jarocin/zasoby/files/przetargi-sprzedaz/og%C5%82oszenie-o-3-przetargu-zagrodowa.pdf",
+          "wadium_deadline": null,
+          "viewing_date": null
+        }
+      ]
     }
   ]
 }

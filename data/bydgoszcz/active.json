@@ -4,6 +4,24 @@
   "listings": [
     {
       "kind": "uzytkowy",
+      "address_raw": "ul. Kapuściska 8/1U",
+      "address": {
+        "street": "Kapuściska",
+        "street_norm": "kapusciska",
+        "building": "8",
+        "apt": "1U",
+        "key": "kapusciska|8|1U",
+        "warning": null
+      },
+      "area_m2": 44.87,
+      "starting_price_pln": 90000,
+      "auction_date": "2026-12-28",
+      "round": 2,
+      "detail_url": "https://bip.um.bydgoszcz.pl/artykul/1208/11458/lokal-uzytkowy-przeznaczony-do-sprzedazy-w-drodze-przetargu-ustnego-nieograniczonego-w-dniu-28-12-2026-r-ul-kapusciska-8-nr-u1",
+      "source_url": "https://bip.um.bydgoszcz.pl/attachments/download/35202"
+    },
+    {
+      "kind": "uzytkowy",
       "address_raw": "ul. Mikołaja Reja 7/2",
       "address": {
         "street": "Mikołaja Reja",

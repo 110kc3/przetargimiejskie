@@ -2,8 +2,8 @@
   "schema_version": 1,
   "parser_version": "0.2.0",
   "city": "boleslawiec",
-  "generated_at": "2026-11-26T13:45:38.013Z",
-  "source_pdf_count": 1,
+  "generated_at": "2026-11-27T13:42:21.916Z",
+  "source_pdf_count": 2,
   "parsed_records": 0,
   "parser_note_count": 0,
   "unique_properties": 13,
@@ -16,8 +16,8 @@
   "retained_properties": 3,
   "valid_empty": false,
   "valid_empty_land": false,
-  "last_source_attempt_at": "2026-11-26T13:45:22.640Z",
-  "last_successful_source_check_at": "2026-11-26T13:45:22.640Z",
+  "last_source_attempt_at": "2026-11-27T13:42:08.288Z",
+  "last_successful_source_check_at": "2026-11-27T13:42:08.288Z",
   "monitored_assets": [
     "building",
     "land",
@@ -27,14 +27,14 @@
   "source_checks": {
     "property": {
       "status": "healthy",
-      "last_attempt_at": "2026-11-26T13:45:22.640Z",
-      "last_success_at": "2026-11-26T13:45:22.640Z"
+      "last_attempt_at": "2026-11-27T13:42:08.288Z",
+      "last_success_at": "2026-11-27T13:42:08.288Z"
     },
     "land": {
       "status": "healthy",
       "complete": false,
-      "last_attempt_at": "2026-11-26T13:45:22.640Z",
-      "last_success_at": "2026-11-26T13:45:22.640Z"
+      "last_attempt_at": "2026-11-27T13:42:08.288Z",
+      "last_success_at": "2026-11-27T13:42:08.288Z"
     }
   },
   "land_complete": false

@@ -3,6 +3,40 @@
   "city": "bialystok",
   "properties": [
     {
+      "key": "ul wolodyjowskiego|8|6",
+      "street": "ul.Wołodyjowskiego",
+      "street_norm": "ul wolodyjowskiego",
+      "building": "8",
+      "apt": "6",
+      "kind": "mieszkalny",
+      "listings": [
+        {
+          "date": "2026-11-20",
+          "round": 1,
+          "kind": "mieszkalny",
+          "starting_price_pln": 513100,
+          "outcome": "archived",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ulwolodyjowskiego-8-m-6.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        },
+        {
+          "date": "2027-02-09",
+          "round": 2,
+          "kind": "mieszkalny",
+          "starting_price_pln": 513100,
+          "outcome": "active",
+          "area_m2": null,
+          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ulwolodyjowskiego-8-m-6-1.html",
+          "wadium_deadline": null,
+          "viewing_date": null,
+          "round_source": "inferred"
+        }
+      ]
+    },
+    {
       "key": "suraska|4|14",
       "street": "Suraska",
       "street_norm": "suraska",
@@ -837,28 +871,6 @@
           "outcome": "active",
           "area_m2": null,
           "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ul-przejazd-2-m-7-1.html",
-          "wadium_deadline": null,
-          "viewing_date": null,
-          "round_source": "inferred"
-        }
-      ]
-    },
-    {
-      "key": "ul wolodyjowskiego|8|6",
-      "street": "ul.Wołodyjowskiego",
-      "street_norm": "ul wolodyjowskiego",
-      "building": "8",
-      "apt": "6",
-      "kind": "mieszkalny",
-      "listings": [
-        {
-          "date": "2026-11-20",
-          "round": 1,
-          "kind": "mieszkalny",
-          "starting_price_pln": 513100,
-          "outcome": "archived",
-          "area_m2": null,
-          "detail_url": "https://www.bip.bialystok.pl/postepowania/przetargi_na_nieruchomosci/ulwolodyjowskiego-8-m-6.html",
           "wadium_deadline": null,
           "viewing_date": null,
           "round_source": "inferred"
